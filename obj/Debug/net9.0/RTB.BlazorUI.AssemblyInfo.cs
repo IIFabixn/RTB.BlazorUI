@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RTB.BlazorUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b311e375a936c4dd692bff226e75a355b2c39b75")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de479437e24144f162eca754b9107a459ee070ac")]
 [assembly: System.Reflection.AssemblyProductAttribute("RTB.BlazorUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RTB.BlazorUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

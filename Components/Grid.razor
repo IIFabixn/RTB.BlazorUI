@@ -23,7 +23,7 @@
 </CascadingValue>
 
 <div
-    class="grid @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
+    class="grid h-full @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
     style="grid-template-columns: @Columns; grid-template-rows: @Rows;"
      @attributes="@(CapturedAttributes.Where(kvp => kvp.Key != "class"))"
 >

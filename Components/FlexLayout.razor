@@ -11,7 +11,7 @@
     public Dictionary<string, object?> CapturedAttributes { get; set; } = new();
 }
 
-<div class="flex gap-@Gap @(IsHorizontal ? "flex-row" : string.Empty) @(IsVertical ? "flex-col" : string.Empty) @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
+<div class="flex h-full gap-@Gap @(IsHorizontal ? "flex-row" : string.Empty) @(IsVertical ? "flex-col" : string.Empty) @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
      @attributes="@(CapturedAttributes.Where(kvp => kvp.Key != "class"))"
 >
     @ChildContent
