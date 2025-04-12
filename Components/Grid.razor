@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNetCore.Components.Rendering
+
+@code {
+    [Parameter]
+    public string Columns { get; set; } = "1fr";
+
+    [Parameter]
+    public string Rows { get; set; } = "1fr";
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; } = default!;
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object?> CapturedAttributes { get; set; } = new();
+}
+
+@* 
+    Just to provide this Grid as CascardingParameter to the Content (mostly GridItems). 
+    Why as Cascarding I head you asking.. so that we dont need to manually pass the Grid to each GridItem our self lol.
+*@
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>
+
+<div
+    class="grid @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
+    style="grid-template-columns: @Columns; grid-template-rows: @Rows;"
+     @attributes="@(CapturedAttributes.Where(kvp => kvp.Key != "class"))"
+>
+    @foreach (var item in _gridItems)
+    {
+        <div class="@(item.CapturesAttributes.TryGetValue("class", out var innerClasses) ? innerClasses : string.Empty)" style="grid-column: @(item.Column) / span @(item.ColumnSpan); grid-row: @(item.Row) / span @(item.RowSpan);">
+            @item.ChildContent
+        </div>
+    }
+</div>
+
+@code {
+    private List<GridItem> _gridItems = new List<GridItem>();
+
+    public void RegisterItem(GridItem item)
+    {
+        if (!_gridItems.Contains(item))
+        {
+            _gridItems.Add(item);
+            StateHasChanged();
+        }
+    }
+
+    public void UnregisterItem(GridItem item)
+    {
+        if (_gridItems.Remove(item))
+        {
+            StateHasChanged(); // Trigger re-render when items are removed
+        }
+    }
+}

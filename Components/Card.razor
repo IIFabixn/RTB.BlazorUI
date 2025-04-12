@@ -1,0 +1,11 @@
+﻿@code {
+    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+    
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object?> CapturedAttributes { get; set; } = new();
+}
+
+<div class="bg-white @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
+    @attributes="@CapturedAttributes.Where(ca => ca.Key != "class")">
+    @ChildContent
+</div>

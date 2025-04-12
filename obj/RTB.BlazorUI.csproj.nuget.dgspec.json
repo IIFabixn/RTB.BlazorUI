@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Repos\\RTB.BlazorUI\\RTB.BlazorUI.csproj": {}
+    "D:\\Repos\\RTB.PdfBuddy\\Libraries\\RTB.BlazorUI\\RTB.BlazorUI.csproj": {}
   },
   "projects": {
-    "D:\\Repos\\RTB.BlazorUI\\RTB.BlazorUI.csproj": {
+    "D:\\Repos\\RTB.PdfBuddy\\Libraries\\RTB.BlazorUI\\RTB.BlazorUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Repos\\RTB.BlazorUI\\RTB.BlazorUI.csproj",
+        "projectUniqueName": "D:\\Repos\\RTB.PdfBuddy\\Libraries\\RTB.BlazorUI\\RTB.BlazorUI.csproj",
         "projectName": "RTB.BlazorUI",
-        "projectPath": "D:\\Repos\\RTB.BlazorUI\\RTB.BlazorUI.csproj",
+        "projectPath": "D:\\Repos\\RTB.PdfBuddy\\Libraries\\RTB.BlazorUI\\RTB.BlazorUI.csproj",
         "packagesPath": "D:\\NuGetPackages",
-        "outputPath": "D:\\Repos\\RTB.BlazorUI\\obj\\",
+        "outputPath": "D:\\Repos\\RTB.PdfBuddy\\Libraries\\RTB.BlazorUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\fbeck\\AppData\\Roaming\\NuGet\\NuGet.Config"
