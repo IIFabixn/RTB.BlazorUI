@@ -1,17 +1,14 @@
-﻿@code {
+﻿@inherits RTBComponent
+@code {
     [Parameter] public bool IsHorizontal { get; set; } = false;
 
     [Parameter] public bool IsVertical { get; set; } = false;
-
-    [Parameter] public int Gap { get; set; } = 0;
+    [Parameter] public bool FullHeight { get; set; } = false;
 
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
-
-    [Parameter(CaptureUnmatchedValues = true)]
-    public Dictionary<string, object?> CapturedAttributes { get; set; } = new();
 }
 
-<div class="flex h-full gap-@Gap @(IsHorizontal ? "flex-row" : string.Empty) @(IsVertical ? "flex-col" : string.Empty) @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
+<div class="flex @(FullHeight ? "h-full" : string.Empty) @(IsHorizontal ? "flex-row" : string.Empty) @(IsVertical ? "flex-col" : string.Empty) @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
      @attributes="@(CapturedAttributes.Where(kvp => kvp.Key != "class"))"
 >
     @ChildContent

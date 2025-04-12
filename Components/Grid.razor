@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Components.Rendering
+﻿@inherits RTBComponent
 
 @code {
     [Parameter]
@@ -9,9 +9,6 @@
 
     [Parameter]
     public RenderFragment ChildContent { get; set; } = default!;
-
-    [Parameter(CaptureUnmatchedValues = true)]
-    public Dictionary<string, object?> CapturedAttributes { get; set; } = new();
 }
 
 @* 
@@ -27,9 +24,9 @@
     style="grid-template-columns: @Columns; grid-template-rows: @Rows;"
      @attributes="@(CapturedAttributes.Where(kvp => kvp.Key != "class"))"
 >
-    @foreach (var item in _gridItems)
+    @foreach (GridItem item in _gridItems)
     {
-        <div class="@(item.CapturesAttributes.TryGetValue("class", out var innerClasses) ? innerClasses : string.Empty)" style="grid-column: @(item.Column) / span @(item.ColumnSpan); grid-row: @(item.Row) / span @(item.RowSpan);">
+        <div class="h-full @(item.CapturedAttributes.TryGetValue("class", out var innerClasses) ? innerClasses : string.Empty)" style="grid-column: @(item.Column) / span @(item.ColumnSpan); grid-row: @(item.Row) / span @(item.RowSpan);">
             @item.ChildContent
         </div>
     }

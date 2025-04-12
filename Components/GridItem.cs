@@ -6,16 +6,14 @@ namespace RTB.BlazorUI.Components
     /// <summary>
     /// Helper Component to register itself in the parent Grid.
     /// </summary>
-    public class GridItem : ComponentBase
+    public class GridItem : RTBComponent
     {
         [CascadingParameter] public Grid Parent { get; set; } = null!;
         [Parameter] public int Column { get; set; } = 1;
         [Parameter] public int ColumnSpan { get; set; } = 1;
         [Parameter] public int Row { get; set; } = 1;
         [Parameter] public int RowSpan { get; set; } = 1;
-        [Parameter] public RenderFragment ChildContent { get; set; } = (builder) => { };
-        [Parameter(CaptureUnmatchedValues = true)]
-        public Dictionary<string, object?> CapturesAttributes { get; set; } = new();
+        [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
         protected override void OnParametersSet()
         {

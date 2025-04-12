@@ -1,0 +1,32 @@
+@using RTB.BlazorUI.Components
+
+@typeparam TItem
+
+@inherits RTBComponent
+
+@code {
+    [Parameter] public bool IsHorizontal { get; set; } = false;
+    [Parameter] public bool IsVertical { get; set; } = false;
+    [Parameter] public bool FullHeight { get; set; } = false;
+    [Parameter] public IEnumerable<TItem> Items { get; set; } = Enumerable.Empty<TItem>();
+    [Parameter] public RenderFragment<TItem>? ItemTemplate {get; set; }
+}
+
+<ul>
+    @if (Items.Any())
+    {
+        foreach (var item in Items)
+        {
+            <li class="list-none">
+                @if (ItemTemplate != null)
+                {
+                    @ItemTemplate(item)
+                }
+                else
+                {
+                    @item?.ToString()
+                }
+            </li>
+        }
+    }
+</ul>
