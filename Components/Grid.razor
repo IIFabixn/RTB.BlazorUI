@@ -26,7 +26,8 @@
 >
     @foreach (GridItem item in _gridItems)
     {
-        <div class="h-full @(item.CapturedAttributes.TryGetValue("class", out var innerClasses) ? innerClasses : string.Empty)" style="grid-column: @(item.Column) / span @(item.ColumnSpan); grid-row: @(item.Row) / span @(item.RowSpan);">
+        <div class="h-full @(item.CapturedAttributes.TryGetValue("class", out var innerClasses) ? innerClasses : string.Empty)" style="grid-column: @(item.Column) / span @(item.ColumnSpan); grid-row: @(item.Row) / span @(item.RowSpan);"
+        @attributes="@(item.CapturedAttributes.Where(kvp => kvp.Key != "class"))">
             @item.ChildContent
         </div>
     }

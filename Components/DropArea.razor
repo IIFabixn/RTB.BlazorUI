@@ -1,0 +1,31 @@
+@using Microsoft.JSInterop
+@using Microsoft.AspNetCore.Components.Forms
+
+@inject IJSRuntime JSRuntime
+@inherits RTBComponent
+@code {
+    [Parameter, EditorRequired] public string Id { get; set; } = string.Empty;
+    [Parameter] public EventCallback<InputFileChangeEventArgs> OnFileSelected { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+    [Parameter] public bool Multiple { get; set; } = false;
+}
+
+
+<label id="@(Id)Zone"
+       for="@Id"
+       @attributes="CapturedAttributes">
+    @ChildContent
+</label>
+
+<InputFile id="@Id" OnChange="OnFileSelected" multiple="@Multiple" hidden />
+
+@code {
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("initDragDropInterop", $"{Id}Zone", Id);
+        }
+    }
+}
