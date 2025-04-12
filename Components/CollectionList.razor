@@ -1,8 +1,7 @@
-@using RTB.BlazorUI.Components
-
 @typeparam TItem
-
 @inherits RTBComponent
+
+@using RTB.BlazorUI.Components
 
 @code {
     [Parameter] public bool IsHorizontal { get; set; } = false;
@@ -10,23 +9,23 @@
     [Parameter] public bool FullHeight { get; set; } = false;
     [Parameter] public IEnumerable<TItem> Items { get; set; } = Enumerable.Empty<TItem>();
     [Parameter] public RenderFragment<TItem>? ItemTemplate {get; set; }
+    [Parameter] public RenderFragment? HeaderTemplate { get; set; }
 }
 
-<ul>
+<ul class="flex @(FullHeight ? "h-full" : string.Empty) @(IsHorizontal ? "flex-row" : string.Empty) @(IsVertical ? "flex-col" : string.Empty) @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
+    @attributes="@(CapturedAttributes.Where(kvp => kvp.Key != "class"))">
     @if (Items.Any())
     {
         foreach (var item in Items)
         {
-            <li class="list-none">
-                @if (ItemTemplate != null)
-                {
-                    @ItemTemplate(item)
-                }
-                else
-                {
-                    @item?.ToString()
-                }
-            </li>
+            @if (ItemTemplate != null)
+            {
+                @ItemTemplate(item)
+            }
+            else
+            {
+                @item?.ToString()
+            }
         }
     }
 </ul>

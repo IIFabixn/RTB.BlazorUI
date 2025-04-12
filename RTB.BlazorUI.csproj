@@ -6,14 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Remove="Components\CollectionList.razor" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Components\CollectionList.razor" />
-  </ItemGroup>
-
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
