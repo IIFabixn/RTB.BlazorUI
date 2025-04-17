@@ -1,0 +1,30 @@
+﻿@using RTB.BlazorUI.Services
+
+@inject IDialogService DialogService
+
+@_currentFragment
+
+@code {
+    private RenderFragment? _currentFragment;
+
+    protected override void OnInitialized()
+    {
+        if (DialogService is DialogService svc)
+        {
+            svc.OnShow += ShowDialog;
+            svc.OnClose += CloseDialog;
+        }
+    }
+
+    private void ShowDialog(RenderFragment frag)
+    {
+        _currentFragment = frag;
+        StateHasChanged();
+    }
+
+    private void CloseDialog()
+    {
+        _currentFragment = null;
+        StateHasChanged();
+    }
+}

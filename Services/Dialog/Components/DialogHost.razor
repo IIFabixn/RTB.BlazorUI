@@ -1,0 +1,44 @@
+﻿@using RTB.BlazorUI.Dialog.Components
+@using RTB.BlazorUI.Services
+
+@inherits DialogBase
+
+<!-- Root overlay – centres the dialog and keeps it above everything -->
+<div class="fixed inset-0 z-40 flex items-center justify-center">
+
+    @* Backdrop – blurred, semi‑transparent, click‑to‑dismiss *@
+    @if (Backdrop)
+    {
+        <div class="absolute inset-0 bg-black/60"
+            @onclick="() => Close(DialogResult.Cancel())"></div>
+    }
+
+    <!-- Dialog card -->
+    <div class="relative z-50 w-full max-w-lg mx-4 sm:mx-auto">
+        <div class="overflow-hidden rounded bg-white shadow-2xl
+                    ring-1 ring-gray-950/10">
+
+            <!-- Header -->
+            <div class="flex items-start justify-between gap-4 border-b
+                        border-gray-100 px-6 py-4">
+                <h5 class="text-xl font-semibold text-gray-900">
+                    @Title
+                </h5>
+
+                <button class="group rounded p-2 hover:bg-gray-100"
+                        @onclick="() => Close(DialogResult.Cancel())">
+                    <svg class="h-5 w-5 text-gray-500 group-hover:text-gray-700"
+                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Body -->
+            <div class="px-6 py-5">
+                @ChildContent
+            </div>
+        </div>
+    </div>
+</div>

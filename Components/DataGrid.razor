@@ -1,0 +1,83 @@
+﻿<!-- DataGrid.razor ------------------------------------------------------>
+@typeparam TRow
+@attribute [CascadingTypeParameter(nameof(TRow))]
+
+@inherits CPSComponent
+
+@code {
+    [Parameter] public IEnumerable<TRow> Items { get; set; } = [];
+    [Parameter] public EventCallback<TRow> OnDoubleTab { get; set; } = EventCallback<TRow>.Empty;
+    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+}
+
+<CascadingValue Value="this">
+    @ChildContent
+    <!-- registers the <DataColumn>s -->
+</CascadingValue>
+
+<div class="h-full overflow-auto">
+    <div class="grid sticky top-0 z-10 bg-blue-100 border-b"
+    style="grid-template-columns:@GridTemplate">
+
+        <!-- ---------- Header cells (row 1) ------------------------ -->
+        @foreach (var col in _columns)
+        {
+            <div class="p-2 font-medium bg-blue-100 sticky top-0
+                        select-none cursor-pointer z-10 border-b flex items-center justify-between"
+            @onclick="() => ToggleSort(col)">
+                @col.RenderHeader
+                @if (_sort?.col == col)
+                {
+                    <span>@(_sort.Value.desc ? "▼" : "▲")</span>
+                }
+            </div>
+        }
+
+        <!-- ---------- Data cells (rows 2…N) ----------------------- -->
+        @foreach (var row in SortedItems)
+        {
+            @foreach (var col in _columns)
+            {
+                <div class="p-2 odd:bg-slate-50 even:bg-white" @ondblclick="() => OnDoubleTab.InvokeAsync(row)">
+                    @(builder => col.RenderCell(builder, row))
+                </div>
+            }
+        }
+    </div>
+</div>
+
+@code {
+    protected override void OnParametersSet()
+    {
+        var firstSortableColumn = _columns.FirstOrDefault(col => col.CanSort);
+        if (firstSortableColumn is not null)
+            _sort ??= (firstSortableColumn, firstSortableColumn.DefaultSortDescending);
+    }
+
+    private readonly List<IDataColumn<TRow>> _columns = new();
+    private (IDataColumn<TRow> col, bool desc)? _sort;
+
+    private IEnumerable<TRow> SortedItems =>
+        _sort is { col.SortKey: not null } s
+            ? (s.desc
+                ? Items.OrderByDescending(s.col.SortKey!)
+                : Items.OrderBy(s.col.SortKey!))
+            : Items;
+
+    private string GridTemplate => string.Join(' ', _columns.Select(c => c.Width ?? "auto"));
+
+    // called from DataColumn<T>
+    public void AddColumn(IDataColumn<TRow> col) { if (!_columns.Contains(col)) _columns.Add(col); }
+    public void RemoveColumn(IDataColumn<TRow> col) { _columns.Remove(col); }
+
+    private void ToggleSort(IDataColumn<TRow> col)
+    {
+        if (!col.CanSort) return;
+
+        _sort = _sort?.col == col
+            ? (col, !_sort.Value.desc)                      // toggle direction
+            : (col, col.DefaultSortDescending);             // new column
+
+        StateHasChanged();
+    }
+}
