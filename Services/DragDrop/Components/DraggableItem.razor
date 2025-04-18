@@ -1,9 +1,14 @@
+@using Microsoft.Extensions.Logging
+@using RTB.BlazorUI.Extensions
 @using RTB.BlazorUI.Services
 
 @inject IJSRuntime JSRuntime
 @inject DragDropService DragDropService
+@inject ILogger<DraggableItem> Logger
+@inherits RTBComponent
 
-<div class="draggable-item"
+<div class="active:grabbing @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
+    @attributes="@(CapturedAttributes.Without("class"))"
      draggable="true"
      @ondragstart="HandleDragStart">
     @ChildContent
@@ -18,20 +23,6 @@
         // Store data using the service
         DragDropService.StartDrag(ItemData);
         args.DataTransfer.EffectAllowed = "move"; // Still useful to set the visual cue
-        Console.WriteLine($"Drag Start: {ItemData}");
+        Logger.LogDebug($"Drag Start: {ItemData}");
     }
 }
-
-<style>
-    .draggable-item {
-        padding: 10px;
-        margin: 5px;
-        border: 1px solid #ccc;
-        background-color: #f9f9f9;
-        cursor: grab;
-        display: inline-block; /* Or block, depending on layout needs */
-    }
-    .draggable-item:active {
-        cursor: grabbing;
-    }
-</style>

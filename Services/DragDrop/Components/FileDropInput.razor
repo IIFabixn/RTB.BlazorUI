@@ -1,8 +1,11 @@
 @using Microsoft.JSInterop
 @using Microsoft.AspNetCore.Components.Forms
+@using RTB.BlazorUI.Components
 
 @inject IJSRuntime JSRuntime
+
 @inherits RTBComponent
+
 @code {
     [Parameter, EditorRequired] public string Id { get; set; } = string.Empty;
     [Parameter] public EventCallback<InputFileChangeEventArgs> OnFileSelected { get; set; }

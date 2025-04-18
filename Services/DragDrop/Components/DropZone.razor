@@ -1,0 +1,55 @@
+@using Microsoft.Extensions.Logging
+@using RTB.BlazorUI.Services
+@using RTB.BlazorUI.Extensions
+
+@inject IJSRuntime JSRuntime
+@inject ILogger<DropZone<TObject>> Logger
+@inject DragDropService DragDropService
+
+@typeparam TObject
+
+@inherits RTBComponent
+
+<div
+     @attributes="@CapturedAttributes"
+     @ondragover="HandleDragOver"
+     @ondragleave="HandleDragLeave"
+     @ondrop="HandleDrop"
+     @ondragover:preventDefault="true">
+    @ChildContent
+</div>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public EventCallback<TObject> OnObjectDropped { get; set; }
+
+    private void HandleDragOver(DragEventArgs args)
+    {
+        // Indicate this is a valid drop target
+        args.DataTransfer.DropEffect = "move";
+    }
+
+    private void HandleDragLeave(DragEventArgs args)
+    {
+        // Reset visual feedback
+        args.DataTransfer.DropEffect = "none";
+    }
+
+    private async Task HandleDrop(DragEventArgs args)
+    {
+        // Reset visual feedback
+        args.DataTransfer.DropEffect = "none";
+
+        // Retrieve the data from the service
+        var droppedItemData = DragDropService.GetDataOnDrop<TObject>();
+        Logger.LogDebug($"Drop: Retrieved {droppedItemData}");
+
+        // Invoke the callback with the actual object
+        if (OnObjectDropped.HasDelegate)
+        {
+            await OnObjectDropped.InvokeAsync(droppedItemData);
+        }
+
+        StateHasChanged();
+    }
+}
