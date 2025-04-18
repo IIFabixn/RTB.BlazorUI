@@ -1,9 +1,10 @@
-﻿@inherits RTBComponent
+﻿@using RTB.BlazorUI.Extensions
+@inherits RTBComponent
 @code {
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 }
 
 <div class="bg-white @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
-    @attributes="@CapturedAttributes.Where(ca => ca.Key != "class")">
+    @attributes="@CapturedAttributes.Without("class")">
     @ChildContent
 </div>

@@ -2,6 +2,7 @@
 @inherits RTBComponent
 
 @using RTB.BlazorUI.Components
+@using RTB.BlazorUI.Extensions
 
 @code {
     [Parameter] public bool IsHorizontal { get; set; } = false;
@@ -13,7 +14,7 @@
 }
 
 <ul class="flex @(FullHeight ? "h-full" : string.Empty) @(IsHorizontal ? "flex-row" : string.Empty) @(IsVertical ? "flex-col" : string.Empty) @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
-    @attributes="@(CapturedAttributes.Where(kvp => kvp.Key != "class"))">
+    @attributes="@(CapturedAttributes.Without("class"))">
     @if (Items.Any())
     {
         foreach (var item in Items)

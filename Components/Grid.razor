@@ -1,4 +1,5 @@
-﻿@inherits RTBComponent
+﻿@using RTB.BlazorUI.Extensions
+@inherits RTBComponent
 
 @code {
     [Parameter]
@@ -22,12 +23,13 @@
 <div
     class="grid h-full @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
     style="grid-template-columns: @Columns; grid-template-rows: @Rows;"
-     @attributes="@(CapturedAttributes.Where(kvp => kvp.Key != "class"))"
+     @attributes="@(CapturedAttributes.Without("class"))"
 >
     @foreach (GridItem item in _gridItems)
     {
-        <div class="h-full @(item.CapturedAttributes.TryGetValue("class", out var innerClasses) ? innerClasses : string.Empty)" style="grid-column: @(item.Column) / span @(item.ColumnSpan); grid-row: @(item.Row) / span @(item.RowSpan);"
-        @attributes="@(item.CapturedAttributes.Where(kvp => kvp.Key != "class"))">
+        <div class="h-full @(item.CapturedAttributes.TryGetValue("class", out var innerClasses) ? innerClasses : string.Empty)"
+             style="grid-column: @(item.Column) / span @(item.ColumnSpan); grid-row: @(item.Row) / span @(item.RowSpan);"
+             @attributes="@(item.CapturedAttributes.Without("class"))">
             @item.ChildContent
         </div>
     }

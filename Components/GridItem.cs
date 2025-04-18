@@ -6,7 +6,7 @@ namespace RTB.BlazorUI.Components
     /// <summary>
     /// Helper Component to register itself in the parent Grid.
     /// </summary>
-    public class GridItem : RTBComponent
+    public class GridItem : RTBComponent, IDisposable
     {
         [CascadingParameter] public Grid Parent { get; set; } = null!;
         [Parameter] public int Column { get; set; } = 1;

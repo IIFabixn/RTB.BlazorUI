@@ -1,0 +1,55 @@
+@using RTB.BlazorUI.Services
+@using RTB.BlazorUI.Extensions
+
+@inject IJSRuntime JSRuntime
+@inject DragDropService DragDropService
+
+@inherits RTBComponent
+
+<div class="p-8 m-4 @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
+     @attributes="@(CapturedAttributes.Without("class"))"
+     @ondragover="HandleDragOver"
+     @ondragleave="HandleDragLeave"
+     @ondrop="HandleDrop"
+     @ondragover:preventDefault="true"> @* Prevent default to allow drop *@
+    @ChildContent
+</div>
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public EventCallback<object?> OnItemDroppedObject { get; set; } // Changed to object?
+
+    private string? droppedData;
+
+    private void HandleDragOver(DragEventArgs args)
+    {
+        // Indicate this is a valid drop target
+        args.DataTransfer.DropEffect = "move"; // Match the effectAllowed in DraggableItem
+        Console.WriteLine("Drag Over");
+    }
+
+    private void HandleDragLeave(DragEventArgs args)
+    {
+        // Reset visual feedback
+        Console.WriteLine("Drag Leave");
+    }
+
+    private async Task HandleDrop(DragEventArgs args)
+    {
+        // Reset visual feedback
+
+        // Retrieve the data from the service
+        var droppedItemData = DragDropService.GetDataOnDrop();
+        Console.WriteLine($"Drop: Retrieved {droppedItemData}");
+
+        // Invoke the callback with the actual object
+        if (OnItemDroppedObject.HasDelegate)
+        {
+            await OnItemDroppedObject.InvokeAsync(droppedItemData);
+        }
+
+        // Optionally, update the state to show what was dropped (e.g., its string representation)
+        droppedData = droppedItemData?.ToString(); // Update local display string if needed
+        StateHasChanged();
+    }
+}
