@@ -10,8 +10,8 @@
 
 @inherits RTBComponent
 
-<div
-     @attributes="@CapturedAttributes"
+<div class="@(isDraggingOver ? DraggingClass : string.Empty) @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty) "
+     @attributes="@(CapturedAttributes.Without("class"))"
      @ondragover="HandleDragOver"
      @ondragleave="HandleDragLeave"
      @ondrop="HandleDrop"
@@ -20,7 +20,10 @@
 </div>
 
 @code {
+    [Parameter] public string DraggingClass { get; set; } = string.Empty;
     [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    private bool isDraggingOver = false;
 
     /// <summary>
     /// Invoked when an object is dropped into the drop zone.<br/>
@@ -30,18 +33,21 @@
 
     private void HandleDragOver(DragEventArgs args)
     {
+        isDraggingOver = true;
         // Indicate this is a valid drop target
         args.DataTransfer.DropEffect = "move";
     }
 
     private void HandleDragLeave(DragEventArgs args)
     {
+        isDraggingOver = false;
         // Reset visual feedback
         args.DataTransfer.DropEffect = "none";
     }
 
     private async Task HandleDrop(DragEventArgs args)
     {
+        isDraggingOver = false;
         // Reset visual feedback
         args.DataTransfer.DropEffect = "none";
 
