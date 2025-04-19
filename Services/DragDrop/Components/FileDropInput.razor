@@ -7,8 +7,9 @@
 @inherits RTBComponent
 
 @code {
+    [Parameter] public string[] AcceptedTypes { get; set; } = [];
     [Parameter, EditorRequired] public string Id { get; set; } = string.Empty;
-    [Parameter] public EventCallback<InputFileChangeEventArgs> OnFileSelected { get; set; }
+    [Parameter] public EventCallback<IBrowserFile[]> OnInput { get; set; }
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter] public bool Multiple { get; set; } = false;
 }
@@ -20,7 +21,7 @@
     @ChildContent
 </label>
 
-<InputFile id="@Id" OnChange="OnFileSelected" multiple="@Multiple" hidden />
+<InputFile id="@Id" OnChange="HandleChange" multiple="@Multiple" hidden />
 
 @code {
 
@@ -29,6 +30,25 @@
         if (firstRender)
         {
             await JSRuntime.InvokeVoidAsync("initDragDropInterop", $"{Id}Zone", Id);
+        }
+    }
+
+    private async Task HandleChange(InputFileChangeEventArgs args)
+    {
+        var files = args.GetMultipleFiles()
+                        .Where(f => AcceptedTypes.Any(t => f.ContentType.Equals(t, StringComparison.OrdinalIgnoreCase)))
+                        .ToArray();
+
+        if (files.Length == 0)
+        {
+            Console.WriteLine("Dropped content was not a supported file type.");
+            return;
+        }
+
+
+        if (OnInput.HasDelegate)
+        {
+            await OnInput.InvokeAsync(files);
         }
     }
 }
