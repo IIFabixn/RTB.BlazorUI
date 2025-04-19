@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using RTB.BlazorUI.Components;
-using RTB.BlazorUI.Services.BusyTracker;
 
 namespace RTB.BlazorUI.Services.BusyTracker.Components
 {
@@ -37,6 +36,7 @@ namespace RTB.BlazorUI.Services.BusyTracker.Components
         public void Dispose()
         {
             tracker.OnBusyChanged -= StateHasChanged;
+            GC.SuppressFinalize(this);
         }
     }
 }

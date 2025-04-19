@@ -61,7 +61,8 @@ namespace RTB.BlazorUI.Services.BusyTracker
             else
                 _busyKeys[key] = 1;
 
-            logger.LogDebug($"BusyTracker: {key} is now busy ({_busyKeys[key]}).");
+            const string message = "BusyTracker: {key} is now busy ({count}).";
+            logger.LogDebug(message, key, _busyKeys[key]);
 
             OnBusyChanged?.Invoke();
         }
@@ -80,7 +81,8 @@ namespace RTB.BlazorUI.Services.BusyTracker
                 if (_busyKeys[key] == 0)
                     _busyKeys.TryRemove(key, out _);
 
-                logger.LogDebug($"BusyTracker: {key} is no longer busy ({_busyKeys.Count} remaining).");
+                const string message = "BusyTracker: {key} is no longer busy ({count} remaining).";
+                logger.LogDebug(message, key, _busyKeys.Count);
 
                 OnBusyChanged?.Invoke();
             }

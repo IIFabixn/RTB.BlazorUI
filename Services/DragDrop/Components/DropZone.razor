@@ -21,6 +21,11 @@
 
 @code {
     [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    /// <summary>
+    /// Invoked when an object is dropped into the drop zone.<br/>
+    /// Will call <see cref="StateHasChanged"/> after the callback is invoked.
+    /// </summary>
     [Parameter] public EventCallback<TObject> OnObjectDropped { get; set; }
 
     private void HandleDragOver(DragEventArgs args)

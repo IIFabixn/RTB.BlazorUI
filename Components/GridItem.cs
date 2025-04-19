@@ -23,6 +23,7 @@ namespace RTB.BlazorUI.Components
         public void Dispose()
         {
             Parent.UnregisterItem(this);
+            GC.SuppressFinalize(this);
         }
     }
 }

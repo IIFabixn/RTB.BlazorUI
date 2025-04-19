@@ -9,7 +9,7 @@ namespace RTB.BlazorUI.Services.DataNavigationService
 {
     public class DataNavigationService(NavigationManager navigationManager)
     {
-        private readonly Dictionary<string, object?> _data = new();
+        private readonly Dictionary<string, object?> _data = [];
 
         public void SetData(string key, object? value)
         {

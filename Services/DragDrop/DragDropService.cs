@@ -9,13 +9,15 @@ public class DragDropService(ILogger<DragDropService> logger)
     public void StartDrag(object? itemData)
     {
         DraggedItemData = itemData;
-        logger.LogDebug($"Service: Drag Started with {itemData}");
+        const string message = "Service: Drag Started with {itemData}";
+        logger.LogDebug(message, itemData);
     }
 
     public object? GetDataOnDrop()
     {
         var data = DraggedItemData;
-        logger.LogDebug($"Service: Drop Occurred, returning {data}");
+        const string message = "Service: Drop Occurred, returning {data}";
+        logger.LogDebug(message, data);
         DraggedItemData = default;
         return data;
     }
@@ -23,7 +25,8 @@ public class DragDropService(ILogger<DragDropService> logger)
     public TObject? GetDataOnDrop<TObject>()
     {
         var data = DraggedItemData;
-        logger.LogDebug($"Service: Drop Occurred, returning {data}");
+        const string message = "Service: Drop Occurred, returning {data}";
+        logger.LogDebug(message, data);
         DraggedItemData = default;
         return (TObject?)Convert.ChangeType(data, typeof(TObject));
     }
