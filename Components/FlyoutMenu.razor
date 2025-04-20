@@ -3,7 +3,7 @@
 @code {
 	[Parameter, EditorRequired] public RenderFragment Activator { get; set; } = default!;
 	[Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
-	[Parameter] public FlyoutDirection Direction {get;set;} = FlyoutDirection.Up;
+	[Parameter, EditorRequired] public FlyoutPosition Position { get; set; }
 }
 
 <div class="relative" @onclick:stopPropagation>
@@ -12,15 +12,20 @@
 	</div>
 	@if (IsOpen)
 	{
-		<div class="@GetFlyoutPositionClasses() z-50 bg-white border rounded-xl shadow-xl min-w-[160px] p-2">
+		<div class="absolute @GetFlyoutPositionClasses() z-50 bg-white border rounded-xl min-w-[80px] p-2">
             @ChildContent
         </div>
 	}
 </div>
 
 @code {
-	public enum FlyoutDirection {
-		Up, Down, Left, Right
+	public enum FlyoutPosition
+	{
+		UpLeft, Up, UpRight,
+		DownLeft, Down, DownRight,
+		LeftUp, Left, LeftDown,
+		RightUp, Right, RightDown,
+		Center
 	}
 
 	private bool IsOpen { get; set; }
@@ -33,12 +38,12 @@
 		StateHasChanged();
 	}
 
-	private string GetFlyoutPositionClasses() => Direction switch
+	private string GetFlyoutPositionClasses() => Position switch
     {
-        FlyoutDirection.Down => "absolute right-0 mt-2",
-        FlyoutDirection.Up => "absolute right-0 bottom-full mb-2",
-        FlyoutDirection.Left => "absolute right-full mr-2 top-0",
-        FlyoutDirection.Right => "absolute left-full ml-2 top-0",
-        _ => "absolute right-0 mt-2"
+		FlyoutPosition.Down => "right-1/2 mt-2 top-full",
+		FlyoutPosition.Up => "right-1/2 bottom-full mb-2",
+		FlyoutPosition.Left => "right-full mr-2 top-1/2",
+		FlyoutPosition.Right => "left-full ml-2 top-1/2",
+		_ => throw new ArgumentOutOfRangeException(nameof(Position), Position, "Not yet implemented")
     };
 }

@@ -1,0 +1,55 @@
+﻿@using RTB.BlazorUI.Dialog.Components
+@using RTB.BlazorUI.Services
+
+@inherits DialogBase
+@inject IJSRuntime JSRuntime
+
+@code {
+	[Parameter] public string? Message { get; set; }
+}
+
+<!-- Root overlay – centres the dialog and keeps it above everything -->
+<dialog @ref="dialog" class="top-1/2 left-1/2 -translate-[50%] bg-transparent max-w-xl w-full">
+    <!-- Dialog card -->
+    <Grid Rows="auto 1fr auto" class="rounded overflow-clip bg-white shadow-2xl ring-1 ring-gray-950/10 m-8">
+        <GridItem Row="1" class="flex justify-between gap-4 border-b
+                    border-gray-100 px-6 py-4">
+            <!-- Header -->
+            <h5 class="text-xl font-semibold text-gray-900">
+                @Title
+            </h5>
+        </GridItem>
+        <GridItem Row="2">
+			@if (string.IsNullOrEmpty(Message))
+            {
+                <CascadingValue Value="this">
+                    @ChildContent
+                </CascadingValue>
+			}
+			else
+            {
+                <p class="text-gray-500">
+                    @Message
+                </p>
+			}
+        </GridItem>
+        <GridItem Row="3">
+            <button type="button" class="rounded p-2 hover:bg-gray-100"
+                    @onclick="() => Close(DialogResult.Cancel())">
+                <span>Ok</span>
+            </button>
+        </GridItem>
+    </Grid>
+</dialog>
+
+@code {
+    private ElementReference? dialog;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && dialog != null)
+        {
+            await JSRuntime.InvokeVoidAsync("dialogHelper.show", dialog);
+        }
+    }
+}

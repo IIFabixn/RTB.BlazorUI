@@ -13,7 +13,7 @@
     [Parameter] public RenderFragment? HeaderTemplate { get; set; }
 }
 
-<ul class="flex @(FullHeight ? "h-full" : string.Empty) @(IsHorizontal ? "flex-row" : string.Empty) @(IsVertical ? "flex-col" : string.Empty) @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
+<div class="flex @(FullHeight ? "h-full" : string.Empty) @(IsHorizontal ? "flex-row" : string.Empty) @(IsVertical ? "flex-col" : string.Empty) @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
     @attributes="@(CapturedAttributes.Without("class"))">
     @if (Items.Any())
     {
@@ -29,4 +29,4 @@
             }
         }
     }
-</ul>
+</div>

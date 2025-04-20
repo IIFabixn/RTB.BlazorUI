@@ -25,6 +25,7 @@ namespace RTB.BlazorUI.Services.Dialog
     public interface IDialogService 
     {
         Task<DialogResult> ShowAsync<TDialog>(string title, Dictionary<string, object?>? parameters = null) where TDialog : IComponent;
+        void Alert<TDialog>(string title, string? message = null, Dictionary<string, object?>? parameters = null) where TDialog : IComponent;
     }
 
     /// <summary>
@@ -46,6 +47,48 @@ namespace RTB.BlazorUI.Services.Dialog
         public event Action<RenderFragment>? OnShow;
         public event Action? OnClose;
 
+        public void Alert<TDialog>(string title, string? message = null, Dictionary<string, object?>? parameters = null) where TDialog : IComponent
+        {
+            var tcs = new TaskCompletionSource<DialogResult>();
+
+            RenderFragment rf = builder =>
+            {
+                var seq = 0;
+                builder.OpenComponent<AlertHost>(seq++);
+                builder.AddAttribute(seq++, nameof(AlertHost.Title), title);
+                builder.AddAttribute(seq++, nameof(AlertHost.Message), message);
+                builder.AddAttribute(seq++, nameof(AlertHost.ChildContent), (RenderFragment)(b =>
+                {
+                    var i = 0;
+                    b.OpenComponent<TDialog>(i++);
+
+                    // pass parameters through
+                    if (parameters is not null)
+                    {
+                        foreach (var (key, val) in parameters)
+                            b.AddAttribute(i, key, val);
+                    }
+                    b.CloseComponent();
+                }));
+
+                builder.AddComponentReferenceCapture(seq++, obj =>
+                {
+                    if (obj is IDialogReference dr)
+                    {
+                        dr.Result.ContinueWith(task =>
+                        {
+                            tcs.TrySetResult(task.Result);
+                            OnClose?.Invoke();
+                        }, TaskScheduler.Current);
+                    }
+                });
+
+                builder.CloseComponent();
+            };
+
+            OnShow?.Invoke(rf);
+        }
+
         public Task<DialogResult> ShowAsync<TDialog>(
             string title,
             Dictionary<string, object?>? parameters = null)
@@ -57,8 +100,8 @@ namespace RTB.BlazorUI.Services.Dialog
             {
                 var seq = 0;
                 builder.OpenComponent<DialogHost>(seq++);
-                builder.AddAttribute(seq++, "Title", title);
-                builder.AddAttribute(seq++, "ChildContent", (RenderFragment)(b =>
+                builder.AddAttribute(seq++, nameof(DialogHost.Title), title);
+                builder.AddAttribute(seq++, nameof(DialogHost.ChildContent), (RenderFragment)(b =>
                 {
                     var i = 0;
                     b.OpenComponent<TDialog>(i++);
