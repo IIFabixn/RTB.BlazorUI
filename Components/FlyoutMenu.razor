@@ -1,0 +1,44 @@
+﻿@inherits RTBComponent
+
+@code {
+	[Parameter, EditorRequired] public RenderFragment Activator { get; set; } = default!;
+	[Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
+	[Parameter] public FlyoutDirection Direction {get;set;} = FlyoutDirection.Up;
+}
+
+<div class="relative" @onclick:stopPropagation>
+	<div @onclick="ToggleMenu" @attributes="@CapturedAttributes">
+		@Activator
+	</div>
+	@if (IsOpen)
+	{
+		<div class="@GetFlyoutPositionClasses() z-50 bg-white border rounded-xl shadow-xl min-w-[160px] p-2">
+            @ChildContent
+        </div>
+	}
+</div>
+
+@code {
+	public enum FlyoutDirection {
+		Up, Down, Left, Right
+	}
+
+	private bool IsOpen { get; set; }
+	public event Action? OnStateChanged;
+
+	private void ToggleMenu()
+	{
+		IsOpen = !IsOpen;
+		OnStateChanged?.Invoke();
+		StateHasChanged();
+	}
+
+	private string GetFlyoutPositionClasses() => Direction switch
+    {
+        FlyoutDirection.Down => "absolute right-0 mt-2",
+        FlyoutDirection.Up => "absolute right-0 bottom-full mb-2",
+        FlyoutDirection.Left => "absolute right-full mr-2 top-0",
+        FlyoutDirection.Right => "absolute left-full ml-2 top-0",
+        _ => "absolute right-0 mt-2"
+    };
+}
