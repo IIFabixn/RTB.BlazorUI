@@ -25,12 +25,9 @@
 
 @code {
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    protected override async Task OnInitializedAsync()
     {
-        if (firstRender)
-        {
-            await JSRuntime.InvokeVoidAsync("initDragDropInterop", $"{Id}Zone", Id);
-        }
+        await JSRuntime.InvokeVoidAsync("initDragDropInterop", $"{Id}Zone", Id);
     }
 
     private async Task HandleChange(InputFileChangeEventArgs args)

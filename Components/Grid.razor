@@ -8,6 +8,8 @@
     [Parameter]
     public string Rows { get; set; } = "1fr";
 
+    [Parameter] public bool FullHeight { get; set; } = false;
+
     [Parameter]
     public RenderFragment ChildContent { get; set; } = default!;
 }
@@ -21,15 +23,15 @@
 </CascadingValue>
 
 <div
-    class="grid h-full @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
+    class="grid @(FullHeight ? "h-full" : string.Empty) @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
     style="grid-template-columns: @Columns; grid-template-rows: @Rows;"
      @attributes="@(CapturedAttributes.Without("class"))"
 >
     @foreach (GridItem item in _gridItems)
     {
-        <div class="h-full @(item.CapturedAttributes.TryGetValue("class", out var innerClasses) ? innerClasses : string.Empty)"
+        <div
              style="grid-column: @(item.Column) / span @(item.ColumnSpan); grid-row: @(item.Row) / span @(item.RowSpan);"
-             @attributes="@(item.CapturedAttributes.Without("class"))">
+             @attributes="@(item.CapturedAttributes)">
             @item.ChildContent
         </div>
     }

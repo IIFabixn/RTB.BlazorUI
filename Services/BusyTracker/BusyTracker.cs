@@ -14,7 +14,7 @@ namespace RTB.BlazorUI.Services.BusyTracker
     /// Useful for showing spinners, disabling buttons, and detecting background tasks.
     /// Supports multiple concurrent scopes per key.
     /// </summary>
-    public class BusyTracker(ILogger<BusyTracker> logger)
+    public class BusyTracker(ILogger<BusyTracker> Logger)
     {
         private readonly ConcurrentDictionary<string, int> _busyKeys = new();
 
@@ -40,15 +40,11 @@ namespace RTB.BlazorUI.Services.BusyTracker
         /// </summary>
         public IReadOnlyDictionary<string, int> CurrentState => _busyKeys;
 
-        public BusyToken Track(string? prefix = null, [CallerMemberName] string? method = null)
+        public IDisposable Track([CallerMemberName] string method = "", Action? onDispose = null)
         {
-            var key = string.IsNullOrEmpty(prefix)
-                ? $"{method}"
-                : $"{prefix}.{method}";
+            Add(method);
 
-            Add(key);
-
-            return new BusyToken(this, key);
+            return new BusyToken(this, method, onDispose);
         }
 
         /// <summary>
@@ -62,7 +58,7 @@ namespace RTB.BlazorUI.Services.BusyTracker
                 _busyKeys[key] = 1;
 
             const string message = "BusyTracker: {key} is now busy ({count}).";
-            logger.LogDebug(message, key, _busyKeys[key]);
+            Logger.LogDebug(message, key, _busyKeys[key]);
 
             OnBusyChanged?.Invoke();
         }
@@ -82,7 +78,7 @@ namespace RTB.BlazorUI.Services.BusyTracker
                     _busyKeys.TryRemove(key, out _);
 
                 const string message = "BusyTracker: {key} is no longer busy ({count} remaining).";
-                logger.LogDebug(message, key, _busyKeys.Count);
+                Logger.LogDebug(message, key, _busyKeys.Count);
 
                 OnBusyChanged?.Invoke();
             }
@@ -95,7 +91,7 @@ namespace RTB.BlazorUI.Services.BusyTracker
         /// <remarks>
         /// Creates a new busy token. Should not be created manually — use <c>Track</c> or <c>TrackAsync</c>.
         /// </remarks>
-        public readonly struct BusyToken(BusyTracker tracker, string key) : IDisposable
+        public readonly struct BusyToken(BusyTracker tracker, string key, Action? onDispose = null) : IDisposable
         {
             private readonly BusyTracker _tracker = tracker;
             private readonly string _key = key;
@@ -105,6 +101,7 @@ namespace RTB.BlazorUI.Services.BusyTracker
             /// </summary>
             public void Dispose()
             {
+                onDispose?.Invoke();
                 _tracker.Remove(_key);
             }
         }

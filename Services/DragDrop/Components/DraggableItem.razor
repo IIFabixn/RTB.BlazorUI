@@ -4,8 +4,10 @@
 
 @inject IJSRuntime JSRuntime
 @inject DragDropService DragDropService
-@inject ILogger<DraggableItem> Logger
+@inject ILogger<DraggableItem<TData>> Logger
 @inherits RTBComponent
+
+@typeparam TData
 
 <div class="active:grabbing @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
     @attributes="@(CapturedAttributes.Without("class"))"
@@ -16,7 +18,7 @@
 
 @code {
     [Parameter] public RenderFragment? ChildContent { get; set; }
-    [Parameter] public object? ItemData { get; set; } // Data associated with the item
+    [Parameter] public TData? ItemData { get; set; } // Data associated with the item
 
     private void HandleDragStart(DragEventArgs args)
     {

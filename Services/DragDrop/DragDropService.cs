@@ -6,20 +6,11 @@ public class DragDropService(ILogger<DragDropService> logger)
 {
     public object? DraggedItemData { get; private set; }
 
-    public void StartDrag(object? itemData)
+    public void StartDrag<TObject>(TObject? itemData)
     {
         DraggedItemData = itemData;
         const string message = "Service: Drag Started with {itemData}";
         logger.LogDebug(message, itemData);
-    }
-
-    public object? GetDataOnDrop()
-    {
-        var data = DraggedItemData;
-        const string message = "Service: Drop Occurred, returning {data}";
-        logger.LogDebug(message, data);
-        DraggedItemData = default;
-        return data;
     }
 
     public TObject? GetDataOnDrop<TObject>()
@@ -28,6 +19,12 @@ public class DragDropService(ILogger<DragDropService> logger)
         const string message = "Service: Drop Occurred, returning {data}";
         logger.LogDebug(message, data);
         DraggedItemData = default;
-        return (TObject?)Convert.ChangeType(data, typeof(TObject));
+
+        if (data is TObject typed)
+        {
+            return typed;
+        }
+
+        throw new InvalidCastException($"DragDropService: Cannot cast object of type {data?.GetType()} to {typeof(TObject)}");
     }
 }

@@ -24,7 +24,7 @@ namespace RTB.BlazorUI.Services.Dialog
     /// </summary>
     public interface IDialogService 
     {
-        Task<DialogResult> ShowAsync<TDialog>(string title, Dictionary<string, object?>? oarameters = null) where TDialog : IComponent;
+        Task<DialogResult> ShowAsync<TDialog>(string title, Dictionary<string, object?>? parameters = null) where TDialog : IComponent;
     }
 
     /// <summary>
@@ -69,21 +69,21 @@ namespace RTB.BlazorUI.Services.Dialog
                         foreach (var (key, val) in parameters)
                             b.AddAttribute(i, key, val);
                     }
-
-                    // capture the dialog instance so we know when it finishes
-                    b.AddComponentReferenceCapture(i++, obj =>
-                    {
-                        if (obj is IDialogReference dr)
-                            dr.Result.ContinueWith(task =>
-                            {
-                                // propagate result to the caller
-                                tcs.TrySetResult(task.Result);
-                                // tell the provider to remove the fragment
-                                OnClose?.Invoke();
-                            }, TaskScheduler.Current);
-                    });
                     b.CloseComponent();
                 }));
+
+                builder.AddComponentReferenceCapture(seq++, obj =>
+                {
+                    if (obj is IDialogReference dr)
+                    {
+                        dr.Result.ContinueWith(task =>
+                        {
+                            tcs.TrySetResult(task.Result);
+                            OnClose?.Invoke();
+                        }, TaskScheduler.Current);
+                    }
+                });
+
                 builder.CloseComponent();
             };
 
