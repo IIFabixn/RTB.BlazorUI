@@ -12,7 +12,7 @@ namespace RTB.BlazorUI.Components
         Func<TRow, IComparable>? SortKey { get; set; }
         bool CanSort { get; }
     }
-    
+
     public class DataColumn<TRow, TValue> : RTBComponent, IDataColumn<TRow>
     {
         [CascadingParameter] public DataGrid<TRow>? ParentGrid { get; set; }
