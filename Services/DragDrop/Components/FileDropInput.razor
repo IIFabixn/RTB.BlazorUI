@@ -14,26 +14,27 @@
     [Parameter] public bool Multiple { get; set; } = false;
 }
 
-
+<InputFile id="@Id" OnChange="HandleChange" multiple="@Multiple" hidden accept="@(string.Join(",", AcceptedTypes))" />
 <label id="@(Id)Zone"
        for="@Id"
+       ondragover="event.preventDefault();"
        @attributes="CapturedAttributes">
     @ChildContent
 </label>
 
-<InputFile id="@Id" OnChange="HandleChange" multiple="@Multiple" hidden />
-
 @code {
-
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await JSRuntime.InvokeVoidAsync("initDragDropInterop", $"{Id}Zone", Id);
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("initDragDropInterop", $"{Id}Zone", Id);        
+        }
     }
 
     private async Task HandleChange(InputFileChangeEventArgs args)
     {
         var files = args.GetMultipleFiles()
-                        .Where(f => AcceptedTypes.Any(t => f.ContentType.Equals(t, StringComparison.OrdinalIgnoreCase)))
+                        .Where(f => AcceptedTypes.Length == 0 || AcceptedTypes.Any(t => f.ContentType.Equals(t, StringComparison.OrdinalIgnoreCase)))
                         .ToArray();
 
         if (files.Length == 0)
@@ -41,7 +42,6 @@
             Console.WriteLine("Dropped content was not a supported file type.");
             return;
         }
-
 
         if (OnInput.HasDelegate)
         {

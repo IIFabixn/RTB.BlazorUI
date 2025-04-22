@@ -17,6 +17,7 @@ namespace RTB.BlazorUI.Services.Dialog
     {
         Task<DialogResult> Result { get; }
         void Close(DialogResult result);
+        void Close();
     }
 
     /// <summary>

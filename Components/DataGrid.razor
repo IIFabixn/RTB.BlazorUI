@@ -5,9 +5,11 @@
 @inherits RTBComponent
 
 @code {
-    [Parameter] public IEnumerable<TRow> Items { get; set; } = [];
-    [Parameter] public EventCallback<TRow> OnDoubleTab { get; set; } = EventCallback<TRow>.Empty;
+    [Parameter] public IEnumerable<TRow> Items { get; set; } = Enumerable.Empty<TRow>();
+    [Parameter] public EventCallback<TRow> DoubleClickCallback { get; set; }
+    [Parameter] public EventCallback<TRow> OnDoubleTab { get; set; }
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+
 }
 
 <CascadingValue Value="this">
@@ -23,22 +25,26 @@
         @foreach (var col in _columns)
         {
             <div class="p-2 font-medium bg-blue-100 sticky top-0
-                        select-none cursor-pointer z-10 border-b flex items-center justify-between"
+                select-none cursor-pointer z-10 border-b flex items-center justify-between"
             @onclick="() => ToggleSort(col)">
                 @col.RenderHeader
-                @if (_sort?.col == col)
+                @if (_sort?.Column == col)
                 {
-                    <span>@(_sort.Value.desc ? "▼" : "▲")</span>
+                    <span>@(_sort.Descending ? "▼" : "▲")</span>
                 }
             </div>
         }
 
         <!-- ---------- Data cells (rows 2…N) ----------------------- -->
-        @foreach (var row in SortedItems)
+        @for (var rowIdx = 0; rowIdx < _sortedItems.Count; rowIdx++)
         {
-            @foreach (var col in _columns)
+            var row = _sortedItems[rowIdx];
+            for (var colIdx = 0; colIdx < _columns.Count; colIdx++)
             {
-                <div class="p-2 odd:bg-slate-50 even:bg-white" @ondblclick="() => OnDoubleTab.InvokeAsync(row)">
+                var col = _columns[colIdx];
+                <div role="cell" @key="@($"{rowIdx}_{colIdx}")"
+                     class="p-2 @(rowIdx % 2 == 0 ? "bg-slate-50" : "bg-white")"
+                     @ondblclick="() => DoubleClickCallback.InvokeAsync(row)">
                     @(builder => col.RenderCell(builder, row))
                 </div>
             }
@@ -47,37 +53,57 @@
 </div>
 
 @code {
+    private readonly List<IColumn<TRow>> _columns = [];
+    private SortInfo? _sort;
+    private List<TRow> _sortedItems = [];
+
     protected override void OnParametersSet()
     {
-        var firstSortableColumn = _columns.FirstOrDefault(col => col.CanSort);
-        if (firstSortableColumn is not null)
-            _sort ??= (firstSortableColumn, firstSortableColumn.DefaultSortDescending);
+        if (_sort is null)
+        {
+            var firstSortable = _columns.FirstOrDefault(c => c.CanSort);
+            if (firstSortable is not null)
+                _sort = new(firstSortable, firstSortable.DefaultSortDescending);
+        }
+
+        _sortedItems = SortItems().ToList();
     }
 
-    private readonly List<IDataColumn<TRow>> _columns = new();
-    private (IDataColumn<TRow> col, bool desc)? _sort;
+    private IEnumerable<TRow> SortItems()
+    {
+        if (_sort is { Column.SortKey: not null } s)
+        {
+            return s.Descending
+                ? Items.OrderByDescending(s.Column.SortKey!)
+                : Items.OrderBy(s.Column.SortKey!);
+        }
 
-    private IEnumerable<TRow> SortedItems =>
-        _sort is { col.SortKey: not null } s
-            ? (s.desc
-                ? Items.OrderByDescending(s.col.SortKey!)
-                : Items.OrderBy(s.col.SortKey!))
-            : Items;
+        return Items;
+    }
 
     private string GridTemplate => string.Join(' ', _columns.Select(c => c.Width ?? "auto"));
 
-    // called from DataColumn<T>
-    public void AddColumn(IDataColumn<TRow> col) { if (!_columns.Contains(col)) _columns.Add(col); }
-    public void RemoveColumn(IDataColumn<TRow> col) { _columns.Remove(col); }
-
-    private void ToggleSort(IDataColumn<TRow> col)
+    public void AddColumn(IColumn<TRow> column)
     {
-        if (!col.CanSort) return;
-
-        _sort = _sort?.col == col
-            ? (col, !_sort.Value.desc)                      // toggle direction
-            : (col, col.DefaultSortDescending);             // new column
-
-        StateHasChanged();
+        if (!_columns.Contains(column))
+            _columns.Add(column);
     }
+
+    public void RemoveColumn(IColumn<TRow> column) {
+        if (_columns.Contains(column))
+            _columns.Remove(column);
+    }
+
+    private void ToggleSort(IColumn<TRow> column)
+    {
+        if (!column.CanSort) return;
+
+        _sort = _sort?.Column == column
+            ? _sort with { Descending = !_sort.Descending }  // toggle direction
+            : new(column, column.DefaultSortDescending);     // new column selected
+
+        _sortedItems = SortItems().ToList();
+    }
+
+    private record SortInfo(IColumn<TRow> Column, bool Descending);
 }
