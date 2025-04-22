@@ -1,0 +1,60 @@
+﻿@inherits RTBComponent
+
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+}
+
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>
+
+<Grid FullHeight Rows="auto 1fr">
+    <GridItem Row="1">
+        <Grid Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))">
+                @foreach(var tab in _tabItems)
+                {
+                    <GridItem @onclick="@(() => SetProperty(ref _selectedTabItem, tab))">
+                        @if (tab.HeadContent is not null)
+                        {
+                            @tab.HeadContent
+                        }
+                        else
+                        {
+                            <span>@tab.Title</span>
+                        }
+                    </GridItem>
+                }
+        </Grid>
+    </GridItem>
+    <GridItem Row="2">
+        @_selectedTabItem?.ChildContent
+    </GridItem>
+</Grid>
+
+@code {
+    private List<TabItem> _tabItems = new List<TabItem>();
+    private TabItem? _selectedTabItem;
+    
+    public void RegisterTabItem(TabItem tabItem)
+    {
+        if (!_tabItems.Contains(tabItem))
+        {
+            _selectedTabItem ??= tabItem;
+            _tabItems.Add(tabItem);
+            StateHasChanged();
+        }
+    }
+
+    public void UnregisterTabItem(TabItem tabItem)
+    {
+        if (_tabItems.Contains(tabItem))
+        {
+            _tabItems.Remove(tabItem);
+            if (_selectedTabItem == tabItem)
+            {
+                _selectedTabItem = null;
+            }
+            StateHasChanged();
+        }
+    }
+}

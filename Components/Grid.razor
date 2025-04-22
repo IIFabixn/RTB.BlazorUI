@@ -30,7 +30,10 @@
     @foreach (GridItem item in _gridItems)
     {
         <div
-             style="grid-column: @(item.Column) / span @(item.ColumnSpan); grid-row: @(item.Row) / span @(item.RowSpan);"
+             style="@(item.Column > 0 ? $"grid-column: {item.Column};" : string.Empty) 
+              @(item.ColumnSpan > 1 ? $"grid-colmn-span: {item.ColumnSpan};" : string.Empty)
+              @(item.Row > 0 ? $"grid-row: {item.Row};" : string.Empty) 
+              @(item.RowSpan > 1 ? $"grid-row-span: {item.RowSpan};" : string.Empty)"
              @attributes="@(item.CapturedAttributes)">
             @item.ChildContent
         </div>

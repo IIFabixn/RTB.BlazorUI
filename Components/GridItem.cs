@@ -9,9 +9,9 @@ namespace RTB.BlazorUI.Components
     public class GridItem : RTBComponent, IDisposable
     {
         [CascadingParameter] public Grid Parent { get; set; } = null!;
-        [Parameter] public int Column { get; set; } = 1;
+        [Parameter] public int Column { get; set; } = -1;
         [Parameter] public int ColumnSpan { get; set; } = 1;
-        [Parameter] public int Row { get; set; } = 1;
+        [Parameter] public int Row { get; set; } = -1;
         [Parameter] public int RowSpan { get; set; } = 1;
         [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
