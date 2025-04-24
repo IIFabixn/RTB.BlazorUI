@@ -11,8 +11,8 @@ namespace RTB.BlazorUI.Services
         {
             return collection
                 .AddScoped<IDialogService, DialogService>()
-                .AddScoped<BusyTracker.BusyTracker>()
-                .AddScoped<DragDropService>();
+                .AddScoped<IBusyTracker, BusyTracker.BusyTracker>()
+                .AddScoped<IDragDropService, DragDropService>();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
+using RTB.BlazorUI.Extensions;
+using RTB.BlazorUI.Helper;
 
 namespace RTB.BlazorUI.Components;
 public class FlexLayout : RTBComponent
@@ -18,7 +20,7 @@ public class FlexLayout : RTBComponent
     {
         builder.OpenElement(0, Element);
         builder.AddMultipleAttributes(1, CapturedAttributes.Where(kvp => kvp.Key != "class"));
-        builder.AddAttribute(2, "class", $"flex {(FullHeight ? "h-full" : string.Empty)} {(IsHorizontal ? "flex-row" : string.Empty)} {(IsVertical ? "flex-col" : string.Empty)} {(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)}");
+        builder.AddAttribute(2, "class", ClassBuilder.Create("flex").AppendIf("h-full", FullHeight).AppendIf("flex-row", IsHorizontal).AppendIf("flex-col", IsVertical).Append(CapturedAttributes.GetValueOrDefault<string>("class")).Build());
         builder.AddContent(3, ChildContent);
         builder.CloseElement();
     }

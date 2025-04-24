@@ -1,0 +1,46 @@
+﻿@using SkiaSharp
+@using SkiaSharp.Views.Blazor
+
+@inherits ChartBase
+
+<Grid Rows="1fr auto" class="w-full">
+    <GridItem>
+        @if (Entries.Count > 0)
+        {
+            <SKCanvasView class="h-full w-full max-h-120! max-w-full!" OnPaintSurface="PaintBars" />
+        }
+    </GridItem>
+    <GridItem>
+        <FlexLayout IsHorizontal class="items-center gap-2">
+            @foreach (var entry in Entries)
+            {
+                <div class="w-2 h-2 rounded" style="background-color: #@entry.Color.ToString().Substring(3)"></div>
+
+                <h4>@entry.Label</h4>
+            }
+        </FlexLayout>
+    </GridItem>
+</Grid>
+
+@code {
+    private void PaintBars(SKPaintSurfaceEventArgs args)
+    {
+        var canvas = args.Surface.Canvas;
+        canvas.Clear(SKColors.White);
+        var info = args.Info;
+        float margin = 40;
+        float barW = (info.Width - 2 * margin) / (Entries.Count * 2f);
+
+        using var paint = new SKPaint { IsAntialias = true };
+
+        for (int i = 0; i < Entries.Count; i++)
+        {
+            float h = (Entries[i].Value / MaxValue) * (info.Height - 2 * margin);
+            float x = margin + barW * (1 + 2 * i);
+            float y = info.Height - margin - h;
+
+            paint.Color = Entries[i].Color ?? SKColors.Red;
+            canvas.DrawRoundRect(x, y, barW, h, 6, 6, paint);
+        }
+    }
+}

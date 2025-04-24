@@ -1,4 +1,5 @@
-﻿window.initDragDropInterop = (dropZoneId, inputId) => {
+﻿
+window.initDragDropInterop = (dropZoneId, inputId) => {
     const dropZone = document.getElementById(dropZoneId);
     const fileInput = document.getElementById(inputId);
 

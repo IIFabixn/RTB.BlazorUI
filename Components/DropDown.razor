@@ -1,0 +1,19 @@
+﻿@using RTB.BlazorUI.Extensions
+@inherits RTBComponent
+
+@code {
+    [Parameter, EditorRequired] public RenderFragment ActionContent { get; set; } = default!;
+    [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
+}
+
+<div class="relative group @(CapturedAttributes.GetValueOrDefault("class"))" @attributes="@(CapturedAttributes.Without("class"))">
+    @ActionContent
+
+    <div class="absolute top-full left-1/2 -translate-x-1/2 z-20 collapse group-hover:visible">
+        @ChildContent
+    </div>
+</div>
+
+@code {
+
+}

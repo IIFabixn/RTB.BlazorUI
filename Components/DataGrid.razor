@@ -1,31 +1,36 @@
-﻿<!-- DataGrid.razor ------------------------------------------------------>
+﻿@using RTB.BlazorUI.Interfaces
+<!-- DataGrid.razor ------------------------------------------------------>
 @typeparam TRow
 @attribute [CascadingTypeParameter(nameof(TRow))]
 
 @inherits RTBComponent
+@implements IRegister<ColumnBase<TRow>>
+
 
 @code {
-    [Parameter] public IEnumerable<TRow> Items { get; set; } = Enumerable.Empty<TRow>();
-    [Parameter] public EventCallback<TRow> DoubleClickCallback { get; set; }
-    [Parameter] public EventCallback<TRow> OnDoubleTab { get; set; }
+    [Parameter] public List<TRow> Items { get; set; } = [];
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
+    [Parameter] public TRow? SelectedRow { get; set; }
+    [Parameter] public EventCallback<TRow>? SelectedRowChanged { get; set; }
+
+    [Parameter] public string? HeaderClass { get; set; }
 }
 
 <CascadingValue Value="this">
-    @ChildContent
     <!-- registers the <DataColumn>s -->
+    @ChildContent
 </CascadingValue>
 
-<div class="h-full overflow-auto">
-    <div class="grid sticky top-0 z-10 bg-blue-100 border-b"
+<div class="h-full w-full"> <!-- wrapping div in order to have functioning scrolling.. -->
+    <div class="grid sticky top-0 z-10 border-b @(CapturedAttributes.GetValueOrDefault("class"))"
         style="grid-template-columns:@GridTemplate">
 
         <!-- ---------- Header cells (row 1) ------------------------ -->
         @foreach (var col in _columns)
         {
-            <div class="p-2 font-medium bg-blue-100 sticky top-0
-                select-none cursor-pointer z-10 border-b flex items-center justify-between"
+            <div class="p-2 font-medium sticky top-0
+                select-none cursor-pointer z-10 bg-inherit border-b border-b-slate-300 flex items-center justify-between @HeaderClass @(col.CapturedAttributes.GetValueOrDefault("class"))"
             @onclick="() => ToggleSort(col)">
                 @col.RenderHeader
                 @if (_sort?.Column == col)
@@ -39,12 +44,14 @@
         @for (var rowIdx = 0; rowIdx < _sortedItems.Count; rowIdx++)
         {
             var row = _sortedItems[rowIdx];
+            var isSelected = _selectedRow?.Equals(row) ?? false;
             for (var colIdx = 0; colIdx < _columns.Count; colIdx++)
             {
                 var col = _columns[colIdx];
-                <div role="cell" @key="@($"{rowIdx}_{colIdx}")"
-                     class="p-2 @(rowIdx % 2 == 0 ? "bg-slate-50" : "bg-white")"
-                     @ondblclick="() => DoubleClickCallback.InvokeAsync(row)">
+                <div role="cell"
+                class="p-2 @(isSelected ? "bg-red-100" : rowIdx % 2 == 0 ? "bg-slate-50" : "bg-white")"
+                @onclick="() => SelectRow(row)"
+                >
                     @(builder => col.RenderCell(builder, row))
                 </div>
             }
@@ -53,9 +60,10 @@
 </div>
 
 @code {
-    private readonly List<IColumn<TRow>> _columns = [];
+    private List<ColumnBase<TRow>> _columns = [];
     private SortInfo? _sort;
     private List<TRow> _sortedItems = [];
+    private TRow? _selectedRow;
 
     protected override void OnParametersSet()
     {
@@ -65,7 +73,7 @@
             if (firstSortable is not null)
                 _sort = new(firstSortable, firstSortable.DefaultSortDescending);
         }
-
+        _selectedRow = SelectedRow;
         _sortedItems = SortItems().ToList();
     }
 
@@ -81,17 +89,32 @@
         return Items;
     }
 
-    private string GridTemplate => string.Join(' ', _columns.Select(c => c.Width ?? "auto"));
-
-    public void AddColumn(IColumn<TRow> column)
+    private string GridTemplate => string.Join(' ', _columns.Select(c =>
     {
-        if (!_columns.Contains(column))
-            _columns.Add(column);
+        if (c.MinWidth != null || c.MaxWidth != null)
+        {
+            var min = c.MinWidth ?? "auto";
+            var max = c.MaxWidth ?? "1fr";
+            return $"minmax({min}, {max})";
+        }
+
+        return c.Width ?? "auto";
+    }));
+
+    public void Register(ColumnBase<TRow> column)
+    {
+        if (_columns.Any(i => i.Guid == column.Guid)) return;
+
+        _columns.Add(column);
+        StateHasChanged();
     }
 
-    public void RemoveColumn(IColumn<TRow> column) {
-        if (_columns.Contains(column))
-            _columns.Remove(column);
+    public void Unregister(ColumnBase<TRow> column)
+    {
+        if (!_columns.Any(i => i.Guid == column.Guid)) return;
+        
+        _columns.Remove(column);
+        StateHasChanged();
     }
 
     private void ToggleSort(IColumn<TRow> column)
@@ -106,4 +129,11 @@
     }
 
     private record SortInfo(IColumn<TRow> Column, bool Descending);
+
+    private void SelectRow(TRow row)
+    {
+        SetProperty(ref _selectedRow, row);
+        
+        SelectedRowChanged?.InvokeAsync(_selectedRow);
+    }
 }

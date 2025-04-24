@@ -2,9 +2,21 @@
 @inherits RTBComponent
 @code {
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+    [Parameter] public bool NoShadow { get; set; } = false;
+    [Parameter] public string? Title { get; set; }
 }
 
-<div class="bg-white @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
+<div class="bg-white rounded p-2 @(NoShadow ? string.Empty : "shadow") @(CapturedAttributes.GetValueOrDefault("class"))"
     @attributes="@CapturedAttributes.Without("class")">
-    @ChildContent
+
+    <FlexLayout FullHeight IsVertical class="items-center">
+        @if(!string.IsNullOrEmpty(Title))
+        {
+            <div class="border-b-[2px] border-slate-300 pt-4 pb-2 px-2 w-full">
+                @Title
+            </div>
+        }
+
+        @ChildContent
+    </FlexLayout>
 </div>

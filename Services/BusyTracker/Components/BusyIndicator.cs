@@ -4,8 +4,9 @@ using RTB.BlazorUI.Components;
 
 namespace RTB.BlazorUI.Services.BusyTracker.Components
 {
-    public class BusyIndicator(BusyTracker tracker) : RTBComponent, IDisposable
+    public class BusyIndicator(IBusyTracker tracker) : RTBComponent, IDisposable
     {
+        [Parameter] public RenderFragment? BusyContent { get; set; }
         [Parameter] public RenderFragment? ChildContent { get; set; }
         [Parameter] public string? TrackId { get; set; }
 
@@ -16,20 +17,23 @@ namespace RTB.BlazorUI.Services.BusyTracker.Components
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
-            if (!tracker.IsAnyBusy) return; // No busy state, do not render anything
-
-            if (!string.IsNullOrEmpty(TrackId) && !tracker.IsBusy(TrackId)) return; // No busy state for this TrackId, do not render anything
-
-            if (ChildContent is null)
+            if (!tracker.IsBusy(TrackId)) 
             {
-                // Render the default busy tracker if no ChildContent is provided
+                // Render the child content if not busy for the specified TrackId
+                builder.AddContent(0, ChildContent);
+                return;
+            }
+
+            if (BusyContent is null)
+            {
+                // Render the default busy tracker if no BusyContent is provided
                 builder.OpenComponent<DefaultBusyTracker>(0);
                 builder.CloseComponent();
             }
             else
             {
-                // Render the provided ChildContent
-                builder.AddContent(0, ChildContent);
+                // Render the provided BusyContent
+                BusyContent.Invoke(builder);
             }
         }
 

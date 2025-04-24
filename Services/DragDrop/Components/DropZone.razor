@@ -4,13 +4,13 @@
 
 @inject IJSRuntime JSRuntime
 @inject ILogger<DropZone<TObject>> Logger
-@inject DragDropService DragDropService
+@inject IDragDropService DragDropService
 
 @typeparam TObject
 
 @inherits RTBComponent
 
-<div class="@(isDraggingOver ? DraggingClass : string.Empty) @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty) "
+<div class="@(isDraggingOver ? DraggingClass : string.Empty) @(CapturedAttributes.GetValueOrDefault("class"))"
      @attributes="@(CapturedAttributes.Without("class"))"
      @ondragover="HandleDragOver"
      @ondragleave="HandleDragLeave"

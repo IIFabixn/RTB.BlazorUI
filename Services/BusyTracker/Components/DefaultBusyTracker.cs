@@ -13,8 +13,13 @@ namespace RTB.BlazorUI.Services.BusyTracker.Components
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
             builder.OpenElement(0, "div");
-            builder.AddAttribute(1, "class", "animate-spin inline text-red-400");
-            builder.AddContent(2, "Loading...");
+            builder.AddAttribute(1, "class", " h-full w-full grid place-items-center");
+            builder.AddContent(2, (_builder) => {
+                _builder.OpenElement(0, "span");
+                _builder.AddAttribute(1, "class", "inline text-red-400 animate-spin");
+                _builder.AddContent(2, "c");
+                _builder.CloseElement();
+            });
             builder.CloseElement();
         }
     }

@@ -9,12 +9,20 @@ using System.Threading.Tasks;
 
 namespace RTB.BlazorUI.Services.BusyTracker
 {
+    public interface IBusyTracker
+    {
+        event Action? OnBusyChanged;
+        bool IsBusy(string? key);
+        bool IsAnyBusy { get; }
+        IDisposable Track([CallerMemberName] string method = "", Action? onDispose = null);
+    }
+
     /// <summary>
     /// Tracks busy states for asynchronous operations by named keys.
     /// Useful for showing spinners, disabling buttons, and detecting background tasks.
     /// Supports multiple concurrent scopes per key.
     /// </summary>
-    public class BusyTracker(ILogger<BusyTracker> Logger)
+    public class BusyTracker(ILogger<BusyTracker> Logger) : IBusyTracker
     {
         private readonly ConcurrentDictionary<string, int> _busyKeys = new();
 
@@ -27,8 +35,8 @@ namespace RTB.BlazorUI.Services.BusyTracker
         /// <summary>
         /// Checks if a specific key is currently busy.
         /// </summary>
-        public bool IsBusy(string key) =>
-            _busyKeys.TryGetValue(key, out var count) && count > 0;
+        public bool IsBusy(string? key = "") =>
+            string.IsNullOrEmpty(key) ? IsAnyBusy : _busyKeys.TryGetValue(key, out var count) && count > 0;
 
         /// <summary>
         /// True if any tracked key is currently busy.

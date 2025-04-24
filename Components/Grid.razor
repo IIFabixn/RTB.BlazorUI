@@ -1,5 +1,9 @@
 ﻿@using RTB.BlazorUI.Extensions
+@using RTB.BlazorUI.Helper
+@using RTB.BlazorUI.Interfaces
+
 @inherits RTBComponent
+@implements IRegister<GridItem>
 
 @code {
     [Parameter]
@@ -22,41 +26,41 @@
     @ChildContent
 </CascadingValue>
 
-<div
-    class="grid @(FullHeight ? "h-full" : string.Empty) @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
+<div class="@(ClassBuilder.Create("grid").AppendIf("h-full", FullHeight).AppendIf((string?)CapturedAttributes.GetValueOrDefault("class") ?? string.Empty, () => CapturedAttributes.ContainsKey("class")).Build())"
     style="grid-template-columns: @Columns; grid-template-rows: @Rows;"
      @attributes="@(CapturedAttributes.Without("class"))"
 >
-    @foreach (GridItem item in _gridItems)
+    @foreach (var item in _gridItems)
     {
-        <div
-             style="@(item.Column > 0 ? $"grid-column: {item.Column};" : string.Empty) 
-              @(item.ColumnSpan > 1 ? $"grid-colmn-span: {item.ColumnSpan};" : string.Empty)
-              @(item.Row > 0 ? $"grid-row: {item.Row};" : string.Empty) 
-              @(item.RowSpan > 1 ? $"grid-row-span: {item.RowSpan};" : string.Empty)"
-             @attributes="@(item.CapturedAttributes)">
+        <div @key="item.Guid"
+        style="@(StyleBuilder.Create()
+                .AppendIf("grid-column", item.Column.ToString(), item.Column > 0)
+                .AppendIf("grid-column-start", $"span {item.ColumnSpan}", item.ColumnSpan > 1)
+                .AppendIf("grid-row", item.Row.ToString(), item.Row > 0)
+                .AppendIf("grid-row-start", $"span {item.RowSpan}", item.RowSpan > 1)
+                .Build())"
+        @attributes="@(item.CapturedAttributes)">
             @item.ChildContent
         </div>
     }
 </div>
 
 @code {
-    private List<GridItem> _gridItems = new List<GridItem>();
+    private List<GridItem> _gridItems = [];
 
-    public void RegisterItem(GridItem item)
+    public void Register(GridItem item)
     {
-        if (!_gridItems.Contains(item))
-        {
-            _gridItems.Add(item);
-            StateHasChanged();
-        }
+        if (_gridItems.Any(i => i.Guid == item.Guid)) return;
+
+        _gridItems.Add(item);
+        StateHasChanged();
     }
 
-    public void UnregisterItem(GridItem item)
+    public void Unregister(GridItem item)
     {
-        if (_gridItems.Remove(item))
-        {
-            StateHasChanged(); // Trigger re-render when items are removed
-        }
+        if (!_gridItems.Any(i => i.Guid == item.Guid)) return;
+
+        _gridItems.Remove(item);
+        StateHasChanged(); // Trigger re-render when items are removed
     }
 }

@@ -1,0 +1,61 @@
+﻿@using SkiaSharp
+@using SkiaSharp.Views.Blazor
+
+@inherits ChartBase
+
+<Grid FullHeight Rows="1fr auto">
+    <GridItem class="relative grid place-items-center">
+        <SKCanvasView class="h-full w-full max-h-120! max-w-full!" OnPaintSurface="PaintDonut" />
+        <h3 class="absolute top-1/2 left-1/2 -translate-1/2">@TotalValue</h3>
+    </GridItem>
+    <GridItem>
+        <FlexLayout IsHorizontal class="items-center justify-center gap-2">
+            @foreach (var entry in Entries.Where(e => e.Value > 0))
+            {
+                <div class="w-2 h-2 rounded" style="background-color: #@entry.Color?.ToString().Substring(3)"></div>
+
+                <h4>@entry.Label (@entry.Value)</h4>
+            }
+        </FlexLayout>
+    </GridItem>
+</Grid>
+
+@code {
+    private void PaintDonut(SKPaintSurfaceEventArgs args)
+    {
+        var canvas = args.Surface.Canvas;
+        canvas.Clear(SKColors.White);
+
+        var outerRadius = Math.Min(args.Info.Width, args.Info.Height) * 0.4f;
+        var innerRadius = outerRadius * 0.6f; // Adjust this to control the thickness of the donut
+        var center = new SKPoint(args.Info.Width / 2f, args.Info.Height / 2f);
+
+        float start = -90f; // Start at 12-o’clock
+        float gapAngle = 2f; // Gap angle in degrees
+        using var paint = new SKPaint
+            {
+                IsAntialias = true,
+                Style = SKPaintStyle.Fill,
+                StrokeWidth = 0 // Ensure no stroke is applied
+            };
+
+        paint.Color = SKColors.LightGray;
+        canvas.DrawCircle(center.X, center.Y, innerRadius - 4f, paint);
+
+        foreach (var entry in Entries)
+        {
+            if (entry.Value <= 0) continue;
+
+            float sweep = 360f * (entry.Value / TotalValue) - gapAngle; // Reduce sweep by gap angle
+            paint.Color = entry.Color ?? throw new InvalidDataException($"Entry {entry.Label} does not have a Color associated with it.");
+
+            using var path = new SKPath();
+            path.AddArc(new SKRect(center.X - outerRadius, center.Y - outerRadius, center.X + outerRadius, center.Y + outerRadius), start, sweep);
+            path.ArcTo(new SKRect(center.X - innerRadius, center.Y - innerRadius, center.X + innerRadius, center.Y + innerRadius), start + sweep, -sweep, false);
+
+            path.Close();
+            canvas.DrawPath(path, paint);
+            start += sweep + gapAngle; // Add gap angle to the start for the next segment
+        }
+    }
+}

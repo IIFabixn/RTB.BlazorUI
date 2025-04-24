@@ -8,11 +8,6 @@
     [Parameter] public EventCallback<TItem?> OnChange { get; set; } = default!;
 }
 
-@(
-((__builder) => {
-    __builder.AddContent(0, "1");
-})
-)
 <select @onchange="@(e => OnChange.InvokeAsync((TItem?)e.Value))" @attributes="CapturedAttributes">
     @foreach(var item in Items)
     {

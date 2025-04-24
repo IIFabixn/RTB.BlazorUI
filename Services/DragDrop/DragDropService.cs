@@ -2,7 +2,14 @@ using Microsoft.Extensions.Logging;
 
 namespace RTB.BlazorUI.Services.DragDrop;
 
-public class DragDropService(ILogger<DragDropService> logger)
+public interface IDragDropService
+{
+    object? DraggedItemData { get; }
+    void StartDrag<TObject>(TObject? itemData);
+    TObject? GetDataOnDrop<TObject>();
+}
+
+public class DragDropService(ILogger<DragDropService> logger) : IDragDropService
 {
     public object? DraggedItemData { get; private set; }
 

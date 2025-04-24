@@ -3,13 +3,13 @@
 @using RTB.BlazorUI.Services
 
 @inject IJSRuntime JSRuntime
-@inject DragDropService DragDropService
+@inject IDragDropService DragDropService
 @inject ILogger<DraggableItem<TData>> Logger
 @inherits RTBComponent
 
 @typeparam TData
 
-<div class="active:grabbing @(CapturedAttributes.TryGetValue("class", out var classes) ? classes : string.Empty)"
+<div class="active:grabbing @(CapturedAttributes.GetValueOrDefault("class"))"
     @attributes="@(CapturedAttributes.Without("class"))"
      draggable="true"
      @ondragstart="HandleDragStart">

@@ -1,22 +1,26 @@
 using System;
 using Microsoft.AspNetCore.Components;
+using RTB.BlazorUI.Interfaces;
 
 namespace RTB.BlazorUI.Components;
 
 public class TabItem : RTBComponent, IDisposable
 {
-    [CascadingParameter] public TabGroup? TabGroup { get; set; }
-    [Parameter] public string? Title { get; set; }
+    public readonly Guid Guid = Guid.NewGuid();
+
+    [CascadingParameter] public IRegister<TabItem>? TabGroup { get; set; }
+    [Parameter, EditorRequired] public required string Title { get; set; } = string.Empty;
     [Parameter] public RenderFragment? HeadContent { get; set; }
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
-
     protected override void OnParametersSet()
     {
-        TabGroup?.RegisterTabItem(this);
+        TabGroup?.Register(this);
     }
+
     public void Dispose()
     {
-        TabGroup?.UnregisterTabItem(this);
+        TabGroup?.Unregister(this);
+        GC.SuppressFinalize(this);
     }
 }

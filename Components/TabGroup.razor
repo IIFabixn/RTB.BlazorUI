@@ -1,19 +1,30 @@
-﻿@inherits RTBComponent
+﻿@using RTB.BlazorUI.Extensions
+@using RTB.BlazorUI.Helper
+@using RTB.BlazorUI.Interfaces
+
+@inherits RTBComponent
+@implements IRegister<TabItem>
 
 @code {
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+    [Parameter] public RenderFragment<List<TabItem>>? HeadContent { get; set; }
+    [Parameter] public string ActiveTabClass { get; set; } = "activetab";
 }
 
 <CascadingValue Value="this">
     @ChildContent
 </CascadingValue>
 
-<Grid FullHeight Rows="auto 1fr">
-    <GridItem Row="1">
-        <Grid Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))">
-                @foreach(var tab in _tabItems)
+<Grid Rows="auto 1fr" @attributes="@CapturedAttributes">
+    <GridItem>
+        @if (HeadContent is null)
+        {
+            <Grid Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" class="place-items-center h-12">
+                @foreach (var tab in _tabItems)
                 {
-                    <GridItem @onclick="@(() => SetProperty(ref _selectedTabItem, tab))">
+                    <GridItem @key="tab.Guid" class="@(ClassBuilder.Create("w-full h-full grid palce-items-center").AppendIf(ActiveTabClass, SelectedTab == tab.Title).Append(tab.CapturedAttributes.GetValueOrDefault<string>("class")))"
+                              @onclick="() => SelectedTab = tab.Title"
+                              @attributes="@tab.CapturedAttributes.Without("class")">
                         @if (tab.HeadContent is not null)
                         {
                             @tab.HeadContent
@@ -24,36 +35,50 @@
                         }
                     </GridItem>
                 }
-        </Grid>
+            </Grid>
+        }
+        else 
+        {
+            @HeadContent
+        }
     </GridItem>
-    <GridItem Row="2">
-        @_selectedTabItem?.ChildContent
+    <GridItem>
+        @SelectedTabContent
     </GridItem>
 </Grid>
 
 @code {
     private List<TabItem> _tabItems = new List<TabItem>();
-    private TabItem? _selectedTabItem;
-    
-    public void RegisterTabItem(TabItem tabItem)
+    private string? _selectedTab;
+    private string? SelectedTab
+    {
+        get => _selectedTab;
+        set => SetProperty(ref _selectedTab, value);
+    }
+
+    private RenderFragment? SelectedTabContent => _tabItems.FirstOrDefault(i => i.Title == SelectedTab)?.ChildContent;
+
+    public void Register(TabItem tabItem)
     {
         if (!_tabItems.Contains(tabItem))
         {
-            _selectedTabItem ??= tabItem;
+            SelectedTab ??= tabItem.Title;
             _tabItems.Add(tabItem);
+
             StateHasChanged();
         }
     }
 
-    public void UnregisterTabItem(TabItem tabItem)
+    public void Unregister(TabItem tabItem)
     {
         if (_tabItems.Contains(tabItem))
         {
             _tabItems.Remove(tabItem);
-            if (_selectedTabItem == tabItem)
+            if (SelectedTab == tabItem.Title)
             {
-                _selectedTabItem = null;
+                SelectedTab = null;
             }
+
             StateHasChanged();
         }
     }
