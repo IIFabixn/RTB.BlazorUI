@@ -1,4 +1,5 @@
-﻿@using RTB.BlazorUI.Interfaces
+﻿@using RTB.BlazorUI.Extensions
+@using RTB.BlazorUI.Interfaces
 <!-- DataGrid.razor ------------------------------------------------------>
 @typeparam TRow
 @attribute [CascadingTypeParameter(nameof(TRow))]
@@ -8,13 +9,15 @@
 
 
 @code {
-    [Parameter] public List<TRow> Items { get; set; } = [];
+    [Parameter] public IEnumerable<TRow> Items { get; set; } = [];
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
     [Parameter] public TRow? SelectedRow { get; set; }
     [Parameter] public EventCallback<TRow>? SelectedRowChanged { get; set; }
 
     [Parameter] public string? HeaderClass { get; set; }
+
+    [Parameter, EditorRequired] public string KeyProperty { get; set; } = default!;
 }
 
 <CascadingValue Value="this">
@@ -33,9 +36,9 @@
                 select-none cursor-pointer z-10 bg-inherit border-b border-b-slate-300 flex items-center justify-between @HeaderClass @(col.CapturedAttributes.GetValueOrDefault("class"))"
             @onclick="() => ToggleSort(col)">
                 @col.RenderHeader
-                @if (_sort?.Column == col)
+                @if (Sort?.Column == col)
                 {
-                    <span>@(_sort.Descending ? "▼" : "▲")</span>
+                    <span>@(Sort.Descending ? "▼" : "▲")</span>
                 }
             </div>
         }
@@ -44,11 +47,13 @@
         @for (var rowIdx = 0; rowIdx < _sortedItems.Count; rowIdx++)
         {
             var row = _sortedItems[rowIdx];
+            var rowId = row?.GetType().GetProperty(KeyProperty)?.GetValue(row)?.ToString() ?? rowIdx.ToString();
             var isSelected = _selectedRow?.Equals(row) ?? false;
             for (var colIdx = 0; colIdx < _columns.Count; colIdx++)
             {
                 var col = _columns[colIdx];
                 <div role="cell"
+                @key="@($"{col.Guid}_{rowId}")"
                 class="p-2 @(isSelected ? "bg-red-100" : rowIdx % 2 == 0 ? "bg-slate-50" : "bg-white")"
                 @onclick="() => SelectRow(row)"
                 >
@@ -62,24 +67,42 @@
 @code {
     private List<ColumnBase<TRow>> _columns = [];
     private SortInfo? _sort;
+    private SortInfo? Sort
+    {
+        get => _sort;
+        set => SetProperty(ref _sort, value);
+    }
+
     private List<TRow> _sortedItems = [];
     private TRow? _selectedRow;
 
     protected override void OnParametersSet()
     {
-        if (_sort is null)
+        if (Sort is null)
         {
             var firstSortable = _columns.FirstOrDefault(c => c.CanSort);
             if (firstSortable is not null)
-                _sort = new(firstSortable, firstSortable.DefaultSortDescending);
+                Sort = new(firstSortable, firstSortable.DefaultSortDescending);
         }
+
         _selectedRow = SelectedRow;
-        _sortedItems = SortItems().ToList();
+        SetProperty(ref _sortedItems, SortItems().ToList());
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (!firstRender) return;
+        if (_columns.Count == 0) return; // no columns registered
+
+        Sort ??= _columns.TryGetItem(i => i.CanSort, out var col) ? new(col, col.DefaultSortDescending) : null;
+
+        SetProperty(ref _sortedItems, SortItems().ToList());
+        StateHasChanged(); // trigger rerender
     }
 
     private IEnumerable<TRow> SortItems()
     {
-        if (_sort is { Column.SortKey: not null } s)
+        if (Sort is { Column.SortKey: not null } s)
         {
             return s.Descending
                 ? Items.OrderByDescending(s.Column.SortKey!)
@@ -121,11 +144,11 @@
     {
         if (!column.CanSort) return;
 
-        _sort = _sort?.Column == column
-            ? _sort with { Descending = !_sort.Descending }  // toggle direction
+        Sort = Sort?.Column == column
+            ? Sort with { Descending = !Sort.Descending }  // toggle direction
             : new(column, column.DefaultSortDescending);     // new column selected
 
-        _sortedItems = SortItems().ToList();
+        SetProperty(ref _sortedItems, SortItems().ToList());
     }
 
     private record SortInfo(IColumn<TRow> Column, bool Descending);

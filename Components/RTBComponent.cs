@@ -12,7 +12,7 @@ public abstract class RTBComponent : ComponentBase, INotifyPropertyChanged
     public event PropertyChangedEventHandler? PropertyChanged;
 
     /// <summary>
-    /// Easyily notify the component that it needs to re-render.
+    /// Easyily notify the component that it needs to re-render after updating the ref.
     /// </summary>
     /// <typeparam name="TValue"></typeparam>
     /// <param name="key"></param>

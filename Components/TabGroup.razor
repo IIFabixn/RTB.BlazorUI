@@ -19,10 +19,10 @@
     <GridItem>
         @if (HeadContent is null)
         {
-            <Grid Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" class="place-items-center h-12">
+            <Grid Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" class="place-items-center">
                 @foreach (var tab in _tabItems)
                 {
-                    <GridItem @key="tab.Guid" class="@(ClassBuilder.Create("w-full h-full grid palce-items-center").AppendIf(ActiveTabClass, SelectedTab == tab.Title).Append(tab.CapturedAttributes.GetValueOrDefault<string>("class")))"
+                    <GridItem @key="tab.Guid" class="@(ClassBuilder.Create("w-full h-12 cursor-pointer flex justify-center items-center").AppendIf(ActiveTabClass, SelectedTab == tab.Title).Append(tab.CapturedAttributes.GetValueOrDefault<string>("class")))"
                               @onclick="() => SelectedTab = tab.Title"
                               @attributes="@tab.CapturedAttributes.Without("class")">
                         @if (tab.HeadContent is not null)
@@ -31,7 +31,7 @@
                         }
                         else
                         {
-                            <span>@tab.Title</span>
+                            <h4>@tab.Title</h4>
                         }
                     </GridItem>
                 }

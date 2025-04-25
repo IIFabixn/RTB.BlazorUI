@@ -12,7 +12,7 @@
         <FlexLayout IsHorizontal class="items-center justify-center gap-2">
             @foreach (var entry in Entries.Where(e => e.Value > 0))
             {
-                <div class="w-2 h-2 rounded" style="background-color: #@entry.Color?.ToString().Substring(3)"></div>
+                <div class="w-2 h-2 rounded shrink-0" style="background-color: #@entry.Color?.ToString().Substring(3)"></div>
 
                 <h4>@entry.Label (@entry.Value)</h4>
             }
