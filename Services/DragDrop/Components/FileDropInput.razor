@@ -17,7 +17,6 @@
 <InputFile id="@Id" OnChange="HandleChange" multiple="@Multiple" hidden accept="@(string.Join(",", AcceptedTypes))" />
 <label id="@(Id)Zone"
        for="@Id"
-       ondragover="event.preventDefault();"
        @attributes="CapturedAttributes">
     @ChildContent
 </label>

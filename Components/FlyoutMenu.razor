@@ -1,9 +1,9 @@
 ﻿@inherits RTBComponent
 
 @code {
-	[Parameter, EditorRequired] public RenderFragment Activator { get; set; } = default!;
-	[Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
-	[Parameter, EditorRequired] public FlyoutPosition Position { get; set; }
+    [Parameter, EditorRequired] public RenderFragment Activator { get; set; } = default!;
+    [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
+    [Parameter, EditorRequired] public FlyoutPosition Position { get; set; }
 }
 
 <div class="relative" @onclick:stopPropagation>
@@ -11,34 +11,45 @@
 		@Activator
 	</div>
 	@if (IsOpen)
-	{
-		<div class="absolute @GetFlyoutPositionClasses() z-50 bg-white border rounded-xl min-w-[80px] p-2">
+    {
+        <div class="absolute @GetFlyoutPositionClasses() z-50 bg-white border rounded-xl min-w-[80px] p-2">
             @ChildContent
         </div>
-	}
+    }
 </div>
 
 @code {
-	public enum FlyoutPosition
-	{
-		UpLeft, Up, UpRight,
-		DownLeft, Down, DownRight,
-		LeftUp, Left, LeftDown,
-		RightUp, Right, RightDown,
-		Center
-	}
+    public enum FlyoutPosition
+    {
+        UpLeft, Up, UpRight,
+        DownLeft, Down, DownRight,
+        LeftUp, Left, LeftDown,
+        RightUp, Right, RightDown,
+        Center
+    }
 
-	private bool IsOpen { get; set; }
-	public event Action? OnStateChanged;
+    private bool _isOpen;
+    private bool IsOpen 
+    {
+        get => _isOpen;
+        set
+        {
+            OnStateChanged?.Invoke();
+            SetProperty(ref _isOpen, value);
+        }
+    }
+    public event Action? OnStateChanged;
 
-	private void ToggleMenu()
-	{
-		IsOpen = !IsOpen;
-		OnStateChanged?.Invoke();
-		StateHasChanged();
-	}
+    private void ToggleMenu()
+    {
+        IsOpen = !IsOpen;
+        StateHasChanged();
+    }
 
-	private string GetFlyoutPositionClasses() => Position switch
+    public void CloseMenu() => IsOpen = false;
+    public void OpenMenu() => IsOpen = true;
+
+    private string GetFlyoutPositionClasses() => Position switch
     {
 		FlyoutPosition.Down => "right-1/2 mt-2 top-full",
 		FlyoutPosition.Up => "right-1/2 bottom-full mb-2",

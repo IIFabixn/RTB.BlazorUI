@@ -8,7 +8,6 @@ window.initDragDropInterop = (dropZoneId, inputId) => {
     // Handle dragover event - critical for signaling drop is allowed
     dropZone.addEventListener('dragover', (e) => {
         e.preventDefault();
-        e.stopPropagation();
         // Explicitly set dropEffect to 'copy' to indicate file can be dropped
         e.dataTransfer.dropEffect = 'copy';
         dropZone.classList.add('hover');
@@ -20,7 +19,6 @@ window.initDragDropInterop = (dropZoneId, inputId) => {
 
     dropZone.addEventListener('drop', (e) => {
         e.preventDefault();
-        e.stopPropagation();
         dropZone.classList.remove('hover');
 
         if (e.dataTransfer.items) {
