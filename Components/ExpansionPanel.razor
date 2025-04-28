@@ -1,0 +1,44 @@
+﻿@inherits RTBComponent
+
+@code {
+    [Parameter]
+    public RenderFragment? Header { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool InitialExpanded { get; set; } = false;
+
+    [Parameter]
+    public EventCallback<bool>? ExpandedChanged { get; set; }
+}
+
+<FlexLayout IsVertical>
+    <FlexLayout IsHorizontal class="gap-2">
+        @Header
+        <button @onclick="Toggle">
+            @if (isExpanded)
+            {
+                <span>Collapse</span>
+            }
+            else
+            {
+                <span>Expand</span>
+            }
+        </button>
+    </FlexLayout>
+    <div class="@(isExpanded ? "visible" : "collapse")">
+        @ChildContent
+    </div>
+</FlexLayout>
+
+@code{
+    private bool isExpanded = false;
+
+    private void Toggle()
+    {
+        SetProperty(ref isExpanded, !isExpanded);
+        ExpandedChanged?.InvokeAsync(isExpanded);
+    }
+}

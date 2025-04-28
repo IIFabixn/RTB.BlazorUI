@@ -14,6 +14,8 @@
 
     [Parameter] public bool FullHeight { get; set; } = false;
 
+    [Parameter] public bool Center { get; set; } = false;
+
     [Parameter]
     public RenderFragment ChildContent { get; set; } = default!;
 }
@@ -26,20 +28,20 @@
     @ChildContent
 </CascadingValue>
 
-<div class="@(ClassBuilder.Create("grid").AppendIf("h-full", FullHeight).AppendIf((string?)CapturedAttributes.GetValueOrDefault("class") ?? string.Empty, () => CapturedAttributes.ContainsKey("class")).Build())"
+<div class="@(ClassBuilder.Create("grid").AppendIf("h-full", FullHeight).AppendIf("place-items-center", Center).AppendIf((string?)CapturedAttributes.GetValueOrDefault("class") ?? string.Empty, () => CapturedAttributes.ContainsKey("class")).Build())"
     style="grid-template-columns: @Columns; grid-template-rows: @Rows;"
      @attributes="@(CapturedAttributes.Without("class"))"
 >
     @foreach (var item in _gridItems)
     {
         <div @key="item.Guid"
-        style="@(StyleBuilder.Create()
+            style="@(StyleBuilder.Create()
                 .AppendIf("grid-column", item.Column.ToString(), item.Column > 0)
                 .AppendIf("grid-column-start", $"span {item.ColumnSpan}", item.ColumnSpan > 1)
                 .AppendIf("grid-row", item.Row.ToString(), item.Row > 0)
                 .AppendIf("grid-row-start", $"span {item.RowSpan}", item.RowSpan > 1)
                 .Build())"
-        @attributes="@(item.CapturedAttributes)">
+            @attributes="@(item.CapturedAttributes)">
             @item.ChildContent
         </div>
     }
