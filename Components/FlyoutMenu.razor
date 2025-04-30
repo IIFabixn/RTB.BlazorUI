@@ -51,10 +51,10 @@
 
     private string GetFlyoutPositionClasses() => Position switch
     {
-		FlyoutPosition.Down => "right-1/2 mt-2 top-full",
-		FlyoutPosition.Up => "right-1/2 bottom-full mb-2",
-		FlyoutPosition.Left => "right-full mr-2 top-1/2",
-		FlyoutPosition.Right => "left-full ml-2 top-1/2",
+		FlyoutPosition.Down => "right-1/2 mt-2 top-full translate-x-1/2",
+		FlyoutPosition.Up => "right-1/2 bottom-full mb-2 translate-x-1/2",
+		FlyoutPosition.Left => "right-full mr-2 top-1/2 translate-y-1/2",
+		FlyoutPosition.Right => "left-full ml-2 top-1/2 translate-y-1/2",
 		_ => throw new ArgumentOutOfRangeException(nameof(Position), Position, "Not yet implemented")
     };
 }

@@ -61,10 +61,3 @@ window.dialogHelper = {
         }
     }
 };
-
-function addFileToInput(file) {
-    const dt = new DataTransfer();
-    dt.items.add(file);
-    fileInput.files = dt.files;
-    fileInput.dispatchEvent(new Event("change", { bubbles: true }));
-}
