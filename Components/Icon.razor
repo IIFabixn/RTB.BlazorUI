@@ -1,0 +1,45 @@
+﻿@using RTB.BlazorUI.Extensions
+@inject HttpClient HttpClient
+
+@inherits RTBComponent
+
+@code {
+    /// <summary>
+    /// Use RTB Icons
+    /// </summary>
+    [Parameter] public string IconName { get; set; } = string.Empty;
+    /// <summary>
+    /// Custom Path to svg file
+    /// </summary>
+    [Parameter] public string? Path { get; set; }
+
+    [Parameter] public string Width { get; set; } = "8";
+    [Parameter] public string Height { get; set; } = "8";
+
+    private static readonly Dictionary<string, MarkupString> IconCache = new();
+
+	private MarkupString? _iconContent;
+
+	protected override async Task OnParametersSetAsync()
+	{
+		var path = Path ?? $"_content/RTB.BlazorUI/icons/{IconName}.svg";
+        if (!IconCache.TryGetValue(path, out var content))
+		{
+            var iconContent = await HttpClient.GetStringAsync(path);
+			IconCache[IconName] = new MarkupString(iconContent);
+			content = IconCache[IconName];
+		}
+
+		if (content.Value is { Length: > 0 })
+		{
+			_iconContent = content;
+		}
+		else
+		{
+			throw new Exception($"Icon not found: {path}");
+		}
+	}
+}
+<i class="h-@Height w-@Width @(CapturedAttributes.GetValueOrDefault<string>("class", string.Empty))">
+    @_iconContent
+</i>

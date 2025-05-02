@@ -1,0 +1,24 @@
+﻿@inherits RTBComponent
+
+@inject IJSRuntime JSRuntime
+
+@code {
+	private string currentTheme = "light";
+
+	private async Task ToggleTheme(MouseEventArgs args)
+	{
+		currentTheme = currentTheme == "light" ? "dark" : "light";
+		await JSRuntime.InvokeVoidAsync("setTheme", currentTheme);
+	}
+}
+
+<button @onclick="ToggleTheme">
+	@if (currentTheme == "light")
+	{
+		<Icon IconName="Moon" Width="24" Height="24" class="text-black dark:text-white" />
+	}
+	else
+	{
+		<Icon IconName="Sun" Width="24" Height="24" class="text-black dark:text-white" />
+	}
+</button>
