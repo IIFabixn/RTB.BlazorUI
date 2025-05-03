@@ -1,45 +1,61 @@
 ﻿@using RTB.BlazorUI.Extensions
+@using System.Text.RegularExpressions
 @inject HttpClient HttpClient
 
 @inherits RTBComponent
 
 @code {
-    /// <summary>
-    /// Use RTB Icons
-    /// </summary>
-    [Parameter] public string IconName { get; set; } = string.Empty;
-    /// <summary>
-    /// Custom Path to svg file
-    /// </summary>
-    [Parameter] public string? Path { get; set; }
+	/// <summary>
+	/// Use RTB Icons
+	/// </summary>
+	[Parameter] public string IconName { get; set; } = string.Empty;
+	/// <summary>
+	/// Custom Path to svg file
+	/// </summary>
+	[Parameter] public string? Path { get; set; }
 
-    [Parameter] public string Width { get; set; } = "8";
-    [Parameter] public string Height { get; set; } = "8";
+	[Parameter] public string Width { get; set; } = "24";
+	[Parameter] public string Height { get; set; } = "24";
 
-    private static readonly Dictionary<string, MarkupString> IconCache = new();
+	private static readonly Dictionary<string, string> IconCache = new();
+    private string _iconPath => Path ?? $"_content/RTB.BlazorUI/icons/{IconName}.svg";
 
 	private MarkupString? _iconContent;
 
 	protected override async Task OnParametersSetAsync()
 	{
 		var path = Path ?? $"_content/RTB.BlazorUI/icons/{IconName}.svg";
-        if (!IconCache.TryGetValue(path, out var content))
+		if (!IconCache.TryGetValue(path, out var content))
 		{
-            var iconContent = await HttpClient.GetStringAsync(path);
-			IconCache[IconName] = new MarkupString(iconContent);
+			var iconContent = await HttpClient.GetStringAsync(path);
+			IconCache[IconName] = iconContent;
 			content = IconCache[IconName];
 		}
 
-		if (content.Value is { Length: > 0 })
+		if (content is { Length: > 0 })
 		{
-			_iconContent = content;
+			_iconContent = InjectDimensions(content);
 		}
 		else
 		{
 			throw new Exception($"Icon not found: {path}");
 		}
 	}
+
+	private MarkupString InjectDimensions(string content)
+	{
+		var updatedSvg = Regex.Replace(
+			content,
+			@"<svg([^>]*)>",
+			$"<svg$1 width=\"{Width}\" height=\"{Height}\" class=\"{CapturedAttributes.GetValueOrDefault<string>("class")}\">",
+			RegexOptions.IgnoreCase | RegexOptions.Multiline
+		);
+		
+		return new MarkupString(updatedSvg);
+	}
 }
-<i class="h-@Height w-@Width @(CapturedAttributes.GetValueOrDefault<string>("class", string.Empty))">
-    @_iconContent
-</i>
+<img src="@_iconPath" alt="@IconName" width="@Width" height="@Height" />
+
+@* <i @attributes="@CapturedAttributes"> *@
+@*     @_iconContent *@
+@* </i> *@
