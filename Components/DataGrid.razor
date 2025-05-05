@@ -53,10 +53,9 @@
             {
                 var col = _columns[colIdx];
                 <div role="cell"
-                @key="@($"{col.Guid}_{rowId}")"
-                class="p-2 @(isSelected ? "bg-red-100" : rowIdx % 2 == 0 ? "bg-slate-50" : "bg-white")"
-                @onclick="() => SelectRow(row)"
-                >
+                    @key="@($"{col.Guid}_{rowId}")"
+                    class="p-2 @(isSelected ? "bg-red-100" : rowIdx % 2 == 0 ? "bg-slate-50" : "bg-white")"
+                    @onclick="() => SelectRow(row)">
                     @(builder => col.RenderCell(builder, row))
                 </div>
             }
