@@ -66,10 +66,3 @@ Because we're developers.
 We're not supposed to brew — we're supposed to code. ☕😉
 
 “I'm a teapot.” – HTTP 418
-
----
-
-Let me know if you’d like to include:
-- A logo or badge section
-- Documentation links (e.g., GitHub Pages or Storybook-like preview)
-- Contribution guidelines
