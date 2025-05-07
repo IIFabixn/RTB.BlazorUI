@@ -5,15 +5,13 @@ using System.Data;
 
 namespace RTB.BlazorUI.Components;
 
-public abstract class RTBComponent : ComponentBase, INotifyPropertyChanged
+public abstract class RTBComponent : ComponentBase
 {
     [Parameter(CaptureUnmatchedValues = true)]
     public Dictionary<string, object> CapturedAttributes { get; set; } = [];
 
-    public event PropertyChangedEventHandler? PropertyChanged;
-
     /// <summary>
-    /// Easyily notify the component that it needs to re-render after updating the ref.
+    /// SetProperty is a helper method to call StateHasChanged.
     /// </summary>
     /// <typeparam name="TValue"></typeparam>
     /// <param name="key"></param>
@@ -21,10 +19,13 @@ public abstract class RTBComponent : ComponentBase, INotifyPropertyChanged
     public void SetProperty<TValue>(ref TValue key, TValue value)
     {
         key = value;
-        PropertyChanged?.Invoke(this, new(nameof(key)));
         StateHasChanged();
     }
 
+    /// <summary>
+    /// StatefulAction is a helper method to call an action and then call StateHasChanged.
+    /// </summary>
+    /// <param name="action"></param>
     public void StatefulAction(Action action)
     {
         action();

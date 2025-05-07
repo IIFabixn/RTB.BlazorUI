@@ -9,7 +9,7 @@
 <div class="bg-white rounded p-2 @(NoShadow ? string.Empty : "shadow") @(CapturedAttributes.GetValueOrDefault("class"))"
     @attributes="@CapturedAttributes.Without("class")">
 
-    <FlexLayout FullHeight IsVertical class="items-center">
+    <FlexLayout FullHeight IsVertical class="items-center @(CapturedAttributes.GetValueOrDefault<string>("Content.class"))" @attributes="@CapturedAttributes.ByPrefix("Content.").Without("class")">
         @if(!string.IsNullOrEmpty(Title))
         {
             <div class="border-b-[2px] border-slate-300 pt-4 pb-2 px-2 w-full">

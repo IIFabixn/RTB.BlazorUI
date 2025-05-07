@@ -20,7 +20,7 @@ public static class DictionaryExtension
         return fallback;
     }
 
-    public static IEnumerable<KeyValuePair<string, object>> Without(this IDictionary<string, object> dictionary, params string[] key)
+    public static IDictionary<string, object> Without(this IDictionary<string, object> dictionary, params string[] key)
     {
         if (dictionary == null)
         {
@@ -33,7 +33,7 @@ public static class DictionaryExtension
         }
 
         var keysToRemove = new HashSet<string>(key, StringComparer.OrdinalIgnoreCase);
-        return dictionary.Where(kvp => !keysToRemove.Contains(kvp.Key));
+        return dictionary.Where(kvp => !keysToRemove.Contains(kvp.Key)).ToDictionary();
     }
 
     public static IDictionary<string, object> ByPrefix(this IDictionary<string, object> dictionary, string prefix, bool trimPrefix = true)

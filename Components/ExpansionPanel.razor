@@ -1,4 +1,5 @@
-﻿@inherits RTBComponent
+﻿@using RTB.BlazorUI.Extensions
+@inherits RTBComponent
 
 @code {
     [Parameter]
@@ -14,8 +15,8 @@
     public EventCallback<bool>? ExpandedChanged { get; set; }
 }
 
-<FlexLayout IsVertical>
-    <FlexLayout IsHorizontal class="gap-2">
+<FlexLayout IsVertical @attributes="@CapturedAttributes.Without("Header.", "Content.")">
+    <FlexLayout IsHorizontal class="gap-2 @(CapturedAttributes.GetValueOrDefault<string>("Header.class"))" @attributes="@CapturedAttributes.ByPrefix("Header.").Without("class")">
         @Header
         <button @onclick="Toggle">
             @if (isExpanded)
@@ -28,7 +29,7 @@
             }
         </button>
     </FlexLayout>
-    <div class="@(isExpanded ? "visible" : "collapse")">
+    <div class="@(isExpanded ? "visible" : "collapse") @(CapturedAttributes.GetValueOrDefault<string>("Content.class"))" @attributes="@CapturedAttributes.ByPrefix("Content.").Without("class")">
         @ChildContent
     </div>
 </FlexLayout>

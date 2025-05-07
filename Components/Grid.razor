@@ -20,18 +20,13 @@
     public RenderFragment ChildContent { get; set; } = default!;
 }
 
-@* 
-    Just to provide this Grid as CascardingParameter to the Content (mostly GridItems). 
-    Why as Cascarding I head you asking.. so that we dont need to manually pass the Grid to each GridItem our self lol.
-*@
-<CascadingValue Value="this">
-    @ChildContent
-</CascadingValue>
-
 <div class="@(ClassBuilder.Create("grid").AppendIf("h-full", FullHeight).AppendIf("place-items-center", Center).AppendIf((string?)CapturedAttributes.GetValueOrDefault("class") ?? string.Empty, () => CapturedAttributes.ContainsKey("class")).Build())"
     style="grid-template-columns: @Columns; grid-template-rows: @Rows;"
      @attributes="@(CapturedAttributes.Without("class"))"
 >
+    <CascadingValue Value="this">
+        @ChildContent
+    </CascadingValue>
     @foreach (var item in _gridItems)
     {
         <div @key="item.Guid"

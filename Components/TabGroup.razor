@@ -16,10 +16,10 @@
 </CascadingValue>
 
 <Grid Rows="auto 1fr" @attributes="@CapturedAttributes">
-    <GridItem>
+    <GridItem @attributes="@CapturedAttributes.ByPrefix("HeadContent.")">
         @if (HeadContent is null)
         {
-            <Grid Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" class="place-items-center">
+            <Grid @attributes="@CapturedAttributes.ByPrefix("HeadItemContent.")" Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" class="place-items-center">
                 @foreach (var tab in _tabItems)
                 {
                     <GridItem @key="tab.Guid" class="@(ClassBuilder.Create("w-full h-12 cursor-pointer flex justify-center items-center").AppendIf(ActiveTabClass, SelectedTab == tab.Title).Append(tab.CapturedAttributes.GetValueOrDefault<string>("class")))"
@@ -42,7 +42,7 @@
             @HeadContent
         }
     </GridItem>
-    <GridItem>
+    <GridItem @attributes="@CapturedAttributes.ByPrefix("SelectedTabContent.")">
         @SelectedTabContent
     </GridItem>
 </Grid>

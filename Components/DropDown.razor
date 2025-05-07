@@ -7,10 +7,10 @@
     [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
 }
 
-<div class="relative group @(CapturedAttributes.GetValueOrDefault("class"))" @attributes="@(CapturedAttributes.Without("class"))">
+<div class="relative group @(CapturedAttributes.GetValueOrDefault<string>("class"))" @attributes="@(CapturedAttributes.Without("class", "Content."))">
     @ActionContent
 
-    <div class="absolute top-full left-1/2 -translate-x-1/2 z-20 collapse group-hover:visible">
+    <div class="absolute top-full left-1/2 -translate-x-1/2 z-20 collapse group-hover:visible @(CapturedAttributes.GetValueOrDefault<string>("Content.class"))" @attributes="@(CapturedAttributes.ByPrefix("Content.").Without("class"))">
         @ChildContent
     </div>
 </div>
