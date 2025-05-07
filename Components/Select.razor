@@ -13,6 +13,10 @@
     {
         <option value="@item">
             @OptionTemplate?.Invoke(item)
+            @if (OptionTemplate is null)
+            {
+                <p>@item?.ToString()</p>
+            }
         </option>
     }
 </select>

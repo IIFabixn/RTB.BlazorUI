@@ -24,4 +24,10 @@ public abstract class RTBComponent : ComponentBase, INotifyPropertyChanged
         PropertyChanged?.Invoke(this, new(nameof(key)));
         StateHasChanged();
     }
+
+    public void StatefulAction(Action action)
+    {
+        action();
+        StateHasChanged();
+    }
 }

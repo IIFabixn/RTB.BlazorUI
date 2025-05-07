@@ -1,0 +1,51 @@
+﻿@using RTB.BlazorUI.Extensions
+@inherits RTBComponent
+
+@code {
+    [Parameter, EditorRequired] public RenderFragment Activator { get; set; } = default!;
+    [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
+    [Parameter] public bool InitiallyExpanded { get; set; } = false;
+}
+
+<FlexLayout IsVertical @attributes="@CapturedAttributes.Where(kvp => !kvp.Key.Contains("."))" @onclick:stopPropagation>
+    <div @onclick="ToggleMenu" @attributes="@CapturedAttributes.ByPrefix("Activator.")">
+        @Activator
+    </div>
+    @if (IsOpen)
+    {
+        <div @attributes="@CapturedAttributes.ByPrefix("Content.")">
+            @ChildContent
+        </div>
+    }
+</FlexLayout>
+
+@code {
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            IsOpen = InitiallyExpanded;
+        }
+    }
+
+    private bool _isOpen;
+    private bool IsOpen
+    {
+        get => _isOpen;
+        set
+        {
+            OnStateChanged?.Invoke();
+            SetProperty(ref _isOpen, value);
+        }
+    }
+    public event Action? OnStateChanged;
+
+    private void ToggleMenu()
+    {
+        IsOpen = !IsOpen;
+        StateHasChanged();
+    }
+
+    public void CloseMenu() => IsOpen = false;
+    public void OpenMenu() => IsOpen = true;
+}
