@@ -20,13 +20,14 @@ namespace RTB.BlazorUI.Components
         {
             int seq = 0;
             builder.OpenElement(seq++, Element);
-            builder.AddAttribute(seq++, "class", ClassBuilder.Create("rtb-component")
+            builder.AddAttribute(seq++, "class", ClassBuilder.Create("rtb-box")
                 .AppendIf("h-full", FullHeight)
                 .AppendIf("w-full", FullWidth)
                 .AppendIf("grid", Grid)
                 .AppendIf("flex", Flex)
                 .Append(CapturedAttributes.GetValueOrDefault<string>("class")) // additional classes
                 .Build());
+            builder.AddMultipleAttributes(seq++, CapturedAttributes.Without("class"));
             builder.AddContent(seq++, ChildContent);
             builder.CloseElement();
         }

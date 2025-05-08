@@ -1,4 +1,5 @@
 @typeparam TItem
+
 @inherits RTBComponent
 
 @using RTB.BlazorUI.Components
@@ -13,23 +14,20 @@
     [Parameter] public RenderFragment? HeaderTemplate { get; set; }
 }
 
-<Box Flex class="@(ClassBuilder.Create().AppendIf("flex-col", IsVertical).AppendIf("flex-row", IsHorizontal).Append(CapturedAttributes.GetValueOrDefault<string>("class")))"
+<Box Flex class="@(ClassBuilder.Create().AppendIf("flex-col", IsVertical).AppendIf("flex-row", IsHorizontal).Append(CapturedAttributes.GetValueOrDefault<string>("class")).Build())"
     @attributes="@(CapturedAttributes.Without("class"))">
-    <div 
-        >
-        @if (Items.Any())
+    @if (Items.Any())
+    {
+        foreach (var item in Items)
         {
-            foreach (var item in Items)
+            @if (ItemTemplate != null)
             {
-                @if (ItemTemplate != null)
-                {
-                    @ItemTemplate(item)
-                }
-                else
-                {
-                    @item?.ToString()
-                }
+                @ItemTemplate(item)
+            }
+            else
+            {
+                @item?.ToString()
             }
         }
-    </div>
+    }
 </Box>

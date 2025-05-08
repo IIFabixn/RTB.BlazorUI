@@ -1,6 +1,7 @@
 @using Microsoft.JSInterop
 @using Microsoft.AspNetCore.Components.Forms
 @using RTB.BlazorUI.Components
+@using System.Diagnostics
 
 @inject IJSRuntime JSRuntime
 
@@ -38,7 +39,7 @@
 
         if (files.Length == 0)
         {
-            Console.WriteLine("Dropped content was not a supported file type.");
+            Debug.WriteLine("Dropped content was not a supported file type.");
             return;
         }
 
