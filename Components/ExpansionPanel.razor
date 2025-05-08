@@ -15,9 +15,10 @@
     public EventCallback<bool>? ExpandedChanged { get; set; }
 }
 
-<FlexLayout IsVertical @attributes="@CapturedAttributes.Without("Header.", "Content.")">
-    <FlexLayout IsHorizontal class="gap-2 @(CapturedAttributes.GetValueOrDefault<string>("Header.class"))" @attributes="@CapturedAttributes.ByPrefix("Header.").Without("class")">
+<FlexLayout IsVertical @attributes="@CapturedAttributes">
+    <FlexLayout IsHorizontal class="gap-2">
         @Header
+
         <button @onclick="Toggle">
             @if (isExpanded)
             {
@@ -29,7 +30,7 @@
             }
         </button>
     </FlexLayout>
-    <div class="@(isExpanded ? "visible" : "collapse") @(CapturedAttributes.GetValueOrDefault<string>("Content.class"))" @attributes="@CapturedAttributes.ByPrefix("Content.").Without("class")">
+    <div class="@(isExpanded ? "visible" : "collapse")">
         @ChildContent
     </div>
 </FlexLayout>

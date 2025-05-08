@@ -11,7 +11,7 @@ namespace RTB.BlazorUI.Services.DataNavigationService
     {
         private readonly Dictionary<string, object?> _data = [];
 
-        public void SetData(string key, object? value)
+        private void SetData(string key, object? value)
         {
             if (!_data.TryAdd(key, value))
             {

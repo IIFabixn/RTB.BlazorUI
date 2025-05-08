@@ -7,7 +7,6 @@
 @inherits RTBComponent
 @implements IRegister<ColumnBase<TRow>>
 
-
 @code {
     [Parameter] public IEnumerable<TRow> Items { get; set; } = [];
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
@@ -25,7 +24,7 @@
     @ChildContent
 </CascadingValue>
 
-<div class="h-full w-full"> <!-- wrapping div in order to have functioning scrolling.. -->
+<Box FullWidth FullHeight> <!-- wrapping div in order to have functioning scrolling.. -->
     <div class="grid sticky top-0 z-10 border-b @(CapturedAttributes.GetValueOrDefault("class"))"
         style="grid-template-columns:@GridTemplate">
 
@@ -61,7 +60,7 @@
             }
         }
     </div>
-</div>
+</Box>
 
 @code {
     private List<ColumnBase<TRow>> _columns = [];
