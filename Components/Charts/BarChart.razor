@@ -5,15 +5,16 @@
 
 <Grid Rows="1fr auto" class="w-full">
     <GridItem>
-        <SKCanvasView class="h-full w-full max-h-120! max-w-full!" OnPaintSurface="PaintBars" EnableRenderLoop />
+        <SKCanvasView class="h-full w-full" OnPaintSurface="PaintBars" EnableRenderLoop />
     </GridItem>
     <GridItem>
-        <FlexLayout IsHorizontal class="items-center gap-2">
+        <FlexLayout IsHorizontal class="items-center gap-2 flex-wrap">
             @foreach (var entry in Entries)
             {
-                <div class="w-2 h-2 rounded" style="background-color: #@entry.Color?.ToString().Substring(3)"></div>
-
-                <h4>@entry.Label</h4>
+                <FlexLayout IsHorizontal class="items-center justify-center gap-2">
+                    <div class="w-2 h-2 rounded" style="background-color: #@entry.Color?.ToString().Substring(3);"></div>
+                    <h4>@entry.Label</h4>
+                </FlexLayout>
             }
         </FlexLayout>
     </GridItem>
