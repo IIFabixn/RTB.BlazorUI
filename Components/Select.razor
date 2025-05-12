@@ -1,15 +1,15 @@
 ﻿@inherits RTBComponent
 
-@typeparam TItem
+@typeparam TOption
 
 @code {
-    [Parameter] public IEnumerable<TItem> Items { get; set; } = default!;
-    [Parameter] public RenderFragment<TItem>? OptionTemplate { get; set; }
-    [Parameter] public EventCallback<TItem?> OnChange { get; set; } = default!;
+    [Parameter] public IEnumerable<TOption> Options { get; set; } = default!;
+    [Parameter] public RenderFragment<TOption>? OptionTemplate { get; set; }
+    [Parameter] public EventCallback<TOption?> OnChange { get; set; } = default!;
 }
 
-<select @onchange="@(e => OnChange.InvokeAsync((TItem?)e.Value))" @attributes="CapturedAttributes">
-    @foreach(var item in Items)
+<select @onchange="@(e => OnChange.InvokeAsync((TOption?)e.Value))" @attributes="CapturedAttributes">
+    @foreach(var item in Options)
     {
         <option value="@item">
             @OptionTemplate?.Invoke(item)
