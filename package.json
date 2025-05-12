@@ -1,0 +1,16 @@
+{
+  "name": "rtb.blazorui",
+  "version": "1.0.0",
+  "description": "**XAML-inspired Blazor component library for clean, declarative UIs.**  \r *Brewed with care, but never oversteeped.*",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.6",
+    "tailwindcss": "^4.1.6"
+  }
+}

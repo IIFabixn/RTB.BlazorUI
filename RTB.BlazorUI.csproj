@@ -1,10 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Configurations>Debug;Release;Staging</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,5 +14,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.4" />
     <PackageReference Include="SkiaSharp.Views.Blazor" Version="3.119.0" />
   </ItemGroup>
+	
+	<Target Name="CompileTailwind" AfterTargets="Build">
+    <Message Text="Compile RTB.BlazorUI Tailwindcss" Importance="high" />
+    <Exec Command="npx @tailwindcss/cli -i ./tailwind-input.css -o ./wwwroot/css/tailwind.css" />
+	</Target>
 
 </Project>
