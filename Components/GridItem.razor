@@ -1,0 +1,22 @@
+﻿@using RTB.BlazorUI.Extensions
+@using RTB.BlazorUI.Helper
+
+@inherits RTBComponent
+
+@code {
+    [Parameter] public int Column { get; set; } = -1;
+    [Parameter] public int ColumnSpan { get; set; } = 1;
+    [Parameter] public int Row { get; set; } = -1;
+    [Parameter] public int RowSpan { get; set; } = 1;
+    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+}
+
+<div style="@(StyleBuilder.Create()
+                .AppendIf("grid-column", Column.ToString(), Column > 0)
+                .AppendIf("grid-column-start", $"span {ColumnSpan}", ColumnSpan > 1)
+                .AppendIf("grid-row", Row.ToString(), Row > 0)
+                .AppendIf("grid-row-start", $"span {RowSpan}", RowSpan > 1)
+                .Build()) @(CapturedAttributes.GetValueOrDefault<string>("style"))"
+@attributes="@(CapturedAttributes.Without("style"))">
+    @ChildContent
+</div>

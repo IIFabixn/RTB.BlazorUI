@@ -19,25 +19,24 @@
     [Parameter, EditorRequired] public string KeyProperty { get; set; } = default!;
 }
 
-<CascadingValue Value="this">
-    <!-- registers the <DataColumn>s -->
-    @ChildContent
-</CascadingValue>
-
-<Box FullWidth FullHeight> <!-- wrapping div in order to have functioning scrolling.. -->
+<!-- wrapping div in order to have functioning scrolling.. -->
+<Box FullWidth FullHeight>
     <div class="grid sticky top-0 z-10 border-b @(CapturedAttributes.GetValueOrDefault("class"))"
-        style="grid-template-columns:@GridTemplate">
+         style="grid-template-columns:@GridTemplate;">
+
+        <!-- registers the <DataColumn>s -->
+        <CascadingValue Value="this">
+            @ChildContent
+        </CascadingValue>
 
         <!-- ---------- Header cells (row 1) ------------------------ -->
         @foreach (var col in _columns)
         {
-            <div class="p-2 font-medium sticky top-0
-                select-none cursor-pointer z-10 bg-inherit border-b border-b-slate-300 flex items-center justify-between @HeaderClass @(col.CapturedAttributes.GetValueOrDefault("class"))"
-            @onclick="() => ToggleSort(col)">
+            <div class="p-2 font-medium sticky top-0 z-10 bg-inherit border-b border-b-slate-300 flex items-center justify-between @HeaderClass @(col.CapturedAttributes.GetValueOrDefault("class"))">
                 @col.RenderHeader
                 @if (Sort?.Column == col)
                 {
-                    <span>@(Sort.Descending ? "▼" : "▲")</span>
+                    <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(Sort.Descending ? "▼" : "▲")</button>
                 }
             </div>
         }

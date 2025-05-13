@@ -482,10 +482,6 @@
       --tw-ring-color: color-mix(in oklab, var(--color-gray-950) 10%, transparent);
     }
   }
-  .select-none {
-    -webkit-user-select: none;
-    user-select: none;
-  }
   .group-hover\:visible {
     &:is(:where(.group):hover *) {
       @media (hover: hover) {

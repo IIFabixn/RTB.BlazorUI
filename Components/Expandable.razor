@@ -8,7 +8,7 @@
 }
 
 <FlexLayout IsVertical @attributes="@CapturedAttributes.Where(kvp => !kvp.Key.Contains("."))" @onclick:stopPropagation>
-    <div @onclick="ToggleMenu">
+    <div @onclick="ToggleMenu" @attributes="@(CapturedAttributes.ByPrefix("Activator."))">
         @Activator
     </div>
     @if (IsOpen)

@@ -2,6 +2,7 @@
 
 @inherits RTBComponent
 
+@using Microsoft.AspNetCore.Components.Web.Virtualization
 @using RTB.BlazorUI.Components
 @using RTB.BlazorUI.Extensions
 @using RTB.BlazorUI.Helper
@@ -9,7 +10,7 @@
 @code {
     [Parameter] public bool IsHorizontal { get; set; } = false;
     [Parameter] public bool IsVertical { get; set; } = false;
-    [Parameter] public IEnumerable<TItem> Items { get; set; } = Enumerable.Empty<TItem>();
+    [Parameter] public List<TItem> Items { get; set; } = [];
     [Parameter] public RenderFragment<TItem>? ItemTemplate {get; set; }
     [Parameter] public RenderFragment? HeaderTemplate { get; set; }
 }
@@ -18,16 +19,8 @@
     @attributes="@(CapturedAttributes.Without("class"))">
     @if (Items.Any())
     {
-        foreach (var item in Items)
-        {
-            @if (ItemTemplate != null)
-            {
-                @ItemTemplate(item)
-            }
-            else
-            {
-                @item?.ToString()
-            }
-        }
+        <Virtualize Items="@Items" Context="item">
+            @ItemTemplate?.Invoke(item)
+        </Virtualize>
     }
 </Box>

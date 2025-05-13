@@ -3,7 +3,6 @@
 @using RTB.BlazorUI.Interfaces
 
 @inherits RTBComponent
-@implements IRegister<GridItem>
 
 @code {
     [Parameter]
@@ -24,40 +23,5 @@
     style="grid-template-columns: @Columns; grid-template-rows: @Rows;"
      @attributes="@(CapturedAttributes.Without("class"))"
 >
-    <CascadingValue Value="this">
-        @ChildContent
-    </CascadingValue>
-    @foreach (var item in _gridItems)
-    {
-        <div @key="item.Guid"
-            style="@(StyleBuilder.Create()
-                .AppendIf("grid-column", item.Column.ToString(), item.Column > 0)
-                .AppendIf("grid-column-start", $"span {item.ColumnSpan}", item.ColumnSpan > 1)
-                .AppendIf("grid-row", item.Row.ToString(), item.Row > 0)
-                .AppendIf("grid-row-start", $"span {item.RowSpan}", item.RowSpan > 1)
-                .Build())"
-            @attributes="@(item.CapturedAttributes)">
-            @item.ChildContent
-        </div>
-    }
+    @ChildContent
 </div>
-
-@code {
-    private List<GridItem> _gridItems = [];
-
-    public void Register(GridItem item)
-    {
-        if (_gridItems.Any(i => i.Guid == item.Guid)) return;
-
-        _gridItems.Add(item);
-        StateHasChanged();
-    }
-
-    public void Unregister(GridItem item)
-    {
-        if (!_gridItems.Any(i => i.Guid == item.Guid)) return;
-
-        _gridItems.Remove(item);
-        StateHasChanged(); // Trigger re-render when items are removed
-    }
-}
