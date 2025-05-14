@@ -46,7 +46,7 @@ public abstract class BusyComponent : RTBComponent
     /// <returns></returns>
     public IDisposable TrackBusy([CallerMemberName] string key = "")
     {
-        return BusyTracker.Track(
+        return BusyTracker.Track(key,
             onDispose: () =>
             {
                 StateHasChanged();

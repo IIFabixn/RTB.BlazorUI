@@ -19,15 +19,15 @@
     [Parameter, EditorRequired] public string KeyProperty { get; set; } = default!;
 }
 
+<!-- registers the <DataColumn>s -->
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>
+
 <!-- wrapping div in order to have functioning scrolling.. -->
 <Box FullWidth FullHeight>
     <div class="grid sticky top-0 z-10 border-b @(CapturedAttributes.GetValueOrDefault("class"))"
-         style="grid-template-columns:@GridTemplate;">
-
-        <!-- registers the <DataColumn>s -->
-        <CascadingValue Value="this">
-            @ChildContent
-        </CascadingValue>
+         style="grid-template-columns: @(GridTemplate); grid-template-rows: repeat(@Items.Count(), auto);">
 
         <!-- ---------- Header cells (row 1) ------------------------ -->
         @foreach (var col in _columns)
@@ -41,23 +41,22 @@
             </div>
         }
 
-        <!-- ---------- Data cells (rows 2…N) ----------------------- -->
-        @for (var rowIdx = 0; rowIdx < _sortedItems.Count; rowIdx++)
-        {
-            var row = _sortedItems[rowIdx];
-            var rowId = row?.GetType().GetProperty(KeyProperty)?.GetValue(row)?.ToString() ?? rowIdx.ToString();
-            var isSelected = _selectedRow?.Equals(row) ?? false;
-            for (var colIdx = 0; colIdx < _columns.Count; colIdx++)
-            {
-                var col = _columns[colIdx];
-                <div role="cell"
-                    @key="@($"{col.Guid}_{rowId}")"
-                    class="p-2 @(isSelected ? "bg-red-100" : rowIdx % 2 == 0 ? "bg-slate-50" : "bg-white")"
-                    @onclick="() => SelectRow(row)">
-                    @(builder => col.RenderCell(builder, row))
-                </div>
-            }
-        }
+        <Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize Items="_sortedItems" Context="row">
+            <!-- ---------- Data cells (rows 2…N) ----------------------- -->
+            @* display:contents will not create a new element in the dom *@
+            <div style="display:contents">
+                @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
+                {
+                    var col = _columns[colIdx - 1];
+                    <div role="cell"
+                        class="p-2"
+                        style="grid-column-start: @(colIdx);"
+                        @onclick="() => SelectRow(row)">
+                        @(builder => col.RenderCell(builder, row))
+                    </div>
+                }
+            </div>
+        </Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize>
     </div>
 </Box>
 
