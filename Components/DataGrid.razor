@@ -12,7 +12,7 @@
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
     [Parameter] public TRow? SelectedRow { get; set; }
-    [Parameter] public EventCallback<TRow>? SelectedRowChanged { get; set; }
+    [Parameter] public EventCallback<TRow> SelectedRowChanged { get; set; }
 
     [Parameter] public string? HeaderClass { get; set; }
 
@@ -30,10 +30,11 @@
          style="grid-template-columns: @(GridTemplate); grid-template-rows: repeat(@Items.Count(), auto);">
 
         <!-- ---------- Header cells (row 1) ------------------------ -->
-        @foreach (var col in _columns)
+        @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
         {
+            var col = _columns[colIdx - 1];
             <div class="p-2 font-medium sticky top-0 z-10 bg-inherit border-b border-b-slate-300 flex items-center justify-between @HeaderClass @(col.CapturedAttributes.GetValueOrDefault("class"))">
-                @col.RenderHeader
+                @(builder => col.RenderHeader(builder, colIdx))
                 @if (Sort?.Column == col)
                 {
                     <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(Sort.Descending ? "▼" : "▲")</button>
@@ -43,17 +44,15 @@
 
         <Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize Items="_sortedItems" Context="row">
             <!-- ---------- Data cells (rows 2…N) ----------------------- -->
+            @{
+                int rowIndex = _sortedItems.IndexOf(row);
+            }
             @* display:contents will not create a new element in the dom *@
-            <div style="display:contents">
+            <div style="display:contents" class="*:px-2 @(rowIndex % 2 == 0 ? "*:bg-white" : "*:bg-gray-100")" @onclick="() => SelectRow(row)">
                 @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
                 {
                     var col = _columns[colIdx - 1];
-                    <div role="cell"
-                        class="p-2"
-                        style="grid-column-start: @(colIdx);"
-                        @onclick="() => SelectRow(row)">
-                        @(builder => col.RenderCell(builder, row))
-                    </div>
+                    @(builder => col.RenderCell(builder, row, colIdx))
                 }
             </div>
         </Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize>
@@ -112,12 +111,12 @@
     {
         if (c.MinWidth != null || c.MaxWidth != null)
         {
-            var min = c.MinWidth ?? "auto";
+            var min = c.MinWidth ?? c.Width ?? "max-content";
             var max = c.MaxWidth ?? "1fr";
             return $"minmax({min}, {max})";
         }
 
-        return c.Width ?? "auto";
+        return c.Width ?? "max-content";
     }));
 
     public void Register(ColumnBase<TRow> column)
@@ -153,6 +152,7 @@
     {
         SetProperty(ref _selectedRow, row);
         
-        SelectedRowChanged?.InvokeAsync(_selectedRow);
+        if (SelectedRowChanged.HasDelegate)
+            SelectedRowChanged.InvokeAsync(_selectedRow);
     }
 }

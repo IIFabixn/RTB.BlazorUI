@@ -7,8 +7,8 @@ namespace RTB.BlazorUI.Components
     public interface IColumn<TRow> : IDisposable
     {
         IRegister<ColumnBase<TRow>>? ParentGrid { get; set; }
-        void RenderHeader(RenderTreeBuilder builder);
-        void RenderCell(RenderTreeBuilder builder, TRow row);
+        void RenderHeader(RenderTreeBuilder builder, int col);
+        void RenderCell(RenderTreeBuilder builder, TRow row, int col);
         string Name { get; set; }
         string? Width { get; set; }
         string? MinWidth { get; set; }
@@ -39,20 +39,19 @@ namespace RTB.BlazorUI.Components
 
         public void Dispose() => ParentGrid?.Unregister(this);
 
-        public abstract void RenderHeader(RenderTreeBuilder builder);
-        public abstract void RenderCell(RenderTreeBuilder builder, TRow row);
+        public abstract void RenderHeader(RenderTreeBuilder builder, int col);
+        public abstract void RenderCell(RenderTreeBuilder builder, TRow row, int col);
     }
 
     public class ViewColumn<TRow> : ColumnBase<TRow>, IDisposable
     {
         [Parameter, EditorRequired] public RenderFragment<TRow>? ChildContent { get; set; }
 
-        public override void RenderHeader(RenderTreeBuilder builder)
+        public override void RenderHeader(RenderTreeBuilder builder, int col)
         {
             if (HeadContent is not null)
             {
                 HeadContent.Invoke(builder);
-                return;
             }
 
             // Add default content if HeadContent is null
@@ -61,7 +60,7 @@ namespace RTB.BlazorUI.Components
             builder.CloseElement();
         }
 
-        public override void RenderCell(RenderTreeBuilder builder, TRow row)
+        public override void RenderCell(RenderTreeBuilder builder, TRow row, int col)
         {
             if (ChildContent is not null)
                 builder.AddContent(0, ChildContent(row));
@@ -71,33 +70,25 @@ namespace RTB.BlazorUI.Components
     public class DataColumn<TRow, TValue> : ColumnBase<TRow>
     {
         [Parameter, EditorRequired] public Func<TRow, TValue> ValueFunc { get; set; } = default!;
-        [Parameter] public RenderFragment<TValue>? ChildContent { get; set; }
 
-        public override void RenderHeader(RenderTreeBuilder builder)
+        public override void RenderHeader(RenderTreeBuilder builder, int col)
         {
-            if (HeadContent is not null)
-            {
-                HeadContent.Invoke(builder);
-                return;
-            }
-
             // Add default content if HeadContent is null
             builder.OpenElement(0, "div");
             builder.AddContent(1, Name);
             builder.CloseElement();
         }
 
-        public override void RenderCell(RenderTreeBuilder builder, TRow row)
+        public override void RenderCell(RenderTreeBuilder builder, TRow row, int col)
         {
             var value = ValueFunc(row);
-            if (ChildContent is not null)
-                builder.AddContent(0, ChildContent(value));
-            else
-            {
-                builder.OpenElement(0, "div");
-                builder.AddContent(2, value);
-                builder.CloseElement();
-            }
+            builder.OpenElement(0, "div");
+            builder.AddAttribute(1, "role", "cell");
+            builder.AddAttribute(1, "class", "whitespace-nowrap overflow-hidden text-ellipsis");
+            builder.AddAttribute(1, "style", $"grid-column-start: {col};");
+            builder.AddMultipleAttributes(1, CapturedAttributes);
+            builder.AddContent(2, value);
+            builder.CloseElement();
         }
     }
 }

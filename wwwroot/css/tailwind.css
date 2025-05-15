@@ -1,4 +1,4 @@
-/*! tailwindcss v4.1.4 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.1.6 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -381,6 +381,9 @@
   .overflow-clip {
     overflow: clip;
   }
+  .overflow-hidden {
+    overflow: hidden;
+  }
   .rounded {
     border-radius: 0.25rem;
   }
@@ -447,6 +450,12 @@
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
+  .text-ellipsis {
+    text-overflow: ellipsis;
+  }
+  .whitespace-nowrap {
+    white-space: nowrap;
+  }
   .text-gray-500 {
     color: var(--color-gray-500);
   }
@@ -472,6 +481,21 @@
     --tw-ring-color: color-mix(in srgb, oklch(13% 0.028 261.692) 10%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       --tw-ring-color: color-mix(in oklab, var(--color-gray-950) 10%, transparent);
+    }
+  }
+  .\*\:bg-gray-100 {
+    :is(& > *) {
+      background-color: var(--color-gray-100);
+    }
+  }
+  .\*\:bg-white {
+    :is(& > *) {
+      background-color: var(--color-white);
+    }
+  }
+  .\*\:px-2 {
+    :is(& > *) {
+      padding-inline: calc(var(--spacing) * 2);
     }
   }
   .group-hover\:visible {
