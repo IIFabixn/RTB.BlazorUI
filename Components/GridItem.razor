@@ -4,19 +4,18 @@
 @inherits RTBComponent
 
 @code {
-    [Parameter] public int Column { get; set; } = -1;
+    [Parameter] public int Column { get; set; } = 0;
     [Parameter] public int ColumnSpan { get; set; } = 1;
-    [Parameter] public int Row { get; set; } = -1;
+    [Parameter] public int Row { get; set; } = 0;
     [Parameter] public int RowSpan { get; set; } = 1;
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 }
 
-<div style="@(StyleBuilder.Create()
-                .AppendIf("grid-column", Column.ToString(), Column > 0)
-                .AppendIf("grid-column-start", $"span {ColumnSpan}", ColumnSpan > 1)
-                .AppendIf("grid-row", Row.ToString(), Row > 0)
-                .AppendIf("grid-row-start", $"span {RowSpan}", RowSpan > 1)
-                .Build()) @(CapturedAttributes.GetValueOrDefault<string>("style"))"
-@attributes="@(CapturedAttributes.Without("style"))">
+<Styled @bind-Classname="@ComponentClass">
+    grid-column: @(Column > 0 ? Column : "auto") / span @ColumnSpan;
+    grid-row: @(Row > 0 ? Row : "auto") / span @RowSpan;
+</Styled>
+
+<div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))" @attributes="@(CapturedAttributes.Without("class"))">
     @ChildContent
 </div>

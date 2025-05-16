@@ -11,13 +11,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="BlazorStyled" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.4" />
     <PackageReference Include="SkiaSharp.Views.Blazor" Version="3.119.0" />
   </ItemGroup>
 	
 	<Target Name="CompileTailwind" AfterTargets="Build">
-    <Message Text="Compile RTB.BlazorUI Tailwindcss" Importance="high" />
-    <Exec Command="npx @tailwindcss/cli -i ./tailwind-input.css -o ./wwwroot/css/tailwind.css" />
+        <Message Text="Compile RTB.BlazorUI Tailwindcss" Importance="high" />
+        <Exec Command="npx @tailwindcss/cli -i ./tailwind-input.css -o ./wwwroot/css/tailwind.css" />
 	</Target>
 
 </Project>

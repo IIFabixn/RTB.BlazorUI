@@ -7,7 +7,7 @@ namespace RTB.BlazorUI.Services.BusyTracker
     public interface IBusyTracker
     {
         event Action? OnBusyChanged;
-        bool IsBusy(string? key);
+        bool IsBusy(string? key = null);
         bool IsAnyBusy { get; }
         IDisposable Track([CallerMemberName] string method = "", Action? onDispose = null);
     }

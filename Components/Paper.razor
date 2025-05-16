@@ -1,13 +1,25 @@
 ﻿@using RTB.BlazorUI.Extensions
 @using RTB.BlazorUI.Helper
+@using RTB.BlazorUI.Services.Theme
+@using RTB.BlazorUI.Services.Theme.Themes
+
 @inherits RTBComponent
 
 @code {
+    [CascadingParameter] public IRTBTheme Theme { get; set; } = default!;
+
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
-    [Parameter] public bool NoShadow { get; set; } = false;
+    [Parameter] public string? Color { get; set; }
+    [Parameter] public string? Shadow { get; set; }
+    [Parameter] public bool Rounded { get; set; } = false;
 }
 
-<div class="@(ClassBuilder.Create().Append("bg-white rounded").AppendIf("shadow", !NoShadow).Append(CapturedAttributes.GetValueOrDefault<string>("class")).Build())"
-     @attributes="@CapturedAttributes.Without("class")">
+<Styled @bind-Classname="ComponentClass">
+    background-color: @(Color ?? Theme.Paper);
+    border-radius: @(Rounded ? Theme.CornerRadius : "0");
+    box-shadow: @(Shadow ?? Theme.Shadow);
+</Styled>
+
+<div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))" @attributes="@CapturedAttributes.Without("class")">
      @ChildContent
 </div>

@@ -9,6 +9,8 @@
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter] public RenderFragment<List<TabItem>>? HeadContent { get; set; }
     [Parameter] public string ActiveTabClass { get; set; } = "activetab";
+
+    private string? TabClass;
 }
 
 <CascadingValue Value="this">
@@ -20,9 +22,17 @@
         @if (HeadContent is null)
         {
             <Grid @attributes="@CapturedAttributes.ByPrefix("HeadItemContent.")" Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" class="place-items-center">
+                <Styled @bind-Classname="TabClass">
+                    width: 100%;
+                    height: 24px;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-itrems: center;
+                </Styled>
                 @foreach (var tab in _tabItems)
                 {
-                    <GridItem @key="tab.Guid" class="@(ClassBuilder.Create("w-full h-12 cursor-pointer flex justify-center items-center").AppendIf(ActiveTabClass, SelectedTab == tab.Title).Append(tab.CapturedAttributes.GetValueOrDefault<string>("class")))"
+                    <GridItem @key="tab.Guid" class="@(ClassBuilder.Create(TabClass).AppendIf(ActiveTabClass, SelectedTab == tab.Title).Append(tab.CapturedAttributes.GetValueOrDefault<string>("class")))"
                               @onclick="() => SelectedTab = tab.Title"
                               @attributes="@tab.CapturedAttributes.Without("class")">
                         @if (tab.HeadContent is not null)

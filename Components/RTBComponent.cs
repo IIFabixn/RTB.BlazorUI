@@ -1,14 +1,27 @@
+using BlazorStyled;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using RTB.BlazorUI.Services.BusyTracker;
+using RTB.BlazorUI.Services.Theme;
+using RTB.BlazorUI.Services.Theme.Themes;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace RTB.BlazorUI.Components;
 
+/// <summary>
+/// Base Component for all RTB components.<br/>
+/// RTB Components are aware of the RTB theme and can use it.<br/>
+/// RTB Components provide a way to capture unmatched attributes.<br/>
+/// RTB Components provide a way to call StateHasChanged easily.<br/>
+/// </summary>
 public abstract class RTBComponent : ComponentBase
 {
+
     [Parameter(CaptureUnmatchedValues = true)]
     public Dictionary<string, object> CapturedAttributes { get; set; } = [];
+
+    protected string? ComponentClass { get; set; }
 
     /// <summary>
     /// SetProperty is a helper method to call StateHasChanged.
@@ -30,38 +43,5 @@ public abstract class RTBComponent : ComponentBase
     {
         action();
         StateHasChanged();
-    }
-}
-
-public abstract class BusyComponent : RTBComponent
-{
-    [Inject]
-    private IBusyTracker BusyTracker { get; set; } = default!;
-
-    /// <summary>
-    /// TrackBusy is a helper method to track the busy state of the component.
-    /// Uppon disposing the IDisposable, the component will call StateHasChanged.
-    /// </summary>
-    /// <param name="key"></param>
-    /// <returns></returns>
-    public IDisposable TrackBusy([CallerMemberName] string key = "")
-    {
-        return BusyTracker.Track(key,
-            onDispose: () =>
-            {
-                StateHasChanged();
-            });
-    }
-
-    /// <summary>
-    /// IsBusy is a helper method to check if the component is busy.
-    /// </summary>
-    /// <param name="key">
-    /// The key to track the busy state of the component.
-    /// </param>
-    /// <returns></returns>
-    public bool IsBusy([CallerMemberName] string? key = "")
-    {
-        return BusyTracker.IsBusy(key);
     }
 }

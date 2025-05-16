@@ -6,7 +6,13 @@
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter] public bool NoShadow { get; set; } = false;
     [Parameter] public string? Title { get; set; }
+
+    private string card = "card";
 }
+
+<Styled @bind-Classname="@card">
+
+</Styled>
 
 <Box class="@(ClassBuilder.Create("bg-white rounded p-2").AppendIf("shadow", !NoShadow).Append(CapturedAttributes.GetValueOrDefault<string>("class")).Build())"
     @attributes="@CapturedAttributes.Without("class")">

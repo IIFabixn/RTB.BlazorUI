@@ -1,18 +1,33 @@
-﻿@inherits RTBComponent
+﻿@using RTB.BlazorUI.Extensions
+@using RTB.BlazorUI.Services.Theme.Themes
+@inherits RTBComponent
 
 @code {
     [Parameter, EditorRequired] public RenderFragment Activator { get; set; } = default!;
     [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter, EditorRequired] public FlyoutPosition Position { get; set; }
+    [Parameter] public string ContentClass { get; set; } = string.Empty;
+    [Parameter] public string ActivatorClass { get; set; } = string.Empty;
+
+    private string? MenuClass;
 }
 
-<div class="relative" @onclick:stopPropagation>
-	<div @onclick="ToggleMenu" @attributes="@CapturedAttributes">
+<Styled @bind-Classname="ComponentClass">
+    position: relative;
+</Styled>
+
+<Styled @bind-Classname="MenuClass">
+    position: absolute;
+    z-index: 50;
+</Styled>
+
+<div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))" @onclick:stopPropagation @attributes="@CapturedAttributes.Without("class")">
+    <div @onclick="ToggleMenu" class="@ActivatorClass">
 		@Activator
 	</div>
 	@if (IsOpen)
     {
-        <div class="absolute @GetFlyoutPositionClasses() z-50 bg-white border rounded-xl p-2">
+        <div class="@MenuClass @ContentClass" style="@GetFlyoutPositionStyle">
             @ChildContent
         </div>
     }
@@ -49,12 +64,12 @@
     public void CloseMenu() => IsOpen = false;
     public void OpenMenu() => IsOpen = true;
 
-    private string GetFlyoutPositionClasses() => Position switch
+    private string GetFlyoutPositionStyle() => Position switch
     {
-		FlyoutPosition.Down => "right-1/2 mt-2 top-full translate-x-1/2",
-		FlyoutPosition.Up => "right-1/2 bottom-full mb-2 translate-x-1/2",
-		FlyoutPosition.Left => "right-full mr-2 top-1/2 translate-y-1/2",
-		FlyoutPosition.Right => "left-full ml-2 top-1/2 translate-y-1/2",
+		FlyoutPosition.Down => "right: 50%; top: 100%; transform: translateX(50%);",
+        FlyoutPosition.Up => "right: 50%; bottom: 100%; transform: translateX(50%);",
+		FlyoutPosition.Left => "right: 100%; top: 50%; transform: translateY(50%);",
+		FlyoutPosition.Right => "left: 100%; top: 50%; transform: translateY(50%);",
 		_ => throw new ArgumentOutOfRangeException(nameof(Position), Position, "Not yet implemented")
     };
 }

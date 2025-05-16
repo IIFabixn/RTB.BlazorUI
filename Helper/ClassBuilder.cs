@@ -5,12 +5,12 @@ namespace RTB.BlazorUI.Helper
     public class ClassBuilder
     {
         private readonly StringBuilder _builder;
-        private ClassBuilder(string inital = "")
+        private ClassBuilder(string? inital = "")
         {
             _builder = new(inital);
         }
 
-        public static ClassBuilder Create(string inital = "")
+        public static ClassBuilder Create(string? inital = "")
         {
             return new ClassBuilder(inital);
         }

@@ -5,11 +5,9 @@
 @inherits RTBComponent
 
 @code {
-    [Parameter]
-    public string Columns { get; set; } = "1fr";
+    [Parameter] public string Columns { get; set; } = "1fr";
 
-    [Parameter]
-    public string Rows { get; set; } = "1fr";
+    [Parameter] public string Rows { get; set; } = "1fr";
 
     [Parameter] public bool FullHeight { get; set; } = false;
 
@@ -17,10 +15,21 @@
 
     [Parameter]
     public RenderFragment ChildContent { get; set; } = default!;
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+    }
 }
 
-<div class="@(ClassBuilder.Create("grid").AppendIf("h-full", FullHeight).AppendIf("place-items-center", Center).AppendIf((string?)CapturedAttributes.GetValueOrDefault("class") ?? string.Empty, () => CapturedAttributes.ContainsKey("class")).Build())"
-    style="grid-template-columns: @Columns; grid-template-rows: @Rows;"
+<Styled @bind-Classname="ComponentClass">
+    display: grid;
+    height: @(FullHeight ? "100%" : "auto");
+    grid-template-columns: @(Columns);
+    grid-template-rows: @(Rows);
+</Styled>
+
+<div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))"
      @attributes="@(CapturedAttributes.Without("class"))"
 >
     @ChildContent

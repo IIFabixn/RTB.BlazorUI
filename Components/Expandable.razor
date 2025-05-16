@@ -7,7 +7,7 @@
     [Parameter] public bool InitiallyExpanded { get; set; } = false;
 }
 
-<FlexLayout IsVertical @attributes="@CapturedAttributes.Where(kvp => !kvp.Key.Contains("."))" @onclick:stopPropagation>
+<FlexLayout @attributes="@CapturedAttributes.Where(kvp => !kvp.Key.Contains("."))" @onclick:stopPropagation>
     <div @onclick="ToggleMenu" @attributes="@CapturedAttributes.ByPrefix("Activator.")">
         @Activator
     </div>
