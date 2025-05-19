@@ -14,7 +14,7 @@
 
 </Styled>
 
-<Box class="@(ClassBuilder.Create("bg-white rounded p-2").AppendIf("shadow", !NoShadow).Append(CapturedAttributes.GetValueOrDefault<string>("class")).Build())"
+<div class="@(ClassBuilder.Create("bg-white rounded p-2").AppendIf("shadow", !NoShadow).Append(CapturedAttributes.GetValueOrDefault<string>("class")).Build())"
     @attributes="@CapturedAttributes.Without("class")">
     <FlexLayout FullHeight IsVertical class="items-center">
         @if (!string.IsNullOrEmpty(Title))
@@ -26,4 +26,4 @@
 
         @ChildContent
     </FlexLayout>
-</Box>
+</div>

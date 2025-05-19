@@ -1,13 +1,4 @@
-﻿document.documentElement.classList.toggle(
-    (!("theme" in localStorage)) ? localStorage.theme : "light"
-);
-
-window.setTheme = (theme) => {
-    document.documentElement.classList.remove(localStorage.theme);
-    localStorage.theme = theme;
-    document.documentElement.classList.toggle(theme);
-}
-
+﻿
 window.initDragDropInterop = (dropZoneId, inputId) => {
     const dropZone = document.getElementById(dropZoneId);
     const fileInput = document.getElementById(inputId);

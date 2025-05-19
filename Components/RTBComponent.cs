@@ -17,7 +17,6 @@ namespace RTB.BlazorUI.Components;
 /// </summary>
 public abstract class RTBComponent : ComponentBase
 {
-
     [Parameter(CaptureUnmatchedValues = true)]
     public Dictionary<string, object> CapturedAttributes { get; set; } = [];
 

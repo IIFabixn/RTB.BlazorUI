@@ -6,18 +6,12 @@
 @inherits RTBComponent
 
 @code {
-    [CascadingParameter] public IRTBTheme Theme { get; set; } = default!;
-
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter] public string? Color { get; set; }
-    [Parameter] public string? Shadow { get; set; }
-    [Parameter] public bool Rounded { get; set; } = false;
 }
 
 <Styled @bind-Classname="ComponentClass">
-    background-color: @(Color ?? Theme.Paper);
-    border-radius: @(Rounded ? Theme.CornerRadius : "0");
-    box-shadow: @(Shadow ?? Theme.Shadow);
+    background-color: @(Color);
 </Styled>
 
 <div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))" @attributes="@CapturedAttributes.Without("class")">

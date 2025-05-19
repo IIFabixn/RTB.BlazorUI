@@ -11,16 +11,16 @@
     [Parameter] public bool IsHorizontal { get; set; } = false;
     [Parameter] public bool IsVertical { get; set; } = false;
     [Parameter] public List<TItem> Items { get; set; } = [];
-    [Parameter] public RenderFragment<TItem>? ItemTemplate {get; set; }
+    [Parameter] public RenderFragment<TItem>? ChildContent {get; set; }
     [Parameter] public RenderFragment? HeaderTemplate { get; set; }
 }
 
-<Box Flex class="@(ClassBuilder.Create().AppendIf("flex-col", IsVertical).AppendIf("flex-row", IsHorizontal).Append(CapturedAttributes.GetValueOrDefault<string>("class")).Build())"
+<div class="@(ClassBuilder.Create().AppendIf("flex flex-col", IsVertical).AppendIf("flex-row", IsHorizontal).Append(CapturedAttributes.GetValueOrDefault<string>("class")).Build())"
     @attributes="@(CapturedAttributes.Without("class"))">
     @if (Items.Any())
     {
         <Virtualize Items="@Items" Context="item">
-            @ItemTemplate?.Invoke(item)
+            @ChildContent?.Invoke(item)
         </Virtualize>
     }
-</Box>
+</div>

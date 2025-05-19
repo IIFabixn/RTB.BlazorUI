@@ -25,7 +25,7 @@
 </CascadingValue>
 
 <!-- wrapping div in order to have functioning scrolling.. -->
-<Box FullWidth FullHeight>
+<div class="h-full w-full">
     <div class="grid sticky top-0 z-10 border-b @(CapturedAttributes.GetValueOrDefault("class"))"
          style="grid-template-columns: @(GridTemplate); grid-template-rows: repeat(@Items.Count(), auto);">
 
@@ -57,7 +57,7 @@
             </div>
         </Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize>
     </div>
-</Box>
+</div>
 
 @code {
     private List<ColumnBase<TRow>> _columns = [];
