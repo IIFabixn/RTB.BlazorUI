@@ -15,12 +15,18 @@
     [Parameter] public RenderFragment? HeaderTemplate { get; set; }
 }
 
-<div class="@(ClassBuilder.Create().AppendIf("flex flex-col", IsVertical).AppendIf("flex-row", IsHorizontal).Append(CapturedAttributes.GetValueOrDefault<string>("class")).Build())"
-    @attributes="@(CapturedAttributes.Without("class"))">
-    @if (Items.Any())
-    {
-        <Virtualize Items="@Items" Context="item">
-            @ChildContent?.Invoke(item)
-        </Virtualize>
-    }
-</div>
+<Styled @bind-Classname="ComponentClass">
+
+</Styled>
+
+<FlexLayout Direction="@(IsHorizontal ? FlexLayout.FlexDirectionEnum.Row : FlexLayout.FlexDirectionEnum.Column)">
+    <div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))"
+        @attributes="@(CapturedAttributes.Without("class"))">
+        @if (Items.Any())
+        {
+            <Virtualize Items="@Items" Context="item">
+                @ChildContent?.Invoke(item)
+            </Virtualize>
+        }
+    </div>
+</FlexLayout>

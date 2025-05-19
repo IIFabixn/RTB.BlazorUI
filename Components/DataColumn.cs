@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BlazorStyled;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
+using RTB.BlazorUI.Extensions;
+using RTB.BlazorUI.Helper;
 using RTB.BlazorUI.Interfaces;
 
 namespace RTB.BlazorUI.Components
@@ -81,11 +84,21 @@ namespace RTB.BlazorUI.Components
 
         public override void RenderCell(RenderTreeBuilder builder, TRow row, int col)
         {
+            var seq = 0;
+            builder.OpenComponent<Styled>(seq++);
+            builder.AddAttribute(seq++, nameof(Styled.Classname), ComponentClass);
+            builder.AddContent(seq++, StyleBuilder.Create()
+                .Append("hite-space", "nowrap")
+                .Append("overflow", "hidden")
+                .Append("text-overflow", "ellipsis")
+                .Append("grid-column-start", col.ToString())
+                .Build());
+            builder.CloseComponent();
+
             var value = ValueFunc(row);
             builder.OpenElement(0, "div");
             builder.AddAttribute(1, "role", "cell");
-            builder.AddAttribute(1, "class", "whitespace-nowrap overflow-hidden text-ellipsis");
-            builder.AddAttribute(1, "style", $"grid-column-start: {col};");
+            builder.AddAttribute(1, "class", ClassBuilder.Create(ComponentClass).Append(CapturedAttributes.GetValueOrDefault<string>("class")).Build());
             builder.AddMultipleAttributes(1, CapturedAttributes);
             builder.AddContent(2, value);
             builder.CloseElement();

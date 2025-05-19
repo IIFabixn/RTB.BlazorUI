@@ -1,4 +1,5 @@
 ﻿@using RTB.BlazorUI.Extensions
+@using RTB.BlazorUI.Helper
 
 @inherits RTBComponent
 
@@ -8,12 +9,18 @@
     [Parameter] public bool IsHorizontal { get; set; } = false;
     [Parameter] public bool IsVertical { get; set; } = false;
     [Parameter] public bool FullHeight { get; set; } = false;
+
+    [Parameter] public FlexDirectionEnum Direction { get; set; } = FlexDirectionEnum.Row;
+    [Parameter] public AlignItemsEnum AlignItem { get; set; } = AlignItemsEnum.Stretch;
+    [Parameter] public JustifyItemsEnum JustifyItems { get; set; } = JustifyItemsEnum.Center;
 }
 
 <Styled @bind-Classname="ComponentClass">
     display: flex;
     height: @(FullHeight ? "100%" : "auto");
-    flex-direction: @(GetDirection());
+    flex-direction: @(IsVertical ? "column" : IsHorizontal ? "row" : ToCssValue(Direction));
+    align-items: @(ToCssValue(AlignItem));
+    justify-content: @(ToCssValue(JustifyItems));
 </Styled>
 
 <div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))" @attributes="@CapturedAttributes.Without("class")">
@@ -21,12 +28,59 @@
 </div>
 
 @code {
-    public enum FlexDirection
+    public enum FlexDirectionEnum
     {
         Row,
         Column,
         RowReverse,
         ColumnReverse
+    }
+
+    public enum AlignItemsEnum
+    {
+        FlexStart,
+        Start,
+        Center,
+        FlexEnd,
+        End,
+        Stretch
+    }
+
+    public enum JustifyItemsEnum
+    {
+        FlexStart,
+        Start,
+        Center,
+        FlexEnd,
+        End,
+        Stretch
+    }
+
+    private string ToCssValue(Enum enumVal)
+    {
+        return enumVal switch
+        {
+            FlexDirectionEnum.Row => "row",
+            FlexDirectionEnum.Column => "column",
+            FlexDirectionEnum.RowReverse => "row-reverse",
+            FlexDirectionEnum.ColumnReverse => "column-reverse",
+            
+            AlignItemsEnum.FlexStart => "flex-start",
+            AlignItemsEnum.Start => "start",
+            AlignItemsEnum.Center => "center",
+            AlignItemsEnum.FlexEnd => "flex-end",
+            AlignItemsEnum.End => "end",
+            AlignItemsEnum.Stretch => "stretch",
+
+            JustifyItemsEnum.FlexStart => "flex-start",
+            JustifyItemsEnum.Start => "start",
+            JustifyItemsEnum.Center => "center",
+            JustifyItemsEnum.FlexEnd => "flex-end",
+            JustifyItemsEnum.End => "end",
+            JustifyItemsEnum.Stretch => "stretch",
+
+            _ => throw new ArgumentOutOfRangeException(nameof(enumVal), enumVal, null)
+        };
     }
 
     private string GetDirection()

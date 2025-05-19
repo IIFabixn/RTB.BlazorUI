@@ -6,8 +6,8 @@
     [Parameter, EditorRequired] public RenderFragment Activator { get; set; } = default!;
     [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter, EditorRequired] public FlyoutPosition Position { get; set; }
-    [Parameter] public string ContentClass { get; set; } = string.Empty;
     [Parameter] public string ActivatorClass { get; set; } = string.Empty;
+    [Parameter] public string ContentClass { get; set; } = string.Empty;
 
     private string? MenuClass;
 }

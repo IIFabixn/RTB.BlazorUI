@@ -1,25 +1,39 @@
 ﻿@using RTB.BlazorUI.Extensions
 @using RTB.BlazorUI.Helper
+
 @inherits RTBComponent
 
 @code {
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
-    [Parameter] public bool NoShadow { get; set; } = false;
     [Parameter] public string? Title { get; set; }
 
-    private string card = "card";
+    [Parameter] public CardStyle Style { get; set; } = new();
+
+    [Parameter] public string? Background { get; set; }
+    [Parameter] public string? Padding { get; set; }
+    [Parameter] public string? HeaderPadding { get; set; }
+    [Parameter] public string? CorderRadius { get; set; }
+    [Parameter] public string? HeaderBorder { get; set; }
 }
 
-<Styled @bind-Classname="@card">
+<Styled @bind-Classname="@ComponentClass">
+    background-color: @(Background ?? Style.Background);
+    padding: @(Padding ?? Style.Padding);
+    border-radius: @(CorderRadius ?? Style.CorderRadius);
 
+    .header {
+        width: 100%;
+        padding: @(HeaderPadding ?? Style.HeaderPadding);
+        @(HeaderBorder is not null ? "border:" : string.Empty)
+    }
 </Styled>
 
-<div class="@(ClassBuilder.Create("bg-white rounded p-2").AppendIf("shadow", !NoShadow).Append(CapturedAttributes.GetValueOrDefault<string>("class")).Build())"
+<div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))"
     @attributes="@CapturedAttributes.Without("class")">
     <FlexLayout FullHeight IsVertical class="items-center">
         @if (!string.IsNullOrEmpty(Title))
         {
-            <div class="border-b-[2px] border-slate-300 pt-4 pb-2 px-2 w-full">
+            <div class="header">
                 @Title
             </div>
         }
@@ -27,3 +41,19 @@
         @ChildContent
     </FlexLayout>
 </div>
+
+@code {
+    public class CardStyle
+    {
+        public string Background { get; set; } = "white";
+        public string Padding { get; set; } = "1rem";
+        public string CorderRadius { get; set; } = "0.5rem";
+        public string HeaderPadding { get; set; } = "0.5rem";
+        public string? HeaderBorder { get; set; }
+    }
+
+    public class Shadow
+    {
+        
+    }
+}
