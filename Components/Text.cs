@@ -9,6 +9,8 @@ namespace RTB.BlazorUI.Components;
 
 public class Text : RTBComponent
 {
+    [Inject] protected IStyled Styled { get; set; } = default!;
+
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter] public TextStyle Style { get; set; } = new();
     
@@ -17,20 +19,20 @@ public class Text : RTBComponent
     [Parameter] public string? FontWeight { get; set; }
     [Parameter] public string? LineHeight { get; set; }
     [Parameter] public string? Color { get; set; }
-    
-    protected override void BuildRenderTree(RenderTreeBuilder builder)
+
+    protected override async Task OnParametersSetAsync()
     {
-        var seq = 0;
-        builder.OpenComponent<Styled>(0);
-        builder.AddAttribute(seq++, nameof(Styled.Classname), ComponentClass);
-        builder.AddAttribute(seq++, nameof(Styled.ClassnameChanged), EventCallback.Factory.Create(this, (string newClassName) => ComponentClass = newClassName));
-        builder.AddContent(seq++, StyleBuilder.Create()
+        ComponentClass = await Styled.CssAsync(StyleBuilder.Create()
             .Append("font-size", FontSize ?? Style.FontSize)
             .Append("font-weight", FontWeight ?? Style.FontWeight)
             .Append("line-height", LineHeight ?? Style.LineHeight)
             .Append("color", Color ?? Style.Color)
             .Build());
-        builder.CloseComponent();
+    }
+
+    protected override void BuildRenderTree(RenderTreeBuilder builder)
+    {        
+        var seq = 0;
 
         builder.OpenElement(seq++, Element);
         builder.AddAttribute(seq++, "class", ComponentClass);
@@ -44,6 +46,6 @@ public class Text : RTBComponent
         public string FontSize { get; set; } = "1rem";
         public string FontWeight { get; set; } = "normal";
         public string LineHeight { get; set; } = "1.5";
-        public string Color { get; set; } = "inherit";
+        public string? Color { get; set; }
     }
 }

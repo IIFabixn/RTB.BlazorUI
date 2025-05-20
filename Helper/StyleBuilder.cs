@@ -20,7 +20,7 @@ namespace RTB.BlazorUI.Helper
             return new StyleBuilder(initStyle);
         }
 
-        public StyleBuilder Append(string style, string value)
+        public StyleBuilder Append(string style, string? value)
         {
             if (!string.IsNullOrWhiteSpace(style) && !string.IsNullOrWhiteSpace(value))
             {
