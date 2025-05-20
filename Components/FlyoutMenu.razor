@@ -27,7 +27,7 @@
 	</div>
 	@if (IsOpen)
     {
-        <div class="@MenuClass @ContentClass" style="@GetFlyoutPositionStyle">
+        <div class="@MenuClass @ContentClass" style="@GetFlyoutPositionStyle()">
             @ChildContent
         </div>
     }

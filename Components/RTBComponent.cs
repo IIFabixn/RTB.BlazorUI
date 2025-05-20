@@ -22,7 +22,12 @@ public abstract class RTBComponent : ComponentBase
     [Parameter(CaptureUnmatchedValues = true)]
     public Dictionary<string, object> CapturedAttributes { get; set; } = [];
 
-    protected string? ComponentClass { get; set; }
+    private string? _className;
+    protected string? ComponentClass
+    {
+        get => _className;
+        set => SetProperty(ref _className, value);
+    }
 
     /// <summary>
     /// SetProperty is a helper method to call StateHasChanged.
