@@ -15,18 +15,13 @@
     [Parameter] public RenderFragment? HeaderTemplate { get; set; }
 }
 
-<Styled @bind-Classname="ComponentClass">
-
-</Styled>
-
-<FlexLayout Direction="@(IsHorizontal ? FlexLayout.FlexDirectionEnum.Row : FlexLayout.FlexDirectionEnum.Column)">
-    <div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))"
-        @attributes="@(CapturedAttributes.Without("class"))">
-        @if (Items.Any())
-        {
-            <Virtualize Items="@Items" Context="item">
-                @ChildContent?.Invoke(item)
-            </Virtualize>
-        }
-    </div>
+<FlexLayout Direction="@(IsHorizontal ? CssValues.FlexDirection.Row: CssValues.FlexDirection.Column)"
+    class="@(CapturedAttributes.GetValueOrDefault<string>("class"))" 
+    @attributes="@(CapturedAttributes.Without("class"))">
+    @if (Items.Any())
+    {
+        <Virtualize Items="@Items" Context="item">
+            @ChildContent?.Invoke(item)
+        </Virtualize>
+    }
 </FlexLayout>

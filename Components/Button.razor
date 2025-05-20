@@ -26,7 +26,10 @@
 <button class="@ComponentClass @(CapturedAttributes.GetValueOrDefault("class"))"
     @attributes="@(CapturedAttributes.Without("class"))">
     @if (ChildContent is not null) @ChildContent
-    else { <p @attributes="@(CapturedAttributes.ByPrefix("Label."))">@Label</p> }
+    else
+    {
+        <RTB.BlazorUI.Components.Text Style="@Style" Color="inherit" @attributes="@(CapturedAttributes.ByPrefix("Label."))">@Label</RTB.BlazorUI.Components.Text>
+    }
 </button>
 
 @code {

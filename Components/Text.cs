@@ -38,12 +38,12 @@ public class Text : RTBComponent
         builder.AddContent(seq++, ChildContent);
         builder.CloseElement();
     }
-}
 
-public class TextStyle
-{
-    public string FontSize { get; set; } = "1rem";
-    public string FontWeight { get; set; } = "normal";
-    public string LineHeight { get; set; } = "1.5";
-    public string Color { get; set; } = "inherit";
+    public class TextStyle
+    {
+        public string FontSize { get; set; } = "1rem";
+        public string FontWeight { get; set; } = "normal";
+        public string LineHeight { get; set; } = "1.5";
+        public string Color { get; set; } = "inherit";
+    }
 }

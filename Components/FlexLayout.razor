@@ -1,5 +1,6 @@
 ﻿@using RTB.BlazorUI.Extensions
 @using RTB.BlazorUI.Helper
+@using static RTB.BlazorUI.Helper.CssValues
 
 @inherits RTBComponent
 
@@ -10,17 +11,22 @@
     [Parameter] public bool IsVertical { get; set; } = false;
     [Parameter] public bool FullHeight { get; set; } = false;
 
-    [Parameter] public FlexDirectionEnum Direction { get; set; } = FlexDirectionEnum.Row;
-    [Parameter] public AlignItemsEnum AlignItem { get; set; } = AlignItemsEnum.Stretch;
-    [Parameter] public JustifyItemsEnum JustifyItems { get; set; } = JustifyItemsEnum.Center;
+    [Parameter] public float Gap { get; set; }
+    [Parameter] public string BackgroundColor { get; set; } = "#FFFFFF";
+
+    [Parameter] public string Direction { get; set; } = FlexDirection.Row;
+    [Parameter] public string AlignItem { get; set; } = AlignItems.Stretch;
+    [Parameter] public string JustifyContent { get; set; } = CssValues.JustifyContent.Center;
 }
 
 <Styled @bind-Classname="ComponentClass">
     display: flex;
     height: @(FullHeight ? "100%" : "auto");
-    flex-direction: @(IsVertical ? "column" : IsHorizontal ? "row" : ToCssValue(Direction));
-    align-items: @(ToCssValue(AlignItem));
-    justify-content: @(ToCssValue(JustifyItems));
+    flex-direction: @(IsVertical ? "column" : IsHorizontal ? "row" : Direction);
+    align-items: @AlignItem;
+    justify-content: @JustifyContent;
+    gap: @(Gap)rem;
+    background-color: @BackgroundColor;
 </Styled>
 
 <div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))" @attributes="@CapturedAttributes.Without("class")">
@@ -28,61 +34,6 @@
 </div>
 
 @code {
-    public enum FlexDirectionEnum
-    {
-        Row,
-        Column,
-        RowReverse,
-        ColumnReverse
-    }
-
-    public enum AlignItemsEnum
-    {
-        FlexStart,
-        Start,
-        Center,
-        FlexEnd,
-        End,
-        Stretch
-    }
-
-    public enum JustifyItemsEnum
-    {
-        FlexStart,
-        Start,
-        Center,
-        FlexEnd,
-        End,
-        Stretch
-    }
-
-    private string ToCssValue(Enum enumVal)
-    {
-        return enumVal switch
-        {
-            FlexDirectionEnum.Row => "row",
-            FlexDirectionEnum.Column => "column",
-            FlexDirectionEnum.RowReverse => "row-reverse",
-            FlexDirectionEnum.ColumnReverse => "column-reverse",
-            
-            AlignItemsEnum.FlexStart => "flex-start",
-            AlignItemsEnum.Start => "start",
-            AlignItemsEnum.Center => "center",
-            AlignItemsEnum.FlexEnd => "flex-end",
-            AlignItemsEnum.End => "end",
-            AlignItemsEnum.Stretch => "stretch",
-
-            JustifyItemsEnum.FlexStart => "flex-start",
-            JustifyItemsEnum.Start => "start",
-            JustifyItemsEnum.Center => "center",
-            JustifyItemsEnum.FlexEnd => "flex-end",
-            JustifyItemsEnum.End => "end",
-            JustifyItemsEnum.Stretch => "stretch",
-
-            _ => throw new ArgumentOutOfRangeException(nameof(enumVal), enumVal, null)
-        };
-    }
-
     private string GetDirection()
     {
         return IsHorizontal ? "row" :

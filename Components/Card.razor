@@ -30,7 +30,7 @@
 
 <div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))"
     @attributes="@CapturedAttributes.Without("class")">
-    <FlexLayout FullHeight IsVertical class="items-center">
+    <FlexLayout FullHeight IsVertical AlignItem="@CssValues.AlignItems.Center">
         @if (!string.IsNullOrEmpty(Title))
         {
             <div class="header">
@@ -50,10 +50,5 @@
         public string CorderRadius { get; set; } = "0.5rem";
         public string HeaderPadding { get; set; } = "0.5rem";
         public string? HeaderBorder { get; set; }
-    }
-
-    public class Shadow
-    {
-        
     }
 }

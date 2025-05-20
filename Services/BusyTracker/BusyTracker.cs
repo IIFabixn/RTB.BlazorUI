@@ -4,6 +4,9 @@ using System.Runtime.CompilerServices;
 
 namespace RTB.BlazorUI.Services.BusyTracker
 {
+    /// <summary>
+    /// Interface for tracking busy states in asynchronous operations.
+    /// </summary>
     public interface IBusyTracker
     {
         event Action? OnBusyChanged;
