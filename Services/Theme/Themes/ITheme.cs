@@ -9,5 +9,6 @@ namespace RTB.BlazorUI.Services.Theme.Themes
 {
     public interface ITheme
     {
+        string Name { get; }
     }
 }

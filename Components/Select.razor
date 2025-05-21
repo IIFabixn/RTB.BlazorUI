@@ -1,22 +1,36 @@
-﻿@inherits RTBComponent
+﻿@using static RTB.BlazorUI.Components.FlyoutMenu
+@inherits RTBComponent
 
 @typeparam TOption
 
 @code {
-    [Parameter] public IEnumerable<TOption> Options { get; set; } = default!;
+    [Parameter] public List<TOption> Options { get; set; } = default!;
+    [Parameter] public RenderFragment? ActionContent { get; set; }
     [Parameter] public RenderFragment<TOption>? OptionTemplate { get; set; }
     [Parameter] public EventCallback<TOption?> OnChange { get; set; } = default!;
+
+    private FlyoutMenu? FlyoutMenuRef;
 }
 
-<select @onchange="@(e => OnChange.InvokeAsync((TOption?)e.Value))" @attributes="CapturedAttributes">
-    @foreach(var item in Options)
-    {
-        <option value="@item">
-            @OptionTemplate?.Invoke(item)
-            @if (OptionTemplate is null)
+<FlyoutMenu @ref="FlyoutMenuRef" Position="FlyoutPosition.Down">
+    <Activator>
+        <FlexLayout IsVertical>
+            @ActionContent
+            @if (ActionContent is null)
             {
-                <p>@item?.ToString()</p>
+                <RTB.BlazorUI.Components.Text Element="span">Select an option</RTB.BlazorUI.Components.Text>
             }
-        </option>
-    }
-</select>
+        </FlexLayout>
+    </Activator>
+    <ChildContent>
+        <CollectionList Items="@Options" TItem="TOption" Context="item">
+            <div @onclick="@(() => { OnChange.InvokeAsync(item); FlyoutMenuRef?.CloseMenu(); })">
+                @OptionTemplate?.Invoke(item)
+                @if (OptionTemplate is null)
+                {
+                    <p>@item?.ToString()</p>
+                }
+            </div>
+        </CollectionList>
+    </ChildContent>
+</FlyoutMenu>

@@ -15,6 +15,7 @@ public class Text : RTBComponent
     [Parameter] public TextStyle Style { get; set; } = new();
     
     [Parameter] public string Element { get; set; } = "h1";
+    [Parameter] public string TextAlign { get; set; } = "left";
     [Parameter] public string? FontSize { get; set; }
     [Parameter] public string? FontWeight { get; set; }
     [Parameter] public string? LineHeight { get; set; }
@@ -24,6 +25,7 @@ public class Text : RTBComponent
     {
         ComponentClass = await Styled.CssAsync(StyleBuilder.Create()
             .Append("font-size", FontSize ?? Style.FontSize)
+            .Append("text-align", TextAlign)
             .Append("font-weight", FontWeight ?? Style.FontWeight)
             .Append("line-height", LineHeight ?? Style.LineHeight)
             .Append("color", Color ?? Style.Color)
