@@ -11,12 +11,12 @@ namespace RTB.BlazorUI.Services.Theme
     /// Theme provider interface.
     /// </summary>
     /// <typeparam name="TITHeme">Interface class of your Theme, which extends ITheme interface flag</typeparam>
-    public interface IThemeService<TITheme> where TITheme : ITheme
+    public interface IThemeService<TTheme> where TTheme : ITheme
     {
         /// <summary>
         /// Get the current theme.
         /// </summary>
-        TITheme Current { get; }
+        TTheme Current { get; }
 
         /// <summary>
         /// Event triggered when the theme changes.
@@ -27,8 +27,13 @@ namespace RTB.BlazorUI.Services.Theme
         /// Set the current theme.
         /// </summary>
         /// <param name="theme"></param>
-        void SetTheme(TITheme theme);
+        void SetTheme(TTheme theme);
 
-        IList<TITheme> Themes { get; }
+        IList<TTheme> Themes { get; }
+    }
+
+    public interface IThemeServiceFactory
+    {
+        object GetCurrent();
     }
 }

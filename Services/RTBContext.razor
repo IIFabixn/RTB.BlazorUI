@@ -3,7 +3,9 @@
 @using RTB.BlazorUI.Services.Theme
 @using RTB.BlazorUI.Services.Theme.Themes
 
-@inject IThemeService<IRTBTheme> Theme
+@typeparam TTheme where TTheme : ITheme
+
+@inject IThemeService<TTheme> Theme
 @inject IDialogService Dialog
 
 @code {
@@ -15,10 +17,24 @@
     }
 }
 
-
-<CascadingValue Value="@Theme.Current">
+<CascadingValue Value="@(Theme.Current)">
     <CascadingValue Value="@Dialog">
         @ChildContent
         <DialogProvider />
     </CascadingValue>
 </CascadingValue>
+    using Microsoft.Extensions.DependencyInjection;
+
+#line default
+#line hidden
+#nullable disable
+    using Microsoft.Extensions.DependencyInjection;
+
+#line default
+#line hidden
+#nullable disable
+    using Microsoft.Extensions.DependencyInjection;
+
+#line default
+#line hidden
+#nullable disable

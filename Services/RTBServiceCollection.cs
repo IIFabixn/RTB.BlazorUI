@@ -10,17 +10,24 @@ namespace RTB.BlazorUI.Services
 {
     public static class RTBServiceCollection
     {
-        public static IServiceCollection UseRTBServices(this IServiceCollection collection)
+        public static IServiceCollection UseRTBServices(this IServiceCollection collection, Action<RTBConfig>? configAction = null)
         {
             collection.AddBlazorStyled();
+            var config = new RTBConfig();
+            configAction?.Invoke(config);
+
+            collection.AddScoped(typeof(IThemeService<>).MakeGenericType(config.ThemeType), typeof(RTBThemeService<>).MakeGenericType(config.ThemeType));
 
             return collection
                 .AddScoped<IDialogService, DialogService>()
                 .AddScoped<IBusyTracker, BusyTracker.BusyTracker>()
                 .AddScoped<IDragDropService, DragDropService>()
-                .AddScoped<IRTBTheme, RTBLightTheme>()
-                .AddScoped<IRTBTheme, RTBDarkTheme>()
-                .AddScoped<IThemeService<IRTBTheme>, RTBThemeService<IRTBTheme>>();
+                .AddScoped<DataNavigationService.DataNavigationService>();
         }
+    }
+
+    public class RTBConfig
+    {
+        public Type ThemeType { get; set; } = typeof(ITheme);
     }
 }
