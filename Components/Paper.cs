@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using BlazorStyled;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
@@ -10,20 +11,22 @@ namespace RTB.BlazorUI.Components;
 
 public class Paper : RTBComponent
 {
+    [Inject] protected IStyled Styled { get; set; } = default!;
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter] public PaperStyle Style { get; set; } = new();
     [Parameter] public string? BackgroundColor { get; set; }
 
+    protected override async Task OnParametersSetAsync()
+    {
+        base.OnParametersSet();
+        ComponentClass = await Styled.CssAsync(StyleBuilder.Create()
+        .Append("background-color", BackgroundColor ?? Style.BackgroundColor)
+        .Build());
+    }
+
     protected override void BuildRenderTree(RenderTreeBuilder builder)
     {
         var seq = 0;
-        builder.OpenComponent<Styled>(seq++);
-        builder.AddAttribute(seq++, nameof(Styled.Classname), ComponentClass);
-        builder.AddAttribute(seq++, nameof(Styled.ClassnameChanged), EventCallback.Factory.Create(this, (string newClassName) => ComponentClass = newClassName));
-        builder.AddContent(seq++, StyleBuilder.Create()
-            .Append("background-color", BackgroundColor ?? Style.BackgroundColor)
-            .Build());
-        builder.CloseComponent();
 
         builder.OpenElement(seq++, "div");
         builder.AddAttribute(seq++, "class", ClassBuilder.Create(ComponentClass).Append(CapturedAttributes.GetValueOrDefault<string>("class")).Build());
