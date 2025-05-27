@@ -9,8 +9,25 @@ namespace RTB.BlazorUI.Helper
     /// <summary>
     /// This class contains static properties representing common CSS values.
     /// </summary>
-    public static class CssValues
+    public static class CssHelper
     {
+        public static class Keys
+        {
+            public static string Width => "width";
+            public static string Height => "height";
+            public static string BackgroundColor => "background-color";
+            public static string Color => "color";
+            public static string FontSize => "font-size";
+            public static string Margin => "margin";
+            public static string Padding => "padding";
+            public static string Border => "border";
+            public static string Display => "display";
+            public static string FlexDirection => "flex-direction";
+            public static string JustifyContent => "justify-content";
+            public static string AlignItems => "align-items";
+            public static string Overflow => "overflow";
+        }
+
         public static class Overflow
         {
             public static string Auto => "auto";

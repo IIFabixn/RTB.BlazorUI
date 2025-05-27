@@ -30,7 +30,7 @@
 
 <div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))"
     @attributes="@CapturedAttributes.Without("class")">
-    <FlexLayout FullHeight IsVertical AlignItem="@CssValues.AlignItems.Center">
+    <FlexLayout FullHeight IsVertical AlignItem="@CssHelper.AlignItems.Center">
         @if (!string.IsNullOrEmpty(Title))
         {
             <div class="header">

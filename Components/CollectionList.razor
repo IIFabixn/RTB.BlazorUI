@@ -15,7 +15,7 @@
     [Parameter] public RenderFragment? HeaderTemplate { get; set; }
 }
 
-<FlexLayout Direction="@(IsHorizontal ? CssValues.FlexDirection.Row: CssValues.FlexDirection.Column)"
+<FlexLayout Direction="@(IsHorizontal ? CssHelper.FlexDirection.Row: CssHelper.FlexDirection.Column)"
     class="@(CapturedAttributes.GetValueOrDefault<string>("class"))" 
     @attributes="@(CapturedAttributes.Without("class"))">
     @if (Items.Any())

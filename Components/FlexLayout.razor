@@ -1,6 +1,6 @@
 ﻿@using RTB.BlazorUI.Extensions
 @using RTB.BlazorUI.Helper
-@using static RTB.BlazorUI.Helper.CssValues
+@using static RTB.BlazorUI.Helper.CssHelper
 
 @inherits RTBComponent
 
@@ -17,7 +17,7 @@
 
     [Parameter] public string Direction { get; set; } = FlexDirection.Row;
     [Parameter] public string AlignItem { get; set; } = AlignItems.Stretch;
-    [Parameter] public string JustifyContent { get; set; } = CssValues.JustifyContent.Center;
+    [Parameter] public string JustifyContent { get; set; } = CssHelper.JustifyContent.Center;
 }
 
 <Styled @bind-Classname="ComponentClass">

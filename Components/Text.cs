@@ -12,7 +12,7 @@ public class Text : RTBComponent
     [Inject] protected IStyled Styled { get; set; } = default!;
 
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
-    [Parameter] public TextStyle Style { get; set; } = new();
+    [Parameter] public TextStyle? Style { get; set; }
     
     [Parameter] public string Element { get; set; } = "h1";
     [Parameter] public string TextAlign { get; set; } = "left";
@@ -24,11 +24,11 @@ public class Text : RTBComponent
     protected override async Task OnParametersSetAsync()
     {
         ComponentClass = await Styled.CssAsync(StyleBuilder.Create()
-            .Append("font-size", FontSize ?? Style.FontSize)
+            .Append("font-size", FontSize ?? Style?.FontSize)
             .Append("text-align", TextAlign)
-            .Append("font-weight", FontWeight ?? Style.FontWeight)
-            .Append("line-height", LineHeight ?? Style.LineHeight)
-            .Append("color", Color ?? Style.Color)
+            .Append("font-weight", FontWeight ?? Style?.FontWeight)
+            .Append("line-height", LineHeight ?? Style?.LineHeight)
+            .Append("color", Color ?? Style?.Color)
             .Build());
     }
 

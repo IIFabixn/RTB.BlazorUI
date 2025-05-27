@@ -17,7 +17,7 @@
     @ChildContent
 </CascadingValue>
 
-<Grid Rows="auto 1fr" @attributes="@CapturedAttributes">
+<Grid Rows="auto 1fr" @attributes="@(CapturedAttributes.Without("."))">
     <GridItem @attributes="@CapturedAttributes.ByPrefix("HeadContent.")">
         @if (HeadContent is null)
         {

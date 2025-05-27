@@ -10,16 +10,28 @@ namespace RTB.BlazorUI.Helper
     public class StyleBuilder
     {
         private readonly StringBuilder _buidler;
-        private StyleBuilder(string initStyle = "")
+        protected StyleBuilder(string initStyle = "")
         {
             _buidler = new(initStyle);
         }
 
+        /// <summary>
+        /// Creates a new instance of StyleBuilder with an optional initial style.
+        /// </summary>
+        /// <param name="initStyle">Initial style string to start with.</param>
+        /// <returns>A new instance of StyleBuilder.</returns>
         public static StyleBuilder Create(string initStyle = "")
         {
             return new StyleBuilder(initStyle);
         }
 
+        /// <summary>
+        /// Will append a style to the builder.
+        /// If the style or value is null or whitespace, it will not append anything.
+        /// </summary>
+        /// <param name="style"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public StyleBuilder Append(string style, string? value)
         {
             if (!string.IsNullOrWhiteSpace(style) && !string.IsNullOrWhiteSpace(value))
