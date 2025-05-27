@@ -12,12 +12,15 @@
     [Parameter] public bool FullHeight { get; set; } = false;
     [Parameter] public bool FullWidth { get; set; } = false;
 
-    [Parameter] public float Gap { get; set; }
+    /// <summary>
+    /// In rem
+    /// </summary>
+    [Parameter] public string? Gap { get; set; }
     [Parameter] public string BackgroundColor { get; set; } = "inherit";
 
     [Parameter] public string Direction { get; set; } = FlexDirection.Row;
-    [Parameter] public string AlignItem { get; set; } = AlignItems.Stretch;
-    [Parameter] public string JustifyContent { get; set; } = CssHelper.JustifyContent.Center;
+    [Parameter] public string AlignItem { get; set; } = AlignItems.Start;
+    [Parameter] public string JustifyContent { get; set; } = CssHelper.JustifyContent.Start;
 }
 
 <Styled @bind-Classname="ComponentClass">
@@ -29,7 +32,7 @@
     flex-direction: @(IsVertical ? "column" : IsHorizontal ? "row" : Direction);
     align-items: @AlignItem;
     justify-content: @JustifyContent;
-    gap: @(Gap)rem;
+    gap: @Gap;
     background-color: @BackgroundColor;
 </Styled>
 

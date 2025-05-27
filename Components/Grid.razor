@@ -15,10 +15,9 @@
 
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
-    protected override void OnParametersSet()
-    {
-        base.OnParametersSet();
-    }
+    [Parameter] public string? Background { get; set; }
+
+    [Parameter] public string? Gap { get; set; }
 }
 
 <Styled @bind-Classname="ComponentClass">
@@ -26,6 +25,8 @@
     height: @(FullHeight ? "100%" : "auto");
     grid-template-columns: @(Columns);
     grid-template-rows: @(Rows);
+    background-color: @(Background);
+    gap: @Gap;
 </Styled>
 
 <div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))"

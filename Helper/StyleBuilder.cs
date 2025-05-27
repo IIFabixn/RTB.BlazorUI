@@ -52,7 +52,7 @@ namespace RTB.BlazorUI.Helper
             return condition() ? Append(style, value?.ToString() ?? string.Empty) : this;
         }
 
-        public StyleBuilder AppendIf(string style, string value, bool condition)
+        public StyleBuilder AppendIf(string style, string? value, bool condition)
         {
             return condition ? Append(style, value) : this;
         }

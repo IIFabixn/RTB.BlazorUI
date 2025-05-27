@@ -15,12 +15,18 @@ public class Paper : RTBComponent
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter] public PaperStyle Style { get; set; } = new();
     [Parameter] public string? BackgroundColor { get; set; }
+    [Parameter] public string? Padding { get; set; }
+    [Parameter] public bool FullHeight { get; set; } = false;
+    [Parameter] public bool FullWidth { get; set; } = false;
 
     protected override async Task OnParametersSetAsync()
     {
         base.OnParametersSet();
         ComponentClass = await Styled.CssAsync(StyleBuilder.Create()
         .Append("background-color", BackgroundColor ?? Style.BackgroundColor)
+        .AppendIf("padding", Padding, !string.IsNullOrEmpty(Padding))
+        .AppendIf("height", "100%", FullHeight)
+        .AppendIf("width", "100%", FullWidth)
         .Build());
     }
 

@@ -5,9 +5,15 @@
     [Parameter, EditorRequired] public RenderFragment Activator { get; set; } = default!;
     [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter] public bool InitiallyExpanded { get; set; } = false;
+
+    [Parameter] public string? Background { get; set; }
 }
 
-<FlexLayout IsVertical @attributes="@CapturedAttributes.Where(kvp => !kvp.Key.Contains("."))" @onclick:stopPropagation>
+<Styled @bind-bind-Classname="@ComponentClass">
+    background-color: @(Background ?? "inherit");
+</Styled>
+
+<FlexLayout IsVertical class="@($"{ComponentClass} {CapturedAttributes.Without(".").GetValueOrDefault<string>("class")}".Trim())" @attributes="@(CapturedAttributes.Without(".").Without("class"))" @onclick:stopPropagation>
     <div @onclick="ToggleMenu" @attributes="@CapturedAttributes.ByPrefix("Activator.")">
         @Activator
     </div>
