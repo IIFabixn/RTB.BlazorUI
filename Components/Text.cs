@@ -20,6 +20,7 @@ public class Text : RTBComponent
     [Parameter] public string? FontWeight { get; set; }
     [Parameter] public string? LineHeight { get; set; }
     [Parameter] public string? Color { get; set; }
+    [Parameter] public string? TextDecoration { get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
@@ -29,6 +30,7 @@ public class Text : RTBComponent
             .Append("font-weight", FontWeight ?? Style?.FontWeight)
             .Append("line-height", LineHeight ?? Style?.LineHeight)
             .Append("color", Color ?? Style?.Color)
+            .Append("text-decoration", TextDecoration ?? Style?.TextDecoration)
             .Build());
     }
 
@@ -49,5 +51,6 @@ public class Text : RTBComponent
         public string FontWeight { get; set; } = "normal";
         public string LineHeight { get; set; } = "1.5";
         public string? Color { get; set; }
+        public string? TextDecoration { get; set; }
     }
 }

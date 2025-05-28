@@ -10,7 +10,7 @@
 
 @inherits RTBComponent
 
-<div class="@(isDraggingOver ? DraggingClass : string.Empty) @(CapturedAttributes.GetValueOrDefault("class"))"
+<div class="@(isDraggingOver ? DraggingClass : string.Empty) @(CapturedAttributes.GetValueOrDefault<string>("class"))"
      @attributes="@(CapturedAttributes.Without("class"))"
      @ondragover="HandleDragOver"
      @ondragleave="HandleDragLeave"

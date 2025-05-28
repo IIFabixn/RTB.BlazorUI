@@ -72,5 +72,20 @@ namespace RTB.BlazorUI.Helper
             public static string Stretch => "stretch";
             public static string Baseline => "baseline";
         }
+
+        public static class TextAlign
+        {
+            public static string Left => "left";
+            public static string Center => "center";
+            public static string Right => "right";
+            public static string Justify => "justify";
+        }
+
+        public static class ScrollSnapAlign
+        {
+            public static string Start => "start";
+            public static string Center => "center";
+            public static string End => "end";
+        }
     }
 }

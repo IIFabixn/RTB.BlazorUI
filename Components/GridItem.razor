@@ -13,14 +13,14 @@
     [Parameter] public bool FullHeight { get; set; }
     [Parameter] public bool FullWidth { get; set; }
 
-    [Parameter] public string Overflow { get; set; } = CssHelper.Overflow.Auto;
+    [Parameter] public string? Overflow { get; set; }
 }
 
 <Styled @bind-Classname="@ComponentClass">
     grid-column: @(Column > 0 ? Column : "auto") / span @ColumnSpan;
     grid-row: @(Row > 0 ? Row : "auto") / span @RowSpan;
 
-    @(StyleBuilder.Create().Append("overflow", Overflow).AppendIf("width", "100%", FullWidth).AppendIf("height", "100%", FullHeight).Build())
+    @(StyleBuilder.Create().AppendIf("overflow", Overflow, Overflow != null).AppendIf("width", "100%", FullWidth).AppendIf("height", "100%", FullHeight).Build())
 </Styled>
 
 <div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))" @attributes="@(CapturedAttributes.Without("class"))">

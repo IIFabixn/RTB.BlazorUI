@@ -21,6 +21,8 @@
     [Parameter] public string Direction { get; set; } = FlexDirection.Row;
     [Parameter] public string AlignItem { get; set; } = AlignItems.Start;
     [Parameter] public string JustifyContent { get; set; } = CssHelper.JustifyContent.Start;
+    [Parameter] public string? Padding { get; set; }
+    [Parameter] public string? Margin { get; set; }
 }
 
 <Styled @bind-Classname="ComponentClass">
@@ -28,6 +30,8 @@
         .Append("display", "flex")
         .AppendIf("height", "100%", FullHeight)
         .AppendIf("width", "100%", FullWidth)
+        .AppendIf("padding", Padding, Padding is not null)
+        .AppendIf("margin", Margin, Margin is not null)
         .Build())
     flex-direction: @(IsVertical ? "column" : IsHorizontal ? "row" : Direction);
     align-items: @AlignItem;
