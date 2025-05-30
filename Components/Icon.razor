@@ -47,7 +47,7 @@
 		var updatedSvg = Regex.Replace(
 			content,
 			@"<svg([^>]*)>",
-			$"<svg$1 width=\"{Width}\" height=\"{Height}\" class=\"{CapturedAttributes.GetValueOrDefault<string>("class")}\">",
+			$"<svg$1 width=\"{Width}\" height=\"{Height}\" class=\"{CapturedAttributes?.GetValueOrDefault<string>("class")}\">",
 			RegexOptions.IgnoreCase | RegexOptions.Multiline
 		);
 		

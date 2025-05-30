@@ -5,51 +5,40 @@
 @inherits RTBComponent
 
 @code {
+    [Inject] protected IStyled Styled { get; set; } = default!;
+
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
     [Parameter] public bool IsHorizontal { get; set; } = false;
     [Parameter] public bool IsVertical { get; set; } = false;
-    [Parameter] public bool FullHeight { get; set; } = false;
-    [Parameter] public bool FullWidth { get; set; } = false;
 
-    /// <summary>
-    /// In rem
-    /// </summary>
     [Parameter] public string? Gap { get; set; }
-    [Parameter] public string BackgroundColor { get; set; } = "inherit";
 
     [Parameter] public string Direction { get; set; } = FlexDirection.Row;
     [Parameter] public string AlignItem { get; set; } = AlignItems.Start;
     [Parameter] public string JustifyContent { get; set; } = CssHelper.JustifyContent.Start;
-    [Parameter] public string? Padding { get; set; }
-    [Parameter] public string? Margin { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        ComponentClass = await Styled.CssAsync(
+            RTBStyle
+                .Append("display", "flex")
+                .Append("flex-direction", GetDirection())
+                .Append("align-items", AlignItem)
+                .Append("justify-content", JustifyContent)
+                .AppendIfNotEmpty("gap", Gap)
+                .Build()
+        );
+    }
 }
 
-<Styled @bind-Classname="ComponentClass">
-    @(StyleBuilder.Create()
-        .Append("display", "flex")
-        .AppendIf("height", "100%", FullHeight)
-        .AppendIf("width", "100%", FullWidth)
-        .AppendIf("padding", Padding, Padding is not null)
-        .AppendIf("margin", Margin, Margin is not null)
-        .Build())
-    flex-direction: @(IsVertical ? "column" : IsHorizontal ? "row" : Direction);
-    align-items: @AlignItem;
-    justify-content: @JustifyContent;
-    gap: @Gap;
-    background-color: @BackgroundColor;
-</Styled>
-
-<div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))" @attributes="@CapturedAttributes.Without("class")">
+<div class="@ClassBuilder.Create("FlexLayout", ComponentClass, Class).Build()" @attributes="@CapturedAttributes?.Without("class", "style")">
     @ChildContent
 </div>
 
 @code {
     private string GetDirection()
     {
-        return IsHorizontal ? "row" :
-               IsVertical ? "column" :
-               IsHorizontal && IsVertical ? "row" :
-               "row";
+        return IsHorizontal ? "row" : IsVertical ? "column" : Direction;
     }
 }

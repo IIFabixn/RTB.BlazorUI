@@ -7,8 +7,8 @@
     [Parameter] public SKColor SKColor { get; set; } = SKColors.Blue;
 }
 
-<Grid FullHeight Rows="1fr auto">
-    <GridItem class="relative grid place-items-center w-full">
+<Grid FullHeight FullWidth Rows="1fr auto">
+    <GridItem FullWidth class="relative grid place-items-center">
         <SKCanvasView class="h-full w-full" OnPaintSurface="PaintLine" EnableRenderLoop />
     </GridItem>
 </Grid>

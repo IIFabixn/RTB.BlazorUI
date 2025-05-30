@@ -8,17 +8,28 @@
 @using RTB.BlazorUI.Helper
 
 @code {
-    [Parameter] public bool IsHorizontal { get; set; } = false;
-    [Parameter] public bool IsVertical { get; set; } = false;
-    [Parameter] public string Orientation { get; set; } = "vertical";
+    [Inject] protected IStyled Styled { get; set; } = default!;
+
     [Parameter] public List<TItem> Items { get; set; } = [];
     [Parameter] public RenderFragment<TItem>? ChildContent {get; set; }
     [Parameter] public RenderFragment? HeaderTemplate { get; set; }
+
+    [Parameter] public string Orientation { get; set; } = "vertical";
+    [Parameter] public bool IsHorizontal { get; set; } = false;
+    [Parameter] public bool IsVertical { get; set; } = false;
+    [Parameter] public bool Scrollable { get; set; } = false;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        ComponentClass = await Styled.CssAsync(RTBStyle.AppendIf("min-height", "0", Scrollable).AppendIf("overflow", "auto", Scrollable).Build());
+    }
 }
 
-<FlexLayout Direction="@(IsHorizontal ? CssHelper.FlexDirection.Row: CssHelper.FlexDirection.Column)"
-    class="@(CapturedAttributes.GetValueOrDefault<string>("class"))"
-    @attributes="@(CapturedAttributes.Without("class"))">
+<FlexLayout
+    Direction="@(IsHorizontal ? CssHelper.FlexDirection.Row: CssHelper.FlexDirection.Column)"
+    class="@ClassBuilder.Create("CollectionList", ComponentClass, Class).Build()"
+    @attributes="@CapturedAttributes?.Without("class", "style")"
+>
     @if (Items.Any())
     {
         <Virtualize Items="@Items" Context="item">

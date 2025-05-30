@@ -1,6 +1,7 @@
 ﻿@using RTB.BlazorUI.Extensions
 @using RTB.BlazorUI.Interfaces
-<!-- DataGrid.razor ------------------------------------------------------>
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+
 @typeparam TRow
 @attribute [CascadingTypeParameter(nameof(TRow))]
 
@@ -9,7 +10,7 @@
 
 @code {
     [Parameter] public IEnumerable<TRow> Items { get; set; } = [];
-    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+    [Parameter] public RenderFragment Columns { get; set; } = default!;
 
     [Parameter] public TRow? SelectedRow { get; set; }
     [Parameter] public EventCallback<TRow> SelectedRowChanged { get; set; }
@@ -17,23 +18,35 @@
     [Parameter] public string? HeaderClass { get; set; }
 
     [Parameter, EditorRequired] public string KeyProperty { get; set; } = default!;
+
+    private string? Wrapper;
 }
 
 <!-- registers the <DataColumn>s -->
 <CascadingValue Value="this">
-    @ChildContent
+    @Columns
 </CascadingValue>
 
-<!-- wrapping div in order to have functioning scrolling.. -->
-<div class="h-full w-full">
-    <div class="grid sticky top-0 z-10 border-b @(CapturedAttributes.GetValueOrDefault("class"))"
-         style="grid-template-columns: @(GridTemplate); grid-template-rows: repeat(@Items.Count(), auto);">
+<Styled @bind-Classname="Wrapper">
+    height: 100%;
+    width: 100%;
+</Styled>
 
-        <!-- ---------- Header cells (row 1) ------------------------ -->
+<Styled @bind-Classname="ComponentClass">
+    @(RTBStyle.Build())
+    display: grid;
+    border-bottom: 1px solid black;
+    grid-template-columns: @(GridTemplate); 
+    grid-template-rows: repeat(@(Items.Count()), auto);
+</Styled>
+
+<div class="@Wrapper">
+    <div class="DataGrid @ComponentClass @Class">
+        @* ---------- Header cells (row 1) ------------------------ *@
         @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
         {
             var col = _columns[colIdx - 1];
-            <div class="p-2 font-medium sticky top-0 z-10 bg-inherit border-b border-b-slate-300 flex items-center justify-between @HeaderClass @(col.CapturedAttributes.GetValueOrDefault("class"))">
+            <div class="p-2 font-medium sticky top-0 z-10 bg-inherit border-b border-b-slate-300 flex items-center justify-between @HeaderClass @(col.CapturedAttributes?.GetValueOrDefault("class"))">
                 @(builder => col.RenderHeader(builder, colIdx))
                 @if (Sort?.Column == col)
                 {
@@ -42,7 +55,7 @@
             </div>
         }
 
-        <Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize Items="_sortedItems" Context="row">
+        <Virtualize Items="_sortedItems" Context="row">
             <!-- ---------- Data cells (rows 2…N) ----------------------- -->
             @{
                 int rowIndex = _sortedItems.IndexOf(row);
@@ -55,7 +68,7 @@
                     @(builder => col.RenderCell(builder, row, colIdx))
                 }
             </div>
-        </Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize>
+        </Virtualize>
     </div>
 </div>
 
@@ -81,7 +94,7 @@
         }
 
         _selectedRow = SelectedRow;
-        SetProperty(ref _sortedItems, SortItems().ToList());
+        SetProperty(ref _sortedItems, SortItems());
     }
 
     protected override void OnAfterRender(bool firstRender)
@@ -91,20 +104,20 @@
 
         Sort ??= _columns.TryGetItem(i => i.CanSort, out var col) ? new(col, col.DefaultSortDescending) : null;
 
-        SetProperty(ref _sortedItems, SortItems().ToList());
+        SetProperty(ref _sortedItems, SortItems());
         StateHasChanged(); // trigger rerender
     }
 
-    private IEnumerable<TRow> SortItems()
+    private List<TRow> SortItems()
     {
         if (Sort is { Column.SortKey: not null } s)
         {
-            return s.Descending
+            return (s.Descending
                 ? Items.OrderByDescending(s.Column.SortKey!)
-                : Items.OrderBy(s.Column.SortKey!);
+                : Items.OrderBy(s.Column.SortKey!)).ToList();
         }
 
-        return Items;
+        return Items.ToList();
     }
 
     private string GridTemplate => string.Join(' ', _columns.Select(c =>
@@ -143,7 +156,7 @@
             ? Sort with { Descending = !Sort.Descending }  // toggle direction
             : new(column, column.DefaultSortDescending);     // new column selected
 
-        SetProperty(ref _sortedItems, SortItems().ToList());
+        SetProperty(ref _sortedItems, SortItems());
     }
 
     private record SortInfo(IColumn<TRow> Column, bool Descending);

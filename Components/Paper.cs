@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using RTB.BlazorUI.Extensions;
 using RTB.BlazorUI.Helper;
+using RTB.BlazorUI.Services.Theme;
 
 namespace RTB.BlazorUI.Components;
 
@@ -13,21 +14,11 @@ public class Paper : RTBComponent
 {
     [Inject] protected IStyled Styled { get; set; } = default!;
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
-    [Parameter] public PaperStyle Style { get; set; } = new();
-    [Parameter] public string? BackgroundColor { get; set; }
-    [Parameter] public string? Padding { get; set; }
-    [Parameter] public bool FullHeight { get; set; } = false;
-    [Parameter] public bool FullWidth { get; set; } = false;
 
     protected override async Task OnParametersSetAsync()
     {
         base.OnParametersSet();
-        ComponentClass = await Styled.CssAsync(StyleBuilder.Create()
-        .Append("background-color", BackgroundColor ?? Style.BackgroundColor)
-        .AppendIf("padding", Padding, !string.IsNullOrEmpty(Padding))
-        .AppendIf("height", "100%", FullHeight)
-        .AppendIf("width", "100%", FullWidth)
-        .Build());
+        ComponentClass = await Styled.CssAsync(RTBStyle.Build());
     }
 
     protected override void BuildRenderTree(RenderTreeBuilder builder)
@@ -35,14 +26,9 @@ public class Paper : RTBComponent
         var seq = 0;
 
         builder.OpenElement(seq++, "div");
-        builder.AddAttribute(seq++, "class", ClassBuilder.Create(ComponentClass).Append(CapturedAttributes.GetValueOrDefault<string>("class")).Build());
-        builder.AddMultipleAttributes(seq++, CapturedAttributes.Without("class"));
+        builder.AddAttribute(seq++, "class", ClassBuilder.Create("Paper", ComponentClass, Class).Build());
+        builder.AddMultipleAttributes(seq++, CapturedAttributes?.Without("class", "style"));
         builder.AddContent(seq++, ChildContent);
         builder.CloseElement();
     }
-}
-
-public class PaperStyle
-{
-    public string BackgroundColor { get; set; } = "white";
 }

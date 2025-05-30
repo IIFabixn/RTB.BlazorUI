@@ -13,22 +13,22 @@
 }
 
 <Styled @bind-Classname="ComponentClass">
-    position: relative;
-    @(CapturedAttributes.ByPrefix("Activator").GetValueOrDefault<string>("style"))
+    @(RTBStyle.Append("position", "relative"))
+    @(CapturedAttributes?.ByPrefix("Activator").GetValueOrDefault<string>("style"))
 </Styled>
 
 <Styled @bind-Classname="MenuClass">
     position: absolute;
     z-index: 50;
     @GetFlyoutPositionStyle()
-    @(CapturedAttributes.ByPrefix("Menu").GetValueOrDefault<string>("style"))
+    @(CapturedAttributes?.ByPrefix("Menu").GetValueOrDefault<string>("style"))
 </Styled>
 
-<div class="@ComponentClass @(CapturedAttributes.GetValueOrDefault<string>("class"))" @onclick:stopPropagation @attributes="@CapturedAttributes.Without("class")">
+<div class="FlyoutMenu @ComponentClass @(CapturedAttributes?.GetValueOrDefault<string>("class"))" @onclick:stopPropagation @attributes="@CapturedAttributes?.Without("class")">
     <div @onclick="ToggleMenu" class="@ActivatorClass">
-		@Activator
-	</div>
-	@if (IsOpen)
+        @Activator
+    </div>
+    @if (IsOpen)
     {
         <div class="@MenuClass @ContentClass">
             @ChildContent

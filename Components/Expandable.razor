@@ -1,20 +1,33 @@
 ﻿@using RTB.BlazorUI.Extensions
+@using RTB.BlazorUI.Helper
 @inherits RTBComponent
 
 @code {
+    [Inject] protected IStyled Styled { get; set; } = default!;
+
     [Parameter, EditorRequired] public RenderFragment Activator { get; set; } = default!;
     [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter] public bool InitiallyExpanded { get; set; } = false;
 
-    [Parameter] public string? Background { get; set; }
+    private string? ActivatorClass;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        ComponentClass = await Styled.CssAsync(RTBStyle.Build());
+        ActivatorClass = await Styled.CssAsync(StyleBuilder.Create().Append("width", "100%").Build());
+    }
 }
 
-<Styled @bind-bind-Classname="@ComponentClass">
-    background-color: @(Background ?? "inherit");
-</Styled>
-
-<FlexLayout IsVertical class="@($"{ComponentClass} {CapturedAttributes.Without(".").GetValueOrDefault<string>("class")}".Trim())" @attributes="@(CapturedAttributes.Without(".").Without("class"))" @onclick:stopPropagation>
-    <div @onclick="ToggleMenu" @attributes="@CapturedAttributes.ByPrefix("Activator.")">
+<FlexLayout 
+    IsVertical
+    class="@ClassBuilder.Create("Expandable", ComponentClass, Class).Build()"
+    @attributes="@(CapturedAttributes?.Without("class", "style", "."))" 
+    @onclick:stopPropagation
+>
+    <div class="@ClassBuilder.Create("Activator", ActivatorClass, CapturedAttributes?.ByPrefix("Activator.").GetValueOrDefault<string>("class")).Build()" 
+        @onclick="ToggleMenu" 
+        @attributes="@CapturedAttributes?.ByPrefix("Activator.").Without("class")"
+    >
         @Activator
     </div>
     @if (IsOpen)
@@ -26,7 +39,6 @@
 @code {
     protected override void OnAfterRender(bool firstRender)
     {
-        _ = CapturedAttributes;
         if (firstRender)
         {
             IsOpen = InitiallyExpanded;

@@ -37,7 +37,7 @@
     transition: visibility 0.2s ease-in-out;
 </Styled>
 
-<div class="@ComponentClass group @(CapturedAttributes.GetValueOrDefault<string>("class"))" @attributes="@(CapturedAttributes.Without("class"))">
+<div class="@ComponentClass group @(CapturedAttributes?.GetValueOrDefault<string>("class"))" @attributes="@(CapturedAttributes?.Without("class"))">
     @ActionContent
 
     <div class="@ContentClass collapse">

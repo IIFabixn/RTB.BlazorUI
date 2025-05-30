@@ -20,9 +20,10 @@ namespace RTB.BlazorUI.Helper
         /// </summary>
         /// <param name="initStyle">Initial style string to start with.</param>
         /// <returns>A new instance of StyleBuilder.</returns>
-        public static StyleBuilder Create(string initStyle = "")
+        public static StyleBuilder Create(params string?[]? initStyles)
         {
-            return new StyleBuilder(initStyle);
+            if (initStyles is null || initStyles.Length == 0) return new StyleBuilder();
+            return new StyleBuilder(string.Join("; ", initStyles.Where(s => !string.IsNullOrEmpty(s))));
         }
 
         /// <summary>
@@ -32,19 +33,26 @@ namespace RTB.BlazorUI.Helper
         /// <param name="style"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public StyleBuilder Append(string style, string? value)
+        public StyleBuilder Append(string style, string value)
         {
-            if (!string.IsNullOrWhiteSpace(style) && !string.IsNullOrWhiteSpace(value))
-            {
-                _buidler.Append($"{style}: {value};");
-            }
+            _buidler.Append($"{style}: {value};");
 
             return this;
         }
 
-        public StyleBuilder AppendIf(string style, string value, Func<bool> condition)
+        public StyleBuilder AppendIf(string style, string? value, Func<bool> condition)
         {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                return this;
+            }
+
             return condition() ? Append(style, value) : this;
+        }
+
+        public StyleBuilder AppendIfNotEmpty(string style, string? value)
+        {
+            return AppendIf(style, value, !string.IsNullOrEmpty(value));
         }
 
         public StyleBuilder AppendIf<TValue>(string style, TValue value, Func<bool> condition)
@@ -54,6 +62,8 @@ namespace RTB.BlazorUI.Helper
 
         public StyleBuilder AppendIf(string style, string? value, bool condition)
         {
+            if (string.IsNullOrEmpty(value)) return this;
+
             return condition ? Append(style, value) : this;
         }
 
@@ -62,14 +72,30 @@ namespace RTB.BlazorUI.Helper
             return condition ? Append(style, value?.ToString() ?? string.Empty) : this;
         }
 
+        public StyleBuilder AppendStyle(string? style)
+        {
+            if (!string.IsNullOrWhiteSpace(style))
+            {
+                _buidler.Append(style);
+            }
+
+            return this;
+        }
+
+        public StyleBuilder AppendStyleIf(string? style, bool condition)
+        {
+            return condition ? AppendStyle(style) : this;
+        }
+
+        public StyleBuilder AppendStyleIf(string? style, Func<bool> condition)
+        {
+            return condition() ? AppendStyle(style) : this;
+        }
+
+
         public string Build()
         {
             return _buidler.ToString().Trim();
-        }
-
-        public override string ToString()
-        {
-            return Build();
         }
     }
 }

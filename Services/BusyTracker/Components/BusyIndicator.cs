@@ -20,7 +20,7 @@ namespace RTB.BlazorUI.Services.BusyTracker.Components
             if (!tracker.IsBusy(TrackId)) 
             {
                 // Render the child content if not busy for the specified TrackId
-                builder.AddContent(0, ChildContent);
+                ChildContent?.Invoke(builder);
                 return;
             }
 

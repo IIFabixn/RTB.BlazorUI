@@ -1,4 +1,7 @@
 ﻿@using RTB.BlazorUI.Extensions
+@using RTB.BlazorUI.Helper
+@using RTB.BlazorUI.Services.Theme
+@using RTB.BlazorUI.Services.Theme.Styles
 @using static RTB.BlazorUI.Components.Text
 
 @inherits RTBComponent
@@ -6,36 +9,29 @@
 @code {
     [Parameter] public RenderFragment? ChildContent { get; set; }
     [Parameter] public string? Label { get; set; }
-    [Parameter] public ButtonStyle Style { get; set; } = new();
-    [Parameter] public string? Padding { get; set; }
-    [Parameter] public string? Color { get; set; }
+
+    [Parameter] public ButtonStyle? ButtonStyle { get; set; }
+    
     [Parameter] public string? DisabledColor { get; set; }
 }
 
 <Styled @bind-Classname="ComponentClass">
+    @(RTBStyle.Build())
     cursour: pointer;
-    padding: @(Padding ?? Style.Padding);
-    color: @(Color ?? Style.Color);
+    color: @(Color?.Hex ?? ButtonStyle?.Color);
 </Styled>
 
-<Styled @bind-Classname="ComponentClass" PseudoClass="PseudoClasses.Disabled">
+<Styled @bind-Classname="ComponentClass" Pseudoclass="PseudoClasses.Disabled">
+    @(RTBStyle.Build())
     cursour: default;
-    color: @(DisabledColor ?? Style.DisabledColor);
+    color: @(DisabledColor ?? ButtonStyle?.DisabledColor);
 </Styled>
 
-<button class="@ComponentClass @(CapturedAttributes.GetValueOrDefault("class"))"
-    @attributes="@(CapturedAttributes.Without("class"))">
+<button class="@ClassBuilder.Create(ComponentClass, Class).Build()"
+    @attributes="@(CapturedAttributes?.Without("class", "style"))">
     @if (ChildContent is not null) @ChildContent
     else
     {
-        <RTB.BlazorUI.Components.Text Style="@Style" Color="inherit" @attributes="@(CapturedAttributes.ByPrefix("Label."))">@Label</RTB.BlazorUI.Components.Text>
+        <RTB.BlazorUI.Components.Text Style="@ButtonStyle" @attributes="@(CapturedAttributes?.ByPrefix("Label."))">@Label</RTB.BlazorUI.Components.Text>
     }
 </button>
-
-@code {
-    public class ButtonStyle : TextStyle
-    {
-        public string Padding { get; set; } = "0";
-        public string DisabledColor { get; set; } = "gray";
-    }
-}

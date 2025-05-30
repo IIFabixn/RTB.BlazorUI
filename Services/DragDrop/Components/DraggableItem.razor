@@ -9,8 +9,8 @@
 
 @typeparam TData
 
-<div class="active:grabbing @(CapturedAttributes.GetValueOrDefault("class"))"
-    @attributes="@(CapturedAttributes.Without("class"))"
+<div class="active:grabbing @(CapturedAttributes?.GetValueOrDefault("class"))"
+    @attributes="@(CapturedAttributes?.Without("class"))"
      draggable="true"
      @ondragstart="HandleDragStart">
     @ChildContent

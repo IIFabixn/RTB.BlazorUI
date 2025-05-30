@@ -1,4 +1,5 @@
 ﻿@using RTB.BlazorUI.Extensions
+@using RTB.BlazorUI.Helper
 @inherits RTBComponent
 
 @code {
@@ -15,7 +16,7 @@
     public EventCallback<bool>? ExpandedChanged { get; set; }
 }
 
-<FlexLayout IsVertical @attributes="@CapturedAttributes">
+<FlexLayout IsVertical class="@ClassBuilder.Create("ExpansionPanel", Class).Build()" @attributes="@CapturedAttributes?.Without("class")">
     <FlexLayout IsHorizontal class="gap-2">
         @Header
 

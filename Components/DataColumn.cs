@@ -40,7 +40,11 @@ namespace RTB.BlazorUI.Components
             ParentGrid?.Register(this);
         }
 
-        public void Dispose() => ParentGrid?.Unregister(this);
+        public void Dispose()
+        {
+            ParentGrid?.Unregister(this);
+            GC.SuppressFinalize(this);
+        }
 
         public abstract void RenderHeader(RenderTreeBuilder builder, int col);
         public abstract void RenderCell(RenderTreeBuilder builder, TRow row, int col);
@@ -55,6 +59,7 @@ namespace RTB.BlazorUI.Components
             if (HeadContent is not null)
             {
                 HeadContent.Invoke(builder);
+                return;
             }
 
             // Add default content if HeadContent is null
@@ -99,7 +104,7 @@ namespace RTB.BlazorUI.Components
             var value = ValueFunc(row);
             builder.OpenElement(seq++, "div");
             builder.AddAttribute(seq++, "role", "cell");
-            builder.AddAttribute(seq++, "class", ClassBuilder.Create(ComponentClass).Append(CapturedAttributes.GetValueOrDefault<string>("class")).Build());
+            builder.AddAttribute(seq++, "class", ClassBuilder.Create(ComponentClass).Append(CapturedAttributes?.GetValueOrDefault<string>("class")).Build());
             builder.AddAttribute(seq++, "style", $"grid-column-start: {col}");
             builder.AddMultipleAttributes(seq++, CapturedAttributes);
             builder.AddContent(seq++, value);

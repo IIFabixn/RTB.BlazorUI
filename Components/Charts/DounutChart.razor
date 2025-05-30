@@ -1,15 +1,16 @@
 ﻿@using SkiaSharp
 @using SkiaSharp.Views.Blazor
+@using static RTB.BlazorUI.Helper.CssHelper
 
 @inherits ChartBase
 
-<Grid FullHeight Rows="1fr auto">
+<Grid FullHeight FullWidth Rows="1fr auto">
     <GridItem class="relative grid place-items-center">
         <SKCanvasView class="h-full w-full" OnPaintSurface="PaintDonut" EnableRenderLoop />
         <h3 class="absolute top-1/2 left-1/2 -translate-1/2">@TotalValue</h3>
     </GridItem>
     <GridItem>
-        <FlexLayout IsHorizontal class="items-center justify-center gap-2 flex-wrap">
+        <FlexLayout IsHorizontal AlignItem="@AlignItems.Center" JustifyContent="@JustifyContent.Center" Gap="1rem" class="flex-wrap">
             @foreach (var entry in Entries.Where(e => e.Value > 0))
             {
                 <FlexLayout IsHorizontal class="items-center justify-center gap-2">

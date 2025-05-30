@@ -1,58 +1,65 @@
 ﻿@using RTB.BlazorUI.Extensions
 @using RTB.BlazorUI.Helper
 @using RTB.BlazorUI.Interfaces
+@using RTB.BlazorUI.Services.Theme.Styles
 
 @inherits RTBComponent
 @implements IRegister<TabItem>
 
 @code {
-    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
-    [Parameter] public RenderFragment<List<TabItem>>? HeadContent { get; set; }
-    [Parameter] public string ActiveTabClass { get; set; } = "activetab";
+    [Inject] protected IStyled Styled { get; set; } = default!;
+
+    [Parameter] public RenderFragment<TabItem>? TabTemplate { get; set; }
+    [Parameter] public RenderFragment Tabs { get; set; } = default!;
+
+    [Parameter] public TabStyle? TabStyle { get; set; }
+    [Parameter] public TabStyle? ActiveTabStyle { get; set; }
 
     private string? TabClass;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        ComponentClass = await Styled.CssAsync(RTBStyle.Build());
+    }
 }
 
 <CascadingValue Value="this">
-    @ChildContent
+    @Tabs
 </CascadingValue>
 
-<Grid Rows="auto 1fr" @attributes="@(CapturedAttributes.Without("."))">
-    <GridItem @attributes="@CapturedAttributes.ByPrefix("HeadContent.")">
-        @if (HeadContent is null)
-        {
-            <Grid @attributes="@CapturedAttributes.ByPrefix("HeadItemContent.")" Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" class="place-items-center">
-                <Styled @bind-Classname="TabClass">
-                    width: 100%;
-                    height: 24px;
-                    cursor: pointer;
-                    display: flex;
-                    justify-content: center;
-                    align-itrems: center;
-                </Styled>
-                @foreach (var tab in _tabItems)
-                {
-                    <GridItem @key="tab.Guid" class="@(ClassBuilder.Create(TabClass).AppendIf(ActiveTabClass, SelectedTab == tab.Title).Append(tab.CapturedAttributes.GetValueOrDefault<string>("class")))"
-                              @onclick="() => SelectedTab = tab.Title"
-                              @attributes="@tab.CapturedAttributes.Without("class")">
-                        @if (tab.HeadContent is not null)
-                        {
-                            @tab.HeadContent
-                        }
-                        else
-                        {
-                            <h4>@tab.Title</h4>
-                        }
-                    </GridItem>
-                }
-            </Grid>
-        }
-        else 
-        {
-            @HeadContent
-        }
+<Styled @bind-Classname="TabClass">
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-itrems: center;
+    @(TabStyle?.ToStyle())
+</Styled>
+
+<Grid Rows="auto 1fr" class="@ClassBuilder.Create("TabGroup", ComponentClass, Class).Build()" @attributes="@CapturedAttributes?.Without("class", "style")">
+    <GridItem>
+        <Grid Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" class="place-items-center">
+            @foreach (var tab in _tabItems)
+            {
+                <GridItem 
+                    FullWidth
+                    @key="tab.Guid"
+                    @onclick="() => SelectedTab = tab.Title"
+                    style="@(SelectedTab == tab.Title ? ActiveTabStyle : null)"
+                    class="@ClassBuilder.Create("TabItem", TabClass).Build()">
+                    @if (tab.TabContent is not null)
+                    {
+                        @tab.TabContent
+                    }
+                    else if (TabTemplate is not null)
+                    {
+                        @TabTemplate(tab)
+                    }
+                </GridItem>
+            }
+        </Grid>
     </GridItem>
-    <GridItem @attributes="@CapturedAttributes.ByPrefix("SelectedTabContent.")">
+    <GridItem>
         @SelectedTabContent
     </GridItem>
 </Grid>
