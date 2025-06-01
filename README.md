@@ -40,7 +40,7 @@ Then reference the .csproj from your Blazor app.
 
 ## 🧱 Example Usage
 <!-- Example of XAML-like declarative component -->
-<FlexLayout IsHorizontal="true" FullHeight="true">
+<FlexLayout Row="true" FullHeight="true">
     <Card>
         <TextBlock>Left Panel</TextBlock>
     </Card>

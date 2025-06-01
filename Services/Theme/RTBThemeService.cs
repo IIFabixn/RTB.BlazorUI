@@ -27,5 +27,12 @@ namespace RTB.BlazorUI.Services.Theme
             _current = theme;
             OnThemeChanged?.Invoke();
         }
+
+        public ValueTask SetThemeAsync(TThemeBase theme)
+        {
+            SetTheme(theme);
+
+            return ValueTask.CompletedTask;
+        }
     }
 }

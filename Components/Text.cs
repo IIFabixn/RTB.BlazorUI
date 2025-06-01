@@ -31,7 +31,7 @@ public class Text : RTBComponent
             .AppendIfNotEmpty("font-weight", FontWeight ?? TextStyle?.FontWeight)
             .AppendIfNotEmpty("line-height", LineHeight ?? TextStyle?.LineHeight)
             .AppendIfNotEmpty("text-decoration", TextDecoration ?? TextStyle?.TextDecoration)
-            .AppendIfNotEmpty("color", Color?.Hex ?? TextStyle?.Color)
+            .AppendIfNotEmpty("color", Color?.Hex ?? TextStyle?.Color?.Hex)
             .Build()
         );
     }

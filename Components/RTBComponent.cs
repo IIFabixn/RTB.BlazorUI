@@ -46,6 +46,7 @@ public abstract class RTBComponent : ComponentBase
     // Helper properties for common CSS styles
 
     [Parameter] public RTBColor? Background { get; set; }
+    [Parameter] public RTBBorder? Border { get; set; }
     [Parameter] public RTBColor? Color { get; set; }
     [Parameter] public RTBSpacing? Padding { get; set; }
     [Parameter] public RTBSpacing? Margin { get; set; }
@@ -56,6 +57,7 @@ public abstract class RTBComponent : ComponentBase
 
     protected StyleBuilder RTBStyle => StyleBuilder.Create()
         .AppendIfNotEmpty("background-color", Background?.Hex)
+        .AppendStyle(Border?.ToStyle())
         .AppendIfNotEmpty("color", Color?.Hex)
         .AppendIfNotEmpty("padding", Padding)
         .AppendIfNotEmpty("margin", Margin)

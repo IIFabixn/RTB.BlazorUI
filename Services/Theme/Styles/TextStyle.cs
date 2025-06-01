@@ -12,7 +12,7 @@ namespace RTB.BlazorUI.Services.Theme.Styles
         public string? FontSize { get; set; }
         public string? FontWeight { get; set; }
         public string? LineHeight { get; set; }
-        public string? Color { get; set; }
+        public RTBColor? Color { get; set; }
         public string? TextDecoration { get; set; }
 
         public override string ToStyle()
@@ -21,7 +21,7 @@ namespace RTB.BlazorUI.Services.Theme.Styles
                 .AppendIfNotEmpty("font-size", FontSize)
                 .AppendIfNotEmpty("font-weight", FontWeight)
                 .AppendIfNotEmpty("line-height", LineHeight)
-                .AppendIfNotEmpty("color", Color)
+                .AppendIfNotEmpty("color", Color?.Hex)
                 .AppendIfNotEmpty("text-decoration", TextDecoration)
                 .Build();
         }

@@ -1,6 +1,7 @@
 ﻿using RTB.BlazorUI.Services.Dialog.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
+using Microsoft.AspNetCore.Components.Rendering;
 
 namespace RTB.BlazorUI.Services.Dialog
 {
@@ -52,7 +53,7 @@ namespace RTB.BlazorUI.Services.Dialog
         {
             var tcs = new TaskCompletionSource<DialogResult>();
 
-            RenderFragment rf = builder =>
+            void rf(RenderTreeBuilder builder)
             {
                 var seq = 0;
                 builder.OpenComponent<AlertHost>(seq++);
@@ -85,19 +86,20 @@ namespace RTB.BlazorUI.Services.Dialog
                 });
 
                 builder.CloseComponent();
-            };
+            }
 
             OnShow?.Invoke(rf);
         }
 
         public Task<DialogResult> ShowAsync<TDialog>(
-            string title,
-            Dictionary<string, object?>? parameters = null)
+            string? title = null,
+            Dictionary<string, object?>? bodyParameters = null
+        )
             where TDialog : IComponent
         {
             var tcs = new TaskCompletionSource<DialogResult>();
 
-            RenderFragment rf = builder =>
+            void rf(RenderTreeBuilder builder)
             {
                 var seq = 0;
                 builder.OpenComponent<DialogHost>(seq++);
@@ -108,9 +110,9 @@ namespace RTB.BlazorUI.Services.Dialog
                     b.OpenComponent<TDialog>(i++);
 
                     // pass parameters through
-                    if (parameters is not null)
+                    if (bodyParameters is not null)
                     {
-                        foreach (var (key, val) in parameters)
+                        foreach (var (key, val) in bodyParameters)
                             b.AddAttribute(i, key, val);
                     }
                     b.CloseComponent();
@@ -129,7 +131,7 @@ namespace RTB.BlazorUI.Services.Dialog
                 });
 
                 builder.CloseComponent();
-            };
+            }
 
             OnShow?.Invoke(rf);
             return tcs.Task;

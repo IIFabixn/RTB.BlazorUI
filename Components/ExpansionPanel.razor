@@ -16,8 +16,8 @@
     public EventCallback<bool>? ExpandedChanged { get; set; }
 }
 
-<FlexLayout IsVertical class="@ClassBuilder.Create("ExpansionPanel", Class).Build()" @attributes="@CapturedAttributes?.Without("class")">
-    <FlexLayout IsHorizontal class="gap-2">
+<FlexLayout Column class="@ClassBuilder.Create("ExpansionPanel", Class).Build()" @attributes="@CapturedAttributes?.Without("class")">
+    <FlexLayout Row class="gap-2">
         @Header
 
         <button @onclick="Toggle">

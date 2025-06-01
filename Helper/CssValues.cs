@@ -29,6 +29,15 @@ namespace RTB.BlazorUI.Helper
             public static string None => "none";
         }
 
+        public enum Alignment
+        {
+            Start,
+            Center,
+            End,
+            Stretch,
+            SpaceBetween,
+        }
+
         public static class FlexDirection
         {
             public static string Row => "row";

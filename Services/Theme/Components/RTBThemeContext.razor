@@ -6,8 +6,6 @@
 @typeparam TTheme where TTheme : ITheme
 
 @inject IThemeService<TTheme> Theme
-@inject IDialogService Dialog
-
 @code {
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
@@ -18,8 +16,5 @@
 }
 
 <CascadingValue Value="@(Theme.Current)">
-    <CascadingValue Value="@Dialog">
-        @ChildContent
-        <DialogProvider />
-    </CascadingValue>
+    @ChildContent
 </CascadingValue>

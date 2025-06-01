@@ -9,23 +9,23 @@
 
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
-    [Parameter] public bool IsHorizontal { get; set; } = false;
-    [Parameter] public bool IsVertical { get; set; } = false;
+    [Parameter] public bool Row { get; set; } = false;
+    [Parameter] public bool Column { get; set; } = false;
+    [Parameter] public bool Reverse { get; set; } = false;
 
     [Parameter] public string? Gap { get; set; }
 
-    [Parameter] public string Direction { get; set; } = FlexDirection.Row;
-    [Parameter] public string AlignItem { get; set; } = AlignItems.Start;
-    [Parameter] public string JustifyContent { get; set; } = CssHelper.JustifyContent.Start;
+    [Parameter] public string? AlignItem { get; set; }
+    [Parameter] public string? JustifyContent { get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
         ComponentClass = await Styled.CssAsync(
             RTBStyle
                 .Append("display", "flex")
-                .Append("flex-direction", GetDirection())
-                .Append("align-items", AlignItem)
-                .Append("justify-content", JustifyContent)
+                .AppendIfNotEmpty("flex-direction", GetDirection())
+                .AppendIfNotEmpty("align-items", AlignItem)
+                .AppendIfNotEmpty("justify-content", JustifyContent)
                 .AppendIfNotEmpty("gap", Gap)
                 .Build()
         );
@@ -37,8 +37,15 @@
 </div>
 
 @code {
-    private string GetDirection()
+    private string? GetDirection()
     {
-        return IsHorizontal ? "row" : IsVertical ? "column" : Direction;
+        return (Row, Column, Reverse) switch
+        {
+            (true, false, false) => "row",
+            (false, true, false) => "column",
+            (true, false, true) => "row-reverse",
+            (false, true, true) => "column-reverse",
+            _ => null
+        };
     }
 }

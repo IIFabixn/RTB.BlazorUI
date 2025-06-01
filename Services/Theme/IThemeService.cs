@@ -29,6 +29,12 @@ namespace RTB.BlazorUI.Services.Theme
         /// <param name="theme"></param>
         void SetTheme(TTheme theme);
 
+        /// <summary>
+        /// Set the current theme.
+        /// </summary>
+        /// <param name="theme"></param>
+        ValueTask SetThemeAsync(TTheme theme);
+
         IList<TTheme> Themes { get; }
     }
 

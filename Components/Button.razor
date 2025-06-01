@@ -17,13 +17,13 @@
 
 <Styled @bind-Classname="ComponentClass">
     @(RTBStyle.Build())
-    cursour: pointer;
+    cursor: pointer;
     color: @(Color?.Hex ?? ButtonStyle?.Color);
 </Styled>
 
 <Styled @bind-Classname="ComponentClass" Pseudoclass="PseudoClasses.Disabled">
     @(RTBStyle.Build())
-    cursour: default;
+    cursor: default;
     color: @(DisabledColor ?? ButtonStyle?.DisabledColor);
 </Styled>
 

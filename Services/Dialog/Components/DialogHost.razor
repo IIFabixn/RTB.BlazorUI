@@ -1,35 +1,49 @@
-﻿@using RTB.BlazorUI.Dialog.Components
-@using RTB.BlazorUI.Services
+﻿@using RTB.BlazorUI.Services
 
 @inherits DialogBase
 @inject IJSRuntime JSRuntime
 
 <!-- Root overlay – centres the dialog and keeps it above everything -->
-<dialog @ref="dialog" class="top-1/2 left-1/2 -translate-[50%] bg-transparent container w-full max-h-[80vh] h-full">
+<Styled @bind-Classname="ComponentClass">
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+</Styled>
 
-    <!-- Dialog card -->
-    <Grid Rows="auto 1fr" class="rounded overflow-clip bg-white shadow-2xl ring-1 ring-gray-950/10 h-full">
-        <GridItem Row="1" class="flex justify-between gap-4 border-b border-gray-100 px-6 py-4">
-            <!-- Header -->
-            <h5 class="text-xl font-semibold text-gray-900">
-                @Title
-            </h5>
+<dialog @ref="dialog" class="@ComponentClass">
+    @*
+        <Grid Rows="auto 1fr" class="rounded overflow-clip bg-white shadow-2xl ring-1 ring-gray-950/10 h-full">
+            <GridItem Row="1" class="flex justify-between gap-4 border-b border-gray-100 px-6 py-4">
+                <!-- Header -->
+                <h5 class="text-xl font-semibold text-gray-900">
+                    @Title
+                </h5>
 
-            <button type="button" class="group rounded p-2 hover:bg-gray-100"
-                    @onclick="() => Close(DialogResult.Cancel())">
-                <svg class="h-5 w-5 text-gray-500 group-hover:text-gray-700"
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </GridItem>
-        <GridItem Row="2" class="overflow-auto h-full min-h-0">
-            <CascadingValue Value="this">
-                @ChildContent
-            </CascadingValue>
-        </GridItem>
-    </Grid>
+                <button type="button" class="group rounded p-2 hover:bg-gray-100"
+                        @onclick="() => Close(DialogResult.Cancel())">
+                    <svg class="h-5 w-5 text-gray-500 group-hover:text-gray-700"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </GridItem>
+            <GridItem Row="2" class="overflow-auto h-full min-h-0">
+                <CascadingValue Value="this">
+                    @ChildContent
+                </CascadingValue>
+            </GridItem>
+        </Grid>
+    *@
+
+    <CascadingValue Value="this">
+        @ChildContent
+    </CascadingValue>
 </dialog>
 
 <script>

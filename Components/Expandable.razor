@@ -19,7 +19,7 @@
 }
 
 <FlexLayout 
-    IsVertical
+    Column
     class="@ClassBuilder.Create("Expandable", ComponentClass, Class).Build()"
     @attributes="@(CapturedAttributes?.Without("class", "style", "."))" 
     @onclick:stopPropagation

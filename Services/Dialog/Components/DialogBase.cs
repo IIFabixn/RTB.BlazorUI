@@ -2,7 +2,7 @@
 using RTB.BlazorUI.Components;
 using RTB.BlazorUI.Services.Dialog;
 
-namespace RTB.BlazorUI.Dialog.Components
+namespace RTB.BlazorUI.Services.Dialog.Components
 {
     public abstract class DialogBase : RTBComponent, IDialogReference
     {
