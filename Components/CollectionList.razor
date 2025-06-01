@@ -26,7 +26,8 @@
 }
 
 <FlexLayout
-    Direction="@(IsHorizontal ? CssHelper.FlexDirection.Row: CssHelper.FlexDirection.Column)"
+    Row="@IsHorizontal"
+    Column="@IsVertical"
     class="@ClassBuilder.Create("CollectionList", ComponentClass, Class).Build()"
     @attributes="@CapturedAttributes?.Without("class", "style")"
 >

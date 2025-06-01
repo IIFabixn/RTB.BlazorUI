@@ -6,6 +6,7 @@
     [Parameter, EditorRequired] public RenderFragment Activator { get; set; } = default!;
     [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter, EditorRequired] public FlyoutPosition Position { get; set; }
+
     [Parameter] public string? ActivatorClass { get; set; }
     [Parameter] public string? ContentClass { get; set; }
 
@@ -13,18 +14,17 @@
 }
 
 <Styled @bind-Classname="ComponentClass">
-    @(RTBStyle.Append("position", "relative"))
-    @(CapturedAttributes?.ByPrefix("Activator").GetValueOrDefault<string>("style"))
+    @(RTBStyle.Build())
+    position: relative;
 </Styled>
 
 <Styled @bind-Classname="MenuClass">
     position: absolute;
     z-index: 50;
     @GetFlyoutPositionStyle()
-    @(CapturedAttributes?.ByPrefix("Menu").GetValueOrDefault<string>("style"))
 </Styled>
 
-<div class="FlyoutMenu @ComponentClass @(CapturedAttributes?.GetValueOrDefault<string>("class"))" @onclick:stopPropagation @attributes="@CapturedAttributes?.Without("class")">
+<div class="FlyoutMenu @ComponentClass @Class" @onclick:stopPropagation @attributes="@CapturedAttributes?.Without("class", "style")">
     <div @onclick="ToggleMenu" class="@ActivatorClass">
         @Activator
     </div>
