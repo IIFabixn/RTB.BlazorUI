@@ -34,6 +34,24 @@ namespace RTB.BlazorUI.Helper
             return this;
         }
 
+        public ClassBuilder Append(params string?[] names)
+        {
+            if (names is { Length: 0 }) return this;
+
+            Append(string.Join(' ', names));
+
+            return this;
+        }
+
+        public ClassBuilder Merge(ClassBuilder? otherBuilder)
+        {
+            if (otherBuilder is null) return this;
+
+            Append(otherBuilder?.Build());
+
+            return this;
+        }
+
         public ClassBuilder AppendIf(string? name, Func<bool> condition)
         {
             return condition() ? Append(name) : this;
@@ -42,6 +60,10 @@ namespace RTB.BlazorUI.Helper
         public ClassBuilder AppendIf(string? name, bool condition)
         {
             return condition ? Append(name) : this;
+        }
+        public ClassBuilder AppendIfElse(string? trueValue, string? falseValue, bool condition)
+        {
+            return condition ? Append(trueValue) : Append(falseValue);
         }
 
         public string Build()

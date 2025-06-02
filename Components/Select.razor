@@ -1,36 +1,81 @@
-﻿@using static RTB.BlazorUI.Components.FlyoutMenu
+﻿@using RTB.BlazorUI.Extensions
+@using RTB.BlazorUI.Helper
+@using static RTB.BlazorUI.Components.FlyoutMenu
 @inherits RTBComponent
 
 @typeparam TOption
 
 @code {
     [Parameter] public List<TOption> Options { get; set; } = default!;
-    [Parameter] public RenderFragment? ActionContent { get; set; }
+
+    [Parameter] public RenderFragment<TOption?>? ActionContent { get; set; }
     [Parameter] public RenderFragment<TOption>? OptionTemplate { get; set; }
-    [Parameter] public EventCallback<TOption?> OnChange { get; set; } = default!;
+
+    [Parameter] public TOption? SelectedOption { get; set; }
+    [Parameter] public EventCallback<TOption?> SelectedOptionChanged { get; set; } = default!;
+
+    /// <summary>
+    /// Fragment for exameple Searchbars, Filter Options, etc..
+    /// </summary>
+    [Parameter] public RenderFragment? OptionsHeader { get; set; }
+    [Parameter] public string? ActivatorClass { get; set; }
+    [Parameter] public string? ContentClass { get; set; }
+
+    [Parameter] public bool Multiple { get; set; }
+    [Parameter] public int MaxAmountOfVisibleItems { get; set; } = 8;
 
     private FlyoutMenu? FlyoutMenuRef;
+
+    private string? SelectContentClass;
 }
 
-<FlyoutMenu class="Select" @ref="FlyoutMenuRef" Position="FlyoutPosition.Down">
+<Styled @bind-Classname="ComponentClass">
+    @(RTBStyle.Build())
+</Styled>
+
+<Styled @bind-Classname="SelectContentClass">
+    min-height: 0;
+    max-height: calc(@MaxAmountOfVisibleItems * 100%);
+</Styled>
+
+<FlyoutMenu
+    @ref="FlyoutMenuRef"
+    Position="FlyoutPosition.Down"
+    ActivatorClass="@ActivatorClass"
+    ContentClass="@ClassBuilder.Create(SelectContentClass).Append(ContentClass).Build()"
+    class="@(ClassBuilder.Create("Select").Append(ComponentClass, Class).Build())"
+    @attributes="@CapturedAttributes?.Without("class", "style")"
+>
     <Activator>
-        <FlexLayout Column>
-            @ActionContent
-            @if (ActionContent is null)
-            {
-                <RTB.BlazorUI.Components.Text Element="span">Select an option</RTB.BlazorUI.Components.Text>
-            }
-        </FlexLayout>
+        @ActionContent?.Invoke(SelectedOption)
     </Activator>
+
     <ChildContent>
-        <CollectionList Items="@Options" TItem="TOption" Context="item">
-            <div @onclick="@(() => { OnChange.InvokeAsync(item); FlyoutMenuRef?.CloseMenu(); })">
-                @OptionTemplate?.Invoke(item)
-                @if (OptionTemplate is null)
-                {
-                    <p>@item?.ToString()</p>
-                }
+        <FlexLayout Column Background="@Background" style="min-height: 0; max-height: 100%;">
+            @if (OptionsHeader is not null)
+            {
+                @OptionsHeader
+            }
+            <div style="min-height: 0; max-height: 100%; overflow: auto;">
+                <CollectionList IsVertical FullWidth Items="@Options" TItem="TOption" Context="item">
+                    <div @onclick="@(() => HandleSelect(item))">
+                        @OptionTemplate?.Invoke(item)
+                        @if (OptionTemplate is null)
+                        {
+                            <p>@item?.ToString()</p>
+                        }
+                    </div>
+                </CollectionList>
             </div>
-        </CollectionList>
+        </FlexLayout>
     </ChildContent>
 </FlyoutMenu>
+
+@code {
+    private void HandleSelect(TOption item)
+    {
+        SelectedOption = item; 
+        SelectedOptionChanged.InvokeAsync(item); 
+        if (!Multiple) FlyoutMenuRef?.CloseMenu();
+    }
+}

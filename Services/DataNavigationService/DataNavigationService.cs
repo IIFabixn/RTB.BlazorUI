@@ -46,11 +46,14 @@ namespace RTB.BlazorUI.Services.DataNavigationService
             }
         }
 
-        public void NavigateTo(string uri, bool forceLoad = false, bool replace = false, params KeyValuePair<string, object?>[] parameter)
+        public void NavigateTo(string uri, bool forceLoad = false, bool replace = false, IDictionary<string, object?>? parameter = null)
         {
-            foreach (var param in parameter)
+            if (parameter is { Count: > 0})
             {
-                SetData(param.Key, param.Value);
+                foreach (var param in parameter)
+                {
+                    SetData(param.Key, param.Value);
+                }
             }
 
             navigationManager.NavigateTo(uri, forceLoad, replace);

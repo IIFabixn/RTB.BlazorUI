@@ -20,7 +20,9 @@
 
 <Styled @bind-Classname="MenuClass">
     position: absolute;
+    min-width: 100%;
     z-index: 50;
+    display: flex;
     @GetFlyoutPositionStyle()
 </Styled>
 
@@ -69,10 +71,10 @@
 
     private string GetFlyoutPositionStyle() => Position switch
     {
-		FlyoutPosition.Down => "right: 50%; top: 100%; transform: translateX(50%);",
-        FlyoutPosition.Up => "right: 50%; bottom: 100%; transform: translateX(50%);",
-		FlyoutPosition.Left => "right: 100%; top: 50%; transform: translateY(50%);",
-		FlyoutPosition.Right => "left: 100%; top: 50%; transform: translateY(50%);",
+		FlyoutPosition.Down => "right: 50%; top: 100%; transform: translateX(50%); flex-direction: column;",
+        FlyoutPosition.Up => "right: 50%; bottom: 100%; transform: translateX(50%); flex-direction: column;",
+        FlyoutPosition.Left => "right: 100%; top: 50%; transform: translateY(50%); flex-direction: row;",
+        FlyoutPosition.Right => "left: 100%; top: 50%; transform: translateY(50%); flex-direction: row;",
 		_ => throw new ArgumentOutOfRangeException(nameof(Position), Position, "Not yet implemented")
     };
 }

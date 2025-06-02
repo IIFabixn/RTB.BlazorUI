@@ -1,8 +1,11 @@
 ﻿@using RTB.BlazorUI.Extensions
+@using RTB.BlazorUI.Helper
 @using RTB.BlazorUI.Interfaces
 @using Microsoft.AspNetCore.Components.Web.Virtualization
+@using static RTB.BlazorUI.Helper.CssHelper
 
-@typeparam TRow
+@typeparam TRow where TRow : class
+
 @attribute [CascadingTypeParameter(nameof(TRow))]
 
 @inherits RTBComponent
@@ -16,10 +19,12 @@
     [Parameter] public EventCallback<TRow> SelectedRowChanged { get; set; }
 
     [Parameter] public string? HeaderClass { get; set; }
+    [Parameter] public string? RowClass { get; set; }
 
     [Parameter, EditorRequired] public string KeyProperty { get; set; } = default!;
 
     private string? Wrapper;
+    private string? CoreHeaderStyle;
 }
 
 <!-- registers the <DataColumn>s -->
@@ -40,19 +45,28 @@
     grid-template-rows: repeat(@(Items.Count()), auto);
 </Styled>
 
+<Styled @bind-Classname="CoreHeaderStyle">
+    position: sticky;
+    top: 0;
+</Styled>
+
 <div class="@Wrapper">
     <div class="DataGrid @ComponentClass @Class">
         @* ---------- Header cells (row 1) ------------------------ *@
         @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
         {
             var col = _columns[colIdx - 1];
-            <div class="p-2 font-medium sticky top-0 z-10 bg-inherit border-b border-b-slate-300 flex items-center justify-between @HeaderClass @(col.CapturedAttributes?.GetValueOrDefault("class"))">
+            <FlexLayout 
+                Row 
+                AlignItem="@AlignItems.Center"
+                JustifyContent="@JustifyContent.SpaceBetween"
+                class="@(ClassBuilder.Create(CoreHeaderStyle).Append(HeaderClass).Build())">
                 @(builder => col.RenderHeader(builder, colIdx))
                 @if (Sort?.Column == col)
                 {
                     <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(Sort.Descending ? "▼" : "▲")</button>
                 }
-            </div>
+            </FlexLayout>
         }
 
         <Virtualize Items="_sortedItems" Context="row">
@@ -61,7 +75,7 @@
                 int rowIndex = _sortedItems.IndexOf(row);
             }
             @* display:contents will not create a new element in the dom *@
-            <div style="display:contents" class="*:px-2 @(rowIndex % 2 == 0 ? "*:bg-white" : "*:bg-gray-100")" @onclick="() => SelectRow(row)">
+            <div style="display:contents" class="@ClassBuilder.Create(RowClass).AppendIf("active", row == SelectedRow).Build()" @onclick="() => SelectRow(row)">
                 @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
                 {
                     var col = _columns[colIdx - 1];

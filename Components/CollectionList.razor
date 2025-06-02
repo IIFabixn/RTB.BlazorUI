@@ -17,11 +17,15 @@
     [Parameter] public string Orientation { get; set; } = "vertical";
     [Parameter] public bool IsHorizontal { get; set; } = false;
     [Parameter] public bool IsVertical { get; set; } = false;
-    [Parameter] public bool Scrollable { get; set; } = false;
+
+    /// <summary>
+    /// Defines how many Items should be visible before it become scrollable.
+    /// </summary>
+    [Parameter] public int? LimitToItemAmount { get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
-        ComponentClass = await Styled.CssAsync(RTBStyle.AppendIf("min-height", "0", Scrollable).AppendIf("overflow", "auto", Scrollable).Build());
+        ComponentClass = await Styled.CssAsync(RTBStyle.Build());
     }
 }
 
