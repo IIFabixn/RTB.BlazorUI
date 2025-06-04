@@ -4,19 +4,31 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using RTB.BlazorUI.Services.Style;
 using RTB.BlazorUI.Services.Theme;
 
 namespace RTB.BlazorUI.Helper
 {
     public class StyleBuilder
     {
-        private readonly StringBuilder _buidler;
+        private readonly StringBuilder _builder;
+        private bool _dirty = true;
+        private string _cachedClass = "";
+
         private StyleBuilder(string initStyle = "")
         {
-            _buidler = new(initStyle);
+            _builder = new(initStyle);
         }
 
         public static StyleBuilder Start => new();
+
+        public StyleBuilder Clear()
+        {
+            _builder.Clear();
+            _dirty = true;
+
+            return this;
+        }
 
         /// <summary>
         /// Creates a new instance of StyleBuilder with an optional initial style.
@@ -38,8 +50,8 @@ namespace RTB.BlazorUI.Helper
         /// <returns></returns>
         public StyleBuilder Append(string style, string value)
         {
-            _buidler.Append(style).Append(':').Append(value).Append(';');
-
+            _builder.Append(style).Append(':').Append(value).Append(';');
+            _dirty = true;
             return this;
         }
 
@@ -79,7 +91,7 @@ namespace RTB.BlazorUI.Helper
         {
             if (!string.IsNullOrWhiteSpace(style))
             {
-                _buidler.Append(style);
+                _builder.Append(style);
             }
 
             return this;
@@ -99,14 +111,31 @@ namespace RTB.BlazorUI.Helper
         {
             if (other is null) return this;
 
-            _buidler.Append(other._buidler);
+            _builder.Append(other._builder);
             return this;
         }
 
 
         public string Build()
         {
-            return _buidler.ToString().Trim();
+            return _builder.ToString().Trim();
+        }
+        
+
+        /// <summary>
+        /// Returns the css class name, registering the rule in <see cref="IStyleRegistry"/>
+        /// the first time (or whenever the declarations changed).
+        /// </summary>
+        public string ToCssClass(IStyleRegistry registry)
+        {
+            if (_dirty)
+            {
+                var css = _builder.ToString();
+                _cachedClass = registry.GetOrAdd(css);
+                _dirty = false;
+            }
+
+            return _cachedClass;
         }
     }
 }

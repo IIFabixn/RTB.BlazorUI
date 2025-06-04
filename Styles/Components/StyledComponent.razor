@@ -4,36 +4,19 @@
 @inherits RTBComponent
 
 @code {
+    [Inject] private IStyleRegistry CssRegistry { get; set; } = default!;
     [Parameter] public RenderFragment<string?> ChildContent { get; set; } = default!;
     [Parameter] public string? RawStyle { get; set; }
-
-    [Inject] private IStyleRegistry CssRegistry { get; set; } = default!;
     
-    private StyleBuilder _builder = StyleBuilder.Start;
-    
-    private string Register(StyleBuilder style) => Register(style.Build());
-    private string Register(string style) => CssRegistry.GetOrAdd(style);
-
-    private string? _prevCss;
-    private string? _componentClass;
-
-    protected override void OnParametersSet()
-    {
-        _builder = StyleBuilder.Start.AppendStyle(RawStyle);
-        
-        var css = _builder.Build();
-        if (_prevCss != css)
-        {
-            _prevCss = css;
-            _componentClass = Register(css);
-        }
-    }
+    private readonly StyleBuilder _builder = StyleBuilder.Start;
 }
+
+@{_builder.Clear().AppendStyle(RawStyle);}
 
 <CascadingValue Value="@_builder" IsFixed="true">
     @Style
-    
-    @ChildContent(_componentClass)
+
+    @ChildContent(_builder.ToCssClass(CssRegistry))
 </CascadingValue>
 
 
