@@ -4,22 +4,25 @@
 
 @inherits ChartBase
 
-<Grid FullHeight FullWidth Rows="1fr auto">
-    <GridItem class="relative grid place-items-center">
-        <SKCanvasView class="h-full w-full" OnPaintSurface="PaintDonut" EnableRenderLoop />
-        <h3 class="absolute top-1/2 left-1/2 -translate-1/2">@TotalValue</h3>
-    </GridItem>
-    <GridItem>
-        <FlexLayout Row AlignItem="@AlignItems.Center" JustifyContent="@JustifyContent.Center" Gap="1rem" class="flex-wrap">
-            @foreach (var entry in Entries.Where(e => e.Value > 0))
-            {
-                <FlexLayout Row class="items-center justify-center gap-2">
-                    <div class="w-2 h-2 rounded shrink-0" style="background-color: #@entry.Color?.ToString().Substring(3)"></div>
-                    <h4>@entry.Label (@entry.Value)</h4>
-                </FlexLayout>
-            }
-        </FlexLayout>
-    </GridItem>
+<Grid Rows="1fr auto">
+
+    <ChildContent>
+        <GridItem Class="relative grid place-items-center">
+            <SKCanvasView class="h-full w-full" OnPaintSurface="PaintDonut" EnableRenderLoop />
+            <h3 class="absolute top-1/2 left-1/2 -translate-1/2">@TotalValue</h3>
+        </GridItem>
+        <GridItem>
+            <FlexLayout Row AlignItem="@AlignItems.Center" JustifyContent="@JustifyContent.Center" Gap="1rem" Class="flex-wrap">
+                @foreach (var entry in Entries.Where(e => e.Value > 0))
+                {
+                    <FlexLayout Row Class="items-center justify-center gap-2">
+                        <div class="w-2 h-2 rounded shrink-0" style="background-color: #@entry.Color?.ToString().Substring(3)"></div>
+                        <h4>@entry.Label (@entry.Value)</h4>
+                    </FlexLayout>
+                }
+            </FlexLayout>
+        </GridItem>
+    </ChildContent>
 </Grid>
 
 @code {

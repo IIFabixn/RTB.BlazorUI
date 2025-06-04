@@ -5,16 +5,9 @@
 @code {
     [Parameter, EditorRequired] public RenderFragment ActionContent { get; set; } = default!;
     [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
-
-    private string? ContentClass;
 }
 
-<Styled @bind-Classname="ComponentClass">
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    z-index: 10;
-
+@* <Styled @bind-Classname="ComponentClass">
     &.group:hover {
         .collapse {
             visibility: visible;
@@ -25,22 +18,34 @@
         visibility: hidden;
         transition: visibility 0.2s ease-in-out;
     }
-</Styled>
+</Styled> *@
 
-<Styled @bind-Classname="ContentClass">
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 20;
-    visibility: hidden;
-    transition: visibility 0.2s ease-in-out;
-</Styled>
+<StyledComponent Context="ComponentClass">
+    <Style>
+        <Other Property="position" Value="relative" />
+        <Other Property="display" Value="inline-block" />
+        <Other Property="cursor" Value="pointer" />
+        <Other Property="z-index" Value="10" />
+    </Style>
+    
+    <ChildContent>
+        <div class="@ComponentClass group @(CapturedAttributes?.GetValueOrDefault<string>("class"))" @attributes="@(CapturedAttributes?.Without("class"))">
+            @ActionContent
 
-<div class="@ComponentClass group @(CapturedAttributes?.GetValueOrDefault<string>("class"))" @attributes="@(CapturedAttributes?.Without("class"))">
-    @ActionContent
-
-    <div class="@ContentClass collapse">
-        @ChildContent
-    </div>
-</div>
+            <StyledComponent Context="ContentClass">
+                <Style>
+                    <Other Property="position" Value="absolute" />
+                    <Positioned Top="100%" Left="50%" />
+                    <Other Property="transform" Value="translateX(-50%)" />
+                    <Other Property="z-index" Value="20" />
+                    <Other Property="visibility" Value="hidden" />
+                </Style>
+                    <ChildContent>
+                        <div class="@ContentClass collapse">
+                            @ChildContent
+                        </div>
+                    </ChildContent>
+            </StyledComponent>
+        </div>
+    </ChildContent>
+</StyledComponent>

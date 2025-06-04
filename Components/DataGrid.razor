@@ -1,4 +1,5 @@
-﻿@using RTB.BlazorUI.Extensions
+﻿@using Microsoft.AspNetCore.Components
+@using RTB.BlazorUI.Extensions
 @using RTB.BlazorUI.Helper
 @using RTB.BlazorUI.Interfaces
 @using Microsoft.AspNetCore.Components.Web.Virtualization
@@ -9,6 +10,7 @@
 @attribute [CascadingTypeParameter(nameof(TRow))]
 
 @inherits RTBComponent
+
 @implements IRegister<ColumnBase<TRow>>
 
 @code {
@@ -22,9 +24,6 @@
     [Parameter] public string? RowClass { get; set; }
 
     [Parameter, EditorRequired] public string KeyProperty { get; set; } = default!;
-
-    private string? Wrapper;
-    private string? CoreHeaderStyle;
 }
 
 <!-- registers the <DataColumn>s -->
@@ -32,59 +31,67 @@
     @Columns
 </CascadingValue>
 
-<Styled @bind-Classname="Wrapper">
-    height: 100%;
-    width: 100%;
-</Styled>
+<StyledComponent Context="Wrapper">
+    <Style>
+        <Width Value="100%" />
+        <Height Value="100%" />
+        @Style
+    </Style>
 
-<Styled @bind-Classname="ComponentClass">
-    @(RTBStyle.Build())
-    display: grid;
-    border-bottom: 1px solid black;
-    grid-template-columns: @(GridTemplate); 
-    grid-template-rows: repeat(@(Items.Count()), auto);
-</Styled>
+    <ChildContent>
+        <div class="@Wrapper">
+            <StyledComponent Context="ComponentClass">
+                <Style>
+                    <GridDisplay TemplateColumns="@GridTemplate" TemplateRows=":autofill 1fr" />
+                    <Border Color="black" Side="@Border.BorderSide.Bottom" />
+                </Style>
 
-<Styled @bind-Classname="CoreHeaderStyle">
-    position: sticky;
-    top: 0;
-</Styled>
+                <ChildContent>
+                    <div class="DataGrid @ComponentClass @Class">
+                        @* ---------- Header cells (row 1) ------------------------ *@
+                        @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
+                        {
+                            var col = _columns[colIdx - 1];
+                            <FlexLayout 
+                                Row 
+                                AlignItem="@AlignItems.Center"
+                                JustifyContent="@JustifyContent.SpaceBetween"
+                                Class="@(ClassBuilder.Create().Append(HeaderClass).Build())">
+                                <Style>
+                                    <Other Property="position" Value="sticky" />
+                                    <Positioned Top="0" />
+                                </Style>
+                                
+                                <ChildContent>
+                                    @(builder => col.RenderHeader(builder, colIdx))
+                                    @if (Sort?.Column == col)
+                                    {
+                                        <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(Sort.Descending ? "▼" : "▲")</button>
+                                    }
+                                </ChildContent>
+                            </FlexLayout>
+                        }
 
-<div class="@Wrapper">
-    <div class="DataGrid @ComponentClass @Class">
-        @* ---------- Header cells (row 1) ------------------------ *@
-        @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
-        {
-            var col = _columns[colIdx - 1];
-            <FlexLayout 
-                Row 
-                AlignItem="@AlignItems.Center"
-                JustifyContent="@JustifyContent.SpaceBetween"
-                class="@(ClassBuilder.Create(CoreHeaderStyle).Append(HeaderClass).Build())">
-                @(builder => col.RenderHeader(builder, colIdx))
-                @if (Sort?.Column == col)
-                {
-                    <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(Sort.Descending ? "▼" : "▲")</button>
-                }
-            </FlexLayout>
-        }
-
-        <Virtualize Items="_sortedItems" Context="row">
-            <!-- ---------- Data cells (rows 2…N) ----------------------- -->
-            @{
-                int rowIndex = _sortedItems.IndexOf(row);
-            }
-            @* display:contents will not create a new element in the dom *@
-            <div style="display:contents" class="@ClassBuilder.Create(RowClass).AppendIf("active", row == SelectedRow).Build()" @onclick="() => SelectRow(row)">
-                @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
-                {
-                    var col = _columns[colIdx - 1];
-                    @(builder => col.RenderCell(builder, row, colIdx))
-                }
-            </div>
-        </Virtualize>
-    </div>
-</div>
+                        <Virtualize Items="_sortedItems" Context="row">
+                            <!-- ---------- Data cells (rows 2…N) ----------------------- -->
+                            @{
+                                int rowIndex = _sortedItems.IndexOf(row);
+                            }
+                            @* display:contents will not create a new element in the dom *@
+                            <div style="display:contents" class="@ClassBuilder.Create(RowClass).AppendIf("active", row == SelectedRow).Build()" @onclick="() => SelectRow(row)">
+                                @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
+                                {
+                                    var col = _columns[colIdx - 1];
+                                    @(builder => col.RenderCell(builder, row, colIdx))
+                                }
+                            </div>
+                        </Virtualize>
+                    </div>
+                </ChildContent>
+            </StyledComponent>
+        </div>
+    </ChildContent>
+</StyledComponent>
 
 @code {
     private List<ColumnBase<TRow>> _columns = [];

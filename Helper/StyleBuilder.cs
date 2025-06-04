@@ -4,16 +4,19 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using RTB.BlazorUI.Services.Theme;
 
 namespace RTB.BlazorUI.Helper
 {
     public class StyleBuilder
     {
         private readonly StringBuilder _buidler;
-        protected StyleBuilder(string initStyle = "")
+        private StyleBuilder(string initStyle = "")
         {
             _buidler = new(initStyle);
         }
+
+        public static StyleBuilder Start => new();
 
         /// <summary>
         /// Creates a new instance of StyleBuilder with an optional initial style.
@@ -35,7 +38,7 @@ namespace RTB.BlazorUI.Helper
         /// <returns></returns>
         public StyleBuilder Append(string style, string value)
         {
-            _buidler.Append($"{style}: {value};");
+            _buidler.Append(style).Append(':').Append(value).Append(';');
 
             return this;
         }
@@ -90,6 +93,14 @@ namespace RTB.BlazorUI.Helper
         public StyleBuilder AppendStyleIf(string? style, Func<bool> condition)
         {
             return condition() ? AppendStyle(style) : this;
+        }
+
+        public StyleBuilder Join(StyleBuilder other)
+        {
+            if (other is null) return this;
+
+            _buidler.Append(other._buidler);
+            return this;
         }
 
 

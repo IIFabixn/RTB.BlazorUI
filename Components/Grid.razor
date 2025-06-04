@@ -16,18 +16,18 @@
     [Parameter] public string? Gap { get; set; }
 }
 
-<Styled @bind-Classname="ComponentClass">
-    @(RTBStyle.Build())
-    display: grid;
-    grid-template-columns: @(Columns);
-    grid-template-rows: @(Rows);
-    background-color: @(Background);
-    gap: @Gap;
-</Styled>
-
-<div
-    class="@ClassBuilder.Create(ComponentClass, Class).Build()" 
-    @attributes="@CapturedAttributes?.Without("class", "style")"
->
-    @ChildContent
-</div>
+<StyledComponent Context="ComponentClass">
+    <Style>
+        <GridDisplay TemplateColumns="@Columns" TemplateRows="@Rows" Gap="@Gap" />
+        @Style
+    </Style>
+    
+    <ChildContent>
+        <div
+            class="@ClassBuilder.Create(ComponentClass, Class).Build()" 
+            @attributes="@CapturedAttributes?.Without("class", "style")"
+        >
+            @ChildContent
+        </div>
+    </ChildContent>
+</StyledComponent>

@@ -4,7 +4,7 @@ using RTB.BlazorUI.Services.BusyTracker;
 using RTB.BlazorUI.Services.DragDrop;
 using RTB.BlazorUI.Services.Theme;
 using RTB.BlazorUI.Services.Theme.Themes;
-using BlazorStyled;
+using RTB.BlazorUI.Services.Style;
 
 namespace RTB.BlazorUI.Services
 {
@@ -12,7 +12,6 @@ namespace RTB.BlazorUI.Services
     {
         public static IServiceCollection UseRTBServices(this IServiceCollection collection, Action<RTBConfig>? configAction = null)
         {
-            collection.AddBlazorStyled();
             var config = new RTBConfig();
             configAction?.Invoke(config);
 
@@ -41,6 +40,8 @@ namespace RTB.BlazorUI.Services
             {
                 collection.AddScoped<DataNavigationService.DataNavigationService>();
             }
+
+            collection.AddScoped<IStyleRegistry, StyleRegistry>();
 
             return collection;
         }

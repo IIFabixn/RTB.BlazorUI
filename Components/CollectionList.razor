@@ -8,8 +8,6 @@
 @using RTB.BlazorUI.Helper
 
 @code {
-    [Inject] protected IStyled Styled { get; set; } = default!;
-
     [Parameter] public List<TItem> Items { get; set; } = [];
     [Parameter] public RenderFragment<TItem>? ChildContent {get; set; }
     [Parameter] public RenderFragment? HeaderTemplate { get; set; }
@@ -22,23 +20,20 @@
     /// Defines how many Items should be visible before it become scrollable.
     /// </summary>
     [Parameter] public int? LimitToItemAmount { get; set; }
-
-    protected override async Task OnParametersSetAsync()
-    {
-        ComponentClass = await Styled.CssAsync(RTBStyle.Build());
-    }
 }
 
-<FlexLayout
-    Row="@IsHorizontal"
-    Column="@IsVertical"
-    class="@ClassBuilder.Create("CollectionList", ComponentClass, Class).Build()"
-    @attributes="@CapturedAttributes?.Without("class", "style")"
->
-    @if (Items.Any())
-    {
-        <Virtualize Items="@Items" Context="item">
-            @ChildContent?.Invoke(item)
-        </Virtualize>
-    }
-</FlexLayout>
+<StyledComponent Context="ComponentClass">
+    <FlexLayout
+        Row="@IsHorizontal"
+        Column="@IsVertical"
+        Class="@ClassBuilder.Create("CollectionList", ComponentClass, Class).Build()"
+        @attributes="@CapturedAttributes?.Without("class", "style")"
+    >
+        @if (Items.Any())
+        {
+            <Virtualize Items="@Items" Context="item">
+                @ChildContent?.Invoke(item)
+            </Virtualize>
+        }
+    </FlexLayout>
+</StyledComponent>

@@ -11,15 +11,19 @@
     [Parameter] public int RowSpan { get; set; } = 1;
 }
 
-<Styled @bind-Classname="@ComponentClass">
-    @(RTBStyle.Build())
-    grid-column: @(Column > 0 ? Column : "auto") / span @ColumnSpan;
-    grid-row: @(Row > 0 ? Row : "auto") / span @RowSpan;
-</Styled>
+<StyledComponent Context="ComponentClass">
+    <Style>
+        <Other Property="grid-column" Value="@($"{(Column > 0 ? Column : "auto")} / span {ColumnSpan}")" />
+        <Other Property="grid-row" Value="@($"{(Row > 0 ? Row : "auto")} / span {RowSpan}")" />
+        @Style
+    </Style>
 
-<div
-    class="@ClassBuilder.Create("GridItem", ComponentClass, Class).Build()" 
-    @attributes="@CapturedAttributes?.Without("class", "style")"
->
-    @ChildContent
-</div>
+    <ChildContent>
+        <div
+            class="@ClassBuilder.Create("GridItem", ComponentClass, Class).Build()" 
+            @attributes="@CapturedAttributes?.Without("class", "style")"
+        >
+            @ChildContent
+        </div>
+    </ChildContent>
+</StyledComponent>

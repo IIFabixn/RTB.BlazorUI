@@ -6,18 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RTB.BlazorUI.Components;
-using BlazorStyled;
 using RTB.BlazorUI.Helper;
+using RTB.BlazorUI.Services.Style;
 
 namespace RTB.BlazorUI.Services.BusyTracker.Components
 {
     public class DefaultBusyTracker : RTBComponent
     {
-        [Inject] protected IStyled Styled { get; set; } = default!;
-
-        protected override async Task OnParametersSetAsync()
+        [Inject] protected IStyleRegistry Styled { get; set; } = default!;
+        private string ComponentClass { get; set; } = string.Empty;
+        protected override void OnParametersSet()
         {
-            ComponentClass = await Styled.CssAsync(StyleBuilder.Create()
+            ComponentClass = Styled.GetOrAdd(StyleBuilder.Start
                 .Append("height", "100%")
                 .Append("width", "100%")
                 .Append("display", "grid")

@@ -1,35 +1,29 @@
 ﻿@using RTB.BlazorUI.Extensions
 @using RTB.BlazorUI.Helper
+@using RTB.BlazorUI.Services.Style
 @inherits RTBComponent
 
 @code {
-    [Inject] protected IStyled Styled { get; set; } = default!;
-
     [Parameter, EditorRequired] public RenderFragment Activator { get; set; } = default!;
     [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter] public bool InitiallyExpanded { get; set; } = false;
-
-    private string? ActivatorClass;
-
-    protected override async Task OnParametersSetAsync()
-    {
-        ComponentClass = await Styled.CssAsync(RTBStyle.Build());
-        ActivatorClass = await Styled.CssAsync(StyleBuilder.Create().Append("width", "100%").Build());
-    }
 }
 
 <FlexLayout 
     Column
-    class="@ClassBuilder.Create("Expandable", ComponentClass, Class).Build()"
+    Class="@ClassBuilder.Create("Expandable", Class).Build()"
     @attributes="@(CapturedAttributes?.Without("class", "style", "."))" 
     @onclick:stopPropagation
 >
-    <div class="@ClassBuilder.Create("Activator", ActivatorClass, CapturedAttributes?.ByPrefix("Activator.").GetValueOrDefault<string>("class")).Build()" 
-        @onclick="ToggleMenu" 
-        @attributes="@CapturedAttributes?.ByPrefix("Activator.").Without("class")"
-    >
-        @Activator
-    </div>
+    <StyledComponent Context="ActivatorClass">
+        <Width Value="100%" />
+
+        <div class="@ClassBuilder.Create("Activator", ActivatorClass).Build()" 
+            @onclick="ToggleMenu"
+        >
+            @Activator
+        </div>
+    </StyledComponent>
     @if (IsOpen)
     {
         @ChildContent
@@ -51,8 +45,8 @@
         get => _isOpen;
         set
         {
-            OnStateChanged?.Invoke();
             SetProperty(ref _isOpen, value);
+            OnStateChanged?.Invoke();
         }
     }
     public event Action? OnStateChanged;

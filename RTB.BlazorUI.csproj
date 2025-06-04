@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="BlazorStyled" Version="3.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.4" />
     <PackageReference Include="SkiaSharp.Views.Blazor" Version="3.119.0" />
   </ItemGroup>

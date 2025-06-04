@@ -1,9 +1,10 @@
-﻿using BlazorStyled;
+﻿using System.ComponentModel;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using RTB.BlazorUI.Extensions;
 using RTB.BlazorUI.Helper;
 using RTB.BlazorUI.Interfaces;
+using RTB.BlazorUI.Services.Style;
 
 namespace RTB.BlazorUI.Components
 {
@@ -77,7 +78,7 @@ namespace RTB.BlazorUI.Components
 
     public class DataColumn<TRow, TValue> : ColumnBase<TRow>
     {
-        [Inject] protected IStyled Styled { get; set; } = default!;
+        [Inject] protected IStyleRegistry Styled { get; set; } = default!;
 
         [Parameter, EditorRequired] public Func<TRow, TValue> ValueFunc { get; set; } = default!;
 
@@ -89,13 +90,15 @@ namespace RTB.BlazorUI.Components
             builder.CloseElement();
         }
 
-        protected override async Task OnParametersSetAsync()
+        public string? ComponentClass { get; private set; }
+
+        protected override void OnParametersSet()
         {
-            ComponentClass = await Styled.CssAsync(StyleBuilder.Create()
-            .Append("white-space", "nowrap")
-            .Append("overflow", "hidden")
-            .Append("text-overflow", "ellipsis")
-            .Build());
+            ComponentClass = Styled.GetOrAdd(StyleBuilder.Create()
+                .Append("white-space", "nowrap")
+                .Append("overflow", "hidden")
+                .Append("text-overflow", "ellipsis")
+                .Build());
         }
 
         public override void RenderCell(RenderTreeBuilder builder, TRow row, int col)

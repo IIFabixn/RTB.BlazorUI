@@ -3,22 +3,22 @@
 
 @inherits ChartBase
 
-<Grid Rows="1fr auto" class="w-full">
+<RTB.BlazorUI.Components.Grid Rows="1fr auto" class="w-full">
     <GridItem>
         <SKCanvasView class="h-full w-full" OnPaintSurface="PaintBars" EnableRenderLoop />
     </GridItem>
     <GridItem>
-        <FlexLayout Row class="items-center gap-2 flex-wrap">
+        <FlexLayout Row Class="items-center gap-2 flex-wrap">
             @foreach (var entry in Entries)
             {
-                <FlexLayout Row class="items-center justify-center gap-2">
+                <FlexLayout Row Class="items-center justify-center gap-2">
                     <div class="w-2 h-2 rounded" style="background-color: #@(entry.Color?.ToString().Substring(3));"></div>
                     <h4>@entry.Label</h4>
                 </FlexLayout>
             }
         </FlexLayout>
     </GridItem>
-</Grid>
+</RTB.BlazorUI.Components.Grid>
 
 @code {
     private void PaintBars(SKPaintSurfaceEventArgs args)

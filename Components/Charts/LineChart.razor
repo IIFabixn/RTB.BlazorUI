@@ -7,10 +7,22 @@
     [Parameter] public SKColor SKColor { get; set; } = SKColors.Blue;
 }
 
-<Grid FullHeight FullWidth Rows="1fr auto">
-    <GridItem FullWidth class="relative grid place-items-center">
-        <SKCanvasView class="h-full w-full" OnPaintSurface="PaintLine" EnableRenderLoop />
-    </GridItem>
+<Grid Rows="1fr auto">
+    <Style>
+        <Height Full />
+        <Width Full />
+    </Style>
+    <ChildContent>
+        <GridItem Class="relative grid place-items-center">
+            <Style>
+                <Width Full />
+            </Style>
+
+            <ChildContent>
+                <SKCanvasView class="h-full w-full" OnPaintSurface="PaintLine" EnableRenderLoop />
+            </ChildContent>
+        </GridItem>
+    </ChildContent>
 </Grid>
 
 @code {

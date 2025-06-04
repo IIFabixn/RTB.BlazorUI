@@ -1,0 +1,30 @@
+﻿@using RTB.BlazorUI.Helper
+@using RTB.BlazorUI.Services.Style
+
+@inherits RTBComponent
+
+@code {
+    [Parameter] public RenderFragment<string?> ChildContent { get; set; } = default!;
+    [Parameter] public string? RawStyle { get; set; }
+
+    [Inject] private IStyleRegistry CssRegistry { get; set; } = default!;
+    
+    private StyleBuilder StyleBuilder = StyleBuilder.Start;
+    
+    private string Css(StyleBuilder style) => Css(style.Build());
+    protected string Css(string style) => CssRegistry.GetOrAdd(style);
+
+    private string? ComponentClass { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        ComponentClass = Css(StyleBuilder.AppendStyle(RawStyle));
+    }
+}
+
+<CascadingValue Value="@StyleBuilder">
+    @Style
+</CascadingValue>
+
+@ChildContent(ComponentClass)
+

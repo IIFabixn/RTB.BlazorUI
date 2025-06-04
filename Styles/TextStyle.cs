@@ -1,29 +1,29 @@
-﻿using RTB.BlazorUI.Helper;
+﻿using Microsoft.AspNetCore.Components;
+using RTB.BlazorUI.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTB.BlazorUI.Services.Theme.Styles
+namespace RTB.BlazorUI.Styles
 {
-    public class TextStyle : RTBStyle
+    public class TextStyle : IStyle
     {
         public string? FontSize { get; set; }
         public string? FontWeight { get; set; }
         public string? LineHeight { get; set; }
-        public RTBColor? Color { get; set; }
+        public string? Color { get; set; }
         public string? TextDecoration { get; set; }
 
-        public override string ToStyle()
+        public virtual StyleBuilder ToStyle(StyleBuilder builder)
         {
-            return StyleBuilder.Create(base.ToStyle())
+            return builder
                 .AppendIfNotEmpty("font-size", FontSize)
                 .AppendIfNotEmpty("font-weight", FontWeight)
                 .AppendIfNotEmpty("line-height", LineHeight)
-                .AppendIfNotEmpty("color", Color?.Hex)
-                .AppendIfNotEmpty("text-decoration", TextDecoration)
-                .Build();
+                .AppendIfNotEmpty("color", Color)
+                .AppendIfNotEmpty("text-decoration", TextDecoration);
         }
     }
 }

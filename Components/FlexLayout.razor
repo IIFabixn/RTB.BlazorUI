@@ -5,8 +5,6 @@
 @inherits RTBComponent
 
 @code {
-    [Inject] protected IStyled Styled { get; set; } = default!;
-
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
     [Parameter] public bool Row { get; set; } = false;
@@ -17,24 +15,20 @@
 
     [Parameter] public string? AlignItem { get; set; }
     [Parameter] public string? JustifyContent { get; set; }
-
-    protected override async Task OnParametersSetAsync()
-    {
-        ComponentClass = await Styled.CssAsync(
-            RTBStyle
-                .Append("display", "flex")
-                .AppendIfNotEmpty("flex-direction", GetDirection())
-                .AppendIfNotEmpty("align-items", AlignItem)
-                .AppendIfNotEmpty("justify-content", JustifyContent)
-                .AppendIfNotEmpty("gap", Gap)
-                .Build()
-        );
-    }
 }
 
-<div class="@ClassBuilder.Create("FlexLayout", ComponentClass, Class).Build()" @attributes="@CapturedAttributes?.Without("class", "style")">
-    @ChildContent
-</div>
+<StyledComponent Context="ComponentClass">
+    <Style>
+        <FlexDisplay Direction="@GetDirection()" Gap="@Gap" AlignItems="@AlignItem" JustifyContent="@JustifyContent" />
+        @Style
+    </Style>
+
+    <ChildContent>
+        <div class="@ClassBuilder.Create("FlexLayout", ComponentClass, Class).Build()" @attributes="@CapturedAttributes?.Without("class", "style")">
+            @ChildContent
+        </div>
+    </ChildContent>
+</StyledComponent>
 
 @code {
     private string? GetDirection()
