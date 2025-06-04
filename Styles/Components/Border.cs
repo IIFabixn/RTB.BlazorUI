@@ -16,7 +16,7 @@ public class Border : RTBStyleBase
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
-        if (Condition is not null && !Condition.Invoke()) return;
+        if (!Condition) return;
         
         if (Side == BorderSide.None)
         {

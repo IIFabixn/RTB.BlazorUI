@@ -16,7 +16,7 @@ public class Margin : RTBStyleBase
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
-        if (Condition is not null && !Condition.Invoke()) return;
+        if (!Condition) return;
 
         StyleBuilder.AppendIfNotEmpty("margin", All);
         StyleBuilder.AppendIf("margin", $"0 {Horizontal}", !string.IsNullOrEmpty(Horizontal));

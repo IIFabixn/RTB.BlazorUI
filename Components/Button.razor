@@ -18,8 +18,8 @@
 
 <StyledComponent Context="ComponentClass">
     <Style>
-        <Other Property="cursor" Value="cursor" Condition="@(() => !Disabled)" />
-        <Other Property="cursor" Value="default" Condition="@(() => Disabled)" />
+        <Other Property="cursor" Value="cursor" Condition="@(!Disabled)" />
+        <Other Property="cursor" Value="default" Condition="@(Disabled)" />
         <Styled Style="@ButtonStyle" />
         <Color Value="@(Color ?? ButtonStyle?.Color)" />
         @Style

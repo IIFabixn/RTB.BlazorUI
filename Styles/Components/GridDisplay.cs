@@ -12,7 +12,7 @@ public class GridDisplay : RTBStyleBase
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
-        if (Condition is not null && !Condition.Invoke()) return;
+        if (!Condition) return;
         
         StyleBuilder.Append("display", "grid");
         StyleBuilder.AppendIfNotEmpty("grid-template-columns", TemplateColumns);

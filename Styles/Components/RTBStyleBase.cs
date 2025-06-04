@@ -12,6 +12,6 @@ namespace RTB.BlazorUI.Styles.Components
     {
         [CascadingParameter] protected StyleBuilder StyleBuilder { get; set; } = default!;
 
-        [Parameter] public Func<bool>? Condition { get; set; }
+        [Parameter] public bool Condition { get; set; } = true;
     }
 }

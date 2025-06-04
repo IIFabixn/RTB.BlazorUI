@@ -13,7 +13,7 @@ public class Positioned : RTBStyleBase
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
-        if (Condition is not null && !Condition()) return;
+        if (!Condition) return;
 
         StyleBuilder.AppendIfNotEmpty("top", Top)
             .AppendIfNotEmpty("right", Right)

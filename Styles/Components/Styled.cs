@@ -11,7 +11,7 @@ public class Styled : RTBStyleBase
     {
         base.OnParametersSet();
         if (Style is null) return;
-        if (Condition is not null && !Condition.Invoke()) return;
+        if (!Condition) return;
 
         this.StyleBuilder.Join(Style.ToStyle(StyleBuilder));
     }

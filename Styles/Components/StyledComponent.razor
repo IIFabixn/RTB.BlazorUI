@@ -9,22 +9,31 @@
 
     [Inject] private IStyleRegistry CssRegistry { get; set; } = default!;
     
-    private StyleBuilder StyleBuilder = StyleBuilder.Start;
+    private StyleBuilder _builder = StyleBuilder.Start;
     
-    private string Css(StyleBuilder style) => Css(style.Build());
-    protected string Css(string style) => CssRegistry.GetOrAdd(style);
+    private string Register(StyleBuilder style) => Register(style.Build());
+    private string Register(string style) => CssRegistry.GetOrAdd(style);
 
-    private string? ComponentClass { get; set; }
+    private string? _prevCss;
+    private string? _componentClass;
 
     protected override void OnParametersSet()
     {
-        ComponentClass = Css(StyleBuilder.AppendStyle(RawStyle));
+        _builder = StyleBuilder.Start.AppendStyle(RawStyle);
+        
+        var css = _builder.Build();
+        if (_prevCss != css)
+        {
+            _prevCss = css;
+            _componentClass = Register(css);
+        }
     }
 }
 
-<CascadingValue Value="@StyleBuilder">
+<CascadingValue Value="@_builder" IsFixed="true">
     @Style
+    
+    @ChildContent(_componentClass)
 </CascadingValue>
 
-@ChildContent(ComponentClass)
 

@@ -15,12 +15,15 @@ internal sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
 
     public string GetOrAdd(string css)
     {
-        var hash = CssHasher.Hash(css);          // int hash
+        if (string.IsNullOrEmpty(css)) return string.Empty;
+        var hash = CssHasher.Hash(css);
+        if (_cache.ContainsKey(hash)) return $"s-{hash:X}";
+
         if (_cache.TryAdd(hash, css))
         {
             // first time → emit style into <head>
             var className = $"s-{hash:X}";       // e.g. s-4B2CD7
-            var rule      = $".{className}{{{css}}}";
+            var rule = $".{className}{{{css}}}";
             Inject(rule);
         }
         return $"s-{hash:X}";

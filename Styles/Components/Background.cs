@@ -13,7 +13,7 @@ public class Background : RTBStyleBase
     protected override void OnParametersSet()
     {
         if (Color is null) return;
-        if (Condition is not null && !Condition.Invoke()) return;
+        if (!Condition) return;
 
         StyleBuilder.AppendIfNotEmpty("background-color", Color);
     }

@@ -15,7 +15,7 @@ public class FlexDisplay : RTBStyleBase
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
-        if (Condition is not null && !Condition.Invoke()) return;
+        if (!Condition) return;
         
         StyleBuilder.Append("display", "flex");
         StyleBuilder.AppendIfNotEmpty("flex-direction", Direction);

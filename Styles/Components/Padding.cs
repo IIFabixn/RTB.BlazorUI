@@ -16,7 +16,7 @@ public class Padding : RTBStyleBase
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
-        if (Condition is not null && !Condition.Invoke()) return;
+        if (!Condition) return;
 
         StyleBuilder.AppendIfNotEmpty("padding", All);
         StyleBuilder.AppendIf("padding", $"0 {Horizontal}", !string.IsNullOrEmpty(Horizontal));

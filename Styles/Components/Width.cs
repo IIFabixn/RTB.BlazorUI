@@ -14,7 +14,7 @@ public class Width : RTBStyleBase
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
-        if (Condition is not null && !Condition()) return;
+        if (!Condition) return;
 
         StyleBuilder.AppendIfNotEmpty("min-width", Min)
             .AppendIfNotEmpty("max-width", Max)
