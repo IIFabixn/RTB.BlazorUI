@@ -28,10 +28,11 @@
         <Styled Style="@TabStyle" />
         <Other Property="cursor" Value="pointer" />
         <FlexDisplay Direction="row" JustifyContent="center" AlignItems="center" />
+        @Style
     </Style>
 
     <ChildContent>
-        <Grid Rows="auto 1fr" Class="@ClassBuilder.Create("TabGroup", Class).Build()" @attributes="@CapturedAttributes?.Without("class", "style")">
+        <Grid Rows="auto 1fr" Class="@ClassBuilder.Create("TabGroup", Class).Build()" @attributes="@CapturedAttributes">
             <GridItem>
                 <Grid Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" Class="place-items-center">
                     @foreach (var tab in _tabItems)

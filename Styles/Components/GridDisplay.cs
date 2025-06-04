@@ -11,12 +11,13 @@ public class GridDisplay : RTBStyleBase
     
     protected override void OnParametersSet()
     {
-        base.OnParametersSet();
         if (!Condition) return;
         
         StyleBuilder.Append("display", "grid");
         StyleBuilder.AppendIfNotEmpty("grid-template-columns", TemplateColumns);
         StyleBuilder.AppendIfNotEmpty("grid-template-rows", TemplateRows);
         StyleBuilder.AppendIfNotEmpty("gap", Gap);
+        
+        base.OnParametersSet();
     }
 }

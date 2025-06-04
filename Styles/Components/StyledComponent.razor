@@ -3,20 +3,33 @@
 
 @inherits RTBComponent
 
+@inject IStyleRegistry Registry
+
 @code {
-    [Inject] private IStyleRegistry CssRegistry { get; set; } = default!;
     [Parameter] public RenderFragment<string?> ChildContent { get; set; } = default!;
-    [Parameter] public string? RawStyle { get; set; }
+    [Parameter] public string RawStyle { get; set; } = string.Empty;
     
-    private readonly StyleBuilder _builder = StyleBuilder.Start;
+    private string _class = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
 }
 
-@{_builder.Clear().AppendStyle(RawStyle);}
-
-<CascadingValue Value="@_builder" IsFixed="true">
+@{
+    _class = Registry.GetOrAdd(RawStyle);
+}
+<CascadingValue Value="(IStyleAppender)new Appender(_class, Registry)">
     @Style
-
-    @ChildContent(_builder.ToCssClass(CssRegistry))
 </CascadingValue>
 
+@ChildContent(_class)
 
+@code {
+    private sealed record Appender(string cls, IStyleRegistry Reg) : IStyleAppender
+    {
+        public void Append(string decls)
+        => Reg.Append(cls, decls.TrimEnd(';') + ';');
+    }
+}

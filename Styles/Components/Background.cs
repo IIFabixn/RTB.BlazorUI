@@ -16,5 +16,7 @@ public class Background : RTBStyleBase
         if (!Condition) return;
 
         StyleBuilder.AppendIfNotEmpty("background-color", Color);
+
+        base.OnParametersSet();
     }
 }

@@ -9,11 +9,14 @@ using RTB.BlazorUI.Services.Theme;
 
 namespace RTB.BlazorUI.Helper
 {
+    public interface IStyleAppender
+    {
+        void Append(string style);
+    }
+
     public class StyleBuilder
     {
         private readonly StringBuilder _builder;
-        private bool _dirty = true;
-        private string _cachedClass = "";
 
         private StyleBuilder(string initStyle = "")
         {
@@ -25,7 +28,6 @@ namespace RTB.BlazorUI.Helper
         public StyleBuilder Clear()
         {
             _builder.Clear();
-            _dirty = true;
 
             return this;
         }
@@ -45,13 +47,12 @@ namespace RTB.BlazorUI.Helper
         /// Will append a style to the builder.
         /// If the style or value is null or whitespace, it will not append anything.
         /// </summary>
-        /// <param name="style"></param>
+        /// <param name=></param>
         /// <param name="value"></param>
         /// <returns></returns>
         public StyleBuilder Append(string style, string value)
         {
             _builder.Append(style).Append(':').Append(value).Append(';');
-            _dirty = true;
             return this;
         }
 
@@ -119,23 +120,6 @@ namespace RTB.BlazorUI.Helper
         public string Build()
         {
             return _builder.ToString().Trim();
-        }
-        
-
-        /// <summary>
-        /// Returns the css class name, registering the rule in <see cref="IStyleRegistry"/>
-        /// the first time (or whenever the declarations changed).
-        /// </summary>
-        public string ToCssClass(IStyleRegistry registry)
-        {
-            if (_dirty)
-            {
-                var css = _builder.ToString();
-                _cachedClass = registry.GetOrAdd(css);
-                _dirty = false;
-            }
-
-            return _cachedClass;
         }
     }
 }

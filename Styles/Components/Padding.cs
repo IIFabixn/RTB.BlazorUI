@@ -15,7 +15,6 @@ public class Padding : RTBStyleBase
 
     protected override void OnParametersSet()
     {
-        base.OnParametersSet();
         if (!Condition) return;
 
         StyleBuilder.AppendIfNotEmpty("padding", All);
@@ -25,5 +24,7 @@ public class Padding : RTBStyleBase
         StyleBuilder.AppendIfNotEmpty("padding-right", Right);
         StyleBuilder.AppendIfNotEmpty("padding-bottom", Bottom);
         StyleBuilder.AppendIfNotEmpty("padding-left", Left);
+
+        base.OnParametersSet();
     }
 }

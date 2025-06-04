@@ -3,7 +3,7 @@
 
 @inherits ChartBase
 
-<RTB.BlazorUI.Components.Grid Rows="1fr auto" class="w-full">
+<Grid Rows="1fr auto" class="w-full">
     <GridItem>
         <SKCanvasView class="h-full w-full" OnPaintSurface="PaintBars" EnableRenderLoop />
     </GridItem>
@@ -18,7 +18,7 @@
             }
         </FlexLayout>
     </GridItem>
-</RTB.BlazorUI.Components.Grid>
+</Grid>
 
 @code {
     private void PaintBars(SKPaintSurfaceEventArgs args)

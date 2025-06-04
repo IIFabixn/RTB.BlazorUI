@@ -23,17 +23,23 @@
 }
 
 <StyledComponent Context="ComponentClass">
-    <FlexLayout
-        Row="@IsHorizontal"
-        Column="@IsVertical"
-        Class="@ClassBuilder.Create("CollectionList", ComponentClass, Class).Build()"
-        @attributes="@CapturedAttributes?.Without("class", "style")"
-    >
-        @if (Items.Any())
-        {
-            <Virtualize Items="@Items" Context="item">
-                @ChildContent?.Invoke(item)
-            </Virtualize>
-        }
-    </FlexLayout>
+    <Style>
+        @Style
+    </Style>
+
+    <ChildContent>
+        <FlexLayout
+            Row="@IsHorizontal"
+            Column="@IsVertical"
+            Class="@ClassBuilder.Create("CollectionList", ComponentClass, Class).Build()"
+            @attributes="@CapturedAttributes"
+        >
+            @if (Items.Any())
+            {
+                <Virtualize Items="@Items" Context="item">
+                    @ChildContent?.Invoke(item)
+                </Virtualize>
+            }
+        </FlexLayout>
+    </ChildContent>
 </StyledComponent>

@@ -28,27 +28,26 @@
 }
 
 <StyledComponent Context="SelectContentClass">
-    <Height Min="0" Max="@($"calc({MaxAmountOfVisibleItems} * 100%)")" />
+    <Style>
+        <Height Min="0" Max="@($"calc({MaxAmountOfVisibleItems} * 100%)")" />
+        @Style
+    </Style>
 
-    <FlyoutMenu
-        @ref="FlyoutMenuRef"
-        Position="FlyoutPosition.Down"
-        ActivatorClass="@ActivatorClass"
-        ContentClass="@ClassBuilder.Create(SelectContentClass).Append(ContentClass).Build()"
-        Class="@(ClassBuilder.Create("Select").Append(Class).Build())"
-        @attributes="@CapturedAttributes?.Without("class", "style")"
-    >
-        <Activator>
-            @ActionContent?.Invoke(SelectedOption)
-        </Activator>
+    <ChildContent>
+        <FlyoutMenu
+            @ref="FlyoutMenuRef"
+            Position="FlyoutPosition.Down"
+            ActivatorClass="@ActivatorClass"
+            ContentClass="@ClassBuilder.Create(SelectContentClass).Append(ContentClass).Build()"
+            Class="@(ClassBuilder.Create("Select").Append(Class).Build())"
+            @attributes="@CapturedAttributes"
+        >
+            <Activator>
+                @ActionContent?.Invoke(SelectedOption)
+            </Activator>
 
-        <ChildContent>
-            <FlexLayout Column>
-                <Style>
-                    <Height Min="0" Max="@($"calc({MaxAmountOfVisibleItems} * 100%)")" />
-                </Style>
-
-                <ChildContent>
+            <ChildContent>
+                <FlexLayout Column>
                     @if (OptionsHeader is not null)
                     {
                         @OptionsHeader
@@ -64,10 +63,10 @@
                             </div>
                         </CollectionList>
                     </div>
-                </ChildContent>
-            </FlexLayout>
-        </ChildContent>
-    </FlyoutMenu>
+                </FlexLayout>
+            </ChildContent>
+        </FlyoutMenu>
+    </ChildContent>
 </StyledComponent>
 
 @code {

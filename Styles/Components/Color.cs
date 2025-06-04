@@ -10,9 +10,10 @@ public class Color : RTBStyleBase
 
     protected override void OnParametersSet()
     {
-        base.OnParametersSet();
         if (!Condition) return;
         
         StyleBuilder.AppendIfNotEmpty("color", Value);
+
+        base.OnParametersSet();
     }
 }

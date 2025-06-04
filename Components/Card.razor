@@ -10,9 +10,13 @@
 }
 
 <StyledComponent Context="ComponentClass">
+    <Style>
+        @Style
+    </Style>
+    
     <ChildContent>
-        <div class="Card @ComponentClass @(CapturedAttributes?.GetValueOrDefault<string>("class"))"
-            @attributes="@CapturedAttributes?.Without("class", "style")">
+        <div class="Card @ComponentClass @Class"
+            @attributes="@CapturedAttributes">
             <FlexLayout FullHeight Column AlignItem="@CssHelper.AlignItems.Center">
                 @if (!string.IsNullOrEmpty(Title))
                 {

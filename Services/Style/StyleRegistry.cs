@@ -7,6 +7,7 @@ namespace RTB.BlazorUI.Services.Style;
 public interface IStyleRegistry
 {
     string GetOrAdd(string css);
+    void Append(string cls, string value);
 }
 
 internal sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
@@ -15,7 +16,6 @@ internal sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
 
     public string GetOrAdd(string css)
     {
-        if (string.IsNullOrEmpty(css)) return string.Empty;
         var hash = CssHasher.Hash(css);
         if (_cache.ContainsKey(hash)) return $"s-{hash:X}";
 
@@ -26,11 +26,19 @@ internal sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
             var rule = $".{className}{{{css}}}";
             Inject(rule);
         }
+        
         return $"s-{hash:X}";
+    }
+
+    public void Append(string cls, string value)
+    {
+        var rule = $".{cls}{{{value}}}";
+        jsRuntime.InvokeVoidAsync("rtbStyled.inject", rule);
     }
 
     private void Inject(string cssRule)
     {
+        Console.WriteLine($"Injecting CSS rule: {cssRule}");
         // WASM & CSR: use JS interop.
         // On prerendered Blazor Server you can also buffer IHtmlContent.
         jsRuntime.InvokeVoidAsync("rtbStyled.inject", cssRule);

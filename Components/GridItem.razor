@@ -15,13 +15,13 @@
     <Style>
         <Other Property="grid-column" Value="@($"{(Column > 0 ? Column : "auto")} / span {ColumnSpan}")" />
         <Other Property="grid-row" Value="@($"{(Row > 0 ? Row : "auto")} / span {RowSpan}")" />
-        @Style
+            @Style
     </Style>
 
     <ChildContent>
         <div
             class="@ClassBuilder.Create("GridItem", ComponentClass, Class).Build()" 
-            @attributes="@CapturedAttributes?.Without("class", "style")"
+            @attributes="@CapturedAttributes"
         >
             @ChildContent
         </div>

@@ -14,7 +14,6 @@ public class FlexDisplay : RTBStyleBase
 
     protected override void OnParametersSet()
     {
-        base.OnParametersSet();
         if (!Condition) return;
         
         StyleBuilder.Append("display", "flex");
@@ -24,5 +23,7 @@ public class FlexDisplay : RTBStyleBase
         StyleBuilder.AppendIfNotEmpty("align-items", AlignItems);
         StyleBuilder.AppendIfNotEmpty("align-content", AlignContent);
         StyleBuilder.AppendIfNotEmpty("gap", Gap);
+        
+        base.OnParametersSet();
     }
 }

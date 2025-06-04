@@ -1,10 +1,5 @@
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Rendering;
-using RTB.BlazorUI.Extensions;
 using RTB.BlazorUI.Helper;
-using RTB.BlazorUI.Services.Style;
-using RTB.BlazorUI.Services.Theme;
-using RTB.BlazorUI.Styles.Components;
 using System.Runtime.CompilerServices;
 
 namespace RTB.BlazorUI.Components;
@@ -22,6 +17,7 @@ public abstract class RTBComponent : ComponentBase
     public Dictionary<string, object>? CapturedAttributes { get; set; }
 
     [Parameter] public string? Class { get; set; }
+    
     [Parameter] public RenderFragment? Style { get; set; }
 
     /// <summary>

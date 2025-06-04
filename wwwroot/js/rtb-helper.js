@@ -67,7 +67,7 @@ window.rtbStyled = {
     // reuse a single STYLE element for all rules
     let tag = document.getElementById("rtb-styled");
     if (!tag) {
-      tag = document.createElement("style");
+      tag = document.createElement();
       tag.id = "rtb-styled";
       document.head.appendChild(tag);
     }

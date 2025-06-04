@@ -14,10 +14,11 @@
 <StyledComponent Context="ComponentClass">
     <Style>
         <Other Property="position" Value="relative" />
+        @Style
     </Style>
 
     <ChildContent>
-        <div class="FlyoutMenu @ComponentClass @Class" @onclick:stopPropagation @attributes="@CapturedAttributes?.Without("class", "style")">
+        <div class="FlyoutMenu @ComponentClass @Class" @onclick:stopPropagation @attributes="@CapturedAttributes">
             <div @onclick="ToggleMenu" class="@ActivatorClass">
                 @Activator
             </div>

@@ -8,21 +8,9 @@
 }
 
 <Grid Rows="1fr auto">
-    <Style>
-        <Height Full />
-        <Width Full />
-    </Style>
-    <ChildContent>
-        <GridItem Class="relative grid place-items-center">
-            <Style>
-                <Width Full />
-            </Style>
-
-            <ChildContent>
-                <SKCanvasView class="h-full w-full" OnPaintSurface="PaintLine" EnableRenderLoop />
-            </ChildContent>
-        </GridItem>
-    </ChildContent>
+    <GridItem Class="relative grid place-items-center">
+        <SKCanvasView class="h-full w-full" OnPaintSurface="PaintLine" EnableRenderLoop />
+    </GridItem>
 </Grid>
 
 @code {

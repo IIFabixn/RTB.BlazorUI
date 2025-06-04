@@ -57,10 +57,6 @@
                                 AlignItem="@AlignItems.Center"
                                 JustifyContent="@JustifyContent.SpaceBetween"
                                 Class="@(ClassBuilder.Create().Append(HeaderClass).Build())">
-                                <Style>
-                                    <Other Property="position" Value="sticky" />
-                                    <Positioned Top="0" />
-                                </Style>
                                 
                                 <ChildContent>
                                     @(builder => col.RenderHeader(builder, colIdx))

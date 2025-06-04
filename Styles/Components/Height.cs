@@ -13,12 +13,13 @@ public class Height : RTBStyleBase
 
     protected override void OnParametersSet()
     {
-        base.OnParametersSet();
         if (!Condition) return;
 
         StyleBuilder.AppendIfNotEmpty("min-height", Min)
             .AppendIfNotEmpty("max-height", Max)
             .AppendIf("height", "100%", Full)
             .AppendIfNotEmpty("height", Value);
+            
+        base.OnParametersSet();
     }
 }

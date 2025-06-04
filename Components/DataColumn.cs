@@ -107,7 +107,7 @@ namespace RTB.BlazorUI.Components
             var value = ValueFunc(row);
             builder.OpenElement(seq++, "div");
             builder.AddAttribute(seq++, "role", "cell");
-            builder.AddAttribute(seq++, "class", ClassBuilder.Create(ComponentClass).Append(CapturedAttributes?.GetValueOrDefault<string>("class")).Build());
+            builder.AddAttribute(seq++, "class", ClassBuilder.Create(ComponentClass, Class).Build());
             builder.AddAttribute(seq++, "style", $"grid-column-start: {col}");
             builder.AddMultipleAttributes(seq++, CapturedAttributes);
             builder.AddContent(seq++, value);

@@ -22,9 +22,9 @@
         <FlexDisplay Direction="@GetDirection()" Gap="@Gap" AlignItems="@AlignItem" JustifyContent="@JustifyContent" />
         @Style
     </Style>
-
+    
     <ChildContent>
-        <div class="@ClassBuilder.Create("FlexLayout", ComponentClass, Class).Build()" @attributes="@CapturedAttributes?.Without("class", "style")">
+        <div class="@ClassBuilder.Create("FlexLayout", ComponentClass, Class).Build()" @attributes="@CapturedAttributes">
             @ChildContent
         </div>
     </ChildContent>

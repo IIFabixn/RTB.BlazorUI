@@ -11,10 +11,11 @@ public class Other : RTBStyleBase
 
     protected override void OnParametersSet()
     {
-        base.OnParametersSet();
         if (!Condition) return;
 
         StyleBuilder.AppendIfNotEmpty(Property, Value)
             .AppendStyle(Raw);
+            
+        base.OnParametersSet();
     }
 }

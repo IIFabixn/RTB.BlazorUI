@@ -12,17 +12,22 @@
 <FlexLayout 
     Column
     Class="@ClassBuilder.Create("Expandable", Class).Build()"
-    @attributes="@(CapturedAttributes?.Without("class", "style", "."))" 
+    @attributes="@(CapturedAttributes)" 
     @onclick:stopPropagation
 >
     <StyledComponent Context="ActivatorClass">
-        <Width Value="100%" />
+        <Style>
+            <Width Value="100%" />
+            @Style
+        </Style>
 
-        <div class="@ClassBuilder.Create("Activator", ActivatorClass).Build()" 
-            @onclick="ToggleMenu"
-        >
-            @Activator
-        </div>
+        <ChildContent>
+            <div class="@ClassBuilder.Create("Activator", ActivatorClass).Build()" 
+                @onclick="ToggleMenu"
+            >
+                @Activator
+            </div>
+        </ChildContent>
     </StyledComponent>
     @if (IsOpen)
     {

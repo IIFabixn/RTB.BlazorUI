@@ -9,10 +9,11 @@ public class Styled : RTBStyleBase
 
     protected override void OnParametersSet()
     {
-        base.OnParametersSet();
         if (Style is null) return;
         if (!Condition) return;
 
         this.StyleBuilder.Join(Style.ToStyle(StyleBuilder));
+        
+        base.OnParametersSet();
     }
 }
