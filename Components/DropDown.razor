@@ -34,7 +34,7 @@
     <Other Property="visibility" Value="hidden" />
 </Styled> *@
 
-    <div class="@ComponentClass group @(CapturedAttributes?.GetValueOrDefault<string>("class"))" @attributes="@(CapturedAttributes?.Without("class"))">
+    <div class="@ComponentClass group @(Class)" @attributes="@(CapturedAttributes)">
         @ActionContent
 
         <div class="collapse">

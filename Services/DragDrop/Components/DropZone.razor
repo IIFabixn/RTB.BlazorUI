@@ -12,7 +12,7 @@
 
 <Styled Context="ComponentClass">
     <div class="@(isDraggingOver ? DraggingClass : string.Empty) @ComponentClass @Class"
-        @attributes="@(CapturedAttributes?.Without("class"))"
+        @attributes="@(CapturedAttributes)"
         @ondragover="HandleDragOver"
         @ondragleave="HandleDragLeave"
         @ondrop="HandleDrop"

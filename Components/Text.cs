@@ -44,7 +44,7 @@ public class Text : RTBComponent
 
         builder.OpenElement(seq++, Element);
         builder.AddAttribute(seq++, "class", ClassBuilder.Create("Text", ComponentClass, Class).Build());
-        builder.AddMultipleAttributes(seq++, CapturedAttributes?.Without("class"));
+        builder.AddMultipleAttributes(seq++, CapturedAttributes);
         builder.AddContent(seq++, ChildContent);
         builder.CloseElement();
     }

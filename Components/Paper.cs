@@ -20,7 +20,7 @@ public class Paper : RTBComponent
 
         builder.OpenElement(seq++, "div");
         builder.AddAttribute(seq++, "class", ClassBuilder.Create("Paper", Class).Build());
-        builder.AddMultipleAttributes(seq++, CapturedAttributes?.Without("class"));
+        builder.AddMultipleAttributes(seq++, CapturedAttributes);
         builder.AddContent(seq++, ChildContent);
         builder.CloseElement();
     }

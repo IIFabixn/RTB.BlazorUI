@@ -23,11 +23,13 @@ public abstract class RTBComponent : ComponentBase
     /// SetProperty is a helper method to call StateHasChanged.
     /// </summary>
     /// <typeparam name="TValue"></typeparam>
-    /// <param name="key"></param>
+    /// <param name="field"></param>
     /// <param name="value"></param>
-    public void SetProperty<TValue>(ref TValue key, TValue value, [CallerMemberName] string member = "")
+    public void SetProperty<TValue>(ref TValue field, TValue value, [CallerMemberName] string member = "")
     {
-        key = value;
+        if (EqualityComparer<TValue>.Default.Equals(field, value)) return;
+
+        field = value;
         StateHasChanged();
     }
 
