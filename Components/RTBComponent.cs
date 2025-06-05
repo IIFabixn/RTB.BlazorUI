@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Rendering;
 using RTB.BlazorUI.Helper;
+using RTB.BlazorUI.Services.Style;
 using System.Runtime.CompilerServices;
 
 namespace RTB.BlazorUI.Components;
@@ -12,13 +14,10 @@ namespace RTB.BlazorUI.Components;
 /// </summary>
 public abstract class RTBComponent : ComponentBase
 {
-
     [Parameter(CaptureUnmatchedValues = true)]
     public Dictionary<string, object>? CapturedAttributes { get; set; }
 
     [Parameter] public string? Class { get; set; }
-    
-    [Parameter] public RenderFragment? Style { get; set; }
 
     /// <summary>
     /// SetProperty is a helper method to call StateHasChanged.

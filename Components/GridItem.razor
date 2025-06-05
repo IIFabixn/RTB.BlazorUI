@@ -11,19 +11,14 @@
     [Parameter] public int RowSpan { get; set; } = 1;
 }
 
-<StyledComponent Context="ComponentClass">
-    <Style>
-        <Other Property="grid-column" Value="@($"{(Column > 0 ? Column : "auto")} / span {ColumnSpan}")" />
-        <Other Property="grid-row" Value="@($"{(Row > 0 ? Row : "auto")} / span {RowSpan}")" />
-            @Style
-    </Style>
-
-    <ChildContent>
-        <div
-            class="@ClassBuilder.Create("GridItem", ComponentClass, Class).Build()" 
-            @attributes="@CapturedAttributes"
-        >
-            @ChildContent
-        </div>
-    </ChildContent>
-</StyledComponent>
+<Styled Context="ComponentClass">
+    <Other Property="grid-column" Value="@($"{(Column > 0 ? Column : "auto")} / span {ColumnSpan}")" />
+    <Other Property="grid-row" Value="@($"{(Row > 0 ? Row : "auto")} / span {RowSpan}")" />
+    
+    <div
+        class="@ClassBuilder.Create("GridItem", ComponentClass, Class).Build()" 
+        @attributes="@CapturedAttributes"
+    >
+        @ChildContent
+    </div>
+</Styled>

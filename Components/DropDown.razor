@@ -7,7 +7,7 @@
     [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
 }
 
-@* <Styled @bind-Classname="ComponentClass">
+@* <Styled Context="ComponentClass">
     &.group:hover {
         .collapse {
             visibility: visible;
@@ -20,34 +20,25 @@
     }
 </Styled> *@
 
-<StyledComponent Context="ComponentClass">
-    <Style>
-        <Other Property="position" Value="relative" />
-        <Other Property="display" Value="inline-block" />
-        <Other Property="cursor" Value="pointer" />
-        <Other Property="z-index" Value="10" />
-    </Style>
-    
-    <ChildContent>
-        <div class="@ComponentClass group @(CapturedAttributes?.GetValueOrDefault<string>("class"))" @attributes="@(CapturedAttributes?.Without("class"))">
-            @ActionContent
+<Styled Context="ComponentClass">
+    <Other Property="position" Value="relative" />
+    <Other Property="display" Value="inline-block" />
+    <Other Property="cursor" Value="pointer" />
+    <Other Property="z-index" Value="10" />
 
-            <StyledComponent Context="ContentClass">
-                <Style>
-                    <Other Property="position" Value="absolute" />
-                    <Positioned Top="100%" Left="50%" />
-                    <Other Property="transform" Value="translateX(-50%)" />
-                    <Other Property="z-index" Value="20" />
-                    <Other Property="visibility" Value="hidden" />
+@* <Styled Context="ComponentClass">
+    <Other Property="position" Value="absolute" />
+    <Positioned Top="100%" Left="50%" />
+    <Other Property="transform" Value="translateX(-50%)" />
+    <Other Property="z-index" Value="20" />
+    <Other Property="visibility" Value="hidden" />
+</Styled> *@
 
-                    @Style
-                </Style>
-                    <ChildContent>
-                        <div class="@ContentClass collapse">
-                            @ChildContent
-                        </div>
-                    </ChildContent>
-            </StyledComponent>
+    <div class="@ComponentClass group @(CapturedAttributes?.GetValueOrDefault<string>("class"))" @attributes="@(CapturedAttributes?.Without("class"))">
+        @ActionContent
+
+        <div class="collapse">
+            @ChildContent
         </div>
-    </ChildContent>
-</StyledComponent>
+    </div>
+</Styled>

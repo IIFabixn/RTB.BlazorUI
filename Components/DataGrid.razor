@@ -31,63 +31,53 @@
     @Columns
 </CascadingValue>
 
-<StyledComponent Context="Wrapper">
-    <Style>
-        <Width Value="100%" />
-        <Height Value="100%" />
-        @Style
-    </Style>
+<Styled Context="Wrapper">
+    <Size Width="100%" Height="100%" />
 
-    <ChildContent>
-        <div class="@Wrapper">
-            <StyledComponent Context="ComponentClass">
-                <Style>
-                    <GridDisplay TemplateColumns="@GridTemplate" TemplateRows=":autofill 1fr" />
-                    <Border Color="black" Side="@Border.BorderSide.Bottom" />
-                </Style>
+    <div class="@Wrapper">
+        <Styled Context="ComponentClass">
+            <GridDisplay TemplateColumns="@GridTemplate" TemplateRows=":autofill 1fr" />
+            <Border Color="black" Side="@Border.BorderSide.Bottom" />
 
-                <ChildContent>
-                    <div class="DataGrid @ComponentClass @Class">
-                        @* ---------- Header cells (row 1) ------------------------ *@
+            <div class="DataGrid @ComponentClass @Class">
+                @* ---------- Header cells (row 1) ------------------------ *@
+                @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
+                {
+                    var col = _columns[colIdx - 1];
+                    <FlexLayout 
+                        Row 
+                        AlignItem="@AlignItems.Center"
+                        JustifyContent="@JustifyContent.SpaceBetween"
+                        Class="@(ClassBuilder.Create().Append(HeaderClass).Build())">
+                        
+                        <ChildContent>
+                            @(builder => col.RenderHeader(builder, colIdx))
+                            @if (Sort?.Column == col)
+                            {
+                                <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(Sort.Descending ? "▼" : "▲")</button>
+                            }
+                        </ChildContent>
+                    </FlexLayout>
+                }
+
+                <Virtualize Items="_sortedItems" Context="row">
+                    <!-- ---------- Data cells (rows 2…N) ----------------------- -->
+                    @{
+                        int rowIndex = _sortedItems.IndexOf(row);
+                    }
+                    @* display:contents will not create a new element in the dom *@
+                    <div style="display:contents" class="@ClassBuilder.Create(RowClass).AppendIf("active", row == SelectedRow).Build()" @onclick="() => SelectRow(row)">
                         @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
                         {
                             var col = _columns[colIdx - 1];
-                            <FlexLayout 
-                                Row 
-                                AlignItem="@AlignItems.Center"
-                                JustifyContent="@JustifyContent.SpaceBetween"
-                                Class="@(ClassBuilder.Create().Append(HeaderClass).Build())">
-                                
-                                <ChildContent>
-                                    @(builder => col.RenderHeader(builder, colIdx))
-                                    @if (Sort?.Column == col)
-                                    {
-                                        <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(Sort.Descending ? "▼" : "▲")</button>
-                                    }
-                                </ChildContent>
-                            </FlexLayout>
+                            @(builder => col.RenderCell(builder, row, colIdx))
                         }
-
-                        <Virtualize Items="_sortedItems" Context="row">
-                            <!-- ---------- Data cells (rows 2…N) ----------------------- -->
-                            @{
-                                int rowIndex = _sortedItems.IndexOf(row);
-                            }
-                            @* display:contents will not create a new element in the dom *@
-                            <div style="display:contents" class="@ClassBuilder.Create(RowClass).AppendIf("active", row == SelectedRow).Build()" @onclick="() => SelectRow(row)">
-                                @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
-                                {
-                                    var col = _columns[colIdx - 1];
-                                    @(builder => col.RenderCell(builder, row, colIdx))
-                                }
-                            </div>
-                        </Virtualize>
                     </div>
-                </ChildContent>
-            </StyledComponent>
-        </div>
-    </ChildContent>
-</StyledComponent>
+                </Virtualize>
+            </div>
+        </Styled>
+    </div>
+</Styled>
 
 @code {
     private List<ColumnBase<TRow>> _columns = [];

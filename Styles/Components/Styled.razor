@@ -1,0 +1,31 @@
+﻿@using RTB.BlazorUI.Helper
+@using RTB.BlazorUI.Services.Style
+
+@inject IStyleRegistry Registry
+
+@code {
+    [Parameter] public RenderFragment<string?> ChildContent { get; set; } = default!;
+    
+    public string? _className;
+
+    private StyleBuilder _builder = StyleBuilder.Start;
+}
+
+@{_builder.Clear();}
+
+<CascadingValue Value="@_builder">
+    @ChildContent(_className)
+</CascadingValue>
+
+@code {
+    protected override void OnAfterRender(bool firstRender)
+    {
+        var cls = Registry.GetOrAdd(_builder.Build());
+
+        if (cls != _className)
+        {
+            _className = cls;
+            StateHasChanged();
+        }
+    }
+}

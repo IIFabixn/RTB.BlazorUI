@@ -12,7 +12,7 @@ public class Color : RTBStyleBase
     {
         if (!Condition) return;
         
-        StyleBuilder.AppendIfNotEmpty("color", Value);
+        StyleBuilder.Append("color", Value);
 
         base.OnParametersSet();
     }

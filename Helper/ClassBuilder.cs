@@ -34,20 +34,11 @@ namespace RTB.BlazorUI.Helper
             return this;
         }
 
-        public ClassBuilder Append(params string?[] names)
+        public ClassBuilder Append(ClassBuilder? otherBuilder)
         {
-            if (names is { Length: 0 }) return this;
+            if (otherBuilder is null || otherBuilder._builder.Length == 0) return this;
 
-            Append(string.Join(' ', names));
-
-            return this;
-        }
-
-        public ClassBuilder Merge(ClassBuilder? otherBuilder)
-        {
-            if (otherBuilder is null) return this;
-
-            Append(otherBuilder?.Build());
+            _builder.Append(' ').Append(otherBuilder._builder);
 
             return this;
         }

@@ -15,20 +15,25 @@
 
     [Parameter] public string? AlignItem { get; set; }
     [Parameter] public string? JustifyContent { get; set; }
+
+    [Parameter] public int? Shrink { get; set; }
+    [Parameter] public int? Grow { get; set; }
 }
 
-<StyledComponent Context="ComponentClass">
-    <Style>
-        <FlexDisplay Direction="@GetDirection()" Gap="@Gap" AlignItems="@AlignItem" JustifyContent="@JustifyContent" />
-        @Style
-    </Style>
+<Styled Context="ComponentClass">
+    <FlexDisplay 
+        Direction="@GetDirection()" 
+        Gap="@Gap" 
+        AlignItems="@AlignItem"
+        JustifyContent="@JustifyContent"
+        Shrink="@Shrink" 
+        Grow="@Grow"
+    />
     
-    <ChildContent>
-        <div class="@ClassBuilder.Create("FlexLayout", ComponentClass, Class).Build()" @attributes="@CapturedAttributes">
-            @ChildContent
-        </div>
-    </ChildContent>
-</StyledComponent>
+    <div class="@ClassBuilder.Create("FlexLayout", ComponentClass, Class).Build()" @attributes="@CapturedAttributes">
+        @ChildContent
+    </div>
+</Styled>
 
 @code {
     private string? GetDirection()

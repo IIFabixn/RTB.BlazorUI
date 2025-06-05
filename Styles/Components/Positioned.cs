@@ -12,13 +12,12 @@ public class Positioned : RTBStyleBase
 
     protected override void OnParametersSet()
     {
+        base.OnParametersSet();
         if (!Condition) return;
 
-        StyleBuilder.AppendIfNotEmpty("top", Top)
-            .AppendIfNotEmpty("right", Right)
-            .AppendIfNotEmpty("bottom", Bottom)
-            .AppendIfNotEmpty("left", Left);
-            
-        base.OnParametersSet();
+        StyleBuilder.Append("top", Top)
+            .Append("right", Right)
+            .Append("bottom", Bottom)
+            .Append("left", Left);
     }
 }

@@ -16,50 +16,44 @@
     [Parameter] public TabStyle? ActiveTabStyle { get; set; }
 
     [Parameter] public string? ContentClass { get; set; }
-
 }
 
 <CascadingValue Value="this">
     @Tabs
 </CascadingValue>
 
-<StyledComponent Context="TabClass">
-    <Style>
-        <Styled Style="@TabStyle" />
-        <Other Property="cursor" Value="pointer" />
-        <FlexDisplay Direction="row" JustifyContent="center" AlignItems="center" />
-        @Style
-    </Style>
+<Styled Context="TabClass">
+    <PreStyled Style="@TabStyle" />
+    <Other Property="cursor" Value="pointer" />
+    <FlexDisplay Direction="row" JustifyContent="center" AlignItems="center" />
 
-    <ChildContent>
-        <Grid Rows="auto 1fr" Class="@ClassBuilder.Create("TabGroup", Class).Build()" @attributes="@CapturedAttributes">
-            <GridItem>
-                <Grid Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" Class="place-items-center">
-                    @foreach (var tab in _tabItems)
-                    {
-                        <GridItem 
-                            FullWidth
-                            @key="tab.Guid"
-                            @onclick="() => SelectedTab = tab.Title"
-                            Class="@ClassBuilder.Create("TabItem", TabClass).Build()">
-                            @if (tab.TabContent is not null)
-                            {
-                                @tab.TabContent
-                            }
-                            else if (TabTemplate is not null)
-                            {
-                                @TabTemplate(tab)
-                            }
-                        </GridItem>
-                    }
-                </Grid>
-            </GridItem>
-            <GridItem Class="@ContentClass">
-                @SelectedTabContent
-            </GridItem>
-        </Grid>
-    </ChildContent>
-</StyledComponent>
+    <Grid Rows="auto 1fr" Class="@ClassBuilder.Create("TabGroup", Class).Build()" @attributes="@CapturedAttributes">
+        <GridItem>
+            <Grid Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" Class="place-items-center">
+                @foreach (var tab in _tabItems)
+                {
+                    <GridItem 
+                        FullWidth
+                        @key="tab.Guid"
+                        @onclick="() => SelectedTab = tab.Title"
+                        Class="@ClassBuilder.Create("TabItem", TabClass).Build()">
+                        @if (tab.TabContent is not null)
+                        {
+                            @tab.TabContent
+                        }
+                        else if (TabTemplate is not null)
+                        {
+                            @TabTemplate(tab)
+                        }
+                    </GridItem>
+                }
+            </Grid>
+        </GridItem>
+        <GridItem Class="@ContentClass">
+            @SelectedTabContent
+        </GridItem>
+    </Grid>
+</Styled>
 
 @code {
     private List<TabItem> _tabItems = new List<TabItem>();

@@ -16,14 +16,14 @@ namespace RTB.BlazorUI.Styles
         public string? Color { get; set; }
         public string? TextDecoration { get; set; }
 
-        public virtual StyleBuilder ToStyle(StyleBuilder builder)
+        public virtual StyleBuilder ToStyle()
         {
-            return builder
-                .AppendIfNotEmpty("font-size", FontSize)
-                .AppendIfNotEmpty("font-weight", FontWeight)
-                .AppendIfNotEmpty("line-height", LineHeight)
-                .AppendIfNotEmpty("color", Color)
-                .AppendIfNotEmpty("text-decoration", TextDecoration);
+            return StyleBuilder.Start
+                .Append("font-size", FontSize)
+                .Append("font-weight", FontWeight)
+                .Append("line-height", LineHeight)
+                .Append("color", Color)
+                .Append("text-decoration", TextDecoration);
         }
     }
 }

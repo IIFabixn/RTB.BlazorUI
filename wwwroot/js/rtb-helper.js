@@ -67,10 +67,19 @@ window.rtbStyled = {
     // reuse a single STYLE element for all rules
     let tag = document.getElementById("rtb-styled");
     if (!tag) {
-      tag = document.createElement();
+      tag = document.createElement("style");
       tag.id = "rtb-styled";
       document.head.appendChild(tag);
     }
+
     tag.append(css);
+  },
+
+  clear: function () {
+    // remove the STYLE element
+    const tag = document.getElementById("rtb-styled");
+    if (tag) {
+      tag.remove();
+    }
   }
 };

@@ -22,24 +22,18 @@
     [Parameter] public int? LimitToItemAmount { get; set; }
 }
 
-<StyledComponent Context="ComponentClass">
-    <Style>
-        @Style
-    </Style>
-
-    <ChildContent>
-        <FlexLayout
-            Row="@IsHorizontal"
-            Column="@IsVertical"
-            Class="@ClassBuilder.Create("CollectionList", ComponentClass, Class).Build()"
-            @attributes="@CapturedAttributes"
-        >
-            @if (Items.Any())
-            {
-                <Virtualize Items="@Items" Context="item">
-                    @ChildContent?.Invoke(item)
-                </Virtualize>
-            }
-        </FlexLayout>
-    </ChildContent>
-</StyledComponent>
+<Styled Context="ComponentClass">
+    <FlexLayout
+        Row="@IsHorizontal"
+        Column="@IsVertical"
+        Class="@ClassBuilder.Create("CollectionList", ComponentClass, Class).Build()"
+        @attributes="@CapturedAttributes"
+    >
+        @if (Items.Any())
+        {
+            <Virtualize Items="@Items" Context="item">
+                @ChildContent?.Invoke(item)
+            </Virtualize>
+        }
+    </FlexLayout>
+</Styled>

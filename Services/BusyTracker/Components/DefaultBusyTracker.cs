@@ -14,7 +14,7 @@ namespace RTB.BlazorUI.Services.BusyTracker.Components
     public class DefaultBusyTracker : RTBComponent
     {
         [Inject] protected IStyleRegistry Styled { get; set; } = default!;
-        private string ComponentClass { get; set; } = string.Empty;
+        private string? ComponentClass { get; set; }
         protected override void OnParametersSet()
         {
             ComponentClass = Styled.GetOrAdd(StyleBuilder.Start

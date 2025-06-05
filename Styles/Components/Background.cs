@@ -8,15 +8,13 @@ namespace RTB.BlazorUI.Styles.Components;
 
 public class Background : RTBStyleBase
 {
-    [Parameter, EditorRequired] public string? Color { get; set; }
+    [Parameter] public string? Color { get; set; }
 
     protected override void OnParametersSet()
     {
-        if (Color is null) return;
+        base.OnParametersSet();
         if (!Condition) return;
 
-        StyleBuilder.AppendIfNotEmpty("background-color", Color);
-
-        base.OnParametersSet();
+        StyleBuilder.Append("background-color", Color);
     }
 }

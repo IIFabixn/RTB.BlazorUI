@@ -12,18 +12,13 @@
     [Parameter] public string? Gap { get; set; }
 }
 
-<StyledComponent Context="ComponentClass">
-    <Style>
-        <GridDisplay TemplateColumns="@Columns" TemplateRows="@Rows" Gap="@Gap" />
-        @Style
-    </Style>
+<Styled Context="ComponentClass">
+    <GridDisplay TemplateColumns="@Columns" TemplateRows="@Rows" Gap="@Gap" />
     
-    <ChildContent>
-        <div
-            class="@ClassBuilder.Create(ComponentClass, Class).Build()" 
-            @attributes="@CapturedAttributes"
-        >
-            @ChildContent
-        </div>
-    </ChildContent>
-</StyledComponent>
+    <div
+        class="@ClassBuilder.Create("Grid", ComponentClass, Class).Build()" 
+        @attributes="@CapturedAttributes"
+    >
+        @ChildContent
+    </div>
+</Styled>

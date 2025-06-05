@@ -14,9 +14,9 @@ public class GridDisplay : RTBStyleBase
         if (!Condition) return;
         
         StyleBuilder.Append("display", "grid");
-        StyleBuilder.AppendIfNotEmpty("grid-template-columns", TemplateColumns);
-        StyleBuilder.AppendIfNotEmpty("grid-template-rows", TemplateRows);
-        StyleBuilder.AppendIfNotEmpty("gap", Gap);
+        StyleBuilder.Append("grid-template-columns", TemplateColumns);
+        StyleBuilder.Append("grid-template-rows", TemplateRows);
+        StyleBuilder.Append("gap", Gap);
         
         base.OnParametersSet();
     }

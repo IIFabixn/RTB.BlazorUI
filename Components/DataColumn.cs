@@ -89,12 +89,11 @@ namespace RTB.BlazorUI.Components
             builder.AddContent(1, Name);
             builder.CloseElement();
         }
-
-        public string? ComponentClass { get; private set; }
-
+        
+        private string? ComponentClass { get; set; }
         protected override void OnParametersSet()
         {
-            ComponentClass = Styled.GetOrAdd(StyleBuilder.Create()
+            ComponentClass = Styled.GetOrAdd(StyleBuilder.Start
                 .Append("white-space", "nowrap")
                 .Append("overflow", "hidden")
                 .Append("text-overflow", "ellipsis")

@@ -9,24 +9,16 @@
     [Parameter] public string? Title { get; set; }
 }
 
-<StyledComponent Context="ComponentClass">
-    <Style>
-        @Style
-    </Style>
-    
-    <ChildContent>
-        <div class="Card @ComponentClass @Class"
-            @attributes="@CapturedAttributes">
-            <FlexLayout FullHeight Column AlignItem="@CssHelper.AlignItems.Center">
-                @if (!string.IsNullOrEmpty(Title))
-                {
-                    <div class="header">
-                        @Title
-                    </div>
-                }
+<div class="Card @Class"
+    @attributes="@CapturedAttributes">
+    <FlexLayout FullHeight Column AlignItem="@CssHelper.AlignItems.Center">
+        @if (!string.IsNullOrEmpty(Title))
+        {
+            <div class="header">
+                @Title
+            </div>
+        }
 
-                @ChildContent
-            </FlexLayout>
-        </div>
-    </ChildContent>
-</StyledComponent>
+        @ChildContent
+    </FlexLayout>
+</div>

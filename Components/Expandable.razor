@@ -15,20 +15,16 @@
     @attributes="@(CapturedAttributes)" 
     @onclick:stopPropagation
 >
-    <StyledComponent Context="ActivatorClass">
-        <Style>
-            <Width Value="100%" />
-            @Style
-        </Style>
+    <Styled Context="ActivatorClass">
+        <Size FullWidth />
 
-        <ChildContent>
-            <div class="@ClassBuilder.Create("Activator", ActivatorClass).Build()" 
-                @onclick="ToggleMenu"
-            >
-                @Activator
-            </div>
-        </ChildContent>
-    </StyledComponent>
+        <div class="@ClassBuilder.Create("Activator", ActivatorClass).Build()" 
+            @onclick="ToggleMenu"
+        >
+            @Activator
+        </div>
+    </Styled>
+
     @if (IsOpen)
     {
         @ChildContent

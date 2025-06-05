@@ -22,17 +22,19 @@ public class Text : RTBComponent
     [Parameter] public string? FontWeight { get; set; }
     [Parameter] public string? LineHeight { get; set; }
     [Parameter] public string? TextDecoration { get; set; }
+    [Parameter] public string? Color { get; set; }
 
-    private string? ComponentClass;
-
+    private string? ComponentClass { get; set; }
     protected override void OnParametersSet()
     {
         ComponentClass = StyleRegistry.GetOrAdd(StyleBuilder.Start
-            .AppendIfNotEmpty("text-align", TextAlign)
-            .AppendIfNotEmpty("font-size", FontSize)
-            .AppendIfNotEmpty("font-weight", FontWeight)
-            .AppendIfNotEmpty("line-height", LineHeight)
-            .AppendIfNotEmpty("text-decoration", TextDecoration)
+            .AppendStyle(TextStyle)
+            .Append("text-align", TextAlign)
+            .Append("font-size", FontSize)
+            .Append("font-weight", FontWeight)
+            .Append("line-height", LineHeight)
+            .Append("text-decoration", TextDecoration)
+            .Append("color", Color)
             .Build());
     }
 

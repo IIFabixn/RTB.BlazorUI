@@ -17,13 +17,13 @@ public class Padding : RTBStyleBase
     {
         if (!Condition) return;
 
-        StyleBuilder.AppendIfNotEmpty("padding", All);
+        StyleBuilder.Append("padding", All);
         StyleBuilder.AppendIf("padding", $"0 {Horizontal}", !string.IsNullOrEmpty(Horizontal));
         StyleBuilder.AppendIf("padding", $"{Vertical} 0", !string.IsNullOrEmpty(Vertical));
-        StyleBuilder.AppendIfNotEmpty("padding-top", Top);
-        StyleBuilder.AppendIfNotEmpty("padding-right", Right);
-        StyleBuilder.AppendIfNotEmpty("padding-bottom", Bottom);
-        StyleBuilder.AppendIfNotEmpty("padding-left", Left);
+        StyleBuilder.Append("padding-top", Top);
+        StyleBuilder.Append("padding-right", Right);
+        StyleBuilder.Append("padding-bottom", Bottom);
+        StyleBuilder.Append("padding-left", Left);
 
         base.OnParametersSet();
     }

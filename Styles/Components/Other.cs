@@ -13,8 +13,7 @@ public class Other : RTBStyleBase
     {
         if (!Condition) return;
 
-        StyleBuilder.AppendIfNotEmpty(Property, Value)
-            .AppendStyle(Raw);
+        StyleBuilder.Append(Property, Value).AppendStyle(Raw);
             
         base.OnParametersSet();
     }

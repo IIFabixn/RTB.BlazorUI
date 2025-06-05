@@ -1,125 +1,206 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
-using RTB.BlazorUI.Services.Style;
-using RTB.BlazorUI.Services.Theme;
+using RTB.BlazorUI.Styles;
 
 namespace RTB.BlazorUI.Helper
 {
-    public interface IStyleAppender
-    {
-        void Append(string style);
-    }
-
+    /// <summary>
+    /// A fluent builder for constructing inline CSS style strings.
+    /// </summary>
     public class StyleBuilder
     {
         private readonly StringBuilder _builder;
 
-        private StyleBuilder(string initStyle = "")
+        private StyleBuilder(string? initStyle = null)
         {
-            _builder = new(initStyle);
+            _builder = new StringBuilder(initStyle ?? string.Empty);
         }
 
+        /// <summary>
+        /// Gets a new instance of StyleBuilder.
+        /// </summary>
         public static StyleBuilder Start => new();
 
+        /// <summary>
+        /// Clears all styles from the builder.
+        /// </summary>
+        /// <returns>The current StyleBuilder instance for method chaining.</returns>
         public StyleBuilder Clear()
         {
             _builder.Clear();
-
             return this;
         }
 
         /// <summary>
-        /// Creates a new instance of StyleBuilder with an optional initial style.
+        /// Creates a new instance of StyleBuilder with optional initial styles.
         /// </summary>
-        /// <param name="initStyle">Initial style string to start with.</param>
+        /// <param name="initStyles">Initial style strings to start with.</param>
         /// <returns>A new instance of StyleBuilder.</returns>
         public static StyleBuilder Create(params string?[]? initStyles)
         {
-            if (initStyles is null || initStyles.Length == 0) return new StyleBuilder();
-            return new StyleBuilder(string.Join("; ", initStyles.Where(s => !string.IsNullOrEmpty(s))));
+            if (initStyles is null || initStyles.Length == 0) 
+                return new StyleBuilder();
+            
+            var validStyles = initStyles.Where(s => !string.IsNullOrWhiteSpace(s));
+            return new StyleBuilder(string.Join(" ", validStyles));
         }
 
         /// <summary>
-        /// Will append a style to the builder.
-        /// If the style or value is null or whitespace, it will not append anything.
+        /// Appends a CSS property with its value to the builder.
         /// </summary>
-        /// <param name=></param>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public StyleBuilder Append(string style, string value)
+        /// <param name="property">The CSS property name.</param>
+        /// <param name="value">The CSS property value.</param>
+        /// <returns>The current StyleBuilder instance for method chaining.</returns>
+        public StyleBuilder Append(string? property, string? value)
         {
-            _builder.Append(style).Append(':').Append(value).Append(';');
+            if (string.IsNullOrWhiteSpace(property) || string.IsNullOrWhiteSpace(value))
+                return this;
+
+            if (_builder.Length > 0 && !_builder.ToString().EndsWith(';') && !_builder.ToString().EndsWith(' '))
+                _builder.Append(' ');
+
+            _builder.Append(property).Append(':').Append(value).Append(';');
             return this;
         }
 
-        public StyleBuilder AppendIf(string style, string? value, Func<bool> condition)
+        /// <summary>
+        /// Conditionally appends a CSS property with its value if the condition is true.
+        /// </summary>
+        /// <param name="property">The CSS property name.</param>
+        /// <param name="value">The CSS property value.</param>
+        /// <param name="condition">The condition to evaluate.</param>
+        /// <returns>The current StyleBuilder instance for method chaining.</returns>
+        public StyleBuilder AppendIf(string property, string? value, bool condition)
         {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                return this;
-            }
-
-            return condition() ? Append(style, value) : this;
+            return condition && !string.IsNullOrWhiteSpace(value) 
+                ? Append(property, value) 
+                : this;
         }
 
-        public StyleBuilder AppendIfNotEmpty(string style, string? value)
+        /// <summary>
+        /// Conditionally appends a CSS property with its value if the condition function returns true.
+        /// </summary>
+        /// <param name="property">The CSS property name.</param>
+        /// <param name="value">The CSS property value.</param>
+        /// <param name="condition">The condition function to evaluate.</param>
+        /// <returns>The current StyleBuilder instance for method chaining.</returns>
+        public StyleBuilder AppendIf(string property, string? value, Func<bool> condition)
         {
-            return AppendIf(style, value, !string.IsNullOrEmpty(value));
+            return AppendIf(property, value, condition());
         }
 
-        public StyleBuilder AppendIf<TValue>(string style, TValue value, Func<bool> condition)
+        /// <summary>
+        /// Conditionally appends a CSS property with its value if the condition is true.
+        /// </summary>
+        /// <param name="property">The CSS property name.</param>
+        /// <param name="value">The CSS property value.</param>
+        /// <param name="condition">The condition to evaluate.</param>
+        /// <returns>The current StyleBuilder instance for method chaining.</returns>
+        public StyleBuilder AppendIf<TValue>(string property, TValue value, bool condition)
         {
-            return condition() ? Append(style, value?.ToString() ?? string.Empty) : this;
+            return condition ? Append(property, value?.ToString() ?? string.Empty) : this;
         }
 
-        public StyleBuilder AppendIf(string style, string? value, bool condition)
+        /// <summary>
+        /// Conditionally appends a CSS property with its value if the condition function returns true.
+        /// </summary>
+        /// <param name="property">The CSS property name.</param>
+        /// <param name="value">The CSS property value.</param>
+        /// <param name="condition">The condition function to evaluate.</param>
+        /// <returns>The current StyleBuilder instance for method chaining.</returns>
+        public StyleBuilder AppendIf<TValue>(string property, TValue value, Func<bool> condition)
         {
-            if (string.IsNullOrEmpty(value)) return this;
-
-            return condition ? Append(style, value) : this;
+            return AppendIf(property, value, condition());
         }
 
-        public StyleBuilder AppendIf<TValue>(string style, TValue value, bool condition)
-        {
-            return condition ? Append(style, value?.ToString() ?? string.Empty) : this;
-        }
-
+        /// <summary>
+        /// Appends a raw CSS style string to the builder.
+        /// </summary>
+        /// <param name="style">The CSS style string to append.</param>
+        /// <returns>The current StyleBuilder instance for method chaining.</returns>
         public StyleBuilder AppendStyle(string? style)
         {
-            if (!string.IsNullOrWhiteSpace(style))
-            {
-                _builder.Append(style);
-            }
+            if (string.IsNullOrWhiteSpace(style))
+                return this;
 
+            if (_builder.Length > 0 && !_builder.ToString().EndsWith(" ") && !style.StartsWith(" "))
+                _builder.Append(" ");
+
+            _builder.Append(style.Trim());
             return this;
         }
 
+        /// <summary>
+        /// Appends a <see cref="IStyle"/> style to the builder.
+        /// </summary>
+        /// <param name="style">The CSS style string to append.</param>
+        /// <returns>The current StyleBuilder instance for method chaining.</returns>
+        public StyleBuilder AppendStyle(IStyle? style)
+        {
+            if (style is null)
+                return this;
+            var styleString = style.ToStyle()?.Build() ?? string.Empty;
+            if (_builder.Length > 0 && !_builder.ToString().EndsWith(" ") && !styleString.StartsWith(" "))
+                _builder.Append(" ");
+
+            _builder.Append(styleString.Trim());
+            return this;
+        }
+
+        /// <summary>
+        /// Conditionally appends a raw CSS style string if the condition is true.
+        /// </summary>
+        /// <param name="style">The CSS style string to append.</param>
+        /// <param name="condition">The condition to evaluate.</param>
+        /// <returns>The current StyleBuilder instance for method chaining.</returns>
         public StyleBuilder AppendStyleIf(string? style, bool condition)
         {
             return condition ? AppendStyle(style) : this;
         }
 
+        /// <summary>
+        /// Conditionally appends a raw CSS style string if the condition function returns true.
+        /// </summary>
+        /// <param name="style">The CSS style string to append.</param>
+        /// <param name="condition">The condition function to evaluate.</param>
+        /// <returns>The current StyleBuilder instance for method chaining.</returns>
         public StyleBuilder AppendStyleIf(string? style, Func<bool> condition)
         {
             return condition() ? AppendStyle(style) : this;
         }
 
-        public StyleBuilder Join(StyleBuilder other)
+        /// <summary>
+        /// Joins another StyleBuilder's content to this builder.
+        /// </summary>
+        /// <param name="other">The other StyleBuilder to join.</param>
+        /// <returns>The current StyleBuilder instance for method chaining.</returns>
+        public StyleBuilder Append(StyleBuilder? other)
         {
-            if (other is null) return this;
+            if (other is null) 
+                return this;
 
             _builder.Append(other._builder);
+
             return this;
         }
 
-
+        /// <summary>
+        /// Builds the final CSS style string.
+        /// </summary>
+        /// <returns>The constructed CSS style string.</returns>
         public string Build()
         {
             return _builder.ToString().Trim();
+        }
+
+        /// <summary>
+        /// Implicitly converts a StyleBuilder to its string representation.
+        /// </summary>
+        /// <param name="builder">The StyleBuilder to convert.</param>
+        public static implicit operator string(StyleBuilder builder)
+        {
+            return builder?.Build() ?? string.Empty;
         }
     }
 }

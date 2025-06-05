@@ -11,9 +11,9 @@ namespace RTB.BlazorUI.Styles
     {
         public string? Color { get; set; }
 
-        public StyleBuilder ToStyle(StyleBuilder builder)
+        public StyleBuilder ToStyle()
         {
-            return builder.AppendIfNotEmpty("color", Color);
+            return StyleBuilder.Start.Append("color", Color);
         }
     }
 }

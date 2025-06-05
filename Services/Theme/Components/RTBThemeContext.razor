@@ -1,17 +1,24 @@
 ﻿@using RTB.BlazorUI.Services.Dialog
 @using RTB.BlazorUI.Services.Dialog.Components
+@using RTB.BlazorUI.Services.Style
 @using RTB.BlazorUI.Services.Theme
 @using RTB.BlazorUI.Services.Theme.Themes
 
 @typeparam TTheme where TTheme : ITheme
 
 @inject IThemeService<TTheme> Theme
+@inject IStyleRegistry Registry
+
 @code {
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
     protected override void OnInitialized()
     {
-        Theme.OnThemeChanged += StateHasChanged;
+        Theme.OnThemeChanged += () => {
+            Console.WriteLine($"Theme changed to: {Theme.Current.GetType().Name}");
+            // Registry.Clear();
+            StateHasChanged();
+        };
     }
 }
 

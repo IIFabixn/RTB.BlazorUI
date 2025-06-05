@@ -18,12 +18,12 @@ public class Margin : RTBStyleBase
         base.OnParametersSet();
         if (!Condition) return;
 
-        StyleBuilder.AppendIfNotEmpty("margin", All);
+        StyleBuilder.Append("margin", All);
         StyleBuilder.AppendIf("margin", $"0 {Horizontal}", !string.IsNullOrEmpty(Horizontal));
         StyleBuilder.AppendIf("margin", $"{Vertical} 0", !string.IsNullOrEmpty(Vertical));
-        StyleBuilder.AppendIfNotEmpty("margin-top", Top);
-        StyleBuilder.AppendIfNotEmpty("margin-right", Right);
-        StyleBuilder.AppendIfNotEmpty("margin-bottom", Bottom);
-        StyleBuilder.AppendIfNotEmpty("margin-left", Left);
+        StyleBuilder.Append("margin-top", Top);
+        StyleBuilder.Append("margin-right", Right);
+        StyleBuilder.Append("margin-bottom", Bottom);
+        StyleBuilder.Append("margin-left", Left);
     }
 }

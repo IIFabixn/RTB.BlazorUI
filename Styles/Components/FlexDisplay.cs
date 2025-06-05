@@ -11,18 +11,22 @@ public class FlexDisplay : RTBStyleBase
     [Parameter] public string? AlignItems { get; set; }
     [Parameter] public string? AlignContent { get; set; }
     [Parameter] public string? Gap { get; set; }
+    [Parameter] public int? Shrink { get; set; }
+    [Parameter] public int? Grow { get; set; }
 
     protected override void OnParametersSet()
     {
         if (!Condition) return;
         
         StyleBuilder.Append("display", "flex");
-        StyleBuilder.AppendIfNotEmpty("flex-direction", Direction);
-        StyleBuilder.AppendIfNotEmpty("flex-wrap", Wrap);
-        StyleBuilder.AppendIfNotEmpty("justify-content", JustifyContent);
-        StyleBuilder.AppendIfNotEmpty("align-items", AlignItems);
-        StyleBuilder.AppendIfNotEmpty("align-content", AlignContent);
-        StyleBuilder.AppendIfNotEmpty("gap", Gap);
+        StyleBuilder.Append("flex-direction", Direction);
+        StyleBuilder.Append("flex-wrap", Wrap);
+        StyleBuilder.Append("justify-content", JustifyContent);
+        StyleBuilder.Append("align-items", AlignItems);
+        StyleBuilder.Append("align-content", AlignContent);
+        StyleBuilder.Append("gap", Gap);
+        StyleBuilder.Append("flex-shrink", Shrink?.ToString());
+        StyleBuilder.Append("flex-grow", Grow?.ToString());
         
         base.OnParametersSet();
     }

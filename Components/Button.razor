@@ -14,29 +14,27 @@
     [Parameter] public ButtonStyle? ButtonStyle { get; set; }
 
     [Parameter] public string? Color { get; set; }
+    [Parameter] public string? DisabledColor { get; set; }
 }
 
-<StyledComponent Context="ComponentClass">
-    <Style>
-        <Other Property="cursor" Value="cursor" Condition="@(!Disabled)" />
-        <Other Property="cursor" Value="default" Condition="@(Disabled)" />
-        <Styled Style="@ButtonStyle" />
-        <Color Value="@(Color ?? ButtonStyle?.Color)" />
-        @Style
-    </Style>
+<Styled Context="ComponentClass">
+    <PreStyled Style="@ButtonStyle" />
+    <Other Property="cursor" Value="cursor" Condition="@(!Disabled)" />
+    <Other Property="cursor" Value="default" Condition="@(Disabled)" />
+    <Color Value="@(Color ?? ButtonStyle?.Color)" />
+    <Color Value="@(DisabledColor ?? ButtonStyle?.Color)" Condition="@Disabled" />
     
-    <ChildContent>
-        <button type="button" class="@ClassBuilder.Create(ComponentClass, Class).Build()"
-            disabled="@Disabled"
-            @attributes="@(CapturedAttributes?.Without("class", "disabled"))">
-            @if (ChildContent is not null) 
-            {
-                @ChildContent
-            }
-            else
-            {
-                <RTB.BlazorUI.Components.Text TextStyle="@ButtonStyle" class="@LabelClass">@Label</RTB.BlazorUI.Components.Text>
-            }
-        </button>
-    </ChildContent>
-</StyledComponent>
+
+    <button type="button" class="@ClassBuilder.Create(ComponentClass, Class).Build()"
+        disabled="@Disabled"
+        @attributes="@(CapturedAttributes?.Without("class", "disabled"))">
+        @if (ChildContent is not null) 
+        {
+            @ChildContent
+        }
+        else
+        {
+            <RTB.BlazorUI.Components.Text TextStyle="@ButtonStyle" class="@LabelClass">@Label</RTB.BlazorUI.Components.Text>
+        }
+    </button>
+</Styled>
