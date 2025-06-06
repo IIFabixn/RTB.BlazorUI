@@ -8,17 +8,18 @@
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter] public string? Title { get; set; }
 }
+<Styled Context="ComponentClass">
+    <div class="Card @ComponentClass @Class"
+        @attributes="@CapturedAttributes">
+        <FlexLayout FullHeight Column AlignItem="@CssHelper.AlignItems.Center">
+            @if (!string.IsNullOrEmpty(Title))
+            {
+                <div class="header">
+                    @Title
+                </div>
+            }
 
-<div class="Card @Class"
-    @attributes="@CapturedAttributes">
-    <FlexLayout FullHeight Column AlignItem="@CssHelper.AlignItems.Center">
-        @if (!string.IsNullOrEmpty(Title))
-        {
-            <div class="header">
-                @Title
-            </div>
-        }
-
-        @ChildContent
-    </FlexLayout>
-</div>
+            @ChildContent
+        </FlexLayout>
+    </div>
+</Styled>

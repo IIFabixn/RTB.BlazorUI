@@ -5,20 +5,14 @@
 @code {
     [Parameter, EditorRequired] public RenderFragment ActionContent { get; set; } = default!;
     [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
+
+    private string _isVisible = "collapse";
+    private string Visibility
+    {
+        get => _isVisible;
+        set => SetProperty(ref _isVisible, value);
+    }
 }
-
-@* <Styled Context="ComponentClass">
-    &.group:hover {
-        .collapse {
-            visibility: visible;
-        }
-    }
-
-    .collapse {
-        visibility: hidden;
-        transition: visibility 0.2s ease-in-out;
-    }
-</Styled> *@
 
 <Styled Context="ComponentClass">
     <Other Property="position" Value="relative" />
@@ -26,19 +20,24 @@
     <Other Property="cursor" Value="pointer" />
     <Other Property="z-index" Value="10" />
 
-@* <Styled Context="ComponentClass">
-    <Other Property="position" Value="absolute" />
-    <Positioned Top="100%" Left="50%" />
-    <Other Property="transform" Value="translateX(-50%)" />
-    <Other Property="z-index" Value="20" />
-    <Other Property="visibility" Value="hidden" />
-</Styled> *@
-
-    <div class="@ComponentClass group @(Class)" @attributes="@(CapturedAttributes)">
+    <div class="@ComponentClass group @(Class)" 
+        @attributes="@(CapturedAttributes)" 
+        @mouseover="@(() => Visibility = "visible")"
+        @mouseout="@(() => Visibility = "collapse")"
+    >
         @ActionContent
 
-        <div class="collapse">
-            @ChildContent
-        </div>
+        <Styled Context="ChildContentClass">
+            <Other Property="position" Value="absolute" />
+            <Positioned Top="100%" Left="50%" />
+            <Other Property="transform" Value="translateX(-50%)" />
+            <Other Property="z-index" Value="20" />
+            <Other Property="visibility" Value="@Visibility" />
+            <Transition Property="visibility" Duration="0.2s" TimingFunction="ease-in-out" />
+            
+            <div class="@ChildContentClass">
+                @ChildContent
+            </div>
+        </Styled>
     </div>
 </Styled>

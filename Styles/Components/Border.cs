@@ -1,5 +1,6 @@
 using System;
 using Microsoft.AspNetCore.Components;
+using RTB.BlazorUI.Helper;
 using RTB.BlazorUI.Services.Theme;
 
 namespace RTB.BlazorUI.Styles.Components;
@@ -7,7 +8,7 @@ namespace RTB.BlazorUI.Styles.Components;
 public class Border : RTBStyleBase
 {
     [Parameter] public string Width { get; set; } = "1px";
-    [Parameter] public string? Color { get; set; } = default!;
+    [Parameter] public string? Color { get; set; } = "currentColor";
     [Parameter] public BorderStyle Style { get; set; } = BorderStyle.Solid;
 
     [Parameter] public string? Radius { get; set; } = default!;
@@ -22,6 +23,11 @@ public class Border : RTBStyleBase
         {
             StyleBuilder.Append("border", "none");
         }
+        else if (Side == BorderSide.All)
+        {
+            StyleBuilder.Append("border", $"{Width} {Style.ToString().ToLowerInvariant()} {Color}");
+            StyleBuilder.Append("border-radius", Radius);
+        }
         else
         {
             StyleBuilder.Append("border-radius", Radius);
@@ -29,10 +35,15 @@ public class Border : RTBStyleBase
             StyleBuilder.Append("border-style", Style.ToString().ToLowerInvariant());
             StyleBuilder.Append("border-color", Color);
 
-            if (Side != BorderSide.All)
-            {
-                StyleBuilder.Append("border-" + Side.ToString().ToLowerInvariant(), Width + " " + Style.ToString().ToLowerInvariant() + " " + Color);
-            }
+            string value = $"{Width} {Style.ToString().ToLowerInvariant()} {Color}";
+            if (Side.HasFlag(BorderSide.Top))
+                StyleBuilder.Append("border-top", value);
+            if (Side.HasFlag(BorderSide.Right))
+                StyleBuilder.Append("border-right", value);
+            if (Side.HasFlag(BorderSide.Bottom))
+                StyleBuilder.Append("border-bottom", value);
+            if (Side.HasFlag(BorderSide.Left))
+                StyleBuilder.Append("border-left", value);
         }
     }
 

@@ -24,7 +24,6 @@
     <Color Value="@(Color ?? ButtonStyle?.Color)" />
     <Color Value="@(DisabledColor ?? ButtonStyle?.Color)" Condition="@Disabled" />
     
-
     <button type="button" class="@ClassBuilder.Create(ComponentClass, Class).Build()"
         disabled="@Disabled"
         @attributes="@(CapturedAttributes?.Without("class", "disabled"))">
