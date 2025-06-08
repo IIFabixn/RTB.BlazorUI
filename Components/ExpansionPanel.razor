@@ -16,8 +16,8 @@
     public EventCallback<bool>? ExpandedChanged { get; set; }
 }
 
-<FlexLayout Column Class="@ClassBuilder.Create("ExpansionPanel", Class).Build()" @attributes="@CapturedAttributes">
-    <FlexLayout Row Class="gap-2">
+<Stack Column Class="@ClassBuilder.Create("ExpansionPanel", Class).Build()" @attributes="@CapturedAttributes">
+    <Stack Row Class="gap-2">
         @Header
 
         <button @onclick="Toggle">
@@ -30,11 +30,11 @@
                 <span>Expand</span>
             }
         </button>
-    </FlexLayout>
+    </Stack>
     <div class="@(isExpanded ? "visible" : "collapse")">
         @ChildContent
     </div>
-</FlexLayout>
+</Stack>
 
 @code{
     private bool isExpanded = false;

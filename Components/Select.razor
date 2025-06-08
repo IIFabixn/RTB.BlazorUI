@@ -43,13 +43,13 @@
         </Activator>
 
         <ChildContent>
-            <FlexLayout Column>
+            <Stack Column>
                 @if (OptionsHeader is not null)
                 {
                     @OptionsHeader
                 }
                 <div style="min-height: 0; max-height: 100%; overflow: auto;">
-                    <CollectionList IsVertical FullWidth Items="@Options" TItem="TOption" Context="item">
+                    <CollectionList Vertical FullWidth Items="@Options" TItem="TOption" Context="item">
                         <div @onclick="@(() => HandleSelect(item))">
                             @OptionTemplate?.Invoke(item)
                             @if (OptionTemplate is null)
@@ -59,7 +59,7 @@
                         </div>
                     </CollectionList>
                 </div>
-            </FlexLayout>
+            </Stack>
         </ChildContent>
     </FlyoutMenu>
 </Styled>

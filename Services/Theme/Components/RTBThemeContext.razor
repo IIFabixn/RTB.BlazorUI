@@ -15,8 +15,7 @@
     protected override void OnInitialized()
     {
         Theme.OnThemeChanged += () => {
-            Console.WriteLine($"Theme changed to: {Theme.Current.GetType().Name}");
-            // Registry.Clear();
+            Registry.Clear();
             StateHasChanged();
         };
     }

@@ -8,7 +8,7 @@
     
     public string? _className;
 
-    private StyleBuilder _builder = StyleBuilder.Start;
+    private readonly StyleBuilder _builder = StyleBuilder.Start;
 }
 
 @{_builder.Clear();}
@@ -21,10 +21,10 @@
     protected override void OnAfterRender(bool firstRender)
     {
         var cls = Registry.GetOrAdd(_builder.Build());
-
-        if (cls != _className)
+        if (!string.IsNullOrEmpty(cls) && cls != _className)
         {
             _className = cls;
+            Console.WriteLine($"Styled component rendered with class: {cls} > {_className}");
             StateHasChanged();
         }
     }

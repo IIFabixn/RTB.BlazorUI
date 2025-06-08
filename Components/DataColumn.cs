@@ -5,6 +5,7 @@ using RTB.BlazorUI.Extensions;
 using RTB.BlazorUI.Helper;
 using RTB.BlazorUI.Interfaces;
 using RTB.BlazorUI.Services.Style;
+using RTB.BlazorUI.Styles;
 
 namespace RTB.BlazorUI.Components
 {

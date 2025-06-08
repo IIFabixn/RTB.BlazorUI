@@ -8,15 +8,15 @@
         <SKCanvasView class="h-full w-full" OnPaintSurface="PaintBars" EnableRenderLoop />
     </GridItem>
     <GridItem>
-        <FlexLayout Row Class="items-center gap-2 flex-wrap">
+        <Stack Row Class="items-center gap-2 flex-wrap">
             @foreach (var entry in Entries)
             {
-                <FlexLayout Row Class="items-center justify-center gap-2">
+                <Stack Row Class="items-center justify-center gap-2">
                     <div class="w-2 h-2 rounded" style="background-color: #@(entry.Color?.ToString().Substring(3));"></div>
                     <h4>@entry.Label</h4>
-                </FlexLayout>
+                </Stack>
             }
-        </FlexLayout>
+        </Stack>
     </GridItem>
 </Grid>
 

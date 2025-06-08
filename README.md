@@ -39,7 +39,7 @@
 ## 🧰 Component Library
 
 ### Layout
-- `FlexLayout` - Flexible container with row/column orientation
+- `Stack` - Flexible container with row/column orientation
 - `Grid` / `GridItem` - Powerful grid layout system
 - `Paper` - Base surface for content
 
@@ -68,7 +68,7 @@
 ## 💻 Usage Example
 
 ```razor
-<FlexLayout Row="true" Gap="1rem">
+<Stack Row="true" Gap="1rem">
     <Card Title="Quick Stats">
         <BarChart Data="@chartData" />
     </Card>
@@ -79,7 +79,7 @@
             <DataColumn Field="Age" />
         </DataGrid>
     </ExpansionPanel>
-</FlexLayout>
+</Stack>
 ```
 
 ## 📦 Installation

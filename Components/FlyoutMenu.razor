@@ -14,25 +14,25 @@
 <Styled Context="ComponentClass">
     <Other Property="position" Value="relative" />
 
-<div class="FlyoutMenu @ComponentClass @Class" @onclick:stopPropagation @attributes="@CapturedAttributes">
-    <div @onclick="ToggleMenu" class="@ActivatorClass">
-        @Activator
-    </div>
-    @if (IsOpen)
-    {
-        <Styled Context="MenuClass">
-            <Size MinWidth="100%" />
-            <Other Property="z-index" Value="50" />
-            <Other Property="display" Value="flex" />
-            <Other Property="position" Value="absolute" />
-            <Other Raw="@GetFlyoutPositionStyle()" />
+    <div class="FlyoutMenu @ComponentClass @Class" @onclick:stopPropagation @attributes="@CapturedAttributes">
+        <div @onclick="ToggleMenu" class="@ActivatorClass">
+            @Activator
+        </div>
+        @if (IsOpen)
+        {
+            <Styled Context="MenuClass">
+                <Size MinWidth="100%" />
+                <Other Property="z-index" Value="50" />
+                <Other Property="display" Value="flex" />
+                <Other Property="position" Value="absolute" />
+                <Other Raw="@GetFlyoutPositionStyle()" />
 
-            <div class="@MenuClass @ContentClass">
-                @ChildContent
-            </div>
-        </Styled>
-    }
-</div>
+                <div class="@MenuClass @ContentClass">
+                    @ChildContent
+                </div>
+            </Styled>
+        }
+    </div>
 </Styled>
 
 @code {

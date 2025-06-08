@@ -13,6 +13,10 @@ public interface IStyleRegistry
 internal sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
 {
     private readonly ConcurrentDictionary<int, string> _cache = new();
+    private readonly Queue<string> _pendingRules = new();
+    private readonly object _lock = new();
+    private bool _injectionScheduled = false;
+
 
     public string GetOrAdd(string css)
     {
@@ -21,28 +25,48 @@ internal sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
 
         if (_cache.TryAdd(hash, css))
         {
-            // first time → emit style into <head>
-            var className = $"s-{hash:X}";       // e.g. s-4B2CD7
+            var className = $"s-{hash:X}";
             var rule = $".{className}{{{css}}}";
-            Inject(rule);
+            
+            lock (_lock)
+            {
+                _pendingRules.Enqueue(rule);
+                if (!_injectionScheduled)
+                {
+                    _injectionScheduled = true;
+                    _ = Task.Run(FlushPendingRules);
+                }
+            }
         }
         
         return $"s-{hash:X}";
+    }
+
+    private async Task FlushPendingRules()
+    {
+        await Task.Yield(); // Wait for render cycle to complete
+        lock (_lock)
+        {
+            if (_pendingRules.Count > 0)
+            {
+                var rules = new List<string>();
+                while (_pendingRules.Count > 0)
+                {
+                    rules.Add(_pendingRules.Dequeue());
+                }
+                
+                var combinedRules = string.Join("\n", rules);
+                jsRuntime.InvokeVoidAsync("rtbStyled.inject", combinedRules);
+            }
+            _injectionScheduled = false;
+        }
     }
 
     public void Clear()
     {
         // Clear the cache
         _cache.Clear();
-        
         // Clear the styles in the document head
         jsRuntime.InvokeVoidAsync("rtbStyled.clear");
-    }
-
-    private void Inject(string cssRule)
-    {
-        // WASM & CSR: use JS interop.
-        // On prerendered Blazor Server you can also buffer IHtmlContent.
-        jsRuntime.InvokeVoidAsync("rtbStyled.inject", cssRule);
     }
 }

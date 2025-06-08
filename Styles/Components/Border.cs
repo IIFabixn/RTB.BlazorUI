@@ -45,6 +45,7 @@ public class Border : RTBStyleBase
             if (Side.HasFlag(BorderSide.Left))
                 StyleBuilder.Append("border-left", value);
         }
+
     }
 
     public enum BorderSide

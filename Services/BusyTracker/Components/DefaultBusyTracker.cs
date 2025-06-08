@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using RTB.BlazorUI.Components;
 using RTB.BlazorUI.Helper;
 using RTB.BlazorUI.Services.Style;
+using RTB.BlazorUI.Styles;
 
 namespace RTB.BlazorUI.Services.BusyTracker.Components
 {

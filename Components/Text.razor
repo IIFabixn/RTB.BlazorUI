@@ -1,0 +1,32 @@
+﻿@using RTB.BlazorUI.Styles
+
+@inherits RTBComponent
+
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+
+    [Parameter] public TextStyle? TextStyle { get; set; }
+    
+    [Parameter] public string Element { get; set; } = "h1";
+    [Parameter] public string? TextAlign { get; set; }
+    [Parameter] public string? FontSize { get; set; }
+    [Parameter] public string? FontWeight { get; set; }
+    [Parameter] public string? LineHeight { get; set; }
+    [Parameter] public string? TextDecoration { get; set; }
+    [Parameter] public string? Color { get; set; }
+}
+
+<Styled Context="ComponentClass">
+    <PreStyled Style="@TextStyle" />
+    <Other Property="text-align" Value="@TextAlign" />
+    <Other Property="font-size" Value="@FontSize" />
+    <Other Property="font-weight" Value="@FontWeight" />
+    <Other Property="line-height" Value="@LineHeight" />
+    <Other Property="text-decoration" Value="@TextDecoration" />
+    <Color Value="@Color" />
+
+    <h1 class="@($"{ComponentClass} {Class}")">
+        @ChildContent
+    </h1>
+    
+</Styled>

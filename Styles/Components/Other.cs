@@ -9,12 +9,14 @@ public class Other : RTBStyleBase
     [Parameter] public string? Value { get; set; }
     [Parameter] public string? Raw { get; set; }
 
+    protected override bool ConditionInternal => !string.IsNullOrEmpty(Value) && base.ConditionInternal;
+
     protected override void OnParametersSet()
     {
         if (!Condition) return;
 
         StyleBuilder.Append(Property, Value).AppendStyle(Raw);
-            
+
         base.OnParametersSet();
     }
 }

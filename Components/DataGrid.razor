@@ -44,7 +44,7 @@
                 @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
                 {
                     var col = _columns[colIdx - 1];
-                    <FlexLayout 
+                    <Stack 
                         Row 
                         AlignItem="@AlignItems.Center"
                         JustifyContent="@JustifyContent.SpaceBetween"
@@ -57,7 +57,7 @@
                                 <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(Sort.Descending ? "▼" : "▲")</button>
                             }
                         </ChildContent>
-                    </FlexLayout>
+                    </Stack>
                 }
 
                 <Virtualize Items="_sortedItems" Context="row">

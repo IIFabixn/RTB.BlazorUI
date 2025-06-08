@@ -9,7 +9,7 @@
     [Parameter] public bool InitiallyExpanded { get; set; } = false;
 }
 
-<FlexLayout 
+<Stack 
     Column
     Class="@ClassBuilder.Create("Expandable", Class).Build()"
     @attributes="@(CapturedAttributes)" 
@@ -29,7 +29,7 @@
     {
         @ChildContent
     }
-</FlexLayout>
+</Stack>
 
 @code {
     protected override void OnAfterRender(bool firstRender)

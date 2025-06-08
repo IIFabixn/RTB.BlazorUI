@@ -22,12 +22,10 @@ window.initDragDropInterop = (dropZoneId, inputId) => {
         dropZone.classList.remove('hover');
 
         if (e.dataTransfer.items) {
-            console.log('Items dropped: ', e.dataTransfer.items.length);
 
             [...e.dataTransfer.items].forEach((item, i) => {
                 if (item.kind === "file") {
                     const file = item.getAsFile();
-                    console.log(`... file[${i}].name = ${file.name}`);
                     fileInput.file = item;
                 }
             });
@@ -35,7 +33,6 @@ window.initDragDropInterop = (dropZoneId, inputId) => {
 
         // Check for files in the dataTransfer object
         if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-            console.log('Files dropped:', e.dataTransfer.files.length);
             
             // Assign dropped files to the input
             fileInput.files = e.dataTransfer.files;
@@ -43,8 +40,6 @@ window.initDragDropInterop = (dropZoneId, inputId) => {
             // Trigger a change event so Blazor picks it up
             const event = new Event('change', { bubbles: true });
             fileInput.dispatchEvent(event);
-        } else {
-            console.log('No files found in drop event');
         }
     });
 };

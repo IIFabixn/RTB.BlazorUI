@@ -13,7 +13,7 @@ public class PreStyled : RTBStyleBase
         if (!Condition) return;
 
         StyleBuilder.AppendStyle(Style);
-        
+
         base.OnParametersSet();
     }
 }

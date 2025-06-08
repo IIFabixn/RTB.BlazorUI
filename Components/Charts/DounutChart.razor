@@ -12,15 +12,15 @@
             <h3 class="absolute top-1/2 left-1/2 -translate-1/2">@TotalValue</h3>
         </GridItem>
         <GridItem>
-            <FlexLayout Row AlignItem="@AlignItems.Center" JustifyContent="@JustifyContent.Center" Gap="1rem" Class="flex-wrap">
+            <Stack Row AlignItem="@AlignItems.Center" JustifyContent="@JustifyContent.Center" Gap="1rem" Class="flex-wrap">
                 @foreach (var entry in Entries.Where(e => e.Value > 0))
                 {
-                    <FlexLayout Row Class="items-center justify-center gap-2">
+                    <Stack Row Class="items-center justify-center gap-2">
                         <div class="w-2 h-2 rounded shrink-0" style="background-color: #@entry.Color?.ToString().Substring(3)"></div>
                         <h4>@entry.Label (@entry.Value)</h4>
-                    </FlexLayout>
+                    </Stack>
                 }
-            </FlexLayout>
+            </Stack>
         </GridItem>
     </ChildContent>
 </Grid>

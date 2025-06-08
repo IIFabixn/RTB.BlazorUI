@@ -13,8 +13,8 @@
     [Parameter] public RenderFragment? HeaderTemplate { get; set; }
 
     [Parameter] public string Orientation { get; set; } = "vertical";
-    [Parameter] public bool IsHorizontal { get; set; } = false;
-    [Parameter] public bool IsVertical { get; set; } = false;
+    [Parameter] public bool Horizontal { get; set; } = false;
+    [Parameter] public bool Vertical { get; set; } = false;
 
     /// <summary>
     /// Defines how many Items should be visible before it become scrollable.
@@ -23,9 +23,9 @@
 }
 
 <Styled Context="ComponentClass">
-    <FlexLayout
-        Row="@IsHorizontal"
-        Column="@IsVertical"
+    <Stack
+        Row="@Horizontal"
+        Column="@Vertical"
         Class="@ClassBuilder.Create("CollectionList", ComponentClass, Class).Build()"
         @attributes="@CapturedAttributes"
     >
@@ -35,5 +35,5 @@
                 @ChildContent?.Invoke(item)
             </Virtualize>
         }
-    </FlexLayout>
+    </Stack>
 </Styled>
