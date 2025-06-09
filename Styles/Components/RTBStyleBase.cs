@@ -13,22 +13,5 @@ namespace RTB.BlazorUI.Styles.Components
         [CascadingParameter] protected StyleBuilder StyleBuilder { get; set; } = default!;
 
         [Parameter] public bool Condition { get; set; } = true;
-
-        protected virtual bool ConditionInternal => Condition;
-
-        private bool _hasAppliedStyles = false;
-        private int _lastParameterHash = 0;
-
-        protected override void OnParametersSet()
-        {
-            var currentHash = GetHashCode();
-            if (_hasAppliedStyles && currentHash == _lastParameterHash)
-                return;
-
-            _lastParameterHash = currentHash;
-            _hasAppliedStyles = true;
-
-            base.OnParametersSet();
-        }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace RTB.BlazorUI.Styles.Components;
 
-public class FlexDisplay : RTBStyleBase
+public class Flex : RTBStyleBase
 {
     [Parameter] public string? Direction { get; set; }
     [Parameter] public string? Wrap { get; set; }

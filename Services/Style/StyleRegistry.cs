@@ -14,7 +14,7 @@ internal sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
 {
     private readonly ConcurrentDictionary<int, string> _cache = new();
     private readonly Queue<string> _pendingRules = new();
-    private readonly object _lock = new();
+    private readonly Lock _lock = new();
     private bool _injectionScheduled = false;
 
 
@@ -47,16 +47,9 @@ internal sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
         await Task.Yield(); // Wait for render cycle to complete
         lock (_lock)
         {
-            if (_pendingRules.Count > 0)
+            while (_pendingRules.Count > 0)
             {
-                var rules = new List<string>();
-                while (_pendingRules.Count > 0)
-                {
-                    rules.Add(_pendingRules.Dequeue());
-                }
-                
-                var combinedRules = string.Join("\n", rules);
-                jsRuntime.InvokeVoidAsync("rtbStyled.inject", combinedRules);
+                jsRuntime.InvokeVoidAsync("rtbStyled.inject", _pendingRules.Dequeue());
             }
             _injectionScheduled = false;
         }

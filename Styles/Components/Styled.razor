@@ -5,26 +5,30 @@
 
 @code {
     [Parameter] public RenderFragment<string?> ChildContent { get; set; } = default!;
-    
-    public string? _className;
 
     private readonly StyleBuilder _builder = StyleBuilder.Start;
+
+    [Parameter] public string? Classname { get; set; }
+    [Parameter] public EventCallback<string>? ClassnameChanged { get; set; }
+
+    [Parameter] public string? Media { get; set; }
 }
 
 @{_builder.Clear();}
 
 <CascadingValue Value="@_builder">
-    @ChildContent(_className)
+    @ChildContent(Classname)
 </CascadingValue>
 
 @code {
     protected override void OnAfterRender(bool firstRender)
     {
-        var cls = Registry.GetOrAdd(_builder.Build());
-        if (!string.IsNullOrEmpty(cls) && cls != _className)
+        string cls = Registry.GetOrAdd(_builder.Build(Media));
+
+        if (!string.IsNullOrEmpty(cls) && cls != Classname)
         {
-            _className = cls;
-            Console.WriteLine($"Styled component rendered with class: {cls} > {_className}");
+            Classname = cls;
+            ClassnameChanged?.InvokeAsync(Classname);
             StateHasChanged();
         }
     }

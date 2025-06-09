@@ -1,0 +1,37 @@
+﻿@inherits RTBStyleBase
+
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+    [Parameter] public string? Query { get; set; }
+
+    private readonly StyleBuilder _builder = StyleBuilder.Start;
+    private string? _selectorStyle;
+}
+
+@{
+    _builder.Clear();
+}
+
+<CascadingValue Value="@_builder">
+    @ChildContent
+</CascadingValue>
+
+@code {
+    protected override void OnParametersSet()
+    {
+        string style = _builder.Build();
+
+        if (!string.IsNullOrEmpty(Query) && style != _selectorStyle)
+        {
+            _selectorStyle = style;
+            StyleBuilder.AppendSelector(Query, _selectorStyle);
+            StateHasChanged();
+        }
+
+        base.OnParametersSet();
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+    }
+}

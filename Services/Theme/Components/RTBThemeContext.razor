@@ -14,10 +14,7 @@
 
     protected override void OnInitialized()
     {
-        Theme.OnThemeChanged += () => {
-            Registry.Clear();
-            StateHasChanged();
-        };
+        Theme.OnThemeChanged += () => StateHasChanged();
     }
 }
 

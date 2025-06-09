@@ -58,23 +58,38 @@ window.dialogHelper = {
 };
 
 window.rtbStyled = {
-  inject: function (css) {
-    // reuse a single STYLE element for all rules
-    let tag = document.getElementById("rtb-styled");
-    if (!tag) {
-      tag = document.createElement("style");
-      tag.id = "rtb-styled";
-      document.head.appendChild(tag);
-    }
+    inject(css) {
+        let tag = document.getElementById("rtb-styled");
+        if (!tag) {
+            tag = document.createElement("style");
+            tag.id = "rtb-styled";
+            document.head.appendChild(tag);
+        }
 
-    tag.append(css);
-  },
+        // ‼️  delete each selector that already exists
+        const ruleRegex = /([^{]+)\{/g;          // finds ".s-123ABC{" etc.
+        let m;
+        while ((m = ruleRegex.exec(css)) !== null) {
+            const selector = m[1].trim();          // ".s-123ABC"
+            this.removeRule(tag, selector);
+        }
 
-  clear: function () {
-    // remove the STYLE element
-    const tag = document.getElementById("rtb-styled");
-    if (tag) {
-      tag.remove();
+        tag.append(css);                         // append the whole batch once
+    },
+
+    removeRule(styleTag, selector) {
+        const sheet = styleTag.sheet;
+        if (!sheet) return;
+        for (let i = sheet.cssRules.length - 1; i >= 0; --i) {
+            if (sheet.cssRules[i].selectorText === selector) {
+                sheet.deleteRule(i);
+                break;
+            }
+        }
+    },
+
+    clear(cls) {
+        const tag = document.getElementById("rtb-styled");
+        if (tag) this.removeRule(tag, '.' + cls);
     }
-  }
 };
