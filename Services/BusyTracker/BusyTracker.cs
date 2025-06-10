@@ -48,6 +48,7 @@ namespace RTB.BlazorUI.Services.BusyTracker
 
         public IDisposable Track([CallerMemberName] string method = "", Action? onDispose = null)
         {
+            Console.WriteLine($"Tracking: {method}");
             Add(method);
 
             return new BusyToken(this, method, onDispose);

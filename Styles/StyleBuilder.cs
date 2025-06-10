@@ -22,6 +22,7 @@ namespace RTB.BlazorUI.Styles
         public void Clear()
         {
             _props.Clear();
+            _selectors.Clear();
         }
 
         /// <summary>

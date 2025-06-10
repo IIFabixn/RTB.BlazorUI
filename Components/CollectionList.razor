@@ -9,8 +9,8 @@
 
 @code {
     [Parameter] public List<TItem> Items { get; set; } = [];
-    [Parameter] public RenderFragment<TItem>? ChildContent {get; set; }
     [Parameter] public RenderFragment? HeaderTemplate { get; set; }
+    [Parameter] public RenderFragment<TItem>? ItemTemplate {get; set; }
 
     [Parameter] public string Orientation { get; set; } = "vertical";
     [Parameter] public bool Horizontal { get; set; } = false;
@@ -32,7 +32,7 @@
         @if (Items.Any())
         {
             <Virtualize Items="@Items" Context="item">
-                @ChildContent?.Invoke(item)
+                @ItemTemplate?.Invoke(item)
             </Virtualize>
         }
     </Stack>

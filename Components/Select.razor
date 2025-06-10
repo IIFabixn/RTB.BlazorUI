@@ -8,8 +8,8 @@
 @code {
     [Parameter] public List<TOption> Options { get; set; } = default!;
 
-    [Parameter] public RenderFragment<TOption?>? ActionContent { get; set; }
-    [Parameter] public RenderFragment<TOption>? OptionTemplate { get; set; }
+    [Parameter, EditorRequired] public RenderFragment<TOption?> ActionContent { get; set; } = default!;
+    [Parameter, EditorRequired] public RenderFragment<TOption> OptionTemplate { get; set; } = default!;
 
     [Parameter] public TOption? SelectedOption { get; set; }
     [Parameter] public EventCallback<TOption?> SelectedOptionChanged { get; set; } = default!;
@@ -39,28 +39,30 @@
         @attributes="@CapturedAttributes"
     >
         <Activator>
-            @ActionContent?.Invoke(SelectedOption)
+            @ActionContent.Invoke(SelectedOption)
         </Activator>
 
-        <ChildContent>
+        <FlyoutContent>
             <Stack Column>
                 @if (OptionsHeader is not null)
                 {
                     @OptionsHeader
                 }
                 <div style="min-height: 0; max-height: 100%; overflow: auto;">
-                    <CollectionList Vertical FullWidth Items="@Options" TItem="TOption" Context="item">
-                        <div @onclick="@(() => HandleSelect(item))">
-                            @OptionTemplate?.Invoke(item)
-                            @if (OptionTemplate is null)
-                            {
-                                <p>@item?.ToString()</p>
-                            }
-                        </div>
-                    </CollectionList>
+                    <Styled Context="OptionListClass">
+                        <Size FullWidth />
+
+                        <CollectionList Vertical Class="@OptionListClass" Items="@Options" TItem="TOption">
+                            <ItemTemplate Context="item">
+                                <div @onclick="@(() => HandleSelect(item))">
+                                    @OptionTemplate.Invoke(item)
+                                </div>
+                            </ItemTemplate>
+                        </CollectionList>
+                    </Styled>
                 </div>
             </Stack>
-        </ChildContent>
+        </FlyoutContent>
     </FlyoutMenu>
 </Styled>
 

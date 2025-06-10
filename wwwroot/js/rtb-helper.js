@@ -98,7 +98,8 @@ window.rtbStyled = {
 
         // Create fresh CSS rule
         try {
-            sheet.insertRule(`${selector}{${css}}`, sheet.cssRules.length);
+            var rule = `${selector}{${css}}`;
+            sheet.insertRule(rule, sheet.cssRules.length);
         } catch (e) {
             // Fallback: append as text if insertRule fails
             tag.append(`${selector}{${css}}`);

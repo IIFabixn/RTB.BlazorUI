@@ -7,7 +7,7 @@
 
     [Parameter] public TextStyle? TextStyle { get; set; }
     
-    [Parameter] public string Element { get; set; } = "h1";
+    [Parameter] public string Element { get; set; } = "p";
     [Parameter] public string? TextAlign { get; set; }
     [Parameter] public string? FontSize { get; set; }
     [Parameter] public string? FontWeight { get; set; }
@@ -25,8 +25,8 @@
     <Other Property="text-decoration" Value="@TextDecoration" />
     <Color Value="@Color" />
 
-    <h1 class="@($"{ComponentClass} {Class}")">
+    <p class="@($"{ComponentClass} {Class}")">
         @ChildContent
-    </h1>
+    </p>
     
 </Styled>

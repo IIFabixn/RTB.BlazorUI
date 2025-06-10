@@ -4,7 +4,7 @@
 
 @code {
     [Parameter, EditorRequired] public RenderFragment Activator { get; set; } = default!;
-    [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
+    [Parameter, EditorRequired] public RenderFragment FlyoutContent { get; set; } = default!;
     [Parameter, EditorRequired] public FlyoutPosition Position { get; set; }
 
     [Parameter] public string? ActivatorClass { get; set; }
@@ -25,10 +25,9 @@
                 <Other Property="z-index" Value="50" />
                 <Other Property="display" Value="flex" />
                 <Other Property="position" Value="absolute" />
-                <Other Raw="@GetFlyoutPositionStyle()" />
 
-                <div class="@MenuClass @ContentClass">
-                    @ChildContent
+                <div class="@MenuClass @ContentClass" style="@GetFlyoutPositionStyle()">
+                    @FlyoutContent
                 </div>
             </Styled>
         }

@@ -9,7 +9,7 @@
 @implements IRegister<TabItem>
 
 @code {
-    [Parameter] public RenderFragment<TabItem>? TabTemplate { get; set; }
+    [Parameter] public RenderFragment<(TabItem item, bool active)>? TabTemplate { get; set; }
     [Parameter] public RenderFragment Tabs { get; set; } = default!;
 
     [Parameter] public TabStyle? TabStyle { get; set; }
@@ -33,17 +33,18 @@
                 @foreach (var tab in _tabItems)
                 {
                     <GridItem 
-                        FullWidth
                         @key="tab.Guid"
                         @onclick="() => SelectedTab = tab.Title"
                         Class="@ClassBuilder.Create("TabItem", TabClass).Build()">
+                        <Size FullWidth />
+                        
                         @if (tab.TabContent is not null)
                         {
                             @tab.TabContent
                         }
                         else if (TabTemplate is not null)
                         {
-                            @TabTemplate(tab)
+                            @TabTemplate(new(tab, SelectedTab == tab.Title))
                         }
                     </GridItem>
                 }

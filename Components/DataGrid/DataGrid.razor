@@ -22,6 +22,7 @@
 
     [Parameter] public string? HeaderClass { get; set; }
     [Parameter] public string? RowClass { get; set; }
+    [Parameter] public string? ActiveRowClass { get; set; } = "active";
 
     [Parameter, EditorRequired] public string KeyProperty { get; set; } = default!;
 }
@@ -51,6 +52,7 @@
                 >
                     <Other Property="position" Value="sticky" />
                     <Positioned Top="0" />
+
                     @(builder => col.RenderHeader(builder, colIdx))
                     @if (Sort?.Column == col)
                     {
@@ -65,7 +67,7 @@
                     int rowIndex = _sortedItems.IndexOf(row);
                 }
                 @* display:contents will not create a new element in the dom *@
-                <div style="display:contents" class="@ClassBuilder.Create(RowClass).AppendIf("active", row == SelectedRow).Build()" @onclick="() => SelectRow(row)">
+                <div style="display:contents" class="@ClassBuilder.Create().Append(RowClass).AppendIf(ActiveRowClass, row == SelectedRow).Build()" @onclick="() => SelectRow(row)">
                     @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
                     {
                         var col = _columns[colIdx - 1];
@@ -143,7 +145,6 @@
     public void Register(ColumnBase<TRow> column)
     {
         if (_columns.Any(i => i.Guid == column.Guid)) return;
-        Console.WriteLine($"register {column.Name}");
         _columns.Add(column);
         StateHasChanged();
     }

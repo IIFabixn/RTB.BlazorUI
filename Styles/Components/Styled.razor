@@ -8,7 +8,7 @@
 @code {
     [Parameter] public RenderFragment<string?> ChildContent { get; set; } = default!;
 
-    [Parameter] public string? Classname { get; set; }
+    [Parameter] public string Classname { get; set; } = string.Empty;
     [Parameter] public EventCallback<string>? ClassnameChanged { get; set; }
 
     [Parameter] public string? Media { get; set; }
@@ -30,6 +30,8 @@
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         var style = _builder.Build(Media);
+        if (string.IsNullOrEmpty(style)) return;
+
         var hash = CssHasher.Hash(style);
         var cls = await Registry.GetOrCreate(style); // Create a unique class name
 
@@ -37,7 +39,7 @@
         {
             Classname = cls;
             ClassnameChanged?.InvokeAsync(Classname);
-            
+
             _ = Task.Run(() => Registry.InjectInto(style, Classname));
             _prevStyle = style;
             StateHasChanged();

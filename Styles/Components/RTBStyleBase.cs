@@ -19,6 +19,7 @@ namespace RTB.BlazorUI.Styles.Components
         {
             base.OnParametersSet();
             if (!Condition) return;
+
             BuildStyle(StyleBuilder);
         }
 

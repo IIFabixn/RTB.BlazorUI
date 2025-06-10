@@ -5,6 +5,7 @@
     [Parameter] public string? Query { get; set; }
 
     private readonly StyleBuilder _builder = StyleBuilder.Start;
+    private string _lastStyle = string.Empty;
 }
 
 @{
@@ -20,7 +21,6 @@
     {
         var style = _builder.Build();
         if (string.IsNullOrEmpty(Query) || string.IsNullOrWhiteSpace(style)) return StyleBuilder.Start;
-
         return builder.AppendSelector(Query, style);
     }
 }
