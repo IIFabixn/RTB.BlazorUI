@@ -14,38 +14,37 @@ public class Border : RTBStyleBase
     [Parameter] public string? Radius { get; set; } = default!;
     [Parameter] public BorderSide Side { get; set; } = BorderSide.All;
 
-    protected override void OnParametersSet()
+    protected override StyleBuilder BuildStyle()
     {
-        base.OnParametersSet();
-        if (!Condition) return;
-        
+        var builder = StyleBuilder.Start;
         if (Side == BorderSide.None)
         {
-            StyleBuilder.Append("border", "none");
+            builder.Append("border", "none");
         }
         else if (Side == BorderSide.All)
         {
-            StyleBuilder.Append("border", $"{Width} {Style.ToString().ToLowerInvariant()} {Color}");
-            StyleBuilder.Append("border-radius", Radius);
+            builder.Append("border", $"{Width} {Style.ToString().ToLowerInvariant()} {Color}");
+            builder.Append("border-radius", Radius);
         }
         else
         {
-            StyleBuilder.Append("border-radius", Radius);
-            StyleBuilder.Append("border-width", Width);
-            StyleBuilder.Append("border-style", Style.ToString().ToLowerInvariant());
-            StyleBuilder.Append("border-color", Color);
+            builder.Append("border-radius", Radius);
+            builder.Append("border-width", Width);
+            builder.Append("border-style", Style.ToString().ToLowerInvariant());
+            builder.Append("border-color", Color);
 
             string value = $"{Width} {Style.ToString().ToLowerInvariant()} {Color}";
             if (Side.HasFlag(BorderSide.Top))
-                StyleBuilder.Append("border-top", value);
+                builder.Append("border-top", value);
             if (Side.HasFlag(BorderSide.Right))
-                StyleBuilder.Append("border-right", value);
+                builder.Append("border-right", value);
             if (Side.HasFlag(BorderSide.Bottom))
-                StyleBuilder.Append("border-bottom", value);
+                builder.Append("border-bottom", value);
             if (Side.HasFlag(BorderSide.Left))
-                StyleBuilder.Append("border-left", value);
+                builder.Append("border-left", value);
         }
 
+        return builder;
     }
 
     public enum BorderSide

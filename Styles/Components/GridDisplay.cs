@@ -8,16 +8,12 @@ public class GridDisplay : RTBStyleBase
     [Parameter] public string? TemplateColumns { get; set; }
     [Parameter] public string? TemplateRows { get; set; }
     [Parameter] public string? Gap { get; set; }
-    
-    protected override void OnParametersSet()
+
+    protected override StyleBuilder BuildStyle()
     {
-        if (!Condition) return;
-        
-        StyleBuilder.Append("display", "grid");
-        StyleBuilder.Append("grid-template-columns", TemplateColumns);
-        StyleBuilder.Append("grid-template-rows", TemplateRows);
-        StyleBuilder.Append("gap", Gap);
-        
-        base.OnParametersSet();
+        return StyleBuilder.Start.Append("display", "grid")
+            .Append("grid-template-columns", TemplateColumns)
+            .Append("grid-template-rows", TemplateRows)
+            .Append("gap", Gap);
     }
 }

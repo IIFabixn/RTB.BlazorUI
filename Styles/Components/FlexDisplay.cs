@@ -14,20 +14,17 @@ public class Flex : RTBStyleBase
     [Parameter] public int? Shrink { get; set; }
     [Parameter] public int? Grow { get; set; }
 
-    protected override void OnParametersSet()
+    protected override StyleBuilder BuildStyle()
     {
-        if (!Condition) return;
-        
-        StyleBuilder.Append("display", "flex");
-        StyleBuilder.Append("flex-direction", Direction);
-        StyleBuilder.Append("flex-wrap", Wrap);
-        StyleBuilder.Append("justify-content", JustifyContent);
-        StyleBuilder.Append("align-items", AlignItems);
-        StyleBuilder.Append("align-content", AlignContent);
-        StyleBuilder.Append("gap", Gap);
-        StyleBuilder.Append("flex-shrink", Shrink?.ToString());
-        StyleBuilder.Append("flex-grow", Grow?.ToString());
-        
-        base.OnParametersSet();
+        return StyleBuilder.Start
+            .Append("display", "flex")
+            .Append("flex-direction", Direction)
+            .Append("flex-wrap", Wrap)
+            .Append("justify-content", JustifyContent)
+            .Append("align-items", AlignItems)
+            .Append("align-content", AlignContent)
+            .Append("gap", Gap)
+            .Append("flex-shrink", Shrink?.ToString())
+            .Append("flex-grow", Grow?.ToString());
     }
 }

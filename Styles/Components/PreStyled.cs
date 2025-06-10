@@ -7,13 +7,8 @@ public class PreStyled : RTBStyleBase
 {
     [Parameter] public IStyle? Style { get; set; }
 
-    protected override void OnParametersSet()
+    protected override StyleBuilder BuildStyle()
     {
-        if (Style is null) return;
-        if (!Condition) return;
-
-        StyleBuilder.AppendStyle(Style);
-
-        base.OnParametersSet();
+        return StyleBuilder.Start.AppendStyle(Style);
     }
 }

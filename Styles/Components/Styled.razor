@@ -6,22 +6,26 @@
 @code {
     [Parameter] public RenderFragment<string?> ChildContent { get; set; } = default!;
 
-    private readonly StyleBuilder _builder = StyleBuilder.Start;
-
     [Parameter] public string? Classname { get; set; }
     [Parameter] public EventCallback<string>? ClassnameChanged { get; set; }
 
     [Parameter] public string? Media { get; set; }
 }
 
-@{_builder.Clear();}
-
-<CascadingValue Value="@_builder">
+<CascadingValue Value="@Classname" IsFixed>
     @ChildContent(Classname)
 </CascadingValue>
 
 @code {
-    protected override void OnAfterRender(bool firstRender)
+    protected override void OnParametersSet()
+    {
+        if (string.IsNullOrEmpty(Classname))
+        {
+            Classname = Registry.Create();
+        }
+    }
+
+    @* protected override void OnAfterRender(bool firstRender)
     {
         string cls = Registry.GetOrAdd(_builder.Build(Media));
 
@@ -31,5 +35,5 @@
             ClassnameChanged?.InvokeAsync(Classname);
             StateHasChanged();
         }
-    }
+    } *@
 }

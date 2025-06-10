@@ -13,17 +13,14 @@ public class Margin : RTBStyleBase
     [Parameter] public string? Horizontal { get; set; }
     [Parameter] public string? Vertical { get; set; }
 
-    protected override void OnParametersSet()
+    protected override StyleBuilder BuildStyle()
     {
-        base.OnParametersSet();
-        if (!Condition) return;
-
-        StyleBuilder.Append("margin", All);
-        StyleBuilder.AppendIf("margin", $"0 {Horizontal}", !string.IsNullOrEmpty(Horizontal));
-        StyleBuilder.AppendIf("margin", $"{Vertical} 0", !string.IsNullOrEmpty(Vertical));
-        StyleBuilder.Append("margin-top", Top);
-        StyleBuilder.Append("margin-right", Right);
-        StyleBuilder.Append("margin-bottom", Bottom);
-        StyleBuilder.Append("margin-left", Left);
+        return StyleBuilder.Start.Append("margin", All)
+            .AppendIf("margin", $"0 {Horizontal}", !string.IsNullOrEmpty(Horizontal))
+            .AppendIf("margin", $"{Vertical} 0", !string.IsNullOrEmpty(Vertical))
+            .Append("margin-top", Top)
+            .Append("margin-right", Right)
+            .Append("margin-bottom", Bottom)
+            .Append("margin-left", Left);
     }
 }

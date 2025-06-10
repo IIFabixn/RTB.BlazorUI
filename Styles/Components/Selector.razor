@@ -5,7 +5,6 @@
     [Parameter] public string? Query { get; set; }
 
     private readonly StyleBuilder _builder = StyleBuilder.Start;
-    private string? _selectorStyle;
 }
 
 @{
@@ -17,21 +16,11 @@
 </CascadingValue>
 
 @code {
-    protected override void OnParametersSet()
+    protected override StyleBuilder BuildStyle()
     {
-        string style = _builder.Build();
+        var style = _builder.Build();
+        if (string.IsNullOrEmpty(Query) || string.IsNullOrWhiteSpace(style)) return StyleBuilder.Start;
 
-        if (!string.IsNullOrEmpty(Query) && style != _selectorStyle)
-        {
-            _selectorStyle = style;
-            StyleBuilder.AppendSelector(Query, _selectorStyle);
-            StateHasChanged();
-        }
-
-        base.OnParametersSet();
-    }
-
-    protected override void OnAfterRender(bool firstRender)
-    {
+        return StyleBuilder.Start.AppendSelector(Query, style);
     }
 }
