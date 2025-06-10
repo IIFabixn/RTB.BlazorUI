@@ -10,9 +10,9 @@ public class Positioned : RTBStyleBase
     [Parameter] public string? Bottom { get; set; } = null;
     [Parameter] public string? Left { get; set; } = null;
 
-    protected override StyleBuilder BuildStyle()
+    protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        return StyleBuilder.Start.Append("top", Top)
+        return builder.Append("top", Top)
             .Append("right", Right)
             .Append("bottom", Bottom)
             .Append("left", Left);

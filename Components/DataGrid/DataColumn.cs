@@ -6,6 +6,7 @@ using RTB.BlazorUI.Helper;
 using RTB.BlazorUI.Interfaces;
 using RTB.BlazorUI.Services.Style;
 using RTB.BlazorUI.Styles;
+using RTB.BlazorUI.Styles.Components;
 
 namespace RTB.BlazorUI.Components
 {
@@ -52,9 +53,9 @@ namespace RTB.BlazorUI.Components
         public abstract void RenderCell(RenderTreeBuilder builder, TRow row, int col);
     }
 
-    public class ViewColumn<TRow> : ColumnBase<TRow>, IDisposable
+    public class ViewColumn<TRow> : ColumnBase<TRow>
     {
-        [Parameter, EditorRequired] public RenderFragment<TRow>? ChildContent { get; set; }
+        [Parameter, EditorRequired] public RenderFragment<TRow> ChildContent { get; set; } = default!;
 
         public override void RenderHeader(RenderTreeBuilder builder, int col)
         {
@@ -72,14 +73,22 @@ namespace RTB.BlazorUI.Components
 
         public override void RenderCell(RenderTreeBuilder builder, TRow row, int col)
         {
-            if (ChildContent is not null)
-                builder.AddContent(0, ChildContent(row));
+            var seq = 0;
+            builder.OpenComponent<Styled>(seq++);
+            builder.AddComponentParameter(seq++, nameof(Styled.ChildContent), (RenderFragment<string>)((className) => _builder =>
+            {
+                _builder.OpenElement(0, "div");
+                _builder.AddAttribute(1, "class", ClassBuilder.Create("ViewColumn").Append(className).Append(Class).Build());
+                _builder.AddContent(2,ChildContent(row));
+                _builder.CloseElement();
+            }));
+            builder.CloseComponent();
         }
     }
 
     public class DataColumn<TRow, TValue> : ColumnBase<TRow>
     {
-        [Inject] protected IStyleRegistry Styled { get; set; } = default!;
+        [Inject] private IStyleRegistry Registry { get; set; } = default!;
 
         [Parameter, EditorRequired] public Func<TRow, TValue> ValueFunc { get; set; } = default!;
 
@@ -90,28 +99,37 @@ namespace RTB.BlazorUI.Components
             builder.AddContent(1, Name);
             builder.CloseElement();
         }
-        
-        private string? ComponentClass { get; set; }
-        protected override void OnParametersSet()
+
+        private string? CellClass;
+
+        protected override async Task OnInitializedAsync()
         {
-            ComponentClass = Styled.GetOrAdd(StyleBuilder.Start
+            var style = StyleBuilder.Start
                 .Append("white-space", "nowrap")
                 .Append("overflow", "hidden")
                 .Append("text-overflow", "ellipsis")
-                .Build());
+                .Build();
+
+            CellClass ??= await Registry.GetOrCreate(style);
         }
 
         public override void RenderCell(RenderTreeBuilder builder, TRow row, int col)
         {
             var seq = 0;
             var value = ValueFunc(row);
-            builder.OpenElement(seq++, "div");
-            builder.AddAttribute(seq++, "role", "cell");
-            builder.AddAttribute(seq++, "class", ClassBuilder.Create(ComponentClass, Class).Build());
-            builder.AddAttribute(seq++, "style", $"grid-column-start: {col}");
-            builder.AddMultipleAttributes(seq++, CapturedAttributes);
-            builder.AddContent(seq++, value);
-            builder.CloseElement();
+            builder.OpenComponent<Styled>(seq++);
+            builder.AddComponentParameter(seq++, nameof(Styled.ChildContent), (RenderFragment<string>)(classname => _builder => {
+                var seq = 0;
+                _builder.OpenElement(seq++, "div");
+                _builder.AddAttribute(seq++, "role", "cell");
+                _builder.AddAttribute(seq++, "class", ClassBuilder.Create("DataColumn").Append(CellClass).Append(Class).Build());
+                _builder.AddAttribute(seq++, "style", $"grid-column-start: {col};");
+                _builder.AddMultipleAttributes(seq++, CapturedAttributes);
+                _builder.AddContent(seq++, value);
+                _builder.CloseElement();
+            }));
+
+            builder.CloseComponent();
         }
     }
 }

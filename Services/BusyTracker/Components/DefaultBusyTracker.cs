@@ -15,21 +15,21 @@ namespace RTB.BlazorUI.Services.BusyTracker.Components
     public class DefaultBusyTracker : RTBComponent
     {
         [Inject] protected IStyleRegistry Styled { get; set; } = default!;
-        private string? ComponentClass { get; set; }
+
         protected override void OnParametersSet()
         {
-            ComponentClass = Styled.GetOrAdd(StyleBuilder.Start
+            Styled.InjectInto(StyleBuilder.Start
                 .Append("height", "100%")
                 .Append("width", "100%")
                 .Append("display", "grid")
                 .Append("place-items", "center")
-                .Build());
+                .Build(), "rtb-busyindicator");
         }
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
             builder.OpenElement(0, "div");
-            builder.AddAttribute(1, "class", ComponentClass);
+            builder.AddAttribute(1, "class", "rtb-busyindicator");
             builder.AddContent(2, (_builder) => {
                 _builder.OpenElement(0, "span");
                 _builder.AddAttribute(1, "class", "inline text-red-400 animate-spin");

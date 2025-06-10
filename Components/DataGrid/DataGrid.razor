@@ -31,53 +31,51 @@
     @Columns
 </CascadingValue>
 
-<Styled Context="Wrapper">
-    <Size Width="100%" Height="100%" />
+<OverflowBox Class="@Class">
+    <Size FullWidth FullHeight />
 
-    <div class="@Wrapper">
-        <Styled Context="ComponentClass">
-            <GridDisplay TemplateColumns="@GridTemplate" TemplateRows=":autofill 1fr" />
-            <Border Color="black" Side="@Border.BorderSide.Bottom" />
+    <Styled Context="ComponentClass">
+        <GridDisplay TemplateColumns="@(GridTemplate())" TemplateRows="1fr" />
+        <Other Property="position" Value="relative" />
 
-            <div class="DataGrid @ComponentClass @Class">
-                @* ---------- Header cells (row 1) ------------------------ *@
-                @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
-                {
-                    var col = _columns[colIdx - 1];
-                    <Stack 
-                        Row 
-                        AlignItem="@AlignItems.Center"
-                        JustifyContent="@JustifyContent.SpaceBetween"
-                        Class="@(ClassBuilder.Create().Append(HeaderClass).Build())">
-                        
-                        <ChildContent>
-                            @(builder => col.RenderHeader(builder, colIdx))
-                            @if (Sort?.Column == col)
-                            {
-                                <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(Sort.Descending ? "▼" : "▲")</button>
-                            }
-                        </ChildContent>
-                    </Stack>
-                }
-
-                <Virtualize Items="_sortedItems" Context="row">
-                    <!-- ---------- Data cells (rows 2…N) ----------------------- -->
-                    @{
-                        int rowIndex = _sortedItems.IndexOf(row);
+        <div class="DataGrid @ComponentClass">
+            @* ---------- Header cells (row 1) ------------------------ *@
+            @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
+            {
+                var col = _columns[colIdx - 1];
+                <Stack 
+                    Row
+                    AlignItem="@AlignItems.Center"
+                    JustifyContent="@JustifyContent.SpaceBetween"
+                    Class="@(ClassBuilder.Create().Append(HeaderClass).Build())"
+                >
+                    <Other Property="position" Value="sticky" />
+                    <Positioned Top="0" />
+                    @(builder => col.RenderHeader(builder, colIdx))
+                    @if (Sort?.Column == col)
+                    {
+                        <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(Sort.Descending ? "▼" : "▲")</button>
                     }
-                    @* display:contents will not create a new element in the dom *@
-                    <div style="display:contents" class="@ClassBuilder.Create(RowClass).AppendIf("active", row == SelectedRow).Build()" @onclick="() => SelectRow(row)">
-                        @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
-                        {
-                            var col = _columns[colIdx - 1];
-                            @(builder => col.RenderCell(builder, row, colIdx))
-                        }
-                    </div>
-                </Virtualize>
-            </div>
-        </Styled>
-    </div>
-</Styled>
+                </Stack>
+            }
+
+            <Virtualize Items="_sortedItems" Context="row">
+                <!-- ---------- Data cells (rows 2…N) ----------------------- -->
+                @{
+                    int rowIndex = _sortedItems.IndexOf(row);
+                }
+                @* display:contents will not create a new element in the dom *@
+                <div style="display:contents" class="@ClassBuilder.Create(RowClass).AppendIf("active", row == SelectedRow).Build()" @onclick="() => SelectRow(row)">
+                    @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
+                    {
+                        var col = _columns[colIdx - 1];
+                        @(builder => col.RenderCell(builder, row, colIdx))
+                    }
+                </div>
+            </Virtualize>
+        </div>
+    </Styled>
+</OverflowBox>
 
 @code {
     private List<ColumnBase<TRow>> _columns = [];
@@ -127,22 +125,25 @@
         return Items.ToList();
     }
 
-    private string GridTemplate => string.Join(' ', _columns.Select(c =>
+    private string GridTemplate()
     {
-        if (c.MinWidth != null || c.MaxWidth != null)
+        return string.Join(' ', _columns.Select(c =>
         {
-            var min = c.MinWidth ?? c.Width ?? "max-content";
-            var max = c.MaxWidth ?? "1fr";
-            return $"minmax({min}, {max})";
-        }
+            if (c.MinWidth != null || c.MaxWidth != null)
+            {
+                var min = c.MinWidth ?? c.Width ?? "max-content";
+                var max = c.MaxWidth ?? "1fr";
+                return $"minmax({min}, {max})";
+            }
 
-        return c.Width ?? "max-content";
-    }));
+            return c.Width ?? "max-content";
+        }));
+    }
 
     public void Register(ColumnBase<TRow> column)
     {
         if (_columns.Any(i => i.Guid == column.Guid)) return;
-
+        Console.WriteLine($"register {column.Name}");
         _columns.Add(column);
         StateHasChanged();
     }

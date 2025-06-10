@@ -11,8 +11,8 @@ public class Other : RTBStyleBase
     [Parameter] public string Property { get; set; } = string.Empty;
     [Parameter] public string? Value { get; set; }
 
-    protected override StyleBuilder BuildStyle()
+    protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        return StyleBuilder.Start.Append(Property, Value);
+        return builder.Append(Property, Value);
     }
 }

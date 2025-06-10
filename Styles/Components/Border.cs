@@ -14,9 +14,8 @@ public class Border : RTBStyleBase
     [Parameter] public string? Radius { get; set; } = default!;
     [Parameter] public BorderSide Side { get; set; } = BorderSide.All;
 
-    protected override StyleBuilder BuildStyle()
+    protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        var builder = StyleBuilder.Start;
         if (Side == BorderSide.None)
         {
             builder.Append("border", "none");

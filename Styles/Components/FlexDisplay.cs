@@ -14,9 +14,9 @@ public class Flex : RTBStyleBase
     [Parameter] public int? Shrink { get; set; }
     [Parameter] public int? Grow { get; set; }
 
-    protected override StyleBuilder BuildStyle()
+    protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        return StyleBuilder.Start
+        return builder
             .Append("display", "flex")
             .Append("flex-direction", Direction)
             .Append("flex-wrap", Wrap)

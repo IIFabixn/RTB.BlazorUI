@@ -11,17 +11,17 @@ namespace RTB.BlazorUI.Styles.Components
 {
     public abstract class RTBStyleBase : ComponentBase
     {
-        [Inject] private IStyleRegistry Registry { get; set; } = default!;
-        [CascadingParameter] public string Classname { get; set; } = string.Empty;
+        [CascadingParameter] private StyleBuilder StyleBuilder { get; set; } = default!;
+        
         [Parameter] public bool Condition { get; set; } = true;
 
         protected override void OnParametersSet()
         {
             base.OnParametersSet();
-            if (string.IsNullOrEmpty(Classname) || !Condition) return;
-            Registry.InjectInto(BuildStyle().Build(), Classname);
+            if (!Condition) return;
+            BuildStyle(StyleBuilder);
         }
 
-        protected abstract StyleBuilder BuildStyle();
+        protected abstract StyleBuilder BuildStyle(StyleBuilder builder);
     }
 }

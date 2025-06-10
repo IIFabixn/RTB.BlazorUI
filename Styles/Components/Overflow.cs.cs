@@ -13,9 +13,9 @@ namespace RTB.BlazorUI.Styles.Components
         [Parameter] public string? Y { get; set; }
         [Parameter] public string? Value { get; set; }
 
-        protected override StyleBuilder BuildStyle()
+        protected override StyleBuilder BuildStyle(StyleBuilder builder)
         {
-            return StyleBuilder.Start
+            return builder
                 .AppendIfNotNull("overflow-x", X)
                 .AppendIfNotNull("overflow-y", Y)
                 .AppendIfNotNull("overflow", Value);

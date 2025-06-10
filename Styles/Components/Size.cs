@@ -15,9 +15,9 @@ public class Size : RTBStyleBase
     [Parameter] public bool FullWidth { get; set; } = false;
     [Parameter] public bool FullHeight { get; set; } = false;
 
-    protected override StyleBuilder BuildStyle()
+    protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        return StyleBuilder.Start
+        return builder
             .Append("width", Width)
             .AppendIf("width", "100%", FullWidth)
             .Append("height", Height)

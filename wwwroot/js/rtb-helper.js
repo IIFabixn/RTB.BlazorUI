@@ -93,50 +93,15 @@ window.rtbStyled = {
             tag.append(`${selector}{${css}}`);
             return;
         }
-        
-        // Find existing rule for this class - handle media queries and complex selectors
-        let existingRule = null;
-        
-        function findRuleInRuleList(rules) {
-            for (let i = 0; i < rules.length; i++) {
-                const rule = rules[i];
-                
-                // Handle media rules (nested rules within @media)
-                if (rule.type === CSSRule.MEDIA_RULE && rule.cssRules) {
-                    const nestedRule = findRuleInRuleList(rule.cssRules);
-                    if (nestedRule) return nestedRule;
-                }
-                // Handle style rules
-                else if (rule.type === CSSRule.STYLE_RULE && rule.selectorText === selector) {
-                    return rule;
-                }
-            }
-            return null;
-        }
-        
-        existingRule = findRuleInRuleList(sheet.cssRules);
-        
-        if (existingRule) {
-            // Add CSS properties to existing rule
-            const properties = css.split(';').filter(prop => prop.trim());
-            properties.forEach(prop => {
-                const colonIndex = prop.indexOf(':');
-                if (colonIndex > 0) {
-                    const property = prop.substring(0, colonIndex).trim();
-                    const value = prop.substring(colonIndex + 1).trim();
-                    if (property && value) {
-                        existingRule.style.setProperty(property, value);
-                    }
-                }
-            });
-        } else {
-            // Create new CSS rule
-            try {
-                sheet.insertRule(`${selector}{${css}}`, sheet.cssRules.length);
-            } catch (e) {
-                // Fallback: append as text if insertRule fails
-                tag.append(`${selector}{${css}}`);
-            }
+
+        this.removeRule(cls);
+
+        // Create fresh CSS rule
+        try {
+            sheet.insertRule(`${selector}{${css}}`, sheet.cssRules.length);
+        } catch (e) {
+            // Fallback: append as text if insertRule fails
+            tag.append(`${selector}{${css}}`);
         }
     },
 

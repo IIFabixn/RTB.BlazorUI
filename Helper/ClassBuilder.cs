@@ -8,7 +8,7 @@ namespace RTB.BlazorUI.Helper
     /// 
     /// NOTE: Calling <see cref="Build"/> is required in order to get the final string.
     /// </summary>
-    internal sealed class ClassBuilder
+    public class ClassBuilder
     {
         private readonly StringBuilder _builder;
         private ClassBuilder(string? inital = "")

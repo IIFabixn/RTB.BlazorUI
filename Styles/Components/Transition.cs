@@ -11,9 +11,9 @@ public class Transition : RTBStyleBase
     [Parameter] public string TimingFunction { get; set; } = "ease";
     [Parameter] public string? Behavior { get; set; } = "normal";
 
-    protected override StyleBuilder BuildStyle()
+    protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        return StyleBuilder.Start
+        return builder
             .Append("transition-delay", Delay)
             .Append("transition-duration", Duration)
             .Append("transition-property", Property)

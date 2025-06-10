@@ -13,14 +13,14 @@ public class Padding : RTBStyleBase
     [Parameter] public string? Horizontal { get; set; }
     [Parameter] public string? Vertical { get; set; }
 
-    protected override StyleBuilder BuildStyle()
+    protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        return StyleBuilder.Start.Append("padding", All)
-            .AppendIf("padding", $"0 {Horizontal}", !string.IsNullOrEmpty(Horizontal))
-            .AppendIf("padding", $"{Vertical} 0", !string.IsNullOrEmpty(Vertical))
-            .Append("padding-top", Top)
-            .Append("padding-right", Right)
-            .Append("padding-bottom", Bottom)
-            .Append("padding-left", Left);
+        return builder
+            .AppendIfNotNull("padding", All)
+            .AppendIf("padding", $"{Vertical ?? "0"} {Horizontal ?? "0"}", !string.IsNullOrWhiteSpace(Horizontal) || !string.IsNullOrWhiteSpace(Vertical))
+            .AppendIfNotNull("padding-top", Top)
+            .AppendIfNotNull("padding-right", Right)
+            .AppendIfNotNull("padding-bottom", Bottom)
+            .AppendIfNotNull("padding-left", Left);
     }
 }

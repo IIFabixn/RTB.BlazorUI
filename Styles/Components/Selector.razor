@@ -16,11 +16,11 @@
 </CascadingValue>
 
 @code {
-    protected override StyleBuilder BuildStyle()
+    protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
         var style = _builder.Build();
         if (string.IsNullOrEmpty(Query) || string.IsNullOrWhiteSpace(style)) return StyleBuilder.Start;
 
-        return StyleBuilder.Start.AppendSelector(Query, style);
+        return builder.AppendSelector(Query, style);
     }
 }

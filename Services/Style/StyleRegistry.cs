@@ -1,102 +1,58 @@
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.JSInterop;
 
 namespace RTB.BlazorUI.Services.Style;
 
 public interface IStyleRegistry
 {
-    string Create();
-    string GetOrAdd(string css);
-    void InjectInto(string css, string className);
-    void Clear();
+    Task<string> GetOrCreate(string css);
+    Task InjectInto(string css, string className);
+    Task Clear();
 }
 
 internal sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
 {
     private readonly ConcurrentDictionary<int, string> _cache = new();
-    private readonly Queue<string> _pendingRules = new();
-    private readonly Lock _lock = new();
-    private bool _injectionScheduled = false;
 
-    public string Create()
+    public async Task<string> GetOrCreate(string css)
     {
-        // Generate a new unique hash for an empty CSS rule
-        var timestamp = DateTime.UtcNow.Ticks;
-        var hash = CssHasher.Hash(timestamp.ToString());
+        var hash = CssHasher.Hash(css);
         var className = $"s-{hash:X}";
 
         // Add to cache with empty CSS
         if (_cache.TryAdd(hash, string.Empty))
         {
-            lock(_lock) {
-                // Create empty CSS rule and schedule injection
-                var rule = $".{className}{{}}";
-                _pendingRules.Append(rule);
-                _ = Task.Run(FlushPendingRules);
-            }
+            // Create empty CSS rule and schedule injection
+            await jsRuntime.InvokeVoidAsync("rtbStyled.injectInto", css, className).ConfigureAwait(false);
         }
         
         return className;
     }
 
-    public string GetOrAdd(string css)
+    public async Task InjectInto(string css, string className)
     {
-        var hash = CssHasher.Hash(css);
-        if (_cache.ContainsKey(hash)) return $"s-{hash:X}";
+        if (string.IsNullOrEmpty(className)) throw new Exception("Can't inject stylings into class without class definition. className should not be empty!");
+        if (string.IsNullOrWhiteSpace(css)) return;
 
-        if (_cache.TryAdd(hash, css))
+        var classHash = className.Substring(2); // Remove "s-" prefix
+        var hashValue = int.Parse(classHash, System.Globalization.NumberStyles.HexNumber);
+
+        if (_cache.ContainsKey(hashValue))
         {
-            var className = $"s-{hash:X}";
-            var rule = $".{className}{{{css}}}";
+            _cache[hashValue] = css;
 
-            lock (_lock)
-            {
-                _pendingRules.Enqueue(rule);
-                if (!_injectionScheduled)
-                {
-                    _injectionScheduled = true;
-                    _ = Task.Run(FlushPendingRules);
-                }
-            }
-        }
-
-        return $"s-{hash:X}";
-    }
-
-    private async Task FlushPendingRules()
-    {
-        await Task.Yield(); // Wait for render cycle to complete
-        lock (_lock)
-        {
-            while (_pendingRules.Count > 0)
-            {
-                jsRuntime.InvokeVoidAsync("rtbStyled.inject", _pendingRules.Dequeue());
-            }
-            _injectionScheduled = false;
+            await jsRuntime.InvokeVoidAsync("rtbStyled.injectInto", css, className).ConfigureAwait(false);
         }
     }
 
-    public void InjectInto(string css, string className)
-    {
-        if (string.IsNullOrWhiteSpace(css) || string.IsNullOrWhiteSpace(className))
-            return;
-        
-        var hash = className.Substring(2); // Remove "s-" prefix
-        var hashValue = int.Parse(hash, System.Globalization.NumberStyles.HexNumber);
-
-        if (_cache.TryGetValue(hashValue, out var value))
-        {
-            // Use the JavaScript injectInto method to add CSS to existing class
-            jsRuntime.InvokeVoidAsync("rtbStyled.injectInto", css, className);
-        }
-    }
-
-    public void Clear()
+    public async Task Clear()
     {
         // Clear the cache
         _cache.Clear();
         // Clear the styles in the document head
-        jsRuntime.InvokeVoidAsync("rtbStyled.clear");
+        await jsRuntime.InvokeVoidAsync("rtbStyled.clear");
     }
 }

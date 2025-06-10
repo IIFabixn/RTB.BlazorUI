@@ -13,9 +13,9 @@ public class Margin : RTBStyleBase
     [Parameter] public string? Horizontal { get; set; }
     [Parameter] public string? Vertical { get; set; }
 
-    protected override StyleBuilder BuildStyle()
+    protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        return StyleBuilder.Start.Append("margin", All)
+        return builder.Append("margin", All)
             .AppendIf("margin", $"0 {Horizontal}", !string.IsNullOrEmpty(Horizontal))
             .AppendIf("margin", $"{Vertical} 0", !string.IsNullOrEmpty(Vertical))
             .Append("margin-top", Top)

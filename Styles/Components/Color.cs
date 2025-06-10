@@ -8,8 +8,8 @@ public class Color : RTBStyleBase
 {
     [Parameter] public string? Value { get; set; }
 
-    protected override StyleBuilder BuildStyle()
+    protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        return StyleBuilder.Start.Append("color", Value);
+        return builder.Append("color", Value);
     }
 }

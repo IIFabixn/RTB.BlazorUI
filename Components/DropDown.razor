@@ -22,8 +22,8 @@
 
     <div class="@ComponentClass group @(Class)" 
         @attributes="@(CapturedAttributes)" 
-        @mouseover="@(() => Visibility = "visible")"
-        @mouseout="@(() => Visibility = "collapse")"
+        @onmouseover="@(() => Visibility = "visible")"
+        @onmouseout="@(() => Visibility = "collapse")"
     >
         @ActionContent
 

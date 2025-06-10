@@ -10,9 +10,8 @@ public class Background : RTBStyleBase
 {
     [Parameter] public string? Color { get; set; }
 
-    protected override StyleBuilder BuildStyle()
+    protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        return StyleBuilder.Start
-            .Append("background-color", Color);
+        return builder.Append("background-color", Color);
     }
 }
