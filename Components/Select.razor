@@ -28,35 +28,20 @@
 
     private FlyoutMenu? FlyoutMenuRef;
     private readonly string FlyoutId = $"flyout-{Guid.NewGuid().ToString("N").Substring(0, 8)}";
-
-    private bool IsOpen;
-
-    public void Close()
-    {
-        StatefulAction(() => IsOpen = false);
-    }
-    public void Open()
-    {
-        StatefulAction(() => IsOpen = true);
-    }
-    public void Toggle()
-    {
-        StatefulAction(() => IsOpen = !IsOpen);
-    }
 }
 
-<button @attributes="@CapturedAttributes" @onclick="@(() => Toggle())" class="FlyoutMenuActivator" style="anchor-name: --@FlyoutId;">
+<Button @attributes="@CapturedAttributes" popovertarget="@FlyoutId" Class="@Class" style="@($"anchor-name: --{FlyoutId};")">
     <Styled Context="ActivatorStyle">
-        <div class="@Class @ActivatorStyle @ActivatorClass">
+        <div class="@ActivatorStyle @ActivatorClass">
             @ActionContent.Invoke(SelectedOption)
         </div>
     </Styled>
-</button>
+</Button>
 
 <Styled Context="MenuClass">
-    <Margin All="0" />
     <Other Property="position" Value="absolute" />
     <Other Property="insert" Value="auto" />
+
     <Positioned 
         Bottom="@(Anchor.HasFlag(FlyoutPosition.Top) ? "anchor(top)" : null)" 
         Right="@(Anchor.HasFlag(FlyoutPosition.Right) ? "anchor(right)" : null)" 
@@ -65,7 +50,6 @@
     />
     <Overflow Value="auto" />
     <Size MinHeight="0" MaxHeight="-webkit-fill-available" MinWidth="anchor-size(width)" />
-    <Other Property="display" Value="block" Condition="@IsOpen" />
 
     <div class="@MenuClass @ContentClass" popover id="@FlyoutId" style="position-anchor: --@FlyoutId;">
         <Stack Column Grow="1">
@@ -88,8 +72,6 @@
             SelectedOption = item; 
             SelectedOptionChanged.InvokeAsync(item); 
         }
-
-        Close();
     }
 
     public enum FlyoutPosition

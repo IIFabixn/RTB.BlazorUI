@@ -28,9 +28,6 @@ public class Border : RTBStyleBase
         else
         {
             builder.Append("border-radius", Radius);
-            builder.Append("border-width", Width);
-            builder.Append("border-style", Style.ToString().ToLowerInvariant());
-            builder.Append("border-color", Color);
 
             string value = $"{Width} {Style.ToString().ToLowerInvariant()} {Color}";
             if (Side.HasFlag(BorderSide.Top))

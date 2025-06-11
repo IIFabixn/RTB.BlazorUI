@@ -26,7 +26,7 @@
     
     <button type="button" class="@ClassBuilder.Create().Append(ComponentClass).Append(Class).Build()"
         disabled="@Disabled"
-        @attributes="@(CapturedAttributes?.Without("class", "disabled"))">
+        @attributes="@(CapturedAttributes)">
         @if (ChildContent is not null) 
         {
             @ChildContent
