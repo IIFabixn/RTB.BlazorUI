@@ -18,13 +18,13 @@ public class Flex : RTBStyleBase
     {
         return builder
             .Append("display", "flex")
-            .Append("flex-direction", Direction)
-            .Append("flex-wrap", Wrap)
-            .Append("justify-content", JustifyContent)
-            .Append("align-items", AlignItems)
-            .Append("align-content", AlignContent)
-            .Append("gap", Gap)
-            .Append("flex-shrink", Shrink?.ToString())
-            .Append("flex-grow", Grow?.ToString());
+            .AppendIfNotNull("flex-direction", Direction)
+            .AppendIfNotNull("flex-wrap", Wrap)
+            .AppendIfNotNull("justify-content", JustifyContent)
+            .AppendIfNotNull("align-items", AlignItems)
+            .AppendIfNotNull("align-content", AlignContent)
+            .AppendIfNotNull("gap", Gap)
+            .AppendIfNotNull("flex-shrink", Shrink?.ToString())
+            .AppendIfNotNull("flex-grow", Grow?.ToString());
     }
 }

@@ -5,6 +5,8 @@
 
 @typeparam TOption
 
+@inject IJSRuntime JSRuntime
+
 @code {
     [Parameter] public List<TOption> Options { get; set; } = default!;
 
@@ -17,44 +19,97 @@
     /// <summary>
     /// Fragment for exameple Searchbars, Filter Options, etc..
     /// </summary>
-    [Parameter] public RenderFragment? OptionsHeader { get; set; }
     [Parameter] public string? ActivatorClass { get; set; }
     [Parameter] public string? ContentClass { get; set; }
 
+    [Parameter] public FlyoutPosition Anchor { get; set; } = FlyoutPosition.BottomLeft;
+
     [Parameter] public bool Multiple { get; set; }
-    [Parameter] public int MaxAmountOfVisibleItems { get; set; } = 8;
 
     private FlyoutMenu? FlyoutMenuRef;
+    private readonly string FlyoutId = $"flyout-{Guid.NewGuid().ToString("N").Substring(0, 8)}";
+
+    private bool IsOpen;
+
+    public void Close()
+    {
+        StatefulAction(() => IsOpen = false);
+    }
+    public void Open()
+    {
+        StatefulAction(() => IsOpen = true);
+    }
+    public void Toggle()
+    {
+        StatefulAction(() => IsOpen = !IsOpen);
+    }
 }
 
-<FlyoutMenu
-    @ref="FlyoutMenuRef"
-    Position="FlyoutPosition.Down"
-    ActivatorClass="@ActivatorClass"
-    ContentClass="@ContentClass"
-    Class="@(ClassBuilder.Create("Select").Append(Class).Build())"
-    @attributes="@CapturedAttributes"
->
-    <Activator>
-        @ActionContent.Invoke(SelectedOption)
-    </Activator>
+<button @attributes="@CapturedAttributes" @onclick="@(() => Toggle())" class="FlyoutMenuActivator" style="anchor-name: --@FlyoutId;">
+    <Styled Context="ActivatorStyle">
+        <div class="@Class @ActivatorStyle @ActivatorClass">
+            @ActionContent.Invoke(SelectedOption)
+        </div>
+    </Styled>
+</button>
 
-    <FlyoutContent>
-        <Stack Column>
-            @if (OptionsHeader is not null)
-            {
-                @OptionsHeader
-            }
-            <Styled Context="SelectionList">
-                <Size MaxHeight="35rem" MinHeight="0" FullWidth />
-                <Overflow Value="auto" />
+<Styled Context="MenuClass">
+    <Margin All="0" />
+    <Other Property="position" Value="absolute" />
+    <Other Property="insert" Value="auto" />
+    <Positioned 
+        Bottom="@(Anchor.HasFlag(FlyoutPosition.Top) ? "anchor(top)" : null)" 
+        Right="@(Anchor.HasFlag(FlyoutPosition.Right) ? "anchor(right)" : null)" 
+        Top="@(Anchor.HasFlag(FlyoutPosition.Bottom) ? "anchor(bottom)" : null)" 
+        Left="@(Anchor.HasFlag(FlyoutPosition.Left) ? "anchor(left)" : null)"
+    />
+    <Overflow Value="auto" />
+    <Size MinHeight="0" MaxHeight="-webkit-fill-available" MinWidth="anchor-size(width)" />
+    <Other Property="display" Value="block" Condition="@IsOpen" />
 
-                <CollectionList Vertical Items="@Options" TItem="TOption" Class="@SelectionList">
-                    <ItemTemplate Context="item">
+    <div class="@MenuClass @ContentClass" popover id="@FlyoutId" style="position-anchor: --@FlyoutId;">
+        <Stack Column Grow="1">
+            <CollectionList Vertical Items="@Options" TItem="TOption">
+                <ItemTemplate Context="item">
+                    <div @onclick="@(() => HandleSelection(item))">
                         @OptionTemplate.Invoke(item)
-                    </ItemTemplate>
-                </CollectionList>
-            </Styled>
+                    </div>
+                </ItemTemplate>
+            </CollectionList>
         </Stack>
-    </FlyoutContent>
-</FlyoutMenu>
+    </div>
+</Styled>
+
+@code {
+    private void HandleSelection(TOption item)
+    {
+        if(item is null || !item.Equals(SelectedOption))
+        {
+            SelectedOption = item; 
+            SelectedOptionChanged.InvokeAsync(item); 
+        }
+
+        Close();
+    }
+
+    public enum FlyoutPosition
+    {
+        Center = 0,
+        Top = 1, 
+        Right = 2, 
+        Bottom = 4,
+        Left = 8,
+        
+        TopRight = FlyoutPosition.Top | FlyoutPosition.Right,
+        RightTop = FlyoutPosition.Right | FlyoutPosition.Top,
+        
+        BottomRight = FlyoutPosition.Bottom | FlyoutPosition.Right,
+        RightBottom = FlyoutPosition.Right | FlyoutPosition.Bottom,
+        
+        TopLeft = FlyoutPosition.Top | FlyoutPosition.Left,
+        LeftTop = FlyoutPosition.Left | FlyoutPosition.Top,
+        
+        BottomLeft = FlyoutPosition.Bottom | FlyoutPosition.Left,
+        LeftBottom = FlyoutPosition.Left | FlyoutPosition.Bottom,
+    }
+}

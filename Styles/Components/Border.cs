@@ -8,7 +8,7 @@ namespace RTB.BlazorUI.Styles.Components;
 public class Border : RTBStyleBase
 {
     [Parameter] public string Width { get; set; } = "1px";
-    [Parameter] public string? Color { get; set; } = "currentColor";
+    [Parameter] public string? Color { get; set; }
     [Parameter] public BorderStyle Style { get; set; } = BorderStyle.Solid;
 
     [Parameter] public string? Radius { get; set; }
@@ -51,8 +51,8 @@ public class Border : RTBStyleBase
         None = 0,
         Top = 1,
         Right = 2,
-        Bottom = 3,
-        Left = 4,
+        Bottom = 4,
+        Left = 8,
         Horizontal = Left | Right,
         Vertical = Top | Bottom,
         All = Top | Right | Bottom | Left
