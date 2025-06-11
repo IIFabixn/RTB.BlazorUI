@@ -9,29 +9,29 @@
 
     [Parameter] public string? ActivatorClass { get; set; }
     [Parameter] public string? ContentClass { get; set; }
+
+    private readonly string FlyoutId = $"flyout-{Guid.NewGuid().ToString("N").Substring(0, 8)}";
 }
 
 <Styled Context="ComponentClass">
-    <Other Property="position" Value="relative" />
 
-    <div class="FlyoutMenu @ComponentClass @Class" @onclick:stopPropagation @attributes="@CapturedAttributes">
-        <div @onclick="ToggleMenu" class="@ActivatorClass">
-            @Activator
+    <button popovertarget="@FlyoutId" class="FlyoutMenuActivator @ComponentClass @Class @ActivatorClass" style="anchor-name: --@FlyoutId;">
+        @Activator
+    </button>
+
+    <Styled Context="MenuClass">
+        <Margin All="0" />
+        <Other Property="position" Value="absolute" />
+        <Other Property="insert" Value="auto" />
+        <Positioned Top="anchor(bottom)" Left="anchor(right, 50%)"  />
+        <Overflow Value="auto" />
+        <Other Property="transform" Value="translateX(-50%)" />
+        <Size MinHeight="0" MaxHeight="-webkit-fill-available" />
+
+        <div class="@MenuClass @ContentClass" popover id="@FlyoutId" style="position-anchor: --@FlyoutId;">
+            @FlyoutContent
         </div>
-        @if (IsOpen)
-        {
-            <Styled Context="MenuClass">
-                <Size MinWidth="100%" />
-                <Other Property="z-index" Value="50" />
-                <Other Property="display" Value="flex" />
-                <Other Property="position" Value="absolute" />
-
-                <div class="@MenuClass @ContentClass" style="@GetFlyoutPositionStyle()">
-                    @FlyoutContent
-                </div>
-            </Styled>
-        }
-    </div>
+    </Styled>
 </Styled>
 
 @code {
@@ -43,34 +43,4 @@
         RightUp, Right, RightDown,
         Center
     }
-
-    private bool _isOpen;
-    private bool IsOpen 
-    {
-        get => _isOpen;
-        set
-        {
-            OnStateChanged?.Invoke();
-            SetProperty(ref _isOpen, value);
-        }
-    }
-    public event Action? OnStateChanged;
-
-    private void ToggleMenu()
-    {
-        IsOpen = !IsOpen;
-        StateHasChanged();
-    }
-
-    public void CloseMenu() => IsOpen = false;
-    public void OpenMenu() => IsOpen = true;
-
-    private string GetFlyoutPositionStyle() => Position switch
-    {
-        FlyoutPosition.Up => "right: 50%; bottom: 100%; transform: translateX(50%); flex-direction: column;",
-        FlyoutPosition.Right => "left: 100%; top: 50%; transform: translateY(50%); flex-direction: row;",
-		FlyoutPosition.Down => "right: 50%; top: 100%; transform: translateX(50%); flex-direction: column;",
-        FlyoutPosition.Left => "right: 100%; top: 50%; transform: translateY(50%); flex-direction: row;",
-		_ => throw new ArgumentOutOfRangeException(nameof(Position), Position, "Not yet implemented")
-    };
 }

@@ -51,21 +51,10 @@
 
                 <CollectionList Vertical Items="@Options" TItem="TOption" Class="@SelectionList">
                     <ItemTemplate Context="item">
-                        <div @onclick="@(() => HandleSelect(item))">
-                            @OptionTemplate.Invoke(item)
-                        </div>
+                        @OptionTemplate.Invoke(item)
                     </ItemTemplate>
                 </CollectionList>
             </Styled>
         </Stack>
     </FlyoutContent>
 </FlyoutMenu>
-
-@code {
-    private void HandleSelect(TOption item)
-    {
-        SelectedOption = item; 
-        SelectedOptionChanged.InvokeAsync(item); 
-        if (!Multiple) FlyoutMenuRef?.CloseMenu();
-    }
-}

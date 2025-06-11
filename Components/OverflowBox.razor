@@ -12,7 +12,7 @@
 <Styled Context="ComponentClass">
     <Overflow X="@X" Y="@Y" Value="@(Value ?? "auto")" />
 
-    <div class="Overflow @ComponentClass @Class">
+    <div class="Overflow @ComponentClass @Class" @attributes="@CapturedAttributes">
         @ChildContent
     </div>
 </Styled>
