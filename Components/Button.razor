@@ -19,12 +19,12 @@
 
 <Styled Context="ComponentClass">
     <PreStyled Style="@ButtonStyle" />
-    <Other Property="cursor" Value="cursor" Condition="@(!Disabled)" />
+    <Other Property="cursor" Value="pointer" Condition="@(!Disabled)" />
     <Other Property="cursor" Value="default" Condition="@(Disabled)" />
     <Color Value="@(Color ?? ButtonStyle?.Color)" />
     <Color Value="@(DisabledColor ?? ButtonStyle?.Color)" Condition="@Disabled" />
     
-    <button type="button" class="@ClassBuilder.Create(ComponentClass, Class).Build()"
+    <button type="button" class="@ClassBuilder.Create().Append(ComponentClass).Append(Class).Build()"
         disabled="@Disabled"
         @attributes="@(CapturedAttributes?.Without("class", "disabled"))">
         @if (ChildContent is not null) 

@@ -22,18 +22,16 @@
     [Parameter] public int? LimitToItemAmount { get; set; }
 }
 
-<Styled Context="ComponentClass">
-    <Stack
-        Row="@Horizontal"
-        Column="@Vertical"
-        Class="@ClassBuilder.Create("CollectionList", ComponentClass, Class).Build()"
-        @attributes="@CapturedAttributes"
-    >
-        @if (Items.Any())
-        {
-            <Virtualize Items="@Items" Context="item">
-                @ItemTemplate?.Invoke(item)
-            </Virtualize>
-        }
-    </Stack>
-</Styled>
+<Stack
+    Row="@Horizontal"
+    Column="@Vertical"
+    Class="@ClassBuilder.Create("CollectionList", Class).Build()"
+    @attributes="@CapturedAttributes"
+>
+    @if (Items.Any())
+    {
+        <Virtualize Items="@Items" Context="item">
+            @ItemTemplate?.Invoke(item)
+        </Virtualize>
+    }
+</Stack>

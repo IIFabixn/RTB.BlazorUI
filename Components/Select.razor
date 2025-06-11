@@ -27,44 +27,39 @@
     private FlyoutMenu? FlyoutMenuRef;
 }
 
-<Styled Context="ComponentClass">
-    <Size MinWidth="0" MaxHeight="@($"calc({MaxAmountOfVisibleItems} * 100%)")" />
+<FlyoutMenu
+    @ref="FlyoutMenuRef"
+    Position="FlyoutPosition.Down"
+    ActivatorClass="@ActivatorClass"
+    ContentClass="@ContentClass"
+    Class="@(ClassBuilder.Create("Select").Append(Class).Build())"
+    @attributes="@CapturedAttributes"
+>
+    <Activator>
+        @ActionContent.Invoke(SelectedOption)
+    </Activator>
 
-    <FlyoutMenu
-        @ref="FlyoutMenuRef"
-        Position="FlyoutPosition.Down"
-        ActivatorClass="@ActivatorClass"
-        ContentClass="@ClassBuilder.Create(ComponentClass).Append(ContentClass).Build()"
-        Class="@(ClassBuilder.Create("Select").Append(Class).Build())"
-        @attributes="@CapturedAttributes"
-    >
-        <Activator>
-            @ActionContent.Invoke(SelectedOption)
-        </Activator>
+    <FlyoutContent>
+        <Stack Column>
+            @if (OptionsHeader is not null)
+            {
+                @OptionsHeader
+            }
+            <Styled Context="SelectionList">
+                <Size MaxHeight="35rem" MinHeight="0" FullWidth />
+                <Overflow Value="auto" />
 
-        <FlyoutContent>
-            <Stack Column>
-                @if (OptionsHeader is not null)
-                {
-                    @OptionsHeader
-                }
-                <div style="min-height: 0; max-height: 100%; overflow: auto;">
-                    <Styled Context="OptionListClass">
-                        <Size FullWidth />
-
-                        <CollectionList Vertical Class="@OptionListClass" Items="@Options" TItem="TOption">
-                            <ItemTemplate Context="item">
-                                <div @onclick="@(() => HandleSelect(item))">
-                                    @OptionTemplate.Invoke(item)
-                                </div>
-                            </ItemTemplate>
-                        </CollectionList>
-                    </Styled>
-                </div>
-            </Stack>
-        </FlyoutContent>
-    </FlyoutMenu>
-</Styled>
+                <CollectionList Vertical Items="@Options" TItem="TOption" Class="@SelectionList">
+                    <ItemTemplate Context="item">
+                        <div @onclick="@(() => HandleSelect(item))">
+                            @OptionTemplate.Invoke(item)
+                        </div>
+                    </ItemTemplate>
+                </CollectionList>
+            </Styled>
+        </Stack>
+    </FlyoutContent>
+</FlyoutMenu>
 
 @code {
     private void HandleSelect(TOption item)

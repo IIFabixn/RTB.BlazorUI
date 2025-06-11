@@ -11,7 +11,7 @@ public class Border : RTBStyleBase
     [Parameter] public string? Color { get; set; } = "currentColor";
     [Parameter] public BorderStyle Style { get; set; } = BorderStyle.Solid;
 
-    [Parameter] public string? Radius { get; set; } = default!;
+    [Parameter] public string? Radius { get; set; }
     [Parameter] public BorderSide Side { get; set; } = BorderSide.All;
 
     protected override StyleBuilder BuildStyle(StyleBuilder builder)
@@ -22,8 +22,8 @@ public class Border : RTBStyleBase
         }
         else if (Side == BorderSide.All)
         {
-            builder.Append("border", $"{Width} {Style.ToString().ToLowerInvariant()} {Color}");
-            builder.Append("border-radius", Radius);
+            builder.AppendIf("border", $"{Width} {Style.ToString().ToLowerInvariant()} {Color}", !string.IsNullOrEmpty(Color));
+            builder.AppendIfNotNull("border-radius", Radius);
         }
         else
         {
