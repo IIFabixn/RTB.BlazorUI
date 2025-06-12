@@ -1,0 +1,20 @@
+﻿@using RTB.BlazorUI.Styles
+
+@inherits RTBComponent
+
+@code {
+    [Parameter] public string? Label { get; set; }
+    [Parameter] public TextStyle ? LabelStyle { get; set; }
+
+    [Parameter] public bool Value { get; set; } = false;
+    [Parameter] public EventCallback<bool> ValueChaned { get; set; }
+
+    private readonly string InputId = $"checkbox-{Guid.NewGuid().ToString("N").Substring(8)}";
+}
+
+<Grid Columns="1fr auto">
+    <label for="@InputId">
+        <Text TextStyle="@LabelStyle">@Label</Text>
+    </label>
+    <input type="checkbox" id="@InputId" value="@Value" @onchange="@(e => ValueChaned.InvokeAsync((bool?)e.Value ?? false))" />
+</Grid>

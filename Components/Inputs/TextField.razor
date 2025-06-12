@@ -1,0 +1,29 @@
+﻿@using RTB.BlazorUI.Styles
+@inherits RTBComponent
+
+@code {
+    [Parameter] public string? Label { get; set; }
+    [Parameter] public TextStyle? LabelStyle { get; set; }
+    [Parameter] public string? Placeholder { get; set; }
+
+    [Parameter] public string Value { get; set; } = string.Empty;
+    [Parameter] public EventCallback<string> ValueChanged { get; set; }
+
+    [Parameter] public string? LabelClass { get; set; }
+    [Parameter] public string? InputClass { get; set; }
+
+    private readonly string InputId = $"input-{Guid.NewGuid().ToString("N").Substring(8)}";
+}
+
+<Grid Rows="auto auto" Class="@Class">
+    <label for="@InputId" class="@LabelClass">
+        <Text TextStyle="@LabelStyle">@Label</Text>
+    </label>
+    <Styled Context="InputStyle">
+        <Other Property="outline" Value="none" />
+        <Border Side="Border.BorderSide.None" />
+        <Border Side="Border.BorderSide.Bottom" Color="black" Width="1px" />
+
+        <input value="@Value" @onchange="@(e => ValueChanged.InvokeAsync((string?)e.Value))" placeholder="@Placeholder" id="@InputId" class="@InputStyle @InputClass" />
+    </Styled>
+</Grid>

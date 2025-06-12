@@ -16,8 +16,8 @@
     public EventCallback<bool>? ExpandedChanged { get; set; }
 }
 
-<Stack Column Class="@ClassBuilder.Create("ExpansionPanel", Class).Build()" @attributes="@CapturedAttributes">
-    <Stack Row Class="gap-2">
+<Stack Vertical Class="@ClassBuilder.Create("ExpansionPanel", Class).Build()" @attributes="@CapturedAttributes">
+    <Stack Horizontal Class="gap-2">
         @Header
 
         <button @onclick="Toggle">

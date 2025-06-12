@@ -40,7 +40,7 @@
             Classname = cls;
             ClassnameChanged?.InvokeAsync(Classname);
 
-            _ = Task.Run(() => Registry.InjectInto(style, Classname));
+            await Registry.InjectInto(style, Classname);
             _prevStyle = style;
             StateHasChanged();
         }

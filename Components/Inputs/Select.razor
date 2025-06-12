@@ -51,13 +51,13 @@
     <Overflow Value="auto" />
     <Size MinHeight="0" MaxHeight="-webkit-fill-available" MinWidth="anchor-size(width)" />
 
-    <div class="@MenuClass @ContentClass" popover id="@FlyoutId" style="position-anchor: --@FlyoutId;">
-        <Stack Column Grow="1">
+    <div class="@MenuClass @ContentClass" popover id="@FlyoutId" style="position-anchor: --@(FlyoutId);">
+        <Stack Vertical Grow="1">
             <CollectionList Vertical Items="@Options" TItem="TOption">
                 <ItemTemplate Context="item">
-                    <div @onclick="@(() => HandleSelection(item))">
+                    <button popovertarget="@FlyoutId" popovertargetaction="hide" @onclick="@(() => HandleSelection(item))">
                         @OptionTemplate.Invoke(item)
-                    </div>
+                    </button>
                 </ItemTemplate>
             </CollectionList>
         </Stack>
@@ -70,7 +70,7 @@
         if(item is null || !item.Equals(SelectedOption))
         {
             SelectedOption = item; 
-            SelectedOptionChanged.InvokeAsync(item); 
+            SelectedOptionChanged.InvokeAsync(item);
         }
     }
 

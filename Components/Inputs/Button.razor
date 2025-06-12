@@ -6,6 +6,8 @@
 
 @inherits RTBComponent
 
+@inject IJSRuntime JSRuntime
+
 @code {
     [Parameter] public RenderFragment? ChildContent { get; set; }
     [Parameter] public string? Label { get; set; }
@@ -23,7 +25,7 @@
     <Other Property="cursor" Value="default" Condition="@(Disabled)" />
     <Color Value="@(Color ?? ButtonStyle?.Color)" />
     <Color Value="@(DisabledColor ?? ButtonStyle?.Color)" Condition="@Disabled" />
-    
+
     <button type="button" class="@ClassBuilder.Create().Append(ComponentClass).Append(Class).Build()"
         disabled="@Disabled"
         @attributes="@(CapturedAttributes)">
