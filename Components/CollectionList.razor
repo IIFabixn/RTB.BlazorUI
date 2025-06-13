@@ -16,6 +16,8 @@
     [Parameter] public bool Horizontal { get; set; } = false;
     [Parameter] public bool Vertical { get; set; } = false;
 
+    [Parameter] public string? Spacing { get; set; }
+
     [Parameter] public bool Virtualize { get; set; }
 }
 
@@ -23,6 +25,7 @@
     Horizontal="@Horizontal"
     Vertical="@Vertical"
     Class="@ClassBuilder.Create("CollectionList", Class).Build()"
+    Gap="@Spacing"
     @attributes="@CapturedAttributes"
 >
     @if (Items.Any())

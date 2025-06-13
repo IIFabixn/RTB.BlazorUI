@@ -14,7 +14,7 @@
     [Parameter, EditorRequired] public RenderFragment<TOption> OptionTemplate { get; set; } = default!;
 
     [Parameter] public TOption? SelectedOption { get; set; }
-    [Parameter] public EventCallback<TOption?> SelectedOptionChanged { get; set; } = default!;
+    [Parameter] public EventCallback<TOption> SelectedOptionChanged { get; set; } = default!;
 
     /// <summary>
     /// Fragment for exameple Searchbars, Filter Options, etc..
@@ -72,8 +72,9 @@
 @code {
     private void HandleSelection(TOption item)
     {
-        if(item is null || !item.Equals(SelectedOption))
+        if(item is not null && !item.Equals(SelectedOption))
         {
+            Console.WriteLine($"Item changed {item}");
             SelectedOption = item; 
             SelectedOptionChanged.InvokeAsync(item);
         }
