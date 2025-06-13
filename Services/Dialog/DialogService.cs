@@ -18,7 +18,9 @@ namespace RTB.BlazorUI.Services.Dialog
     {
         Task<DialogResult> Result { get; }
         void Close(DialogResult result);
+        void Close(object? data);
         void Close();
+        void Cancel();
     }
 
     /// <summary>
@@ -26,7 +28,8 @@ namespace RTB.BlazorUI.Services.Dialog
     /// </summary>
     public interface IDialogService 
     {
-        Task<DialogResult> ShowAsync<TDialog>(string title, Dictionary<string, object?>? parameters = null) where TDialog : IComponent;
+        Task<DialogResult> ShowAsync<TDialog>(Dictionary<string, object?>? parameters = null) where TDialog : IComponent;
+        Task<DialogResult> ShowAsync(Type dialogType, Dictionary<string, object?>? parameters = null);
         void Alert<TDialog>(string title, string? message = null, Dictionary<string, object?>? parameters = null) where TDialog : IComponent;
     }
 
@@ -91,28 +94,27 @@ namespace RTB.BlazorUI.Services.Dialog
             OnShow?.Invoke(rf);
         }
 
-        public Task<DialogResult> ShowAsync<TDialog>(
-            string? title = null,
-            Dictionary<string, object?>? bodyParameters = null
-        )
-            where TDialog : IComponent
+        public Task<DialogResult> ShowAsync(Type dialogType, Dictionary<string, object?>? parameters = null)
         {
+            if (!typeof(IComponent).IsAssignableFrom(dialogType))
+                throw new ArgumentException("Type must implement IComponent", nameof(dialogType));
+
+
             var tcs = new TaskCompletionSource<DialogResult>();
 
             void rf(RenderTreeBuilder builder)
             {
                 var seq = 0;
                 builder.OpenComponent<DialogHost>(seq++);
-                builder.AddAttribute(seq++, nameof(DialogHost.Title), title);
                 builder.AddAttribute(seq++, nameof(DialogHost.ChildContent), (RenderFragment)(b =>
                 {
                     var i = 0;
-                    b.OpenComponent<TDialog>(i++);
+                    b.OpenComponent(i++, dialogType);
 
                     // pass parameters through
-                    if (bodyParameters is not null)
+                    if (parameters is not null)
                     {
-                        foreach (var (key, val) in bodyParameters)
+                        foreach (var (key, val) in parameters)
                             b.AddAttribute(i, key, val);
                     }
                     b.CloseComponent();
@@ -135,6 +137,14 @@ namespace RTB.BlazorUI.Services.Dialog
 
             OnShow?.Invoke(rf);
             return tcs.Task;
+        }
+
+        public Task<DialogResult> ShowAsync<TDialog>(
+            Dictionary<string, object?>? parameters = null
+        )
+            where TDialog : IComponent
+        {
+            return ShowAsync(typeof(TDialog), parameters);
         }
     }
 }
