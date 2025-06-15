@@ -8,7 +8,7 @@ public class Flex : RTBStyleBase
 {
     public enum AxisDirection { Row, RowReverse, Column, ColumnReverse }
     public enum WrapMode { NoWrap, Wrap, WrapReverse }
-    public enum Justify { Start, End, Center, Between, Around, Evenly }
+    public enum Justify { Start, End, Center, SpaceBetween, SpaceAround, SpaceEvenly }
     public enum Align { Start, End, Center, Stretch, Baseline }
 
 

@@ -1,5 +1,6 @@
 ﻿@using RTB.BlazorUI.Extensions
 @using RTB.BlazorUI.Services.Theme.Themes
+@using RTB.BlazorUI.Styles.Helper
 @inherits RTBComponent
 
 @code {
@@ -23,8 +24,7 @@
         <Margin All="0" />
         <Other Property="position" Value="absolute" />
         <Other Property="insert" Value="auto" />
-        <Other Property="top" Value="anchor(bottom)" />
-        <Other Property="left" Value="anchor(right, 50%)" />
+        <Other Property="position-area" Value="@Position.ToCss().Replace('-', ' ')" />
         <Overflow />
         <Size MinHeight="0" />
         <Other Property="max-width" Value="anchor-size(width)" />
@@ -38,10 +38,10 @@
 @code {
     public enum FlyoutPosition
     {
-        UpLeft, Up, UpRight,
-        DownLeft, Down, DownRight,
-        LeftUp, Left, LeftDown,
-        RightUp, Right, RightDown,
+        TopLeft, Top, TopRight,
+        BottomLeft, Bottom, BottomRight,
+        LeftTop, Left, LeftBottom,
+        RightTop, Right, RightBottom,
         Center
     }
 }
