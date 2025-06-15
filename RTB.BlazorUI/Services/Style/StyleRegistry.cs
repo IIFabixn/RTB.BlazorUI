@@ -12,6 +12,16 @@ public interface IStyleRegistry
     ValueTask InjectInto(string css, string className);
     ValueTask Remove(string className);
     ValueTask ClearAll();
+
+
+    static bool _staticInjected;
+
+    static async Task EnsureStaticCss(IJSRuntime js)
+    {
+        if (_staticInjected) return;
+        await js.InvokeVoidAsync("rtbStyled.inject", StaticCssBlob.Css);
+        _staticInjected = true;
+    }
 }
 
 internal sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry

@@ -207,4 +207,12 @@ namespace RTB.BlazorUI.Styles
             _bag.Add(obj);
         }
     }
+
+    public static class StyleBuilderExtensions
+    {
+        /// <summary>
+        /// Marks a CSS literal as compile-time static so the generator can pick it up.
+        /// </summary>
+        public static string BuildStatic(this StyleBuilder _, string cssLiteral) => cssLiteral;
+    }
 }

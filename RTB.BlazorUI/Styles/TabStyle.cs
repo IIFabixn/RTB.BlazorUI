@@ -13,7 +13,7 @@ namespace RTB.BlazorUI.Styles
 
         public StyleBuilder ToStyle()
         {
-            return StyleBuilder.Start.Append("color", Color);
+            return StyleBuilder.Start.AppendIfNotNull("color", Color);
         }
     }
 }

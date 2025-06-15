@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36202.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTB.BlazorUI", "RTB.BlazorUI\RTB.BlazorUI.csproj", "{47F18BB2-CCBD-1EC2-CD4A-1D7023B1A2DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTB.StaticCssGenerator", "RTB.StaticCssGenerator\RTB.StaticCssGenerator.csproj", "{9925D381-FAEC-429E-99C0-70A1FCB0C9B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47F18BB2-CCBD-1EC2-CD4A-1D7023B1A2DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47F18BB2-CCBD-1EC2-CD4A-1D7023B1A2DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47F18BB2-CCBD-1EC2-CD4A-1D7023B1A2DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47F18BB2-CCBD-1EC2-CD4A-1D7023B1A2DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9925D381-FAEC-429E-99C0-70A1FCB0C9B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9925D381-FAEC-429E-99C0-70A1FCB0C9B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9925D381-FAEC-429E-99C0-70A1FCB0C9B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9925D381-FAEC-429E-99C0-70A1FCB0C9B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {28E15196-74E7-4D60-BD64-737A39009995}
+	EndGlobalSection
+EndGlobal
