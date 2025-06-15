@@ -40,7 +40,7 @@
         <Other Property="left" Value="@($"anchor(--{FlyoutId} left)")" Condition="@Anchor.HasFlag(FlyoutPosition.Left)" />
         <Other Property="right" Value="@($"anchor(--{FlyoutId} right)")" Condition="@Anchor.HasFlag(FlyoutPosition.Right)" />
 
-        <Overflow Value="@Overflow.OverflowMode.Auto" />
+        <Overflow />
         <Other Property="max-height" Value="-webkit-fill-available" />
         <Other Property="min-height" Value="anchor-size(width)" />
         <Margin All="0" />

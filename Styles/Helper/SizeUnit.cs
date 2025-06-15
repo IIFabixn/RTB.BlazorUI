@@ -6,24 +6,45 @@ using System.Threading.Tasks;
 
 namespace RTB.BlazorUI.Styles.Helper
 {
-    public readonly record struct SizeUnit(double Value, string Unit = "px")
+    public readonly record struct SizeUnit
     {
-        public override string ToString() => $"{Value}{Unit}";
+        private readonly int _value;
+        public double Value => _value;
 
-        public static implicit operator SizeUnit(int px) => new(px, "px");
-        public static implicit operator SizeUnit(double px) => new(px, "px");
+        private readonly Unit _unit;
+        public Unit Unit => _unit;
 
-        public static SizeUnit Percent(double value) => new(value, "%");
-        public static SizeUnit Em(double value) => new(value, "em");
-        public static SizeUnit Rem(double value) => new(value, "rem");
-        public static SizeUnit Vw(double value) => new(value, "vw");
-        public static SizeUnit Vh(double value) => new(value, "vh");
+        private SizeUnit(double value, Unit unit)
+        {
+            _value = (int)Math.Round(value, 2);
+            _unit = unit;
+        }
+
+        public override string ToString() => Unit switch
+            {
+                Unit.Px => $"{Value:0.##}px",
+                Unit.Rem => $"{Value:0.##}rem",
+                Unit.Em => $"{Value:0.##}em",
+                Unit.Percent => $"{Value:0.##}%",
+                Unit.Vw => $"{Value:0.##}vw",
+                Unit.Vh => $"{Value:0.##}vh",
+                _ => $"{Value:0.##}px"
+            };
+
+        public static implicit operator SizeUnit(int px) => new(px, Unit.Px);
+        public static implicit operator SizeUnit(double px) => new(px, Unit.Px);
+
+        public static SizeUnit Percent(double value) => new(value, Unit.Percent);
+        public static SizeUnit Em(double value) => new(value, Unit.Em);
+        public static SizeUnit Rem(double value) => new(value, Unit.Rem);
+        public static SizeUnit Vw(double value) => new(value, Unit.Vw);
+        public static SizeUnit Vh(double value) => new(value, Unit.Vh);
 
         public static implicit operator string(SizeUnit s) => s.ToString();
 
         private static void EnsureSameUnit(SizeUnit a, SizeUnit b)
         {
-            if (!a.Unit.Equals(b.Unit, StringComparison.OrdinalIgnoreCase))
+            if (a.Unit != b.Unit)
                 throw new InvalidOperationException(
                     $"Cannot operate on SizeUnits with different units: '{a.Unit}' vs '{b.Unit}'.");
         }

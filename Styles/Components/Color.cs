@@ -1,15 +1,15 @@
 using System;
 using Microsoft.AspNetCore.Components;
-using RTB.BlazorUI.Services.Theme;
+using RTB.BlazorUI.Styles.Helper;
 
 namespace RTB.BlazorUI.Styles.Components;
 
 public class Color : RTBStyleBase
 {
-    [Parameter, EditorRequired] public required string Value { get; set; }
+    [Parameter] public RTBColor? Value { get; set; }
 
     protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        return builder.Append("color", Value);
+        return builder.AppendIfNotNull("color", Value);
     }
 }

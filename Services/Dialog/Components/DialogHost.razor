@@ -1,14 +1,16 @@
 ﻿@using RTB.BlazorUI.Services
+@using RTB.BlazorUI.Services.Theme
+@using RTB.BlazorUI.Styles.Helper
 
 @inherits DialogBase
 @inject IJSRuntime JSRuntime
 
 <Styled Context="ComponentClass">
     <Flex Direction="@Flex.AxisDirection.Column" AlignContent="@Flex.Align.Center" JustifyContent="@Flex.Justify.Center" />
-    <Background Color="transparent" />
+    <Background Color="@RTBColors.Transparent" />
     <Other Property="border" Value="none" />
     <Positioned Top="0" Left="0" Right="0" Bottom="0" />
-    <Margin All="auto" />
+    <Margin All="@Spacing.Auto" />
     
     <dialog @ref="dialog" class="@ComponentClass">
         <CascadingValue Value="this">

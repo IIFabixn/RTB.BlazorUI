@@ -10,10 +10,11 @@
     [Parameter] public string Rows { get; set; } = "1fr";
     [Parameter] public bool Center { get; set; } = false;
     [Parameter] public Spacing? Gap { get; set; }
+    [Parameter] public Place? ItemPlacement { get; set; }
 }
 
 <Styled Context="ComponentClass">
-    <Grid TemplateColumns="@Columns" TemplateRows="@Rows" Gap="@Gap" />
+    <Grid TemplateColumns="@Columns" TemplateRows="@Rows" Gap="@Gap" ItemPlacement="@ItemPlacement" />
     
     <div
         class="@CombineClass("rtb-grid", ComponentClass, Class)"

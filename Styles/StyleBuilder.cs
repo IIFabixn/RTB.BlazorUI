@@ -40,11 +40,8 @@ namespace RTB.BlazorUI.Styles
         /// <param name="property">The CSS property name.</param>
         /// <param name="value">The CSS property value.</param>
         /// <returns>The current StyleBuilder instance for method chaining.</returns>
-        public StyleBuilder Append(string? property, string? value)
+        public StyleBuilder Append(string property, string value)
         {
-            if (string.IsNullOrWhiteSpace(property) || string.IsNullOrWhiteSpace(value))
-                return this;
-
             return AppendInternal(property, value);
         }
 

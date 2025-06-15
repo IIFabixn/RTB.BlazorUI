@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using RTB.BlazorUI.Styles.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace RTB.BlazorUI.Styles
 {
     public class ButtonStyle : TextStyle
     {
-        public string? DisabledColor { get; set; }
+        public RTBColor? DisabledColor { get; set; }
     }
 }

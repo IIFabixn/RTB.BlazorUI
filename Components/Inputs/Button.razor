@@ -1,6 +1,7 @@
 ﻿@using RTB.BlazorUI.Extensions
 @using RTB.BlazorUI.Services.Theme
 @using RTB.BlazorUI.Styles
+@using RTB.BlazorUI.Styles.Helper
 @using static RTB.BlazorUI.Components.Text
 
 @inherits RTBComponent
@@ -14,8 +15,8 @@
     [Parameter] public bool Disabled { get; set; } = false;
     [Parameter] public ButtonStyle? ButtonStyle { get; set; }
 
-    [Parameter] public string? Color { get; set; }
-    [Parameter] public string? DisabledColor { get; set; }
+    [Parameter] public RTBColor? Color { get; set; }
+    [Parameter] public RTBColor? DisabledColor { get; set; }
 
     [Parameter, EditorRequired] public EventCallback OnClick { get; set; }
 

@@ -18,11 +18,7 @@
     private string _prevStyle = string.Empty;
 }
 
-@{
-    _builder.Clear();
-}
-
-<CascadingValue Value="@_builder">
+<CascadingValue Value="@_builder" IsFixed="true">
     @ChildContent(Classname)
 </CascadingValue>
 
@@ -32,7 +28,6 @@
         if (!_builder.IsDirty) return;
 
         var style = _builder.Build(Media);
-        Console.WriteLine("Styled-CSS " + style);
 
         if (string.IsNullOrEmpty(style)) return;
         if (style == _prevStyle) return; // No changes since last render

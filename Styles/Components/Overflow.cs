@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace RTB.BlazorUI.Styles.Components
 {
+    /// <summary>
+    /// Defaults to 'overflow: auto;' if no parameters are set.
+    /// </summary>
     public class Overflow : RTBStyleBase
     {
         public enum OverflowMode { Visible, Hidden, Scroll, Auto }
@@ -18,6 +21,9 @@ namespace RTB.BlazorUI.Styles.Components
 
         protected override StyleBuilder BuildStyle(StyleBuilder builder)
         {
+            if (X == null && Y == null && Value == null)
+                return builder.Append("overflow", OverflowMode.Auto.ToCss());
+            
             return builder
                 .AppendIfNotNull("overflow-x", X?.ToCss())
                 .AppendIfNotNull("overflow-y", Y?.ToCss())

@@ -24,11 +24,7 @@ public class Flex : RTBStyleBase
 
     protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        // 1 What parameters reached Flex?
-        Console.WriteLine(
-            $"Flex-IN   dir={Direction?.ToCss() ?? "<null>"}  " +
-            $"gap={Gap?.ToString() ?? "<null>"}");
-        var after = builder
+        return builder
             .Append("display", "flex")
             .AppendIfNotNull("flex-direction", Direction?.ToCss())
             .AppendIfNotNull("flex-wrap", Wrap?.ToCss())
@@ -38,10 +34,5 @@ public class Flex : RTBStyleBase
             .AppendIfNotNull("gap", Gap)
             .AppendIfNotNull("flex-shrink", Shrink?.ToString())
             .AppendIfNotNull("flex-grow", Grow?.ToString());
-
-        // 2 What string did the builder create?
-        Console.WriteLine("Flex-OUT  " + after.Build());
-
-        return after;
     }
 }

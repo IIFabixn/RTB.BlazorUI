@@ -1,5 +1,6 @@
 ﻿@using RTB.BlazorUI.Styles
 @using System.Timers
+@using RTB.BlazorUI.Styles.Helper
 
 @inherits RTBComponent
 
@@ -43,15 +44,13 @@
     <Styled Context="InputStyle">
         <Other Property="outline" Value="none" />
         <Border Side="Border.BorderSide.None" />
-        <Border Side="Border.BorderSide.Bottom" Color="black" Width="1" />
+        <Border Side="Border.BorderSide.Bottom" Color="@RTBColors.Black" Width="1" />
 
-        <input 
+        <input id="@_id"
             value="@Value" 
             @onchange="@(e => ValueChanged.InvokeAsync((string?)e.Value))"
             @oninput="OnInput"
             placeholder="@Placeholder"
-               id="@_id"
-            class="@CombineClass("rtb-tf", Class)"
-            @InputClass" />
+            class="@CombineClass("rtb-tf", Class, InputClass)" />
     </Styled>
 </GridView>

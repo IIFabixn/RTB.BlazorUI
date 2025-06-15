@@ -13,6 +13,6 @@ public class Other : RTBStyleBase
 
     protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        return builder.Append(Property, Value);
+        return builder.AppendIfNotNull(Property, Value);
     }
 }

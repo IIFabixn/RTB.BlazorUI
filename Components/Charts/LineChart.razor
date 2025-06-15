@@ -7,10 +7,12 @@
     [Parameter] public SKColor SKColor { get; set; } = SKColors.Blue;
 }
 
-<GridView Rows="1fr auto">
-    <GridItem Class="relative grid place-items-center">
-        <SKCanvasView class="h-full w-full" OnPaintSurface="PaintLine" EnableRenderLoop />
-    </GridItem>
+<GridView Rows="1fr auto" ItemPlacement="@Styles.Helper.Place.Center">
+    <Styled Context="LineChartClass">
+        <Size FullHeight FullWidth />
+
+        <SKCanvasView class="@LineChartClass" OnPaintSurface="PaintLine" EnableRenderLoop />
+    </Styled>
 </GridView>
 
 @code {

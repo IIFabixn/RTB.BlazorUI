@@ -27,15 +27,16 @@
     <Flex Direction="@Flex.AxisDirection.Row" JustifyContent="@Flex.Justify.Center" AlignItems="@Flex.Align.Center" />
 
     <GridView Rows="auto 1fr" Class="@CombineClass("TabGroup", Class)">
-        <GridItem>
-            <Grid Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" Class="place-items-center">
-                @foreach (var tab in _tabItems)
-                {
-                    <GridItem 
+        <GridView Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" ItemPlacement="@Styles.Helper.Place.Center">
+            @foreach (var tab in _tabItems)
+            {
+                <Styled Context="InternalTabClass">
+                    <Size FullWidth />
+
+                    <div 
                         @key="tab.Guid"
                         @onclick="() => SelectedTab = tab.Title"
-                              Class="@CombineClass("TabItem", TabClass)">
-                        <Size FullWidth />
+                         Class="@CombineClass("rtb-tab-item", InternalTabClass, TabClass)">
                         
                         @if (tab.TabContent is not null)
                         {
@@ -45,13 +46,12 @@
                         {
                             @TabTemplate(new(tab, SelectedTab == tab.Title))
                         }
-                    </GridItem>
-                }
-            </Grid>
-        </GridItem>
-        <GridItem Class="@ContentClass">
-            @SelectedTabContent
-        </GridItem>
+                    </div>
+                </Styled>
+            }
+        </GridView>
+
+        @SelectedTabContent
     </GridView>
 </Styled>
 

@@ -7,7 +7,6 @@ namespace RTB.BlazorUI.Styles.Components;
 
 public class Grid : RTBStyleBase
 {
-    public enum Place { Start, End, Center, Stretch }
 
     [Parameter] public string TemplateColumns { get; set; } = "1fr";
     [Parameter] public string TemplateRows { get; set; } = "1fr";
