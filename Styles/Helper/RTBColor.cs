@@ -131,7 +131,7 @@ namespace RTB.BlazorUI.Styles.Helper
             if (Math.Abs(satuation) < 0.001)
             {
                 byte v = (byte)(luminance * 255);
-                return new(alpha, v, v, v);
+                return new(v, v, v, alpha);
             }
 
             double q = luminance < .5 ? luminance * (1 + satuation) : luminance + satuation - luminance * satuation;
@@ -148,7 +148,7 @@ namespace RTB.BlazorUI.Styles.Helper
             byte r = (byte)(ToRgb(hue + 1.0 / 3) * 255);
             byte g = (byte)(ToRgb(hue) * 255);
             byte b = (byte)(ToRgb(hue - 1.0 / 3) * 255);
-            return new(alpha, r, g, b);
+            return new( r, g, b, alpha);
         }
     }
 
@@ -170,14 +170,14 @@ namespace RTB.BlazorUI.Styles.Helper
     public static class RTBColors
     {
         public static RTBColor White => "#FFFFFFFF";
-        public static RTBColor Black => "#FF000000";
+        public static RTBColor Black => "#000000FF";
 
-        public static RTBColor Yellow => "#FFFFFF00";
-        public static RTBColor Red => "#FFFF0000";
-        public static RTBColor Blue => "#FF0000FF";
-        public static RTBColor Orange => "#FFFF8800";
-        public static RTBColor Green => "#FF00FF00";
-        public static RTBColor Magenta => "#FFFF00FF";
+        public static RTBColor Yellow => "#FFFF00FF";
+        public static RTBColor Red => "#FF0000FF";
+        public static RTBColor Blue => "#0000FFFF";
+        public static RTBColor Orange => "#FF8800FF";
+        public static RTBColor Green => "#00FF00FF";
+        public static RTBColor Magenta => "#FF00FFFF";
 
         public static RTBColor Transparent => "#00000000";
     }
