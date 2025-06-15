@@ -1,18 +1,19 @@
-﻿
+﻿@using static RTB.BlazorUI.Styles.Components.Overflow
+
 @inherits RTBComponent
 
 @code {
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
-    [Parameter] public string? X { get; set; }
-    [Parameter] public string? Y { get; set; }
-    [Parameter] public string? Value { get; set; }
+    [Parameter] public OverflowMode? X { get; set; }
+    [Parameter] public OverflowMode? Y { get; set; }
+    [Parameter] public OverflowMode? Value { get; set; }
 }
 
 <Styled Context="ComponentClass">
-    <Overflow X="@X" Y="@Y" Value="@(Value ?? "auto")" />
+    <Overflow X="@X" Y="@Y" Value="@(Value ?? OverflowMode.Auto)" />
 
-    <div class="Overflow @ComponentClass @Class" @attributes="@CapturedAttributes">
+    <div class="Overflow @ComponentClass @Class">
         @ChildContent
     </div>
 </Styled>

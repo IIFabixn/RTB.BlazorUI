@@ -58,6 +58,7 @@ window.dialogHelper = {
 };
 
 window.rtbStyled = {
+    /*──────────────────────────────── inject complete batch ─────────────────────────*/
     inject(css) {
         let tag = document.getElementById("rtb-styled");
         if (!tag) {
@@ -74,9 +75,10 @@ window.rtbStyled = {
             this.removeRule(tag, selector);
         }
 
-        tag.append(css);                         // append the whole batch once
+        tag.append(css); // append once
     },
 
+    /*──────────────────────────── inject / overwrite single selector ───────────────*/
     injectInto(css, cls) {
         let tag = document.getElementById("rtb-styled");
         if (!tag) {
@@ -94,12 +96,13 @@ window.rtbStyled = {
             return;
         }
 
-        this.removeRule(cls);
+        this.removeRule(tag, selector);
 
         // Create fresh CSS rule
         try {
             var rule = `${selector}{${css}}`;
-            sheet.insertRule(rule, sheet.cssRules.length);
+            tag.append(`${selector}{${css}}`);
+            // sheet.insertRule(rule, sheet.cssRules.length);
         } catch (e) {
             // Fallback: append as text if insertRule fails
             tag.append(`${selector}{${css}}`);
@@ -117,8 +120,14 @@ window.rtbStyled = {
         }
     },
 
-    clear(cls) {
+    /*──────────────────────────────── public helpers ───────────────────────────────*/
+    clearRule(cls) {
         const tag = document.getElementById("rtb-styled");
         if (tag) this.removeRule(tag, '.' + cls);
+    },
+
+    clearAll() {
+        const tag = document.getElementById("rtb-styled");
+        if (tag) tag.innerHTML = ''; // Clear all styles
     }
 };

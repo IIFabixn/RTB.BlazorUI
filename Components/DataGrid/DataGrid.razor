@@ -1,9 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using RTB.BlazorUI.Extensions
-@using RTB.BlazorUI.Helper
 @using RTB.BlazorUI.Interfaces
 @using Microsoft.AspNetCore.Components.Web.Virtualization
-@using static RTB.BlazorUI.Helper.CssHelper
 
 @typeparam TRow where TRow : class
 
@@ -36,7 +34,7 @@
     <Size FullWidth FullHeight />
 
     <Styled Context="ComponentClass">
-        <GridDisplay TemplateColumns="@(GridTemplate())" TemplateRows="1fr" />
+        <Grid TemplateColumns="@(GridTemplate())" TemplateRows="1fr" />
         <Other Property="position" Value="relative" />
 
         <div class="DataGrid @ComponentClass">
@@ -44,11 +42,11 @@
             @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
             {
                 var col = _columns[colIdx - 1];
-                <Stack 
+                <Stack
                     Horizontal
-                    AlignItem="@AlignItems.Center"
-                    JustifyContent="@JustifyContent.SpaceBetween"
-                    Class="@(ClassBuilder.Create().Append(HeaderClass).Build())"
+                    AlignItem="@Flex.Align.Center"
+                    JustifyContent="@Flex.Justify.Between"
+                    Class="@HeaderClass"
                 >
                     <Other Property="position" Value="sticky" />
                     <Positioned Top="0" />
@@ -63,11 +61,8 @@
 
             <Virtualize Items="_sortedItems" Context="row">
                 <!-- ---------- Data cells (rows 2…N) ----------------------- -->
-                @{
-                    int rowIndex = _sortedItems.IndexOf(row);
-                }
                 @* display:contents will not create a new element in the dom *@
-                <div style="display:contents" class="@ClassBuilder.Create().Append(RowClass).AppendIf(ActiveRowClass, row == SelectedRow).Build()" @onclick="() => SelectRow(row)">
+                <div style="display:contents" class="@CombineClass(RowClass, row == SelectedRow ? ActiveRowClass : null)" @onclick="() => SelectRow(row)">
                     @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
                     {
                         var col = _columns[colIdx - 1];

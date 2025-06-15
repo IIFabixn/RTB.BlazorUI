@@ -1,14 +1,12 @@
 ﻿using System.ComponentModel;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
-using RTB.BlazorUI.Extensions;
-using RTB.BlazorUI.Helper;
 using RTB.BlazorUI.Interfaces;
 using RTB.BlazorUI.Services.Style;
 using RTB.BlazorUI.Styles;
 using RTB.BlazorUI.Styles.Components;
 
-namespace RTB.BlazorUI.Components
+namespace RTB.BlazorUI.Components.DataGrid
 {
     public interface IColumn<TRow> : IDisposable
     {
@@ -78,7 +76,7 @@ namespace RTB.BlazorUI.Components
             builder.AddComponentParameter(seq++, nameof(Styled.ChildContent), (RenderFragment<string>)((className) => _builder =>
             {
                 _builder.OpenElement(0, "div");
-                _builder.AddAttribute(1, "class", ClassBuilder.Create("ViewColumn").Append(className).Append(Class).Build());
+                _builder.AddAttribute(1, "class", CombineClass("ViewColumn", className, Class));
                 _builder.AddContent(2,ChildContent(row));
                 _builder.CloseElement();
             }));
@@ -110,7 +108,8 @@ namespace RTB.BlazorUI.Components
                 .Append("text-overflow", "ellipsis")
                 .Build();
 
-            CellClass ??= await Registry.GetOrCreate(style);
+            CellClass ??= Registry.GetOrCreate(style);
+            await Registry.InjectInto(style, CellClass);
         }
 
         public override void RenderCell(RenderTreeBuilder builder, TRow row, int col)
@@ -122,9 +121,8 @@ namespace RTB.BlazorUI.Components
                 var seq = 0;
                 _builder.OpenElement(seq++, "div");
                 _builder.AddAttribute(seq++, "role", "cell");
-                _builder.AddAttribute(seq++, "class", ClassBuilder.Create("DataColumn").Append(CellClass).Append(Class).Build());
+                _builder.AddAttribute(seq++, "class", CombineClass("DataColumn", CellClass, Class));
                 _builder.AddAttribute(seq++, "style", $"grid-column-start: {col};");
-                _builder.AddMultipleAttributes(seq++, CapturedAttributes);
                 _builder.AddContent(seq++, value);
                 _builder.CloseElement();
             }));

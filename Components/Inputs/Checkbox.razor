@@ -3,18 +3,26 @@
 @inherits RTBComponent
 
 @code {
-    [Parameter] public string? Label { get; set; }
-    [Parameter] public TextStyle ? LabelStyle { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
 
-    [Parameter] public bool Value { get; set; } = false;
-    [Parameter] public EventCallback<bool> ValueChaned { get; set; }
+    [Parameter] public bool Checked { get; set; } = false;
+    [Parameter] public EventCallback<bool> CheckedChanged { get; set; }
 
     private readonly string InputId = $"checkbox-{Guid.NewGuid().ToString("N").Substring(8)}";
+
+    private Task Toggle() => CheckedChanged.HasDelegate ? CheckedChanged.InvokeAsync(!Checked) : Task.CompletedTask;
+
+    private Task HandleKey(KeyboardEventArgs e) => (e.Key == " " || e.Key == "Enter") ? Toggle() : Task.CompletedTask;
 }
 
-<Grid Columns="1fr auto">
-    <label for="@InputId">
-        <Text TextStyle="@LabelStyle">@Label</Text>
-    </label>
-    <input type="checkbox" id="@InputId" value="@Value" @onchange="@(e => ValueChaned.InvokeAsync((bool?)e.Value ?? false))" />
-</Grid>
+<div
+    role="checkbox"
+    tabindex="0"
+    aria-checked="@Checked"
+    class="@CombineClass("rtb-checkbox", Checked ? "is-on":null, Class)"
+    @onclick:preventDefault
+    @onclick="Toggle"
+    @onkeydown="HandleKey">
+    <span class="indicator"></span>
+    @ChildContent
+</div>

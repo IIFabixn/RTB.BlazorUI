@@ -1,5 +1,4 @@
 ﻿@using RTB.BlazorUI.Extensions
-@using RTB.BlazorUI.Helper
 @using RTB.BlazorUI.Services.Theme
 
 @inherits RTBComponent
@@ -8,10 +7,12 @@
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter] public string? Title { get; set; }
 }
-<Styled Context="ComponentClass">
-    <div class="Card @ComponentClass @Class"
-        @attributes="@CapturedAttributes">
-        <Stack FullHeight Vertical AlignItem="@CssHelper.AlignItems.Center">
+
+<div class="Card @Class">
+    <Styled Context="CardClass">
+        <Size FullHeight />
+
+        <Stack Class="@CardClass" Vertical AlignItem="@Flex.Align.Center">
             @if (!string.IsNullOrEmpty(Title))
             {
                 <div class="header">
@@ -21,5 +22,5 @@
 
             @ChildContent
         </Stack>
-    </div>
-</Styled>
+    </Styled>
+</div>

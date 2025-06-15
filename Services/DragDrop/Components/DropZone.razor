@@ -10,16 +10,13 @@
 
 @inherits RTBComponent
 
-<Styled Context="ComponentClass">
-    <div class="@(isDraggingOver ? DraggingClass : string.Empty) @ComponentClass @Class"
-        @attributes="@(CapturedAttributes)"
-        @ondragover="HandleDragOver"
-        @ondragleave="HandleDragLeave"
-        @ondrop="HandleDrop"
-        @ondragover:preventDefault="true">
-        @ChildContent
-    </div>
-</Styled>
+<div class="@(isDraggingOver ? DraggingClass : string.Empty) @Class"
+    @ondragover="HandleDragOver"
+    @ondragleave="HandleDragLeave"
+    @ondrop="HandleDrop"
+    @ondragover:preventDefault="true">
+    @ChildContent
+</div>
 
 @code {
     [Parameter] public string DraggingClass { get; set; } = string.Empty;

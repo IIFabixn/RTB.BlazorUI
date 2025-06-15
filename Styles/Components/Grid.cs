@@ -1,15 +1,18 @@
 using System;
 using System.Reflection.Metadata;
 using Microsoft.AspNetCore.Components;
+using RTB.BlazorUI.Styles.Helper;
 
 namespace RTB.BlazorUI.Styles.Components;
 
-public class GridDisplay : RTBStyleBase
+public class Grid : RTBStyleBase
 {
+    public enum Place { Start, End, Center, Stretch }
+
     [Parameter] public string TemplateColumns { get; set; } = "1fr";
     [Parameter] public string TemplateRows { get; set; } = "1fr";
-    [Parameter] public string? Gap { get; set; }
-    [Parameter] public string? ItemPlacement { get; set; }
+    [Parameter] public Spacing? Gap { get; set; }
+    [Parameter] public Place? ItemPlacement { get; set; }
 
     protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
@@ -18,6 +21,6 @@ public class GridDisplay : RTBStyleBase
             .Append("grid-template-columns", TemplateColumns)
             .Append("grid-template-rows", TemplateRows)
             .AppendIfNotNull("gap", Gap)
-            .AppendIfNotNull("place-items", ItemPlacement);
+            .AppendIfNotNull("place-items", ItemPlacement?.ToCss());
     }
 }

@@ -8,7 +8,7 @@ namespace RTB.BlazorUI.Styles.Components;
 /// </summary>
 public class Other : RTBStyleBase
 {
-    [Parameter] public string Property { get; set; } = string.Empty;
+    [Parameter, EditorRequired] public string Property { get; set; } = string.Empty;
     [Parameter] public string? Value { get; set; }
 
     protected override StyleBuilder BuildStyle(StyleBuilder builder)

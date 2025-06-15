@@ -1,8 +1,4 @@
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Rendering;
-using RTB.BlazorUI.Helper;
-using RTB.BlazorUI.Services.Style;
-using System.Runtime.CompilerServices;
 
 namespace RTB.BlazorUI.Components;
 
@@ -14,10 +10,11 @@ namespace RTB.BlazorUI.Components;
 /// </summary>
 public abstract class RTBComponent : ComponentBase
 {
-    [Parameter(CaptureUnmatchedValues = true)]
-    public Dictionary<string, object>? CapturedAttributes { get; set; }
-
     [Parameter] public string? Class { get; set; }
+    protected static string CombineClass(params string?[] parts)
+    {
+        return string.Join(" ", parts.Where(p => !string.IsNullOrWhiteSpace(p))).Trim();
+    }
 
     /// <summary>
     /// SetProperty is a helper method to call StateHasChanged.
@@ -25,7 +22,7 @@ public abstract class RTBComponent : ComponentBase
     /// <typeparam name="TValue"></typeparam>
     /// <param name="field"></param>
     /// <param name="value"></param>
-    public void SetProperty<TValue>(ref TValue field, TValue value, [CallerMemberName] string member = "")
+    public void SetProperty<TValue>(ref TValue field, TValue value)
     {
         if (EqualityComparer<TValue>.Default.Equals(field, value)) return;
 
@@ -37,7 +34,7 @@ public abstract class RTBComponent : ComponentBase
     /// StatefulAction is a helper method to call an action and then call StateHasChanged.
     /// </summary>
     /// <param name="action"></param>
-    public void StatefulAction(Action action, [CallerMemberName] string callee = "")
+    public void StatefulAction(Action action)
     {
         action();
         StateHasChanged();

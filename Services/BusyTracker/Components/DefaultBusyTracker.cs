@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RTB.BlazorUI.Components;
-using RTB.BlazorUI.Helper;
 using RTB.BlazorUI.Services.Style;
 using RTB.BlazorUI.Styles;
 
@@ -16,9 +15,9 @@ namespace RTB.BlazorUI.Services.BusyTracker.Components
     {
         [Inject] protected IStyleRegistry Styled { get; set; } = default!;
 
-        protected override void OnParametersSet()
+        protected override async Task OnParametersSetAsync()
         {
-            Styled.InjectInto(StyleBuilder.Start
+            await Styled.InjectInto(StyleBuilder.Start
                 .Append("height", "100%")
                 .Append("width", "100%")
                 .Append("display", "grid")

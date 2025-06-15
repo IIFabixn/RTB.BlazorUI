@@ -14,15 +14,13 @@
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter] public bool Multiple { get; set; } = false;
 }
-<Styled Context="ComponentClass">
-    <InputFile id="@Id" OnChange="HandleChange" multiple="@Multiple" hidden accept="@(string.Join(",", AcceptedTypes))" />
-    <label id="@(Id)Zone"
-        for="@Id"
-        class="@ComponentClass @Class"
-        @attributes="CapturedAttributes">
-        @ChildContent
-    </label>
-</Styled>
+
+<InputFile id="@Id" OnChange="HandleChange" multiple="@Multiple" hidden accept="@(string.Join(",", AcceptedTypes))" />
+<label id="@(Id)Zone"
+    for="@Id"
+    class="@Class">
+    @ChildContent
+</label>
 
 @code {
     protected override async Task OnAfterRenderAsync(bool firstRender)

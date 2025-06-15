@@ -1,13 +1,13 @@
 using System;
 using Microsoft.AspNetCore.Components;
-using RTB.BlazorUI.Helper;
 using RTB.BlazorUI.Services.Theme;
+using RTB.BlazorUI.Styles.Helper;
 
 namespace RTB.BlazorUI.Styles.Components;
 
 public class Border : RTBStyleBase
 {
-    [Parameter] public string Width { get; set; } = "1px";
+    [Parameter] public SizeUnit Width { get; set; } = 1;
     [Parameter] public string? Color { get; set; }
     [Parameter] public BorderStyle Style { get; set; } = BorderStyle.Solid;
 
@@ -22,14 +22,14 @@ public class Border : RTBStyleBase
         }
         else if (Side == BorderSide.All)
         {
-            builder.AppendIf("border", $"{Width} {Style.ToString().ToLowerInvariant()} {Color}", !string.IsNullOrEmpty(Color));
+            builder.AppendIf("border", $"{Width} {Style.ToCss()} {Color}", !string.IsNullOrEmpty(Color));
             builder.AppendIfNotNull("border-radius", Radius);
         }
         else
         {
             builder.Append("border-radius", Radius);
 
-            string value = $"{Width} {Style.ToString().ToLowerInvariant()} {Color}";
+            string value = $"{Width} {Style.ToCss()} {Color}";
             if (Side.HasFlag(BorderSide.Top))
                 builder.Append("border-top", value);
             if (Side.HasFlag(BorderSide.Right))

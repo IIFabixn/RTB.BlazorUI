@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RTB.BlazorUI.Styles.Helper;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -8,35 +9,48 @@ using System.Threading.Tasks;
 
 namespace RTB.BlazorUI.Styles.Helper
 {
-    public readonly struct Spacing(float amount, string unit = "px") : IEquatable<Spacing>
+    public readonly struct Spacing(double Value, string Unit = "px")
     {
-        public static readonly Spacing None = new(0, "px");
+        public double Value { get; } = Value;
+        public string Unit { get; } = Unit;
 
-        public float Amount { get; } = amount;
-        public string Unit { get; } = unit;
+        public override string ToString() => $"{Value}{Unit}";
 
-        // Multiplication
-        public static Spacing operator *(Spacing spacing, float factor) => new(spacing.Amount * factor, spacing.Unit);
-        public static Spacing operator *(float factor, Spacing spacing) => spacing * factor;
+        public static implicit operator Spacing(int px) => new(px, "px");
+        public static implicit operator Spacing(double px) => new(px, "px");
+        public static implicit operator string(Spacing s) => s.ToString();
 
-        // Addition
-        public static Spacing operator +(Spacing a, Spacing b)
+        public static Spacing Em(double v) => new(v, "em");
+        public static Spacing Rem(double v) => new(v, "rem");
+        public static Spacing Vw(double v) => new(v, "vw");
+        public static Spacing Vh(double v) => new(v, "vh");
+
+        private static void EnsureSameUnit(in Spacing a, in Spacing b)
         {
-            if (!string.Equals(a.Unit, b.Unit, StringComparison.OrdinalIgnoreCase))
-                throw new InvalidOperationException("Cannot add Spacing with different units.");
-            return new Spacing(a.Amount + b.Amount, a.Unit);
+            if (!a.Unit.Equals(b.Unit, StringComparison.OrdinalIgnoreCase))
+                throw new InvalidOperationException($"Cannot operate on Spacing values with different units: '{a.Unit}' vs '{b.Unit}'.");
         }
 
-        // Equality
-        public static bool operator ==(Spacing a, Spacing b) => a.Equals(b);
-        public static bool operator !=(Spacing a, Spacing b) => !a.Equals(b);
+        public static Spacing operator +(Spacing a, Spacing b) { EnsureSameUnit(a, b); return new (a.Value + b.Value, a.Unit);  }
 
-        public override bool Equals(object? obj) => obj is Spacing other && Equals(other);
-        public bool Equals(Spacing other) => Amount.Equals(other.Amount) && string.Equals(Unit, other.Unit, StringComparison.OrdinalIgnoreCase);
-        public override int GetHashCode() => HashCode.Combine(Amount, Unit?.ToLowerInvariant());
+        public static Spacing operator -(Spacing a, Spacing b) { EnsureSameUnit(a, b); return new(a.Value - b.Value, a.Unit); }
 
-        // Implicit conversion to string for CSS output
-        public override string ToString() => $"{Amount.ToString(CultureInfo.InvariantCulture)}{Unit}";
-        public static implicit operator string(Spacing spacing) => spacing.ToString();
+        public static Spacing operator *(Spacing a, double k) => new(a.Value * k, a.Unit);
+        public static Spacing operator *(double k, Spacing a) => a * k;
+        public static Spacing operator /(Spacing a, double k) => new(a.Value / k, a.Unit);
+
+        /*──────────────────── helper methods (optional) ───────────────────*/
+        public Spacing Abs() => new(Math.Abs(Value), Unit);
+
+        public static Spacing Min(Spacing a, Spacing b) { EnsureSameUnit(a, b); return a.Value <= b.Value ? a : b; }
+
+        public static Spacing Max(Spacing a, Spacing b) { EnsureSameUnit(a, b); return a.Value >= b.Value ? a : b; }
+
+        public static Spacing Clamp(Spacing value, Spacing min, Spacing max) { EnsureSameUnit(value, min); EnsureSameUnit(value, max); return value.Value < min.Value ? min : value.Value > max.Value ? max : value; }
+    
+        public static bool operator >(Spacing a, Spacing b) { EnsureSameUnit(a, b); return a.Value > b.Value; }
+        public static bool operator <(Spacing a, Spacing b) { EnsureSameUnit(a, b); return a.Value < b.Value; }
+        public static bool operator >=(Spacing a, Spacing b) { EnsureSameUnit(a, b); return a.Value >= b.Value; }
+        public static bool operator <=(Spacing a, Spacing b) { EnsureSameUnit(a, b); return a.Value <= b.Value; }
     }
 }

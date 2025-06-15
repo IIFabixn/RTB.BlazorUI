@@ -5,7 +5,7 @@
 @using Microsoft.AspNetCore.Components.Web.Virtualization
 @using RTB.BlazorUI.Components
 @using RTB.BlazorUI.Extensions
-@using RTB.BlazorUI.Helper
+@using RTB.BlazorUI.Styles.Helper
 
 @code {
     [Parameter] public List<TItem> Items { get; set; } = [];
@@ -16,7 +16,7 @@
     [Parameter] public bool Horizontal { get; set; } = false;
     [Parameter] public bool Vertical { get; set; } = false;
 
-    [Parameter] public string? Spacing { get; set; }
+    [Parameter] public Spacing? Spacing { get; set; }
 
     [Parameter] public bool Virtualize { get; set; }
 }
@@ -24,9 +24,8 @@
 <Stack
     Horizontal="@Horizontal"
     Vertical="@Vertical"
-    Class="@ClassBuilder.Create("CollectionList", Class).Build()"
+    Class="@CombineClass("CollectionList", Class)"
     Gap="@Spacing"
-    @attributes="@CapturedAttributes"
 >
     @if (Items.Any())
     {

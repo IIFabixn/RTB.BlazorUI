@@ -1,14 +1,17 @@
 ﻿@using RTB.BlazorUI.Styles
+@using RTB.BlazorUI.Styles.Helper
 
 @inherits RTBComponent
 
 @code {
+    public enum TextAlign { Left, Center, Right }
+
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
     [Parameter] public TextStyle? TextStyle { get; set; }
 
     [Parameter] public string Element { get; set; } = "p";
-    [Parameter] public string? TextAlign { get; set; }
+    [Parameter] public TextAlign? Align { get; set; }
     [Parameter] public string? FontSize { get; set; }
     [Parameter] public string? FontWeight { get; set; }
     [Parameter] public string? LineHeight { get; set; }
@@ -18,7 +21,7 @@
 
 <Styled Context="ComponentClass">
     <PreStyled Style="@TextStyle" />
-    <Other Property="text-align" Value="@TextAlign" />
+    <Other Property="text-align" Value="@Align?.ToCss()" />
     <Other Property="font-size" Value="@FontSize" />
     <Other Property="font-weight" Value="@FontWeight" />
     <Other Property="line-height" Value="@LineHeight" />

@@ -1,9 +1,10 @@
 ﻿@using RTB.BlazorUI.Styles
+@using System.Timers
+
 @inherits RTBComponent
 
 @code {
-    [Parameter] public string? Label { get; set; }
-    [Parameter] public TextStyle? LabelStyle { get; set; }
+    [Parameter] public RenderFragment? Label { get; set;}
     [Parameter] public string? Placeholder { get; set; }
 
     [Parameter] public string Value { get; set; } = string.Empty;
@@ -12,18 +13,45 @@
     [Parameter] public string? LabelClass { get; set; }
     [Parameter] public string? InputClass { get; set; }
 
-    private readonly string InputId = $"input-{Guid.NewGuid().ToString("N").Substring(8)}";
+    [Parameter] public int DebounceMilliseconds { get; set; } = 300;
+    [Parameter] public bool Immediate { get; set; }
+
+    private readonly string _id = $"rtb-tf-{Guid.NewGuid():N}";
+    private Timer? _debounce;
+
+    private Task OnInput(ChangeEventArgs e)
+    {
+        var text = e.Value?.ToString();
+        if (Immediate) return ValueChanged.InvokeAsync(text);
+
+        _debounce?.Stop();
+        _debounce ??= new() { AutoReset = false };
+        _debounce.Interval = DebounceMilliseconds;
+        _debounce.Elapsed += (_, _) => InvokeAsync(() => ValueChanged.InvokeAsync(text));
+        _debounce.Start();
+        return Task.CompletedTask;
+    }
 }
 
-<Grid Rows="auto auto" Class="@Class">
-    <label for="@InputId" class="@LabelClass">
-        <Text TextStyle="@LabelStyle">@Label</Text>
-    </label>
+<GridView Rows="auto auto" Class="@Class">
+    @if (Label is not null)
+    {
+        <label for="@_id" class="@LabelClass">
+            @Label
+        </label>
+    }
     <Styled Context="InputStyle">
         <Other Property="outline" Value="none" />
         <Border Side="Border.BorderSide.None" />
-        <Border Side="Border.BorderSide.Bottom" Color="black" Width="1px" />
+        <Border Side="Border.BorderSide.Bottom" Color="black" Width="1" />
 
-        <input value="@Value" @onchange="@(e => ValueChanged.InvokeAsync((string?)e.Value))" placeholder="@Placeholder" id="@InputId" class="@InputStyle @InputClass" />
+        <input 
+            value="@Value" 
+            @onchange="@(e => ValueChanged.InvokeAsync((string?)e.Value))"
+            @oninput="OnInput"
+            placeholder="@Placeholder"
+               id="@_id"
+            class="@CombineClass("rtb-tf", Class)"
+            @InputClass" />
     </Styled>
-</Grid>
+</GridView>

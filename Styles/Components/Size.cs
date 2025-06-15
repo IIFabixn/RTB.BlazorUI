@@ -1,19 +1,20 @@
-using System;
 using Microsoft.AspNetCore.Components;
+using RTB.BlazorUI.Styles.Helper;
+using System;
 
 namespace RTB.BlazorUI.Styles.Components;
 
 public class Size : RTBStyleBase
 {
-    [Parameter] public string? Width { get; set; }
-    [Parameter] public string? Height { get; set; }
-    [Parameter] public string? MinWidth { get; set; }
-    [Parameter] public string? MinHeight { get; set; }
-    [Parameter] public string? MaxWidth { get; set; }
-    [Parameter] public string? MaxHeight { get; set; }
+    [Parameter] public SizeUnit? Width { get; set; }
+    [Parameter] public SizeUnit? Height { get; set; }
+    [Parameter] public SizeUnit? MinWidth { get; set; }
+    [Parameter] public SizeUnit? MinHeight { get; set; }
+    [Parameter] public SizeUnit? MaxWidth { get; set; }
+    [Parameter] public SizeUnit? MaxHeight { get; set; }
 
-    [Parameter] public bool FullWidth { get; set; } = false;
-    [Parameter] public bool FullHeight { get; set; } = false;
+    [Parameter] public bool FullWidth { get; set; }
+    [Parameter] public bool FullHeight { get; set; }
 
     protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {

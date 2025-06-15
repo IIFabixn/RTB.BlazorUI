@@ -1,5 +1,4 @@
 ﻿@using RTB.BlazorUI.Extensions
-@using RTB.BlazorUI.Helper
 
 @inherits RTBComponent
 
@@ -16,8 +15,7 @@
     <Other Property="grid-row" Value="@($"{(Row > 0 ? Row : "auto")} / span {RowSpan}")" />
     
     <div
-        class="@ClassBuilder.Create("GridItem", ComponentClass, Class).Build()" 
-        @attributes="@CapturedAttributes"
+        class="@CombineClass("rtb-grid-item", ComponentClass, Class)"
     >
         @ChildContent
     </div>

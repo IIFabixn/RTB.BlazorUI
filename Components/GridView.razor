@@ -1,6 +1,6 @@
 ﻿@using RTB.BlazorUI.Extensions
-@using RTB.BlazorUI.Helper
 @using RTB.BlazorUI.Interfaces
+@using RTB.BlazorUI.Styles.Helper
 
 @inherits RTBComponent
 
@@ -9,15 +9,14 @@
     [Parameter] public string Columns { get; set; } = "1fr";
     [Parameter] public string Rows { get; set; } = "1fr";
     [Parameter] public bool Center { get; set; } = false;
-    [Parameter] public string? Gap { get; set; }
+    [Parameter] public Spacing? Gap { get; set; }
 }
 
 <Styled Context="ComponentClass">
-    <GridDisplay TemplateColumns="@Columns" TemplateRows="@Rows" Gap="@Gap" />
+    <Grid TemplateColumns="@Columns" TemplateRows="@Rows" Gap="@Gap" />
     
     <div
-        class="@ClassBuilder.Create("Grid", ComponentClass, Class).Build()" 
-        @attributes="@CapturedAttributes"
+        class="@CombineClass("rtb-grid", ComponentClass, Class)"
     >
         @ChildContent
     </div>

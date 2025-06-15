@@ -1,9 +1,10 @@
-﻿@using RTB.BlazorUI.Helper
-@using RTB.BlazorUI.Services.BusyTracker
+﻿@using RTB.BlazorUI.Services.BusyTracker
 @using RTB.BlazorUI.Services.Style
 
 @inject IStyleRegistry Registry
 @inject IBusyTracker Busy
+
+@implements IAsyncDisposable
 
 @code {
     [Parameter] public RenderFragment<string?> ChildContent { get; set; } = default!;
@@ -13,8 +14,7 @@
 
     [Parameter] public string? Media { get; set; }
 
-    private StyleBuilder _builder = StyleBuilder.Start;
-
+    private readonly StyleBuilder _builder = StyleBuilder.Start;
     private string _prevStyle = string.Empty;
 }
 
@@ -29,20 +29,31 @@
 @code {
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        var style = _builder.Build(Media);
-        if (string.IsNullOrEmpty(style)) return;
+        if (!_builder.IsDirty) return;
 
-        var hash = CssHasher.Hash(style);
-        var cls = await Registry.GetOrCreate(style); // Create a unique class name
+        var style = _builder.Build(Media);
+        Console.WriteLine("Styled-CSS " + style);
+
+        if (string.IsNullOrEmpty(style)) return;
+        if (style == _prevStyle) return; // No changes since last render
+
+        var cls = Registry.GetOrCreate(style); // deterministic class name (no injection)
 
         if (cls != Classname)
         {
             Classname = cls;
             ClassnameChanged?.InvokeAsync(Classname);
-
-            await Registry.InjectInto(style, Classname);
-            _prevStyle = style;
-            StateHasChanged();
         }
+
+        await Registry.InjectInto(style, Classname);
+
+        _prevStyle = style;
+        StateHasChanged();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (!string.IsNullOrEmpty(Classname))
+            await Registry.Remove(Classname);
     }
 }

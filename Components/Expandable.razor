@@ -1,5 +1,4 @@
 ﻿@using RTB.BlazorUI.Extensions
-@using RTB.BlazorUI.Helper
 @using RTB.BlazorUI.Services.Style
 @inherits RTBComponent
 
@@ -11,15 +10,14 @@
 
 <Stack 
     Vertical
-    Class="@ClassBuilder.Create("Expandable", Class).Build()"
-    @attributes="@(CapturedAttributes)" 
+    Class="@CombineClass("rtb-expandable", Class)"
     @onclick:stopPropagation
 >
     <Styled Context="ActivatorClass">
         <Size FullWidth />
 
-        <div class="@ClassBuilder.Create("Activator", ActivatorClass).Build()" 
-            @onclick="ToggleMenu"
+        <div class="@CombineClass("rtb-activator", ActivatorClass)"
+             @onclick="ToggleMenu"
         >
             @Activator
         </div>

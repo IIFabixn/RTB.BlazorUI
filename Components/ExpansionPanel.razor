@@ -1,5 +1,4 @@
 ﻿@using RTB.BlazorUI.Extensions
-@using RTB.BlazorUI.Helper
 @inherits RTBComponent
 
 @code {
@@ -16,7 +15,7 @@
     public EventCallback<bool>? ExpandedChanged { get; set; }
 }
 
-<Stack Vertical Class="@ClassBuilder.Create("ExpansionPanel", Class).Build()" @attributes="@CapturedAttributes">
+<Stack Vertical Class="@CombineClass("rtb-expansion-panel", Class)">
     <Stack Horizontal Class="gap-2">
         @Header
 

@@ -1,20 +1,20 @@
 ﻿@using RTB.BlazorUI.Extensions
-@using RTB.BlazorUI.Helper
-@using static RTB.BlazorUI.Helper.CssHelper
+@using RTB.BlazorUI.Styles.Helper
+@using static RTB.BlazorUI.Styles.Components.Flex
 
 @inherits RTBComponent
 
 @code {
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
-    [Parameter] public bool Horizontal { get; set; } = false;
-    [Parameter] public bool Vertical { get; set; } = false;
-    [Parameter] public bool Reverse { get; set; } = false;
+    [Parameter] public bool Horizontal { get; set; }
+    [Parameter] public bool Vertical { get; set; }
+    [Parameter] public bool Reverse { get; set; }
 
-    [Parameter] public string? Gap { get; set; }
-
-    [Parameter] public string? AlignItem { get; set; }
-    [Parameter] public string? JustifyContent { get; set; }
+    [Parameter] public Spacing? Gap { get; set; }
+    [Parameter] public WrapMode? Wrap { get; set; }
+    [Parameter] public Align? AlignItem { get; set; }
+    [Parameter] public Justify? JustifyContent { get; set; }
 
     [Parameter] public int? Shrink { get; set; }
     [Parameter] public int? Grow { get; set; }
@@ -22,29 +22,27 @@
 
 <Styled Context="ComponentClass">
     <Flex 
-        Direction="@GetDirection()" 
+        Direction="@GetDirection" 
         Gap="@Gap" 
         AlignItems="@AlignItem"
         JustifyContent="@JustifyContent"
         Shrink="@Shrink" 
         Grow="@Grow"
+        Wrap="@Wrap"
     />
     
-    <div class="@ClassBuilder.Create("Stack", ComponentClass, Class).Build()" @attributes="@CapturedAttributes">
+    <div class="@CombineClass("Stack", ComponentClass, Class)">
         @ChildContent
     </div>
 </Styled>
 
 @code {
-    private string? GetDirection()
-    {
-        return (Horizontal, Vertical, Reverse) switch
+    private AxisDirection? GetDirection => (Horizontal, Vertical, Reverse) switch
         {
-            (true, false, false) => "row",
-            (false, true, false) => "column",
-            (true, false, true) => "row-reverse",
-            (false, true, true) => "column-reverse",
+            (true, false, false) => AxisDirection.Row,
+            (false, true, false) => AxisDirection.Column,
+            (true, false, true) => AxisDirection.RowReverse,
+            (false, true, true) => AxisDirection.ColumnReverse,
             _ => null
         };
-    }
 }

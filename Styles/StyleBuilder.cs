@@ -6,6 +6,7 @@ using System.Buffers;
 using Microsoft.Extensions.ObjectPool;
 using System.Security.Cryptography.X509Certificates;
 using RTB.BlazorUI.Styles.Components;
+using System.Collections.Concurrent;
 
 namespace RTB.BlazorUI.Styles
 {
@@ -19,10 +20,13 @@ namespace RTB.BlazorUI.Styles
         private readonly Dictionary<string, string> _props = new(StringComparer.OrdinalIgnoreCase);
         private readonly Dictionary<string, string> _selectors = new(StringComparer.OrdinalIgnoreCase);
 
+        public bool IsDirty { get; private set; } = false;
+
         public void Clear()
         {
             _props.Clear();
             _selectors.Clear();
+            IsDirty = false;
         }
 
         /// <summary>
@@ -51,9 +55,9 @@ namespace RTB.BlazorUI.Styles
         /// <param name="value">The CSS property value.</param>
         /// <param name="condition">The condition to evaluate.</param>
         /// <returns>The current StyleBuilder instance for method chaining.</returns>
-        public StyleBuilder AppendIf(string property, string? value, bool condition)
+        public StyleBuilder AppendIf(string? property, string? value, bool condition)
         {
-            if (condition && !string.IsNullOrWhiteSpace(value))
+            if (condition && !string.IsNullOrWhiteSpace(property) &&!string.IsNullOrWhiteSpace(value))
                 return AppendInternal(property, value);
 
             return this;
@@ -95,7 +99,18 @@ namespace RTB.BlazorUI.Styles
                 _selectors[key] = style;
             }
 
+            IsDirty = true; // Mark as dirty since we modified the selectors
+
             return this;
+        }
+
+        public StyleBuilder Var(string name, string value)
+        {
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(value))
+                return this;
+            // CSS variables are prefixed with "--"
+            var property = $"--{name.Trim()}";
+            return AppendInternal(property, value);
         }
 
         /// <summary>
@@ -124,6 +139,7 @@ namespace RTB.BlazorUI.Styles
                     builder.Append(" }");
 
                 var css = builder.ToString().Trim();
+
                 return css;
             }
             catch (Exception ex)
@@ -135,6 +151,7 @@ namespace RTB.BlazorUI.Styles
             finally
             {
                 _stringBuilderPool.Return(builder);
+                IsDirty = false; // Reset dirty state after building
             }
         }
 
@@ -160,6 +177,8 @@ namespace RTB.BlazorUI.Styles
                 _props[key] = value;
             }
 
+            IsDirty = true;
+
             return this;
         }
 
@@ -181,12 +200,14 @@ namespace RTB.BlazorUI.Styles
 
     internal class StringBuilderPool : ObjectPool<StringBuilder>
     {
-        public override StringBuilder Get() => new(256);
-        
+        private readonly ConcurrentBag<StringBuilder> _bag = [];
+        public override StringBuilder Get() => _bag.TryTake(out var sb) ? sb : new StringBuilder(256);
+
         public override void Return(StringBuilder obj)
         {
             if (obj.Capacity > 1024) return; // Don't pool large builders
             obj.Clear();
+            _bag.Add(obj);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿@using RTB.BlazorUI.Extensions
-@using RTB.BlazorUI.Helper
 @using RTB.BlazorUI.Interfaces
 @using RTB.BlazorUI.Services.Style
 @using RTB.BlazorUI.Styles
@@ -25,9 +24,9 @@
 <Styled Context="TabClass">
     <PreStyled Style="@TabStyle" />
     <Other Property="cursor" Value="pointer" />
-    <Flex Direction="row" JustifyContent="center" AlignItems="center" />
+    <Flex Direction="@Flex.AxisDirection.Row" JustifyContent="@Flex.Justify.Center" AlignItems="@Flex.Align.Center" />
 
-    <Grid Rows="auto 1fr" Class="@ClassBuilder.Create("TabGroup", Class).Build()" @attributes="@CapturedAttributes">
+    <GridView Rows="auto 1fr" Class="@CombineClass("TabGroup", Class)">
         <GridItem>
             <Grid Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" Class="place-items-center">
                 @foreach (var tab in _tabItems)
@@ -35,7 +34,7 @@
                     <GridItem 
                         @key="tab.Guid"
                         @onclick="() => SelectedTab = tab.Title"
-                        Class="@ClassBuilder.Create("TabItem", TabClass).Build()">
+                              Class="@CombineClass("TabItem", TabClass)">
                         <Size FullWidth />
                         
                         @if (tab.TabContent is not null)
@@ -53,7 +52,7 @@
         <GridItem Class="@ContentClass">
             @SelectedTabContent
         </GridItem>
-    </Grid>
+    </GridView>
 </Styled>
 
 @code {

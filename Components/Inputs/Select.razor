@@ -1,5 +1,4 @@
 ﻿@using RTB.BlazorUI.Extensions
-@using RTB.BlazorUI.Helper
 @using static RTB.BlazorUI.Components.FlyoutMenu
 @inherits RTBComponent
 
@@ -29,30 +28,26 @@
     private readonly string FlyoutId = $"flyout-{Guid.NewGuid().ToString("N").Substring(0, 8)}";
 }
 <div style="@($"display:contents;anchor-scope:--{FlyoutId};")">
-    <Button @attributes="@CapturedAttributes" popovertarget="@FlyoutId" Class="@Class" style="@($"anchor-name: --{FlyoutId};")">
-        <Styled Context="ActivatorStyle">
-            <div class="@ActivatorStyle @ActivatorClass">
-                @ActionContent.Invoke(SelectedOption)
-            </div>
-        </Styled>
-    </Button>
+    <button popovertarget="@FlyoutId" class="@Class" style="@($"anchor-name: --{FlyoutId};")">
+        @ActionContent.Invoke(SelectedOption)
+    </button>
 
     <Styled Context="MenuClass">
         <Other Property="position" Value="absolute" />
         <Other Property="position-visibility" Value="always" />
-        <Positioned 
-            Bottom="@(Anchor.HasFlag(FlyoutPosition.Top) ? $"anchor(--{FlyoutId} top)" : null)"
-            Right="@(Anchor.HasFlag(FlyoutPosition.Right) ? $"anchor(--{FlyoutId} right)" : null)"
-            Top="@(Anchor.HasFlag(FlyoutPosition.Bottom) ? $"anchor(--{FlyoutId} bottom)" : null)"
-            Left="@(Anchor.HasFlag(FlyoutPosition.Left) ? $"anchor(--{FlyoutId} left)" : null)"
-        />
-        <Overflow Value="auto" />
-        <Size MinHeight="0" MaxHeight="-webkit-fill-available" MinWidth="anchor-size(width)" />
+        <Other Property="top" Value="@($"anchor(--{FlyoutId} top)")" Condition="@Anchor.HasFlag(FlyoutPosition.Top)" />
+        <Other Property="bottom" Value="@($"anchor(--{FlyoutId} bottom)")" Condition="@Anchor.HasFlag(FlyoutPosition.Bottom)" />
+        <Other Property="left" Value="@($"anchor(--{FlyoutId} left)")" Condition="@Anchor.HasFlag(FlyoutPosition.Left)" />
+        <Other Property="right" Value="@($"anchor(--{FlyoutId} right)")" Condition="@Anchor.HasFlag(FlyoutPosition.Right)" />
+
+        <Overflow Value="@Overflow.OverflowMode.Auto" />
+        <Other Property="max-height" Value="-webkit-fill-available" />
+        <Other Property="min-height" Value="anchor-size(width)" />
         <Margin All="0" />
         <Other Property="inset" Value="auto" />
 
         <Selector Query="&:popover-open">
-            <Flex Direction="column" />
+            <Flex Direction="@Flex.AxisDirection.Column" />
         </Selector>
 
         <div class="@MenuClass @ContentClass" popover id="@FlyoutId" style="position-anchor: --@(FlyoutId);">
@@ -76,7 +71,8 @@
         {
             Console.WriteLine($"Item changed {item}");
             SelectedOption = item; 
-            SelectedOptionChanged.InvokeAsync(item);
+            if (SelectedOptionChanged.HasDelegate)
+                SelectedOptionChanged.InvokeAsync(item);
         }
     }
 

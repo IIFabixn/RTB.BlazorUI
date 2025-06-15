@@ -4,7 +4,6 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using RTB.BlazorUI.Extensions;
-using RTB.BlazorUI.Helper;
 using RTB.BlazorUI.Services.Style;
 using RTB.BlazorUI.Services.Theme;
 
@@ -19,8 +18,7 @@ public class Paper : RTBComponent
         var seq = 0;
 
         builder.OpenElement(seq++, "div");
-        builder.AddAttribute(seq++, "class", ClassBuilder.Create("Paper", Class).Build());
-        builder.AddMultipleAttributes(seq++, CapturedAttributes);
+        builder.AddAttribute(seq++, "class", CombineClass("rtb-paper", Class));
         builder.AddContent(seq++, ChildContent);
         builder.CloseElement();
     }

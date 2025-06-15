@@ -1,5 +1,4 @@
 ﻿@using RTB.BlazorUI.Extensions
-@using RTB.BlazorUI.Helper
 @using RTB.BlazorUI.Services.Theme
 @using RTB.BlazorUI.Styles
 @using static RTB.BlazorUI.Components.Text
@@ -17,6 +16,10 @@
 
     [Parameter] public string? Color { get; set; }
     [Parameter] public string? DisabledColor { get; set; }
+
+    [Parameter, EditorRequired] public EventCallback OnClick { get; set; }
+
+    private Task HandleClick() => Disabled || !OnClick.HasDelegate ? Task.CompletedTask : OnClick.InvokeAsync();
 }
 
 <Styled Context="ComponentClass">
@@ -26,9 +29,12 @@
     <Color Value="@(Color ?? ButtonStyle?.Color)" />
     <Color Value="@(DisabledColor ?? ButtonStyle?.Color)" Condition="@Disabled" />
 
-    <button type="button" class="@ClassBuilder.Create().Append(ComponentClass).Append(Class).Build()"
+    <button 
+        type="button"
+        @onclick="HandleClick"
+        class="@CombineClass(ComponentClass, Class)"
         disabled="@Disabled"
-        @attributes="@(CapturedAttributes)">
+        aria-disabled="@Disabled">
         @if (ChildContent is not null) 
         {
             @ChildContent
