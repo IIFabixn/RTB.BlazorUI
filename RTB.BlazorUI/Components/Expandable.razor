@@ -11,14 +11,13 @@
 <Stack 
     Vertical
     Class="@CombineClass("rtb-expandable", Class)"
-    @onclick:stopPropagation
 >
     <Styled Context="ActivatorClass">
         <Size FullWidth />
 
         <div class="@CombineClass("rtb-activator", ActivatorClass)"
              @onclick="ToggleMenu"
-        >
+             @onclick:stopPropagation>
             @Activator
         </div>
     </Styled>

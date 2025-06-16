@@ -48,8 +48,7 @@
                     JustifyContent="@Flex.Justify.SpaceBetween"
                     Class="@HeaderClass"
                 >
-                    <Other Property="position" Value="sticky" />
-                    <Positioned Top="0" />
+                    <Positioned Position="@Positioned.PositionMode.Sticky" Top="0" />
 
                     @(builder => col.RenderHeader(builder, colIdx))
                     @if (Sort?.Column == col)

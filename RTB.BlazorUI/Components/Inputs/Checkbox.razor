@@ -3,6 +3,7 @@
 @inherits RTBComponent
 
 @code {
+    [Parameter] public string? LabelText { get; set; }
     [Parameter] public RenderFragment? ChildContent { get; set; }
 
     [Parameter] public bool Checked { get; set; } = false;
@@ -25,4 +26,8 @@
     @onkeydown="HandleKey">
     <span class="indicator"></span>
     @ChildContent
+    @if (!string.IsNullOrEmpty(LabelText))
+    {
+        <Text>@LabelText</text>
+    }
 </div>

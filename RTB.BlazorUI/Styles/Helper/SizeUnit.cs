@@ -34,6 +34,7 @@ namespace RTB.BlazorUI.Styles.Helper
         public static implicit operator SizeUnit(int px) => new(px, Unit.Px);
         public static implicit operator SizeUnit(double px) => new(px, Unit.Px);
 
+        public static SizeUnit Px(double value) => new(value, Unit.Px);
         public static SizeUnit Percent(double value) => new(value, Unit.Percent);
         public static SizeUnit Em(double value) => new(value, Unit.Em);
         public static SizeUnit Rem(double value) => new(value, Unit.Rem);

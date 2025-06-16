@@ -5,6 +5,7 @@
 @inherits RTBComponent
 
 @code {
+    [Parameter] public string? LabelText { get; set; }
     [Parameter] public RenderFragment? Label { get; set;}
     [Parameter] public string? Placeholder { get; set; }
 
@@ -35,10 +36,14 @@
 }
 
 <GridView Rows="auto auto" Class="@Class">
-    @if (Label is not null)
+    @if (Label is not null || !string.IsNullOrEmpty(LabelText))
     {
         <label for="@_id" class="@LabelClass">
             @Label
+            @if (string.IsNullOrEmpty(LabelText) is false)
+            {
+                <Text>@LabelText</Text>
+            }
         </label>
     }
     <Styled Context="InputStyle">

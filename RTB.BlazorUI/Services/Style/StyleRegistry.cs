@@ -16,11 +16,13 @@ public interface IStyleRegistry
 
     static bool _staticInjected;
 
-    static async Task EnsureStaticCss(IJSRuntime js)
+    static Task EnsureStaticCss(IJSRuntime js)
     {
-        if (_staticInjected) return;
-        await js.InvokeVoidAsync("rtbStyled.inject", StaticCssBlob.Css);
+        if (_staticInjected) return Task.CompletedTask; ;
+        // await js.InvokeVoidAsync("rtbStyled.inject", StaticCssBlob.Css);
         _staticInjected = true;
+
+        return Task.CompletedTask;
     }
 }
 

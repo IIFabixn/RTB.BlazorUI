@@ -20,10 +20,6 @@
     <Content Remove="package-lock.json" />
     <None Remove="package-lock.json" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\RTB.StaticCssGenerator\RTB.StaticCssGenerator.csproj" OutputItemType="Analyzer" />
-  </ItemGroup>
 	
 	<Target Name="CompileTailwind" AfterTargets="Build">
         <Message Text="Compile RTB.BlazorUI Tailwindcss" Importance="high" />

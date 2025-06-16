@@ -89,6 +89,7 @@ namespace RTB.BlazorUI.Styles.Helper
             return new Spacing(val, unit);
         }
 
+        public static Spacing Px(double v) => new(v, Unit.Px);
         public static Spacing Em(double v) => new(v, Unit.Em);
         public static Spacing Rem(double v) => new(v, Unit.Rem);
         public static Spacing Vw(double v) => new(v, Unit.Vw);
