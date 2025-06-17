@@ -4,7 +4,6 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using RTB.BlazorUI.Extensions;
-using RTB.BlazorUI.Services.Style;
 using RTB.BlazorUI.Services.Theme;
 
 namespace RTB.BlazorUI.Components;

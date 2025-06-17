@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
 using RTB.BlazorUI.Components;
-using RTB.BlazorUI.Services.Dialog;
 
 namespace RTB.BlazorUI.Services.Dialog.Components
 {

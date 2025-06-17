@@ -1,26 +1,25 @@
-﻿@using RTB.BlazorUI.Styles.Helper
-@using SkiaSharp
+﻿@using SkiaSharp
 @using SkiaSharp.Views.Blazor
 
 @inherits ChartBase
 
-<Grid Rows="1fr auto" Class="w-full">
+<GridView Rows="1fr auto" Class="w-full">
     <Styled Context="BarChartClass">
         <Size FullHeight FullWidth />
 
         <SKCanvasView class="@BarChartClass" OnPaintSurface="PaintBars" EnableRenderLoop />
     </Styled>
 
-    <Stack Horizontal AlignItem="@Flex.Align.Center" Gap="@Styles.Helper.Spacing.Rem(1)" Wrap="@Flex.WrapMode.Wrap">
+    <Stack Horizontal AlignItem="@Flex.Align.Center" Gap="@Spacing.Rem(1)" Wrap="@Flex.WrapMode.Wrap">
         @foreach (var entry in Entries)
         {
-            <Stack Horizontal AlignItem="@Flex.Align.Center" JustifyContent="@Flex.Justify.Center" Gap="@Styles.Helper.Spacing.Rem(1)">
+            <Stack Horizontal AlignItem="@Flex.Align.Center" JustifyContent="@Flex.Justify.Center" Gap="@Spacing.Rem(1)">
                 <div class="w-2 h-2 rounded" style="background-color: #@(entry.Color?.ToString().Substring(3) ?? RTBColors.White);"></div>
                 <h4>@entry.Label</h4>
             </Stack>
         }
     </Stack>
-</Grid>
+</GridView>
 
 @code {
     private void PaintBars(SKPaintSurfaceEventArgs args)

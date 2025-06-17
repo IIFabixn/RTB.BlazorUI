@@ -2,9 +2,8 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using RTB.BlazorUI.Interfaces;
-using RTB.BlazorUI.Services.Style;
-using RTB.BlazorUI.Styles;
-using RTB.BlazorUI.Styles.Components;
+using RTB.Styled;
+using RTB.Styled.Helper;
 
 namespace RTB.BlazorUI.Components.DataGrid
 {
@@ -72,8 +71,8 @@ namespace RTB.BlazorUI.Components.DataGrid
         public override void RenderCell(RenderTreeBuilder builder, TRow row, int col)
         {
             var seq = 0;
-            builder.OpenComponent<Styled>(seq++);
-            builder.AddComponentParameter(seq++, nameof(Styled.ChildContent), (RenderFragment<string>)((className) => _builder =>
+            builder.OpenComponent<Styled.Styled>(seq++);
+            builder.AddComponentParameter(seq++, nameof(Styled.Styled.ChildContent), (RenderFragment<string>)((className) => _builder =>
             {
                 _builder.OpenElement(0, "div");
                 _builder.AddAttribute(1, "class", CombineClass("ViewColumn", className, Class));
@@ -116,8 +115,8 @@ namespace RTB.BlazorUI.Components.DataGrid
         {
             var seq = 0;
             var value = ValueFunc(row);
-            builder.OpenComponent<Styled>(seq++);
-            builder.AddComponentParameter(seq++, nameof(Styled.ChildContent), (RenderFragment<string>)(classname => _builder => {
+            builder.OpenComponent<Styled.Styled>(seq++);
+            builder.AddComponentParameter(seq++, nameof(Styled.Styled.ChildContent), (RenderFragment<string>)(classname => _builder => {
                 var seq = 0;
                 _builder.OpenElement(seq++, "div");
                 _builder.AddAttribute(seq++, "role", "cell");

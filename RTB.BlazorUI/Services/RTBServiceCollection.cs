@@ -4,7 +4,7 @@ using RTB.BlazorUI.Services.BusyTracker;
 using RTB.BlazorUI.Services.DragDrop;
 using RTB.BlazorUI.Services.Theme;
 using RTB.BlazorUI.Services.Theme.Themes;
-using RTB.BlazorUI.Services.Style;
+using RTB.Styled.Helper;
 
 namespace RTB.BlazorUI.Services
 {

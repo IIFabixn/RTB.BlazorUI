@@ -1,12 +1,10 @@
-﻿@using RTB.BlazorUI.Styles
-@using System.Timers
-@using RTB.BlazorUI.Styles.Helper
+﻿@using System.Timers
 
 @inherits RTBComponent
 
 @code {
     [Parameter] public string? LabelText { get; set; }
-    [Parameter] public RenderFragment? Label { get; set;}
+    [Parameter] public RenderFragment? LabelContent { get; set;}
     [Parameter] public string? Placeholder { get; set; }
 
     [Parameter] public string Value { get; set; } = string.Empty;
@@ -36,13 +34,13 @@
 }
 
 <GridView Rows="auto auto" Class="@Class">
-    @if (Label is not null || !string.IsNullOrEmpty(LabelText))
+    @if (LabelContent is not null || !string.IsNullOrEmpty(LabelText))
     {
         <label for="@_id" class="@LabelClass">
-            @Label
+            @LabelContent
             @if (string.IsNullOrEmpty(LabelText) is false)
             {
-                <Text>@LabelText</Text>
+                <RTB.BlazorUI.Components.Text Align="@Text.TextAlign.Left">@LabelText</RTB.BlazorUI.Components.Text>
             }
         </label>
     }

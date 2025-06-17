@@ -1,6 +1,4 @@
-﻿@using RTB.BlazorUI.Styles
-@using RTB.BlazorUI.Styles.Helper
-
+﻿@using RTB.BlazorUI.Services.Theme.Styles
 @inherits RTBComponent
 
 @code {
@@ -17,11 +15,22 @@
     [Parameter] public string? LineHeight { get; set; }
     [Parameter] public string? TextDecoration { get; set; }
     [Parameter] public RTBColor? Color { get; set; }
+
+    private string ToCss(TextAlign? align)
+    {
+        return align switch
+        {
+            TextAlign.Left => "left",
+            TextAlign.Center => "center",
+            TextAlign.Right => "right",
+            _ => "left"
+        };
+    }
 }
 
 <Styled Context="ComponentClass">
     <PreStyled Style="@TextStyle" />
-    <Other Property="text-align" Value="@Align?.ToCss()" />
+    <Other Property="text-align" Value="@ToCss(Align)" />
     <Other Property="font-size" Value="@FontSize" />
     <Other Property="font-weight" Value="@FontWeight" />
     <Other Property="line-height" Value="@LineHeight" />

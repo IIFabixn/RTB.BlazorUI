@@ -15,54 +15,56 @@
     [Parameter] public TOption? SelectedOption { get; set; }
     [Parameter] public EventCallback<TOption> SelectedOptionChanged { get; set; } = default!;
 
-    /// <summary>
-    /// Fragment for exameple Searchbars, Filter Options, etc..
-    /// </summary>
-    [Parameter] public string? ActivatorClass { get; set; }
     [Parameter] public string? ContentClass { get; set; }
 
-    [Parameter] public FlyoutPosition Anchor { get; set; } = FlyoutPosition.BottomLeft;
+    [Parameter] public FlyoutPosition Anchor { get; set; } = FlyoutPosition.Bottom;
 
     [Parameter] public bool Multiple { get; set; }
 
     private readonly string FlyoutId = $"flyout-{Guid.NewGuid().ToString("N").Substring(0, 8)}";
+
+    private string GetAnchorPosition()
+    {
+        string position = string.Empty;
+        if (Anchor.HasFlag(FlyoutPosition.Top)) position += " top";
+        if (Anchor.HasFlag(FlyoutPosition.Right)) position += " right";
+        if (Anchor.HasFlag(FlyoutPosition.Bottom)) position += " bottom";
+        if (Anchor.HasFlag(FlyoutPosition.Left)) position += " left";
+
+        return position.Trim();
+    }
 }
-<div style="@($"display:contents;anchor-scope:--{FlyoutId};")">
-    <button popovertarget="@FlyoutId" class="@Class" style="@($"anchor-name: --{FlyoutId};")">
-        @ActionContent.Invoke(SelectedOption)
-    </button>
 
-    <Styled Context="MenuClass">
-        <Other Property="position" Value="absolute" />
-        <Other Property="position-visibility" Value="always" />
-        <Other Property="top" Value="@($"anchor(--{FlyoutId} top)")" Condition="@Anchor.HasFlag(FlyoutPosition.Top)" />
-        <Other Property="bottom" Value="@($"anchor(--{FlyoutId} bottom)")" Condition="@Anchor.HasFlag(FlyoutPosition.Bottom)" />
-        <Other Property="left" Value="@($"anchor(--{FlyoutId} left)")" Condition="@Anchor.HasFlag(FlyoutPosition.Left)" />
-        <Other Property="right" Value="@($"anchor(--{FlyoutId} right)")" Condition="@Anchor.HasFlag(FlyoutPosition.Right)" />
+<button popovertarget="@FlyoutId" class="@Class" style="@($"anchor-name: --{FlyoutId};")">
+    @ActionContent.Invoke(SelectedOption)
+</button>
 
-        <Overflow />
-        <Other Property="max-height" Value="-webkit-fill-available" />
-        <Other Property="min-height" Value="anchor-size(width)" />
-        <Margin All="0" />
-        <Other Property="inset" Value="auto" />
+<Styled Context="MenuClass">
+    <Other Property="position" Value="absolute" />
+    <Other Property="position-visibility" Value="always" />
+    <Other Property="position-area" Value="@(GetAnchorPosition())" />
 
-        <Selector Query="&:popover-open">
-            <Flex Direction="@Flex.AxisDirection.Column" />
-        </Selector>
+    <Overflow />
+    <Other Property="max-height" Value="-webkit-fill-available" />
+    <Other Property="min-width" Value="anchor-size(width)" />
+    <Margin All="0" />
 
-        <div class="@MenuClass @ContentClass" popover id="@FlyoutId" style="position-anchor: --@(FlyoutId);">
-            <Stack Vertical Grow="1">
-                <CollectionList Vertical Items="@Options" TItem="TOption">
-                    <ItemTemplate Context="item">
-                        <button popovertarget="@FlyoutId" popovertargetaction="hide" @onclick="@(() => HandleSelection(item))">
-                            @OptionTemplate.Invoke(item)
-                        </button>
-                    </ItemTemplate>
-                </CollectionList>
-            </Stack>
-        </div>
-    </Styled>
-</div>
+    <Selector Query="&:popover-open">
+        <Flex Direction="@Flex.AxisDirection.Column" />
+    </Selector>
+
+    <div class="@MenuClass @ContentClass" popover id="@FlyoutId" style="position-anchor: --@(FlyoutId);">
+        <Stack Vertical Grow="1">
+            <CollectionList Vertical Items="@Options" TItem="TOption">
+                <ItemTemplate Context="item">
+                    <button popovertarget="@FlyoutId" popovertargetaction="hide" @onclick="@(() => HandleSelection(item))">
+                        @OptionTemplate.Invoke(item)
+                    </button>
+                </ItemTemplate>
+            </CollectionList>
+        </Stack>
+    </div>
+</Styled>
 
 @code {
     private void HandleSelection(TOption item)

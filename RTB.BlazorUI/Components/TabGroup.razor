@@ -1,7 +1,6 @@
 ﻿@using RTB.BlazorUI.Extensions
 @using RTB.BlazorUI.Interfaces
-@using RTB.BlazorUI.Services.Style
-@using RTB.BlazorUI.Styles
+@using RTB.BlazorUI.Services.Theme.Styles
 
 @inherits RTBComponent
 
@@ -27,7 +26,7 @@
     <Flex Direction="@Flex.AxisDirection.Row" JustifyContent="@Flex.Justify.Center" AlignItems="@Flex.Align.Center" />
 
     <GridView Rows="auto 1fr" Class="@CombineClass("TabGroup", Class)">
-        <GridView Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" ItemPlacement="@Styles.Helper.Place.Center">
+        <GridView Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" ItemPlacement="@Place.Center">
             @foreach (var tab in _tabItems)
             {
                 <Styled Context="InternalTabClass">
