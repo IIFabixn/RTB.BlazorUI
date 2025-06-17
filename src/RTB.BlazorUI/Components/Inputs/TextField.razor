@@ -1,8 +1,12 @@
 ﻿@using System.Timers
+@using RTB.BlazorUI.Services.Theme.Styles
+
 
 @inherits RTBComponent
 
 @code {
+    [Parameter] public string? LabelClass { get; set; }
+    [Parameter] public TextStyle? LabelTextStyle { get; set; }
     [Parameter] public string? LabelText { get; set; }
     [Parameter] public RenderFragment? LabelContent { get; set;}
     [Parameter] public string? Placeholder { get; set; }
@@ -10,8 +14,8 @@
     [Parameter] public string Value { get; set; } = string.Empty;
     [Parameter] public EventCallback<string> ValueChanged { get; set; } = default!;
 
-    [Parameter] public string? LabelClass { get; set; }
     [Parameter] public string? InputClass { get; set; }
+    [Parameter] public TextStyle? InputStyle { get; set; }
 
     [Parameter] public int DebounceMilliseconds { get; set; } = 300;
     [Parameter] public bool Immediate { get; set; }
@@ -40,11 +44,13 @@
             @LabelContent
             @if (string.IsNullOrEmpty(LabelText) is false)
             {
-                <RTB.BlazorUI.Components.Text Align="@Text.TextAlign.Left">@LabelText</RTB.BlazorUI.Components.Text>
+                <RTB.BlazorUI.Components.Text TextStyle="@LabelTextStyle">@LabelText</RTB.BlazorUI.Components.Text>
             }
         </label>
     }
-    <Styled Context="InputStyle">
+
+    <Styled Context="InputStyleClass">
+        <PreStyled Style="@InputStyle" />
         <Other Property="outline" Value="none" />
         <Border Side="Border.BorderSide.None" />
         <Border Side="Border.BorderSide.Bottom" Color="@RTBColors.Black" Width="1" />
@@ -54,6 +60,6 @@
             @onchange="@(e => ValueChanged.InvokeAsync((string?)e.Value))"
             @oninput="OnInput"
             placeholder="@Placeholder"
-            class="@CombineClass("rtb-tf", Class, InputClass)" />
+            class="@CombineClass("rtb-tf", InputStyleClass, InputClass)" />
     </Styled>
 </GridView>

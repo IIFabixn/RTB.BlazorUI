@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static RTB.Styled.Components.Flex;
 
 namespace RTB.BlazorUI.Services.Theme.Styles
 {
@@ -16,6 +17,7 @@ namespace RTB.BlazorUI.Services.Theme.Styles
         public string? LineHeight { get; set; }
         public RTBColor? Color { get; set; }
         public string? TextDecoration { get; set; }
+        public Align? TextAlign { get; set; }
 
         public virtual StyleBuilder ToStyle()
         {
@@ -24,7 +26,8 @@ namespace RTB.BlazorUI.Services.Theme.Styles
                 .AppendIfNotNull("font-weight", FontWeight)
                 .AppendIfNotNull("line-height", LineHeight)
                 .AppendIfNotNull("color", Color)
-                .AppendIfNotNull("text-decoration", TextDecoration);
+                .AppendIfNotNull("text-decoration", TextDecoration)
+                .AppendIfNotNull("text-align", TextAlign?.ToCss());
         }
     }
 }

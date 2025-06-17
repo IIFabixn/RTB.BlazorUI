@@ -1,8 +1,12 @@
-﻿@inherits RTBComponent
+﻿@using RTB.BlazorUI.Services.Theme.Styles
+@inherits RTBComponent
 
 @code {
     [Parameter] public string? LabelText { get; set; }
+    [Parameter] public TextStyle? LabelTextStyle { get; set; }
     [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    [Parameter] public string? CheckboxClass { get; set; }
 
     [Parameter] public bool Checked { get; set; } = false;
     [Parameter] public EventCallback<bool> CheckedChanged { get; set; }
@@ -14,18 +18,17 @@
     private Task HandleKey(KeyboardEventArgs e) => (e.Key == " " || e.Key == "Enter") ? Toggle() : Task.CompletedTask;
 }
 
-<div
-    role="checkbox"
-    tabindex="0"
-    aria-checked="@Checked"
-    class="@CombineClass("rtb-checkbox", Checked ? "is-on":null, Class)"
-    @onclick:preventDefault
-    @onclick="Toggle"
-    @onkeydown="HandleKey">
-    <span class="indicator"></span>
-    @ChildContent
-    @if (!string.IsNullOrEmpty(LabelText))
-    {
-        <Text>@LabelText</text>
-    }
-</div>
+<Stack JustifyContent="@Flex.Justify.SpaceBetween" Class="@Class">
+    <label for="@InputId">
+        @if (ChildContent != null) 
+        {
+            @ChildContent
+        }
+
+        @if (!string.IsNullOrEmpty(LabelText))
+        {
+            <RTB.BlazorUI.Components.Text TextStyle="@LabelTextStyle">@LabelText</RTB.BlazorUI.Components.Text>
+        }
+    </label>
+    <input id="@InputId" class="@CheckboxClass" type="checkbox" value="@Checked" @onchange="@(() => Toggle())" />
+</Stack>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RTB.Styled.Helper;
 
-internal static class CssEnumExtensions
+public static class CssEnumExtensions
 {
     public static string ToCss(this Enum e)
     {

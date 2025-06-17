@@ -6,7 +6,6 @@ using RTB.Styled.Helper;
 namespace RTB.Styled.Components;
 public class Grid : RTBStyleBase
 {
-
     [Parameter] public string TemplateColumns { get; set; } = "1fr";
     [Parameter] public string TemplateRows { get; set; } = "1fr";
     [Parameter] public Spacing? Gap { get; set; }
