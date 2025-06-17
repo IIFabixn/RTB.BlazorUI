@@ -5,6 +5,7 @@ using RTB.BlazorUI.Services.DragDrop;
 using RTB.BlazorUI.Services.Theme;
 using RTB.BlazorUI.Services.Theme.Themes;
 using RTB.Styled.Helper;
+using RTB.Styled;
 
 namespace RTB.BlazorUI.Services
 {
@@ -41,7 +42,7 @@ namespace RTB.BlazorUI.Services
                 collection.AddScoped<DataNavigationService.DataNavigationService>();
             }
 
-            collection.AddScoped<IStyleRegistry, StyleRegistry>();
+            collection.UseRTBStyled();
 
             return collection;
         }

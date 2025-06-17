@@ -4,6 +4,16 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+
+    <PackageId>RTB.Styled</PackageId>
+    <Version>1.0.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Fabian Becker</Authors>
+    <Description>Styled components for Blazor</Description>
+    <PackageTags>blazor;styled;ui;components</PackageTags>
+    <RepositoryUrl>https://github.com/IIFabixn/RTB.BlazorUI</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
 

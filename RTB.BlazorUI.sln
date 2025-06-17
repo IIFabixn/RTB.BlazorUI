@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36202.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTB.BlazorUI", "RTB.BlazorUI\RTB.BlazorUI.csproj", "{47F18BB2-CCBD-1EC2-CD4A-1D7023B1A2DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTB.BlazorUI", "src\RTB.BlazorUI\RTB.BlazorUI.csproj", "{1F26501B-2683-F456-38D5-FE2C19E69296}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTB.StaticCssGenerator", "RTB.StaticCssGenerator\RTB.StaticCssGenerator.csproj", "{9925D381-FAEC-429E-99C0-70A1FCB0C9B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTB.StaticCssGenerator", "src\RTB.StaticCssGenerator\RTB.StaticCssGenerator.csproj", "{CE469066-8369-C97D-3A39-50B325873E90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTB.Styled", "RTB.Styled\RTB.Styled.csproj", "{857F931B-3B33-4597-9E11-31F76605A16C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTB.Styled", "src\RTB.Styled\RTB.Styled.csproj", "{BEDEDB08-DCAE-3C65-72E1-7FC7BED7F8CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{47F18BB2-CCBD-1EC2-CD4A-1D7023B1A2DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47F18BB2-CCBD-1EC2-CD4A-1D7023B1A2DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47F18BB2-CCBD-1EC2-CD4A-1D7023B1A2DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47F18BB2-CCBD-1EC2-CD4A-1D7023B1A2DB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9925D381-FAEC-429E-99C0-70A1FCB0C9B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9925D381-FAEC-429E-99C0-70A1FCB0C9B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9925D381-FAEC-429E-99C0-70A1FCB0C9B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9925D381-FAEC-429E-99C0-70A1FCB0C9B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{857F931B-3B33-4597-9E11-31F76605A16C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{857F931B-3B33-4597-9E11-31F76605A16C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{857F931B-3B33-4597-9E11-31F76605A16C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{857F931B-3B33-4597-9E11-31F76605A16C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F26501B-2683-F456-38D5-FE2C19E69296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F26501B-2683-F456-38D5-FE2C19E69296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F26501B-2683-F456-38D5-FE2C19E69296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F26501B-2683-F456-38D5-FE2C19E69296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE469066-8369-C97D-3A39-50B325873E90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE469066-8369-C97D-3A39-50B325873E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE469066-8369-C97D-3A39-50B325873E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE469066-8369-C97D-3A39-50B325873E90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEDEDB08-DCAE-3C65-72E1-7FC7BED7F8CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEDEDB08-DCAE-3C65-72E1-7FC7BED7F8CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEDEDB08-DCAE-3C65-72E1-7FC7BED7F8CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEDEDB08-DCAE-3C65-72E1-7FC7BED7F8CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
