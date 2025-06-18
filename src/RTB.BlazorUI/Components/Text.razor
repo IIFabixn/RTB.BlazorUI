@@ -37,8 +37,11 @@
     <Other Property="text-decoration" Value="@TextDecoration" />
     <Color Value="@Color" />
 
-    <p class="@($"{ComponentClass} {Class}")">
-        @ChildContent
-    </p>
+    @(_builder => {
+            _builder.OpenElement(0, Element);
+            _builder.AddAttribute(1, "class", $"{ComponentClass} {Class}");
+            _builder.AddContent(2, ChildContent);
+            _builder.CloseElement();
+        })
     
 </Styled>

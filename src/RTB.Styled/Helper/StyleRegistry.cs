@@ -10,14 +10,14 @@ public interface IStyleRegistry
 {
     string GetOrCreate(string css);
     ValueTask InjectInto(string css, string className);
-    ValueTask Remove(string className);
+    ValueTask<bool> TryRemove(string className);
     ValueTask ClearAll();
 }
 
 public sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
 {
     // value is the original css (null until first InjectInto)
-    private readonly ConcurrentDictionary<ulong, string?> _cache = new();
+    private readonly ConcurrentDictionary<ulong, int> _cache = new();
 
     public string GetOrCreate(string css)
     {
@@ -25,14 +25,17 @@ public sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
         var className = $"s-{hash:X}";
 
         // Hash-collision check
-        if (_cache.TryGetValue(hash, out var existingCss) && existingCss is not null && existingCss != css)
+        if (_cache.TryGetValue(hash, out int value))
         {
-            // collision - derive a secondary hash
-            hash = CssHasher.Hash($"{css}{css.Length}");
-            className = $"s-{hash:X}"; // Update className with the new hash
+            // using the same class twice
+            _cache[hash] = ++value;
+        }
+        else
+        {
+            // first accourence
+            _cache.TryAdd(hash, 1);        
         }
 
-        _cache.TryAdd(hash, null);
         return className;
     }
 
@@ -49,28 +52,33 @@ public sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
 
         if (_cache.ContainsKey(hashValue))
         {
-            _cache[hashValue] = css; // realize the cache
-
             return jsRuntime.InvokeVoidAsync("rtbStyled.injectInto", css, className);
         }
 
         return ValueTask.CompletedTask;
     }
 
-    public ValueTask Remove(string className)
+    public async ValueTask<bool> TryRemove(string className)
     {
+        if (string.IsNullOrEmpty(className)) return false;
+
         var ch = className[2..]; // strip "s-" prefix
         if (!ulong.TryParse(ch, System.Globalization.NumberStyles.HexNumber, null, out var hashValue))
         {
             throw new ArgumentException($"Invalid className format: {className}. Expected format is 's-<hexadecimal>'.", nameof(className));
         }
 
-        if (_cache.TryRemove(hashValue, out _))
+        if (_cache.TryGetValue(hashValue, out var applience))
         {
-            return jsRuntime.InvokeVoidAsync("rtbStyled.clearRule", className);
+            _cache[hashValue] = --applience;
+            if (applience <= 0)
+            {
+                await jsRuntime.InvokeVoidAsync("rtbStyled.clearRule", className);
+                return true;
+            }
         }
 
-        return ValueTask.CompletedTask; // No-op if the className was not found in the cache
+        return false;
     }
 
     public ValueTask ClearAll()

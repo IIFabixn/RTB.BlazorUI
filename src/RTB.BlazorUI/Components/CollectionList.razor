@@ -28,8 +28,18 @@
 >
     @if (Items.Any())
     {
-        <Virtualize Items="@Items" Context="item">
-            @ItemTemplate?.Invoke(item)
-        </Virtualize>
+        @if(Virtualize)
+        {
+            <Virtualize Items="@Items" Context="item">
+                @ItemTemplate?.Invoke(item)
+            </Virtualize>
+        }
+        else
+        {
+            foreach(var item in Items)
+            {
+                @ItemTemplate?.Invoke(item)
+            }
+        }
     }
 </Stack>

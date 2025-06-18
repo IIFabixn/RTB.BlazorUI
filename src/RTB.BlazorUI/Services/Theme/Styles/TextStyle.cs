@@ -1,11 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
-using RTB.Styled;
+﻿using RTB.Styled;
 using RTB.Styled.Helper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static RTB.Styled.Components.Flex;
 
 namespace RTB.BlazorUI.Services.Theme.Styles

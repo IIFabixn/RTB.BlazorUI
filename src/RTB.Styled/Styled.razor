@@ -48,7 +48,6 @@
 
     public async ValueTask DisposeAsync()
     {
-        if (!string.IsNullOrEmpty(Classname))
-            await Registry.Remove(Classname);
+        await Registry.TryRemove(Classname);
     }
 }
