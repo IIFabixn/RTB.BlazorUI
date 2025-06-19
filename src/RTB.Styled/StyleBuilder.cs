@@ -11,7 +11,7 @@ namespace RTB.Styled
     /// <summary>
     /// A fluent builder for constructing inline CSS style strings.
     /// </summary>
-    public class StyleBuilder
+    public partial class StyleBuilder
     {
         private static readonly ObjectPool<StringBuilder> _stringBuilderPool = new StringBuilderPool();
 
@@ -163,6 +163,11 @@ namespace RTB.Styled
             return builder?.Build() ?? string.Empty;
         }
 
+        public override string ToString()
+        {
+            return Build();
+        }
+
         private StyleBuilder AppendInternal(string property, string value)
         {
             if (string.IsNullOrWhiteSpace(property) || string.IsNullOrWhiteSpace(value))
@@ -180,21 +185,6 @@ namespace RTB.Styled
 
             return this;
         }
-
-        private StyleBuilder AppendRangeInternal(Dictionary<string, string> values)
-        {
-            ArgumentNullException.ThrowIfNull(values);
-
-            if (values is null || values.Count == 0)
-                return this;
-
-            foreach (var kvp in values)
-            {
-                AppendInternal(kvp.Key, kvp.Value);
-            }
-
-            return this;
-        }
     }
 
     internal class StringBuilderPool : ObjectPool<StringBuilder>
@@ -208,13 +198,5 @@ namespace RTB.Styled
             obj.Clear();
             _bag.Add(obj);
         }
-    }
-
-    public static class StyleBuilderExtensions
-    {
-        /// <summary>
-        /// Marks a CSS literal as compile-time static so the generator can pick it up.
-        /// </summary>
-        public static string BuildStatic(this StyleBuilder _, string cssLiteral) => cssLiteral;
     }
 }

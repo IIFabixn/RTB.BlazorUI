@@ -4,6 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,4 +30,7 @@
         <Exec Command="npx @tailwindcss/cli -i ./tailwind-input.css -o ./wwwroot/css/tailwind.css" />
 	</Target>
 
+    <Target Name="ExtractStaticStyles" AfterTargets="Build">
+        <Exec WorkingDirectory="$(OutDir)" Command="dotnet script &quot;$(SolutionDir)src/RTB.Styled/StaticStylesExtractorTask.csx&quot; -- &quot;$(TargetPath)&quot; &quot;$(ProjectDir)wwwroot/css/RTB.Styled.css&quot;" />
+    </Target>
 </Project>

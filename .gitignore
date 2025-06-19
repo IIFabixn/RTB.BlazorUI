@@ -483,3 +483,4 @@ $RECYCLE.BIN/
 # Vim temporary swap files
 *.swp
 /wwwroot/css/tailwind.css
+src/RTB.BlazorUI/exclude
