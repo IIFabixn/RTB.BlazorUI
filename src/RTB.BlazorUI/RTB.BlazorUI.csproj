@@ -4,7 +4,16 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+
+      <PackageId>RTB.BlazorUI</PackageId>
+      <Version>1.0.16</Version>
+      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+      <Authors>Fabian Becker</Authors>
+      <Description>WPF like Components for Blazor</Description>
+      <PackageTags>blazor;ui;components</PackageTags>
+      <RepositoryUrl>https://github.com/IIFabixn/RTB.BlazorUI</RepositoryUrl>
+      <PackageLicenseExpression>MIT</PackageLicenseExpression>
+      <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.6" />
+    <PackageReference Include="RTB.Styled" Version="1.0.50" />
     <PackageReference Include="SkiaSharp.Views.Blazor" Version="3.119.0" />
   </ItemGroup>
 
@@ -20,17 +30,9 @@
     <Content Remove="package-lock.json" />
     <None Remove="package-lock.json" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\RTB.Styled\RTB.Styled.csproj" />
-  </ItemGroup>
 	
 	<Target Name="CompileTailwind" AfterTargets="Build">
         <Message Text="Compile RTB.BlazorUI Tailwindcss" Importance="high" />
         <Exec Command="npx @tailwindcss/cli -i ./tailwind-input.css -o ./wwwroot/css/tailwind.css" />
 	</Target>
-
-    <Target Name="ExtractStaticStyles" AfterTargets="Build">
-        <Exec WorkingDirectory="$(OutDir)" Command="dotnet script &quot;$(SolutionDir)src/RTB.Styled/StaticStylesExtractorTask.csx&quot; -- &quot;$(TargetPath)&quot; &quot;$(ProjectDir)wwwroot/css/RTB.Styled.css&quot;" />
-    </Target>
 </Project>

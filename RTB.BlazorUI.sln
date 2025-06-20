@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTB.BlazorUI", "src\RTB.Bla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTB.Styled", "src\RTB.Styled\RTB.Styled.csproj", "{BEDEDB08-DCAE-3C65-72E1-7FC7BED7F8CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTB.StyledGenerator", "src\RTB.StyledGenerator\RTB.StyledGenerator.csproj", "{43542439-7A40-3D2A-A823-E0A98607715E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BEDEDB08-DCAE-3C65-72E1-7FC7BED7F8CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEDEDB08-DCAE-3C65-72E1-7FC7BED7F8CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEDEDB08-DCAE-3C65-72E1-7FC7BED7F8CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43542439-7A40-3D2A-A823-E0A98607715E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43542439-7A40-3D2A-A823-E0A98607715E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43542439-7A40-3D2A-A823-E0A98607715E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43542439-7A40-3D2A-A823-E0A98607715E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

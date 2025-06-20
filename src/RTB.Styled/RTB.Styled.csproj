@@ -1,28 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
 
-    <PackageId>RTB.Styled</PackageId>
-    <Version>1.0.0</Version>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>Fabian Becker</Authors>
-    <Description>Styled components for Blazor</Description>
-    <PackageTags>blazor;styled;ui;components</PackageTags>
-    <RepositoryUrl>https://github.com/IIFabixn/RTB.BlazorUI</RepositoryUrl>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryType>git</RepositoryType>
-  </PropertyGroup>
+        <PackageId>RTB.Styled</PackageId>
+        <Version>1.0.50</Version>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>Fabian Becker</Authors>
+        <Description>Styled components for Blazor</Description>
+        <PackageTags>blazor;styled;ui;components</PackageTags>
+        <RepositoryUrl>https://github.com/IIFabixn/RTB.BlazorUI/</RepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <SupportedPlatform Include="browser" />
-  </ItemGroup>
+    <ItemGroup>
+        <SupportedPlatform Include="browser" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.6" />
-    <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="9.0.6" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components" Version="9.0.6" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.6" />
+        <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="9.0.6" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="buildTransitive\RTB.Styled.targets" Pack="true" PackagePath="buildTransitive\RTB.Styled.targets" />
+        <None Include="..\RTB.StyledGenerator\bin\Release\net9.0\RTB.StyledGenerator.dll" Pack="true" PackagePath="buildTransitive\RTB.StyledGenerator.dll" />
+        <None Include="..\RTB.StyledGenerator\bin\Release\net9.0\RTB.StyledGenerator.runtimeconfig.json"
+        Pack="true"
+        PackagePath="buildTransitive\RTB.StyledGenerator.runtimeconfig.json" />
+    </ItemGroup>
 
 </Project>

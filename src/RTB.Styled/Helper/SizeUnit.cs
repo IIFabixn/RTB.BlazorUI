@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace RTB.Styled.Helper;
 
-public readonly record struct SizeUnit
+public readonly partial record struct SizeUnit
 {
     private readonly int _value;
     public double Value => _value;
@@ -33,6 +35,38 @@ public readonly record struct SizeUnit
 
     public static implicit operator SizeUnit(int px) => new(px, Unit.Px);
     public static implicit operator SizeUnit(double px) => new(px, Unit.Px);
+    public static implicit operator SizeUnit(string literal) => Parse(literal);
+
+
+    private static readonly Regex _rx = UnitRegex();
+
+    public static SizeUnit Parse(string text)
+    {
+        ArgumentNullException.ThrowIfNull(text);
+
+        var m = _rx.Match(text);
+        if (!m.Success)
+            throw new FormatException($"Unrecognised Size literal \"{text}\".");
+
+        /* Numeric value ----------------------------------------------------*/
+        double val = double.Parse(m.Groups["val"].Value, CultureInfo.InvariantCulture);
+
+        /* Unit -------------------------------------------------------------*/
+        var Unittr = m.Groups["unit"].Value.ToLowerInvariant();
+        Unit unit = Unittr switch
+        {
+            "" => Unit.Px,      // default
+            "px" => Unit.Px,
+            "rem" => Unit.Rem,
+            "em" => Unit.Em,
+            "%" => Unit.Percent,
+            "vw" => Unit.Vw,
+            "vh" => Unit.Vh,
+            _ => throw new FormatException($"Unknown unit \"{Unittr}\".")
+        };
+
+        return new SizeUnit(val, unit);
+    }
 
     public static SizeUnit Px(double value) => new(value, Unit.Px);
     public static SizeUnit Percent(double value) => new(value, Unit.Percent);
@@ -89,4 +123,12 @@ public readonly record struct SizeUnit
 
     public static bool operator <=(SizeUnit a, SizeUnit b)
     { EnsureSameUnit(a, b); return a.Value <= b.Value; }
+
+
+
+    [GeneratedRegex(@"^\s*
+           (?<val>\d+(?:\.\d+)?)      # number
+           (?<unit>px|rem|em|vw|vh|%)? # optional unit
+           \s*$", RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.IgnorePatternWhitespace, "de-DE")]
+    private static partial Regex UnitRegex();
 }

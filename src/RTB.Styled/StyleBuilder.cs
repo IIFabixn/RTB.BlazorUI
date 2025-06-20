@@ -69,19 +69,23 @@ namespace RTB.Styled
             return AppendIf(property, value, !string.IsNullOrWhiteSpace(value));
         }
 
-        public StyleBuilder Join(StyleBuilder other)
+        public StyleBuilder Join(params StyleBuilder[] others)
         {
-            if (other is null)
+            if (others is { Length: 0 })
                 return this;
-            // Append properties from the other StyleBuilder
-            foreach (var kvp in other._props)
+
+            foreach (var other in others)
             {
-                AppendInternal(kvp.Key, kvp.Value);
-            }
-            // Append selectors from the other StyleBuilder
-            foreach (var kvp in other._selectors)
-            {
-                AppendSelector(kvp.Key, kvp.Value);
+                // Append properties from the other StyleBuilder
+                foreach (var kvp in other._props)
+                {
+                    AppendInternal(kvp.Key, kvp.Value);
+                }
+                // Append selectors from the other StyleBuilder
+                foreach (var kvp in other._selectors)
+                {
+                    AppendSelector(kvp.Key, kvp.Value);
+                }
             }
             return this;
         }

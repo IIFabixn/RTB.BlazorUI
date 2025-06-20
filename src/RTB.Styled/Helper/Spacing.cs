@@ -51,10 +51,10 @@ public readonly partial struct Spacing : IEquatable<Spacing>
 
     public static implicit operator Spacing(int px) => new(px, Unit.Px);
     public static implicit operator Spacing(double px) => new(px, Unit.Px);
-    public static implicit operator string(Spacing s) => s.ToString();
     public static implicit operator Spacing(string literal) => Parse(literal);
+    public static implicit operator string(Spacing s) => s.ToString();
 
-    private static readonly Regex _rx = UnitRegex();
+    private static readonly Regex _rx = SpacingRegex();
 
     public static Spacing Parse(string text)
     {
@@ -145,5 +145,5 @@ public readonly partial struct Spacing : IEquatable<Spacing>
            (?<val>\d+(?:\.\d+)?)      # number
            (?<unit>px|rem|em|vw|vh|%)? # optional unit
            \s*$", RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.IgnorePatternWhitespace, "de-DE")]
-    private static partial Regex UnitRegex();
+    private static partial Regex SpacingRegex();
 }
