@@ -5,18 +5,31 @@
 
 @typeparam TTheme where TTheme : ITheme
 
-@inject IThemeService<TTheme> Theme
-@inject IStyleRegistry Registry
+@inject IThemeService<TTheme> ThemeService
+@inject IJSRuntime JSRuntime
 
 @code {
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
 
     protected override void OnInitialized()
     {
-        Theme.OnThemeChanged += () => StateHasChanged();
+        ThemeService.OnThemeChanged += () => StateHasChanged();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var localStorageThemeName = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "rtbtheme");
+            if (localStorageThemeName is not null)
+            {
+                var theme = ThemeService.Themes.FirstOrDefault(t => t.Name == localStorageThemeName);
+                await ThemeService.SetThemeAsync(theme ?? ThemeService.Default);
+            }
+        }
     }
 }
 
-<CascadingValue Value="@(Theme.Current)">
+<CascadingValue Value="@ThemeService.Current">
     @ChildContent
 </CascadingValue>

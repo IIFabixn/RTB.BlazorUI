@@ -1,4 +1,5 @@
-﻿using RTB.BlazorUI.Services.Theme.Themes;
+﻿using Microsoft.JSInterop;
+using RTB.BlazorUI.Services.Theme.Themes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,13 @@ using System.Threading.Tasks;
 
 namespace RTB.BlazorUI.Services.Theme
 {
-    public class RTBThemeService<TThemeBase> : IThemeService<TThemeBase> where TThemeBase : ITheme
+    public class RTBThemeService<TThemeBase>(IJSRuntime jsRuntime) : IThemeService<TThemeBase> where TThemeBase : ITheme
     {
         private TThemeBase? _current;
 
-        public TThemeBase Current => _current ??= Themes.FirstOrDefault(t => t.GetType().GetCustomAttribute<ThemeAttribute>()?.IsDefault == true) ?? Themes.First();
+        public TThemeBase Default => Themes.FirstOrDefault(t => t.GetType().GetCustomAttribute<ThemeAttribute>()?.IsDefault == true) ?? Themes.First();
+
+        public TThemeBase Current => _current ??= Default ?? Themes.First();
 
         public IList<TThemeBase> Themes => AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(a => a.GetTypes())
@@ -22,17 +25,11 @@ namespace RTB.BlazorUI.Services.Theme
 
         public event Action? OnThemeChanged;
 
-        public void SetTheme(TThemeBase theme)
+        public ValueTask SetThemeAsync(TThemeBase theme)
         {
             _current = theme;
             OnThemeChanged?.Invoke();
-        }
-
-        public ValueTask SetThemeAsync(TThemeBase theme)
-        {
-            SetTheme(theme);
-
-            return ValueTask.CompletedTask;
+            return jsRuntime.InvokeVoidAsync("localStorage.setItem", "rtbtheme", theme.GetType().Name);
         }
     }
 }

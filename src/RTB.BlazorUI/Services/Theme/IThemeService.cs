@@ -18,16 +18,12 @@ namespace RTB.BlazorUI.Services.Theme
         /// </summary>
         TTheme Current { get; }
 
+        TTheme Default { get; }
+
         /// <summary>
         /// Event triggered when the theme changes.
         /// </summary>
         event Action? OnThemeChanged;
-
-        /// <summary>
-        /// Set the current theme.
-        /// </summary>
-        /// <param name="theme"></param>
-        void SetTheme(TTheme theme);
 
         /// <summary>
         /// Set the current theme.
