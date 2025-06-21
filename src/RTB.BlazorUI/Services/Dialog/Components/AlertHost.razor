@@ -8,41 +8,19 @@
 }
 
 <!-- Root overlay – centres the dialog and keeps it above everything -->
-<dialog @ref="dialog" class="top-1/2 left-1/2 -translate-[50%] bg-transparent max-w-xl w-full">
-    <!-- Dialog card -->
-    <GridView Rows="auto 1fr auto" Class="rounded overflow-clip bg-white shadow-2xl ring-1 ring-gray-950/10 m-8">
-        <Styled Context="TitleClass">
-            <Border Color="@RTBColor.Parse("#FF0000")" />
-            <Padding Horizontal="@Spacing.Rem(1.5)" Vertical="@Spacing.Rem(1)" />
+<Styled Context="DialogHostClass">
+    <Flex Direction="@Flex.AxisDirection.Column" AlignContent="@Flex.Align.Center" JustifyContent="@Flex.Justify.Center" />
+    <Background Color="@RTBColors.Transparent" />
+    <Other Property="border" Value="none" />
+    <Positioned Top="0" Left="0" Right="0" Bottom="0" />
+    <Margin All="@Spacing.Auto" />
 
-            <Stack Horizontal JustifyContent="@Flex.Justify.SpaceBetween" Gap="@Spacing.Rem(1)" Class="@TitleClass">
-
-            </Stack>
-            <Text Color="@RTBColors.Blue" Class="text-xl font-semibold text-gray-900">
-                @Title
-            </Text>
-        </Styled>
-
-		@if (string.IsNullOrEmpty(Message))
-        {
-            <CascadingValue Value="this">
-                @ChildContent
-            </CascadingValue>
-		}
-		else
-        {
-            <p class="text-gray-500">
-                @Message
-            </p>
-		}
-
-
-        <button type="button" class="rounded p-2 hover:bg-gray-100"
-                @onclick="() => Close(DialogResult.Cancel())">
-            <span>Ok</span>
-        </button>
-    </GridView>
-</dialog>
+    <dialog @ref="dialog" class="@DialogHostClass">
+        <CascadingValue Value="this">
+            @ChildContent
+        </CascadingValue>
+    </dialog>
+</Styled>
 
 @code {
     private ElementReference? dialog;

@@ -19,7 +19,6 @@ namespace RTB.Styled.Helper;
 /// <param name="G"></param>
 /// <param name="B"></param>
 /// <param name="A"></param>
-[TypeConverter(typeof(RTBColorConverter))]
 public readonly record struct RTBColor(byte R, byte G, byte B, byte A)
 {
     public static RTBColor FromRgb(byte r, byte g, byte b) => new(r, g, b, 255);
@@ -149,18 +148,6 @@ public readonly record struct RTBColor(byte R, byte G, byte B, byte A)
         byte g = (byte)(ToRgb(hue) * 255);
         byte b = (byte)(ToRgb(hue - 1.0 / 3) * 255);
         return new( r, g, b, alpha);
-    }
-}
-
-internal sealed class RTBColorConverter : TypeConverter
-{
-    public override bool CanConvertFrom(ITypeDescriptorContext? _, Type sourceType)
-        => sourceType == typeof(string) || base.CanConvertFrom(_, sourceType);
-
-    public override object? ConvertFrom(ITypeDescriptorContext? _, CultureInfo? __, object value)
-    {
-        if (value is string s) return RTBColor.Parse(s);
-        return base.ConvertFrom(_, __, value);
     }
 }
 

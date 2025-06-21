@@ -7,21 +7,33 @@
     <Styled Context="DonutChartClass">
         <Positioned Position="@Positioned.PositionMode.Relative" />
 
-        <GridView ItemPlacement="@Place.Center" class="@DonutChartClass">
+        <GridView ItemPlacement="@Place.Center" Class="@DonutChartClass">
             <Styled Context="ChartClass">
                 <Size FullHeight FullWidth />
 
                 <SKCanvasView class="@ChartClass" OnPaintSurface="PaintDonut" EnableRenderLoop />
             </Styled>
-            <h3 class="absolute top-1/2 left-1/2 -translate-1/2">@TotalValue</h3>
+
+            <Styled Context="TotalValClass">
+                <Positioned Position="@Positioned.PositionMode.Absolute" Top="@SizeUnit.Percent(50)" Left="@SizeUnit.Percent(50)" />
+                <Other Property="transform" Value="translate(-50%, -50%)" />
+
+                <h3 class="@TotalValClass">@TotalValue</h3>
+            </Styled>
         </GridView>
     </Styled>
 
-    <Stack Horizontal AlignItem="@Flex.Align.Center" JustifyContent="@Flex.Justify.Center" Gap="@Spacing.Rem(1)" Class="flex-wrap">
+    <Stack Horizontal AlignItem="@Flex.Align.Center" JustifyContent="@Flex.Justify.Center" Gap="@Spacing.Rem(1)" Wrap="@Flex.WrapMode.Wrap">
         @foreach (var entry in Entries.Where(e => e.Value > 0))
         {
-            <Stack Horizontal Class="items-center justify-center gap-2">
-                <div class="w-2 h-2 rounded shrink-0" style="background-color: #@(entry.Color?.ToString().Substring(3) ?? RTBColors.White);"></div>
+            <Stack Horizontal Gap="@Spacing.Rem(1)" AlignItem="@Flex.Align.Center" JustifyContent="@Flex.Justify.Center">
+                <Styled Context="LabelIndicatorClass">
+                    <Size Width="@SizeUnit.Rem(1)" Height="@SizeUnit.Rem(1)" />
+                    <Border Radius="@SizeUnit.Rem(1)" />
+                    <Flex Shrink="0" />
+
+                    <div class="@LabelIndicatorClass" style="background-color: #@(entry.Color?.ToString().Substring(3) ?? RTBColors.White);"></div>
+                </Styled>
                 <h4>@entry.Label (@entry.Value)</h4>
             </Stack>
         }

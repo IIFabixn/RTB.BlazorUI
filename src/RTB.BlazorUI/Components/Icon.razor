@@ -14,8 +14,11 @@
 	/// </summary>
 	[Parameter] public string? Path { get; set; }
 
-	[Parameter] public string Width { get; set; } = "24";
-	[Parameter] public string Height { get; set; } = "24";
+	[Parameter] public SizeUnit Width { get; set; } = "24px";
+	[Parameter] public SizeUnit Height { get; set; } = "24px";
+
+    [Parameter] public RTBColor? Stroke { get; set; }
+    [Parameter] public RTBColor? Fill { get; set; }
 
 	private static readonly Dictionary<string, string> IconCache = new();
     private string _iconPath => Path ?? $"_content/RTB.BlazorUI/icons/{IconName}.svg";
@@ -47,7 +50,7 @@
 		var updatedSvg = Regex.Replace(
 			content,
 			@"<svg([^>]*)>",
-			$"<svg$1 width=\"{Width}\" height=\"{Height}\" class=\"{Class}\">",
+			$"<svg$1 width=\"{Width}\" height=\"{Height}\" class=\"{Class}\" stroke=\"{(Stroke ?? "currentColor")}\" fill=\"{(Fill ?? "currentColor")}\">",
 			RegexOptions.IgnoreCase | RegexOptions.Multiline
 		);
 		

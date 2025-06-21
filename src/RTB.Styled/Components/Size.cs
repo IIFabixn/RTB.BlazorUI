@@ -18,29 +18,17 @@ public class Size : RTBStyleBase
 
     protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        if (Width is not null)
-            builder.Width((SizeUnit)Width);
 
-        if (Height is not null)
-            builder.Height((SizeUnit)Height);
+        builder.AppendIf("width", "100%", FullWidth);
+        builder.AppendIfNotNull("width", Width);
+        builder.AppendIfNotNull("max-width", MaxWidth);
+        builder.AppendIfNotNull("min-width", MinWidth);
 
-        if (FullHeight)
-            builder.FullHeight();
 
-        if (FullWidth)
-            builder.FullWidth();
-
-        if (MinHeight is not null)
-            builder.MinWidth((SizeUnit)MinHeight);
-
-        if (MaxHeight is not null)
-            builder.MaxWidth((SizeUnit)MaxHeight);
-
-        if (MinWidth is not null)
-            builder.MinWidth((SizeUnit)MinWidth);
-
-        if (MaxWidth is not null)
-            builder.MaxWidth((SizeUnit)MaxWidth);
+        builder.AppendIf("height", "100%", FullHeight);
+        builder.AppendIfNotNull("height", Height);
+        builder.AppendIfNotNull("max-height", MaxHeight);
+        builder.AppendIfNotNull("min-height", MinHeight);
 
         return builder;
     }

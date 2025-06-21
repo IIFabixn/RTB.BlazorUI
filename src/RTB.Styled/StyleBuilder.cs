@@ -1,10 +1,11 @@
-﻿using System;
-using System.Linq;
-using System.Text;
+﻿using Microsoft.Extensions.ObjectPool;
+using RTB.Styled.Helper;
+using System;
 using System.Buffers;
-using Microsoft.Extensions.ObjectPool;
-using System.Security.Cryptography.X509Certificates;
 using System.Collections.Concurrent;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
 
 namespace RTB.Styled
 {
@@ -120,14 +121,14 @@ namespace RTB.Styled
         /// Builds the final CSS style string.
         /// </summary>
         /// <returns>The constructed CSS style string.</returns>
-        public string Build(string? media = null)
+        public string Build(BreakPoint? media = null)
         {
             var builder = _stringBuilderPool.Get();
             try
             {
                 // If media query is provided, wrap the styles in a media block
-                if (!string.IsNullOrWhiteSpace(media))
-                    builder.Append($"@media {media} {{ ");
+                if (media is not null)
+                    builder.Append($"{media.ToQuery()} {{ ");
 
                 // Apply each action to the builder
                 foreach (var prop in _props.Keys.OrderBy(k => k, StringComparer.OrdinalIgnoreCase))
@@ -138,7 +139,7 @@ namespace RTB.Styled
                     builder.Append($"{prop.Key}{{{prop.Value}}}");
 
                 // Close the media block
-                if (!string.IsNullOrWhiteSpace(media))
+                if (media is not null)
                     builder.Append(" }");
 
                 var css = builder.ToString().Trim();

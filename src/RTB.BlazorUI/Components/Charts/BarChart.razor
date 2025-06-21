@@ -14,7 +14,13 @@
         @foreach (var entry in Entries)
         {
             <Stack Horizontal AlignItem="@Flex.Align.Center" JustifyContent="@Flex.Justify.Center" Gap="@Spacing.Rem(1)">
-                <div class="w-2 h-2 rounded" style="background-color: #@(entry.Color?.ToString().Substring(3) ?? RTBColors.White);"></div>
+                <Styled Context="LabelItemClass">
+                    <Size Width="@SizeUnit.Rem(1)" Height="@SizeUnit.Rem(1)" />
+                    <Border Radius="@SizeUnit.Rem(1)" />
+                    <Flex Shrink="0" />
+
+                    <div class="@LabelItemClass" style="background-color: #@(entry.Color?.ToString().Substring(3) ?? RTBColors.White);"></div>
+                </Styled>
                 <h4>@entry.Label</h4>
             </Stack>
         }

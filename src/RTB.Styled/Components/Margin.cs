@@ -16,12 +16,15 @@ public class Margin : RTBStyleBase
 
     protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        if (!string.IsNullOrEmpty(All))
-            builder.Margin(All);
+        builder.AppendIfNotNull("margin", All);
 
-        if (!string.IsNullOrEmpty(Horizontal) || !string.IsNullOrEmpty(Vertical))
-            builder.Margin(Horizontal, Vertical);
+        builder.AppendIf("margin", $"{Horizontal ?? 0} {Vertical ?? 0}", Horizontal is not null || Vertical is not null);
 
-        return builder.Padding(Top, Right, Bottom, Left);
+        builder.AppendIfNotNull("margin-top", Top);
+        builder.AppendIfNotNull("margin-right", Right);
+        builder.AppendIfNotNull("margin-bottom", Bottom);
+        builder.AppendIfNotNull("margin-left", Left);
+
+        return builder;
     }
 }

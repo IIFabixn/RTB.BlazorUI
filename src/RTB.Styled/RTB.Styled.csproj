@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
 
         <PackageId>RTB.Styled</PackageId>
-        <Version>1.0.50</Version>
+        <Version>1.0.61</Version>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Authors>Fabian Becker</Authors>
         <Description>Styled components for Blazor</Description>
@@ -25,13 +25,4 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.6" />
         <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="9.0.6" />
     </ItemGroup>
-
-    <ItemGroup>
-        <None Include="buildTransitive\RTB.Styled.targets" Pack="true" PackagePath="buildTransitive\RTB.Styled.targets" />
-        <None Include="..\RTB.StyledGenerator\bin\Release\net9.0\RTB.StyledGenerator.dll" Pack="true" PackagePath="buildTransitive\RTB.StyledGenerator.dll" />
-        <None Include="..\RTB.StyledGenerator\bin\Release\net9.0\RTB.StyledGenerator.runtimeconfig.json"
-        Pack="true"
-        PackagePath="buildTransitive\RTB.StyledGenerator.runtimeconfig.json" />
-    </ItemGroup>
-
 </Project>

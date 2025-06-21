@@ -11,7 +11,7 @@
     [Parameter] public string Classname { get; set; } = string.Empty;
     [Parameter] public EventCallback<string>? ClassnameChanged { get; set; }
 
-    [Parameter] public string? Media { get; set; }
+    [Parameter] public BreakPoint? Media { get; set; }
 
     private readonly StyleBuilder _builder = StyleBuilder.Start;
     private string _prevStyle = string.Empty;

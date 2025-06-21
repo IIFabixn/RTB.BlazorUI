@@ -48,6 +48,7 @@ public readonly partial struct Spacing : IEquatable<Spacing>
         };
 
     public static readonly Spacing Auto = new(auto: true);
+    public static readonly Spacing Zero = new(0, Unit.Px);
 
     public static implicit operator Spacing(int px) => new(px, Unit.Px);
     public static implicit operator Spacing(double px) => new(px, Unit.Px);

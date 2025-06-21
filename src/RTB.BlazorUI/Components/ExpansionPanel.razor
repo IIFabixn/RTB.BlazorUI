@@ -30,9 +30,15 @@
             }
         </button>
     </Stack>
-    <div class="@(isExpanded ? "visible" : "collapse")">
-        @ChildContent
-    </div>
+
+    <Styled Context="VisibillityClass">
+        <Other Property="visibillity" Value="visible" Condition="isExpanded" />
+        <Other Property="visibillity" Value="collapse" Condition="!isExpanded" />
+
+        <div class="@VisibillityClass">
+            @ChildContent
+        </div>
+    </Styled>
 </Stack>
 
 @code{

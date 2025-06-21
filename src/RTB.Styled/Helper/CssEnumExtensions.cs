@@ -13,7 +13,7 @@ public static class CssEnumExtensions
         var src = e.ToString();
 
         // count added hyphens
-        int extra = src.Count(char.IsUpper) - 1;             // one per word break
+        int extra = src.Count(char.IsUpper) - 1; // one per word break
         int len = src.Length + Math.Max(extra, 0);
 
         return string.Create(len, src, (span, value) =>

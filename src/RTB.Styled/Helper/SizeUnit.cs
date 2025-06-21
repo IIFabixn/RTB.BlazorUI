@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RTB.Styled.Helper;
 
-public readonly partial record struct SizeUnit
+public readonly partial record struct SizeUnit : IEquatable<SizeUnit>
 {
     private readonly int _value;
     public double Value => _value;
@@ -36,6 +36,9 @@ public readonly partial record struct SizeUnit
     public static implicit operator SizeUnit(int px) => new(px, Unit.Px);
     public static implicit operator SizeUnit(double px) => new(px, Unit.Px);
     public static implicit operator SizeUnit(string literal) => Parse(literal);
+
+    public static readonly SizeUnit Zero = new(0, Unit.Px);
+    public static readonly SizeUnit One = new(1, Unit.Px);
 
 
     private static readonly Regex _rx = UnitRegex();

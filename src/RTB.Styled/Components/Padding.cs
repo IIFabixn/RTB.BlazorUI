@@ -16,12 +16,15 @@ public class Padding : RTBStyleBase
 
     protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        if (!string.IsNullOrEmpty(All))
-            builder.Padding(All);
+        builder.AppendIfNotNull("padding", All);
 
-        if (!string.IsNullOrEmpty(Horizontal) || !string.IsNullOrEmpty(Vertical))
-            builder.Padding(Vertical, Horizontal);
+        builder.AppendIf("padding", $"{Horizontal ?? 0} {Vertical ?? 0}", Horizontal.HasValue || Vertical.HasValue);
 
-        return builder.Padding(Top, Right, Bottom, Left);
+        builder.AppendIfNotNull("padding-top", Top);
+        builder.AppendIfNotNull("padding-right", Right);
+        builder.AppendIfNotNull("padding-bottom", Bottom);
+        builder.AppendIfNotNull("padding-left", Left);
+
+        return builder;
     }
 }
