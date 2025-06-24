@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTB.BlazorUI.Services.Theme.Styles
+namespace RTB.BlazorUI.Styles
 {
     public class TabStyle : IStyle
     {

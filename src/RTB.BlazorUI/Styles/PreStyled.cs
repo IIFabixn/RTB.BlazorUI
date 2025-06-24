@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 using RTB.Styled;
 using RTB.Styled.Components;
 
-namespace RTB.BlazorUI.Services.Theme.Styles;
+namespace RTB.BlazorUI.Styles;
 
 public class PreStyled : RTBStyleBase
 {

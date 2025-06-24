@@ -1,7 +1,5 @@
 ﻿@using RTB.BlazorUI.Extensions
-@using RTB.BlazorUI.Services.Theme
-@using RTB.BlazorUI.Services.Theme.Styles
-@using static RTB.BlazorUI.Components.Text
+@using RTB.BlazorUI.Styles
 
 @inherits RTBComponent
 
@@ -38,8 +36,8 @@
         title="@Tooltip"
         disabled="@Disabled"
         aria-disabled="@Disabled">
-        @if (ChildContent is not null) 
-        {
+        
+        @if (ChildContent is not null) {
             @ChildContent
         }
         else

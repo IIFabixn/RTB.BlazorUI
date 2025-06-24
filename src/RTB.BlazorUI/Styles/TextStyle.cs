@@ -2,11 +2,11 @@
 using RTB.Styled.Helper;
 using static RTB.Styled.Components.Flex;
 
-namespace RTB.BlazorUI.Services.Theme.Styles
+namespace RTB.BlazorUI.Styles
 {
     public class TextStyle : IStyle
     {
-        public string? FontSize { get; set; }
+        public SizeUnit? FontSize { get; set; }
         public string? FontWeight { get; set; }
         public string? LineHeight { get; set; }
         public RTBColor? Color { get; set; }

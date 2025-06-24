@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTB.BlazorUI.Services.Theme
+namespace RTB.Theme.Services.Theme
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
     public class ThemeAttribute : Attribute

@@ -5,16 +5,17 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
 
-      <PackageId>RTB.BlazorUI</PackageId>
-      <Version>1.0.30</Version>
+      <PackageId>RTB.Theme</PackageId>
+      <Version>1.0.1</Version>
       <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
       <Authors>Fabian Becker</Authors>
-      <Description>WPF like Components for Blazor</Description>
-      <PackageTags>blazor;ui;components</PackageTags>
-      <RepositoryUrl>https://github.com/IIFabixn/RTB.BlazorUI</RepositoryUrl>
+      <Description>Theme provider for Blazor</Description>
+      <PackageTags>blazor;theme;ui;components</PackageTags>
+      <RepositoryUrl>https://github.com/IIFabixn/RTB.BlazorUI/</RepositoryUrl>
       <PackageLicenseExpression>MIT</PackageLicenseExpression>
       <RepositoryType>git</RepositoryType>
   </PropertyGroup>
+
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
@@ -22,13 +23,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.6" />
-    <PackageReference Include="RTB.Styled" Version="1.0.62" />
-    <PackageReference Include="RTB.Theme" Version="1.0.1" />
-    <PackageReference Include="SkiaSharp.Views.Blazor" Version="3.119.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="package-lock.json" />
-    <None Remove="package-lock.json" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
+
 </Project>

@@ -1,5 +1,4 @@
 ﻿using Microsoft.JSInterop;
-using RTB.BlazorUI.Services.Theme.Themes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTB.BlazorUI.Services.Theme
+namespace RTB.Theme.Services.Theme
 {
     public class RTBThemeService<TThemeBase>(IJSRuntime jsRuntime) : IThemeService<TThemeBase> where TThemeBase : ITheme
     {
@@ -17,11 +16,10 @@ namespace RTB.BlazorUI.Services.Theme
 
         public TThemeBase Current => _current ??= Default ?? Themes.First();
 
-        public IList<TThemeBase> Themes => AppDomain.CurrentDomain.GetAssemblies()
+        public IList<TThemeBase> Themes => [.. AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(a => a.GetTypes())
             .Where(t => t.IsClass && !t.IsAbstract && t.IsAssignableTo(typeof(TThemeBase)) && t.GetConstructor(Type.EmptyTypes) != null)
-            .Select(t => (TThemeBase)Activator.CreateInstance(t)!)
-            .ToList();
+            .Select(t => (TThemeBase)Activator.CreateInstance(t)!)];
 
         public event Action? OnThemeChanged;
 

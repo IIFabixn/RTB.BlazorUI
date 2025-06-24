@@ -1,11 +1,10 @@
-﻿using RTB.BlazorUI.Services.Theme.Themes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTB.BlazorUI.Services.Theme
+namespace RTB.Theme.Services.Theme
 {
     /// <summary>
     /// Theme provider interface.

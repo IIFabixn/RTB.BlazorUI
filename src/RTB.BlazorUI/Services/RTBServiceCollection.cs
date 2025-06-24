@@ -2,10 +2,11 @@
 using RTB.BlazorUI.Services.Dialog;
 using RTB.BlazorUI.Services.BusyTracker;
 using RTB.BlazorUI.Services.DragDrop;
-using RTB.BlazorUI.Services.Theme;
-using RTB.BlazorUI.Services.Theme.Themes;
 using RTB.Styled.Helper;
 using RTB.Styled;
+using RTB.Theme.Services.Theme;
+using RTB.Theme.Extensions;
+using RTB.Styled.Extensions;
 
 namespace RTB.BlazorUI.Services
 {
@@ -18,8 +19,7 @@ namespace RTB.BlazorUI.Services
 
             if (config.UseThemeService && config.ThemeType is not null)
             {
-                var themeServiceType = typeof(RTBThemeService<>).MakeGenericType(config.ThemeType);
-                collection.AddScoped(typeof(IThemeService<>).MakeGenericType(config.ThemeType), themeServiceType);
+                collection.UseRTBTheme(config.ThemeType);
             }
 
             if (config.UseDialogService)

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTB.Styled
+namespace RTB.Styled.Extensions
 {
     public static class RTBStyledExtension
     {

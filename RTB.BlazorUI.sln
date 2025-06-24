@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTB.Styled", "src\RTB.Style
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTB.StyledGenerator", "src\RTB.StyledGenerator\RTB.StyledGenerator.csproj", "{43542439-7A40-3D2A-A823-E0A98607715E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTB.Theme", "src\RTB.Theme\RTB.Theme.csproj", "{16552833-BA98-47DA-B195-33638554F5EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{43542439-7A40-3D2A-A823-E0A98607715E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43542439-7A40-3D2A-A823-E0A98607715E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43542439-7A40-3D2A-A823-E0A98607715E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16552833-BA98-47DA-B195-33638554F5EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16552833-BA98-47DA-B195-33638554F5EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16552833-BA98-47DA-B195-33638554F5EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16552833-BA98-47DA-B195-33638554F5EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
