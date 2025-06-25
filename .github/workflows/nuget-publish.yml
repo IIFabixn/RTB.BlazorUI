@@ -1,0 +1,31 @@
+name: Publish NuGet Package
+
+on:
+  push:
+    branches:
+      - deploy
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release
+
+      - name: Pack
+        run: dotnet pack --configuration Release
+
+      - name: Publish to GitHub Packages
+        env:
+          GH_NUGET_TOKEN: ${{ secrets.GH_NUGET_TOKEN }}
+        run: dotnet nuget push "**/bin/Release/*.nupkg" --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key $GH_NUGET_TOKEN
