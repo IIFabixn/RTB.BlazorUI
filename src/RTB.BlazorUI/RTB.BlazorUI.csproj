@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
 
       <PackageId>RTB.BlazorUI</PackageId>
-      <Version>1.0.30</Version>
+      <Version>1.0.0</Version>
       <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
       <Authors>Fabian Becker</Authors>
       <Description>WPF like Components for Blazor</Description>
@@ -22,8 +22,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.6" />
-    <PackageReference Include="RTB.Styled" Version="1.0.62" />
-    <PackageReference Include="RTB.Theme" Version="1.0.1" />
+    <PackageReference Include="RTB.Styled" Version="1.0.0" />
+    <PackageReference Include="RTB.Theme" Version="1.0.0" />
     <PackageReference Include="SkiaSharp.Views.Blazor" Version="3.119.0" />
   </ItemGroup>
 

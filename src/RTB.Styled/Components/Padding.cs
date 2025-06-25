@@ -18,7 +18,7 @@ public class Padding : RTBStyleBase
     {
         builder.AppendIfNotNull("padding", All);
 
-        builder.AppendIf("padding", $"{Horizontal ?? 0} {Vertical ?? 0}", Horizontal.HasValue || Vertical.HasValue);
+        builder.AppendIf("padding", $"{Vertical ?? 0} {Horizontal ?? 0}", Horizontal.HasValue || Vertical.HasValue);
 
         builder.AppendIfNotNull("padding-top", Top);
         builder.AppendIfNotNull("padding-right", Right);

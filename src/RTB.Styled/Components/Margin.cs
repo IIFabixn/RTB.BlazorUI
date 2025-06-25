@@ -18,7 +18,7 @@ public class Margin : RTBStyleBase
     {
         builder.AppendIfNotNull("margin", All);
 
-        builder.AppendIf("margin", $"{Horizontal ?? 0} {Vertical ?? 0}", Horizontal is not null || Vertical is not null);
+        builder.AppendIf("margin", $"{Vertical ?? 0} {Horizontal ?? 0}", Horizontal is not null || Vertical is not null);
 
         builder.AppendIfNotNull("margin-top", Top);
         builder.AppendIfNotNull("margin-right", Right);
