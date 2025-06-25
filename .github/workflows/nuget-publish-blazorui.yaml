@@ -3,6 +3,8 @@ name: Publish RTB.BlazorUI
 on:
   workflow_dispatch:
   push:
+    branches:
+      - master
     paths:
       - 'src/RTB.BlazorUI/**'
       - '.github/workflows/nuget-publish-blazorui.yml'
