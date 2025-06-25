@@ -19,10 +19,7 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '9.0.x'
-
-      - name: Add GitHub Packages source
-        run: dotnet nuget add source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --name github --username ${{ github.repository_owner }} --password ${{ secrets.GH_NUGET_TOKEN }} --store-password-in-clear-text
-
+          
       - name: Restore dependencies
         run: dotnet restore src/RTB.Styled/RTB.Styled.csproj
 
