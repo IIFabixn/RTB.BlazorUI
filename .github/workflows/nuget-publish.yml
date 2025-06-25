@@ -16,6 +16,9 @@ jobs:
         with:
           dotnet-version: '9.0.x'
 
+      - name: Add GitHub Packages source
+        run: dotnet nuget add source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --name github --username ${{ github.repository_owner }} --password ${{ secrets.GH_NUGET_TOKEN }} --store-password-in-clear-text
+
       - name: Restore dependencies
         run: dotnet restore
 
@@ -24,9 +27,6 @@ jobs:
 
       - name: Pack
         run: dotnet pack --configuration Release
-
-      - name: Add GitHub Packages source
-        run: dotnet nuget add source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --name github --username ${{ github.repository_owner }} --password ${{ secrets.GH_NUGET_TOKEN }} --store-password-in-clear-text
-
+        
       - name: Publish to GitHub Packages
         run: dotnet nuget push "**/bin/Release/*.nupkg" --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.GH_NUGET_TOKEN }}
