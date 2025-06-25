@@ -1,0 +1,34 @@
+name: Publish RTB.BlazorUI
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'src/RTB.BlazorUI/**'
+      - '.github/workflows/nuget-publish-blazorui.yml'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Add GitHub Packages source
+        run: dotnet nuget add source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --name github --username ${{ github.repository_owner }} --password ${{ secrets.GH_NUGET_TOKEN }} --store-password-in-clear-text
+
+      - name: Restore dependencies
+        run: dotnet restore src/RTB.BlazorUI/RTB.BlazorUI.csproj
+
+      - name: Build
+        run: dotnet build src/RTB.BlazorUI/RTB.BlazorUI.csproj --configuration Release
+
+      - name: Pack
+        run: dotnet pack src/RTB.BlazorUI/RTB.BlazorUI.csproj --configuration Release
+
+      - name: Publish to GitHub Packages
+        run: dotnet nuget push "src/RTB.BlazorUI/bin/Release/*.nupkg" --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.GH_NUGET_TOKEN }} --skip-duplicate
