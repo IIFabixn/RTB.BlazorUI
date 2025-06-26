@@ -1,7 +1,7 @@
 # ☕ RTB.BlazorUI
 
 <div align="center">
-  <img src="./wwwroot/rtb_logo.svg" alt="RTB Logo" width="180">
+  <img src="src/RTB.BlazorUI/wwwroot/rtb_logo.svg" alt="RTB Logo" width="180">
 </div>
 
 <p align="center">
@@ -32,16 +32,15 @@
 - **🧩 XAML-Like Components** - Familiar, declarative structure for .NET developers
 - **🎨 Modern Design System** - Clean interfaces with consistent styling
 - **🛠️ Simple API** - Intuitive component parameters with sensible defaults
-- **⚡ Productivity Focus** - Build UIs faster with less boilerplate
-- **🔄 Tailwind Integration** - Leverage the power of utility-first CSS
-- **🌓 Theming Support** - Built-in light/dark mode and customizable themes
+- **⚡ Productivity Focus** - Build UIs faster with less boilerplate 
+- **🌓 Theming Support** - Fully customizable themes
 
 ## 🧰 Component Library
 
 ### Layout
 - `Stack` - Flexible container with row/column orientation
-- `Grid` / `GridItem` - Powerful grid layout system
-- `Paper` - Base surface for content
+- `GridView` - Powerful grid layout in combination with Styled `GridPlacement`
+- `Container` - Simple centered Container
 
 ### Containers
 - `Card` - Styled container with optional header
@@ -53,7 +52,7 @@
 - `DropDown` - Expandable selection menu 
 - `Select` - Form selection component
 - `FlyoutMenu` - Context menu component
-- `ThemeSwitcher` - Toggle between light/dark themes
+- `ThemeSwitcher` - Toggle between your themes
 
 ### Data Components
 - `DataGrid` - Powerful data presentation component
@@ -68,7 +67,7 @@
 ## 💻 Usage Example
 
 ```razor
-<Stack Row="true" Gap="1rem">
+<Stack Horizontal Gap="@Spacing.Rem(1)">
     <Card Title="Quick Stats">
         <BarChart Data="@chartData" />
     </Card>
@@ -98,14 +97,6 @@ Then reference the project in your Blazor app:
 <ProjectReference Include="..\path\to\RTB.BlazorUI\RTB.BlazorUI.csproj" />
 ```
 
-### Dependencies
-
-RTB.BlazorUI currently requires Tailwind CSS. 
-Install the necessary npm packages from the root folder of this project.
-```bash
-npm install
-```
-
 ## 🧠 Design Philosophy
 
 RTB.BlazorUI is built on three core principles:
@@ -117,7 +108,6 @@ RTB.BlazorUI is built on three core principles:
 My inspiration comes from:
 - 🧱 **XAML / MAUI**: Clean markup and property system
 - ⚙️ **Blazor**: Component architecture and rendering
-- 🎨 **Tailwind CSS**: Utility-first styling approach
 - ✨ **Fluent UI**: Modern design patterns
 
 ## 🤝 Contributing
