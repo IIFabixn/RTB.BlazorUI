@@ -4,7 +4,7 @@
 @code {
     [Parameter] public string? LabelText { get; set; }
     [Parameter] public TextStyle? LabelTextStyle { get; set; }
-    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public RenderFragment? LabelContent { get; set; }
 
     [Parameter] public string? CheckboxClass { get; set; }
 
@@ -14,15 +14,13 @@
     private readonly string InputId = $"checkbox-{Guid.NewGuid().ToString("N").Substring(8)}";
 
     private Task Toggle() => CheckedChanged.HasDelegate ? CheckedChanged.InvokeAsync(!Checked) : Task.CompletedTask;
-
-    private Task HandleKey(KeyboardEventArgs e) => (e.Key == " " || e.Key == "Enter") ? Toggle() : Task.CompletedTask;
 }
 
 <Stack JustifyContent="@Flex.Justify.SpaceBetween" Class="@Class">
     <label for="@InputId">
-        @if (ChildContent != null) 
+        @if (LabelContent != null)
         {
-            @ChildContent
+            @LabelContent
         }
 
         @if (!string.IsNullOrEmpty(LabelText))
@@ -30,5 +28,5 @@
             <RTB.BlazorUI.Components.Text TextStyle="@LabelTextStyle">@LabelText</RTB.BlazorUI.Components.Text>
         }
     </label>
-    <input id="@InputId" class="@CheckboxClass" type="checkbox" value="@Checked" @onchange="@(() => Toggle())" />
+    <input id="@InputId" class="@CheckboxClass" type="checkbox" checked="@Checked" @onchange="@(() => Toggle())" />
 </Stack>
