@@ -2,12 +2,12 @@ name: Publish RTB.Theme
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - master
-    paths:
-      - 'src/RTB.Theme/**'
-      - '.github/workflows/nuget-publish-theme.yml'
+  # push:
+  #   branches:
+  #     - master
+  #   paths:
+  #     - 'src/RTB.Theme/**'
+  #     - '.github/workflows/nuget-publish-theme.yml'
 
 jobs:
   publish:

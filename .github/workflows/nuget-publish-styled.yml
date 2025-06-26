@@ -2,12 +2,12 @@ name: Publish RTB.Styled
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - master
-    paths:
-      - 'src/RTB.Styled/**'
-      - '.github/workflows/nuget-publish-styled.yml'
+  # push:
+  #   branches:
+  #     - master
+  #   paths:
+  #     - 'src/RTB.Styled/**'
+  #     - '.github/workflows/nuget-publish-styled.yml'
 
 jobs:
   publish:
