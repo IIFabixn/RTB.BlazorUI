@@ -26,10 +26,10 @@
     private string GetAnchorPosition()
     {
         string position = string.Empty;
-        if (Anchor.HasFlag(FlyoutPosition.Top)) position += " top";
-        if (Anchor.HasFlag(FlyoutPosition.Right)) position += " right";
-        if (Anchor.HasFlag(FlyoutPosition.Bottom)) position += " bottom";
-        if (Anchor.HasFlag(FlyoutPosition.Left)) position += " left";
+        if (Anchor.HasFlag(FlyoutPosition.Top)) position += "top ";
+        if (Anchor.HasFlag(FlyoutPosition.Right)) position += "right";
+        if (Anchor.HasFlag(FlyoutPosition.Bottom)) position += "bottom ";
+        if (Anchor.HasFlag(FlyoutPosition.Left)) position += "left ";
 
         return position.Trim();
     }
