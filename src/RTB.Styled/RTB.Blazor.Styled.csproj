@@ -5,7 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
 
-        <PackageId>RTB.Styled</PackageId>
+        <PackageId>RTB.Blazor.Styled</PackageId>
         <Version>1.0.0-preview</Version>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Authors>Fabian Becker</Authors>
@@ -21,7 +21,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components" Version="9.0.6" />
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.6" />
         <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="9.0.6" />
     </ItemGroup>

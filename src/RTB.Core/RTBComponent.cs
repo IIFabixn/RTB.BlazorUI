@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 
-namespace RTB.BlazorUI.Components;
+namespace RTB.Blazor.Core;
 
 /// <summary>
 /// Base Component for all RTB components.<br/>

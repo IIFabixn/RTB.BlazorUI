@@ -1,17 +1,17 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
 
-      <PackageId>RTB.Theme</PackageId>
+      <PackageId>RTB.Blazor.Core</PackageId>
       <Version>1.0.0-preview</Version>
       <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
       <Authors>Fabian Becker</Authors>
-      <Description>Theme provider for Blazor</Description>
-      <PackageTags>blazor;theme;ui;components</PackageTags>
-      <RepositoryUrl>https://github.com/IIFabixn/RTB.BlazorUI/</RepositoryUrl>
+      <Description>Core Components for RTB.Blazor Lib</Description>
+      <PackageTags></PackageTags>
+      <RepositoryUrl>https://github.com/IIFabixn/RTB.BlazorUI</RepositoryUrl>
       <PackageLicenseExpression>MIT</PackageLicenseExpression>
       <RepositoryType>git</RepositoryType>
   </PropertyGroup>
@@ -23,10 +23,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.6" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

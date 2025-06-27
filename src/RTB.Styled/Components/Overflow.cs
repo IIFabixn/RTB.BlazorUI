@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Components;
-using RTB.Styled.Helper;
+using RTB.Blazor.Styled.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTB.Styled.Components;
+namespace RTB.Blazor.Styled.Components;
 
 /// <summary>
 /// Defaults to 'overflow: auto;' if no parameters are set.

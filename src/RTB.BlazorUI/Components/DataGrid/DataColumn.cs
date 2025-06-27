@@ -1,11 +1,13 @@
 ﻿using System.ComponentModel;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
-using RTB.BlazorUI.Interfaces;
-using RTB.Styled;
-using RTB.Styled.Helper;
+using RTB.Blazor.Core;
+using RTB.Blazor.UI.Interfaces;
+using RTB.Blazor.Styled;
+using RTB.Blazor.Styled.Helper;
+using RTB.Blazor.Styled.Services;
 
-namespace RTB.BlazorUI.Components.DataGrid
+namespace RTB.Blazor.UI.Components.DataGrid
 {
     public interface IColumn<TRow> : IDisposable
     {

@@ -1,7 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Components;
 
-namespace RTB.Styled.Components;
+namespace RTB.Blazor.Styled.Components;
 
 /// <summary>
 /// Represents a custom CSS style component that allows you to set any CSS property and value.

@@ -1,14 +1,15 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using RTB.Theme.Services.Theme;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using RTB.Blazor.Theme.Services;
 
-namespace RTB.Theme.Extensions
+namespace RTB.Blazor.Theme.Extensions
 {
-    public static class RTBThemeExtension
+    public static class ServiceCollectionExtension
     {
         public static IServiceCollection UseRTBTheme(this IServiceCollection collection, Type baseTheme)
         {
             var themeServiceType = typeof(RTBThemeService<>).MakeGenericType(baseTheme);
-            collection.AddScoped(typeof(IThemeService<>).MakeGenericType(baseTheme), themeServiceType);
+            collection.TryAddScoped(typeof(IThemeService<>).MakeGenericType(baseTheme), themeServiceType);
 
             return collection;
         }

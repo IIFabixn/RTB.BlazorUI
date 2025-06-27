@@ -1,8 +1,8 @@
 using System;
 using Microsoft.AspNetCore.Components;
-using RTB.Styled.Helper;
+using RTB.Blazor.Styled.Helper;
 
-namespace RTB.Styled.Components;
+namespace RTB.Blazor.Styled.Components;
 
 public class Background : RTBStyleBase
 {

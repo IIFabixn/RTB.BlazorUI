@@ -1,4 +1,4 @@
-﻿namespace RTB.Theme.Services.Theme;
+﻿namespace RTB.Blazor.Theme.Services;
 
 public interface ITheme
 {

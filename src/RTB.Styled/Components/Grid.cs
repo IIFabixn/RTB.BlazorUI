@@ -1,9 +1,10 @@
 using System;
 using System.Reflection.Metadata;
 using Microsoft.AspNetCore.Components;
-using RTB.Styled.Helper;
+using RTB.Blazor.Styled.Helper;
 
-namespace RTB.Styled.Components;
+namespace RTB.Blazor.Styled.Components;
+
 public class Grid : RTBStyleBase
 {
     [Parameter] public string TemplateColumns { get; set; } = "1fr";

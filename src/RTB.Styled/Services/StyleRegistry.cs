@@ -3,8 +3,9 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.JSInterop;
+using RTB.Blazor.Styled.Helper;
 
-namespace RTB.Styled.Helper;
+namespace RTB.Blazor.Styled.Services;
 
 public interface IStyleRegistry
 {

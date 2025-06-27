@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 
-namespace RTB.BlazorUI.Services.DragDrop;
+namespace RTB.Blazor.UI.Services.DragDrop;
 
 public interface IDragDropService
 {

@@ -1,6 +1,6 @@
 using System;
 
-namespace RTB.Styled.Helper;
+namespace RTB.Blazor.Styled.Helper;
 
 internal static class CssHasher
 {

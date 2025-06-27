@@ -1,5 +1,5 @@
-﻿@using RTB.BlazorUI.Extensions
-@using RTB.BlazorUI.Styles
+﻿@using RTB.Blazor.UI.Extensions
+@using RTB.Blazor.UI.Styles
 
 @inherits RTBComponent
 
@@ -20,14 +20,14 @@
     [Parameter, EditorRequired] public EventCallback OnClick { get; set; }
 
     private Task HandleClick() => Disabled || !OnClick.HasDelegate ? Task.CompletedTask : OnClick.InvokeAsync();
+
+    private RTBColor? GetColor() => Disabled ? DisabledColor ?? ButtonStyle?.DisabledColor : Color ?? ButtonStyle?.Color;
 }
 
 <Styled Context="ComponentClass">
     <PreStyled Style="@ButtonStyle" />
-    <Other Property="cursor" Value="pointer" Condition="@(!Disabled)" />
-    <Other Property="cursor" Value="default" Condition="@(Disabled)" />
-    <Color Value="@(Color ?? ButtonStyle?.Color)" />
-    <Color Value="@(DisabledColor ?? ButtonStyle?.Color)" Condition="@Disabled" />
+    <Other Property="cursor" Value="@(Disabled ? "default" : "pointer")" />
+    <Color Value="@GetColor()" />
 
     <button 
         type="button"
@@ -42,7 +42,7 @@
         }
         else
         {
-            <RTB.BlazorUI.Components.Text TextStyle="@ButtonStyle" Class="@LabelClass">@Label</RTB.BlazorUI.Components.Text>
+            <RTB.Blazor.UI.Components.Text TextStyle="@ButtonStyle" Class="@LabelClass">@Label</RTB.Blazor.UI.Components.Text>
         }
     </button>
 </Styled>

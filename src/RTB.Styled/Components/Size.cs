@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Components;
-using RTB.Styled.Helper;
+using RTB.Blazor.Styled.Helper;
 using System;
 
-namespace RTB.Styled.Components;
+namespace RTB.Blazor.Styled.Components;
 
 public class Size : RTBStyleBase
 {

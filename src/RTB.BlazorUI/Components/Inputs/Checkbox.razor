@@ -1,4 +1,5 @@
-﻿@using RTB.BlazorUI.Styles
+﻿@using RTB.Blazor.UI.Styles
+
 @inherits RTBComponent
 
 @code {
@@ -25,7 +26,7 @@
 
         @if (!string.IsNullOrEmpty(LabelText))
         {
-            <RTB.BlazorUI.Components.Text TextStyle="@LabelTextStyle">@LabelText</RTB.BlazorUI.Components.Text>
+            <RTB.Blazor.UI.Components.Text TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.Text>
         }
     </label>
     <input id="@InputId" class="@CheckboxClass" type="checkbox" checked="@Checked" @onchange="@(() => Toggle())" />

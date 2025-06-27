@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTB.Styled.Helper
+namespace RTB.Blazor.Styled.Helper
 {
     public class BreakPoint
     {

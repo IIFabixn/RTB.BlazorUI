@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace RTB.Styled.Helper;
+namespace RTB.Blazor.Styled.Helper;
 
 public readonly partial struct Spacing : IEquatable<Spacing>
 {

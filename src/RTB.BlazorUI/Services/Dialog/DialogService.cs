@@ -1,9 +1,9 @@
-﻿using RTB.BlazorUI.Services.Dialog.Components;
+﻿using RTB.Blazor.UI.Services.Dialog.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Components.Rendering;
 
-namespace RTB.BlazorUI.Services.Dialog
+namespace RTB.Blazor.UI.Services.Dialog
 {
     // Core Contracts
     public enum DialogResultKind { Ok, Cancel, None }
@@ -30,7 +30,7 @@ namespace RTB.BlazorUI.Services.Dialog
     {
         Task<DialogResult> ShowAsync<TDialog>(Dictionary<string, object?>? parameters = null) where TDialog : IComponent;
         Task<DialogResult> ShowAsync(Type dialogType, Dictionary<string, object?>? parameters = null);
-        void Alert<TDialog>(string title, string? message = null, Dictionary<string, object?>? parameters = null) where TDialog : IComponent;
+        void Alert<TDialog>(Dictionary<string, object?>? parameters = null) where TDialog : IComponent;
     }
 
     /// <summary>
@@ -52,7 +52,7 @@ namespace RTB.BlazorUI.Services.Dialog
         public event Action<RenderFragment>? OnShow;
         public event Action? OnClose;
 
-        public void Alert<TDialog>(string title, string? message = null, Dictionary<string, object?>? parameters = null) where TDialog : IComponent
+        public void Alert<TDialog>(Dictionary<string, object?>? parameters = null) where TDialog : IComponent
         {
             var tcs = new TaskCompletionSource<DialogResult>();
 
@@ -60,8 +60,6 @@ namespace RTB.BlazorUI.Services.Dialog
             {
                 var seq = 0;
                 builder.OpenComponent<AlertHost>(seq++);
-                builder.AddAttribute(seq++, nameof(AlertHost.Title), title);
-                builder.AddAttribute(seq++, nameof(AlertHost.Message), message);
                 builder.AddAttribute(seq++, nameof(AlertHost.ChildContent), (RenderFragment)(b =>
                 {
                     var i = 0;

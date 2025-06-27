@@ -1,8 +1,9 @@
 using System;
 using Microsoft.AspNetCore.Components;
-using RTB.BlazorUI.Interfaces;
+using RTB.Blazor.UI.Interfaces;
+using RTB.Blazor.Core;
 
-namespace RTB.BlazorUI.Components;
+namespace RTB.Blazor.UI.Components;
 
 public class TabItem : RTBComponent, IDisposable
 {

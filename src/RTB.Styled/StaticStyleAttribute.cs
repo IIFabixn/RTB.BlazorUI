@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTB.Styled
+namespace RTB.Blazor.Styled
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property)]
     public class StaticStyleAttribute : Attribute
