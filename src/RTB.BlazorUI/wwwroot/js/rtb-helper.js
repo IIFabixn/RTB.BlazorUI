@@ -56,3 +56,24 @@ window.dialogHelper = {
         }
     }
 };
+
+window.popoverHelper = {
+    open: (popoverId) => {
+        const popoverElement = document.getElementById(popoverId);
+        if (popoverElement?.showPopover) {
+            popoverElement.showPopover()
+        }
+    },
+    close: (popoverId) => {
+        const popoverElement = document.getElementById(popoverId);
+        if (popoverElement?.hidePopover) {
+            popoverElement.hidePopover()
+        }
+    },
+    toggle: (popoverId) => {
+        const popoverElement = document.getElementById(popoverId);
+        if (popoverElement?.togglePopover) {
+            popoverElement.togglePopover()
+        }
+    }
+}

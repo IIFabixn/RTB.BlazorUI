@@ -7,13 +7,43 @@
     [Parameter] public SKColor SKColor { get; set; } = SKColors.Blue;
 }
 
-<GridView Rows="1fr auto" ItemPlacement="@Place.Center">
-    <Styled Context="LineChartClass">
-        <Size FullHeight FullWidth />
 
-        <SKCanvasView class="@LineChartClass" OnPaintSurface="PaintLine" EnableRenderLoop />
-    </Styled>
-</GridView>
+<Styled Context="LineChartWrapperClass">
+    <Grid TemplateRows="1fr auto" />
+
+    <div class="@LineChartWrapperClass">
+
+        <Styled Context="LineChartClass">
+            <Size FullHeight FullWidth />
+
+            <SKCanvasView class="@LineChartClass" OnPaintSurface="PaintLine" EnableRenderLoop />
+        </Styled>
+
+        <Styled Context="LabelsListClass">
+            <Flex Direction="@Flex.AxisDirection.Row" AlignItems="@Flex.Align.Center" Gap="@Spacing.Rem(1)" Wrap="@Flex.WrapMode.Wrap" />
+
+            <div class="@LabelsListClass">
+                <Styled Context="LabelsItemsClass">
+                    <Flex Direction="@Flex.AxisDirection.Row" AlignItems="@Flex.Align.Center" JustifyContent="@Flex.Justify.Center" Gap="@Spacing.Rem(1)" />
+
+                    @foreach (var entry in Entries)
+                    {
+                        <div class="@LabelsItemsClass">
+                            <Styled Context="LabelItemClass">
+                                <Size Width="@SizeUnit.Rem(1)" Height="@SizeUnit.Rem(1)" />
+                                <Border Radius="@SizeUnit.Rem(1)" />
+                                <Flex Shrink="0" />
+
+                                <div class="@LabelItemClass" style="background-color: #@(entry.Color?.ToString().Substring(3) ?? RTBColors.White);"></div>
+                            </Styled>
+                            <h4>@entry.Label</h4>
+                        </div>
+                    }
+                </Styled>
+            </div>
+        </Styled>
+    </div>
+</Styled>
 
 @code {
 

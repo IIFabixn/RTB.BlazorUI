@@ -1,15 +1,13 @@
-﻿@using RTB.BlazorUI.Services
+﻿@using RTB.Blazor.UI.Services
 
 @inherits DialogBase
-@inject IJSRuntime JSRuntime
 
-@code {
-	[Parameter] public string? Message { get; set; }
-}
+@inject IJSRuntime JSRuntime
 
 <!-- Root overlay – centres the dialog and keeps it above everything -->
 <Styled Context="DialogHostClass">
     <Flex Direction="@Flex.AxisDirection.Column" AlignContent="@Flex.Align.Center" JustifyContent="@Flex.Justify.Center" />
+
     <Background Color="@RTBColors.Transparent" />
     <Other Property="border" Value="none" />
     <Positioned Top="0" Left="0" Right="0" Bottom="0" />

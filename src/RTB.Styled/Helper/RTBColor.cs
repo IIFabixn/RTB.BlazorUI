@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace RTB.Styled.Helper;
+namespace RTB.Blazor.Styled.Helper;
 
 /// <summary>
 /// Represents a color in the RGBA (Red, Green, Blue, Alpha) color space.

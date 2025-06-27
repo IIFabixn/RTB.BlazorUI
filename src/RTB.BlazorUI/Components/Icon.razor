@@ -1,4 +1,4 @@
-﻿@using RTB.BlazorUI.Extensions
+﻿@using RTB.Blazor.UI.Extensions
 @using System.Text.RegularExpressions
 @inject HttpClient HttpClient
 
@@ -21,13 +21,13 @@
     [Parameter] public RTBColor? Fill { get; set; }
 
 	private static readonly Dictionary<string, string> IconCache = new();
-    private string _iconPath => Path ?? $"_content/RTB.BlazorUI/icons/{IconName}.svg";
+    private string _iconPath => Path ?? $"_content/RTB.Blazor.UI/icons/{IconName}.svg";
 
 	private MarkupString? _iconContent;
 
 	protected override async Task OnParametersSetAsync()
 	{
-		var path = Path ?? $"_content/RTB.BlazorUI/icons/{IconName}.svg";
+		var path = Path ?? $"_content/RTB.Blazor.UI/icons/{IconName}.svg";
 		if (!IconCache.TryGetValue(path, out var content))
 		{
 			var iconContent = await HttpClient.GetStringAsync(path);

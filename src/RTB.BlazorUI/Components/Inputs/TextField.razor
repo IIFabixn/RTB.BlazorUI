@@ -1,5 +1,5 @@
 ﻿@using System.Timers
-@using RTB.BlazorUI.Styles
+@using RTB.Blazor.UI.Styles
 
 
 @inherits RTBComponent
@@ -46,7 +46,7 @@
             @LabelContent
             @if (string.IsNullOrEmpty(LabelText) is false)
             {
-                <RTB.BlazorUI.Components.Text TextStyle="@LabelTextStyle">@LabelText</RTB.BlazorUI.Components.Text>
+                <RTB.Blazor.UI.Components.Text TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.Text>
             }
         </label>
     }

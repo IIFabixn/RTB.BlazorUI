@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
-using RTB.BlazorUI.Components;
+using RTB.Blazor.UI.Components;
+using RTB.Blazor.Core;
 
-namespace RTB.BlazorUI.Services.BusyTracker.Components
+namespace RTB.Blazor.UI.Services.BusyTracker.Components
 {
     public class BusyIndicator(IBusyTracker tracker) : RTBComponent, IDisposable
     {

@@ -1,5 +1,5 @@
-﻿@using RTB.BlazorUI.Extensions
-@using static RTB.BlazorUI.Components.FlyoutMenu
+﻿@using RTB.Blazor.UI.Extensions
+@using static RTB.Blazor.UI.Components.FlyoutMenu
 @inherits RTBComponent
 
 @typeparam TOption
@@ -7,10 +7,10 @@
 @inject IJSRuntime JSRuntime
 
 @code {
-    [Parameter] public List<TOption> Options { get; set; } = default!;
+    [Parameter, EditorRequired] public required List<TOption> Options { get; set; }
 
-    [Parameter, EditorRequired] public RenderFragment<TOption?> ActionContent { get; set; } = default!;
-    [Parameter, EditorRequired] public RenderFragment<TOption> OptionTemplate { get; set; } = default!;
+    [Parameter, EditorRequired] public required RenderFragment<TOption?> ActionContent { get; set; }
+    [Parameter, EditorRequired] public required RenderFragment<TOption> OptionTemplate { get; set; }
 
     [Parameter] public TOption? SelectedOption { get; set; }
     [Parameter] public EventCallback<TOption> SelectedOptionChanged { get; set; } = default!;
@@ -76,6 +76,21 @@
             if (SelectedOptionChanged.HasDelegate)
                 SelectedOptionChanged.InvokeAsync(item);
         }
+    }
+
+    public async ValueTask Show()
+    {
+        await JSRuntime.InvokeVoidAsync("popoverHelper.show", FlyoutId);
+    }
+
+    public async ValueTask Hide()
+    {
+        await JSRuntime.InvokeVoidAsync("popoverHelper.hide", FlyoutId);
+    }
+
+    public async ValueTask Toggle()
+    {
+        await JSRuntime.InvokeVoidAsync("popoverHelper.toggle", FlyoutId);
     }
 
     public enum FlyoutPosition

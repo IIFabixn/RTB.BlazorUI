@@ -1,8 +1,8 @@
-﻿using RTB.Styled;
-using RTB.Styled.Helper;
-using static RTB.Styled.Components.Flex;
+﻿using RTB.Blazor.Styled;
+using RTB.Blazor.Styled.Helper;
+using static RTB.Blazor.Styled.Components.Flex;
 
-namespace RTB.BlazorUI.Styles
+namespace RTB.Blazor.UI.Styles
 {
     public class TextStyle : IStyle
     {

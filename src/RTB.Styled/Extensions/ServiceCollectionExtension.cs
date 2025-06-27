@@ -1,18 +1,21 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using RTB.Styled.Helper;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using RTB.Blazor.Styled.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTB.Styled.Extensions
+namespace RTB.Blazor.Styled.Extensions
 {
-    public static class RTBStyledExtension
+    public static class ServiceCollectionExtension
     {
         public static IServiceCollection UseRTBStyled(this IServiceCollection collection)
         {
-            return collection.AddScoped<IStyleRegistry, StyleRegistry>();
+            collection.TryAddScoped<IStyleRegistry, StyleRegistry>();
+
+            return collection;
         }
     }
 }

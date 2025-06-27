@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.ObjectPool;
-using RTB.Styled.Helper;
+using RTB.Blazor.Styled.Helper;
 using System;
 using System.Buffers;
 using System.Collections.Concurrent;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
-namespace RTB.Styled
+namespace RTB.Blazor.Styled
 {
     /// <summary>
     /// A fluent builder for constructing inline CSS style strings.

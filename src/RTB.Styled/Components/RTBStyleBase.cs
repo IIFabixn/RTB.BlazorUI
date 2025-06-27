@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTB.Styled.Components;
+namespace RTB.Blazor.Styled.Components;
 
 public abstract class RTBStyleBase : ComponentBase
 {

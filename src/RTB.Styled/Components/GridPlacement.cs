@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace RTB.Styled.Components;
+namespace RTB.Blazor.Styled.Components;
 
 public class GridPlacement : RTBStyleBase
 {

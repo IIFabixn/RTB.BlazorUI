@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
+using RTB.Blazor.Core;
 using SkiaSharp;
 
-namespace RTB.BlazorUI.Components.Charts
+namespace RTB.Blazor.Charts.Components
 {
     public abstract class ChartBase : RTBComponent
     {
@@ -23,7 +24,7 @@ namespace RTB.BlazorUI.Components.Charts
             ArgumentNullException.ThrowIfNull(entry);
 
             if (TotalValue == 0) return 0;
-            return (entry.Value / TotalValue) * 100;
+            return entry.Value / TotalValue * 100;
         }
     }
 

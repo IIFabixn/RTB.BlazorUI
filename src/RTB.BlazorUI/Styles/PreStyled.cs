@@ -1,9 +1,9 @@
 using System;
 using Microsoft.AspNetCore.Components;
-using RTB.Styled;
-using RTB.Styled.Components;
+using RTB.Blazor.Styled;
+using RTB.Blazor.Styled.Components;
 
-namespace RTB.BlazorUI.Styles;
+namespace RTB.Blazor.UI.Styles;
 
 public class PreStyled : RTBStyleBase
 {

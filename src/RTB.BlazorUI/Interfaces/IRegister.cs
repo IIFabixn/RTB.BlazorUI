@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTB.BlazorUI.Interfaces
+namespace RTB.Blazor.UI.Interfaces
 {
     public interface IRegister<T>
     {

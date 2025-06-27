@@ -1,15 +1,16 @@
 ﻿using Microsoft.AspNetCore.Components;
-using RTB.BlazorUI.Components;
+using RTB.Blazor.UI.Components;
+using RTB.Blazor.Core;
 
-namespace RTB.BlazorUI.Services.Dialog.Components
+namespace RTB.Blazor.UI.Services.Dialog.Components
 {
     public abstract class DialogBase : RTBComponent, IDialogReference
     {
-        [CascadingParameter] public DialogService? DialogService { get; set; }
+        [CascadingParameter] public IDialogService? DialogService { get; set; }
         [CascadingParameter] public IDialogReference? Dialog { get; set; }
 
-        [Parameter] public virtual string Title { get; set; } = string.Empty;
         [Parameter] public RenderFragment? ChildContent { get; set; }
+
         [Parameter] public bool Backdrop { get; set; } = true;
 
         private readonly TaskCompletionSource<DialogResult> _tcs = new();
