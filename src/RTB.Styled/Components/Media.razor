@@ -1,20 +1,14 @@
-﻿@using RTB.Blazor.Styled
+﻿@using RTB.Blazor.Styled.Helper
 @inherits RTBStyleBase
 
 @code {
     [Parameter, EditorRequired] public required RenderFragment ChildContent { get; set; }
-    [Parameter, EditorRequired] public required string Query { get; set; }
+    [Parameter, EditorRequired] public required BreakPoint BreakPoint { get; set; }
 
     private readonly StyleBuilder _builder = StyleBuilder.Start;
+
     private string _lastStyle = string.Empty;
 
-}
-
-<CascadingValue Value="@_builder" IsFixed>
-    @ChildContent
-</CascadingValue>
-
-@code {
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
@@ -24,7 +18,6 @@
     protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
         if (!_builder.IsDirty) return builder; // No changes since last render
-        if (string.IsNullOrEmpty(Query)) return builder; // No query to apply
 
         var style = _builder.Build();
         if (string.IsNullOrWhiteSpace(style)) return builder;
@@ -32,6 +25,10 @@
 
         _lastStyle = style;
 
-        return builder.AppendSelector(Query, style);
+        return builder.AppendMedia(BreakPoint, style);
     }
 }
+
+<CascadingValue Value="@_builder" IsFixed>
+    @ChildContent
+</CascadingValue>

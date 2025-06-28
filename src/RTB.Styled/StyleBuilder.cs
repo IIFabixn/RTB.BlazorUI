@@ -18,7 +18,7 @@ namespace RTB.Blazor.Styled
 
         private readonly Dictionary<string, string> _props = new(StringComparer.OrdinalIgnoreCase);
         private readonly Dictionary<string, string> _selectors = new(StringComparer.OrdinalIgnoreCase);
-
+        private readonly Dictionary<string, string> _medias = new(StringComparer.OrdinalIgnoreCase);
         public bool IsDirty { get; private set; } = false;
 
         public void Clear()
@@ -108,6 +108,24 @@ namespace RTB.Blazor.Styled
             return this;
         }
 
+        public StyleBuilder AppendMedia(BreakPoint media, string style)
+        {
+            if (media == null || string.IsNullOrWhiteSpace(style))
+                return this;
+
+            // Create a media query selector
+            var mediaQuery = media.ToQuery();
+            if (!_medias.TryAdd(mediaQuery, style))
+            {
+                // If the media query already exists, update its value
+                _medias[mediaQuery] = style;
+            }
+
+            IsDirty = true; // Mark as dirty since we modified the medias
+
+            return this;
+        }
+
         public StyleBuilder Var(string name, string value)
         {
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(value))
@@ -121,15 +139,11 @@ namespace RTB.Blazor.Styled
         /// Builds the final CSS style string.
         /// </summary>
         /// <returns>The constructed CSS style string.</returns>
-        public string Build(BreakPoint? media = null)
+        public string Build()
         {
             var builder = _stringBuilderPool.Get();
             try
             {
-                // If media query is provided, wrap the styles in a media block
-                if (media is not null)
-                    builder.Append($"{media.ToQuery()} {{ ");
-
                 // Apply each action to the builder
                 foreach (var prop in _props.Keys.OrderBy(k => k, StringComparer.OrdinalIgnoreCase))
                     builder.Append($"{prop}:{_props[prop]};");
@@ -138,9 +152,11 @@ namespace RTB.Blazor.Styled
                 foreach (var prop in _selectors)
                     builder.Append($"{prop.Key}{{{prop.Value}}}");
 
-                // Close the media block
-                if (media is not null)
-                    builder.Append(" }");
+                // Append media queries if any
+                foreach (var media in _medias)
+                {
+                    builder.Append($"{media.Key}{{{media.Value}}}");
+                }
 
                 var css = builder.ToString().Trim();
 

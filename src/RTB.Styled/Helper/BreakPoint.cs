@@ -25,10 +25,12 @@ namespace RTB.Blazor.Styled.Helper
             {
                 query.Append($" and (min-width: {MinWidth.Value})");
             }
+
             if (MaxWidth.HasValue)
             {
                 query.Append($" and (max-width: {MaxWidth.Value})");
             }
+
             return query.ToString();
         }
     }

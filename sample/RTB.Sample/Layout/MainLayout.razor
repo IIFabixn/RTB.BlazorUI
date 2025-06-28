@@ -1,0 +1,33 @@
+﻿@inherits LayoutComponentBase
+
+@code {
+    [CascadingParameter] private ISampleTheme Theme { get; set; } = default!;
+}
+
+<Styled Context="MainLayoutClass">
+    <Background Color="@Theme.Background" />
+    <Color Value="@Theme.TextColor"/>
+    <Size MaxHeight="@SizeUnit.Vh(100)" MaxWidth="@SizeUnit.Vw(100)" />
+    <Overflow Value="@Overflow.OverflowMode.Auto" /> 
+
+    <div class="@MainLayoutClass">
+        <Styled Context="BodyClass">
+            <Media BreakPoint="@Theme.Mobile">
+                <Padding Horizontal="@Theme.Spacing" />
+                <Background Color="@RTBColors.Red" />
+            </Media>
+            <Media BreakPoint="@Theme.Tablet">
+                <Padding Horizontal="@Theme.SpacingL" />
+                <Background Color="@RTBColors.Blue" />
+            </Media>
+            <Media BreakPoint="@Theme.Desktop">
+                <Padding Horizontal="@Theme.SpacingXL" />
+                <Background Color="@RTBColors.Green" />
+            </Media>
+
+            <Container Class="@BodyClass">
+                @Body
+            </Container>
+        </Styled>
+    </div>
+</Styled>
