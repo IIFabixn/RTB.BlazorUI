@@ -58,7 +58,7 @@ window.dialogHelper = {
 };
 
 window.popoverHelper = {
-    open: (popoverId) => {
+    show: (popoverId) => {
         const popoverElement = document.getElementById(popoverId);
         if (popoverElement?.showPopover) {
             popoverElement.showPopover()

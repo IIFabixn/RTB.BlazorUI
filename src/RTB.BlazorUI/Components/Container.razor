@@ -4,12 +4,11 @@
 @inherits RTBComponent
 @code {
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
-    [Parameter] public BreakPoint? BreakPoint { get; set; }
 
     [Parameter] public bool NoAutoMargin { get; set; } = false;
 }
 
-<Styled Context="ContainerClass" Media="@BreakPoint">
+<Styled Context="ContainerClass">
     <Margin Horizontal="@Spacing.Auto" Condition="@(!NoAutoMargin)" />
 
     <div class="@CombineClass("rtb-container", ContainerClass, Class)">
