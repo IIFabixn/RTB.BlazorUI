@@ -23,10 +23,26 @@ public class Overflow : RTBStyleBase
     {
         if (X == null && Y == null && Value == null)
             return builder.Append("overflow", OverflowMode.Auto.ToCss());
-            
-        return builder
-            .AppendIfNotNull("overflow-x", X?.ToCss())
-            .AppendIfNotNull("overflow-y", Y?.ToCss())
-            .AppendIfNotNull("overflow", Value?.ToCss());
+
+        return builder.OverflowX(X).OverflowY(Y).Overflow(Value);
+    }
+}
+
+public static class OverflowExtensions
+{
+    public static StyleBuilder Overflow(this StyleBuilder builder,
+        Overflow.OverflowMode? value = null)
+    {
+        return builder.AppendIfNotNull("overflow", value?.ToCss());
+    }
+    public static StyleBuilder OverflowX(this StyleBuilder builder,
+        Overflow.OverflowMode? value = null)
+    {
+        return builder.AppendIfNotNull("overflow-x", value?.ToCss());
+    }
+    public static StyleBuilder OverflowY(this StyleBuilder builder,
+        Overflow.OverflowMode? value = null)
+    {
+        return builder.AppendIfNotNull("overflow-y", value?.ToCss());
     }
 }

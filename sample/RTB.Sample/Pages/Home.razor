@@ -1,7 +1,10 @@
 ﻿@page "/"
 
+@code {
+    [CascadingParameter] private ISampleTheme Theme { get; set; } = default!;
+}
+
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+<Text TextStyle="@Theme.Headline" Color="@Theme.Primary">Welcome to Refused To Brew - Blazor UI</Text>

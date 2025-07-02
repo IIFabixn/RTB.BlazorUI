@@ -17,3 +17,17 @@ public class GridPlacement : RTBStyleBase
             .Append("grid-row", $"{(Row > 0 ? Row : "auto")} / span {RowSpan}");
     }
 }
+
+public static class GridPlacementExtensions
+{
+    public static StyleBuilder GridPlacement(this StyleBuilder builder, 
+        int column = 0, 
+        int columnSpan = 1, 
+        int row = 0, 
+        int rowSpan = 1)
+    {
+        return builder
+            .Append("grid-column", $"{(column > 0 ? column : "auto")} / span {columnSpan}")
+            .Append("grid-row", $"{(row > 0 ? row : "auto")} / span {rowSpan}");
+    }
+}

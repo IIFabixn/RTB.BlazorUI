@@ -11,18 +11,18 @@
     <Overflow Value="@Overflow.OverflowMode.Auto" /> 
 
     <div class="@MainLayoutClass">
-        <Styled Context="BodyClass">
+        <Styled Context="BodyClass" DependsOn="@([StyleBuilder.Start.Background(RTBColors.Red)])">
+            <Padding Horizontal="@Theme.Spacing" />
+            <Size FullWidth />
+
             <Media BreakPoint="@Theme.Mobile">
-                <Padding Horizontal="@Theme.Spacing" />
-                <Background Color="@RTBColors.Red" />
+                <Size MaxHeight="@Theme.Mobile.MaxWidth" />
             </Media>
             <Media BreakPoint="@Theme.Tablet">
-                <Padding Horizontal="@Theme.SpacingL" />
-                <Background Color="@RTBColors.Blue" />
+                <Size MaxWidth="@Theme.Tablet.MaxWidth" />
             </Media>
             <Media BreakPoint="@Theme.Desktop">
-                <Padding Horizontal="@Theme.SpacingXL" />
-                <Background Color="@RTBColors.Green" />
+                <Size MaxWidth="@Theme.Desktop.MaxWidth" />
             </Media>
 
             <Container Class="@BodyClass">

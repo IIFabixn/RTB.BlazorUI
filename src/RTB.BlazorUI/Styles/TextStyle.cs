@@ -13,6 +13,12 @@ namespace RTB.Blazor.UI.Styles
         public string? TextDecoration { get; set; }
         public Align? TextAlign { get; set; }
 
+        public TextStyle WithColor(RTBColor? color)
+        {
+            Color = color;
+            return this;
+        }
+
         public virtual StyleBuilder ToStyle()
         {
             return StyleBuilder.Start

@@ -3,31 +3,56 @@
 @inherits RTBComponent
 
 @code {
-    [Parameter] public string? LabelText { get; set; }
-    [Parameter] public TextStyle? LabelTextStyle { get; set; }
+    [Parameter] public string? LabelClass { get; set; }
     [Parameter] public RenderFragment? LabelContent { get; set; }
 
-    [Parameter] public string? CheckboxClass { get; set; }
+    [Parameter] public string? LabelText { get; set; }
+    [Parameter] public TextStyle? LabelTextStyle { get; set; }
+
+    [Parameter] public string? InputClass { get; set; }
+    [Parameter] public RenderFragment<bool>? CustomCheckbox { get; set; }
 
     [Parameter] public bool Checked { get; set; } = false;
     [Parameter] public EventCallback<bool> CheckedChanged { get; set; }
 
-    private readonly string InputId = $"checkbox-{Guid.NewGuid().ToString("N").Substring(8)}";
+    [Parameter] public string InputId { get; set; } = $"rtb-cb-{Guid.NewGuid().ToString("N").Substring(8)}";
 
-    private Task Toggle() => CheckedChanged.HasDelegate ? CheckedChanged.InvokeAsync(!Checked) : Task.CompletedTask;
+    [Parameter] public Position LabelPosition { get; set; } = Position.Top;
+    [Parameter] public bool Dense { get; set; }
+
+    private Flex.AxisDirection GetDirection() => LabelPosition switch
+    {
+        Position.Top => Flex.AxisDirection.Column,
+        Position.Right => Flex.AxisDirection.Row,
+        Position.Bottom => Flex.AxisDirection.ColumnReverse,
+        Position.Left => Flex.AxisDirection.RowReverse,
+        _ => Flex.AxisDirection.Column
+    };
+
+    public Task Toggle() => CheckedChanged.HasDelegate ? CheckedChanged.InvokeAsync(!Checked) : Task.CompletedTask;
 }
 
-<Stack JustifyContent="@Flex.Justify.SpaceBetween" Class="@Class">
-    <label for="@InputId">
-        @if (LabelContent != null)
-        {
-            @LabelContent
-        }
+<Styled Context="WrapperClass">
+    <Flex Direction="@GetDirection()" />
 
-        @if (!string.IsNullOrEmpty(LabelText))
+    <div class="@WrapperClass @Class">
+        <label class="@LabelClass" for="@InputId">
+            @if (LabelContent != null)
+            {
+                @LabelContent
+            }
+
+            @if (!string.IsNullOrEmpty(LabelText))
+            {
+                <RTB.Blazor.UI.Components.Text TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.Text>
+            }
+        </label>
+        @CustomCheckbox?.Invoke(Checked)
+        @if (CustomCheckbox == null)
         {
-            <RTB.Blazor.UI.Components.Text TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.Text>
+            <input id="@InputId" class="@InputClass" type="checkbox" checked="@Checked" @onchange="@(() => Toggle())" />        
         }
-    </label>
-    <input id="@InputId" class="@CheckboxClass" type="checkbox" checked="@Checked" @onchange="@(() => Toggle())" />
+    </div>
+</Styled>
+<Stack JustifyContent="@Flex.Justify.SpaceBetween" Class="@Class">
 </Stack>

@@ -16,3 +16,14 @@ public class Other : RTBStyleBase
         return builder.AppendIfNotNull(Property, Value);
     }
 }
+
+public static class OtherExtensions
+{
+    /// <summary>
+    /// Adds a custom CSS property and value to the style builder.
+    /// </summary>
+    public static StyleBuilder Other(this StyleBuilder builder, string property, string? value)
+    {
+        return builder.AppendIfNotNull(property, value);
+    }
+}

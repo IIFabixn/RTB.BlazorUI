@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.ObjectPool;
+using RTB.Blazor.Styled.Components;
 using RTB.Blazor.Styled.Helper;
 using System;
 using System.Buffers;
@@ -12,19 +13,21 @@ namespace RTB.Blazor.Styled
     /// <summary>
     /// A fluent builder for constructing inline CSS style strings.
     /// </summary>
-    public partial class StyleBuilder
+    public class StyleBuilder
     {
         private static readonly ObjectPool<StringBuilder> _stringBuilderPool = new StringBuilderPool();
 
         private readonly Dictionary<string, string> _props = new(StringComparer.OrdinalIgnoreCase);
         private readonly Dictionary<string, string> _selectors = new(StringComparer.OrdinalIgnoreCase);
         private readonly Dictionary<string, string> _medias = new(StringComparer.OrdinalIgnoreCase);
+
         public bool IsDirty { get; private set; } = false;
 
         public void Clear()
         {
             _props.Clear();
             _selectors.Clear();
+            _medias.Clear();
             IsDirty = false;
         }
 
@@ -124,15 +127,6 @@ namespace RTB.Blazor.Styled
             IsDirty = true; // Mark as dirty since we modified the medias
 
             return this;
-        }
-
-        public StyleBuilder Var(string name, string value)
-        {
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(value))
-                return this;
-            // CSS variables are prefixed with "--"
-            var property = $"--{name.Trim()}";
-            return AppendInternal(property, value);
         }
 
         /// <summary>
