@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
 
       <PackageId>RTB.Blazor.UI</PackageId>
-      <Version>1.0.2-preview</Version>
+      <Version>1.0.2</Version>
       <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
       <Authors>Fabian Becker</Authors>
       <Description>WPF like Components for Blazor</Description>
@@ -27,5 +27,6 @@
   <ItemGroup>
     <ProjectReference Include="..\RTB.Core\RTB.Blazor.Core.csproj" />
     <ProjectReference Include="..\RTB.Styled\RTB.Blazor.Styled.csproj" />
+    <ProjectReference Include="..\RTB.Theme\RTB.Blazor.Theme.csproj" />
   </ItemGroup>
 </Project>

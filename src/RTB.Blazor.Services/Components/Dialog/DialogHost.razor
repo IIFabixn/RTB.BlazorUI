@@ -1,24 +1,30 @@
-﻿@using RTB.Blazor.UI.Services
-
-@inherits DialogBase
+﻿@inherits DialogBase
 
 @inject IJSRuntime JSRuntime
 
-<!-- Root overlay – centres the dialog and keeps it above everything -->
-<Styled Context="DialogHostClass">
+<Styled Context="ComponentClass">
     <Flex Direction="@Flex.AxisDirection.Column" AlignContent="@Flex.Align.Center" JustifyContent="@Flex.Justify.Center" />
-
     <Background Color="@RTBColors.Transparent" />
     <Other Property="border" Value="none" />
     <Positioned Top="0" Left="0" Right="0" Bottom="0" />
     <Margin All="@Spacing.Auto" />
-
-    <dialog @ref="dialog" class="@DialogHostClass">
+    
+    <dialog @ref="dialog" class="@ComponentClass">
         <CascadingValue Value="this">
             @ChildContent
         </CascadingValue>
     </dialog>
 </Styled>
+
+<script>
+    window.dialogHelper = {
+        showModal: (dialogElement) => {
+            if (dialogElement?.showModal) {
+                dialogElement.showModal();
+            }
+        }
+    };
+</script>
 
 @code {
     private ElementReference? dialog;
@@ -27,7 +33,7 @@
     {
         if (firstRender && dialog != null)
         {
-            await JSRuntime.InvokeVoidAsync("dialogHelper.show", dialog);
+            await JSRuntime.InvokeVoidAsync("dialogHelper.showModal", dialog);
         }
     }
 }

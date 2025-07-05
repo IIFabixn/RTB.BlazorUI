@@ -22,7 +22,6 @@
 ## ✨ Key Features
 
 - **🎯 Declarative Styling** - Define styles using intuitive C# components
-- **⚡ Zero Runtime Overhead** - Styles are generated and cached efficiently
 - **🧹 Automatic Cleanup** - Unused styles are automatically removed
 - **🔧 Type-Safe** - Strongly typed units, colors, and CSS properties
 - **📱 Responsive Design** - Built-in breakpoint support
@@ -64,23 +63,6 @@ builder.Services.UseRTBStyled();
 </Styled>
 ```
 
-### 3. Advanced Styling
-
-```razor
-<Styled Context="ClassName">
-    <Background Color="@RTBColor.FromHex("#ff6b6b")" />
-    <Size Width="@SizeUnit.Percent(100)" MaxWidth="@SizeUnit.Px(600)" />
-    <Margin Horizontal="@Spacing.Auto" Vertical="@Spacing.Rem(2)" />
-    <Border Radius="@SizeUnit.Px(12)" Width="@SizeUnit.Px(2)" Color="@RTBColor.Gray" />
-    <Flex Direction="FlexDirection.Column" Gap="@Spacing.Rem(1)" />
-    
-    <div class="@ClassName">
-        <h2>Advanced Styled Card</h2>
-        <p>Multiple styling components working together</p>
-    </div>
-</Styled>
-```
-
 ## 🧰 Component Library
 
 ### Layout & Positioning
@@ -102,6 +84,7 @@ builder.Services.UseRTBStyled();
 - **`Overflow`** - Overflow behavior control
 - **`Transition`** - CSS transitions and animations
 - **`Selector`** - Pseudo-selectors (:hover, :focus, etc.)
+- **`Media`** - Media queries for responsive design
 
 ## 🎯 Type System
 
@@ -122,7 +105,6 @@ SizeUnit.Vh(100)       // 100vh
 
 // Special values
 SizeUnit.Auto          // auto
-SizeUnit.FitContent    // fit-content
 ```
 
 ### RTBColors
@@ -165,46 +147,6 @@ Spacing.Auto           // auto
 </Styled>
 ```
 
-### Pseudo-Selectors
-
-```razor
-<Styled Context="ClassName">
-    <Background Color="@RTBColor.Blue" />
-    
-    <Selector Pseudo=":hover">
-        <Background Color="@RTBColor.DarkBlue" />
-        <Transition Property="background-color" Duration="@TimeSpan.FromMilliseconds(200)" />
-    </Selector>
-    
-    <button class="@ClassName">Hover me!</button>
-</Styled>
-```
-
-### Complex Layouts
-
-```razor
-<Styled Context="ContainerClass">
-    <Grid Columns="repeat(auto-fit, minmax(300px, 1fr))" Gap="@Spacing.Large" />
-    
-    <div class="@ContainerClass">
-        @foreach (var item in items)
-        {
-            <Styled Context="ItemClass">
-                <Background Color="@RTBColor.White" />
-                <Border Radius="@SizeUnit.Px(8)" />
-                <Padding All="@Spacing.Medium" />
-                <GridPlacement Column="auto" />
-                
-                <div class="@ItemClass">
-                    <h3>@item.Title</h3>
-                    <p>@item.Description</p>
-                </div>
-            </Styled>
-        }
-    </div>
-</Styled>
-```
-
 ## 🏗️ Architecture
 
 ### Core Components
@@ -240,7 +182,7 @@ RTB.Blazor.Styled seamlessly integrates with RTB.BlazorUI components:
     <Styled Context="CardClass">
         <Background Color="@currentTheme.CardBackground" />
         <Border Radius="@SizeUnit.Px(12)" />
-        <Padding All="@Spacing.Large" />
+        <Padding All="@Spacing.Rem(1)" />
         
         <Card Class="@CardClass" Title="Styled Card">
             <Text>This card uses dynamic styling!</Text>
@@ -267,10 +209,14 @@ public class StyledButton : ComponentBase
 ### 2. Theme Integration
 ```razor
 @inject IThemeService<IAppTheme> ThemeService
+<!-- or -->
+@code {
+    [CascadingParameter] private IAppTheme Theme { get; set; } = default!;
+}
 
 <Styled Context="ClassName">
-    <Background Color="@ThemeService.Current.PrimaryColor" />
-    <Color Value="@ThemeService.Current.TextColor" />
+    <Background Color="@Theme(Service.Current).PrimaryColor" />
+    <Color Value="@Theme(Service.Current).TextColor" />
     
     <!-- Your component -->
 </Styled>

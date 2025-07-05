@@ -26,8 +26,6 @@ Built on top of **RTB.Blazor.Styled** for dynamic styling and **RTB.Blazor.Core*
 - **🧩 XAML-Like Components** - Familiar declarative syntax for .NET developers
 - **🎨 Built-in Styling** - Leverages RTB.Blazor.Styled for dynamic CSS generation
 - **🔧 Rich Services** - Dialog management, drag & drop, busy tracking, and navigation
-- **📱 Responsive Design** - Mobile-first components with breakpoint support
-- **⚡ High Performance** - Optimized rendering with virtualization support
 - **🎯 Type Safety** - Strongly typed parameters and generic constraints
 - **🔄 Data Binding** - Two-way binding support with change notifications
 

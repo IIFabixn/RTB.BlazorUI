@@ -1,7 +1,7 @@
 ﻿@using RTB.Sample.Theme
 
-<RTB.Blazor.Theme.Components.RTBThemeContext TTheme="ISampleTheme">
-    <RTB.Blazor.UI.Services.Dialog.Components.RTBDialogContext>
+<RTBThemeContext TTheme="ISampleTheme">
+    <RTBDialogContext>
         <Router AppAssembly="@typeof(App).Assembly">
             <Found Context="routeData">
                 <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
@@ -14,5 +14,5 @@
                 </LayoutView>
             </NotFound>
         </Router>
-    </RTB.Blazor.UI.Services.Dialog.Components.RTBDialogContext>
-</RTB.Blazor.Theme.Components.RTBThemeContext>
+    </RTBDialogContext>
+</RTBThemeContext>

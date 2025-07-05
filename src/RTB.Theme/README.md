@@ -31,7 +31,7 @@
 ## 📦 Installation
 
 ```xml
-<PackageReference Include="RTB.Blazor.Theme" Version="1.0.0-preview" />
+<PackageReference Include="RTB.Blazor.Theme" Version="1.0.2" />
 ```
 
 ## 🚀 Quick Start
@@ -92,10 +92,14 @@ Wrap your app with the theme context in `App.razor`:
 
 ```razor
 @inject IThemeService<IMyAppTheme> ThemeService
+<!-- or -->
+@code {
+    [CascadingParameter] private IMyAppTheme Theme { get; set; } = default!;
+}
 
-<div style="background-color: @ThemeService.Current.BackgroundColor; 
-           color: @ThemeService.Current.PrimaryColor">
-    <h1>Hello, @ThemeService.Current.Name Theme!</h1>
+<div style="background-color: @Theme(Service.Current).BackgroundColor; 
+           color: @Theme(Service.Current).PrimaryColor">
+    <h1>Hello, @Theme(Service.Current).Name Theme!</h1>
     
     <button @onclick="SwitchTheme">Switch Theme</button>
 </div>
@@ -136,31 +140,6 @@ The theme service automatically discovers all classes that:
 ### Persistence
 
 Themes are automatically persisted to the browser's localStorage using the key `"rtbtheme"`. The theme is restored when the application loads.
-
-## 🎯 Advanced Usage
-
-### Custom Theme Service
-
-You can implement your own theme service by implementing `IThemeService<T>`:
-
-```csharp
-public class CustomThemeService : IThemeService<IMyAppTheme>
-{
-    public IMyAppTheme Current { get; private set; }
-    public IMyAppTheme Default => /* your logic */;
-    public IList<IMyAppTheme> Themes => /* your themes */;
-    
-    public event Action? OnThemeChanged;
-    
-    public ValueTask SetThemeAsync(IMyAppTheme theme)
-    {
-        Current = theme;
-        OnThemeChanged?.Invoke();
-        // Custom persistence logic
-        return ValueTask.CompletedTask;
-    }
-}
-```
 
 ### Theme-Aware Components
 
@@ -211,9 +190,9 @@ public interface IThemeService<TTheme> where TTheme : ITheme
 {
     TTheme Current { get; }
     TTheme Default { get; }
-    IList<TTheme> Themes { get; }
     event Action? OnThemeChanged;
     ValueTask SetThemeAsync(TTheme theme);
+    IList<TTheme> Themes { get; }
 }
 ```
 
@@ -225,10 +204,6 @@ public class ThemeAttribute : Attribute
     public bool IsDefault { get; set; } = false;
 }
 ```
-
-## 🤝 Integration with RTB.BlazorUI
-
-RTB.Blazor.Theme is designed to work seamlessly with other RTB.BlazorUI components. Many components automatically respect theme changes when used together.
 
 ## 📄 License
 
