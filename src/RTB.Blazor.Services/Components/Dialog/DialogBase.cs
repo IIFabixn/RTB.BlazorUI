@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
-using RTB.Blazor.UI.Components;
 using RTB.Blazor.Core;
+using RTB.Blazor.Services.Services;
 
-namespace RTB.Blazor.UI.Services.Dialog.Components
+namespace RTB.Blazor.Services.Components.Dialog
 {
     public abstract class DialogBase : RTBComponent, IDialogReference
     {

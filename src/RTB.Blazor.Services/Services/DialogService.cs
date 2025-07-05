@@ -1,9 +1,8 @@
-﻿using RTB.Blazor.UI.Services.Dialog.Components;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Routing;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
+using RTB.Blazor.Services.Components.Dialog;
 
-namespace RTB.Blazor.UI.Services.Dialog
+namespace RTB.Blazor.Services.Services
 {
     // Core Contracts
     public enum DialogResultKind { Ok, Cancel, None }

@@ -14,16 +14,15 @@
 
   <ItemGroup>
 	<!--<PackageReference Include="RTB.Blazor.UI" Version="1.0.0-preview" />-->
+    <ProjectReference Include="..\..\src\RTB.Blazor.Services\RTB.Blazor.Services.csproj" />
     <ProjectReference Include="..\..\src\RTB.BlazorUI\RTB.Blazor.UI.csproj" />
 
 	<!--<PackageReference Include="RTB.Blazor.Theme" Version="1.0.0-preview" />-->
-	<ProjectReference Include="..\..\src\RTB.Theme\RTB.Blazor.Theme.csproj" />
 
 	<!--<PackageReference Include="RTB.Blazor.Charts" Version="1.0.0-preview" />-->
 	<ProjectReference Include="..\..\src\RTB.Charts\RTB.Blazor.Charts.csproj" />
 
 	<!--<PackageReference Include="RTB.Blazor.Styled" Version="1.0.0-preview" />-->
-	<ProjectReference Include="..\..\src\RTB.Styled\RTB.Blazor.Styled.csproj" />
   </ItemGroup>
 
   <ItemGroup>

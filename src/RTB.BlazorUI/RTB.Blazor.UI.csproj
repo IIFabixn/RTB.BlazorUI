@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
 
       <PackageId>RTB.Blazor.UI</PackageId>
-      <Version>1.0.2-preview</Version>
+      <Version>1.0.2</Version>
       <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
       <Authors>Fabian Becker</Authors>
       <Description>WPF like Components for Blazor</Description>
@@ -14,7 +14,12 @@
       <RepositoryUrl>https://github.com/IIFabixn/RTB.BlazorUI</RepositoryUrl>
       <PackageLicenseExpression>MIT</PackageLicenseExpression>
       <RepositoryType>git</RepositoryType>
+	  <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
+
+	<ItemGroup>
+		<None Include="readme.md" Pack="true" PackagePath="\"/>
+	</ItemGroup>
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
@@ -27,5 +32,6 @@
   <ItemGroup>
     <ProjectReference Include="..\RTB.Core\RTB.Blazor.Core.csproj" />
     <ProjectReference Include="..\RTB.Styled\RTB.Blazor.Styled.csproj" />
+    <ProjectReference Include="..\RTB.Theme\RTB.Blazor.Theme.csproj" />
   </ItemGroup>
 </Project>

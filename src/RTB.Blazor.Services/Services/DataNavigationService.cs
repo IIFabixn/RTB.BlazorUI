@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTB.Blazor.UI.Services.DataNavigationService
+namespace RTB.Blazor.Services.Services
 {
     public class DataNavigationService(NavigationManager navigationManager)
     {

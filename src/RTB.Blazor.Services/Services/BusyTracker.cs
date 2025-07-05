@@ -2,7 +2,7 @@
 using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 
-namespace RTB.Blazor.UI.Services.BusyTracker
+namespace RTB.Blazor.Services.Services
 {
     /// <summary>
     /// Interface for tracking busy states in asynchronous operations.

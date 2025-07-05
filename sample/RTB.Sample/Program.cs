@@ -12,7 +12,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-builder.Services.UseRTBUI();
+builder.Services.UseRTBServices();
 builder.Services.UseRTBTheme(typeof(ISampleTheme));
 
 await builder.Build().RunAsync();
