@@ -4,6 +4,7 @@ using RTB.Blazor.Styled.Helper;
 using System;
 using System.Buffers;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -56,10 +57,9 @@ namespace RTB.Blazor.Styled
         /// <returns>The current StyleBuilder instance for method chaining.</returns>
         public StyleBuilder AppendIf(string? property, string? value, bool condition)
         {
-            if (condition && !string.IsNullOrWhiteSpace(property) &&!string.IsNullOrWhiteSpace(value))
-                return AppendInternal(property, value);
+            if (string.IsNullOrWhiteSpace(property) || string.IsNullOrWhiteSpace(value) || !condition) return this;
 
-            return this;
+            return AppendInternal(property, value);
         }
 
         /// <summary>
@@ -85,10 +85,17 @@ namespace RTB.Blazor.Styled
                 {
                     AppendInternal(kvp.Key, kvp.Value);
                 }
+
                 // Append selectors from the other StyleBuilder
                 foreach (var kvp in other._selectors)
                 {
                     AppendSelector(kvp.Key, kvp.Value);
+                }
+
+                // Append media queries from the other StyleBuilder
+                foreach (var kvp in other._medias)
+                {
+                    AppendMedia(new BreakPoint { Media = BreakPoint.MediaType.Screen }, kvp.Value); // Assuming default media type
                 }
             }
             return this;
@@ -117,7 +124,7 @@ namespace RTB.Blazor.Styled
                 return this;
 
             // Create a media query selector
-            var mediaQuery = media.ToQuery();
+            string mediaQuery = media.ToQuery();
             if (!_medias.TryAdd(mediaQuery, style))
             {
                 // If the media query already exists, update its value
@@ -139,12 +146,16 @@ namespace RTB.Blazor.Styled
             try
             {
                 // Apply each action to the builder
-                foreach (var prop in _props.Keys.OrderBy(k => k, StringComparer.OrdinalIgnoreCase))
-                    builder.Append($"{prop}:{_props[prop]};");
+                foreach (var prop in _props)
+                {
+                    builder.Append($"{prop.Key}:{prop.Value};");
+                }
 
                 // Append selectors if any
                 foreach (var prop in _selectors)
+                {
                     builder.Append($"{prop.Key}{{{prop.Value}}}");
+                }
 
                 // Append media queries if any
                 foreach (var media in _medias)
