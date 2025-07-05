@@ -13,3 +13,11 @@ public class Color : RTBStyleBase
         return builder.AppendIfNotNull("color", Value);
     }
 }
+
+public static class ColorExtensions
+{
+    public static StyleBuilder Color(this StyleBuilder builder, RTBColor? color)
+    {
+        return builder.AppendIfNotNull("color", color);
+    }
+}

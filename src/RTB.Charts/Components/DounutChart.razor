@@ -11,7 +11,7 @@
         <Styled Context="DonutClass">
             <Size FullHeight FullWidth />
 
-            <SKCanvasView class="@DonutClass" OnPaintSurface="PaintDonut" EnableRenderLoop />
+            <SKCanvasView class="@DonutClass" OnPaintSurface="@PaintDonut" />
         </Styled>
 
         <Styled Context="LabelsListClass">
@@ -29,7 +29,7 @@
                                 <Border Radius="@SizeUnit.Rem(1)" />
                                 <Flex Shrink="0" />
 
-                                <div class="@LabelItemClass" style="background-color: #@(entry.Color?.ToString().Substring(3) ?? RTBColors.White);"></div>
+                                <div class="@LabelItemClass" style="background-color: @(entry.Color.HexRgba);"></div>
                             </Styled>
                             <h4>@entry.Label</h4>
                         </div>
@@ -67,7 +67,7 @@
             if (entry.Value <= 0) continue;
 
             float sweep = 360f * (entry.Value / TotalValue) - gapAngle; // Reduce sweep by gap angle
-            paint.Color = entry.Color ?? throw new InvalidDataException($"Entry {entry.Label} does not have a Color associated with it.");
+            paint.Color = entry.Color.ToSKColor();
 
             using var path = new SKPath();
             path.AddArc(new SKRect(center.X - outerRadius, center.Y - outerRadius, center.X + outerRadius, center.Y + outerRadius), start, sweep);

@@ -21,11 +21,24 @@ public class Positioned : RTBStyleBase
 
     protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
+        return builder.Positioned(Position, Top, Right, Bottom, Left);
+    }
+}
+
+public static class PositionedExtensions
+{
+    public static StyleBuilder Positioned(this StyleBuilder builder,
+        Positioned.PositionMode position = Components.Positioned.PositionMode.Absolute,
+        SizeUnit? top = null,
+        SizeUnit? right = null,
+        SizeUnit? bottom = null,
+        SizeUnit? left = null)
+    {
         return builder
-            .Append("position", Position.ToCss())
-            .AppendIfNotNull("top", Top)
-            .AppendIfNotNull("right", Right)
-            .AppendIfNotNull("bottom", Bottom)
-            .AppendIfNotNull("left", Left);
+            .Append("position", position.ToCss())
+            .AppendIfNotNull("top", top)
+            .AppendIfNotNull("right", right)
+            .AppendIfNotNull("bottom", bottom)
+            .AppendIfNotNull("left", left);
     }
 }

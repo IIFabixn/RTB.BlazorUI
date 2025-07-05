@@ -1,3 +1,12 @@
+html, body, #app {
+    margin: 0;
+    max-height: 100vh;
+    max-width: 100vw;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
 }

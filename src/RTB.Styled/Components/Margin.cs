@@ -28,3 +28,24 @@ public class Margin : RTBStyleBase
         return builder;
     }
 }
+
+public static class MarginExtensions
+{
+    public static StyleBuilder Margin(this StyleBuilder builder,
+        Spacing? all = null,
+        Spacing? top = null,
+        Spacing? right = null,
+        Spacing? bottom = null,
+        Spacing? left = null,
+        Spacing? horizontal = null,
+        Spacing? vertical = null)
+    {
+        return builder
+            .AppendIfNotNull("margin", all)
+            .AppendIf("margin", $"{vertical ?? 0} {horizontal ?? 0}", horizontal is not null || vertical is not null)
+            .AppendIfNotNull("margin-top", top)
+            .AppendIfNotNull("margin-right", right)
+            .AppendIfNotNull("margin-bottom", bottom)
+            .AppendIfNotNull("margin-left", left);
+    }
+}

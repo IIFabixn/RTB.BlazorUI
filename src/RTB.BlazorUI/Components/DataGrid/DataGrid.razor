@@ -22,7 +22,8 @@
     [Parameter] public string? RowClass { get; set; }
     [Parameter] public string? ActiveRowClass { get; set; } = "active";
 
-    [Parameter, EditorRequired] public string KeyProperty { get; set; } = default!;
+    [Parameter] public int OverscanCount { get; set; } = 3;
+    [Parameter] public SizeUnit? ItemSize { get; set; }
 }
 
 <!-- registers the <DataColumn>s -->
@@ -58,7 +59,7 @@
                 </Stack>
             }
 
-            <Virtualize Items="_sortedItems" Context="row">
+            <Virtualize Items="_sortedItems" Context="row" OverscanCount="@OverscanCount">
                 <!-- ---------- Data cells (rows 2…N) ----------------------- -->
                 @* display:contents will not create a new element in the dom *@
                 <div style="display:contents" class="@CombineClass(RowClass, row == SelectedRow ? ActiveRowClass : null)" @onclick="() => SelectRow(row)">

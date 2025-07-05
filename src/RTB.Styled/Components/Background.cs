@@ -12,6 +12,14 @@ public class Background : RTBStyleBase
 
     protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        return builder.AppendIfNotNull("background-color", Color);
+        return builder.Background(Color);
+    }
+}
+
+public static class BackgroundExtensions
+{
+    public static StyleBuilder Background(this StyleBuilder builder, RTBColor? color)
+    {
+        return builder.AppendIfNotNull("background-color", color);
     }
 }

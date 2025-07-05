@@ -7,22 +7,19 @@
 <Styled Context="MainLayoutClass">
     <Background Color="@Theme.Background" />
     <Color Value="@Theme.TextColor"/>
-    <Size MaxHeight="@SizeUnit.Vh(100)" MaxWidth="@SizeUnit.Vw(100)" />
-    <Overflow Value="@Overflow.OverflowMode.Auto" /> 
 
-    <div class="@MainLayoutClass">
+    <div class="MainLayout @MainLayoutClass">
         <Styled Context="BodyClass">
+            <Size FullWidth />
+
             <Media BreakPoint="@Theme.Mobile">
-                <Padding Horizontal="@Theme.Spacing" />
-                <Background Color="@RTBColors.Red" />
+                <Size MaxWidth="@Theme.Mobile.MaxWidth" />
             </Media>
             <Media BreakPoint="@Theme.Tablet">
-                <Padding Horizontal="@Theme.SpacingL" />
-                <Background Color="@RTBColors.Blue" />
+                <Size MaxWidth="@Theme.Tablet.MaxWidth" />
             </Media>
             <Media BreakPoint="@Theme.Desktop">
-                <Padding Horizontal="@Theme.SpacingXL" />
-                <Background Color="@RTBColors.Green" />
+                <Size MaxWidth="@Theme.Desktop.MaxWidth" />
             </Media>
 
             <Container Class="@BodyClass">
