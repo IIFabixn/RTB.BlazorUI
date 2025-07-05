@@ -4,7 +4,7 @@
 @inherits ChartBase
 
 @code {
-    [Parameter] public SKColor SKColor { get; set; } = SKColors.Blue;
+    [Parameter] public RTBColor LineColor { get; set; } = RTBColors.Blue;
 }
 
 
@@ -16,7 +16,7 @@
         <Styled Context="LineChartClass">
             <Size FullHeight FullWidth />
 
-            <SKCanvasView class="@LineChartClass" OnPaintSurface="PaintLine" EnableRenderLoop />
+            <SKCanvasView class="@LineChartClass" OnPaintSurface="@PaintLine" />
         </Styled>
 
         <Styled Context="LabelsListClass">
@@ -34,7 +34,7 @@
                                 <Border Radius="@SizeUnit.Rem(1)" />
                                 <Flex Shrink="0" />
 
-                                <div class="@LabelItemClass" style="background-color: #@(entry.Color?.ToString().Substring(3) ?? RTBColors.White);"></div>
+                                <div class="@LabelItemClass" style="background-color: @(entry.Color.HexRgba);"></div>
                             </Styled>
                             <h4>@entry.Label</h4>
                         </div>
@@ -91,7 +91,7 @@
 
         using var line = new SKPaint
             {
-                Color = SKColor,
+                Color = LineColor.ToSKColor(),
                 StrokeWidth = 3,
                 IsAntialias = true,
                 Style = SKPaintStyle.Stroke

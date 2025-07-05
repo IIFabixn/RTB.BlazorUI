@@ -85,7 +85,7 @@
 
     public async ValueTask Hide()
     {
-        await JSRuntime.InvokeVoidAsync("popoverHelper.hide", FlyoutId);
+        await JSRuntime.InvokeVoidAsync("popoverHelper.close", FlyoutId);
     }
 
     public async ValueTask Toggle()

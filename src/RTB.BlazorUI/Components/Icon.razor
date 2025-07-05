@@ -50,7 +50,7 @@
 		var updatedSvg = Regex.Replace(
 			content,
 			@"<svg([^>]*)>",
-			$"<svg$1 width=\"{Width}\" height=\"{Height}\" class=\"{Class}\" stroke=\"{(Stroke?.ToString() ?? "currentColor")}\" fill=\"{(Fill?.ToString() ?? "currentColor")}\">",
+			$"<svg$1 width=\"{Width}\" height=\"{Height}\" class=\"{Class}\" stroke=\"{(Stroke?.HexRgba ?? "currentColor")}\" fill=\"{(Fill?.HexRgba ?? "currentColor")}\">",
 			RegexOptions.IgnoreCase | RegexOptions.Multiline
 		);
 		

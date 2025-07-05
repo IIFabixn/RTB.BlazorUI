@@ -1,0 +1,20 @@
+﻿@page "/charts"
+
+
+@code {
+    [CascadingParameter] private ISampleTheme Theme { get; set; } = default!;
+}
+
+<Stack Vertical Gap="Theme.Spacing">
+    <LineChart Entries="@Entries" />
+</Stack>
+
+@code {
+    private List<ChartEntry> Entries { get; set; } = new()
+    {
+        new("Entry 1", 1, RTBColors.Red),
+        new("Entry 2", 2, RTBColors.Green),
+        new("Entry 3", 3, RTBColors.Blue),
+        new("Entry 4", 4, RTBColors.Yellow)
+    };
+}

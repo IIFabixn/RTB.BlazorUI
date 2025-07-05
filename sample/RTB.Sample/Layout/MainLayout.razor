@@ -7,16 +7,13 @@
 <Styled Context="MainLayoutClass">
     <Background Color="@Theme.Background" />
     <Color Value="@Theme.TextColor"/>
-    <Size MaxHeight="@SizeUnit.Vh(100)" MaxWidth="@SizeUnit.Vw(100)" />
-    <Overflow Value="@Overflow.OverflowMode.Auto" /> 
 
-    <div class="@MainLayoutClass">
-        <Styled Context="BodyClass" DependsOn="@([StyleBuilder.Start.Background(RTBColors.Red)])">
-            <Padding Horizontal="@Theme.Spacing" />
+    <div class="MainLayout @MainLayoutClass">
+        <Styled Context="BodyClass">
             <Size FullWidth />
 
             <Media BreakPoint="@Theme.Mobile">
-                <Size MaxHeight="@Theme.Mobile.MaxWidth" />
+                <Size MaxWidth="@Theme.Mobile.MaxWidth" />
             </Media>
             <Media BreakPoint="@Theme.Tablet">
                 <Size MaxWidth="@Theme.Tablet.MaxWidth" />
