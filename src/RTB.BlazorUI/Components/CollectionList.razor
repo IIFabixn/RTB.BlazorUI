@@ -7,7 +7,7 @@
 @using RTB.Blazor.UI.Extensions
 
 @code {
-    [Parameter] public List<TItem> Items { get; set; } = [];
+    [Parameter] public ICollection<TItem> Items { get; set; } = [];
     [Parameter] public RenderFragment? HeaderTemplate { get; set; }
     [Parameter] public RenderFragment<TItem>? ItemTemplate {get; set; }
 

@@ -1,4 +1,16 @@
-﻿
+﻿window.dialogHelper = {
+    showModal: (dialogElement) => {
+        if (dialogElement?.showModal) {
+            dialogElement.showModal();
+        }
+    },
+    show: (dialogElement) => {
+        if (dialogElement?.show) {
+            dialogElement.show();
+        }
+    }
+};
+
 window.initDragDropInterop = (dropZoneId, inputId) => {
     const dropZone = document.getElementById(dropZoneId);
     const fileInput = document.getElementById(inputId);
@@ -33,7 +45,7 @@ window.initDragDropInterop = (dropZoneId, inputId) => {
 
         // Check for files in the dataTransfer object
         if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-            
+
             // Assign dropped files to the input
             fileInput.files = e.dataTransfer.files;
 
@@ -44,19 +56,6 @@ window.initDragDropInterop = (dropZoneId, inputId) => {
     });
 };
 
-window.dialogHelper = {
-    showModal: (dialogElement) => {
-        if (dialogElement?.showModal) {
-            dialogElement.showModal();
-        }
-    },
-    show: (dialogElement) => {
-        if (dialogElement?.show) {
-            dialogElement.show();
-        }
-    }
-};
-
 window.popoverHelper = {
     show: (popoverId) => {
         const popoverElement = document.getElementById(popoverId);
@@ -64,7 +63,7 @@ window.popoverHelper = {
             popoverElement.showPopover()
         }
     },
-    close: (popoverId) => {
+    hide: (popoverId) => {
         const popoverElement = document.getElementById(popoverId);
         if (popoverElement?.hidePopover) {
             popoverElement.hidePopover()

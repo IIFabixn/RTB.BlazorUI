@@ -6,7 +6,7 @@ using RTB.Blazor.Styled.Services;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using RTB.Blazor.Services.Services;
 
-namespace RTB.Blazor.UI.Extensions
+namespace RTB.Blazor.Services.Extensions
 {
     public static class ServiceCollectionExtension
     {

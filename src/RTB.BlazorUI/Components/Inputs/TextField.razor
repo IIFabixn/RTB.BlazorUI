@@ -22,16 +22,20 @@
 
     [Parameter] public bool Nummeric { get; set; }
 
+    [Parameter] public bool ReadOnly { get; set; } = false;
+
     private readonly string _id = $"rtb-tf-{Guid.NewGuid():N}";
     private Timer? _debounce;
 
     private Task OnInput(ChangeEventArgs e)
     {
+        if (ReadOnly) return Task.CompletedTask;
+
         var text = e.Value?.ToString();
         if (Immediate) return ValueChanged.InvokeAsync(text);
 
-        _debounce?.Stop();
         _debounce ??= new() { AutoReset = false };
+        _debounce.Stop();
         _debounce.Interval = DebounceMilliseconds;
         _debounce.Elapsed += (_, _) => InvokeAsync(() => ValueChanged.InvokeAsync(text));
         _debounce.Start();
@@ -58,9 +62,10 @@
         <Border Side="Border.BorderSide.Bottom" Color="@RTBColors.Black" Width="1" />
 
         <input id="@_id"
+            disabled="@ReadOnly"
             value="@Value"
             type="@(Nummeric ? "number" : "text")"
-            @onchange="@(e => ValueChanged.InvokeAsync((string?)e.Value))"
+            @onchange="@(e => ReadOnly ? Task.CompletedTask : ValueChanged.HasDelegate ? ValueChanged.InvokeAsync((string?)e.Value) : Task.CompletedTask)"
             @oninput="OnInput"
             placeholder="@Placeholder"
             class="@CombineClass("rtb-tf", InputStyleClass, InputClass)" />

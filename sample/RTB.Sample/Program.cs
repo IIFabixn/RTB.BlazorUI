@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using RTB.Blazor.Services.Extensions;
 using RTB.Blazor.Theme.Extensions;
-using RTB.Blazor.UI.Extensions;
 using RTB.Sample;
 using RTB.Sample.Theme;
 

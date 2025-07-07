@@ -7,7 +7,7 @@
 @inject IJSRuntime JSRuntime
 
 @code {
-    [Parameter, EditorRequired] public required List<TOption> Options { get; set; }
+    [Parameter, EditorRequired] public required ICollection<TOption> Options { get; set; }
 
     [Parameter, EditorRequired] public required RenderFragment<TOption?> ActionContent { get; set; }
     [Parameter, EditorRequired] public required RenderFragment<TOption> OptionTemplate { get; set; }
