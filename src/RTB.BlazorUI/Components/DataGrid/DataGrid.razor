@@ -52,9 +52,9 @@
                     <Positioned Position="@Positioned.PositionMode.Sticky" Top="0" />
 
                     @(builder => col.RenderHeader(builder, colIdx))
-                    @if (Sort?.Column == col)
+                    @if (col.CanSort)
                     {
-                        <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(Sort.Descending ? "▼" : "▲")</button>
+                        <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(col.SortDescending ? "▼" : "▲")</button>
                     }
                 </Stack>
             }
@@ -77,7 +77,7 @@
 @code {
     private List<ColumnBase<TRow>> _columns = [];
     private SortInfo? _sort;
-    private SortInfo? Sort
+    private SortInfo? CurrentSort
     {
         get => _sort;
         set => SetProperty(ref _sort, value);
@@ -88,11 +88,11 @@
 
     protected override void OnParametersSet()
     {
-        if (Sort is null)
+        if (CurrentSort is null)
         {
             var firstSortable = _columns.FirstOrDefault(c => c.CanSort);
             if (firstSortable is not null)
-                Sort = new(firstSortable, firstSortable.DefaultSortDescending);
+                CurrentSort = new(firstSortable, firstSortable.DefaultSortDescending);
         }
 
         _selectedRow = SelectedRow;
@@ -104,7 +104,7 @@
         if (!firstRender) return;
         if (_columns.Count == 0) return; // no columns registered
 
-        Sort ??= _columns.TryGetItem(i => i.CanSort, out var col) ? new(col, col.DefaultSortDescending) : null;
+        CurrentSort ??= _columns.TryGetItem(i => i.CanSort, out var col) ? new(col, col.SortDescending) : null;
 
         SetProperty(ref _sortedItems, SortItems());
         StateHasChanged(); // trigger rerender
@@ -112,7 +112,7 @@
 
     private List<TRow> SortItems()
     {
-        if (Sort is { Column.SortKey: not null } s)
+        if (CurrentSort is { Column.SortKey: not null } s)
         {
             return (s.Descending
                 ? Items.OrderByDescending(s.Column.SortKey!)
@@ -155,10 +155,10 @@
     private void ToggleSort(IColumn<TRow> column)
     {
         if (!column.CanSort) return;
-
-        Sort = Sort?.Column == column
-            ? Sort with { Descending = !Sort.Descending }  // toggle direction
-            : new(column, column.DefaultSortDescending);     // new column selected
+        column.SortDescending = !column.SortDescending; // toggle sort direction
+        CurrentSort = CurrentSort?.Column == column
+            ? CurrentSort with { Descending = column.SortDescending } // toggle direction
+            : new(column, column.SortDescending); // new column selected
 
         SetProperty(ref _sortedItems, SortItems());
     }

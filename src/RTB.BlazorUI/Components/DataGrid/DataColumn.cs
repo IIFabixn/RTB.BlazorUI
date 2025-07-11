@@ -20,6 +20,7 @@ namespace RTB.Blazor.UI.Components.DataGrid
         string? MaxWidth { get; set; }
         Func<TRow, IComparable>? SortKey { get; set; }
         bool DefaultSortDescending { get; set; }
+        bool SortDescending { get; set; }
         bool CanSort => SortKey is not null;
     }
 
@@ -33,13 +34,25 @@ namespace RTB.Blazor.UI.Components.DataGrid
         [Parameter] public string? Width { get; set; }
         [Parameter] public string? MinWidth { get; set; }
         [Parameter] public string? MaxWidth { get; set; }
+
+        // Sorting
         [Parameter] public Func<TRow, IComparable>? SortKey { get; set; }
         [Parameter] public bool DefaultSortDescending { get; set; }
         public bool CanSort => SortKey is not null;
-        
+        public bool SortDescending { get; set; } = false;
+
         protected override void OnParametersSet()
         {
             ParentGrid?.Register(this);
+        }
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            base.OnAfterRender(firstRender);
+            if (firstRender)
+            {
+                SortDescending = DefaultSortDescending;
+            }
         }
 
         public void Dispose()
