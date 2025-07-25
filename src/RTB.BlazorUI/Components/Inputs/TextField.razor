@@ -31,7 +31,8 @@
     {
         if (ReadOnly) return Task.CompletedTask;
 
-        var text = e.Value?.ToString();
+        var text = e.Value?.ToString() ?? string.Empty;
+        Value = text;
         if (Immediate) return ValueChanged.InvokeAsync(text);
 
         _debounce ??= new() { AutoReset = false };

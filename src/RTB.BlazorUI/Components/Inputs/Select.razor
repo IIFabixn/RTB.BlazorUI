@@ -71,6 +71,7 @@
     {
         if(item is not null && !item.Equals(SelectedOption))
         {
+            SelectedOption = item;
             if (SelectedOptionChanged.HasDelegate)
                 SelectedOptionChanged.InvokeAsync(item);
         }

@@ -18,7 +18,7 @@
     [Parameter] public string InputId { get; set; } = $"rtb-cb-{Guid.NewGuid().ToString("N").Substring(8)}";
 
     [Parameter] public Position LabelPosition { get; set; } = Position.Top;
-    
+
     [Parameter] public bool ReadOnly { get; set; } = false;
 
     private Flex.AxisDirection GetDirection() => LabelPosition switch
@@ -30,7 +30,12 @@
         _ => Flex.AxisDirection.Column
     };
 
-    public Task Toggle() => ReadOnly ? Task.CompletedTask : CheckedChanged.HasDelegate? CheckedChanged.InvokeAsync(!Checked) : Task.CompletedTask;
+    public Task Toggle() {
+        Checked = !Checked;
+        if (ReadOnly) return Task.CompletedTask;
+        if (CheckedChanged.HasDelegate) CheckedChanged.InvokeAsync(Checked);
+        return Task.CompletedTask;
+    }
 }
 
 <Styled Context="WrapperClass">
