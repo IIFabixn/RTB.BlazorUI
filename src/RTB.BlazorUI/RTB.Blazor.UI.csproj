@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
 
       <PackageId>RTB.Blazor.UI</PackageId>
-      <Version>1.0.2</Version>
+      <Version>1.0.3</Version>
       <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
       <Authors>Fabian Becker</Authors>
       <Description>WPF like Components for Blazor</Description>

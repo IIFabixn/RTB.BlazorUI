@@ -71,8 +71,6 @@
     {
         if(item is not null && !item.Equals(SelectedOption))
         {
-            Console.WriteLine($"Item changed {item}");
-            SelectedOption = item; 
             if (SelectedOptionChanged.HasDelegate)
                 SelectedOptionChanged.InvokeAsync(item);
         }
