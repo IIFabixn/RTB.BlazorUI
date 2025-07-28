@@ -10,11 +10,51 @@
     [Parameter] public bool Center { get; set; } = false;
     [Parameter] public Spacing? Gap { get; set; }
     [Parameter] public Grid.Placement? ItemPlacement { get; set; }
+    [Parameter] public Spacing[]? Padding { get; set; }
+    [Parameter] public Spacing[]? Margin { get; set; }
 }
 
 <Styled Context="ComponentClass">
     <Grid TemplateColumns="@Columns" TemplateRows="@Rows" Gap="@Gap" ItemPlacement="@ItemPlacement" />
-    
+
+    @if (Padding is not null and { Length: > 0 })
+    {
+        @switch (Padding.Length)
+        {
+            case 1:
+                <Padding All="@Padding[0]" Condition="@(Padding is { Length: 1 })" />
+                break;
+            case 2:
+                <Padding Vertical="Padding[0]" Horizontal="@Padding[1]" Condition="@(Padding is { Length: 2 })" />
+                break;
+            case 3:
+                <Padding Top="@Padding[0]" Horizontal="@Padding[1]" Bottom="@Padding[2]" Condition="@(Padding is { Length: 3 })" />
+                break;
+            case 4:
+                <Padding Top="@Padding[0]" Right="@Padding[1]" Bottom="@Padding[2]" Left="@Padding[3]" Condition="@(Padding is { Length: 4 })" />
+                break;
+        }
+    }
+
+    @if (Margin is not null and { Length: > 0 })
+    {
+        @switch (Margin.Length)
+        {
+            case 1:
+                <Margin All="@Margin[0]" Condition="@(Margin is { Length: 1 })" />
+                break;
+            case 2:
+                <Margin Vertical="Margin[0]" Horizontal="@Margin[1]" Condition="@(Margin is { Length: 2 })" />
+                break;
+            case 3:
+                <Margin Top="@Margin[0]" Horizontal="@Margin[1]" Bottom="@Margin[2]" Condition="@(Margin is { Length: 3 })" />
+                break;
+            case 4:
+                <Margin Top="@Margin[0]" Right="@Margin[1]" Bottom="@Margin[2]" Left="@Margin[3]" Condition="@(Margin is { Length: 4 })" />
+                break;
+        }
+    }
+
     <div
         class="@CombineClass("rtb-grid", ComponentClass, Class)"
     >

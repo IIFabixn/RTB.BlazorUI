@@ -56,9 +56,9 @@
     </Selector>
 
     <div class="@MenuClass @ContentClass" popover id="@FlyoutId" style="position-anchor: --@(FlyoutId);">
-        <CollectionList Vertical Items="@Options" TItem="TOption">
+        <CollectionList Virtualize Vertical Items="@Options" TItem="TOption">
             <ItemTemplate Context="item">
-                <button class="ItemClass" popovertarget="@FlyoutId" popovertargetaction="hide" @onclick="@(() => HandleSelection(item))">
+                <button class="@ItemClass" popovertarget="@FlyoutId" popovertargetaction="hide" @onclick="@(() => HandleSelection(item))">
                     @OptionTemplate.Invoke(item)
                 </button>
             </ItemTemplate>
