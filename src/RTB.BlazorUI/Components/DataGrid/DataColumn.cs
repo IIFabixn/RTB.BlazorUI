@@ -78,9 +78,9 @@ namespace RTB.Blazor.UI.Components.DataGrid
             }
 
             // Add default content if HeadContent is null
-            builder.OpenElement(0, "div");
-            builder.AddContent(1, Name);
-            builder.CloseElement();
+            //builder.OpenElement(0, "div");
+            builder.AddContent(0, Name);
+            //builder.CloseElement();
         }
 
         public override void RenderCell(RenderTreeBuilder builder, TRow row, int col)
@@ -90,7 +90,7 @@ namespace RTB.Blazor.UI.Components.DataGrid
             builder.AddComponentParameter(seq++, nameof(Styled.Styled.ChildContent), (RenderFragment<string>)((className) => _builder =>
             {
                 _builder.OpenElement(0, "div");
-                _builder.AddAttribute(1, "class", CombineClass("ViewColumn", className, Class));
+                _builder.AddAttribute(1, "class", CombineClass("rtb-viewcolumn", className, Class));
                 _builder.AddContent(2,ChildContent(row));
                 _builder.CloseElement();
             }));
@@ -107,9 +107,9 @@ namespace RTB.Blazor.UI.Components.DataGrid
         public override void RenderHeader(RenderTreeBuilder builder, int col)
         {
             // Add default content if HeadContent is null
-            builder.OpenElement(0, "div");
-            builder.AddContent(1, Name);
-            builder.CloseElement();
+            //builder.OpenElement(0, "div");
+            builder.AddContent(0, Name);
+            //builder.CloseElement();
         }
 
         private string? CellClass;
@@ -135,7 +135,7 @@ namespace RTB.Blazor.UI.Components.DataGrid
                 var seq = 0;
                 _builder.OpenElement(seq++, "div");
                 _builder.AddAttribute(seq++, "role", "cell");
-                _builder.AddAttribute(seq++, "class", CombineClass("DataColumn", CellClass, Class));
+                _builder.AddAttribute(seq++, "class", CombineClass("rtb-datacolumn", CellClass, Class));
                 _builder.AddAttribute(seq++, "style", $"grid-column-start: {col};");
                 _builder.AddContent(seq++, value);
                 _builder.CloseElement();

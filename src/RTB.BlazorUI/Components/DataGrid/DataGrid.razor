@@ -32,13 +32,11 @@
 </CascadingValue>
 
 <OverflowBox Class="@Class">
-    <Size FullWidth FullHeight />
-
     <Styled Context="ComponentClass">
-        <Grid TemplateColumns="@(GridTemplate())" TemplateRows="1fr" />
+        <Grid TemplateColumns="@(GridTemplate())" TemplateRows="auto" />
         <Other Property="position" Value="relative" />
 
-        <div class="DataGrid @ComponentClass">
+        <div class="rtb-datagrid @ComponentClass">
             @* ---------- Header cells (row 1) ------------------------ *@
             @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
             {
