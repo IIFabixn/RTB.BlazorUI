@@ -60,19 +60,19 @@ window.popoverHelper = {
     show: (popoverId) => {
         const popoverElement = document.getElementById(popoverId);
         if (popoverElement?.showPopover) {
-            popoverElement.showPopover()
+            popoverElement.showPopover();
         }
     },
-    hide: (popoverId) => {
+    close: (popoverId) => {
         const popoverElement = document.getElementById(popoverId);
         if (popoverElement?.hidePopover) {
-            popoverElement.hidePopover()
+            popoverElement.hidePopover(); // same as 'hide'
         }
     },
     toggle: (popoverId) => {
         const popoverElement = document.getElementById(popoverId);
         if (popoverElement?.togglePopover) {
-            popoverElement.togglePopover()
+            popoverElement.togglePopover();
         }
     }
 }

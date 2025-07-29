@@ -10,12 +10,11 @@
     [Parameter] public RenderFragment<string?> ChildContent { get; set; } = default!;
 
     [Parameter] public string Classname { get; set; } = string.Empty;
-    [Parameter] public EventCallback<string>? ClassnameChanged { get; set; }
+    [Parameter] public EventCallback<string> ClassnameChanged { get; set; }
 
     [Parameter] public StyleBuilder[] DependsOn { get; set; } = [];
 
     private readonly StyleBuilder _builder = StyleBuilder.Start;
-    private string _prevStyle = string.Empty;
 }
 
 <CascadingValue Value="@_builder" IsFixed="true">
@@ -27,22 +26,20 @@
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (!_builder.IsDirty) return;
-        var style = _builder.Join(DependsOn).Build();
 
+        var style = _builder.Join(DependsOn).Build();
         if (string.IsNullOrEmpty(style)) return;
-        if (style == _prevStyle) return; // No changes since last render
 
         var cls = Registry.GetOrCreate(style); // deterministic class name (no injection)
+        if (cls == Classname) return; // no change
 
-        if (cls != Classname)
+        Classname = cls;
+        await Registry.InjectInto(style, Classname);
+        if (ClassnameChanged.HasDelegate)
         {
-            Classname = cls;
-            ClassnameChanged?.InvokeAsync(Classname);
+            await ClassnameChanged.InvokeAsync(Classname);        
         }
 
-        await Registry.InjectInto(style, Classname);
-
-        _prevStyle = style;
         StateHasChanged();
     }
 

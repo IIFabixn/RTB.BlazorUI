@@ -13,7 +13,12 @@ namespace RTB.Blazor.Services.Components.BusyIndicator
 
         protected override void OnInitialized()
         {
-            tracker.OnBusyChanged += StateHasChanged;
+            tracker.OnBusyChanged += OnBusyChange;
+        }
+
+        private void OnBusyChange(string? key)
+        {
+            if (key is null || key == TrackId) StateHasChanged();
         }
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
@@ -40,7 +45,7 @@ namespace RTB.Blazor.Services.Components.BusyIndicator
 
         public void Dispose()
         {
-            tracker.OnBusyChanged -= StateHasChanged;
+            tracker.OnBusyChanged -= OnBusyChange;
             GC.SuppressFinalize(this);
         }
     }

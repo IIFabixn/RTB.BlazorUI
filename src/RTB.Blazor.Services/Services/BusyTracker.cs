@@ -9,7 +9,7 @@ namespace RTB.Blazor.Services.Services
     /// </summary>
     public interface IBusyTracker
     {
-        event Action? OnBusyChanged;
+        event Action<string?>? OnBusyChanged;
         bool IsBusy(string? key = null);
         bool IsAnyBusy { get; }
         IDisposable Track([CallerMemberName] string method = "", Action? onDispose = null);
@@ -28,7 +28,7 @@ namespace RTB.Blazor.Services.Services
         /// Raised when any busy state changes (e.g. start or end of tracked work).
         /// Components can subscribe to update UI accordingly.
         /// </summary>
-        public event Action? OnBusyChanged;
+        public event Action<string?>? OnBusyChanged;
 
         /// <summary>
         /// Checks if a specific key is currently busy.
@@ -67,7 +67,7 @@ namespace RTB.Blazor.Services.Services
             const string message = "BusyTracker: {key} is now busy ({count}).";
             Logger.LogDebug(message, key, _busyKeys[key]);
 
-            OnBusyChanged?.Invoke();
+            OnBusyChanged?.Invoke(key);
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace RTB.Blazor.Services.Services
                 const string message = "BusyTracker: {key} is no longer busy ({count} remaining).";
                 Logger.LogDebug(message, key, _busyKeys.Count);
 
-                OnBusyChanged?.Invoke();
+                OnBusyChanged?.Invoke(key);
             }
         }
 

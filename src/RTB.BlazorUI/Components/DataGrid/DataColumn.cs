@@ -104,14 +104,6 @@ namespace RTB.Blazor.UI.Components.DataGrid
 
         [Parameter, EditorRequired] public Func<TRow, TValue> ValueFunc { get; set; } = default!;
 
-        public override void RenderHeader(RenderTreeBuilder builder, int col)
-        {
-            // Add default content if HeadContent is null
-            //builder.OpenElement(0, "div");
-            builder.AddContent(0, Name);
-            //builder.CloseElement();
-        }
-
         private string? CellClass;
 
         protected override async Task OnInitializedAsync()
@@ -126,6 +118,14 @@ namespace RTB.Blazor.UI.Components.DataGrid
             await Registry.InjectInto(style, CellClass);
         }
 
+        public override void RenderHeader(RenderTreeBuilder builder, int col)
+        {
+            // Add default content if HeadContent is null
+            builder.OpenElement(0, "div");
+            builder.AddContent(0, Name);
+            builder.CloseElement();
+        }
+
         public override void RenderCell(RenderTreeBuilder builder, TRow row, int col)
         {
             var seq = 0;
@@ -136,7 +136,7 @@ namespace RTB.Blazor.UI.Components.DataGrid
                 _builder.OpenElement(seq++, "div");
                 _builder.AddAttribute(seq++, "role", "cell");
                 _builder.AddAttribute(seq++, "class", CombineClass("rtb-datacolumn", CellClass, Class));
-                _builder.AddAttribute(seq++, "style", $"grid-column-start: {col};");
+                _builder.AddAttribute(seq++, "style", $"grid-column-start: {col}; min-height: fit-content;");
                 _builder.AddContent(seq++, value);
                 _builder.CloseElement();
             }));

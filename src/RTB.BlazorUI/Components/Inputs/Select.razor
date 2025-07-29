@@ -1,5 +1,7 @@
 ﻿@using RTB.Blazor.UI.Extensions
+@using RTB.Blazor.UI.Styles
 @using static RTB.Blazor.UI.Components.FlyoutMenu
+
 @inherits RTBComponent
 
 @typeparam TOption
@@ -9,12 +11,18 @@
 @code {
     [Parameter, EditorRequired] public required ICollection<TOption> Options { get; set; }
 
+    [Parameter] public string? LabelText { get; set; }
+    [Parameter] public TextStyle? LabelTextStyle { get; set; }
+    [Parameter] public required RenderFragment<TOption?> LabelContent { get; set; }
+
     [Parameter, EditorRequired] public required RenderFragment<TOption?> ActionContent { get; set; }
-    [Parameter, EditorRequired] public required RenderFragment<TOption> OptionTemplate { get; set; }
+    [Parameter] public RenderFragment<TOption>? OptionTemplate { get; set; }
 
     [Parameter] public TOption? SelectedOption { get; set; }
     [Parameter] public EventCallback<TOption> SelectedOptionChanged { get; set; }
 
+    [Parameter] public string? LabelClass { get; set; }
+    [Parameter] public string? ActivatorClass { get; set; }
     [Parameter] public string? ContentClass { get; set; }
     [Parameter] public string? ItemClass { get; set; }
 
@@ -36,10 +44,16 @@
     }
 }
 
-<button popovertarget="@FlyoutId" class="@Class" style="@($"anchor-name: --{FlyoutId};")">
+@if(!string.IsNullOrEmpty(LabelText) || LabelContent is not null)
+{
+    <label for="FlyoutId" class="@LabelClass">
+        @(LabelContent.Invoke(SelectedOption) ?? (@<RTB.Blazor.UI.Components.Text Element="div" TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.Text>))
+    </label>
+}
+
+<button popovertarget="@FlyoutId" class="@ActivatorClass" style="@($"anchor-name: --{FlyoutId};")">
     @ActionContent.Invoke(SelectedOption)
 </button>
-
 
 <Styled Context="MenuClass">
     <Other Property="position" Value="absolute" />
@@ -59,7 +73,7 @@
         <CollectionList Virtualize Vertical Items="@Options" TItem="TOption">
             <ItemTemplate Context="item">
                 <button class="@ItemClass" popovertarget="@FlyoutId" popovertargetaction="hide" @onclick="@(() => HandleSelection(item))">
-                    @OptionTemplate.Invoke(item)
+                    @(OptionTemplate?.Invoke(item) ?? (@<p>@item</p>))
                 </button>
             </ItemTemplate>
         </CollectionList>
@@ -70,20 +84,18 @@
 
     private void HandleSelection(TOption item)
     {
-        if(item is not null && !item.Equals(SelectedOption))
-        {
-            SelectedOption = item;
-            if (SelectedOptionChanged.HasDelegate)
-                SelectedOptionChanged.InvokeAsync(item);
-        }
+        if (item is null) return;
+
+        if (SelectedOptionChanged.HasDelegate)
+            SelectedOptionChanged.InvokeAsync(item);
     }
 
     public async ValueTask Show()
     {
-        await JSRuntime.InvokeVoidAsync("popoverHelper.show", FlyoutId);
+        await JSRuntime.InvokeVoidAsync("popoverHelper.show", FlyoutId);    
     }
 
-    public async ValueTask Hide()
+    public async ValueTask Close()
     {
         await JSRuntime.InvokeVoidAsync("popoverHelper.close", FlyoutId);
     }

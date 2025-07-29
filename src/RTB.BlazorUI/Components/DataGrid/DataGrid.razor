@@ -24,6 +24,8 @@
 
     [Parameter] public int OverscanCount { get; set; } = 3;
     [Parameter] public SizeUnit? ItemSize { get; set; }
+
+    [Parameter] public bool Virtualize { get; set; }
 }
 
 <!-- registers the <DataColumn>s -->
@@ -31,46 +33,58 @@
     @Columns
 </CascadingValue>
 
-<OverflowBox Class="@Class">
-    <Styled Context="ComponentClass">
-        <Grid TemplateColumns="@(GridTemplate())" TemplateRows="auto" />
-        <Other Property="position" Value="relative" />
+<GridView Columns="@GridTemplate()" Rows="@($"repeat({_sortedItems.Count}, minmax(min-content, max-content))")" Class="@CombineClass("rtb-datagrid", Class, "overflow", "relative")">
+    @* ---------- Header cells (row 1) ------------------------ *@
+    @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
+    {
+        var col = _columns[colIdx - 1];
+        <Stack
+            Horizontal
+            AlignItem="@Flex.Align.Center"
+            JustifyContent="@Flex.Justify.SpaceBetween"
+            Class="@HeaderClass"
+        >
+            <Positioned Position="@Positioned.PositionMode.Sticky" Top="0" />
 
-        <div class="rtb-datagrid @ComponentClass">
-            @* ---------- Header cells (row 1) ------------------------ *@
-            @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
+            @(builder => col.RenderHeader(builder, colIdx))
+            @if (col.CanSort)
             {
-                var col = _columns[colIdx - 1];
-                <Stack
-                    Horizontal
-                    AlignItem="@Flex.Align.Center"
-                    JustifyContent="@Flex.Justify.SpaceBetween"
-                    Class="@HeaderClass"
-                >
-                    <Positioned Position="@Positioned.PositionMode.Sticky" Top="0" />
-
-                    @(builder => col.RenderHeader(builder, colIdx))
-                    @if (col.CanSort)
-                    {
-                        <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(col.SortDescending ? "▼" : "▲")</button>
-                    }
-                </Stack>
+                <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(col.SortDescending ? "▼" : "▲")</button>
             }
+        </Stack>
+    }
 
-            <Virtualize Items="_sortedItems" Context="row" OverscanCount="@OverscanCount">
-                <!-- ---------- Data cells (rows 2…N) ----------------------- -->
-                @* display:contents will not create a new element in the dom *@
-                <div style="display:contents" class="@CombineClass(RowClass, row == SelectedRow ? ActiveRowClass : null)" @onclick="() => SelectRow(row)">
-                    @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
-                    {
-                        var col = _columns[colIdx - 1];
-                        @(builder => col.RenderCell(builder, row, colIdx))
-                    }
-                </div>
-            </Virtualize>
-        </div>
-    </Styled>
-</OverflowBox>
+    @if (Virtualize)
+    {
+        <Virtualize Items="_sortedItems" Context="row" OverscanCount="@OverscanCount">
+            <!-- ---------- Data cells (rows 2…N) ----------------------- -->
+            @* display:contents will not create a new element in the dom *@
+            <div style="display:contents" class="@CombineClass(RowClass, row == SelectedRow ? ActiveRowClass : null)" @onclick="() => SelectRow(row)">
+                @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
+                {
+                    var col = _columns[colIdx - 1];
+                    @(builder => col.RenderCell(builder, row, colIdx))
+                }
+            </div>
+        </Virtualize>
+    }
+    else
+    {
+        @foreach(var row in _sortedItems)
+        {
+            <!-- ---------- Data cells (rows 2…N) ----------------------- -->
+            @* display:contents will not create a new element in the dom *@
+            <div style="display:contents" class="@CombineClass(RowClass, row == SelectedRow ? ActiveRowClass : null)" @onclick="() => SelectRow(row)">
+                @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
+                {
+                    var col = _columns[colIdx - 1];
+                    @(builder => col.RenderCell(builder, row, colIdx))
+                }
+            </div>
+        }
+    }
+
+</GridView>
 
 @code {
     private List<ColumnBase<TRow>> _columns = [];

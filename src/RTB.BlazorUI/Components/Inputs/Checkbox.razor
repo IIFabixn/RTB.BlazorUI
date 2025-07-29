@@ -31,34 +31,19 @@
     };
 
     public Task Toggle() {
-        Checked = !Checked;
         if (ReadOnly) return Task.CompletedTask;
-        if (CheckedChanged.HasDelegate) CheckedChanged.InvokeAsync(Checked);
+        if (CheckedChanged.HasDelegate) CheckedChanged.InvokeAsync(!Checked);
         return Task.CompletedTask;
     }
 }
+@if (!string.IsNullOrEmpty(LabelText) || LabelContent is not null)
+{
+    <label class="@LabelClass" for="@InputId">
+        @(LabelContent ?? (@<RTB.Blazor.UI.Components.Text TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.Text>))
+    </label>
+}
 
-<Styled Context="WrapperClass">
-    <Flex Direction="@GetDirection()" />
-
-    <div class="@WrapperClass @Class">
-        <label class="@LabelClass" for="@InputId">
-            @if (LabelContent != null)
-            {
-                @LabelContent
-            }
-
-            @if (!string.IsNullOrEmpty(LabelText))
-            {
-                <RTB.Blazor.UI.Components.Text TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.Text>
-            }
-        </label>
-        @CustomCheckbox?.Invoke(Checked)
-        @if (CustomCheckbox == null)
-        {
-            <input disabled="@ReadOnly" id="@InputId" class="@InputClass" type="checkbox" checked="@Checked" @onchange="@(() => Toggle())" />        
-        }
-    </div>
-</Styled>
-<Stack JustifyContent="@Flex.Justify.SpaceBetween" Class="@Class">
-</Stack>
+@(
+    CustomCheckbox?.Invoke(Checked) 
+    ?? (@<input disabled="@ReadOnly" id="@InputId" class="@InputClass" type="checkbox" checked="@Checked" @onchange="@((v) => CheckedChanged.InvokeAsync((bool?)v.Value ?? false))" />)
+)
