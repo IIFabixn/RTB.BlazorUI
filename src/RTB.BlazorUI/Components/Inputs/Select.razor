@@ -29,10 +29,10 @@
     </label>
 }
 
-<select class="@(CombineClass(Class))" multiple="@false" id="@(Id ?? FlyoutId)">
+<select class="@(CombineClass(Class))" id="@(Id ?? FlyoutId)">
     @foreach (var item in Options)
     {
-        <option value="@item" label="@OptionLabel.Invoke(item)" selected="@(item?.Equals(SelectedOption) ?? false)" />
+        <option value="@item" label="@OptionLabel.Invoke(item)" selected="@(SelectedOption != null && (item?.Equals(SelectedOption) ?? false))" />
     }
 </select>
 
