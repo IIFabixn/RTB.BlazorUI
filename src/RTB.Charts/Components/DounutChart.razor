@@ -11,7 +11,7 @@
         <Styled Context="DonutClass">
             <Size FullHeight FullWidth />
 
-            <SKCanvasView class="@DonutClass" OnPaintSurface="@PaintDonut" />
+            <SKCanvasView class="@DonutClass" OnPaintSurface="@PaintDonut" EnableRenderLoop />
         </Styled>
 
         <Styled Context="LabelsListClass">
@@ -31,7 +31,7 @@
 
                                 <div class="@LabelItemClass" style="background-color: @(entry.Color.HexRgba);"></div>
                             </Styled>
-                            <h4>@entry.Label</h4>
+                            <h4>@entry.Label (@entry.Value)</h4>
                         </div>
                     }
                 </Styled>

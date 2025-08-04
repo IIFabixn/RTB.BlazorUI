@@ -9,76 +9,32 @@
 @inject IJSRuntime JSRuntime
 
 @code {
-    [Parameter, EditorRequired] public required ICollection<TOption> Options { get; set; }
+    [Parameter, EditorRequired] public required IEnumerable<TOption> Options { get; set; }
+    [Parameter] public TOption? SelectedOption { get; set; }
+    [Parameter] public EventCallback<TOption?> SelectedOptionChanged { get; set; }
+    [Parameter] public Func<TOption?, string> OptionLabel { get; set; } = item => item?.ToString() ?? string.Empty;
 
     [Parameter] public string? LabelText { get; set; }
     [Parameter] public TextStyle? LabelTextStyle { get; set; }
-    [Parameter] public required RenderFragment<TOption?> LabelContent { get; set; }
-
-    [Parameter, EditorRequired] public required RenderFragment<TOption?> ActionContent { get; set; }
-    [Parameter] public RenderFragment<TOption>? OptionTemplate { get; set; }
-
-    [Parameter] public TOption? SelectedOption { get; set; }
-    [Parameter] public EventCallback<TOption> SelectedOptionChanged { get; set; }
-
+    [Parameter] public required RenderFragment<TOption?>? LabelContent { get; set; }
     [Parameter] public string? LabelClass { get; set; }
-    [Parameter] public string? ActivatorClass { get; set; }
-    [Parameter] public string? ContentClass { get; set; }
-    [Parameter] public string? ItemClass { get; set; }
-
-    [Parameter] public FlyoutPosition Anchor { get; set; } = FlyoutPosition.Bottom;
-
-    [Parameter] public bool Multiple { get; set; }
 
     private readonly string FlyoutId = $"flyout-{Guid.NewGuid().ToString("N").Substring(0, 8)}";
-
-    private string GetAnchorPosition()
-    {
-        string position = string.Empty;
-        if (Anchor.HasFlag(FlyoutPosition.Top)) position += "top ";
-        if (Anchor.HasFlag(FlyoutPosition.Right)) position += "right";
-        if (Anchor.HasFlag(FlyoutPosition.Bottom)) position += "bottom ";
-        if (Anchor.HasFlag(FlyoutPosition.Left)) position += "left ";
-
-        return position.Trim();
-    }
 }
 
-@if(!string.IsNullOrEmpty(LabelText) || LabelContent is not null)
+@if(LabelContent is not null || !string.IsNullOrEmpty(LabelText))
 {
-    <label for="FlyoutId" class="@LabelClass">
-        @(LabelContent.Invoke(SelectedOption) ?? (@<RTB.Blazor.UI.Components.Text Element="div" TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.Text>))
+    <label for="@(Id ?? FlyoutId)" class="@LabelClass">
+        @(LabelContent?.Invoke(SelectedOption) ?? (@<RTB.Blazor.UI.Components.Text Element="span" TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.Text>))
     </label>
 }
 
-<button popovertarget="@FlyoutId" class="@ActivatorClass" style="@($"anchor-name: --{FlyoutId};")">
-    @ActionContent.Invoke(SelectedOption)
-</button>
-
-<Styled Context="MenuClass">
-    <Other Property="position" Value="absolute" />
-    <Other Property="position-visibility" Value="always" />
-    <Other Property="position-area" Value="@(GetAnchorPosition())" />
-
-    <Overflow />
-    <Other Property="max-height" Value="-webkit-fill-available" />
-    <Other Property="min-width" Value="anchor-size(width)" />
-    <Margin All="0" />
-
-    <Selector Query="&:popover-open">
-        <Flex Direction="@Flex.AxisDirection.Column" />
-    </Selector>
-
-    <div class="@MenuClass @ContentClass" popover id="@FlyoutId" style="position-anchor: --@(FlyoutId);">
-        <CollectionList Virtualize Vertical Items="@Options" TItem="TOption">
-            <ItemTemplate Context="item">
-                <button class="@ItemClass" popovertarget="@FlyoutId" popovertargetaction="hide" @onclick="@(() => HandleSelection(item))">
-                    @(OptionTemplate?.Invoke(item) ?? (@<p>@item</p>))
-                </button>
-            </ItemTemplate>
-        </CollectionList>
-    </div>
-</Styled>
+<select class="@(CombineClass(Class))" multiple="@false" id="@(Id ?? FlyoutId)">
+    @foreach (var item in Options)
+    {
+        <option value="@item" label="@OptionLabel.Invoke(item)" selected="@(item?.Equals(SelectedOption) ?? false)" />
+    }
+</select>
 
 @code {
 
@@ -92,7 +48,7 @@
 
     public async ValueTask Show()
     {
-        await JSRuntime.InvokeVoidAsync("popoverHelper.show", FlyoutId);    
+        await JSRuntime.InvokeVoidAsync("popoverHelper.show", FlyoutId);
     }
 
     public async ValueTask Close()
@@ -108,20 +64,20 @@
     public enum FlyoutPosition
     {
         Center = 0,
-        Top = 1, 
-        Right = 2, 
+        Top = 1,
+        Right = 2,
         Bottom = 4,
         Left = 8,
-        
+
         TopRight = FlyoutPosition.Top | FlyoutPosition.Right,
         RightTop = FlyoutPosition.Right | FlyoutPosition.Top,
-        
+
         BottomRight = FlyoutPosition.Bottom | FlyoutPosition.Right,
         RightBottom = FlyoutPosition.Right | FlyoutPosition.Bottom,
-        
+
         TopLeft = FlyoutPosition.Top | FlyoutPosition.Left,
         LeftTop = FlyoutPosition.Left | FlyoutPosition.Top,
-        
+
         BottomLeft = FlyoutPosition.Bottom | FlyoutPosition.Left,
         LeftBottom = FlyoutPosition.Left | FlyoutPosition.Bottom,
     }

@@ -11,6 +11,7 @@ namespace RTB.Blazor.Charts.Components
         public float MaxValue => Entries.Max(e => e.Value);
         public float MinValue => Entries.Min(e => e.Value);
         public float TotalValue => Entries.Sum(e => e.Value);
+
         public float GetPercentage(ChartEntry entry)
         {
             ArgumentNullException.ThrowIfNull(entry);

@@ -8,13 +8,13 @@ namespace RTB.Blazor.Styled.Components;
 
 public class Border : RTBStyleBase
 {
-    [Parameter] public BorderSide Side { get; set; } = BorderSide.All;
+    [Parameter] public BorderSide Side { get; set; } = BorderSide.None;
     [Parameter] public SizeUnit? Width { get; set; }
     [Parameter] public RTBColor? Color { get; set; }
     [Parameter] public BorderStyle Style { get; set; } = BorderStyle.Solid;
 
     [Parameter] public SizeUnit? Radius { get; set; }
-    [Parameter] public BorderCorner Corner { get; set; } = BorderCorner.All;
+    [Parameter] public BorderCorner Corner { get; set; } = BorderCorner.None;
 
     protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
@@ -63,6 +63,11 @@ public class Border : RTBStyleBase
         TopRight = 2,
         BottomLeft = 4,
         BottomRight = 8,
+
+        Top = TopLeft | TopRight,
+        Right = TopRight | BottomRight,
+        Bottom = BottomRight | BottomLeft,
+        Left = BottomLeft | TopRight,
 
         All = TopLeft | TopRight | BottomLeft | BottomRight
     }

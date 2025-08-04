@@ -29,7 +29,7 @@
 }
 
 <!-- registers the <DataColumn>s -->
-<CascadingValue Value="this">
+<CascadingValue Value="this" IsFixed>
     @Columns
 </CascadingValue>
 
@@ -152,6 +152,7 @@
     public void Register(ColumnBase<TRow> column)
     {
         if (_columns.Any(i => i.Guid == column.Guid)) return;
+
         _columns.Add(column);
         StateHasChanged();
     }

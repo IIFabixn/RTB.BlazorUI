@@ -18,6 +18,7 @@ namespace RTB.Blazor.UI.Components.DataGrid
         string? Width { get; set; }
         string? MinWidth { get; set; }
         string? MaxWidth { get; set; }
+        Spacing[] Spacings { get; set; }
         Func<TRow, IComparable>? SortKey { get; set; }
         bool DefaultSortDescending { get; set; }
         bool SortDescending { get; set; }
@@ -34,6 +35,7 @@ namespace RTB.Blazor.UI.Components.DataGrid
         [Parameter] public string? Width { get; set; }
         [Parameter] public string? MinWidth { get; set; }
         [Parameter] public string? MaxWidth { get; set; }
+        [Parameter] public Spacing[] Spacings { get; set; } = [];
 
         // Sorting
         [Parameter] public Func<TRow, IComparable>? SortKey { get; set; }
@@ -78,23 +80,20 @@ namespace RTB.Blazor.UI.Components.DataGrid
             }
 
             // Add default content if HeadContent is null
-            //builder.OpenElement(0, "div");
-            builder.AddContent(0, Name);
-            //builder.CloseElement();
+            builder.OpenElement(0, "div");
+            builder.AddAttribute(1, "style", $"padding: {string.Join(' ', Spacings.Select(s => s.ToString()))};");
+            builder.AddContent(2, Name);
+            builder.CloseElement();
         }
 
         public override void RenderCell(RenderTreeBuilder builder, TRow row, int col)
         {
             var seq = 0;
-            builder.OpenComponent<Styled.Styled>(seq++);
-            builder.AddComponentParameter(seq++, nameof(Styled.Styled.ChildContent), (RenderFragment<string>)((className) => _builder =>
-            {
-                _builder.OpenElement(0, "div");
-                _builder.AddAttribute(1, "class", CombineClass("rtb-viewcolumn", className, Class));
-                _builder.AddContent(2,ChildContent(row));
-                _builder.CloseElement();
-            }));
-            builder.CloseComponent();
+            builder.OpenElement(seq++, "div");
+            builder.AddAttribute(seq++, "class", CombineClass("rtb-viewcolumn", Class));
+            builder.AddAttribute(seq++, "style", $"grid-column-start: {col}; min-height: fit-content;padding: {string.Join(' ', Spacings.Select(s => s.ToString()))};");
+            builder.AddContent(seq++,ChildContent(row));
+            builder.CloseElement();
         }
     }
 
@@ -106,14 +105,16 @@ namespace RTB.Blazor.UI.Components.DataGrid
 
         private string? CellClass;
 
-        protected override async Task OnInitializedAsync()
-        {
-            var style = StyleBuilder.Start
+        private readonly string style = StyleBuilder.Start
                 .Append("white-space", "nowrap")
                 .Append("overflow", "hidden")
                 .Append("text-overflow", "ellipsis")
                 .Build();
 
+        protected override async Task OnInitializedAsync()
+        {
+            await base.OnInitializedAsync();
+            
             CellClass ??= Registry.GetOrCreate(style);
             await Registry.InjectInto(style, CellClass);
         }
@@ -121,8 +122,10 @@ namespace RTB.Blazor.UI.Components.DataGrid
         public override void RenderHeader(RenderTreeBuilder builder, int col)
         {
             // Add default content if HeadContent is null
-            builder.OpenElement(0, "div");
-            builder.AddContent(0, Name);
+            var seq = 0;
+            builder.OpenElement(seq++, "div");
+            builder.AddAttribute(seq++, "style", $"padding: {string.Join(' ', Spacings.Select(s => s.ToString()))};");
+            builder.AddContent(seq++, Name);
             builder.CloseElement();
         }
 
@@ -130,18 +133,13 @@ namespace RTB.Blazor.UI.Components.DataGrid
         {
             var seq = 0;
             var value = ValueFunc(row);
-            builder.OpenComponent<Styled.Styled>(seq++);
-            builder.AddComponentParameter(seq++, nameof(Styled.Styled.ChildContent), (RenderFragment<string>)(classname => _builder => {
-                var seq = 0;
-                _builder.OpenElement(seq++, "div");
-                _builder.AddAttribute(seq++, "role", "cell");
-                _builder.AddAttribute(seq++, "class", CombineClass("rtb-datacolumn", CellClass, Class));
-                _builder.AddAttribute(seq++, "style", $"grid-column-start: {col}; min-height: fit-content;");
-                _builder.AddContent(seq++, value);
-                _builder.CloseElement();
-            }));
+            builder.OpenElement(seq++, "div");
+            builder.AddAttribute(seq++, "role", "cell");
+            builder.AddAttribute(seq++, "class", CombineClass("rtb-datacolumn", CellClass, Class));
+            builder.AddAttribute(seq++, "style", $"grid-column-start: {col}; min-height: fit-content;padding: {string.Join(' ', Spacings.Select(s => s.ToString()))};");
 
-            builder.CloseComponent();
+            builder.AddContent(seq++, value);
+            builder.CloseElement();
         }
     }
 }

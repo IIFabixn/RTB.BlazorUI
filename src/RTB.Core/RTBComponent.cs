@@ -10,7 +10,9 @@ namespace RTB.Blazor.Core;
 /// </summary>
 public abstract class RTBComponent : ComponentBase
 {
+    [Parameter] public string? Id { get; set; }
     [Parameter] public string? Class { get; set; }
+
     protected static string CombineClass(params string?[] parts)
     {
         return string.Join(" ", parts.Where(p => !string.IsNullOrWhiteSpace(p))).Trim();

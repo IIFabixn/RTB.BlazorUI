@@ -10,8 +10,10 @@
     [Parameter] public bool Center { get; set; } = false;
     [Parameter] public Spacing? Gap { get; set; }
     [Parameter] public Grid.Placement? ItemPlacement { get; set; }
+
     [Parameter] public Spacing[]? Padding { get; set; }
     [Parameter] public Spacing[]? Margin { get; set; }
+    [Parameter] public RTBColor? Background { get; set; }
 }
 
 <Styled Context="ComponentClass">
@@ -53,6 +55,11 @@
                 <Margin Top="@Margin[0]" Right="@Margin[1]" Bottom="@Margin[2]" Left="@Margin[3]" Condition="@(Margin is { Length: 4 })" />
                 break;
         }
+    }
+
+    @if (Background is not null)
+    {
+        <Background Color="@Background" />
     }
 
     <div

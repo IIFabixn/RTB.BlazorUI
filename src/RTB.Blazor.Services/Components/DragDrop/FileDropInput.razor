@@ -8,15 +8,16 @@
 
 @code {
     [Parameter] public string[] AcceptedTypes { get; set; } = [];
-    [Parameter, EditorRequired] public string Id { get; set; } = string.Empty;
     [Parameter] public EventCallback<IBrowserFile[]> OnInput { get; set; }
     [Parameter] public RenderFragment ChildContent { get; set; } = default!;
     [Parameter] public bool Multiple { get; set; } = false;
+
+    private readonly string InputId = $"dropinput-{Guid.NewGuid().ToString("N").Substring(0, 8)}";
 }
 
-<InputFile id="@Id" OnChange="HandleChange" multiple="@Multiple" hidden accept="@(string.Join(",", AcceptedTypes))" />
-<label id="@(Id)Zone"
-    for="@Id"
+<InputFile id="@(Id ?? InputId)" OnChange="HandleChange" multiple="@Multiple" hidden accept="@(string.Join(",", AcceptedTypes))" />
+<label id="@(Id ?? InputId)Zone"
+    for="@(Id ?? InputId)"
     class="@Class">
     @ChildContent
 </label>
