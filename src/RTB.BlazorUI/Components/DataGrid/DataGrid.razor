@@ -2,6 +2,7 @@
 @using RTB.Blazor.UI.Extensions
 @using RTB.Blazor.UI.Interfaces
 @using Microsoft.AspNetCore.Components.Web.Virtualization
+@using RTB.Blazor.UI.Styles
 
 @typeparam TRow where TRow : class
 
@@ -23,7 +24,7 @@
     [Parameter] public string? ActiveRowClass { get; set; } = "active";
 
     [Parameter] public int OverscanCount { get; set; } = 3;
-    [Parameter] public SizeUnit? ItemSize { get; set; }
+    [Parameter] public SizeExpression? ItemSize { get; set; }
 
     [Parameter] public bool Virtualize { get; set; }
 }
@@ -160,7 +161,7 @@
     public void Unregister(ColumnBase<TRow> column)
     {
         if (!_columns.Any(i => i.Guid == column.Guid)) return;
-        
+
         _columns.Remove(column);
         StateHasChanged();
     }
@@ -181,7 +182,7 @@
     private void SelectRow(TRow row)
     {
         SetProperty(ref _selectedRow, row);
-        
+
         if (SelectedRowChanged.HasDelegate)
             SelectedRowChanged.InvokeAsync(_selectedRow);
     }

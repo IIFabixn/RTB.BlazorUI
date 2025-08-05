@@ -27,8 +27,8 @@ namespace RTB.Blazor.Services.Services
     /// </summary>
     public interface IDialogService 
     {
-        Task<DialogResult> ShowAsync<TDialog>(Dictionary<string, object?>? parameters = null) where TDialog : IComponent;
-        Task<DialogResult> ShowAsync(Type dialogType, Dictionary<string, object?>? parameters = null);
+        Task<DialogResult> ShowAsync<TDialog>(Dictionary<string, object?>? contentParameters = null, Dictionary<string, object?>? dialogParameters = null) where TDialog : IComponent;
+        Task<DialogResult> ShowAsync(Type dialogType, Dictionary<string, object?>? contentParameters = null, Dictionary<string, object?>? dialogParameters = null);
         void Alert<TDialog>(Dictionary<string, object?>? parameters = null) where TDialog : IComponent;
     }
 
@@ -63,12 +63,9 @@ namespace RTB.Blazor.Services.Services
                 {
                     var i = 0;
                     b.OpenComponent<TDialog>(i++);
-
-                    // pass parameters through
-                    if (parameters is not null)
+                    if (parameters is not null and { Count: > 0 })
                     {
-                        foreach (var (key, val) in parameters)
-                            b.AddAttribute(i, key, val);
+                        b.AddMultipleAttributes(i++, parameters!);
                     }
                     b.CloseComponent();
                 }));
@@ -91,7 +88,7 @@ namespace RTB.Blazor.Services.Services
             OnShow?.Invoke(rf);
         }
 
-        public Task<DialogResult> ShowAsync(Type dialogType, Dictionary<string, object?>? parameters = null)
+        public Task<DialogResult> ShowAsync(Type dialogType, Dictionary<string, object?>? parameters = null, Dictionary<string, object?>? dialogParameters = null)
         {
             if (!typeof(IComponent).IsAssignableFrom(dialogType))
                 throw new ArgumentException("Type must implement IComponent", nameof(dialogType));
@@ -103,16 +100,18 @@ namespace RTB.Blazor.Services.Services
             {
                 var seq = 0;
                 builder.OpenComponent<DialogHost>(seq++);
+                if (dialogParameters is not null and { Count: > 0 })
+                {
+                    builder.AddMultipleAttributes(seq++, dialogParameters!);
+                }
+
                 builder.AddAttribute(seq++, nameof(DialogHost.ChildContent), (RenderFragment)(b =>
                 {
                     var i = 0;
                     b.OpenComponent(i++, dialogType);
-
-                    // pass parameters through
-                    if (parameters is not null)
+                    if (parameters is not null and { Count: > 0 })
                     {
-                        foreach (var (key, val) in parameters)
-                            b.AddAttribute(i, key, val);
+                        b.AddMultipleAttributes(i++, parameters!);
                     }
                     b.CloseComponent();
                 }));
@@ -137,11 +136,12 @@ namespace RTB.Blazor.Services.Services
         }
 
         public Task<DialogResult> ShowAsync<TDialog>(
-            Dictionary<string, object?>? parameters = null
+            Dictionary<string, object?>? parameters = null,
+            Dictionary<string, object?>? dialogParameters = null
         )
             where TDialog : IComponent
         {
-            return ShowAsync(typeof(TDialog), parameters);
+            return ShowAsync(typeof(TDialog), parameters, dialogParameters);
         }
     }
 }

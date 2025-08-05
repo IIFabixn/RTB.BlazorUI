@@ -6,7 +6,7 @@ namespace RTB.Blazor.UI.Styles
 {
     public class TextStyle : IStyle
     {
-        public SizeUnit? FontSize { get; set; }
+        public string? FontSize { get; set; }
         public string? FontWeight { get; set; }
         public string? LineHeight { get; set; }
         public RTBColor? Color { get; set; }

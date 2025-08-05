@@ -6,12 +6,12 @@ namespace RTB.Blazor.Styled.Components;
 
 public class Size : RTBStyleBase
 {
-    [Parameter] public SizeUnit? Width { get; set; }
-    [Parameter] public SizeUnit? Height { get; set; }
-    [Parameter] public SizeUnit? MinWidth { get; set; }
-    [Parameter] public SizeUnit? MinHeight { get; set; }
-    [Parameter] public SizeUnit? MaxWidth { get; set; }
-    [Parameter] public SizeUnit? MaxHeight { get; set; }
+    [Parameter] public SizeExpression? Width { get; set; }
+    [Parameter] public SizeExpression? Height { get; set; }
+    [Parameter] public SizeExpression? MinWidth { get; set; }
+    [Parameter] public SizeExpression? MinHeight { get; set; }
+    [Parameter] public SizeExpression? MaxWidth { get; set; }
+    [Parameter] public SizeExpression? MaxHeight { get; set; }
 
     [Parameter] public bool FullWidth { get; set; }
     [Parameter] public bool FullHeight { get; set; }
@@ -30,7 +30,7 @@ public class Size : RTBStyleBase
 
 public static class SizeExtensions
 {
-    public static StyleBuilder Height(this StyleBuilder builder, SizeUnit? value, SizeUnit? min = null, SizeUnit? max = null)
+    public static StyleBuilder Height(this StyleBuilder builder, SizeExpression? value, SizeExpression? min = null, SizeExpression? max = null)
     {
         return builder
             .AppendIfNotNull("height", value)
@@ -38,7 +38,7 @@ public static class SizeExtensions
             .AppendIfNotNull("max-height", max);
     }
 
-    public static StyleBuilder Width(this StyleBuilder builder, SizeUnit? value, SizeUnit? min = null, SizeUnit? max = null)
+    public static StyleBuilder Width(this StyleBuilder builder, SizeExpression? value, SizeExpression? min = null, SizeExpression? max = null)
     {
         return builder
             .AppendIfNotNull("width", value)
