@@ -24,25 +24,25 @@ namespace RTB.Blazor.Services.Extensions
 
         public static IServiceCollection UseRTBDialog(this IServiceCollection collection)
         {
-            collection.TryAddScoped<IDialogService, DialogService>();
+            collection.TryAddSingleton<IDialogService, DialogService>();
             return collection;
         }
 
         public static IServiceCollection UseRTBBusyTracker(this IServiceCollection collection)
         {
-            collection.TryAddScoped<IBusyTracker, BusyTracker>();
+            collection.TryAddSingleton<IBusyTracker, BusyTracker>();
             return collection;
         }
 
         public static IServiceCollection UseRTBDragDrop(this IServiceCollection collection)
         {
-            collection.TryAddScoped<IDragDropService, DragDropService>();
+            collection.TryAddSingleton<IDragDropService, DragDropService>();
             return collection;
         }
 
         public static IServiceCollection UseRTBDataNavigation(this IServiceCollection collection)
         {
-            collection.TryAddScoped<DataNavigationService>();
+            collection.TryAddSingleton<DataNavigationService>();
             return collection;
         }
     }

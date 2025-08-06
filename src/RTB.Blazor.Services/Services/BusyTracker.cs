@@ -13,6 +13,7 @@ namespace RTB.Blazor.Services.Services
         bool IsBusy(string? key = null);
         bool IsAnyBusy { get; }
         IDisposable Track([CallerMemberName] string method = "", Action? onDispose = null);
+        string[] Tracks { get; }
     }
 
     /// <summary>
@@ -23,6 +24,8 @@ namespace RTB.Blazor.Services.Services
     public class BusyTracker(ILogger<BusyTracker> Logger) : IBusyTracker
     {
         private readonly ConcurrentDictionary<string, int> _busyKeys = new();
+
+        public string[] Tracks => [.. _busyKeys.Where(kvp => kvp.Value > 0).Select(kvp => kvp.Key)];
 
         /// <summary>
         /// Raised when any busy state changes (e.g. start or end of tracked work).
@@ -46,12 +49,14 @@ namespace RTB.Blazor.Services.Services
         /// </summary>
         public IReadOnlyDictionary<string, int> CurrentState => _busyKeys;
 
-        public IDisposable Track([CallerMemberName] string method = "", Action? onDispose = null)
+        public IDisposable Track([CallerMemberName] string key = "", Action? onDispose = null)
         {
-            Console.WriteLine($"Tracking: {method}");
-            Add(method);
+            Add(key);
 
-            return new BusyToken(this, method, onDispose);
+            return new BusyToken(key, () => {
+                Remove(key);
+                onDispose?.Invoke();
+            });
         }
 
         /// <summary>
@@ -60,7 +65,7 @@ namespace RTB.Blazor.Services.Services
         private void Add(string key)
         {
             if (_busyKeys.TryGetValue(key, out var count))
-                _busyKeys[key] = count + 1;
+                _busyKeys[key] = ++count;
             else
                 _busyKeys[key] = 1;
 
@@ -76,19 +81,18 @@ namespace RTB.Blazor.Services.Services
         /// </summary>
         private void Remove(string key)
         {
-            if (_busyKeys.TryGetValue(key, out var count) && count > 0)
+            if (_busyKeys.TryGetValue(key, out int count))
             {
-                _busyKeys[key] = count - 1;
+                _busyKeys[key] = --count;
 
                 // Clean up when no longer busy
                 if (_busyKeys[key] == 0)
                     _busyKeys.TryRemove(key, out _);
 
-                const string message = "BusyTracker: {key} is no longer busy ({count} remaining).";
-                Logger.LogDebug(message, key, _busyKeys.Count);
-
-                OnBusyChanged?.Invoke(key);
+                Logger.LogDebug("BusyTracker: {key} is no longer busy ({count} remaining).", key, _busyKeys.Count);
             }
+            
+            OnBusyChanged?.Invoke(key);
         }
 
         /// <summary>
@@ -98,10 +102,9 @@ namespace RTB.Blazor.Services.Services
         /// <remarks>
         /// Creates a new busy token. Should not be created manually — use <c>Track</c> or <c>TrackAsync</c>.
         /// </remarks>
-        public readonly struct BusyToken(BusyTracker tracker, string key, Action? onDispose = null) : IDisposable
+        public readonly struct BusyToken(string key, Action? onDispose = null) : IDisposable
         {
-            private readonly BusyTracker _tracker = tracker;
-            private readonly string _key = key;
+            public string Key { get; } = key;
 
             /// <summary>
             /// Automatically ends the busy scope when disposed.
@@ -109,7 +112,6 @@ namespace RTB.Blazor.Services.Services
             public void Dispose()
             {
                 onDispose?.Invoke();
-                _tracker.Remove(_key);
             }
         }
     }
