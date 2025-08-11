@@ -33,7 +33,10 @@
 }
 
 <select class="@(CombineClass(Class))" id="@(Id ?? FlyoutId)" @onchange="@(v => SetValue(v.Value))">
-    <option value="" selected="@(SelectedOption is null)">@EmptyOption</option>
+    @if(!string.IsNullOrEmpty(EmptyOption))
+    {
+        <option value="" selected="@(SelectedOption is null)">@EmptyOption</option>    
+    }
 
     @foreach (var item in Options)
     {

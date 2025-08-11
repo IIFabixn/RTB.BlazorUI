@@ -9,17 +9,13 @@ namespace RTB.Blazor.Styled.Components;
 
 public abstract class RTBStyleBase : ComponentBase
 {
-    [CascadingParameter] private StyleBuilder StyleBuilder { get; set; } = StyleBuilder.Start;
+    [CascadingParameter, EditorRequired] public required StyleBuilder StyleBuilder { get; set; }
 
     [Parameter] public bool Condition { get; set; } = true;
 
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
-        if (StyleBuilder is null)
-            throw new InvalidOperationException(
-                $"{GetType().Name} requires a cascading StyleBuilder. " +
-                "Wrap your component tree in <StyleProvider>.");
         if (Condition)
             BuildStyle(StyleBuilder);
     }

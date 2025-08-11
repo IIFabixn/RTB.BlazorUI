@@ -137,7 +137,8 @@ namespace RTB.Blazor.Styled
         }
 
         /// <summary>
-        /// Builds the final CSS style string.
+        /// Builds the final CSS style string.<br/>
+        /// Resets the dirty state after building.
         /// </summary>
         /// <returns>The constructed CSS style string.</returns>
         public string Build()
@@ -180,20 +181,6 @@ namespace RTB.Blazor.Styled
             }
         }
 
-        /// <summary>
-        /// Implicitly converts a StyleBuilder to its string representation.
-        /// </summary>
-        /// <param name="builder">The StyleBuilder to convert.</param>
-        public static implicit operator string(StyleBuilder builder)
-        {
-            return builder?.Build() ?? string.Empty;
-        }
-
-        public override string ToString()
-        {
-            return Build();
-        }
-
         private StyleBuilder AppendInternal(string property, string value)
         {
             if (string.IsNullOrWhiteSpace(property) || string.IsNullOrWhiteSpace(value))
@@ -203,7 +190,7 @@ namespace RTB.Blazor.Styled
 
             if (!_props.TryAdd(key, value))
             {
-                // If the property already exists, update its value
+                // If the property already exists, update its value, latest one wins
                 _props[key] = value;
             }
 

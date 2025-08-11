@@ -1,4 +1,5 @@
 ﻿@using RTB.Blazor.Styled.Helper
+
 @inherits RTBStyleBase
 
 @code {
@@ -7,24 +8,11 @@
 
     private readonly StyleBuilder _builder = StyleBuilder.Start;
 
-    private string _lastStyle = string.Empty;
-
-    protected override void OnParametersSet()
-    {
-        base.OnParametersSet();
-        _builder.Clear();
-    }
-
     protected override StyleBuilder BuildStyle(StyleBuilder builder)
     {
-        if (!_builder.IsDirty) return builder; // No changes since last render
+        if (!_builder.IsDirty) return builder;
 
         var style = _builder.Build();
-        if (string.IsNullOrWhiteSpace(style)) return builder;
-        if (style == _lastStyle) return builder; // No changes since last render
-
-        _lastStyle = style;
-
         return builder.AppendMedia(BreakPoint, style);
     }
 }

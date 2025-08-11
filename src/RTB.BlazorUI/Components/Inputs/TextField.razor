@@ -25,6 +25,9 @@
 
     [Parameter] public bool ReadOnly { get; set; } = false;
 
+    [Parameter] public bool ClearOnFocusIn { get; set; }
+    [Parameter] public bool ClearOnFocusOut { get; set; }
+
     private readonly string _id = $"rtb-tf-{Guid.NewGuid():N}";
 
     private Timer? _debounceTimer;
@@ -80,7 +83,27 @@
             value="@Value"
             type="@(Nummeric ? "number" : "text")"
             @oninput="OnInput"
+            @onfocusin="OnFocusIn"
+            @onfocusout="OnFocusOut"
             placeholder="@Placeholder"
             class="@CombineClass("rtb-tf", InputStyleClass, InputClass)" />
     </Styled>
 </GridView>
+
+@code {
+    private void OnFocusIn(FocusEventArgs args)
+    {
+        if (ClearOnFocusIn) Clear();
+    }
+    private void OnFocusOut(FocusEventArgs args)
+    {
+        if (ClearOnFocusOut) Clear();
+    }
+
+    private void Clear()
+    {
+        Value = string.Empty;
+        if (ValueChanged.HasDelegate) 
+            ValueChanged.InvokeAsync(Value);
+    }
+}

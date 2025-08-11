@@ -11,10 +11,6 @@
 
     [Parameter] public string Classname { get; set; } = string.Empty;
     [Parameter] public EventCallback<string> ClassnameChanged { get; set; }
-
-    [Parameter] public StyleBuilder[] DependsOn { get; set; } = [];
-
-    private readonly StyleBuilder _builder = StyleBuilder.Start;
 }
 
 <CascadingValue Value="@_builder" IsFixed="true">
@@ -22,22 +18,24 @@
 </CascadingValue>
 
 @code {
+    private readonly StyleBuilder _builder = StyleBuilder.Start;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (!_builder.IsDirty) return;
 
-        var style = _builder.Join(DependsOn).Build();
+        var style = _builder.Build();
         if (string.IsNullOrEmpty(style)) return;
 
-        var cls = Registry.GetOrCreate(style); // deterministic class name (no injection)
-        if (cls == Classname) return; // no change
+        var cls = Registry.GetOrCreate(style); // deterministic class name (no injection yet)
+        if (Classname == cls) return; // no change
 
         Classname = cls;
+
         await Registry.InjectInto(style, Classname);
         if (ClassnameChanged.HasDelegate)
         {
-            await ClassnameChanged.InvokeAsync(Classname);        
+            await ClassnameChanged.InvokeAsync(Classname);
         }
 
         StateHasChanged();

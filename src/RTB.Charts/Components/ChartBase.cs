@@ -8,6 +8,9 @@ namespace RTB.Blazor.Charts.Components
     public abstract class ChartBase : RTBComponent
     {
         [Parameter, EditorRequired] public IList<ChartEntry> Entries { get; set; } = [];
+
+        [Parameter] public bool NoLabels { get; set; } = false;
+
         public float MaxValue => Entries.Max(e => e.Value);
         public float MinValue => Entries.Min(e => e.Value);
         public float TotalValue => Entries.Sum(e => e.Value);
