@@ -1,5 +1,6 @@
 ﻿@using RTB.Blazor.UI.Extensions
 @using RTB.Blazor.UI.Styles
+@using System.Globalization
 @using static RTB.Blazor.UI.Components.FlyoutMenu
 
 @inherits RTBComponent
@@ -12,12 +13,14 @@
     [Parameter, EditorRequired] public required IEnumerable<TOption> Options { get; set; }
     [Parameter] public TOption? SelectedOption { get; set; }
     [Parameter] public EventCallback<TOption?> SelectedOptionChanged { get; set; }
-    [Parameter] public Func<TOption?, string> OptionLabel { get; set; } = item => item?.ToString() ?? string.Empty;
+    [Parameter] public Func<TOption?, string> OptionValue { get; set; } = (option) => option?.ToString() ?? string.Empty;
+    [Parameter] public Func<TOption?, string> OptionLabel { get; set; } = (option) => option?.ToString() ?? string.Empty;
+    [Parameter] public string EmptyOption { get; set; } = string.Empty;
 
+    [Parameter] public string? LabelClass { get; set; }
+    [Parameter] public required RenderFragment LabelContent { get; set; }
     [Parameter] public string? LabelText { get; set; }
     [Parameter] public TextStyle? LabelTextStyle { get; set; }
-    [Parameter] public required RenderFragment<TOption?>? LabelContent { get; set; }
-    [Parameter] public string? LabelClass { get; set; }
 
     private readonly string FlyoutId = $"flyout-{Guid.NewGuid().ToString("N").Substring(0, 8)}";
 }
@@ -25,60 +28,49 @@
 @if(LabelContent is not null || !string.IsNullOrEmpty(LabelText))
 {
     <label for="@(Id ?? FlyoutId)" class="@LabelClass">
-        @(LabelContent?.Invoke(SelectedOption) ?? (@<RTB.Blazor.UI.Components.Text Element="span" TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.Text>))
+        @(LabelContent ?? (@<RTB.Blazor.UI.Components.Text Element="span" TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.Text>))
     </label>
 }
 
-<select class="@(CombineClass(Class))" id="@(Id ?? FlyoutId)">
+<select class="@(CombineClass(Class))" id="@(Id ?? FlyoutId)" @onchange="@(v => SetValue(v.Value))">
+    <option value="" selected="@(SelectedOption is null)">@EmptyOption</option>
+
     @foreach (var item in Options)
     {
-        <option value="@item" label="@OptionLabel.Invoke(item)" selected="@(SelectedOption != null && (item?.Equals(SelectedOption) ?? false))" />
+        var isSelected = SelectedOption is not null && (item?.Equals(SelectedOption) ?? false);
+
+        <option value="@OptionValue(item)" selected="@isSelected">
+            @OptionLabel(item)
+        </option>
     }
 </select>
 
 @code {
+    private Dictionary<string, TOption> _optionValues = new();
 
-    private void HandleSelection(TOption item)
+    protected override void OnParametersSet()
     {
-        if (item is null) return;
-
-        if (SelectedOptionChanged.HasDelegate)
-            SelectedOptionChanged.InvokeAsync(item);
+        base.OnParametersSet();
+        _optionValues.Clear();
+        foreach(var option in Options)
+        {
+            var value = OptionValue(option);
+            if (!_optionValues.ContainsKey(value))
+            {
+                _optionValues[value] = option;
+            }
+        }
     }
 
-    public async ValueTask Show()
+    private void SetValue(object? value)
     {
-        await JSRuntime.InvokeVoidAsync("popoverHelper.show", FlyoutId);
-    }
+        if (value is null || !_optionValues.TryGetValue(value.ToString() ?? string.Empty, out var o))
+        {
+            // If the value is null or not found, reset the selected option
+            SelectedOptionChanged.InvokeAsync(default(TOption));
+            return;
+        }
 
-    public async ValueTask Close()
-    {
-        await JSRuntime.InvokeVoidAsync("popoverHelper.close", FlyoutId);
-    }
-
-    public async ValueTask Toggle()
-    {
-        await JSRuntime.InvokeVoidAsync("popoverHelper.toggle", FlyoutId);
-    }
-
-    public enum FlyoutPosition
-    {
-        Center = 0,
-        Top = 1,
-        Right = 2,
-        Bottom = 4,
-        Left = 8,
-
-        TopRight = FlyoutPosition.Top | FlyoutPosition.Right,
-        RightTop = FlyoutPosition.Right | FlyoutPosition.Top,
-
-        BottomRight = FlyoutPosition.Bottom | FlyoutPosition.Right,
-        RightBottom = FlyoutPosition.Right | FlyoutPosition.Bottom,
-
-        TopLeft = FlyoutPosition.Top | FlyoutPosition.Left,
-        LeftTop = FlyoutPosition.Left | FlyoutPosition.Top,
-
-        BottomLeft = FlyoutPosition.Bottom | FlyoutPosition.Left,
-        LeftBottom = FlyoutPosition.Left | FlyoutPosition.Bottom,
+        SelectedOptionChanged.InvokeAsync(o);
     }
 }
