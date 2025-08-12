@@ -93,7 +93,6 @@ namespace RTB.Blazor.Services.Services
             if (!typeof(IComponent).IsAssignableFrom(dialogType))
                 throw new ArgumentException("Type must implement IComponent", nameof(dialogType));
 
-
             var tcs = new TaskCompletionSource<DialogResult>();
 
             void rf(RenderTreeBuilder builder)
