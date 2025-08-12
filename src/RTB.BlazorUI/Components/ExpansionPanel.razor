@@ -8,11 +8,13 @@
     [Parameter]
     public RenderFragment? CollapseContent { get; set; }
 
-    [Parameter]
-    public bool InitialExpanded { get; set; } = false;
+    [Parameter] public bool IsExpanded { get; set; }
 
     [Parameter]
-    public EventCallback<bool>? ExpandedChanged { get; set; }
+    public EventCallback<bool>? IsExpandedChanged { get; set; }
+
+    [Parameter]
+    public bool InitialExpanded { get; set; } = false;
 }
 
 @ChildContent
@@ -23,17 +25,6 @@
 }
 
 @code{
-    private bool _expanded = false;
-    public bool IsExpanded
-    {
-        get => _expanded;
-        set
-        {
-            SetProperty(ref _expanded, value);
-            ExpandedChanged?.InvokeAsync(IsExpanded);
-        }
-    }
-
     protected override void OnAfterRender(bool firstRender)
     {
         if (firstRender) IsExpanded = InitialExpanded;
