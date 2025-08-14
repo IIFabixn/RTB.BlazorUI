@@ -19,7 +19,6 @@ namespace RTB.Blazor.Services.Services
         void Close(DialogResult result);
         void Close(object? data);
         void Close();
-        void Cancel();
     }
 
     /// <summary>

@@ -11,4 +11,6 @@ namespace RTB.Blazor.UI.Styles;
 public class ButtonStyle : TextStyle
 {
     public RTBColor? DisabledColor { get; set; }
+    public RTBColor? BackgroundColor { get; set; }
+    public RTBColor? DisabledBackgroundColor { get; set; }
 }

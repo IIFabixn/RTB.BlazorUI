@@ -15,6 +15,8 @@
 
     [Parameter] public string? Tooltip { get; set; }
 
+    [Parameter] public RTBColor? BackgroundColor { get; set; }
+    [Parameter] public RTBColor? DisabledBackgroundColor { get; set; }
     [Parameter] public RTBColor? Color { get; set; }
     [Parameter] public RTBColor? DisabledColor { get; set; }
 
@@ -23,12 +25,14 @@
     private Task HandleClick() => Disabled || !OnClick.HasDelegate ? Task.CompletedTask : OnClick.InvokeAsync();
 
     private RTBColor? GetColor() => Disabled ? DisabledColor ?? ButtonStyle?.DisabledColor : Color ?? ButtonStyle?.Color;
+    private RTBColor? GetBackgroundColor() => Disabled ? DisabledBackgroundColor ?? ButtonStyle?.DisabledBackgroundColor : BackgroundColor ?? ButtonStyle?.BackgroundColor;
 }
 
 <Styled Context="ComponentClass">
     <PreStyled Style="@ButtonStyle" />
     <Other Property="cursor" Value="@(Disabled ? "default" : "pointer")" />
     <Color Value="@GetColor()" />
+    <Background Color="@GetBackgroundColor()" />
 
     <button 
         type="button"

@@ -20,10 +20,7 @@ namespace RTB.Blazor.Services.Components.Dialog
         public bool Open => !Result.IsCompleted;
 
         public void Close(DialogResult result) => _tcs.TrySetResult(result);
-
-        public void Close() => _tcs.TrySetResult(DialogResult.Ok());
-
         public void Close(object? data) => _tcs.TrySetResult(DialogResult.Ok(data));
-        public void Cancel() => _tcs.TrySetResult(DialogResult.Cancel());
+        public void Close() => _tcs.TrySetResult(DialogResult.Cancel());
     }
 }

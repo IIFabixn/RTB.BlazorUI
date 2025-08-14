@@ -1,41 +1,19 @@
-﻿@using RTB.Blazor.UI.Extensions
+﻿﻿@using RTB.Blazor.UI.Extensions
 
 @using static RTB.Blazor.Styled.Components.Flex
 
-@inherits RTBComponent
-
-@code {
-    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
-
-    [Parameter] public bool Horizontal { get; set; }
-    [Parameter] public bool Vertical { get; set; }
-    [Parameter] public bool Reverse { get; set; }
-
-    [Parameter] public Spacing? Gap { get; set; }
-    [Parameter] public WrapMode? Wrap { get; set; }
-    [Parameter] public Align? AlignItem { get; set; }
-    [Parameter] public Justify? JustifyContent { get; set; }
-
-    [Parameter] public int? Shrink { get; set; }
-    [Parameter] public int? Grow { get; set; }
-
-    [Parameter] public Spacing[]? Padding { get; set; }
-    [Parameter] public Spacing[]? Margin { get; set; }
-    [Parameter] public RTBColor? Background { get; set; }
-}
+@inherits StackBase
 
 <Styled Context="ComponentClass">
-    <Flex 
-        Direction="@GetDirection" 
-        Gap="@Gap" 
-        AlignItems="@AlignItem"
-        JustifyContent="@JustifyContent"
-        Shrink="@Shrink" 
-        Grow="@Grow"
-        Wrap="@Wrap"
-    />
+    <Flex Direction="@GetDirection()"
+          Gap="@Gap"
+          AlignItems="@AlignItem"
+          JustifyContent="@JustifyContent"
+          Shrink="@Shrink"
+          Grow="@Grow"
+          Wrap="@Wrap" />
 
-    @if (Padding is not null and {Length: > 0})
+    @if (Padding is not null and { Length: > 0 })
     {
         @switch (Padding.Length)
         {
@@ -77,19 +55,12 @@
     {
         <Background Color="@Background" />
     }
-        
+
     <div class="@CombineClass("Stack", ComponentClass, Class)">
         @ChildContent
     </div>
 </Styled>
 
 @code {
-    private AxisDirection? GetDirection => (Horizontal, Vertical, Reverse) switch
-        {
-            (true, false, false) => AxisDirection.Row,
-            (false, true, false) => AxisDirection.Column,
-            (true, false, true) => AxisDirection.RowReverse,
-            (false, true, true) => AxisDirection.ColumnReverse,
-            _ => null
-        };
+    protected override AxisDirection? GetDirection() => Reverse ? AxisDirection.RowReverse : AxisDirection.Row;
 }
