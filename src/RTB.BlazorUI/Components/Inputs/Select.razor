@@ -15,6 +15,7 @@
     [Parameter] public EventCallback<TOption?> SelectedOptionChanged { get; set; }
     [Parameter] public Func<TOption?, string> OptionValue { get; set; } = (option) => option?.ToString() ?? string.Empty;
     [Parameter] public Func<TOption?, string> OptionLabel { get; set; } = (option) => option?.ToString() ?? string.Empty;
+    
     [Parameter] public string EmptyOption { get; set; } = string.Empty;
 
     [Parameter] public string? LabelClass { get; set; }
@@ -42,8 +43,7 @@
     {
         var isSelected = SelectedOption is not null && (item?.Equals(SelectedOption) ?? false);
 
-        <option value="@OptionValue(item)" selected="@isSelected">
-            @OptionLabel(item)
+        <option label="@OptionLabel(item)" value="@OptionValue(item)" selected="@isSelected">
         </option>
     }
 </select>

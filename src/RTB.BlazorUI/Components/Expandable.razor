@@ -9,25 +9,20 @@
     [Parameter] public bool InitiallyExpanded { get; set; } = false;
 }
 
-<Stack 
-    Vertical
-    Class="@CombineClass("rtb-expandable", Class)"
->
-    <Styled Context="ActivatorClass">
-        <Size FullWidth />
+<Styled Context="ActivatorClass">
+    <Size FullWidth />
 
-        <div class="@CombineClass("rtb-activator", ActivatorClass)"
-             @onclick="ToggleMenu"
-             @onclick:stopPropagation>
-            @Activator
-        </div>
-    </Styled>
+    <div class="@CombineClass("rtb-activator", ActivatorClass)"
+            @onclick="ToggleMenu"
+            @onclick:stopPropagation>
+        @Activator
+    </div>
+</Styled>
 
-    @if (IsOpen)
-    {
-        @ChildContent
-    }
-</Stack>
+@if (IsOpen)
+{
+    @ChildContent
+}
 
 @code {
     protected override void OnAfterRender(bool firstRender)

@@ -18,7 +18,6 @@
     <Other Property="position" Value="relative" />
     <Other Property="display" Value="inline-block" />
     <Other Property="cursor" Value="pointer" />
-    <Other Property="z-index" Value="10" />
 
     <div class="@ComponentClass group @(Class)"
         @onmouseover="@(() => Visibility = "visible")"
@@ -28,11 +27,8 @@
 
         <Styled Context="ChildContentClass">
             <Other Property="position" Value="absolute" />
-            <Positioned Top="SizeUnit.Percent(100)" Left="SizeUnit.Percent(50)" />
-            <Other Property="transform" Value="translateX(-50%)" />
-            <Other Property="z-index" Value="20" />
+            <Positioned Top="SizeUnit.Percent(100)" Left="0" />
             <Other Property="visibility" Value="@Visibility" />
-            <Transition Property="visibility" Duration="0.2s" TimingFunction="ease-in-out" />
             <Size MinWidth="@SizeUnit.Percent(100)" />
             
             <div class="@ChildContentClass">
