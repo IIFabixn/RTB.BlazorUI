@@ -16,8 +16,22 @@ namespace RTB.Blazor.Services.Services
     public interface IDialogReference
     {
         Task<DialogResult> Result { get; }
+
+        /// <summary>
+        /// Closes the dialog and returns a result. <see cref="DialogResult"/>
+        /// </summary>
+        /// <param name="result"></param>
         void Close(DialogResult result);
+        
+        /// <summary>
+        /// Closes the dialog without returning a result. <see cref="DialogResult.Ok"/>
+        /// </summary>
+        /// <param name="data"></param>
         void Close(object? data);
+
+        /// <summary>
+        /// Closes the dialog without returning a result. <see cref="DialogResult.Cancel(object?)"/>
+        /// </summary>
         void Close();
     }
 

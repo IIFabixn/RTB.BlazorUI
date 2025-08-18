@@ -39,7 +39,7 @@
 @if (!string.IsNullOrEmpty(LabelText) || LabelContent is not null)
 {
     <label class="@LabelClass" for="@InputId">
-        @(LabelContent ?? (@<RTB.Blazor.UI.Components.Text TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.Text>))
+        @(LabelContent ?? (@<RTB.Blazor.UI.Components.RTBText TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.RTBText>))
     </label>
 }
 

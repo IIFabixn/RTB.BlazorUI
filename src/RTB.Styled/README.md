@@ -185,7 +185,7 @@ RTB.Blazor.Styled seamlessly integrates with RTB.BlazorUI components:
         <Padding All="@Spacing.Rem(1)" />
         
         <Card Class="@CardClass" Title="Styled Card">
-            <Text>This card uses dynamic styling!</Text>
+            <RTBText>This card uses dynamic styling!</RTBText>
         </Card>
     </Styled>
 </Stack>

@@ -33,6 +33,7 @@
     <Other Property="cursor" Value="@(Disabled ? "default" : "pointer")" />
     <Color Value="@GetColor()" />
     <Background Color="@GetBackgroundColor()" />
+    <Other Property="text-wrap" Value="nowrap" />
 
     <button 
         type="button"
@@ -41,6 +42,6 @@
         title="@Tooltip"
         disabled="@Disabled"
         aria-disabled="@Disabled">
-        @(ChildContent ?? (@<RTB.Blazor.UI.Components.Text TextStyle="@ButtonStyle" Class="@LabelClass">@Label</RTB.Blazor.UI.Components.Text>))
+        @(ChildContent ?? (@<RTB.Blazor.UI.Components.RTBText TextStyle="@ButtonStyle" Class="@LabelClass">@Label</RTB.Blazor.UI.Components.RTBText>))
     </button>
 </Styled>

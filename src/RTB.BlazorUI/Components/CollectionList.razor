@@ -10,16 +10,16 @@
 @code {
     [Parameter] public IEnumerable<TItem> Items { get; set; } = [];
     [Parameter] public RenderFragment? HeaderTemplate { get; set; }
-    [Parameter] public RenderFragment<TItem>? ItemTemplate {get; set; }
+    [Parameter] public RenderFragment<TItem>? ItemTemplate { get; set; }
+    [Parameter] public RenderFragment? EmptyView { get; set; }
 
-    [Parameter] public string Orientation { get; set; } = "vertical";
+    [Parameter] public bool Virtualize { get; set; }
+
     [Parameter] public bool Horizontal { get; set; } = false;
 
     [Parameter] public Spacing? Spacing { get; set; }
     [Parameter] public Spacing[]? Margin { get; set; }
     [Parameter] public Spacing[]? Padding { get; set; }
-
-    [Parameter] public bool Virtualize { get; set; }
 }
 
 <Stack
@@ -45,5 +45,9 @@
                 @ItemTemplate?.Invoke(item)
             }
         }
+    }
+    else
+    {
+        @EmptyView
     }
 </Stack>

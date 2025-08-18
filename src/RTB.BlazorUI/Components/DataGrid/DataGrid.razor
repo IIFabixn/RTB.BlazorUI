@@ -28,6 +28,8 @@
     [Parameter] public SizeExpression? ItemSize { get; set; }
 
     [Parameter] public bool Virtualize { get; set; }
+
+    [Parameter] public RTBColor? Background { get; set; }
 }
 
 <!-- registers the <DataColumn>s -->
@@ -35,7 +37,7 @@
     @Columns
 </CascadingValue>
 
-<GridView Columns="@GridTemplate()" Rows="@($"repeat({_sortedItems.Count}, minmax(min-content, max-content))")" Class="@CombineClass("rtb-datagrid", Class, "overflow", "relative")">
+<GridView Background="@Background" Columns="@GridTemplate()" Rows="@($"repeat({_sortedItems.Count}, minmax(min-content, max-content))")" Class="@CombineClass("rtb-datagrid", Class, "overflow", "relative")">
     @* ---------- Header cells (row 1) ------------------------ *@
     @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
     {

@@ -27,7 +27,7 @@
                 <Padding All="@Padding[0]" Condition="@(Padding is { Length: 1 })" />
                 break;
             case 2:
-                <Padding Vertical="Padding[0]" Horizontal="@Padding[1]" Condition="@(Padding is { Length: 2 })" />
+                <Padding Horizontal="Padding[0]" Vertical="@Padding[1]" Condition="@(Padding is { Length: 2 })" />
                 break;
             case 3:
                 <Padding Top="@Padding[0]" Horizontal="@Padding[1]" Bottom="@Padding[2]" Condition="@(Padding is { Length: 3 })" />
@@ -46,7 +46,7 @@
                 <Margin All="@Margin[0]" Condition="@(Margin is { Length: 1 })" />
                 break;
             case 2:
-                <Margin Vertical="Margin[0]" Horizontal="@Margin[1]" Condition="@(Margin is { Length: 2 })" />
+                <Margin Horizontal="Margin[0]" Vertical="@Margin[1]" Condition="@(Margin is { Length: 2 })" />
                 break;
             case 3:
                 <Margin Top="@Margin[0]" Horizontal="@Margin[1]" Bottom="@Margin[2]" Condition="@(Margin is { Length: 3 })" />
