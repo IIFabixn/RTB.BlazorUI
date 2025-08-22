@@ -1,10 +1,11 @@
 ﻿@using RTB.Blazor.Styled
+@using RTB.Blazor.Styled.Helper
 
 @inherits RTBStyleBase
 
 @code {
     [Parameter, EditorRequired] public required RenderFragment ChildContent { get; set; }
-    [Parameter, EditorRequired] public required string Query { get; set; }
+    [Parameter] public string Query { get; set; } = string.Empty;
 
     private readonly StyleBuilder _builder = StyleBuilder.Start;
 }

@@ -157,6 +157,7 @@ public readonly record struct RTBColor(byte R, byte G, byte B, byte A)
 public static class RTBColors
 {
     public static RTBColor White => "#FFFFFFFF";
+    public static RTBColor Gray => "#808080FF";
     public static RTBColor Black => "#000000FF";
 
     public static RTBColor Yellow => "#FFFF00FF";

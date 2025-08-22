@@ -14,6 +14,8 @@ namespace RTB.Blazor.Services.Services
         bool IsAnyBusy { get; }
         IDisposable Track([CallerMemberName] string method = "", Action? onDispose = null);
         string[] Tracks { get; }
+
+        Task Await(string key);
     }
 
     /// <summary>
@@ -24,6 +26,7 @@ namespace RTB.Blazor.Services.Services
     public class BusyTracker(ILogger<BusyTracker> Logger) : IBusyTracker
     {
         private readonly ConcurrentDictionary<string, int> _busyKeys = new();
+        private readonly ConcurrentDictionary<string, TaskCompletionSource> _waiters = new();
 
         public string[] Tracks => [.. _busyKeys.Where(kvp => kvp.Value > 0).Select(kvp => kvp.Key)];
 
@@ -59,6 +62,22 @@ namespace RTB.Blazor.Services.Services
             });
         }
 
+        public Task Await(string key)
+        {
+            var tcs = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+
+            if (!IsBusy(key))
+            {
+                tcs.SetResult();
+            }
+            else
+            {
+                _waiters[key] = tcs;
+            }
+
+            return tcs.Task;
+        }
+
         /// <summary>
         /// Increments the counter for the given busy key.
         /// </summary>
@@ -70,7 +89,6 @@ namespace RTB.Blazor.Services.Services
                 _busyKeys[key] = 1;
 
             const string message = "BusyTracker: {key} is now busy ({count}).";
-            Logger.LogDebug(message, key, _busyKeys[key]);
 
             OnBusyChanged?.Invoke(key);
         }
@@ -83,15 +101,24 @@ namespace RTB.Blazor.Services.Services
         {
             if (_busyKeys.TryGetValue(key, out int count))
             {
-                _busyKeys[key] = --count;
+                count--;
 
-                // Clean up when no longer busy
-                if (_busyKeys[key] == 0)
-                    _busyKeys.TryRemove(key, out _);
-                
-                Logger.LogDebug("BusyTracker: {key} is no longer busy ({count} remaining).", key, _busyKeys.Count);
+                if (count > 0)
+                {
+                    _busyKeys[key] = count;
+                }
+                else
+                {
+                    if (_busyKeys.TryRemove(key, out _))
+                    {
+                        if (_waiters.TryRemove(key, out var waiter))
+                        {
+                            waiter.SetResult();
+                        }
+                    }
+                }
             }
-            
+
             OnBusyChanged?.Invoke(key);
         }
 

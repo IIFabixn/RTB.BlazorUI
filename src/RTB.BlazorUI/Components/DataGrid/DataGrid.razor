@@ -20,6 +20,11 @@
     [Parameter] public TRow? SelectedRow { get; set; }
     [Parameter] public EventCallback<TRow> SelectedRowChanged { get; set; }
 
+    [Parameter] public bool Multiple { get; set; }
+
+    [Parameter] public ICollection<TRow>? SelectedRows { get; set; }
+    [Parameter] public EventCallback<ICollection<TRow>> SelectedRowsChanged { get; set; }
+
     [Parameter] public string? HeaderClass { get; set; }
     [Parameter] public string? RowClass { get; set; }
     [Parameter] public string? ActiveRowClass { get; set; } = "active";
@@ -66,7 +71,7 @@
         <Virtualize Items="_sortedItems" Context="row" OverscanCount="@OverscanCount">
             <!-- ---------- Data cells (rows 2…N) ----------------------- -->
             @* display:contents will not create a new element in the dom *@
-            <div style="display:contents" class="@CombineClass(RowClass, row == SelectedRow ? ActiveRowClass : null)" @onclick="() => SelectRow(row)">
+            <div style="display:contents" class="@CombineClass(RowClass, (row.Equals(SelectedRow) ? ActiveRowClass : null), (SelectedRows?.Any(r => row.Equals(r)) ?? false) ? ActiveRowClass : null)" @onclick="() => SelectRow(row)">
                 @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
                 {
                     var col = _columns[colIdx - 1];
@@ -81,7 +86,7 @@
         {
             <!-- ---------- Data cells (rows 2…N) ----------------------- -->
             @* display:contents will not create a new element in the dom *@
-            <div style="display:contents" class="@CombineClass(RowClass, row == SelectedRow ? ActiveRowClass : null)" @onclick="() => SelectRow(row)">
+            <div style="display:contents" class="@CombineClass(RowClass, (row.Equals(SelectedRow) || (SelectedRows?.Any(r => row.Equals(r)) ?? false) ? ActiveRowClass : null))" @onclick="() => SelectRow(row)">
                 @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
                 {
                     var col = _columns[colIdx - 1];
@@ -103,7 +108,6 @@
     }
 
     private List<TRow> _sortedItems = [];
-    private TRow? _selectedRow;
 
     protected override void OnParametersSet()
     {
@@ -114,7 +118,6 @@
                 CurrentSort = new(firstSortable, firstSortable.DefaultSortDescending);
         }
 
-        _selectedRow = SelectedRow;
         SetProperty(ref _sortedItems, SortItems());
     }
 
@@ -187,9 +190,20 @@
 
     private void SelectRow(TRow row)
     {
-        SetProperty(ref _selectedRow, row);
+        var list = SelectedRows?.ToList() ?? new List<TRow>();
 
-        if (SelectedRowChanged.HasDelegate)
-            SelectedRowChanged.InvokeAsync(_selectedRow);
+        if (Multiple)
+        {
+            if (list.Contains(row)) list.Remove(row);
+            else list.Add(row);
+            
+            SelectedRowsChanged.InvokeAsync(list);
+        }
+        else
+        {
+            list.Clear();
+            list.Add(row);
+            SelectedRowChanged.InvokeAsync(row);
+        }
     }
 }

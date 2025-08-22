@@ -21,15 +21,6 @@
 
     [Parameter] public bool ReadOnly { get; set; } = false;
 
-    private Flex.AxisDirection GetDirection() => LabelPosition switch
-    {
-        Position.Top => Flex.AxisDirection.Column,
-        Position.Right => Flex.AxisDirection.Row,
-        Position.Bottom => Flex.AxisDirection.ColumnReverse,
-        Position.Left => Flex.AxisDirection.RowReverse,
-        _ => Flex.AxisDirection.Column
-    };
-
     public Task Toggle() {
         if (ReadOnly) return Task.CompletedTask;
         if (CheckedChanged.HasDelegate) CheckedChanged.InvokeAsync(!Checked);
