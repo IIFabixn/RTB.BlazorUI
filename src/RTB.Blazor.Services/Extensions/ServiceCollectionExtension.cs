@@ -18,6 +18,7 @@ namespace RTB.Blazor.Services.Extensions
             collection.UseRTBBusyTracker();
             collection.UseRTBDragDrop();
             collection.UseRTBDataNavigation();
+            collection.UseRTBInputService();
 
             return collection;
         }
@@ -43,6 +44,12 @@ namespace RTB.Blazor.Services.Extensions
         public static IServiceCollection UseRTBDataNavigation(this IServiceCollection collection)
         {
             collection.TryAddSingleton<DataNavigationService>();
+            return collection;
+        }
+
+        public static IServiceCollection UseRTBInputService(this IServiceCollection collection)
+        {
+            collection.TryAddSingleton<IInputService, InputService>();
             return collection;
         }
     }

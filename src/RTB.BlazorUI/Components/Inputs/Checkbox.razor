@@ -21,12 +21,12 @@
 
     [Parameter] public bool ReadOnly { get; set; } = false;
 
-    public Task Toggle() {
-        if (ReadOnly) return Task.CompletedTask;
-        if (CheckedChanged.HasDelegate) CheckedChanged.InvokeAsync(!Checked);
-        return Task.CompletedTask;
+    public void Toggle(bool value) {
+        if (ReadOnly) return;
+        if (CheckedChanged.HasDelegate) CheckedChanged.InvokeAsync(value);
     }
 }
+
 @if (!string.IsNullOrEmpty(LabelText) || LabelContent is not null)
 {
     <label class="@LabelClass" for="@InputId">
@@ -36,5 +36,5 @@
 
 @(
     CustomCheckbox?.Invoke(Checked) 
-    ?? (@<input disabled="@ReadOnly" id="@InputId" class="@InputClass" type="checkbox" checked="@Checked" @onchange="@((v) => CheckedChanged.InvokeAsync((bool?)v.Value ?? false))" />)
+    ?? (@<input disabled="@ReadOnly" id="@InputId" class="@InputClass" type="checkbox" checked="@Checked" @onchange="@((v) => Toggle((bool?)v.Value ?? false))" />)
 )

@@ -29,7 +29,7 @@ public abstract class RTBComponent : ComponentBase
         if (EqualityComparer<TValue>.Default.Equals(field, value)) return;
 
         field = value;
-        StateHasChanged();
+        InvokeAsync(StateHasChanged);
     }
 
     /// <summary>
@@ -39,6 +39,6 @@ public abstract class RTBComponent : ComponentBase
     public void StatefulAction(Action action)
     {
         action();
-        StateHasChanged();
+        InvokeAsync(StateHasChanged);
     }
 }

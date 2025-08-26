@@ -30,6 +30,7 @@
     </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RTB.Blazor.Services\RTB.Blazor.Services.csproj" />
     <ProjectReference Include="..\RTB.Core\RTB.Blazor.Core.csproj" />
     <ProjectReference Include="..\RTB.Styled\RTB.Blazor.Styled.csproj" />
     <ProjectReference Include="..\RTB.Theme\RTB.Blazor.Theme.csproj" />

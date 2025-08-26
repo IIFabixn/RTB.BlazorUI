@@ -15,13 +15,18 @@
     [Parameter] public EventCallback<TOption?> SelectedOptionChanged { get; set; }
     [Parameter] public Func<TOption?, string> OptionValue { get; set; } = (option) => option?.ToString() ?? string.Empty;
     [Parameter] public Func<TOption?, string> OptionLabel { get; set; } = (option) => option?.ToString() ?? string.Empty;
-    
+
     [Parameter] public string EmptyOption { get; set; } = string.Empty;
 
     [Parameter] public string? LabelClass { get; set; }
     [Parameter] public required RenderFragment LabelContent { get; set; }
     [Parameter] public string? LabelText { get; set; }
+    [Parameter] public RTBColor? LabelColor { get; set; }
     [Parameter] public TextStyle? LabelTextStyle { get; set; }
+
+    [Parameter] public RTBColor? Background { get; set; }
+    [Parameter] public RTBColor? ActiveTextColor { get; set; }
+    [Parameter] public RTBColor? OptionTextColor { get; set; }
 
     private readonly string FlyoutId = $"flyout-{Guid.NewGuid().ToString("N").Substring(0, 8)}";
 }
@@ -29,24 +34,33 @@
 @if(LabelContent is not null || !string.IsNullOrEmpty(LabelText))
 {
     <label for="@(Id ?? FlyoutId)" class="@LabelClass">
-        @(LabelContent ?? (@<RTB.Blazor.UI.Components.RTBText Element="span" TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.RTBText>))
+        @(LabelContent ?? (@<RTB.Blazor.UI.Components.RTBText Element="span" TextStyle="@LabelTextStyle" Color="@LabelColor">@LabelText</RTB.Blazor.UI.Components.RTBText>))
     </label>
 }
 
-<select class="@(CombineClass(Class))" id="@(Id ?? FlyoutId)" @onchange="@(v => SetValue(v.Value))">
-    @if(!string.IsNullOrEmpty(EmptyOption))
-    {
-        <option value="" selected="@(SelectedOption is null)">@EmptyOption</option>    
-    }
+<Styled Context="SelectClass">
+    <Background Color="@Background" />
+    <Color Value="@ActiveTextColor" />
 
-    @foreach (var item in Options)
-    {
-        var isSelected = SelectedOption is not null && (item?.Equals(SelectedOption) ?? false);
+    <select class="@(CombineClass(SelectClass, Class))" id="@(Id ?? FlyoutId)" @onchange="@(v => SetValue(v.Value))">
+        <Styled Context="OptionStyleClass">
+            <Color Value="@OptionTextColor" />
 
-        <option label="@OptionLabel(item)" value="@OptionValue(item)" selected="@isSelected">
-        </option>
-    }
-</select>
+            @if(!string.IsNullOrEmpty(EmptyOption))
+            {
+                <option class="@OptionStyleClass" value="" selected="@(SelectedOption is null)">@EmptyOption</option>
+            }
+
+            @foreach (var item in Options)
+            {
+                var isSelected = SelectedOption is not null && (item?.Equals(SelectedOption) ?? false);
+
+                <option class="@OptionStyleClass" label="@OptionLabel(item)" value="@OptionValue(item)" selected="@isSelected">
+                </option>
+            }
+        </Styled>
+    </select>
+</Styled>
 
 @code {
     private Dictionary<string, TOption> _optionValues = new();

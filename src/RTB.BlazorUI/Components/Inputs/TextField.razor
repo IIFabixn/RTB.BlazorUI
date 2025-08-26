@@ -29,6 +29,8 @@
 
     [Parameter] public bool ClearOnFocusIn { get; set; }
     [Parameter] public bool ClearOnFocusOut { get; set; }
+    [Parameter] public EventCallback OnFocusIn { get; set; }
+    [Parameter] public EventCallback OnFocusOut { get; set; }
 
     private readonly string _id = $"rtb-tf-{Guid.NewGuid():N}";
 
@@ -85,20 +87,23 @@
             value="@Value"
             type="@(Nummeric ? "number" : "text")"
             @oninput="OnInput"
-            @onfocusin="OnFocusIn"
-            @onfocusout="OnFocusOut"
+            @onfocusin="InternalOnFocusIn"
+            @onfocusout="InternalOnFocusOut"
             placeholder="@Placeholder"
             class="@CombineClass("rtb-tf", InputStyleClass, InputClass)" />
     </Styled>
 </GridView>
 
 @code {
-    private void OnFocusIn(FocusEventArgs args)
+    private void InternalOnFocusIn(FocusEventArgs args)
     {
+        if (OnFocusIn.HasDelegate) OnFocusIn.InvokeAsync();
         if (ClearOnFocusIn) Clear();
     }
-    private void OnFocusOut(FocusEventArgs args)
+
+    private void InternalOnFocusOut(FocusEventArgs args)
     {
+        if (OnFocusOut.HasDelegate) OnFocusOut.InvokeAsync();
         if (ClearOnFocusOut) Clear();
     }
 

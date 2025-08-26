@@ -11,6 +11,8 @@
 
 @inherits RTBComponent
 
+@inject IInputService InputService
+
 @implements IRegister<ColumnBase<TRow>>
 
 @code {
@@ -19,11 +21,9 @@
 
     [Parameter] public TRow? SelectedRow { get; set; }
     [Parameter] public EventCallback<TRow> SelectedRowChanged { get; set; }
-
-    [Parameter] public bool Multiple { get; set; }
-
-    [Parameter] public ICollection<TRow>? SelectedRows { get; set; }
-    [Parameter] public EventCallback<ICollection<TRow>> SelectedRowsChanged { get; set; }
+    
+    [Parameter] public IEnumerable<TRow> SelectedRows { get; set; } = [];
+    [Parameter] public EventCallback<IEnumerable<TRow>> SelectedRowsChanged { get; set; }
 
     [Parameter] public string? HeaderClass { get; set; }
     [Parameter] public string? RowClass { get; set; }
@@ -95,7 +95,6 @@
             </div>
         }
     }
-
 </GridView>
 
 @code {
@@ -108,6 +107,20 @@
     }
 
     private List<TRow> _sortedItems = [];
+
+    ///  <summary>
+    /// Indicates whenever the Shift Key is pressed.
+    /// </summary>
+    private bool _shiftDown = false;
+
+    private TRow? _lastSelected = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        await InputService.InitializeAsync();
+        InputService.RegisterKeyHandler("Shift", (pressed) => InvokeAsync(() => SetProperty(ref _shiftDown, pressed)));
+    }
 
     protected override void OnParametersSet()
     {
@@ -123,7 +136,9 @@
 
     protected override void OnAfterRender(bool firstRender)
     {
-        if (!firstRender) return;
+        if (!firstRender) return; // only on first render
+
+
         if (_columns.Count == 0) return; // no columns registered
 
         CurrentSort ??= _columns.TryGetItem(i => i.CanSort, out var col) ? new(col, col.SortDescending) : null;
@@ -192,18 +207,33 @@
     {
         var list = SelectedRows?.ToList() ?? new List<TRow>();
 
-        if (Multiple)
+        if (SelectedRowsChanged.HasDelegate)
         {
-            if (list.Contains(row)) list.Remove(row);
-            else list.Add(row);
+            // Multi Select
+            if (_shiftDown)
+            {
+                _lastSelected ??= Items.First();
+                var items = Items.ToList();
+                var start = Math.Min(items.IndexOf(_lastSelected), items.IndexOf(row));
+                var end = Math.Max(items.IndexOf(_lastSelected), items.IndexOf(row));
+                list = items.Skip(start).Take(end - start + 1).ToList();
+            }
+            else
+            {
+                if (list.Contains(row)) list.Remove(row);
+                else list.Add(row);
+            }
             
             SelectedRowsChanged.InvokeAsync(list);
         }
-        else
+        else if (SelectedRowChanged.HasDelegate)
         {
+            // Single Select
             list.Clear();
             list.Add(row);
             SelectedRowChanged.InvokeAsync(row);
         }
+
+        _lastSelected = row; // Update last selected to store it as a pivot.
     }
 }
