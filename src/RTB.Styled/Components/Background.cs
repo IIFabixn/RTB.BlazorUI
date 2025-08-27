@@ -10,7 +10,7 @@ public class Background : RTBStyleBase
 
     // TODO: Add support for background image, gradient, etc.
 
-    protected override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
         return builder.Background(Color);
     }

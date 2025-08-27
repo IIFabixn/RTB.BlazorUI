@@ -14,7 +14,7 @@ public class Margin : RTBStyleBase
     [Parameter] public Spacing? Horizontal { get; set; }
     [Parameter] public Spacing? Vertical { get; set; }
 
-    protected override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
         builder.AppendIfNotNull("margin", All);
 

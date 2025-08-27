@@ -14,7 +14,7 @@ namespace RTB.Blazor.Styled.Components
 
         [Parameter] public Mode Value { get; set; } = Mode.Visible;
         
-        protected override StyleBuilder BuildStyle(StyleBuilder builder)
+        public override StyleBuilder BuildStyle(StyleBuilder builder)
         {
             return builder.Visibility(Value);
         }

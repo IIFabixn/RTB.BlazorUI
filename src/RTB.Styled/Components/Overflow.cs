@@ -19,7 +19,7 @@ public class Overflow : RTBStyleBase
     [Parameter] public OverflowMode? Y { get; set; }
     [Parameter] public OverflowMode? Value { get; set; }
 
-    protected override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
         if (X == null && Y == null && Value == null)
             return builder.Append("overflow", OverflowMode.Auto.ToCss());

@@ -15,6 +15,7 @@
 
     [Parameter] public string Value { get; set; } = string.Empty;
     [Parameter] public EventCallback<string> ValueChanged { get; set; } = default!;
+    [Parameter] public EventCallback<string> OnChange { get; set; }
 
     [Parameter] public string? InputClass { get; set; }
     [Parameter] public TextStyle? InputStyle { get; set; }
@@ -78,19 +79,19 @@
 
     <Styled Context="InputStyleClass">
         <PreStyled Style="@InputStyle" />
-        <Other Property="outline" Value="none" />
-        <Border Side="Border.BorderSide.None" />
-        <Border Side="Border.BorderSide.Bottom" Color="@RTBColors.Black" Width="1" />
 
-        <input id="@_id"
+        <input 
+            id="@_id"
             disabled="@ReadOnly"
             value="@Value"
             type="@(Nummeric ? "number" : "text")"
+            placeholder="@Placeholder"
+            class="@CombineClass("rtb-tf", InputStyleClass, InputClass)" 
             @oninput="OnInput"
+            @onchange="@((e) => OnChange.InvokeAsync((string?)e.Value ?? string.Empty))"
             @onfocusin="InternalOnFocusIn"
             @onfocusout="InternalOnFocusOut"
-            placeholder="@Placeholder"
-            class="@CombineClass("rtb-tf", InputStyleClass, InputClass)" />
+        />
     </Styled>
 </GridView>
 

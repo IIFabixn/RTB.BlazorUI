@@ -18,18 +18,28 @@ namespace RTB.Blazor.Styled
     {
         private static readonly ObjectPool<StringBuilder> _stringBuilderPool = new StringBuilderPool();
 
+        private readonly List<RTBStyleBase> _children = [];
+
         private readonly Dictionary<string, string> _props = new(StringComparer.OrdinalIgnoreCase);
         private readonly Dictionary<string, string> _selectors = new(StringComparer.OrdinalIgnoreCase);
         private readonly Dictionary<string, string> _medias = new(StringComparer.OrdinalIgnoreCase);
-
-        public bool IsDirty { get; private set; } = false;
+        private readonly Dictionary<string, string> _animations = new(StringComparer.OrdinalIgnoreCase);
 
         public void Clear()
         {
             _props.Clear();
             _selectors.Clear();
             _medias.Clear();
-            IsDirty = false;
+            _animations.Clear();
+        }
+
+        public void Register(RTBStyleBase child)
+        {
+            _children.Add(child);
+        }
+        public void Unregister(RTBStyleBase child)
+        {
+            _children.Remove(child);
         }
 
         /// <summary>
@@ -113,7 +123,36 @@ namespace RTB.Blazor.Styled
                 _selectors[key] = style;
             }
 
-            IsDirty = true; // Mark as dirty since we modified the selectors
+            return this;
+        }
+
+        public StyleBuilder AppendAnimation(string name, string frames)
+        {
+            if (string.IsNullOrEmpty(name))
+                return this;
+
+            var key = name.Trim();
+            if (!_animations.TryAdd(key, frames))
+            {
+                // If the animation already exists, update its value
+                _animations[key] = frames;
+            }
+
+            return this;
+        }
+
+        public StyleBuilder AppendKeyFrame(string animationName, string offset, string frame)
+        {
+            if (string.IsNullOrEmpty(animationName) || string.IsNullOrWhiteSpace(offset) || string.IsNullOrWhiteSpace(frame))
+                return this;
+
+            var key = animationName.Trim();
+            var frameContent = $"{offset.Trim()}{{{frame}}}";
+            if (!_animations.TryAdd(key, frameContent))
+            {
+                // If the animation already exists, update its value
+                _animations[key] += ' ' + frameContent;
+            }
 
             return this;
         }
@@ -131,8 +170,6 @@ namespace RTB.Blazor.Styled
                 _medias[mediaQuery] = style;
             }
 
-            IsDirty = true; // Mark as dirty since we modified the medias
-
             return this;
         }
 
@@ -144,6 +181,11 @@ namespace RTB.Blazor.Styled
         public string Build()
         {
             var builder = _stringBuilderPool.Get();
+            foreach(var child in _children.Where(c => c.Condition))
+            {
+                child.BuildStyle(this);
+            }
+
             try
             {
                 // Apply each action to the builder
@@ -155,13 +197,18 @@ namespace RTB.Blazor.Styled
                 // Append selectors if any
                 foreach (var prop in _selectors)
                 {
-                    builder.Append($"{prop.Key}{{{prop.Value}}}");
+                    builder.Append($"{prop.Key}{{{prop.Value}}}"); // Append nested selector
                 }
 
                 // Append media queries if any
                 foreach (var media in _medias)
                 {
                     builder.Append($"{media.Key}{{{media.Value}}}");
+                }
+
+                foreach(var animation in _animations)
+                {
+                    builder.Append($"@keyframes {animation.Key}{{{animation.Value}}}");
                 }
 
                 var css = builder.ToString().Trim();
@@ -176,8 +223,8 @@ namespace RTB.Blazor.Styled
             }
             finally
             {
+                Clear(); // Reset the state before building
                 _stringBuilderPool.Return(builder);
-                IsDirty = false; // Reset dirty state after building
             }
         }
 
@@ -193,8 +240,6 @@ namespace RTB.Blazor.Styled
                 // If the property already exists, update its value, latest one wins
                 _props[key] = value;
             }
-
-            IsDirty = true;
 
             return this;
         }

@@ -7,18 +7,23 @@ using System.Threading.Tasks;
 
 namespace RTB.Blazor.Styled.Components;
 
-public abstract class RTBStyleBase : ComponentBase
+public abstract class RTBStyleBase : ComponentBase, IAsyncDisposable
 {
-    [CascadingParameter, EditorRequired] public required StyleBuilder StyleBuilder { get; set; }
+    [CascadingParameter(Name = nameof(StyleBuilder)), EditorRequired] public required StyleBuilder StyleBuilder { get; set; } = null!;
 
     [Parameter] public bool Condition { get; set; } = true;
 
-    protected override void OnParametersSet()
+    protected override void OnInitialized()
     {
-        base.OnParametersSet();
-        if (Condition)
-            BuildStyle(StyleBuilder);
+        StyleBuilder.Register(this);
     }
 
-    protected abstract StyleBuilder BuildStyle(StyleBuilder builder);
+    public abstract StyleBuilder BuildStyle(StyleBuilder builder);
+
+    public ValueTask DisposeAsync()
+    {
+        GC.SuppressFinalize(this);
+        StyleBuilder.Unregister(this);
+        return ValueTask.CompletedTask;
+    }
 }

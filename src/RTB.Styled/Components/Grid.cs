@@ -23,7 +23,7 @@ public class Grid : RTBStyleBase
     [Parameter] public Spacing? Gap { get; set; }
     [Parameter] public Placement? ItemPlacement { get; set; }
 
-    protected override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
         return builder
             .Append("display", "grid")

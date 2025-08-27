@@ -1,4 +1,5 @@
 ﻿@using RTB.Blazor.Styled
+@using RTB.Blazor.Styled.Components
 @using RTB.Blazor.Styled.Helper
 @using RTB.Blazor.Styled.Services
 
@@ -13,7 +14,7 @@
     [Parameter] public EventCallback<string> ClassnameChanged { get; set; }
 }
 
-<CascadingValue Value="@_builder" IsFixed="true">
+<CascadingValue Value="@_builder" Name="@nameof(RTBStyleBase.StyleBuilder)" IsFixed="true">
     @ChildContent(Classname)
 </CascadingValue>
 
@@ -22,8 +23,6 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (!_builder.IsDirty) return;
-
         var style = _builder.Build();
         if (string.IsNullOrEmpty(style)) return;
 
@@ -37,8 +36,9 @@
         {
             await ClassnameChanged.InvokeAsync(Classname);
         }
-
+        
         StateHasChanged();
+        _builder.Clear();
     }
 
     public async ValueTask DisposeAsync()
