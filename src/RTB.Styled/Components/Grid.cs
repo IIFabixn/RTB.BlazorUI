@@ -25,6 +25,8 @@ public class Grid : RTBStyleBase
 
     public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
+        if (!Condition) return builder;
+
         return builder
             .Append("display", "grid")
             .Append("grid-template-columns", TemplateColumns)

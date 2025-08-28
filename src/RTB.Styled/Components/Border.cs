@@ -18,6 +18,8 @@ public class Border : RTBStyleBase
 
     public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
+        if (!Condition) return builder;
+
         if (Corner is not null) builder.BorderRadius(Radius, Corner);
         if (Side is not null) builder.Border(Width, Style, Color, Side);
 

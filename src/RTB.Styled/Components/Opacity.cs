@@ -9,6 +9,8 @@ namespace RTB.Blazor.Styled.Components
 
         public override StyleBuilder BuildStyle(StyleBuilder builder)
         {
+            if (!Condition) return builder;
+
             if (Value is null) return builder;
             var v = Value.Value;
             if (double.IsNaN(v) || double.IsInfinity(v)) return builder;

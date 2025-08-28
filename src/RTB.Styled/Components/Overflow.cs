@@ -21,6 +21,8 @@ public class Overflow : RTBStyleBase
 
     public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
+        if (!Condition) return builder;
+
         if (X == null && Y == null && Value == null)
             return builder.Append("overflow", OverflowMode.Auto.ToCss());
 

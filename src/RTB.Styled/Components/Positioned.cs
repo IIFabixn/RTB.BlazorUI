@@ -21,6 +21,8 @@ public class Positioned : RTBStyleBase
 
     public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
+        if (!Condition) return builder;
+
         return builder.Positioned(Position, Top, Right, Bottom, Left);
     }
 }

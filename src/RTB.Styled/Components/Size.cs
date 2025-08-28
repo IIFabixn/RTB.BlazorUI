@@ -18,6 +18,8 @@ public class Size : RTBStyleBase
 
     public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
+        if (!Condition) return builder;
+
         builder.AppendIf("width", "100%", FullWidth);
         builder.Width(Width, MinWidth, MaxWidth);
 

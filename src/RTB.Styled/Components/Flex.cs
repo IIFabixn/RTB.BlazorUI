@@ -25,6 +25,8 @@ public class Flex : RTBStyleBase
 
     public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
+        if (!Condition) return builder;
+
         return builder
             .Append("display", "flex")
             .AppendIfNotNull("flex-direction", Direction?.ToCss())

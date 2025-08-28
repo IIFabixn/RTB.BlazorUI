@@ -12,6 +12,8 @@ public class Background : RTBStyleBase
 
     public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
+        if (!Condition) return builder;
+
         return builder.Background(Color);
     }
 }

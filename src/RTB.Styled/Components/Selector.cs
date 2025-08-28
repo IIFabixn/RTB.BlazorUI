@@ -19,6 +19,8 @@ namespace RTB.Blazor.Styled.Components
 
         public override StyleBuilder BuildStyle(StyleBuilder builder)
         {
+            if (!Condition) return builder;
+
             var style = _builder.Build();
             return builder.AppendSelector(Query, style);
         }
@@ -28,8 +30,9 @@ namespace RTB.Blazor.Styled.Components
             // Provide the private StyleBuilder to descendants
             renderBuilder.OpenComponent<CascadingValue<StyleBuilder>>(0);
             renderBuilder.AddAttribute(1, "Value", _builder);
-            renderBuilder.AddAttribute(2, "IsFixed", true);
-            renderBuilder.AddAttribute(3, "ChildContent", ChildContent);
+            renderBuilder.AddAttribute(2, "Name", nameof(StyleBuilder));
+            renderBuilder.AddAttribute(3, "IsFixed", true);
+            renderBuilder.AddAttribute(4, "ChildContent", ChildContent);
             renderBuilder.CloseComponent();
         }
     }

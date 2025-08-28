@@ -16,6 +16,8 @@ namespace RTB.Blazor.Styled.Components
         
         public override StyleBuilder BuildStyle(StyleBuilder builder)
         {
+            if (!Condition) return builder;
+
             return builder.Visibility(Value);
         }
     }

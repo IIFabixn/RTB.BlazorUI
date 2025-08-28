@@ -10,6 +10,8 @@ public class Color : RTBStyleBase
 
     public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
+        if (!Condition) return builder;
+
         return builder.AppendIfNotNull("color", Value);
     }
 }

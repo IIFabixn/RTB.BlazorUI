@@ -18,6 +18,8 @@ namespace RTB.Blazor.Styled.Components
 
         public override StyleBuilder BuildStyle(StyleBuilder builder)
         {
+            if (!Condition) return builder;
+
             var style = _builder.Build();
             return builder.AppendMedia(BreakPoint, style);
         }

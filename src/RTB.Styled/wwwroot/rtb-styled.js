@@ -31,7 +31,7 @@
 
         if (!sheet) {
             // Fallback: append as text if sheet is not accessible
-            tag.append(`${selector}{${css}}`);
+            tag.append(`${selector}${css}`);
             return;
         }
 
@@ -39,11 +39,11 @@
 
         // Create fresh CSS rule
         try {
-            var rule = `${selector}{${css}}`;
+            var rule = `${selector}${css}`;
             sheet.insertRule(rule, sheet.cssRules.length);
         } catch (e) {
             // Fallback: append as text if insertRule fails
-            tag.append(`${selector}{${css}}`);
+            tag.append(`${selector}${css}`);
         }
     },
 

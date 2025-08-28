@@ -16,6 +16,8 @@ public class Margin : RTBStyleBase
 
     public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
+        if (!Condition) return builder;
+
         builder.AppendIfNotNull("margin", All);
 
         builder.AppendIf("margin", $"{Vertical ?? 0} {Horizontal ?? 0}", Horizontal is not null || Vertical is not null);

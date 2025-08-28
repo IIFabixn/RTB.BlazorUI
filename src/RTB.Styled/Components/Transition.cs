@@ -30,6 +30,8 @@ namespace RTB.Blazor.Styled.Components
 
         public override StyleBuilder BuildStyle(StyleBuilder builder)
         {
+            if (!Condition) return builder;
+
             builder.AppendIfNotNull("will-change", WillChange);
 
             var items = Items?.Where(i => i is not null).ToArray();

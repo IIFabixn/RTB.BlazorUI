@@ -5,30 +5,25 @@
 @code {
     [Parameter, EditorRequired] public RenderFragment ActionContent { get; set; } = default!;
     [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = default!;
-
-    private string _isVisible = "collapse";
-    private string Visibility
-    {
-        get => _isVisible;
-        set => SetProperty(ref _isVisible, value);
-    }
 }
 
 <Styled Context="ComponentClass">
     <Other Property="position" Value="relative" />
-    <Other Property="display" Value="inline-block" />
     <Other Property="cursor" Value="pointer" />
 
-    <div class="@ComponentClass group @(Class)"
-        @onmouseover="@(() => Visibility = "visible")"
-        @onmouseout="@(() => Visibility = "collapse")"
+    <Selector Query="&:hover div">
+        <Other Property="visibility" Value="visible" />
+    </Selector>
+
+    <div class="@ComponentClass @(Class)"
     >
         @ActionContent
 
         <Styled Context="ChildContentClass">
+            <Other Property="z-index" Value="1000" />
             <Other Property="position" Value="absolute" />
             <Positioned Top="SizeUnit.Percent(100)" Left="0" />
-            <Other Property="visibility" Value="@Visibility" />
+            <Other Property="visibility" Value="hidden" />
             <Size MinWidth="@SizeUnit.Percent(100)" />
             
             <div class="@ChildContentClass">

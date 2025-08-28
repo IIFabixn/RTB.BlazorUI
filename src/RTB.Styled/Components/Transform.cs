@@ -24,6 +24,8 @@ namespace RTB.Blazor.Styled.Components
 
         public override StyleBuilder BuildStyle(StyleBuilder builder)
         {
+            if (!Condition) return builder;
+
             builder.AppendIfNotNull("transform-origin", Origin);
 
             var parts = Parts?.Where(p => !string.IsNullOrWhiteSpace(p)).ToArray();

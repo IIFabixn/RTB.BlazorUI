@@ -188,6 +188,7 @@ namespace RTB.Blazor.Styled
 
             try
             {
+                builder.Append('{');
                 // Apply each action to the builder
                 foreach (var prop in _props)
                 {
@@ -195,10 +196,13 @@ namespace RTB.Blazor.Styled
                 }
 
                 // Append selectors if any
-                foreach (var prop in _selectors)
+                foreach (var sel in _selectors)
                 {
-                    builder.Append($"{prop.Key}{{{prop.Value}}}"); // Append nested selector
+                    // sel value alredy comes with braces, since it's also just a regular css but wrapped in query
+                    builder.Append($"{sel.Key}{sel.Value}"); // Append nested selector
                 }
+
+                builder.Append('}');
 
                 // Append media queries if any
                 foreach (var media in _medias)

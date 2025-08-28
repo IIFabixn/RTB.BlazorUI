@@ -21,6 +21,8 @@ public class Keyframe : RTBStyleBase
 
     public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
+        if (!Condition) return builder;
+
         var style = _builder.Build();
         builder.AppendKeyFrame(AnimationName, Offset.Trim(), style);
         return builder;

@@ -36,6 +36,8 @@ namespace RTB.Blazor.Styled.Components
 
         public override StyleBuilder BuildStyle(StyleBuilder builder)
         {
+            if (!Condition) return builder;
+
             // 1) Emit the @keyframes block from collected keyframes:
             var frames = _framesBuilder.Build(); // -> "0%{...} 50%{...} to{...}"
             builder.AppendAnimation(Name, frames);

@@ -12,6 +12,8 @@ public class GridPlacement : RTBStyleBase
 
     public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
+        if (!Condition) return builder;
+
         return builder
             .Append("grid-column", $"{(Column > 0 ? Column : "auto")} / span {ColumnSpan}")
             .Append("grid-row", $"{(Row > 0 ? Row : "auto")} / span {RowSpan}");
