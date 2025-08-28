@@ -21,7 +21,7 @@
                 <Styled Context="LabelsItemsClass">
                     <Flex Direction="@Flex.AxisDirection.Row" AlignItems="@Flex.Align.Center" JustifyContent="@Flex.Justify.Center" Gap="@Spacing.Rem(1)" />
 
-                    @foreach (var entry in Entries)
+                    @foreach (var entry in Entries.OrderByDescending(e => e.Value))
                     {
                         <div class="@LabelsItemsClass">
                             <Styled Context="LabelItemClass">
@@ -62,7 +62,7 @@
         paint.Color = SKColors.LightGray;
         canvas.DrawCircle(center.X, center.Y, innerRadius - 4f, paint);
 
-        foreach (var entry in Entries)
+        foreach (var entry in Entries.OrderByDescending(e => e.Value))
         {
             if (entry.Value <= 0) continue;
 

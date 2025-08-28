@@ -5,13 +5,15 @@
 @inherits StackBase
 
 <Styled Context="ComponentClass">
-    <Flex Direction="@GetDirection()"
-          Gap="@Gap"
-          AlignItems="@AlignItem"
-          JustifyContent="@JustifyContent"
-          Shrink="@Shrink"
-          Grow="@Grow"
-          Wrap="@Wrap" />
+    <Flex 
+        Direction="@GetDirection()"
+        Gap="@Gap"
+        AlignItems="@AlignItem"
+        JustifyContent="@JustifyContent"
+        Shrink="@Shrink"
+        Grow="@Grow"
+        Wrap="@Wrap" 
+    />
 
     @if (Padding is not null and { Length: > 0 })
     {
@@ -51,10 +53,7 @@
         }
     }
 
-    @if (Background is not null)
-    {
-        <Background Color="@Background" />
-    }
+    <Background Color="@Background" />
 
     <div class="@CombineClass("rtb-hstack", ComponentClass, Class)">
         @ChildContent

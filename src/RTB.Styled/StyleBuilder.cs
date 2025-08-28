@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Xml.Linq;
 
 namespace RTB.Blazor.Styled
 {
@@ -105,24 +106,17 @@ namespace RTB.Blazor.Styled
                 // Append media queries from the other StyleBuilder
                 foreach (var kvp in other._medias)
                 {
-                    AppendMedia(new BreakPoint { Media = BreakPoint.MediaType.Screen }, kvp.Value); // Assuming default media type
+                    AppendMedia(kvp.Key, kvp.Value);
                 }
             }
             return this;
         }
 
-        public StyleBuilder AppendSelector(string selector, string style)
+        public StyleBuilder AppendSelector(string selector, string declarations)
         {
-            if (string.IsNullOrWhiteSpace(selector) || string.IsNullOrWhiteSpace(style))
-                return this;
-
+            if (string.IsNullOrWhiteSpace(selector) || string.IsNullOrWhiteSpace(declarations)) return this;
             var key = selector.Trim();
-            if (!_selectors.TryAdd(key, style))
-            {
-                // If the selector already exists, update its value
-                _selectors[key] = style;
-            }
-
+            if (!_selectors.TryAdd(key, declarations)) _selectors[key] += declarations;
             return this;
         }
 
@@ -157,19 +151,10 @@ namespace RTB.Blazor.Styled
             return this;
         }
 
-        public StyleBuilder AppendMedia(BreakPoint media, string style)
+        public StyleBuilder AppendMedia(string media, string inner)
         {
-            if (media == null || string.IsNullOrWhiteSpace(style))
-                return this;
-
-            // Create a media query selector
-            string mediaQuery = media.ToQuery();
-            if (!_medias.TryAdd(mediaQuery, style))
-            {
-                // If the media query already exists, update its value
-                _medias[mediaQuery] = style;
-            }
-
+            if (media == null || string.IsNullOrWhiteSpace(inner)) return this;
+            if (!_medias.TryAdd(media, inner)) _medias[media] += inner;
             return this;
         }
 
@@ -188,7 +173,8 @@ namespace RTB.Blazor.Styled
 
             try
             {
-                builder.Append('{');
+                if (_props.Count != 0) builder.Append('{');
+
                 // Apply each action to the builder
                 foreach (var prop in _props)
                 {
@@ -198,19 +184,18 @@ namespace RTB.Blazor.Styled
                 // Append selectors if any
                 foreach (var sel in _selectors)
                 {
-                    // sel value alredy comes with braces, since it's also just a regular css but wrapped in query
-                    builder.Append($"{sel.Key}{sel.Value}"); // Append nested selector
+                    builder.Append($"{sel.Key}{sel.Value}");
                 }
 
-                builder.Append('}');
+                if (_props.Count != 0) builder.Append('}');
 
                 // Append media queries if any
-                foreach (var media in _medias)
+                foreach (var media in _medias.Where(m => !string.IsNullOrEmpty(m.Value)))
                 {
-                    builder.Append($"{media.Key}{{{media.Value}}}");
+                    builder.Append($"{media.Key}{media.Value}");
                 }
 
-                foreach(var animation in _animations)
+                foreach(var animation in _animations.Where(a => !string.IsNullOrEmpty(a.Value)))
                 {
                     builder.Append($"@keyframes {animation.Key}{{{animation.Value}}}");
                 }

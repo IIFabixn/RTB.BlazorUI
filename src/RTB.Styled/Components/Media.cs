@@ -21,7 +21,7 @@ namespace RTB.Blazor.Styled.Components
             if (!Condition) return builder;
 
             var style = _builder.Build();
-            return builder.AppendMedia(BreakPoint, style);
+            return builder.AppendMedia(BreakPoint.ToQuery(), style);
         }
 
         protected override void BuildRenderTree(RenderTreeBuilder renderBuilder)
