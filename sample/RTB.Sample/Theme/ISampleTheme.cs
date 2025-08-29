@@ -20,21 +20,21 @@ namespace RTB.Sample.Theme
 
         public TextStyle Headline => new()
         {
-            FontSize = 32,
+            FontSize = "32",
             FontWeight = "700",
             LineHeight = "1.2pt",
         };
 
         public TextStyle Title => new()
         {
-            FontSize = 24,
+            FontSize = "24",
             FontWeight = "600",
             LineHeight = "1.2pt",
         };
 
         public TextStyle Body => new()
         {
-            FontSize = 16,
+            FontSize = "16",
             LineHeight = "1.5pt",
         };
 
