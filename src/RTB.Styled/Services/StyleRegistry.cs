@@ -19,7 +19,7 @@ public sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
 {
     // value is the original css (null until first InjectInto)
     private readonly ConcurrentDictionary<ulong, int> _cache = new();
-
+        
     public string GetOrCreate(string css)
     {
         var hash = CssHasher.Hash(css);

@@ -4,9 +4,11 @@ using RTB.Blazor.Styled.Helper;
 using System;
 using System.Buffers;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Xml.Linq;
 
 namespace RTB.Blazor.Styled
 {
@@ -17,18 +19,28 @@ namespace RTB.Blazor.Styled
     {
         private static readonly ObjectPool<StringBuilder> _stringBuilderPool = new StringBuilderPool();
 
+        private readonly List<RTBStyleBase> _children = [];
+
         private readonly Dictionary<string, string> _props = new(StringComparer.OrdinalIgnoreCase);
         private readonly Dictionary<string, string> _selectors = new(StringComparer.OrdinalIgnoreCase);
         private readonly Dictionary<string, string> _medias = new(StringComparer.OrdinalIgnoreCase);
-
-        public bool IsDirty { get; private set; } = false;
+        private readonly Dictionary<string, string> _animations = new(StringComparer.OrdinalIgnoreCase);
 
         public void Clear()
         {
             _props.Clear();
             _selectors.Clear();
             _medias.Clear();
-            IsDirty = false;
+            _animations.Clear();
+        }
+
+        public void Register(RTBStyleBase child)
+        {
+            _children.Add(child);
+        }
+        public void Unregister(RTBStyleBase child)
+        {
+            _children.Remove(child);
         }
 
         /// <summary>
@@ -56,10 +68,9 @@ namespace RTB.Blazor.Styled
         /// <returns>The current StyleBuilder instance for method chaining.</returns>
         public StyleBuilder AppendIf(string? property, string? value, bool condition)
         {
-            if (condition && !string.IsNullOrWhiteSpace(property) &&!string.IsNullOrWhiteSpace(value))
-                return AppendInternal(property, value);
+            if (string.IsNullOrWhiteSpace(property) || string.IsNullOrWhiteSpace(value) || !condition) return this;
 
-            return this;
+            return AppendInternal(property, value);
         }
 
         /// <summary>
@@ -85,71 +96,108 @@ namespace RTB.Blazor.Styled
                 {
                     AppendInternal(kvp.Key, kvp.Value);
                 }
+
                 // Append selectors from the other StyleBuilder
                 foreach (var kvp in other._selectors)
                 {
                     AppendSelector(kvp.Key, kvp.Value);
                 }
+
+                // Append media queries from the other StyleBuilder
+                foreach (var kvp in other._medias)
+                {
+                    AppendMedia(kvp.Key, kvp.Value);
+                }
             }
             return this;
         }
 
-        public StyleBuilder AppendSelector(string selector, string style)
+        public StyleBuilder AppendSelector(string selector, string declarations)
         {
-            if (string.IsNullOrWhiteSpace(selector) || string.IsNullOrWhiteSpace(style))
-                return this;
-
+            if (string.IsNullOrWhiteSpace(selector) || string.IsNullOrWhiteSpace(declarations)) return this;
             var key = selector.Trim();
-            if (!_selectors.TryAdd(key, style))
-            {
-                // If the selector already exists, update its value
-                _selectors[key] = style;
-            }
+            if (!_selectors.TryAdd(key, declarations)) _selectors[key] += declarations;
+            return this;
+        }
 
-            IsDirty = true; // Mark as dirty since we modified the selectors
+        public StyleBuilder AppendAnimation(string name, string frames)
+        {
+            if (string.IsNullOrEmpty(name))
+                return this;
+
+            var key = name.Trim();
+            if (!_animations.TryAdd(key, frames))
+            {
+                // If the animation already exists, update its value
+                _animations[key] = frames;
+            }
 
             return this;
         }
 
-        public StyleBuilder AppendMedia(BreakPoint media, string style)
+        public StyleBuilder AppendKeyFrame(string animationName, string offset, string frame)
         {
-            if (media == null || string.IsNullOrWhiteSpace(style))
+            if (string.IsNullOrEmpty(animationName) || string.IsNullOrWhiteSpace(offset) || string.IsNullOrWhiteSpace(frame))
                 return this;
 
-            // Create a media query selector
-            var mediaQuery = media.ToQuery();
-            if (!_medias.TryAdd(mediaQuery, style))
+            var key = animationName.Trim();
+            var frameContent = $"{offset.Trim()}{{{frame}}}";
+            if (!_animations.TryAdd(key, frameContent))
             {
-                // If the media query already exists, update its value
-                _medias[mediaQuery] = style;
+                // If the animation already exists, update its value
+                _animations[key] += ' ' + frameContent;
             }
 
-            IsDirty = true; // Mark as dirty since we modified the medias
+            return this;
+        }
 
+        public StyleBuilder AppendMedia(string media, string inner)
+        {
+            if (media == null || string.IsNullOrWhiteSpace(inner)) return this;
+            if (!_medias.TryAdd(media, inner)) _medias[media] += inner;
             return this;
         }
 
         /// <summary>
-        /// Builds the final CSS style string.
+        /// Builds the final CSS style string.<br/>
+        /// Resets the dirty state after building.
         /// </summary>
         /// <returns>The constructed CSS style string.</returns>
         public string Build()
         {
             var builder = _stringBuilderPool.Get();
+            foreach(var child in _children.Where(c => c.Condition))
+            {
+                child.BuildStyle(this);
+            }
+
             try
             {
+                if (_props.Count != 0) builder.Append('{');
+
                 // Apply each action to the builder
-                foreach (var prop in _props.Keys.OrderBy(k => k, StringComparer.OrdinalIgnoreCase))
-                    builder.Append($"{prop}:{_props[prop]};");
+                foreach (var prop in _props)
+                {
+                    builder.Append($"{prop.Key}:{prop.Value};");
+                }
 
                 // Append selectors if any
-                foreach (var prop in _selectors)
-                    builder.Append($"{prop.Key}{{{prop.Value}}}");
+                foreach (var sel in _selectors)
+                {
+                    builder.Append($"{sel.Key}{sel.Value}");
+                }
+
+                if (_props.Count != 0) builder.Append('}');
 
                 // Append media queries if any
-                foreach (var media in _medias)
+                foreach (var media in _medias.Where(m => !string.IsNullOrEmpty(m.Value)))
                 {
-                    builder.Append($"{media.Key}{{{media.Value}}}");
+                    builder.Append($"{media.Key}{media.Value}");
+                }
+
+                foreach(var animation in _animations.Where(a => !string.IsNullOrEmpty(a.Value)))
+                {
+                    builder.Append($"@keyframes {animation.Key}{{{animation.Value}}}");
                 }
 
                 var css = builder.ToString().Trim();
@@ -164,23 +212,9 @@ namespace RTB.Blazor.Styled
             }
             finally
             {
+                Clear(); // Reset the state before building
                 _stringBuilderPool.Return(builder);
-                IsDirty = false; // Reset dirty state after building
             }
-        }
-
-        /// <summary>
-        /// Implicitly converts a StyleBuilder to its string representation.
-        /// </summary>
-        /// <param name="builder">The StyleBuilder to convert.</param>
-        public static implicit operator string(StyleBuilder builder)
-        {
-            return builder?.Build() ?? string.Empty;
-        }
-
-        public override string ToString()
-        {
-            return Build();
         }
 
         private StyleBuilder AppendInternal(string property, string value)
@@ -192,11 +226,9 @@ namespace RTB.Blazor.Styled
 
             if (!_props.TryAdd(key, value))
             {
-                // If the property already exists, update its value
+                // If the property already exists, update its value, latest one wins
                 _props[key] = value;
             }
-
-            IsDirty = true;
 
             return this;
         }

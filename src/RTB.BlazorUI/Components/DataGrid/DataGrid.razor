@@ -1,13 +1,17 @@
 ﻿@using Microsoft.AspNetCore.Components
+@using RTB.Blazor.UI.Components.Layout
 @using RTB.Blazor.UI.Extensions
 @using RTB.Blazor.UI.Interfaces
 @using Microsoft.AspNetCore.Components.Web.Virtualization
+@using RTB.Blazor.UI.Styles
 
 @typeparam TRow where TRow : class
 
 @attribute [CascadingTypeParameter(nameof(TRow))]
 
 @inherits RTBComponent
+
+@inject IInputService InputService
 
 @implements IRegister<ColumnBase<TRow>>
 
@@ -17,94 +21,127 @@
 
     [Parameter] public TRow? SelectedRow { get; set; }
     [Parameter] public EventCallback<TRow> SelectedRowChanged { get; set; }
+    
+    [Parameter] public IEnumerable<TRow> SelectedRows { get; set; } = [];
+    [Parameter] public EventCallback<IEnumerable<TRow>> SelectedRowsChanged { get; set; }
 
     [Parameter] public string? HeaderClass { get; set; }
     [Parameter] public string? RowClass { get; set; }
     [Parameter] public string? ActiveRowClass { get; set; } = "active";
 
     [Parameter] public int OverscanCount { get; set; } = 3;
-    [Parameter] public SizeUnit? ItemSize { get; set; }
+    [Parameter] public SizeExpression? ItemSize { get; set; }
+
+    [Parameter] public bool Virtualize { get; set; }
+
+    [Parameter] public RTBColor? Background { get; set; }
 }
 
 <!-- registers the <DataColumn>s -->
-<CascadingValue Value="this">
+<CascadingValue Value="this" IsFixed>
     @Columns
 </CascadingValue>
 
-<OverflowBox Class="@Class">
-    <Size FullWidth FullHeight />
+<GridView Background="@Background" 
+    Columns="@GridTemplate()" 
+    Rows="@($"repeat({_sortedItems.Count}, minmax(min-content, max-content))")" 
+    Class="@CombineClass("rtb-datagrid", Class, "overflow", "relative")">
+    @* ---------- Header cells (row 1) ------------------------ *@
+    @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
+    {
+        var col = _columns[colIdx - 1];
+        <Stack
+            Horizontal
+            AlignItem="@Flex.Align.Center"
+            JustifyContent="@Flex.Justify.SpaceBetween"
+            Class="@HeaderClass"
+        >
+            <Positioned Position="@Positioned.PositionMode.Sticky" Top="0" />
 
-    <Styled Context="ComponentClass">
-        <Grid TemplateColumns="@(GridTemplate())" TemplateRows="1fr" />
-        <Other Property="position" Value="relative" />
-
-        <div class="DataGrid @ComponentClass">
-            @* ---------- Header cells (row 1) ------------------------ *@
-            @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
+            @(builder => col.RenderHeader(builder, colIdx))
+            @if (col.CanSort)
             {
-                var col = _columns[colIdx - 1];
-                <Stack
-                    Horizontal
-                    AlignItem="@Flex.Align.Center"
-                    JustifyContent="@Flex.Justify.SpaceBetween"
-                    Class="@HeaderClass"
-                >
-                    <Positioned Position="@Positioned.PositionMode.Sticky" Top="0" />
-
-                    @(builder => col.RenderHeader(builder, colIdx))
-                    @if (Sort?.Column == col)
-                    {
-                        <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(Sort.Descending ? "▼" : "▲")</button>
-                    }
-                </Stack>
+                <button @onclick="() => ToggleSort(col)" class="cursor-pointer">@(col.SortDescending ? "▼" : "▲")</button>
             }
+        </Stack>
+    }
 
-            <Virtualize Items="_sortedItems" Context="row" OverscanCount="@OverscanCount">
-                <!-- ---------- Data cells (rows 2…N) ----------------------- -->
-                @* display:contents will not create a new element in the dom *@
-                <div style="display:contents" class="@CombineClass(RowClass, row == SelectedRow ? ActiveRowClass : null)" @onclick="() => SelectRow(row)">
-                    @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
-                    {
-                        var col = _columns[colIdx - 1];
-                        @(builder => col.RenderCell(builder, row, colIdx))
-                    }
-                </div>
-            </Virtualize>
-        </div>
-    </Styled>
-</OverflowBox>
+    @if (Virtualize)
+    {
+        <Virtualize Items="_sortedItems" Context="row" OverscanCount="@OverscanCount">
+            <!-- ---------- Data cells (rows 2…N) ----------------------- -->
+            @* display:contents will not create a new element in the dom *@
+            <div style="display:contents" class="@CombineClass(RowClass, (row.Equals(SelectedRow) ? ActiveRowClass : null), (SelectedRows?.Any(r => row.Equals(r)) ?? false) ? ActiveRowClass : null)" @onclick="() => SelectRow(row)">
+                @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
+                {
+                    var col = _columns[colIdx - 1];
+                    @(builder => col.RenderCell(builder, row, colIdx))
+                }
+            </div>
+        </Virtualize>
+    }
+    else
+    {
+        @foreach(var row in _sortedItems)
+        {
+            <!-- ---------- Data cells (rows 2…N) ----------------------- -->
+            @* display:contents will not create a new element in the dom *@
+            <div style="display:contents" class="@CombineClass(RowClass, (row.Equals(SelectedRow) || (SelectedRows?.Any(r => row.Equals(r)) ?? false) ? ActiveRowClass : null))" @onclick="() => SelectRow(row)">
+                @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
+                {
+                    var col = _columns[colIdx - 1];
+                    @(builder => col.RenderCell(builder, row, colIdx))
+                }
+            </div>
+        }
+    }
+</GridView>
 
 @code {
     private List<ColumnBase<TRow>> _columns = [];
     private SortInfo? _sort;
-    private SortInfo? Sort
+    private SortInfo? CurrentSort
     {
         get => _sort;
         set => SetProperty(ref _sort, value);
     }
 
     private List<TRow> _sortedItems = [];
-    private TRow? _selectedRow;
+
+    ///  <summary>
+    /// Indicates whenever the Shift Key is pressed.
+    /// </summary>
+    private bool _shiftDown = false;
+
+    private TRow? _lastSelected = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        await InputService.InitializeAsync();
+        InputService.RegisterKeyHandler("Shift", (pressed) => InvokeAsync(() => SetProperty(ref _shiftDown, pressed)));
+    }
 
     protected override void OnParametersSet()
     {
-        if (Sort is null)
+        if (CurrentSort is null)
         {
             var firstSortable = _columns.FirstOrDefault(c => c.CanSort);
             if (firstSortable is not null)
-                Sort = new(firstSortable, firstSortable.DefaultSortDescending);
+                CurrentSort = new(firstSortable, firstSortable.DefaultSortDescending);
         }
 
-        _selectedRow = SelectedRow;
         SetProperty(ref _sortedItems, SortItems());
     }
 
     protected override void OnAfterRender(bool firstRender)
     {
-        if (!firstRender) return;
+        if (!firstRender) return; // only on first render
+
+
         if (_columns.Count == 0) return; // no columns registered
 
-        Sort ??= _columns.TryGetItem(i => i.CanSort, out var col) ? new(col, col.DefaultSortDescending) : null;
+        CurrentSort ??= _columns.TryGetItem(i => i.CanSort, out var col) ? new(col, col.SortDescending) : null;
 
         SetProperty(ref _sortedItems, SortItems());
         StateHasChanged(); // trigger rerender
@@ -112,7 +149,7 @@
 
     private List<TRow> SortItems()
     {
-        if (Sort is { Column.SortKey: not null } s)
+        if (CurrentSort is { Column.SortKey: not null } s)
         {
             return (s.Descending
                 ? Items.OrderByDescending(s.Column.SortKey!)
@@ -140,6 +177,7 @@
     public void Register(ColumnBase<TRow> column)
     {
         if (_columns.Any(i => i.Guid == column.Guid)) return;
+
         _columns.Add(column);
         StateHasChanged();
     }
@@ -147,7 +185,7 @@
     public void Unregister(ColumnBase<TRow> column)
     {
         if (!_columns.Any(i => i.Guid == column.Guid)) return;
-        
+
         _columns.Remove(column);
         StateHasChanged();
     }
@@ -155,10 +193,10 @@
     private void ToggleSort(IColumn<TRow> column)
     {
         if (!column.CanSort) return;
-
-        Sort = Sort?.Column == column
-            ? Sort with { Descending = !Sort.Descending }  // toggle direction
-            : new(column, column.DefaultSortDescending);     // new column selected
+        column.SortDescending = !column.SortDescending; // toggle sort direction
+        CurrentSort = CurrentSort?.Column == column
+            ? CurrentSort with { Descending = column.SortDescending } // toggle direction
+            : new(column, column.SortDescending); // new column selected
 
         SetProperty(ref _sortedItems, SortItems());
     }
@@ -167,9 +205,35 @@
 
     private void SelectRow(TRow row)
     {
-        SetProperty(ref _selectedRow, row);
-        
-        if (SelectedRowChanged.HasDelegate)
-            SelectedRowChanged.InvokeAsync(_selectedRow);
+        var list = SelectedRows?.ToList() ?? new List<TRow>();
+
+        if (SelectedRowsChanged.HasDelegate)
+        {
+            // Multi Select
+            if (_shiftDown)
+            {
+                _lastSelected ??= Items.First();
+                var items = Items.ToList();
+                var start = Math.Min(items.IndexOf(_lastSelected), items.IndexOf(row));
+                var end = Math.Max(items.IndexOf(_lastSelected), items.IndexOf(row));
+                list = items.Skip(start).Take(end - start + 1).ToList();
+            }
+            else
+            {
+                if (list.Contains(row)) list.Remove(row);
+                else list.Add(row);
+            }
+            
+            SelectedRowsChanged.InvokeAsync(list);
+        }
+        else if (SelectedRowChanged.HasDelegate)
+        {
+            // Single Select
+            list.Clear();
+            list.Add(row);
+            SelectedRowChanged.InvokeAsync(row);
+        }
+
+        _lastSelected = row; // Update last selected to store it as a pivot.
     }
 }

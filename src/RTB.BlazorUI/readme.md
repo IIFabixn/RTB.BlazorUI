@@ -58,7 +58,6 @@ app.Run();
 inside the head element of your `index.html`;
 
 ```html
-<script src="_content/RTB.Blazor.UI/js/rtb-helper.js"></script>
 <script src="_content/RTB.Blazor.Styled/rtb-styled.js"></script>
 ```
 

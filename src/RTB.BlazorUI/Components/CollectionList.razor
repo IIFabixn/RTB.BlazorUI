@@ -4,25 +4,29 @@
 
 @using Microsoft.AspNetCore.Components.Web.Virtualization
 @using RTB.Blazor.UI.Components
+@using RTB.Blazor.UI.Components.Layout
 @using RTB.Blazor.UI.Extensions
 
 @code {
-    [Parameter] public List<TItem> Items { get; set; } = [];
+    [Parameter] public IEnumerable<TItem> Items { get; set; } = [];
     [Parameter] public RenderFragment? HeaderTemplate { get; set; }
-    [Parameter] public RenderFragment<TItem>? ItemTemplate {get; set; }
-
-    [Parameter] public string Orientation { get; set; } = "vertical";
-    [Parameter] public bool Horizontal { get; set; } = false;
-    [Parameter] public bool Vertical { get; set; } = false;
-
-    [Parameter] public Spacing? Spacing { get; set; }
+    [Parameter] public RenderFragment<TItem>? ItemTemplate { get; set; }
+    [Parameter] public RenderFragment? EmptyView { get; set; }
 
     [Parameter] public bool Virtualize { get; set; }
+
+    [Parameter] public bool Horizontal { get; set; } = false;
+
+    [Parameter] public Spacing? Spacing { get; set; }
+    [Parameter] public Spacing[]? Margin { get; set; }
+    [Parameter] public Spacing[]? Padding { get; set; }
 }
 
 <Stack
+    Margin="@Margin"
+    Padding="@Padding"
     Horizontal="@Horizontal"
-    Vertical="@Vertical"
+    Vertical="@(!Horizontal)"
     Class="@CombineClass("CollectionList", Class)"
     Gap="@Spacing"
 >
@@ -30,7 +34,7 @@
     {
         @if(Virtualize)
         {
-            <Virtualize Items="@Items" Context="item">
+            <Virtualize Items="@Items.ToList()" Context="item">
                 @ItemTemplate?.Invoke(item)
             </Virtualize>
         }
@@ -41,5 +45,9 @@
                 @ItemTemplate?.Invoke(item)
             }
         }
+    }
+    else
+    {
+        @EmptyView
     }
 </Stack>

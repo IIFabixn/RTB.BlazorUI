@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
 
       <PackageId>RTB.Blazor.UI</PackageId>
-      <Version>1.0.2</Version>
+      <Version>1.0.3</Version>
       <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
       <Authors>Fabian Becker</Authors>
       <Description>WPF like Components for Blazor</Description>
@@ -18,18 +18,19 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<None Include="readme.md" Pack="true" PackagePath="\"/>
+		<None Include="readme.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.6" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.8" />
+    </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RTB.Blazor.Services\RTB.Blazor.Services.csproj" />
     <ProjectReference Include="..\RTB.Core\RTB.Blazor.Core.csproj" />
     <ProjectReference Include="..\RTB.Styled\RTB.Blazor.Styled.csproj" />
     <ProjectReference Include="..\RTB.Theme\RTB.Blazor.Theme.csproj" />

@@ -1,6 +1,8 @@
-﻿@using System.Timers
+﻿@using System.Threading
+@using RTB.Blazor.UI.Components.Layout
 @using RTB.Blazor.UI.Styles
 
+@implements IDisposable
 
 @inherits RTBComponent
 
@@ -13,29 +15,57 @@
 
     [Parameter] public string Value { get; set; } = string.Empty;
     [Parameter] public EventCallback<string> ValueChanged { get; set; } = default!;
+    [Parameter] public EventCallback<string> OnChange { get; set; }
 
     [Parameter] public string? InputClass { get; set; }
     [Parameter] public TextStyle? InputStyle { get; set; }
 
-    [Parameter] public int DebounceMilliseconds { get; set; } = 300;
+    [Parameter] public int DebounceMilliseconds { get; set; } = 100;
+
     [Parameter] public bool Immediate { get; set; }
 
     [Parameter] public bool Nummeric { get; set; }
 
+    [Parameter] public bool ReadOnly { get; set; } = false;
+
+    [Parameter] public bool ClearOnFocusIn { get; set; }
+    [Parameter] public bool ClearOnFocusOut { get; set; }
+    [Parameter] public EventCallback OnFocusIn { get; set; }
+    [Parameter] public EventCallback OnFocusOut { get; set; }
+
     private readonly string _id = $"rtb-tf-{Guid.NewGuid():N}";
-    private Timer? _debounce;
 
-    private Task OnInput(ChangeEventArgs e)
+    private Timer? _debounceTimer;
+    private readonly object _debounceLock = new();
+
+    private async Task OnInput(ChangeEventArgs e)
     {
-        var text = e.Value?.ToString();
-        if (Immediate) return ValueChanged.InvokeAsync(text);
+        if (ReadOnly) return;
 
-        _debounce?.Stop();
-        _debounce ??= new() { AutoReset = false };
-        _debounce.Interval = DebounceMilliseconds;
-        _debounce.Elapsed += (_, _) => InvokeAsync(() => ValueChanged.InvokeAsync(text));
-        _debounce.Start();
-        return Task.CompletedTask;
+        var text = e.Value?.ToString() ?? string.Empty;
+        if (text == Value) return;
+
+        if (Immediate)
+        {
+            await ValueChanged.InvokeAsync(Value);
+            return;
+        }
+
+        lock (_debounceLock)
+        {
+            _debounceTimer?.Dispose(); // nuke any previous timer
+            _debounceTimer = new Timer(async _ =>
+            {
+                await InvokeAsync(() => ValueChanged.InvokeAsync(text));
+                _debounceTimer?.Dispose(); // clean up after firing
+
+            }, null, DebounceMilliseconds, Timeout.Infinite);
+        }
+    }
+
+    public void Dispose()
+    {
+        _debounceTimer?.Dispose();
     }
 }
 
@@ -43,26 +73,45 @@
     @if (LabelContent is not null || !string.IsNullOrEmpty(LabelText))
     {
         <label for="@_id" class="@LabelClass">
-            @LabelContent
-            @if (string.IsNullOrEmpty(LabelText) is false)
-            {
-                <RTB.Blazor.UI.Components.Text TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.Text>
-            }
+            @(LabelContent ?? (@<RTB.Blazor.UI.Components.RTBText TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.RTBText>))
         </label>
     }
 
     <Styled Context="InputStyleClass">
         <PreStyled Style="@InputStyle" />
-        <Other Property="outline" Value="none" />
-        <Border Side="Border.BorderSide.None" />
-        <Border Side="Border.BorderSide.Bottom" Color="@RTBColors.Black" Width="1" />
 
-        <input id="@_id"
+        <input 
+            id="@_id"
+            disabled="@ReadOnly"
             value="@Value"
             type="@(Nummeric ? "number" : "text")"
-            @onchange="@(e => ValueChanged.InvokeAsync((string?)e.Value))"
-            @oninput="OnInput"
             placeholder="@Placeholder"
-            class="@CombineClass("rtb-tf", InputStyleClass, InputClass)" />
+            class="@CombineClass("rtb-tf", InputStyleClass, InputClass)" 
+            @oninput="OnInput"
+            @onchange="@((e) => OnChange.InvokeAsync((string?)e.Value ?? string.Empty))"
+            @onfocusin="InternalOnFocusIn"
+            @onfocusout="InternalOnFocusOut"
+        />
     </Styled>
 </GridView>
+
+@code {
+    private void InternalOnFocusIn(FocusEventArgs args)
+    {
+        if (OnFocusIn.HasDelegate) OnFocusIn.InvokeAsync();
+        if (ClearOnFocusIn) Clear();
+    }
+
+    private void InternalOnFocusOut(FocusEventArgs args)
+    {
+        if (OnFocusOut.HasDelegate) OnFocusOut.InvokeAsync();
+        if (ClearOnFocusOut) Clear();
+    }
+
+    private void Clear()
+    {
+        Value = string.Empty;
+        if (ValueChanged.HasDelegate) 
+            ValueChanged.InvokeAsync(Value);
+    }
+}

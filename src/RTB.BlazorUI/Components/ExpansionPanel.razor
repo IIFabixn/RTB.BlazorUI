@@ -3,50 +3,34 @@
 
 @code {
     [Parameter]
-    public RenderFragment? Header { get; set; }
-
-    [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
     [Parameter]
-    public bool InitialExpanded { get; set; } = false;
+    public RenderFragment? CollapseContent { get; set; }
+
+    [Parameter] public bool IsExpanded { get; set; }
 
     [Parameter]
-    public EventCallback<bool>? ExpandedChanged { get; set; }
+    public EventCallback<bool>? IsExpandedChanged { get; set; }
+
+    [Parameter]
+    public bool InitialExpanded { get; set; } = false;
 }
 
-<Stack Vertical Class="@CombineClass("rtb-expansion-panel", Class)">
-    <Stack Horizontal Class="gap-2">
-        @Header
-
-        <button @onclick="Toggle">
-            @if (isExpanded)
-            {
-                <span>Collapse</span>
-            }
-            else
-            {
-                <span>Expand</span>
-            }
-        </button>
-    </Stack>
-
-    <Styled Context="VisibillityClass">
-        <Other Property="visibillity" Value="visible" Condition="isExpanded" />
-        <Other Property="visibillity" Value="collapse" Condition="!isExpanded" />
-
-        <div class="@VisibillityClass">
-            @ChildContent
-        </div>
-    </Styled>
-</Stack>
+@ChildContent
+    
+@if(IsExpanded)
+{
+    @CollapseContent
+}
 
 @code{
-    private bool isExpanded = false;
-
-    private void Toggle()
+    protected override void OnAfterRender(bool firstRender)
     {
-        SetProperty(ref isExpanded, !isExpanded);
-        ExpandedChanged?.InvokeAsync(isExpanded);
+        if (firstRender) IsExpanded = InitialExpanded;
     }
+
+    public void Toggle() => IsExpanded = !IsExpanded;
+    public void Open() => IsExpanded = true;
+    public void Close() => IsExpanded = false;
 }

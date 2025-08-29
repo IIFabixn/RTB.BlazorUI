@@ -1,5 +1,8 @@
 ﻿@using RTB.Blazor.UI.Extensions
+@using RTB.Blazor.UI.Styles
+@using System.Globalization
 @using static RTB.Blazor.UI.Components.FlyoutMenu
+
 @inherits RTBComponent
 
 @typeparam TOption
@@ -7,110 +10,84 @@
 @inject IJSRuntime JSRuntime
 
 @code {
-    [Parameter, EditorRequired] public required List<TOption> Options { get; set; }
-
-    [Parameter, EditorRequired] public required RenderFragment<TOption?> ActionContent { get; set; }
-    [Parameter, EditorRequired] public required RenderFragment<TOption> OptionTemplate { get; set; }
-
+    [Parameter, EditorRequired] public required IEnumerable<TOption> Options { get; set; }
     [Parameter] public TOption? SelectedOption { get; set; }
-    [Parameter] public EventCallback<TOption> SelectedOptionChanged { get; set; } = default!;
+    [Parameter] public EventCallback<TOption?> SelectedOptionChanged { get; set; }
+    [Parameter] public Func<TOption?, string> OptionValue { get; set; } = (option) => option?.ToString() ?? string.Empty;
+    [Parameter] public Func<TOption?, string> OptionLabel { get; set; } = (option) => option?.ToString() ?? string.Empty;
 
-    [Parameter] public string? ContentClass { get; set; }
+    [Parameter] public string EmptyOption { get; set; } = string.Empty;
 
-    [Parameter] public FlyoutPosition Anchor { get; set; } = FlyoutPosition.Bottom;
+    [Parameter] public string? LabelClass { get; set; }
+    [Parameter] public required RenderFragment LabelContent { get; set; }
+    [Parameter] public string? LabelText { get; set; }
+    [Parameter] public RTBColor? LabelColor { get; set; }
+    [Parameter] public TextStyle? LabelTextStyle { get; set; }
 
-    [Parameter] public bool Multiple { get; set; }
+    [Parameter] public RTBColor? Background { get; set; }
+    [Parameter] public RTBColor? ActiveTextColor { get; set; }
+    [Parameter] public RTBColor? OptionTextColor { get; set; }
 
     private readonly string FlyoutId = $"flyout-{Guid.NewGuid().ToString("N").Substring(0, 8)}";
-
-    private string GetAnchorPosition()
-    {
-        string position = string.Empty;
-        if (Anchor.HasFlag(FlyoutPosition.Top)) position += "top ";
-        if (Anchor.HasFlag(FlyoutPosition.Right)) position += "right";
-        if (Anchor.HasFlag(FlyoutPosition.Bottom)) position += "bottom ";
-        if (Anchor.HasFlag(FlyoutPosition.Left)) position += "left ";
-
-        return position.Trim();
-    }
 }
 
-<button popovertarget="@FlyoutId" class="@Class" style="@($"anchor-name: --{FlyoutId};")">
-    @ActionContent.Invoke(SelectedOption)
-</button>
+@if(LabelContent is not null || !string.IsNullOrEmpty(LabelText))
+{
+    <label for="@(Id ?? FlyoutId)" class="@LabelClass">
+        @(LabelContent ?? (@<RTB.Blazor.UI.Components.RTBText Element="span" TextStyle="@LabelTextStyle" Color="@LabelColor">@LabelText</RTB.Blazor.UI.Components.RTBText>))
+    </label>
+}
 
-<Styled Context="MenuClass">
-    <Other Property="position" Value="absolute" />
-    <Other Property="position-visibility" Value="always" />
-    <Other Property="position-area" Value="@(GetAnchorPosition())" />
+<Styled Context="SelectClass">
+    <Background Color="@Background" />
+    <Color Value="@ActiveTextColor" />
 
-    <Overflow />
-    <Other Property="max-height" Value="-webkit-fill-available" />
-    <Other Property="min-width" Value="anchor-size(width)" />
-    <Margin All="0" />
+    <select class="@(CombineClass(SelectClass, Class))" id="@(Id ?? FlyoutId)" @onchange="@(v => SetValue(v.Value))">
+        <Styled Context="OptionStyleClass">
+            <Color Value="@OptionTextColor" />
 
-    <Selector Query="&:popover-open">
-        <Flex Direction="@Flex.AxisDirection.Column" />
-    </Selector>
+            @if(!string.IsNullOrEmpty(EmptyOption))
+            {
+                <option class="@OptionStyleClass" value="" selected="@(SelectedOption is null)">@EmptyOption</option>
+            }
 
-    <div class="@MenuClass @ContentClass" popover id="@FlyoutId" style="position-anchor: --@(FlyoutId);">
-        <Stack Vertical Grow="1">
-            <CollectionList Vertical Items="@Options" TItem="TOption">
-                <ItemTemplate Context="item">
-                    <button popovertarget="@FlyoutId" popovertargetaction="hide" @onclick="@(() => HandleSelection(item))">
-                        @OptionTemplate.Invoke(item)
-                    </button>
-                </ItemTemplate>
-            </CollectionList>
-        </Stack>
-    </div>
+            @foreach (var item in Options)
+            {
+                var isSelected = SelectedOption is not null && (item?.Equals(SelectedOption) ?? false);
+
+                <option class="@OptionStyleClass" label="@OptionLabel(item)" value="@OptionValue(item)" selected="@isSelected">
+                </option>
+            }
+        </Styled>
+    </select>
 </Styled>
 
 @code {
-    private void HandleSelection(TOption item)
+    private Dictionary<string, TOption> _optionValues = new();
+
+    protected override void OnParametersSet()
     {
-        if(item is not null && !item.Equals(SelectedOption))
+        base.OnParametersSet();
+        _optionValues.Clear();
+        foreach(var option in Options)
         {
-            Console.WriteLine($"Item changed {item}");
-            SelectedOption = item; 
-            if (SelectedOptionChanged.HasDelegate)
-                SelectedOptionChanged.InvokeAsync(item);
+            var value = OptionValue(option);
+            if (!_optionValues.ContainsKey(value))
+            {
+                _optionValues[value] = option;
+            }
         }
     }
 
-    public async ValueTask Show()
+    private void SetValue(object? value)
     {
-        await JSRuntime.InvokeVoidAsync("popoverHelper.show", FlyoutId);
-    }
+        if (value is null || !_optionValues.TryGetValue(value.ToString() ?? string.Empty, out var o))
+        {
+            // If the value is null or not found, reset the selected option
+            SelectedOptionChanged.InvokeAsync(default(TOption));
+            return;
+        }
 
-    public async ValueTask Hide()
-    {
-        await JSRuntime.InvokeVoidAsync("popoverHelper.close", FlyoutId);
-    }
-
-    public async ValueTask Toggle()
-    {
-        await JSRuntime.InvokeVoidAsync("popoverHelper.toggle", FlyoutId);
-    }
-
-    public enum FlyoutPosition
-    {
-        Center = 0,
-        Top = 1, 
-        Right = 2, 
-        Bottom = 4,
-        Left = 8,
-        
-        TopRight = FlyoutPosition.Top | FlyoutPosition.Right,
-        RightTop = FlyoutPosition.Right | FlyoutPosition.Top,
-        
-        BottomRight = FlyoutPosition.Bottom | FlyoutPosition.Right,
-        RightBottom = FlyoutPosition.Right | FlyoutPosition.Bottom,
-        
-        TopLeft = FlyoutPosition.Top | FlyoutPosition.Left,
-        LeftTop = FlyoutPosition.Left | FlyoutPosition.Top,
-        
-        BottomLeft = FlyoutPosition.Bottom | FlyoutPosition.Left,
-        LeftBottom = FlyoutPosition.Left | FlyoutPosition.Bottom,
+        SelectedOptionChanged.InvokeAsync(o);
     }
 }

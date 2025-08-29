@@ -23,8 +23,10 @@ public class Flex : RTBStyleBase
     [Parameter] public int? Shrink { get; set; }
     [Parameter] public int? Grow { get; set; }
 
-    protected override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override StyleBuilder BuildStyle(StyleBuilder builder)
     {
+        if (!Condition) return builder;
+
         return builder
             .Append("display", "flex")
             .AppendIfNotNull("flex-direction", Direction?.ToCss())

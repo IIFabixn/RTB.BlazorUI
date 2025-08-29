@@ -16,37 +16,39 @@
         <Styled Context="LineChartClass">
             <Size FullHeight FullWidth />
 
-            <SKCanvasView class="@LineChartClass" OnPaintSurface="@PaintLine" />
+            <SKCanvasView class="@LineChartClass" OnPaintSurface="@PaintLine" EnableRenderLoop />
         </Styled>
 
-        <Styled Context="LabelsListClass">
-            <Flex Direction="@Flex.AxisDirection.Row" AlignItems="@Flex.Align.Center" Gap="@Spacing.Rem(1)" Wrap="@Flex.WrapMode.Wrap" />
+        @if(!NoLabels)
+        {
+            <Styled Context="LabelsListClass">
+                <Flex Direction="@Flex.AxisDirection.Row" AlignItems="@Flex.Align.Center" Gap="@Spacing.Rem(1)" Wrap="@Flex.WrapMode.Wrap" />
 
-            <div class="@LabelsListClass">
-                <Styled Context="LabelsItemsClass">
-                    <Flex Direction="@Flex.AxisDirection.Row" AlignItems="@Flex.Align.Center" JustifyContent="@Flex.Justify.Center" Gap="@Spacing.Rem(1)" />
+                <div class="@LabelsListClass">
+                    <Styled Context="LabelsItemsClass">
+                        <Flex Direction="@Flex.AxisDirection.Row" AlignItems="@Flex.Align.Center" JustifyContent="@Flex.Justify.Center" Gap="@Spacing.Rem(1)" />
 
-                    @foreach (var entry in Entries)
-                    {
-                        <div class="@LabelsItemsClass">
-                            <Styled Context="LabelItemClass">
-                                <Size Width="@SizeUnit.Rem(1)" Height="@SizeUnit.Rem(1)" />
-                                <Border Radius="@SizeUnit.Rem(1)" />
-                                <Flex Shrink="0" />
+                        @foreach (var entry in Entries)
+                        {
+                            <div class="@LabelsItemsClass">
+                                <Styled Context="LabelItemClass">
+                                    <Size Width="@SizeUnit.Rem(1)" Height="@SizeUnit.Rem(1)" />
+                                    <Border Radius="@SizeUnit.Rem(1)" />
+                                    <Flex Shrink="0" />
 
-                                <div class="@LabelItemClass" style="background-color: @(entry.Color.HexRgba);"></div>
-                            </Styled>
-                            <h4>@entry.Label</h4>
-                        </div>
-                    }
-                </Styled>
-            </div>
-        </Styled>
+                                    <div class="@LabelItemClass" style="background-color: @(entry.Color.HexRgba);"></div>
+                                </Styled>
+                                <h4>@entry.Label</h4>
+                            </div>
+                        }
+                    </Styled>
+                </div>
+            </Styled>
+        }
     </div>
 </Styled>
 
 @code {
-
     private void PaintLine(SKPaintSurfaceEventArgs args)
     {
         var canvas = args.Surface.Canvas;

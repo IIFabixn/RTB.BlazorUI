@@ -37,24 +37,25 @@
 }
 
 <Styled Context="ComponentClass">
+    <div style="position: relative;">
+        <button popovertarget="@FlyoutId" class="FlyoutMenuActivator @ComponentClass @Class @ActivatorClass" style="anchor-name: --@FlyoutId;">
+            @Activator
+        </button>
 
-    <button popovertarget="@FlyoutId" class="FlyoutMenuActivator @ComponentClass @Class @ActivatorClass" style="anchor-name: --@FlyoutId;">
-        @Activator
-    </button>
+        <Styled Context="MenuClass">
+            <Margin All="0" />
+            <Other Property="position" Value="absolute" />
+            <Other Property="insert" Value="auto" />
+            <Other Property="position-area" Value="@ToCss(Position)" />
+            <Overflow />
+            <Size MinHeight="0" />
+            <Other Property="max-width" Value="anchor-size(width)" />
 
-    <Styled Context="MenuClass">
-        <Margin All="0" />
-        <Other Property="position" Value="absolute" />
-        <Other Property="insert" Value="auto" />
-        <Other Property="position-area" Value="@ToCss(Position)" />
-        <Overflow />
-        <Size MinHeight="0" />
-        <Other Property="max-width" Value="anchor-size(width)" />
-
-        <div class="@MenuClass @ContentClass" popover id="@FlyoutId" style="position-anchor: --@FlyoutId;">
-            @FlyoutContent
-        </div>
-    </Styled>
+            <div class="@MenuClass @ContentClass" popover id="@FlyoutId" style="position-anchor: --@FlyoutId;">
+                @FlyoutContent
+            </div>
+        </Styled>
+    </div>
 </Styled>
 
 @code {

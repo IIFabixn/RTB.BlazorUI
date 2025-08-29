@@ -10,7 +10,9 @@ namespace RTB.Blazor.Core;
 /// </summary>
 public abstract class RTBComponent : ComponentBase
 {
+    [Parameter] public string? Id { get; set; }
     [Parameter] public string? Class { get; set; }
+
     protected static string CombineClass(params string?[] parts)
     {
         return string.Join(" ", parts.Where(p => !string.IsNullOrWhiteSpace(p))).Trim();
@@ -27,7 +29,7 @@ public abstract class RTBComponent : ComponentBase
         if (EqualityComparer<TValue>.Default.Equals(field, value)) return;
 
         field = value;
-        StateHasChanged();
+        InvokeAsync(StateHasChanged);
     }
 
     /// <summary>
@@ -37,6 +39,6 @@ public abstract class RTBComponent : ComponentBase
     public void StatefulAction(Action action)
     {
         action();
-        StateHasChanged();
+        InvokeAsync(StateHasChanged);
     }
 }

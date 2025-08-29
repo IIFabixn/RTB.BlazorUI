@@ -14,21 +14,21 @@ namespace RTB.Blazor.Styled.Helper
         public MediaType Media { get; set; } = MediaType.Screen;
         public OrientationType? Orientation { get; set; } = null;
 
-        public SizeUnit? MinWidth { get; set; }
-        public SizeUnit? MaxWidth { get; set; }
+        public SizeExpression? MinWidth { get; set; }
+        public SizeExpression? MaxWidth { get; set; }
 
         public string ToQuery()
         {
             var query = new StringBuilder();
             query.Append($"@media {Media.ToString().ToLowerInvariant()}");
-            if (MinWidth.HasValue)
+            if (MinWidth is not null)
             {
-                query.Append($" and (min-width: {MinWidth.Value})");
+                query.Append($" and (min-width: {MinWidth})");
             }
 
-            if (MaxWidth.HasValue)
+            if (MaxWidth is not null)
             {
-                query.Append($" and (max-width: {MaxWidth.Value})");
+                query.Append($" and (max-width: {MaxWidth})");
             }
 
             return query.ToString();

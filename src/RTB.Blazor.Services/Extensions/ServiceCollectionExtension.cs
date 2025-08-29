@@ -6,7 +6,7 @@ using RTB.Blazor.Styled.Services;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using RTB.Blazor.Services.Services;
 
-namespace RTB.Blazor.UI.Extensions
+namespace RTB.Blazor.Services.Extensions
 {
     public static class ServiceCollectionExtension
     {
@@ -18,31 +18,38 @@ namespace RTB.Blazor.UI.Extensions
             collection.UseRTBBusyTracker();
             collection.UseRTBDragDrop();
             collection.UseRTBDataNavigation();
+            collection.UseRTBInputService();
 
             return collection;
         }
 
         public static IServiceCollection UseRTBDialog(this IServiceCollection collection)
         {
-            collection.TryAddScoped<IDialogService, DialogService>();
+            collection.TryAddSingleton<IDialogService, DialogService>();
             return collection;
         }
 
         public static IServiceCollection UseRTBBusyTracker(this IServiceCollection collection)
         {
-            collection.TryAddScoped<IBusyTracker, BusyTracker>();
+            collection.TryAddSingleton<IBusyTracker, BusyTracker>();
             return collection;
         }
 
         public static IServiceCollection UseRTBDragDrop(this IServiceCollection collection)
         {
-            collection.TryAddScoped<IDragDropService, DragDropService>();
+            collection.TryAddSingleton<IDragDropService, DragDropService>();
             return collection;
         }
 
         public static IServiceCollection UseRTBDataNavigation(this IServiceCollection collection)
         {
-            collection.TryAddScoped<DataNavigationService>();
+            collection.TryAddSingleton<DataNavigationService>();
+            return collection;
+        }
+
+        public static IServiceCollection UseRTBInputService(this IServiceCollection collection)
+        {
+            collection.TryAddSingleton<IInputService, InputService>();
             return collection;
         }
     }

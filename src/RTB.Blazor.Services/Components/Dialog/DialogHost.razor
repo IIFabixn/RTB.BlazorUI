@@ -8,8 +8,9 @@
     <Other Property="border" Value="none" />
     <Positioned Top="0" Left="0" Right="0" Bottom="0" />
     <Margin All="@Spacing.Auto" />
+    <Size MaxHeight="@SizeUnit.Vh(99)" MaxWidth="@SizeUnit.Vw(99)" />
     
-    <dialog @ref="dialog" class="@ComponentClass">
+    <dialog @ref="dialog" class="@ComponentClass @Class">
         <CascadingValue Value="this">
             @ChildContent
         </CascadingValue>

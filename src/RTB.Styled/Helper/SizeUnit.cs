@@ -8,42 +8,61 @@ using System.Threading.Tasks;
 
 namespace RTB.Blazor.Styled.Helper;
 
-public readonly partial record struct SizeUnit : IEquatable<SizeUnit>
+public readonly partial struct SizeUnit(double value, Unit unit)
 {
-    private readonly int _value;
-    public double Value => _value;
-
-    private readonly Unit _unit;
-    public Unit Unit => _unit;
-
-    private SizeUnit(double value, Unit unit)
-    {
-        _value = (int)Math.Round(value, 2);
-        _unit = unit;
-    }
+    public double Value { get; } = value;
+    public Unit Unit { get; } = unit;
 
     public override string ToString() => Unit switch
-        {
-            Unit.Px => $"{Value:0.##}px",
-            Unit.Rem => $"{Value:0.##}rem",
-            Unit.Em => $"{Value:0.##}em",
-            Unit.Percent => $"{Value:0.##}%",
-            Unit.Vw => $"{Value:0.##}vw",
-            Unit.Vh => $"{Value:0.##}vh",
-            _ => $"{Value:0.##}px"
-        };
+    {
+        Unit.Px => $"{Value:0.##}px",
+        Unit.Rem => $"{Value:0.##}rem",
+        Unit.Em => $"{Value:0.##}em",
+        Unit.Percent => $"{Value:0.##}%",
+        Unit.Vw => $"{Value:0.##}vw",
+        Unit.Vh => $"{Value:0.##}vh",
+        _ => $"{Value:0.##}px"
+    };
 
-    public static implicit operator SizeUnit(int px) => new(px, Unit.Px);
-    public static implicit operator SizeUnit(double px) => new(px, Unit.Px);
+    public static SizeUnit Px(double v) => new(v, Unit.Px);
+    public static SizeUnit Rem(double v) => new(v, Unit.Rem);
+    public static SizeUnit Em(double v) => new(v, Unit.Em);
+    public static SizeUnit Percent(double v) => new(v, Unit.Percent);
+    public static SizeUnit Vw(double v) => new(v, Unit.Vw);
+    public static SizeUnit Vh(double v) => new(v, Unit.Vh);
+
+    public static implicit operator SizeUnit(int val) => new(val, Unit.Px);
+    public static implicit operator SizeUnit(double val) => new(val, Unit.Px);
     public static implicit operator SizeUnit(string literal) => Parse(literal);
 
-    public static readonly SizeUnit Zero = new(0, Unit.Px);
-    public static readonly SizeUnit One = new(1, Unit.Px);
+    public static implicit operator string(SizeUnit unit) => unit.ToString();
 
+    public static SizeUnit operator *(SizeUnit a, int b) => new(a.Value * b, a.Unit);
+    public static SizeUnit operator *(int a, SizeUnit b) => new(a * b.Value, b.Unit);
+    public static SizeUnit operator *(SizeUnit a, double b) => new(a.Value * b, a.Unit);
+    public static SizeUnit operator *(double a, SizeUnit b) => new(a * b.Value, b.Unit);
+    public static SizeExpression operator *(SizeUnit a, SizeUnit b) => new BinarySizeExpression(a, "*", b);
+
+    public static SizeUnit operator /(SizeUnit a, int b) => new(a.Value / b, a.Unit);
+    public static SizeUnit operator /(int a, SizeUnit b) => new(a / b.Value, b.Unit);
+    public static SizeUnit operator /(SizeUnit a, double b) => new(a.Value / b, a.Unit);
+    public static SizeUnit operator /(double a, SizeUnit b) => new(a / b.Value, b.Unit);
+    public static SizeExpression operator /(SizeUnit a, SizeUnit b) => new BinarySizeExpression(a, "/", b);
+
+    public static SizeUnit operator +(SizeUnit a, int b) => new(a.Value + b, a.Unit);
+    public static SizeUnit operator +(int a, SizeUnit b) => new(a + b.Value, b.Unit);
+    public static SizeUnit operator +(SizeUnit a, double b) => new(a.Value + b, a.Unit);
+    public static SizeUnit operator +(double a, SizeUnit b) => new(a + b.Value, b.Unit);
+    public static SizeExpression operator +(SizeUnit a, SizeUnit b) => new BinarySizeExpression(a, "+", b);
+
+    public static SizeUnit operator -(SizeUnit a, int b) => new(a.Value - b, a.Unit);
+    public static SizeUnit operator -(int a, SizeUnit b) => new(a - b.Value, b.Unit);
+    public static SizeUnit operator -(SizeUnit a, double b) => new(a.Value - b, a.Unit);
+    public static SizeUnit operator -(double a, SizeUnit b) => new(a - b.Value, b.Unit);
+    public static SizeExpression operator -(SizeUnit a, SizeUnit b) => new BinarySizeExpression(a, "-", b);
 
     private static readonly Regex _rx = UnitRegex();
-
-    public static SizeUnit Parse(string text)
+    private static SizeUnit Parse(string text)
     {
         ArgumentNullException.ThrowIfNull(text);
 
@@ -71,67 +90,85 @@ public readonly partial record struct SizeUnit : IEquatable<SizeUnit>
         return new SizeUnit(val, unit);
     }
 
-    public static SizeUnit Px(double value) => new(value, Unit.Px);
-    public static SizeUnit Percent(double value) => new(value, Unit.Percent);
-    public static SizeUnit Em(double value) => new(value, Unit.Em);
-    public static SizeUnit Rem(double value) => new(value, Unit.Rem);
-    public static SizeUnit Vw(double value) => new(value, Unit.Vw);
-    public static SizeUnit Vh(double value) => new(value, Unit.Vh);
-
-    public static implicit operator string(SizeUnit s) => s.ToString();
-
-    private static void EnsureSameUnit(SizeUnit a, SizeUnit b)
-    {
-        if (a.Unit != b.Unit)
-            throw new InvalidOperationException(
-                $"Cannot operate on SizeUnits with different units: '{a.Unit}' vs '{b.Unit}'.");
-    }
-
-    public static SizeUnit operator +(SizeUnit a, SizeUnit b)
-    {
-        EnsureSameUnit(a, b);
-        return new SizeUnit(a.Value + b.Value, a.Unit);
-    }
-
-    public static SizeUnit operator -(SizeUnit a, SizeUnit b)
-    {
-        EnsureSameUnit(a, b);
-        return new SizeUnit(a.Value - b.Value, a.Unit);
-    }
-
-    public static SizeUnit operator *(SizeUnit a, double factor) => new(a.Value * factor, a.Unit);
-    public static SizeUnit operator *(double factor, SizeUnit a) => a * factor;
-    public static SizeUnit operator /(SizeUnit a, double divisor) => new(a.Value / divisor, a.Unit);
-
-    /*─────────────────────── helper functions ───────────────────────*/
-    public SizeUnit Abs() => new(Math.Abs(Value), Unit);
-    public static SizeUnit Min(SizeUnit a, SizeUnit b) { EnsureSameUnit(a, b); return a.Value <= b.Value ? a : b; }
-    public static SizeUnit Max(SizeUnit a, SizeUnit b) { EnsureSameUnit(a, b); return a.Value >= b.Value ? a : b; }
-    public static SizeUnit Clamp(SizeUnit value, SizeUnit min, SizeUnit max)
-    {
-        EnsureSameUnit(value, min); EnsureSameUnit(value, max);
-        return value.Value < min.Value ? min :
-                value.Value > max.Value ? max : value;
-    }
-
-    /*──────────────────────── comparisons ───────────────────────────*/
-    public static bool operator >(SizeUnit a, SizeUnit b)
-    { EnsureSameUnit(a, b); return a.Value > b.Value; }
-
-    public static bool operator <(SizeUnit a, SizeUnit b)
-    { EnsureSameUnit(a, b); return a.Value < b.Value; }
-
-    public static bool operator >=(SizeUnit a, SizeUnit b)
-    { EnsureSameUnit(a, b); return a.Value >= b.Value; }
-
-    public static bool operator <=(SizeUnit a, SizeUnit b)
-    { EnsureSameUnit(a, b); return a.Value <= b.Value; }
-
-
-
     [GeneratedRegex(@"^\s*
            (?<val>\d+(?:\.\d+)?)      # number
            (?<unit>px|rem|em|vw|vh|%)? # optional unit
            \s*$", RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.IgnorePatternWhitespace, "de-DE")]
     private static partial Regex UnitRegex();
+}
+
+/// <summary>
+/// Base class for size expressions.
+/// </summary>
+public abstract record SizeExpression
+{
+    public static implicit operator SizeExpression(SizeUnit unit) => new SizeLiteral(unit);
+    public static implicit operator SizeExpression(string litteral) => (SizeUnit)litteral;
+    public static implicit operator SizeExpression(int value) => new SizeUnit(value, Unit.Px);
+    public static implicit operator SizeExpression(double value) => new SizeUnit(value, Unit.Px);
+
+    public static SizeExpression operator +(SizeExpression a, SizeExpression b) => new BinarySizeExpression(a, "+", b);
+    public static SizeExpression operator -(SizeExpression a, SizeExpression b) => new BinarySizeExpression(a, "-", b);
+
+    public static SizeExpression operator *(SizeExpression a, int b) => new BinarySizeExpression(a, "*", new NumericLiteral(b));
+    public static SizeExpression operator *(int a, SizeExpression b) => new BinarySizeExpression(new NumericLiteral(a), "*", b);
+    public static SizeExpression operator *(SizeExpression a, double b) => new BinarySizeExpression(a, "*", new NumericLiteral(b));
+    public static SizeExpression operator *(double a, SizeExpression b) => new BinarySizeExpression(new NumericLiteral(a), "*", b);
+    public static SizeExpression operator *(SizeExpression a, SizeExpression b) => new BinarySizeExpression(a, "*", b);
+
+    public static SizeExpression operator /(SizeExpression a, int b) => new BinarySizeExpression(a, "/", new NumericLiteral(b));
+    public static SizeExpression operator /(int a, SizeExpression b) => new BinarySizeExpression(new NumericLiteral(a), "/", b);
+    public static SizeExpression operator /(SizeExpression a, double b) => new BinarySizeExpression(a, "/", new NumericLiteral(b));
+    public static SizeExpression operator /(double a, SizeExpression b) => new BinarySizeExpression(new NumericLiteral(a), "/", b);
+    public static SizeExpression operator /(SizeExpression a, SizeExpression b) => new BinarySizeExpression(a, "/", b);
+
+    public static implicit operator string?(SizeExpression? unit) => unit?.ToString();
+
+    public override string ToString() => Render();
+
+    internal protected abstract string Render();
+}
+
+/// <summary>
+/// Represents a literal size value.
+/// </summary>
+/// <param name="Unit"></param>
+public sealed record SizeLiteral(SizeUnit Unit) : SizeExpression
+{
+    internal protected override string Render() => Unit.ToString();
+    public override string ToString() => Render();
+}
+
+/// <summary>
+/// Represents a numeric literal value.
+/// </summary>
+/// <param name="Value"></param>
+public sealed record NumericLiteral(double Value) : SizeExpression
+{
+    internal protected override string Render() => Value.ToString("0.##", CultureInfo.InvariantCulture);
+    public override string ToString() => Render();
+}
+
+/// <summary>
+/// Represents a raw literal size expression.
+/// </summary>
+/// <param name="Raw"></param>
+public sealed record RawLiteral(string Raw) : SizeExpression
+{
+    internal protected override string Render() => Raw;
+    public override string ToString() => Render();
+}
+
+/// <summary>
+/// Represents a binary size expression.
+/// Used to combine two size expressions with an operator.
+/// </summary>
+/// <param name="Left"></param>
+/// <param name="Operator"></param>
+/// <param name="Right"></param>
+public sealed record BinarySizeExpression(SizeExpression Left, string Operator, SizeExpression Right)
+    : SizeExpression
+{
+    internal protected override string Render() => $"calc({Left.Render()} {Operator} {Right.Render()})";
+    public override string ToString() => Render();
 }

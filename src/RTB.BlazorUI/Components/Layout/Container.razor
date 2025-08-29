@@ -1,0 +1,64 @@
+﻿@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Rendering
+
+@inherits RTBComponent
+@code {
+    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+
+    [Parameter] public RTBColor? Background { get; set; }
+    [Parameter] public Spacing[]? Padding { get; set; }
+    [Parameter] public Spacing[]? Margin { get; set; }
+
+    [Parameter] public bool NoAutoMargin { get; set; } = false;
+}
+
+<Styled Context="ContainerClass">
+    <Margin Horizontal="@Spacing.Auto" Condition="@(!NoAutoMargin)" />
+
+    @if (Padding is not null and { Length: > 0 })
+    {
+        @switch (Padding.Length)
+        {
+            case 1:
+                <Padding All="@Padding[0]" Condition="@(Padding is { Length: 1 })" />
+                break;
+            case 2:
+                <Padding Horizontal="Padding[0]" Vertical="@Padding[1]" Condition="@(Padding is { Length: 2 })" />
+                break;
+            case 3:
+                <Padding Top="@Padding[0]" Horizontal="@Padding[1]" Bottom="@Padding[2]" Condition="@(Padding is { Length: 3 })" />
+                break;
+            case 4:
+                <Padding Top="@Padding[0]" Right="@Padding[1]" Bottom="@Padding[2]" Left="@Padding[3]" Condition="@(Padding is { Length: 4 })" />
+                break;
+        }
+    }
+
+    @if (Margin is not null and { Length: > 0 })
+    {
+        @switch (Margin.Length)
+        {
+            case 1:
+                <Margin All="@Margin[0]" Condition="@(Margin is { Length: 1 })" />
+                break;
+            case 2:
+                <Margin Horizontal="Margin[0]" Vertical="@Margin[1]" Condition="@(Margin is { Length: 2 })" />
+                break;
+            case 3:
+                <Margin Top="@Margin[0]" Horizontal="@Margin[1]" Bottom="@Margin[2]" Condition="@(Margin is { Length: 3 })" />
+                break;
+            case 4:
+                <Margin Top="@Margin[0]" Right="@Margin[1]" Bottom="@Margin[2]" Left="@Margin[3]" Condition="@(Margin is { Length: 4 })" />
+                break;
+        }
+    }
+
+    @if (Background is not null)
+    {
+        <Background Color="@Background" />
+    }
+
+    <div class="@CombineClass("rtb-container", ContainerClass, Class)">
+        @ChildContent
+    </div>
+</Styled>

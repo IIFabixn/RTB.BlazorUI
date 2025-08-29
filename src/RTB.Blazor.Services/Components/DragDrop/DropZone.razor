@@ -50,7 +50,6 @@
 
         // Retrieve the data from the service
         var droppedItemData = DragDropService.GetDataOnDrop<TObject>();
-        Logger.LogDebug($"Drop: Retrieved {droppedItemData}");
 
         // Invoke the callback with the actual object
         if (OnObjectDropped.HasDelegate)

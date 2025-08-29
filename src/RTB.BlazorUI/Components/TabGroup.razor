@@ -1,4 +1,5 @@
-﻿@using RTB.Blazor.UI.Extensions
+﻿@using RTB.Blazor.UI.Components.Layout
+@using RTB.Blazor.UI.Extensions
 @using RTB.Blazor.UI.Interfaces
 @using RTB.Blazor.UI.Styles
 
@@ -25,6 +26,7 @@
 
 <Styled Context="TabClass">
     <Flex Direction="@Flex.AxisDirection.Row" JustifyContent="@Flex.Justify.Center" AlignItems="@Flex.Align.Center" />
+    <Size MinHeight="0" />
 
     <GridView Rows="auto 1fr" Class="@CombineClass("rtb-tab-group", TabClass, Class)">
         <GridView Columns="@(string.Join(" ", _tabItems.Select(i => "1fr")))" ItemPlacement="@Grid.Placement.Center">

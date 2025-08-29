@@ -11,7 +11,7 @@
         <Styled Context="DonutClass">
             <Size FullHeight FullWidth />
 
-            <SKCanvasView class="@DonutClass" OnPaintSurface="@PaintDonut" />
+            <SKCanvasView class="@DonutClass" OnPaintSurface="@PaintDonut" EnableRenderLoop />
         </Styled>
 
         <Styled Context="LabelsListClass">
@@ -21,7 +21,7 @@
                 <Styled Context="LabelsItemsClass">
                     <Flex Direction="@Flex.AxisDirection.Row" AlignItems="@Flex.Align.Center" JustifyContent="@Flex.Justify.Center" Gap="@Spacing.Rem(1)" />
 
-                    @foreach (var entry in Entries)
+                    @foreach (var entry in Entries.OrderByDescending(e => e.Value))
                     {
                         <div class="@LabelsItemsClass">
                             <Styled Context="LabelItemClass">
@@ -31,7 +31,7 @@
 
                                 <div class="@LabelItemClass" style="background-color: @(entry.Color.HexRgba);"></div>
                             </Styled>
-                            <h4>@entry.Label</h4>
+                            <h4>@entry.Label (@entry.Value)</h4>
                         </div>
                     }
                 </Styled>
@@ -62,7 +62,7 @@
         paint.Color = SKColors.LightGray;
         canvas.DrawCircle(center.X, center.Y, innerRadius - 4f, paint);
 
-        foreach (var entry in Entries)
+        foreach (var entry in Entries.OrderByDescending(e => e.Value))
         {
             if (entry.Value <= 0) continue;
 

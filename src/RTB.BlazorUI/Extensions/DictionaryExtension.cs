@@ -3,7 +3,7 @@ using System.Net.Http.Headers;
 
 namespace RTB.Blazor.UI.Extensions;
 
-public static class DictionaryExtension
+internal static class DictionaryExtension
 {
     public static TValue GetValueOrDefault<TValue>(this IDictionary<string, object> dictionary, string key, TValue fallback = default!)
     {

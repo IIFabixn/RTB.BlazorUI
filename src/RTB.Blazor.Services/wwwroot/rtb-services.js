@@ -1,4 +1,38 @@
-﻿
+﻿window.dialogHelper = {
+    showModal: (dialogElement) => {
+        if (dialogElement?.showModal) {
+            dialogElement.showModal();
+        }
+    },
+    show: (dialogElement) => {
+        if (dialogElement?.show) {
+            dialogElement.show();
+        }
+    }
+};
+
+window.inputService = {
+    register: function (dotnetRef) {
+        function down(e) {
+            dotnetRef.invokeMethodAsync("OnKeyDown", e.key);
+        }
+        function up(e) {
+            dotnetRef.invokeMethodAsync("OnKeyUp", e.key);
+        }
+
+        document.addEventListener("keydown", down);
+        document.addEventListener("keyup", up);
+
+        this._down = down;
+        this._up = up;
+    },
+
+    unregister: function () {
+        if (this._down) document.removeEventListener("keydown", this._down);
+        if (this._up) document.removeEventListener("keyup", this._up);
+    }
+};
+
 window.initDragDropInterop = (dropZoneId, inputId) => {
     const dropZone = document.getElementById(dropZoneId);
     const fileInput = document.getElementById(inputId);
@@ -33,7 +67,7 @@ window.initDragDropInterop = (dropZoneId, inputId) => {
 
         // Check for files in the dataTransfer object
         if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-            
+
             // Assign dropped files to the input
             fileInput.files = e.dataTransfer.files;
 
@@ -44,36 +78,23 @@ window.initDragDropInterop = (dropZoneId, inputId) => {
     });
 };
 
-window.dialogHelper = {
-    showModal: (dialogElement) => {
-        if (dialogElement?.showModal) {
-            dialogElement.showModal();
-        }
-    },
-    show: (dialogElement) => {
-        if (dialogElement?.show) {
-            dialogElement.show();
-        }
-    }
-};
-
 window.popoverHelper = {
     show: (popoverId) => {
         const popoverElement = document.getElementById(popoverId);
         if (popoverElement?.showPopover) {
-            popoverElement.showPopover()
+            popoverElement.showPopover();
         }
     },
     close: (popoverId) => {
         const popoverElement = document.getElementById(popoverId);
         if (popoverElement?.hidePopover) {
-            popoverElement.hidePopover()
+            popoverElement.hidePopover(); // same as 'hide'
         }
     },
     toggle: (popoverId) => {
         const popoverElement = document.getElementById(popoverId);
         if (popoverElement?.togglePopover) {
-            popoverElement.togglePopover()
+            popoverElement.togglePopover();
         }
     }
 }

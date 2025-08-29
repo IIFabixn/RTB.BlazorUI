@@ -1,4 +1,5 @@
 ﻿@using RTB.Blazor.Styled
+@using RTB.Blazor.Styled.Components
 @using RTB.Blazor.Styled.Helper
 @using RTB.Blazor.Styled.Services
 
@@ -10,40 +11,34 @@
     [Parameter] public RenderFragment<string?> ChildContent { get; set; } = default!;
 
     [Parameter] public string Classname { get; set; } = string.Empty;
-    [Parameter] public EventCallback<string>? ClassnameChanged { get; set; }
-
-    [Parameter] public StyleBuilder[] DependsOn { get; set; } = [];
-
-    private readonly StyleBuilder _builder = StyleBuilder.Start;
-    private string _prevStyle = string.Empty;
+    [Parameter] public EventCallback<string> ClassnameChanged { get; set; }
 }
 
-<CascadingValue Value="@_builder" IsFixed="true">
+<CascadingValue Value="@_builder" Name="@nameof(RTBStyleBase.StyleBuilder)" IsFixed="true">
     @ChildContent(Classname)
 </CascadingValue>
 
 @code {
+    private readonly StyleBuilder _builder = StyleBuilder.Start;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (!_builder.IsDirty) return;
-        var style = _builder.Join(DependsOn).Build();
-
+        var style = _builder.Build();
         if (string.IsNullOrEmpty(style)) return;
-        if (style == _prevStyle) return; // No changes since last render
 
-        var cls = Registry.GetOrCreate(style); // deterministic class name (no injection)
+        var cls = Registry.GetOrCreate(style); // deterministic class name (no injection yet)
+        if (Classname == cls) return; // no change
 
-        if (cls != Classname)
-        {
-            Classname = cls;
-            ClassnameChanged?.InvokeAsync(Classname);
-        }
+        Classname = cls;
 
         await Registry.InjectInto(style, Classname);
-
-        _prevStyle = style;
+        if (ClassnameChanged.HasDelegate)
+        {
+            await ClassnameChanged.InvokeAsync(Classname);
+        }
+        
         StateHasChanged();
+        _builder.Clear();
     }
 
     public async ValueTask DisposeAsync()
