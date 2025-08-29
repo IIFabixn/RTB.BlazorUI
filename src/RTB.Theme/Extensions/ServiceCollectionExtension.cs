@@ -13,11 +13,10 @@ namespace RTB.Blazor.Theme.Extensions
 
             return collection;
         }
-
-        public static IServiceCollection UseRTBTheme<TTHeme>(this IServiceCollection collection) where TTHeme : ITheme
+        public static IServiceCollection UseRTBTheme<TTHeme>(this IServiceCollection collection)
+            where TTHeme : ITheme
         {
             collection.TryAddScoped<IThemeService<TTHeme>, RTBThemeService<TTHeme>>();
-
             return collection;
         }
     }
