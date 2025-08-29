@@ -13,7 +13,7 @@ namespace RTB.Blazor.Styled.Extensions
     {
         public static IServiceCollection UseRTBStyled(this IServiceCollection collection)
         {
-            collection.TryAddSingleton<IStyleRegistry, StyleRegistry>();
+            collection.TryAddScoped<IStyleRegistry, StyleRegistry>();
 
             return collection;
         }
