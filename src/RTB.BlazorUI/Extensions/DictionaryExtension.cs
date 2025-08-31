@@ -1,7 +1,7 @@
 using System;
 using System.Net.Http.Headers;
 
-namespace RTB.Blazor.UI.Extensions;
+namespace RTB.Blazor.Extensions;
 
 internal static class DictionaryExtension
 {

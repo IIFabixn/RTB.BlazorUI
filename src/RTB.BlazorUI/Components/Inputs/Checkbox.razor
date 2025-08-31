@@ -1,4 +1,5 @@
-﻿@using RTB.Blazor.UI.Styles
+﻿@using RTB.Blazor
+@using RTB.Blazor.Styles
 
 @inherits RTBComponent
 
@@ -30,7 +31,7 @@
 @if (!string.IsNullOrEmpty(LabelText) || LabelContent is not null)
 {
     <label class="@LabelClass" for="@InputId">
-        @(LabelContent ?? (@<RTB.Blazor.UI.Components.RTBText TextStyle="@LabelTextStyle">@LabelText</RTB.Blazor.UI.Components.RTBText>))
+        @(LabelContent ?? (@<RTBText TextStyle="@LabelTextStyle">@LabelText</RTBText>))
     </label>
 }
 

@@ -1,6 +1,6 @@
-﻿using RTB.Blazor.Styled.Helper;
-using RTB.Blazor.Theme.Services;
-using RTB.Blazor.UI.Styles;
+﻿using RTB.Blazor.Services.Theme;
+using RTB.Blazor.Styled.Helper;
+using RTB.Blazor.Styles;
 
 namespace RTB.Sample.Theme
 {

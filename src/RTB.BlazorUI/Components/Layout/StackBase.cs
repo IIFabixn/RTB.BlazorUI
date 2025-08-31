@@ -1,14 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
-using RTB.Blazor.Core;
 using RTB.Blazor.Styled.Helper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static RTB.Blazor.Styled.Components.Flex;
 
-namespace RTB.Blazor.UI.Components.Layout
+namespace RTB.Blazor.Components.Layout
 {
     public abstract class StackBase : RTBComponent
     {

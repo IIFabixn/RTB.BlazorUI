@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Components;
 using RTB.Blazor.Styled.Helper;
+using RTB.Blazor.Styles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTB.Blazor.UI.Styles;
+namespace RTB.Blazor.Styles;
 
 public class ButtonStyle : TextStyle
 {

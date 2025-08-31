@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
 
-      <PackageId>RTB.Blazor.UI</PackageId>
+      <PackageId>RTB.Blazor</PackageId>
       <Version>1.0.5</Version>
       <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
       <Authors>Fabian Becker</Authors>
@@ -30,9 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RTB.Blazor.Services\RTB.Blazor.Services.csproj" />
-    <ProjectReference Include="..\RTB.Core\RTB.Blazor.Core.csproj" />
     <ProjectReference Include="..\RTB.Styled\RTB.Blazor.Styled.csproj" />
-    <ProjectReference Include="..\RTB.Theme\RTB.Blazor.Theme.csproj" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,52 @@
+@using System.Diagnostics
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.JSInterop
+@using RTB.Blazor.Components
+
+@inject IJSRuntime JSRuntime
+
+@inherits RTBComponent
+
+@code {
+    [Parameter] public string[] AcceptedTypes { get; set; } = [];
+    [Parameter] public EventCallback<IBrowserFile[]> OnInput { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+    [Parameter] public bool Multiple { get; set; } = false;
+
+    private readonly string InputId = $"dropinput-{Guid.NewGuid().ToString("N").Substring(0, 8)}";
+}
+
+<InputFile id="@(Id ?? InputId)" OnChange="HandleChange" multiple="@Multiple" hidden accept="@(string.Join(",", AcceptedTypes))" />
+<label id="@(Id ?? InputId)Zone"
+    for="@(Id ?? InputId)"
+    class="@Class">
+    @ChildContent
+</label>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("initDragDropInterop", $"{Id}Zone", Id);        
+        }
+    }
+
+    private async Task HandleChange(InputFileChangeEventArgs args)
+    {
+        var files = args.GetMultipleFiles(args.FileCount)
+                        .Where(f => AcceptedTypes.Length == 0 || AcceptedTypes.Any(t => f.ContentType.Equals(t, StringComparison.OrdinalIgnoreCase)))
+                        .ToArray();
+
+        if (files.Length == 0)
+        {
+            Debug.WriteLine("Dropped content was not a supported file type.");
+            return;
+        }
+
+        if (OnInput.HasDelegate)
+        {
+            await OnInput.InvokeAsync(files);
+        }
+    }
+}

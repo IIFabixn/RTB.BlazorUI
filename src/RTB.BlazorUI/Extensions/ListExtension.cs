@@ -5,7 +5,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RTB.Blazor.UI.Extensions
+namespace RTB.Blazor.Extensions
 {
     internal static class ListExtension
     {

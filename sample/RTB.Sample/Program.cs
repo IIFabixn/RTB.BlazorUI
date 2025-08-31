@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using RTB.Blazor.Services.Extensions;
-using RTB.Blazor.Theme.Extensions;
+using RTB.Blazor.Extensions;
 using RTB.Sample;
 using RTB.Sample.Theme;
 
@@ -12,7 +11,6 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-builder.Services.UseRTBServices();
-builder.Services.UseRTBTheme(typeof(ISampleTheme));
+builder.Services.UseRTBBlazor(config => config.UseTheme<ISampleTheme>().UseServices());
 
 await builder.Build().RunAsync();

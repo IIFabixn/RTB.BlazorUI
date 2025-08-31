@@ -1,0 +1,143 @@
+﻿using Microsoft.Extensions.Logging;
+using System.Collections.Concurrent;
+using System.Runtime.CompilerServices;
+
+namespace RTB.Blazor.Services.BusyIndicator
+{
+    /// <summary>
+    /// Interface for tracking busy states in asynchronous operations.
+    /// </summary>
+    public interface IBusyTracker
+    {
+        event Action<string?>? OnBusyChanged;
+        bool IsBusy(string? key = null);
+        bool IsAnyBusy { get; }
+        IDisposable Track([CallerMemberName] string method = "", Action? onDispose = null);
+        string[] Tracks { get; }
+
+        Task Await(string key);
+    }
+
+    /// <summary>
+    /// Tracks busy states for asynchronous operations by named keys.
+    /// Useful for showing spinners, disabling buttons, and detecting background tasks.
+    /// Supports multiple concurrent scopes per key.
+    /// </summary>
+    public class BusyTracker : IBusyTracker
+    {
+        private readonly ConcurrentDictionary<string, int> _busyKeys = new();
+        private readonly ConcurrentDictionary<string, TaskCompletionSource> _waiters = new();
+
+        public string[] Tracks => [.. _busyKeys.Where(kvp => kvp.Value > 0).Select(kvp => kvp.Key)];
+
+        /// <summary>
+        /// Raised when any busy state changes (e.g. start or end of tracked work).
+        /// Components can subscribe to update UI accordingly.
+        /// </summary>
+        public event Action<string?>? OnBusyChanged;
+
+        /// <summary>
+        /// Checks if a specific key is currently busy.
+        /// </summary>
+        public bool IsBusy(string? key = "") =>
+            string.IsNullOrEmpty(key) ? IsAnyBusy : _busyKeys.TryGetValue(key, out var count) && count > 0;
+
+        /// <summary>
+        /// True if any tracked key is currently busy.
+        /// </summary>
+        public bool IsAnyBusy => _busyKeys.Values.Any(v => v > 0);
+
+        /// <summary>
+        /// Returns the current state of all tracked busy keys and their call counts.
+        /// </summary>
+        public IReadOnlyDictionary<string, int> CurrentState => _busyKeys;
+
+        public IDisposable Track([CallerMemberName] string key = "", Action? onDispose = null)
+        {
+            Add(key);
+
+            return new BusyToken(key, () => {
+                Remove(key);
+                onDispose?.Invoke();
+            });
+        }
+
+        public Task Await(string key)
+        {
+            var tcs = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+
+            if (!IsBusy(key))
+            {
+                tcs.SetResult();
+            }
+            else
+            {
+                _waiters[key] = tcs;
+            }
+
+            return tcs.Task;
+        }
+
+        /// <summary>
+        /// Increments the counter for the given busy key.
+        /// </summary>
+        private void Add(string key)
+        {
+            if (_busyKeys.TryGetValue(key, out var count))
+                _busyKeys[key] = ++count;
+            else
+                _busyKeys[key] = 1;
+
+            OnBusyChanged?.Invoke(key);
+        }
+
+        /// <summary>
+        /// Decrements the counter for the given busy key.
+        /// Removes the key when the count reaches zero.
+        /// </summary>
+        private void Remove(string key)
+        {
+            if (_busyKeys.TryGetValue(key, out int count))
+            {
+                count--;
+
+                if (count > 0)
+                {
+                    _busyKeys[key] = count;
+                }
+                else
+                {
+                    if (_busyKeys.TryRemove(key, out _))
+                    {
+                        if (_waiters.TryRemove(key, out var waiter))
+                        {
+                            waiter.SetResult();
+                        }
+                    }
+                }
+            }
+
+            OnBusyChanged?.Invoke(key);
+        }
+
+        /// <summary>
+        /// Represents a tracked busy scope that automatically ends when disposed.
+        /// Use with <c>using</c> or <c>await using</c> to automatically release busy state.
+        /// </summary>
+        /// <remarks>
+        /// Creates a new busy token. Should not be created manually — use <c>Track</c> or <c>TrackAsync</c>.
+        /// </remarks>
+        public readonly struct BusyToken(string key, Action? onDispose = null) : IDisposable
+        {
+            public string Key { get; } = key;
+
+            /// <summary>
+            /// Automatically ends the busy scope when disposed.
+            /// </summary>
+            public void Dispose()
+            {
+                onDispose?.Invoke();
+            }
+        }
+    }
+}

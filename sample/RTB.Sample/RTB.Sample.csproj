@@ -13,12 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\RTB.Blazor.Services\RTB.Blazor.Services.csproj" />
-    <ProjectReference Include="..\..\src\RTB.BlazorUI\RTB.Blazor.UI.csproj" />
-	<ProjectReference Include="..\..\src\RTB.Charts\RTB.Blazor.Charts.csproj" />
-	<ProjectReference Include="..\..\src\RTB.Core\RTB.Blazor.Core.csproj" />
+    <ProjectReference Include="..\..\src\RTB.BlazorUI\RTB.Blazor.csproj" />
 	<ProjectReference Include="..\..\src\RTB.Styled\RTB.Blazor.Styled.csproj" />
-	<ProjectReference Include="..\..\src\RTB.Theme\RTB.Blazor.Theme.csproj" />
   </ItemGroup>
 
   <ItemGroup>

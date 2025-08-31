@@ -1,4 +1,9 @@
-﻿@inherits LayoutComponentBase
+﻿@using RTB.Blazor.Components.Layout
+@using RTB.Blazor.Styled
+@using RTB.Blazor.Styled.Components
+@using RTB.Sample.Theme
+
+@inherits LayoutComponentBase
 
 @code {
     [CascadingParameter] private ISampleTheme Theme { get; set; } = default!;
@@ -8,7 +13,7 @@
     <Background Color="@Theme.Background" />
     <Color Value="@Theme.TextColor"/>
 
-    <div class="MainLayout @MainLayoutClass">
+    <VStack Class="@MainLayoutClass">
         <Styled Context="BodyClass">
             <Size FullWidth />
 
@@ -26,5 +31,5 @@
                 @Body
             </Container>
         </Styled>
-    </div>
+    </VStack>
 </Styled>

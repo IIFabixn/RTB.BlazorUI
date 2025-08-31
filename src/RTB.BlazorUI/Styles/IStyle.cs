@@ -1,7 +1,7 @@
 using RTB.Blazor.Styled;
 using System;
 
-namespace RTB.Blazor.UI.Styles;
+namespace RTB.Blazor.Styles;
 
 public interface IStyle
 {

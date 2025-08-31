@@ -2,7 +2,7 @@
 using RTB.Blazor.Styled.Helper;
 using static RTB.Blazor.Styled.Components.Flex;
 
-namespace RTB.Blazor.UI.Styles
+namespace RTB.Blazor.Styles
 {
     public class TextStyle : IStyle
     {
