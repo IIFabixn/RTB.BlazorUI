@@ -22,6 +22,7 @@ namespace RTB.Blazor.Styled.Components
             if (!Condition) return builder;
 
             var style = _builder.Build();
+            if (string.IsNullOrEmpty(style)) return builder;
             return builder.AppendSelector(Query, style);
         }
 
