@@ -29,6 +29,7 @@ namespace RTB.Blazor.Styled.Components
             // Provide the private StyleBuilder to descendants
             renderBuilder.OpenComponent<CascadingValue<StyleBuilder>>(0);
             renderBuilder.AddAttribute(1, "Value", _builder);
+            renderBuilder.AddAttribute(2, "Name", nameof(StyleBuilder));
             renderBuilder.AddAttribute(2, "IsFixed", true);
             renderBuilder.AddAttribute(3, "ChildContent", ChildContent);
             renderBuilder.CloseComponent();

@@ -29,7 +29,7 @@ namespace RTB.Blazor.Styled.Components
         [Parameter] public string? Composition { get; set; } // optional: "replace" | "add" (Animations 2)
 
         // nested frames go here
-        [Parameter, EditorRequired] public required RenderFragment ChildContent { get; set; }
+        [Parameter, EditorRequired] public required RenderFragment KeyFrames { get; set; }
 
         // private builder to collect "0%{...} to{...}" from <Keyframe/> children
         private readonly StyleBuilder _framesBuilder = StyleBuilder.Start;
@@ -39,8 +39,7 @@ namespace RTB.Blazor.Styled.Components
             if (!Condition) return builder;
 
             // 1) Emit the @keyframes block from collected keyframes:
-            var frames = _framesBuilder.Build(); // -> "0%{...} 50%{...} to{...}"
-            builder.AppendAnimation(Name, frames);
+            builder.AppendAnimation(Name);
 
             // 2) Emit animation-* properties on the target:
             builder
@@ -69,18 +68,10 @@ namespace RTB.Blazor.Styled.Components
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
-            builder.OpenComponent<CascadingValue<StyleBuilder>>(0);
-            builder.AddAttribute(1, "Value", _framesBuilder);
-            builder.AddAttribute(2, "Name", "StyleBuilder");
-            builder.AddAttribute(3, "IsFixed", true);
-            builder.AddAttribute(4, "ChildContent", (RenderFragment)(_builder =>
-            {
-                _builder.OpenComponent<CascadingValue<string>>(0);
-                _builder.AddAttribute(1, "Value", Name);
-                _builder.AddAttribute(2, "Name", "AnimationName");
-                _builder.AddAttribute(3, "ChildContent", ChildContent);
-                _builder.CloseComponent();
-            }));
+            builder.OpenComponent<CascadingValue<string>>(0);
+            builder.AddAttribute(1, "Value", Name);
+            builder.AddAttribute(2, "Name", nameof(Keyframe.AnimationName));
+            builder.AddAttribute(3, "ChildContent", KeyFrames);
             builder.CloseComponent();
         }
     }

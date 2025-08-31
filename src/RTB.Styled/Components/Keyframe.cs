@@ -13,7 +13,7 @@ public class Keyframe : RTBStyleBase
     /// </summary>
     [Parameter, EditorRequired] public required string Offset { get; set; }
 
-    [CascadingParameter] public string AnimationName { get; set; } = string.Empty;
+    [CascadingParameter(Name = nameof(AnimationName))] public string AnimationName { get; set; } = string.Empty;
 
     [Parameter, EditorRequired] public required RenderFragment ChildContent { get; set; }
 
@@ -32,8 +32,9 @@ public class Keyframe : RTBStyleBase
     {
         builder.OpenComponent<CascadingValue<StyleBuilder>>(0);
         builder.AddAttribute(1, "Value", _builder);
-        builder.AddAttribute(2, "IsFixed", true);
-        builder.AddAttribute(3, "ChildContent", ChildContent);
+        builder.AddAttribute(2, "Name", nameof(StyleBuilder));
+        builder.AddAttribute(3, "IsFixed", true);
+        builder.AddAttribute(4, "ChildContent", ChildContent);
         builder.CloseComponent();
     }
 }

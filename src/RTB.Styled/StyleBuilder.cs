@@ -120,17 +120,13 @@ namespace RTB.Blazor.Styled
             return this;
         }
 
-        public StyleBuilder AppendAnimation(string name, string frames)
+        public StyleBuilder AppendAnimation(string name)
         {
             if (string.IsNullOrEmpty(name))
                 return this;
 
             var key = name.Trim();
-            if (!_animations.TryAdd(key, frames))
-            {
-                // If the animation already exists, update its value
-                _animations[key] = frames;
-            }
+            _animations.TryAdd(key, string.Empty);
 
             return this;
         }
@@ -141,11 +137,11 @@ namespace RTB.Blazor.Styled
                 return this;
 
             var key = animationName.Trim();
-            var frameContent = $"{offset.Trim()}{{{frame}}}";
+            var frameContent = $" {offset.Trim()}{frame}";
             if (!_animations.TryAdd(key, frameContent))
             {
                 // If the animation already exists, update its value
-                _animations[key] += ' ' + frameContent;
+                _animations[key] += frameContent;
             }
 
             return this;
@@ -173,7 +169,7 @@ namespace RTB.Blazor.Styled
 
             try
             {
-                if (_props.Count != 0) builder.Append('{');
+                builder.Append('{');
 
                 // Apply each action to the builder
                 foreach (var prop in _props)
@@ -187,7 +183,7 @@ namespace RTB.Blazor.Styled
                     builder.Append($"{sel.Key}{sel.Value}");
                 }
 
-                if (_props.Count != 0) builder.Append('}');
+                builder.Append('}');
 
                 // Append media queries if any
                 foreach (var media in _medias.Where(m => !string.IsNullOrEmpty(m.Value)))
@@ -197,7 +193,7 @@ namespace RTB.Blazor.Styled
 
                 foreach(var animation in _animations.Where(a => !string.IsNullOrEmpty(a.Value)))
                 {
-                    builder.Append($"@keyframes {animation.Key}{{{animation.Value}}}");
+                    builder.Append($"@keyframes {animation.Key} {{ {animation.Value} }}");
                 }
 
                 var css = builder.ToString().Trim();
