@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace RTB.Blazor.Styled.Helper;
 
+/// <summary>
+/// Represents a CSS spacing value, which can be a numeric value with a unit (px, em, rem, %, vw, vh)
+/// </summary>
 public readonly partial struct Spacing : IEquatable<Spacing>
 {
     private readonly double _value;
@@ -147,4 +150,31 @@ public readonly partial struct Spacing : IEquatable<Spacing>
            (?<unit>px|rem|em|vw|vh|%)? # optional unit
            \s*$", RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.IgnorePatternWhitespace, "de-DE")]
     private static partial Regex SpacingRegex();
+}
+
+public static class Spacings
+{
+    public static Spacing[] All(Spacing s) => [s, s, s, s];
+    public static Spacing[] Top(Spacing s) => [s, Spacing.Zero, Spacing.Zero, Spacing.Zero];
+    public static Spacing[] Right(Spacing s) => [Spacing.Zero, s, Spacing.Zero, Spacing.Zero];
+    public static Spacing[] Bottom(Spacing s) => [Spacing.Zero, Spacing.Zero, s, Spacing.Zero];
+    public static Spacing[] Left(Spacing s) => [Spacing.Zero, Spacing.Zero, Spacing.Zero, s];
+    public static Spacing[] Horizontal(Spacing s) => [Spacing.Zero, s, Spacing.Zero, s];
+    public static Spacing[] Vertical(Spacing s) => [s, Spacing.Zero, s, Spacing.Zero];
+    public static Spacing[] Symmetric(Spacing vertical, Spacing horizontal) => [vertical, horizontal, vertical, horizontal];
+
+    public static Spacing[] Only(
+        Spacing? top = null,
+        Spacing? right = null,
+        Spacing? bottom = null,
+        Spacing? left = null)
+    {
+        return
+        [
+            top    ?? Spacing.Zero,
+            right  ?? Spacing.Zero,
+            bottom ?? Spacing.Zero,
+            left   ?? Spacing.Zero
+        ];
+    }
 }

@@ -6,12 +6,18 @@ namespace RTB.Sample.Theme
     {
         public string Name => "Light Sample Theme";
 
-        public RTBColor Primary => "#007bff";
+        // Bright and clean blue accent
+        public RTBColor Primary => "#3B82F6";
 
-        public RTBColor Secondary => "#6c757d";
+        // Neutral gray for secondary elements
+        public RTBColor Secondary => "#6B7280";
 
-        public RTBColor Background => "#f8f9fa";
+        // Very light background with a hint of warmth
+        public RTBColor Background => "#F9FAFB";
 
-        public RTBColor TextColor => "#212529";
+        // Darker neutral for text readability
+        public RTBColor TextColor => "#111827";
+
+        public RTBColor OnPrimary => "#FFFFFF";
     }
 }

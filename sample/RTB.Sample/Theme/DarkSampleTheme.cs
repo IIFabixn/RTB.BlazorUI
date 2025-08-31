@@ -1,17 +1,25 @@
-﻿using RTB.Blazor.Styled.Helper;
+﻿using RTB.Blazor.Services.Theme;
+using RTB.Blazor.Styled.Helper;
 
 namespace RTB.Sample.Theme
 {
+    [Theme(IsDefault = true)]
     public class DarkSampleTheme : ISampleTheme
     {
         public string Name => "Dark Sample Theme";
 
-        public RTBColor Primary => "#343a40";
+        // Muted blue-gray with a professional tone
+        public RTBColor Primary => "#2C3E50";
 
-        public RTBColor Secondary => "#495057";
+        // A softer accent with a modern teal shade
+        public RTBColor Secondary => "#16A085";
 
-        public RTBColor Background => "#212529";
+        // Deep slate background for a clean, dark feel
+        public RTBColor Background => "#1B1F23";
 
-        public RTBColor TextColor => "#f8f9fa";
+        // Light gray text for readability
+        public RTBColor TextColor => "#EAEAEA";
+
+        public RTBColor OnPrimary => "#FFFFFF";
     }
 }

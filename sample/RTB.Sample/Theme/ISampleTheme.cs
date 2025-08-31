@@ -14,6 +14,8 @@ namespace RTB.Sample.Theme
         RTBColor Background { get; }
         RTBColor TextColor { get; }
 
+        RTBColor OnPrimary { get; }
+
         #endregion
 
         #region TextStyles
@@ -30,6 +32,13 @@ namespace RTB.Sample.Theme
             FontSize = "24",
             FontWeight = "600",
             LineHeight = "1.2pt",
+        };
+
+        public TextStyle Subtitle => new()
+        {
+            FontSize = "20",
+            FontWeight = "500",
+            LineHeight = "1.3pt",
         };
 
         public TextStyle Body => new()
@@ -50,7 +59,8 @@ namespace RTB.Sample.Theme
 
         #region Spacings
 
-        private static Spacing BaseSpacing => Spacing.Px(4);
+        private static Spacing BaseSpacing => Spacing.Px(16);
+        public Spacing SpacingXS => BaseSpacing / 4;
         public Spacing SpacingS => BaseSpacing / 2;
         public Spacing Spacing => BaseSpacing;
         public Spacing SpacingM => BaseSpacing * 2;

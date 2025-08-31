@@ -6,4 +6,28 @@
 
 <PageTitle>Home</PageTitle>
 
-<RTBText TextStyle="@Theme.Headline" Color="@Theme.Primary">Welcome to Refused To Brew - Blazor UI</RTBText>
+<RTBText 
+    TextStyle="@Theme.Headline" 
+    Color="@Theme.OnPrimary"
+    Align="@RTBText.TextAlign.Center"
+>
+    Welcome to Refused To Brew
+</RTBText>
+
+<GridView Columns="1fr 1fr 1fr" Gap="@Theme.Spacing">
+    <RTB.Sample.Components.FeatureCard>
+        <RTBText TextStyle="@Theme.Subtitle" Color="@Theme.OnPrimary" Align="@RTBText.TextAlign.Center">
+            Blazor UI
+        </RTBText>
+    </RTB.Sample.Components.FeatureCard>
+    <RTB.Sample.Components.FeatureCard>
+        <RTBText TextStyle="@Theme.Subtitle" Color="@Theme.OnPrimary" Align="@RTBText.TextAlign.Center">
+            Blazor Styled
+        </RTBText>
+    </RTB.Sample.Components.FeatureCard>
+    <RTB.Sample.Components.FeatureCard>
+        <RTBText TextStyle="@Theme.Subtitle" Color="@Theme.OnPrimary" Align="@RTBText.TextAlign.Center">
+            Blazor Services
+        </RTBText>
+    </RTB.Sample.Components.FeatureCard>
+</GridView>

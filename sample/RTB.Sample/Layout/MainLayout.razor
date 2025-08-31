@@ -12,6 +12,7 @@
 <Styled Context="MainLayoutClass">
     <Background Color="@Theme.Background" />
     <Color Value="@Theme.TextColor"/>
+    <Size MaxHeight="@SizeUnit.Vh(100)" FullHeight/>
 
     <VStack Class="@MainLayoutClass">
         <Styled Context="BodyClass">
@@ -27,8 +28,12 @@
                 <Size MaxWidth="@Theme.Desktop.MaxWidth" />
             </Media>
 
-            <Container Class="@BodyClass"> 
-                @Body
+            <Container Class="@BodyClass">
+                <VStack Gap="@Theme.Spacing" Margin="@Spacings.Horizontal(Theme.Spacing)" Padding="@Spacings.Top(Theme.Spacing)">
+                    <ChildContent>
+                        @Body
+                    </ChildContent>
+                </VStack>
             </Container>
         </Styled>
     </VStack>

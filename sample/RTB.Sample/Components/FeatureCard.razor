@@ -1,0 +1,31 @@
+﻿@code {
+    [CascadingParameter] private ISampleTheme Theme { get; set; } = default!;
+    [Parameter] public RenderFragment ChildContent { get; set; } = default!;
+}
+
+<Styled>
+    <Background Color="@Theme.Primary" />
+    <Other Property="aspect-ratio" Value="16/9" />
+    <Border Radius="8" Corner="@Border.BorderCorner.All" />
+
+    <Transition Property="background-color" Duration="@TimeSpan.FromMilliseconds(300)" TimingFunction="linear" />
+
+    <Selector Query="&:hover">
+        <Background Color="RTBColors.Red" />
+    </Selector>
+
+    <Animation Name="fade-in" Duration="@TimeSpan.FromSeconds(1)">
+        <KeyFrames>
+            <Keyframe Offset="from">
+                <Transform Parts="@([TransformExtensions.PartTranslateX(-80)])" />
+            </Keyframe>
+            <Keyframe Offset="to">
+                <Transform Parts="@([TransformExtensions.PartTranslateX(0)])" />
+            </Keyframe>
+        </KeyFrames>
+    </Animation>
+
+    <VStack Class="@context" JustifyContent="@Flex.Justify.Center" AlignItem="@Flex.Align.Center">
+        @ChildContent
+    </VStack>
+</Styled>

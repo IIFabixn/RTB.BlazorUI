@@ -264,13 +264,13 @@ namespace RTB.Blazor.Styled.Helper
         public static FunctionalPseudoClass Not(params SelectorExpression[] args) => new("not", args);
         public static FunctionalPseudoClass Is(params SelectorExpression[] args) => new("is", args);
         public static FunctionalPseudoClass Where(params SelectorExpression[] args) => new("where", args);
-        public static FunctionalPseudoClass Lang(string code) => new("lang", new SelectorExpression[] { new RawSelector(code) });
-        public static FunctionalPseudoClass Dir(string direction) => new("dir", new SelectorExpression[] { new RawSelector(direction) });
+        public static FunctionalPseudoClass Lang(string code) => new("lang", [new RawSelector(code)]);
+        public static FunctionalPseudoClass Dir(string direction) => new("dir", [new RawSelector(direction)]);
 
-        public static FunctionalPseudoClass NthChild(string expr) => new("nth-child", new[] { new RawSelector(expr) });
-        public static FunctionalPseudoClass NthLastChild(string expr) => new("nth-last-child", new[] { new RawSelector(expr) });
-        public static FunctionalPseudoClass NthOfType(string expr) => new("nth-of-type", new[] { new RawSelector(expr) });
-        public static FunctionalPseudoClass NthLastOfType(string expr) => new("nth-last-of-type", new[] { new RawSelector(expr) });
+        public static FunctionalPseudoClass NthChild(string expr) => new("nth-child", [new RawSelector(expr)]);
+        public static FunctionalPseudoClass NthLastChild(string expr) => new("nth-last-child", [new RawSelector(expr)]);
+        public static FunctionalPseudoClass NthOfType(string expr) => new("nth-of-type", [new RawSelector(expr)]);
+        public static FunctionalPseudoClass NthLastOfType(string expr) => new("nth-last-of-type", [new RawSelector(expr)]);
 
         /* -------------------------
          * Shadow DOM / components

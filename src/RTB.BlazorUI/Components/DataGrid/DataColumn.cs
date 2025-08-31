@@ -105,10 +105,10 @@ namespace RTB.Blazor.Components.DataGrid
         private string? CellClass;
 
         private readonly string style = StyleBuilder.Start
-                .Append("white-space", "nowrap")
-                .Append("overflow", "hidden")
-                .Append("text-overflow", "ellipsis")
-                .Build();
+            .Append("white-space", "nowrap")
+            .Append("overflow", "hidden")
+            .Append("text-overflow", "ellipsis")
+            .Build();
 
         protected override async Task OnInitializedAsync()
         {
