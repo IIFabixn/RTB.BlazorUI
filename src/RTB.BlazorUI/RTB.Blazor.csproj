@@ -1,35 +1,42 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
+	<PropertyGroup>
+		<!-- Target both .NET 8 and .NET 9 -->
+		<TargetFrameworks>net9.0;net8.0</TargetFrameworks>
 
-      <PackageId>RTB.Blazor</PackageId>
-      <Version>1.0.5</Version>
-      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-      <Authors>Fabian Becker</Authors>
-      <Description>WPF like Components for Blazor</Description>
-      <PackageTags>blazor;ui;components</PackageTags>
-      <RepositoryUrl>https://github.com/IIFabixn/RTB.BlazorUI</RepositoryUrl>
-      <PackageLicenseExpression>MIT</PackageLicenseExpression>
-      <RepositoryType>git</RepositoryType>
-	  <PackageReadmeFile>readme.md</PackageReadmeFile>
-  </PropertyGroup>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<PackageId>RTB.Blazor</PackageId>
+		<Version>1.0.5</Version>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Fabian Becker</Authors>
+		<Description>WPF like Components for Blazor</Description>
+		<PackageTags>blazor;ui;components</PackageTags>
+		<RepositoryUrl>https://github.com/IIFabixn/RTB.BlazorUI</RepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryType>git</RepositoryType>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<None Include="readme.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
-  <ItemGroup>
-    <SupportedPlatform Include="browser" />
-  </ItemGroup>
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
 
-  <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.8" />
-  </ItemGroup>
+	<!-- Use the appropriate Components.Web for each TFM -->
+	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="[9.0.0,10.0.0)" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="[8.0.0,9.0.0)" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\RTB.Styled\RTB.Blazor.Styled.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\RTB.Styled\RTB.Blazor.Styled.csproj" />
+	</ItemGroup>
+
 </Project>
