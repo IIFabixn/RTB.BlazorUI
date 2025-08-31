@@ -1,5 +1,6 @@
 using System;
 using Microsoft.AspNetCore.Components;
+using RTB.Blazor.Styled.Core;
 using RTB.Blazor.Styled.Helper;
 
 namespace RTB.Blazor.Styled.Components;

@@ -5,6 +5,7 @@ using RTB.Blazor.Styled;
 using RTB.Blazor.Styled.Helper;
 using RTB.Blazor.Styled.Services;
 using RTB.Blazor.Interfaces;
+using RTB.Blazor.Styled.Core;
 
 namespace RTB.Blazor.Components.DataGrid
 {

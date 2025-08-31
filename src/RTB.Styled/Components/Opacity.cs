@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using RTB.Blazor.Styled.Core;
 using System.Globalization;
 
 namespace RTB.Blazor.Styled.Components

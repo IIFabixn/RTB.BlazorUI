@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Microsoft.AspNetCore.Components;
+using RTB.Blazor.Styled.Core;
 
 namespace RTB.Blazor.Styled.Components
 {

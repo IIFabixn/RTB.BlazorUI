@@ -2,6 +2,7 @@ using System;
 using Microsoft.AspNetCore.Components;
 using RTB.Blazor.Styled;
 using RTB.Blazor.Styled.Components;
+using RTB.Blazor.Styled.Core;
 
 namespace RTB.Blazor.Styles;
 

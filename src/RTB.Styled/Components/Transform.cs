@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Globalization;
+using RTB.Blazor.Styled.Core;
 
 namespace RTB.Blazor.Styled.Components
 {

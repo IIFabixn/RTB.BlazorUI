@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
+using RTB.Blazor.Styled.Core;
+using RTB.Blazor.Styled.Extensions;
 using RTB.Blazor.Styled.Helper;
 using System;
 using System.Collections.Generic;

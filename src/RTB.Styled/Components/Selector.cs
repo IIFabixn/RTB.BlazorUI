@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
 using RTB.Blazor.Styled;
+using RTB.Blazor.Styled.Core;
+using RTB.Blazor.Styled.Extensions;
 using RTB.Blazor.Styled.Helper;
+using System.Xml.Linq;
 
 namespace RTB.Blazor.Styled.Components
 {
@@ -19,22 +22,32 @@ namespace RTB.Blazor.Styled.Components
 
         public override IStyleBuilder BuildStyle(IStyleBuilder builder)
         {
-            if (!Condition) return builder;
+            if (!Condition || string.IsNullOrWhiteSpace(Query)) return builder;
+            var parent = builder.AsConcrete();
+            var snap = (IStyleSnapshot)_builder;
 
-            var style = _builder.Build();
-            if (string.IsNullOrEmpty(style)) return builder;
-            return builder.AppendSelector(Query, style);
+            // Let selector's children write into its private builder
+            foreach (var child in snap.Children)
+                if (child.Condition) child.Contribute(_builder);
+
+            // Re-read updated props and attach under Query
+            snap = (IStyleSnapshot)_builder;
+            var decls = snap.Props.Select(p => (p.Key, p.Value)).ToArray();
+            if (decls.Length > 0)
+                parent.AppendSelector(Query.Trim(), decls);
+
+            _builder.Clear();
+            return parent;
         }
 
-        protected override void BuildRenderTree(RenderTreeBuilder renderBuilder)
+        protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
-            // Provide the private StyleBuilder to descendants
-            renderBuilder.OpenComponent<CascadingValue<StyleBuilder>>(0);
-            renderBuilder.AddAttribute(1, "Value", _builder);
-            renderBuilder.AddAttribute(2, "Name", nameof(StyleBuilder));
-            renderBuilder.AddAttribute(3, "IsFixed", true);
-            renderBuilder.AddAttribute(4, "ChildContent", ChildContent);
-            renderBuilder.CloseComponent();
+            builder.OpenComponent<CascadingValue<StyleBuilder>>(0);
+            builder.AddAttribute(1, "Value", _builder);
+            builder.AddAttribute(2, "Name", nameof(StyleBuilder));
+            builder.AddAttribute(3, "IsFixed", true);
+            builder.AddAttribute(4, "ChildContent", ChildContent);
+            builder.CloseComponent();
         }
     }
 }
