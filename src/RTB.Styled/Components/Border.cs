@@ -26,6 +26,7 @@ public class Border : RTBStyleBase
         return builder;
     }
 
+    [Flags]
     public enum BorderSide
     {
         None = 0,
@@ -40,6 +41,7 @@ public class Border : RTBStyleBase
         Vertical = Top | Bottom,
     }
 
+    [Flags]
     public enum BorderCorner
     {
         None = 0,
