@@ -1,4 +1,4 @@
-﻿window.rtbStyled = {
+window.rtbStyled = {
     ensureTag() {
         let tag = document.getElementById("rtb-styled");
         if (!tag) {
@@ -36,7 +36,7 @@
         // (so we can still safely call insertRule for the class rule)
         const { baseRule, atRules } = this.extractAtRules(css);
 
-        if (sheet) {
+        if (!sheet) {
             // Fallback: append text (cannot de-dupe)
             tag.append(`${selector}${baseRule}${atRules.join('')}`);
             return;
