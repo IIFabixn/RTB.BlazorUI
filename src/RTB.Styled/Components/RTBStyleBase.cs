@@ -18,7 +18,7 @@ public abstract class RTBStyleBase : ComponentBase, IAsyncDisposable
         StyleBuilder.Register(this);
     }
 
-    public abstract StyleBuilder BuildStyle(StyleBuilder builder);
+    public abstract IStyleBuilder BuildStyle(IStyleBuilder builder);
 
     public ValueTask DisposeAsync()
     {

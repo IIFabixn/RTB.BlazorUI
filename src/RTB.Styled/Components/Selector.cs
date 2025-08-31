@@ -17,7 +17,7 @@ namespace RTB.Blazor.Styled.Components
 
         private readonly StyleBuilder _builder = StyleBuilder.Start;
 
-        public override StyleBuilder BuildStyle(StyleBuilder builder)
+        public override IStyleBuilder BuildStyle(IStyleBuilder builder)
         {
             if (!Condition) return builder;
 

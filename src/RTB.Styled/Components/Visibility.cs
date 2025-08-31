@@ -14,7 +14,7 @@ namespace RTB.Blazor.Styled.Components
 
         [Parameter] public Mode Value { get; set; } = Mode.Visible;
         
-        public override StyleBuilder BuildStyle(StyleBuilder builder)
+        public override IStyleBuilder BuildStyle(IStyleBuilder builder)
         {
             if (!Condition) return builder;
 
@@ -24,7 +24,7 @@ namespace RTB.Blazor.Styled.Components
 
     public static class VisibilityExtensions
     {
-        public static StyleBuilder Visibility(this StyleBuilder builder, Visibility.Mode value)
+        public static IStyleBuilder Visibility(this IStyleBuilder builder, Visibility.Mode value)
         {
             return builder.Append("visibility", value.ToCss());
         }

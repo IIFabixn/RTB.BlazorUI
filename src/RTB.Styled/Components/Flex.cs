@@ -23,7 +23,7 @@ public class Flex : RTBStyleBase
     [Parameter] public int? Shrink { get; set; }
     [Parameter] public int? Grow { get; set; }
 
-    public override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
     {
         if (!Condition) return builder;
 
@@ -42,7 +42,7 @@ public class Flex : RTBStyleBase
 
 public static class FlexExtensions
 {
-    public static StyleBuilder Flex(this StyleBuilder builder, 
+    public static IStyleBuilder Flex(this IStyleBuilder builder, 
         Flex.AxisDirection? direction = null, 
         Flex.WrapMode? wrap = null,
         Flex.Justify? justifyContent = null,

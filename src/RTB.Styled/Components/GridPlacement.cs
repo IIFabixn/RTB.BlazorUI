@@ -10,7 +10,7 @@ public class GridPlacement : RTBStyleBase
     [Parameter] public int Row { get; set; } = 0;
     [Parameter] public int RowSpan { get; set; } = 1;
 
-    public override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
     {
         if (!Condition) return builder;
 
@@ -22,7 +22,7 @@ public class GridPlacement : RTBStyleBase
 
 public static class GridPlacementExtensions
 {
-    public static StyleBuilder GridPlacement(this StyleBuilder builder, 
+    public static IStyleBuilder GridPlacement(this IStyleBuilder builder, 
         int column = 0, 
         int columnSpan = 1, 
         int row = 0, 

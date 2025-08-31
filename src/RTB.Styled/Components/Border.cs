@@ -16,7 +16,7 @@ public class Border : RTBStyleBase
     [Parameter] public SizeUnit? Radius { get; set; }
     [Parameter] public BorderCorner? Corner { get; set; }
 
-    public override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
     {
         if (!Condition) return builder;
 
@@ -74,30 +74,30 @@ public class Border : RTBStyleBase
 
 public static class BorderStyleExtensions
 {
-    public static StyleBuilder BorderAll(this StyleBuilder builder, SizeUnit? width, RTBColor color, BorderStyle style)
+    public static IStyleBuilder BorderAll(this IStyleBuilder builder, SizeUnit? width, RTBColor color, BorderStyle style)
     {
         string value = $"{width} {style.ToCss()} {color}";
         builder.Append("border", value);
         return builder;
     }
 
-    public static StyleBuilder BorderNone(this StyleBuilder builder)
+    public static IStyleBuilder BorderNone(this IStyleBuilder builder)
     {
         return builder.Append("border", "unset");
     }
 
-    public static StyleBuilder BorderRadiusAll(this StyleBuilder builder, SizeUnit? radius)
+    public static IStyleBuilder BorderRadiusAll(this IStyleBuilder builder, SizeUnit? radius)
     {
         if (radius is null) return builder;
         return builder.Append("border-radius", radius);
     }
 
-    public static StyleBuilder BorderRadiusNone(this StyleBuilder builder)
+    public static IStyleBuilder BorderRadiusNone(this IStyleBuilder builder)
     {
         return builder.Append("border-radius", "unset");
     }
 
-    public static StyleBuilder Border(this StyleBuilder builder, SizeUnit? width, BorderStyle style, RTBColor? color, BorderSide? side)
+    public static IStyleBuilder Border(this IStyleBuilder builder, SizeUnit? width, BorderStyle style, RTBColor? color, BorderSide? side)
     {
         if (side is null) return builder;
 
@@ -123,7 +123,7 @@ public static class BorderStyleExtensions
         return builder;
     }
 
-    public static StyleBuilder BorderRadius(this StyleBuilder builder, SizeUnit? radius, BorderCorner? corner)
+    public static IStyleBuilder BorderRadius(this IStyleBuilder builder, SizeUnit? radius, BorderCorner? corner)
     {
         if (corner is null) return builder;
 

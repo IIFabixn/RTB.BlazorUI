@@ -14,7 +14,7 @@ public class Margin : RTBStyleBase
     [Parameter] public Spacing? Horizontal { get; set; }
     [Parameter] public Spacing? Vertical { get; set; }
 
-    public override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
     {
         if (!Condition) return builder;
 
@@ -33,7 +33,7 @@ public class Margin : RTBStyleBase
 
 public static class MarginExtensions
 {
-    public static StyleBuilder Margin(this StyleBuilder builder,
+    public static IStyleBuilder Margin(this IStyleBuilder builder,
         Spacing? all = null,
         Spacing? top = null,
         Spacing? right = null,

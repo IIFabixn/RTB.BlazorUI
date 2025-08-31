@@ -19,7 +19,7 @@ namespace RTB.Blazor.Styles
             return this;
         }
 
-        public virtual StyleBuilder ToStyle()
+        public virtual IStyleBuilder ToStyle()
         {
             return StyleBuilder.Start
                 .AppendIfNotNull("font-size", FontSize)

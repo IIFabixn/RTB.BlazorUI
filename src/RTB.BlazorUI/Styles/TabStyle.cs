@@ -12,7 +12,7 @@ namespace RTB.Blazor.Styles
     {
         public RTBColor? Color { get; set; }
 
-        public StyleBuilder ToStyle()
+        public IStyleBuilder ToStyle()
         {
             return StyleBuilder.Start.AppendIfNotNull("color", Color);
         }

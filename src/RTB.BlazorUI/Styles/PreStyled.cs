@@ -9,7 +9,7 @@ public class PreStyled : RTBStyleBase
 {
     [Parameter] public IStyle? Style { get; set; }
 
-    public override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
     {
         return builder.Join(Style?.ToStyle() ?? StyleBuilder.Start);
     }

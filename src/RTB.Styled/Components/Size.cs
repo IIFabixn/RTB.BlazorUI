@@ -16,7 +16,7 @@ public class Size : RTBStyleBase
     [Parameter] public bool FullWidth { get; set; }
     [Parameter] public bool FullHeight { get; set; }
 
-    public override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
     {
         if (!Condition) return builder;
 
@@ -32,7 +32,7 @@ public class Size : RTBStyleBase
 
 public static class SizeExtensions
 {
-    public static StyleBuilder Height(this StyleBuilder builder, SizeExpression? value, SizeExpression? min = null, SizeExpression? max = null)
+    public static IStyleBuilder Height(this IStyleBuilder builder, SizeExpression? value, SizeExpression? min = null, SizeExpression? max = null)
     {
         return builder
             .AppendIfNotNull("height", value)
@@ -40,7 +40,7 @@ public static class SizeExtensions
             .AppendIfNotNull("max-height", max);
     }
 
-    public static StyleBuilder Width(this StyleBuilder builder, SizeExpression? value, SizeExpression? min = null, SizeExpression? max = null)
+    public static IStyleBuilder Width(this IStyleBuilder builder, SizeExpression? value, SizeExpression? min = null, SizeExpression? max = null)
     {
         return builder
             .AppendIfNotNull("width", value)

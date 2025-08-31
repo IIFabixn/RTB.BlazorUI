@@ -34,7 +34,7 @@ namespace RTB.Blazor.Styled.Components
         // private builder to collect "0%{...} to{...}" from <Keyframe/> children
         private readonly StyleBuilder _framesBuilder = StyleBuilder.Start;
 
-        public override StyleBuilder BuildStyle(StyleBuilder builder)
+        public override IStyleBuilder BuildStyle(IStyleBuilder builder)
         {
             if (!Condition) return builder;
 
@@ -78,37 +78,37 @@ namespace RTB.Blazor.Styled.Components
 
     public static class AnimationStyleExtensions
     {
-        public static StyleBuilder AnimationName(this StyleBuilder b, string? name)
+        public static IStyleBuilder AnimationName(this IStyleBuilder b, string? name)
             => b.AppendIfNotNull("animation-name", name);
 
-        public static StyleBuilder AnimationDuration(this StyleBuilder b, TimeSpan? t)
+        public static IStyleBuilder AnimationDuration(this IStyleBuilder b, TimeSpan? t)
             => b.AppendIfNotNull("animation-duration", CssTime(t));
 
-        public static StyleBuilder AnimationDelay(this StyleBuilder b, TimeSpan? t)
+        public static IStyleBuilder AnimationDelay(this IStyleBuilder b, TimeSpan? t)
             => b.AppendIfNotNull("animation-delay", CssTime(t));
 
-        public static StyleBuilder AnimationTiming(this StyleBuilder b, string? tf)
+        public static IStyleBuilder AnimationTiming(this IStyleBuilder b, string? tf)
             => b.AppendIfNotNull("animation-timing-function", tf);
 
-        public static StyleBuilder AnimationIterationCount(this StyleBuilder b, int? count, bool infinite = false)
+        public static IStyleBuilder AnimationIterationCount(this IStyleBuilder b, int? count, bool infinite = false)
         {
             if (infinite) return b.Append("animation-iteration-count", "infinite");
             return b.AppendIfNotNull("animation-iteration-count", count?.ToString());
         }
 
-        public static StyleBuilder AnimationDirection(this StyleBuilder b, Animation.AnimationDirection? dir)
+        public static IStyleBuilder AnimationDirection(this IStyleBuilder b, Animation.AnimationDirection? dir)
             => b.AppendIfNotNull("animation-direction", dir?.ToCss());
 
-        public static StyleBuilder AnimationFillMode(this StyleBuilder b, Animation.AnimationFillMode? fill)
+        public static IStyleBuilder AnimationFillMode(this IStyleBuilder b, Animation.AnimationFillMode? fill)
             => b.AppendIfNotNull("animation-fill-mode", fill?.ToCss());
 
-        public static StyleBuilder AnimationPlayState(this StyleBuilder b, Animation.AnimationPlayState? st)
+        public static IStyleBuilder AnimationPlayState(this IStyleBuilder b, Animation.AnimationPlayState? st)
             => b.AppendIfNotNull("animation-play-state", st?.ToCss());
 
         /// <summary>
         /// Shorthand builder. Any null/unused part is omitted.
         /// </summary>
-        public static StyleBuilder Animation(this StyleBuilder b,
+        public static IStyleBuilder Animation(this IStyleBuilder b,
             string name,
             TimeSpan? duration = null,
             string? timingFunction = null,

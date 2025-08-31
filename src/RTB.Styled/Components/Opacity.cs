@@ -7,7 +7,7 @@ namespace RTB.Blazor.Styled.Components
     {
         [Parameter] public double? Value { get; set; }
 
-        public override StyleBuilder BuildStyle(StyleBuilder builder)
+        public override IStyleBuilder BuildStyle(IStyleBuilder builder)
         {
             if (!Condition) return builder;
 
@@ -23,7 +23,7 @@ namespace RTB.Blazor.Styled.Components
 
     public static class OpacityExtensions
     {
-        public static StyleBuilder Opacity(this StyleBuilder builder, double? value)
+        public static IStyleBuilder Opacity(this IStyleBuilder builder, double? value)
         {
             if (value is null) return builder;
             var v = Math.Clamp(value.Value, 0, 1);

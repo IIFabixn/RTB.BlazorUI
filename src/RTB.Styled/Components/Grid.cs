@@ -23,7 +23,7 @@ public class Grid : RTBStyleBase
     [Parameter] public Spacing? Gap { get; set; }
     [Parameter] public Placement? ItemPlacement { get; set; }
 
-    public override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
     {
         if (!Condition) return builder;
 
@@ -38,7 +38,7 @@ public class Grid : RTBStyleBase
 
 public static class GridExtensions
 {
-    public static StyleBuilder Grid(this StyleBuilder builder, 
+    public static IStyleBuilder Grid(this IStyleBuilder builder, 
         string templateColumns = "1fr", 
         string templateRows = "1fr", 
         Spacing? gap = null, 

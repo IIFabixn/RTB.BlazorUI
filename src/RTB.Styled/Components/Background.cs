@@ -10,7 +10,7 @@ public class Background : RTBStyleBase
 
     // TODO: Add support for background image, gradient, etc.
 
-    public override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
     {
         if (!Condition) return builder;
 
@@ -20,7 +20,7 @@ public class Background : RTBStyleBase
 
 public static class BackgroundExtensions
 {
-    public static StyleBuilder Background(this StyleBuilder builder, RTBColor? color)
+    public static IStyleBuilder Background(this IStyleBuilder builder, RTBColor? color)
     {
         return builder.AppendIfNotNull("background-color", color);
     }

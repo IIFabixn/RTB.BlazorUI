@@ -14,7 +14,7 @@ public class Padding : RTBStyleBase
     [Parameter] public Spacing? Horizontal { get; set; }
     [Parameter] public Spacing? Vertical { get; set; }
 
-    public override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
     {
         if (!Condition) return builder;
 
@@ -33,27 +33,27 @@ public class Padding : RTBStyleBase
 
 public static class PaddingExtensions
 {
-    public static StyleBuilder PaddingAll(this StyleBuilder builder, Spacing? value)
+    public static IStyleBuilder PaddingAll(this IStyleBuilder builder, Spacing? value)
     {
         return builder.AppendIfNotNull("padding", value);
     }
 
-    public static StyleBuilder PaddingTop(this StyleBuilder builder, Spacing? value)
+    public static IStyleBuilder PaddingTop(this IStyleBuilder builder, Spacing? value)
     {
         return builder.AppendIfNotNull("padding-top", value);
     }
 
-    public static StyleBuilder PaddingRight(this StyleBuilder builder, Spacing? value)
+    public static IStyleBuilder PaddingRight(this IStyleBuilder builder, Spacing? value)
     {
         return builder.AppendIfNotNull("padding-right", value);
     }
 
-    public static StyleBuilder PaddingBottom(this StyleBuilder builder, Spacing? value)
+    public static IStyleBuilder PaddingBottom(this IStyleBuilder builder, Spacing? value)
     {
         return builder.AppendIfNotNull("padding-bottom", value);
     }
 
-    public static StyleBuilder PaddingLeft(this StyleBuilder builder, Spacing? value)
+    public static IStyleBuilder PaddingLeft(this IStyleBuilder builder, Spacing? value)
     {
         return builder.AppendIfNotNull("padding-left", value);
     }

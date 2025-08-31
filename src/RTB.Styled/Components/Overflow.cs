@@ -19,7 +19,7 @@ public class Overflow : RTBStyleBase
     [Parameter] public OverflowMode? Y { get; set; }
     [Parameter] public OverflowMode? Value { get; set; }
 
-    public override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
     {
         if (!Condition) return builder;
 
@@ -32,17 +32,17 @@ public class Overflow : RTBStyleBase
 
 public static class OverflowExtensions
 {
-    public static StyleBuilder Overflow(this StyleBuilder builder,
+    public static IStyleBuilder Overflow(this IStyleBuilder builder,
         Overflow.OverflowMode? value = null)
     {
         return builder.AppendIfNotNull("overflow", value?.ToCss());
     }
-    public static StyleBuilder OverflowX(this StyleBuilder builder,
+    public static IStyleBuilder OverflowX(this IStyleBuilder builder,
         Overflow.OverflowMode? value = null)
     {
         return builder.AppendIfNotNull("overflow-x", value?.ToCss());
     }
-    public static StyleBuilder OverflowY(this StyleBuilder builder,
+    public static IStyleBuilder OverflowY(this IStyleBuilder builder,
         Overflow.OverflowMode? value = null)
     {
         return builder.AppendIfNotNull("overflow-y", value?.ToCss());

@@ -28,7 +28,7 @@ namespace RTB.Blazor.Styled.Components
         /// <summary>Optional: "normal" | "allow-discrete" (Transitions Level 2). Single value or comma list.</summary>
         [Parameter] public string? Behavior { get; set; }
 
-        public override StyleBuilder BuildStyle(StyleBuilder builder)
+        public override IStyleBuilder BuildStyle(IStyleBuilder builder)
         {
             if (!Condition) return builder;
 
@@ -70,14 +70,14 @@ namespace RTB.Blazor.Styled.Components
 
     public static class TransitionExtensions
     {
-        public static StyleBuilder Transition(this StyleBuilder b, params TransitionItem[] items)
+        public static IStyleBuilder Transition(this IStyleBuilder b, params TransitionItem[] items)
         {
             if (items == null || items.Length == 0) return b;
             var parts = items.Select(i => $"{(string.IsNullOrWhiteSpace(i.Property) ? "all" : i.Property)} {CssTime(i.Duration)} {(!string.IsNullOrWhiteSpace(i.TimingFunction) ? i.TimingFunction : "ease")} {CssTime(i.Delay)}");
             return b.Append("transition", string.Join(", ", parts));
         }
 
-        public static StyleBuilder WillChange(this StyleBuilder b, string value)
+        public static IStyleBuilder WillChange(this IStyleBuilder b, string value)
             => b.Append("will-change", value);
 
         private static string CssTime(TimeSpan t)

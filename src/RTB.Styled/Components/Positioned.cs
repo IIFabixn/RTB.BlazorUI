@@ -19,7 +19,7 @@ public class Positioned : RTBStyleBase
     [Parameter] public SizeExpression? Bottom { get; set; }
     [Parameter] public SizeExpression? Left { get; set; }
 
-    public override StyleBuilder BuildStyle(StyleBuilder builder)
+    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
     {
         if (!Condition) return builder;
 
@@ -29,7 +29,7 @@ public class Positioned : RTBStyleBase
 
 public static class PositionedExtensions
 {
-    public static StyleBuilder Positioned(this StyleBuilder builder,
+    public static IStyleBuilder Positioned(this IStyleBuilder builder,
         Positioned.PositionMode position = Components.Positioned.PositionMode.Absolute,
         SizeExpression? top = null,
         SizeExpression? right = null,

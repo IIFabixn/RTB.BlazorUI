@@ -22,7 +22,7 @@ namespace RTB.Blazor.Styled.Components
         /// </summary>
         [Parameter] public string? Origin { get; set; }
 
-        public override StyleBuilder BuildStyle(StyleBuilder builder)
+        public override IStyleBuilder BuildStyle(IStyleBuilder builder)
         {
             if (!Condition) return builder;
 
@@ -39,15 +39,15 @@ namespace RTB.Blazor.Styled.Components
 
     public static class TransformExtensions
     {
-        public static StyleBuilder TransformNone(this StyleBuilder b)
+        public static IStyleBuilder TransformNone(this IStyleBuilder b)
             => b.Append("transform", "none");
 
-        public static StyleBuilder TransformOrigin(this StyleBuilder b, string? origin)
+        public static IStyleBuilder TransformOrigin(this IStyleBuilder b, string? origin)
             => b.AppendIfNotNull("transform-origin", origin);
 
-        public static StyleBuilder Transform(this StyleBuilder b, params string[] parts)
+        public static IStyleBuilder Transform(this IStyleBuilder b, params string[] parts)
         {
-            var cleaned = parts?.Where(p => !string.IsNullOrWhiteSpace(p)).ToArray() ?? Array.Empty<string>();
+            var cleaned = parts?.Where(p => !string.IsNullOrWhiteSpace(p)).ToArray() ?? [];
             if (cleaned.Length == 0) return b;
             return b.Append("transform", string.Join(" ", cleaned));
         }
