@@ -69,7 +69,7 @@ namespace RTB.Blazor.Styled
     }
 
     /// <summary>
-    /// Internal contract for pluggable style modules.
+    /// Contract for pluggable style modules.
     /// Selectors contribute inside the main block; media/animations render outside.
     /// </summary>
     public interface IStyleModule
@@ -99,9 +99,9 @@ namespace RTB.Blazor.Styled
     }
 
     /// <summary>
-    /// Internal contract for the core to host modules.
+    /// Contract for the core to host modules.
     /// </summaryIStyleBuilder
-    internal interface IModuleHost
+    public interface IModuleHost
     {
         /// <summary>
         /// Gets an existing module of type T or adds a new one if it doesn't exist.
@@ -282,6 +282,7 @@ namespace RTB.Blazor.Styled
         }
 
         #region IModuleHost
+
         /// <summary>
         /// Gets an existing module of type T or adds a new one if it doesn't exist.
         /// </summary>
@@ -303,6 +304,7 @@ namespace RTB.Blazor.Styled
         /// <returns></returns>
         public T? TryGetModule<T>() where T : class, IStyleModule
             => _modules.TryGetValue(typeof(T), out var existing) ? (T)existing : null;
+
         #endregion
 
         /// <summary>
