@@ -63,23 +63,29 @@ public sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
     {
         if (string.IsNullOrEmpty(className)) return false;
 
-        var ch = className[2..]; // strip "s-" prefix
+        var ch = className[2..];
         if (!ulong.TryParse(ch, System.Globalization.NumberStyles.HexNumber, null, out var hashValue))
-        {
             throw new ArgumentException($"Invalid className format: {className}. Expected format is 's-<hexadecimal>'.", nameof(className));
-        }
 
-        if (_cache.TryGetValue(hashValue, out var applience))
+        while (true)
         {
-            _cache[hashValue] = --applience;
-            if (applience <= 0)
+            if (!_cache.TryGetValue(hashValue, out var count)) return false;
+
+            var newCount = count - 1;
+            if (newCount > 0)
+            {
+                if (_cache.TryUpdate(hashValue, newCount, count)) return false;
+                continue; // retry on race
+            }
+
+            // newCount <= 0: remove and clear rule
+            if (_cache.TryRemove(hashValue, out _))
             {
                 await jsRuntime.InvokeVoidAsync("rtbStyled.clearRule", className);
                 return true;
             }
+            // someone else removed/updated, retry
         }
-
-        return false;
     }
 
     public ValueTask ClearAll()
@@ -87,6 +93,6 @@ public sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
         // Clear the cache
         _cache.Clear();
         // Purge <style> content completely
-        return jsRuntime.InvokeVoidAsync("rtbStyled.clear");
+        return jsRuntime.InvokeVoidAsync("rtbStyled.clearAll");
     }
 }

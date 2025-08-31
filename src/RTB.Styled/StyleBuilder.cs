@@ -86,27 +86,18 @@ namespace RTB.Blazor.Styled
 
         public StyleBuilder Join(params StyleBuilder[] others)
         {
-            if (others is { Length: 0 })
-                return this;
+            if (others is { Length: 0 }) return this;
 
             foreach (var other in others)
             {
-                // Append properties from the other StyleBuilder
-                foreach (var kvp in other._props)
-                {
-                    AppendInternal(kvp.Key, kvp.Value);
-                }
+                foreach (var kvp in other._props) AppendInternal(kvp.Key, kvp.Value);
+                foreach (var kvp in other._selectors) AppendSelector(kvp.Key, kvp.Value);
+                foreach (var kvp in other._medias) AppendMedia(kvp.Key, kvp.Value);
 
-                // Append selectors from the other StyleBuilder
-                foreach (var kvp in other._selectors)
+                foreach (var kvp in other._animations)
                 {
-                    AppendSelector(kvp.Key, kvp.Value);
-                }
-
-                // Append media queries from the other StyleBuilder
-                foreach (var kvp in other._medias)
-                {
-                    AppendMedia(kvp.Key, kvp.Value);
+                    if (!_animations.TryAdd(kvp.Key, kvp.Value))
+                        _animations[kvp.Key] += kvp.Value;
                 }
             }
             return this;
@@ -169,21 +160,15 @@ namespace RTB.Blazor.Styled
 
             try
             {
-                builder.Append('{');
-
-                // Apply each action to the builder
-                foreach (var prop in _props)
+                if (_props.Count > 0 || _selectors.Count > 0)
                 {
-                    builder.Append($"{prop.Key}:{prop.Value};");
+                    builder.Append('{');
+                    foreach (var prop in _props) 
+                        builder.Append($"{prop.Key}:{prop.Value};");
+                    foreach (var sel in _selectors)
+                        builder.Append($"{sel.Key}{sel.Value}");
+                    builder.Append('}');
                 }
-
-                // Append selectors if any
-                foreach (var sel in _selectors)
-                {
-                    builder.Append($"{sel.Key}{sel.Value}");
-                }
-
-                builder.Append('}');
 
                 // Append media queries if any
                 foreach (var media in _medias.Where(m => !string.IsNullOrEmpty(m.Value)))
