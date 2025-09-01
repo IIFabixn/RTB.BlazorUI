@@ -29,7 +29,7 @@ public class Size : RTBStyleBase
 
 public static class SizeExtensions
 {
-    public static StyleBuilder Height(this StyleBuilder builder, SizeExpression? value, SizeExpression? min = null, SizeExpression? max = null)
+    public static StyleBuilder Height(this StyleBuilder builder, SizeExpression? value = null, SizeExpression? min = null, SizeExpression? max = null)
     {
         return builder
             .SetIfNotNull("height", value)
@@ -37,7 +37,7 @@ public static class SizeExtensions
             .SetIfNotNull("max-height", max);
     }
 
-    public static StyleBuilder Width(this StyleBuilder builder, SizeExpression? value, SizeExpression? min = null, SizeExpression? max = null)
+    public static StyleBuilder Width(this StyleBuilder builder, SizeExpression? value = null, SizeExpression? min = null, SizeExpression? max = null)
     {
         return builder
             .SetIfNotNull("width", value)

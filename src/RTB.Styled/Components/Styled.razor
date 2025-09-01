@@ -4,7 +4,7 @@
 @inject IStyleRegistry Registry
 
 <CascadingValue Value="_builder" Name="StyleBuilder" IsFixed="true">
-    @ChildContent(CssClass)
+    @ChildContent?.Invoke(CssClass)
 </CascadingValue>
 
 @code {
@@ -16,6 +16,8 @@
     // Optional externally-controlled class name (two-way bindable)
     [Parameter] public string? Classname { get; set; }
     [Parameter] public EventCallback<string?> ClassnameChanged { get; set; }
+
+    [Parameter] public Action<StyleBuilder>? Configure { get; set; }
 
     private readonly StyleBuilder _builder = StyleBuilder.Start;
 
@@ -31,7 +33,8 @@
     {
         if (string.IsNullOrWhiteSpace(_resolvedClass))
             _resolvedClass = Registry.Acquire(Classname);
-        
+
+        Configure?.Invoke(_builder);
         _builder.Compose();
         // Build CSS already scoped to the resolved class
         var css = _builder.BuildScoped(_resolvedClass);
