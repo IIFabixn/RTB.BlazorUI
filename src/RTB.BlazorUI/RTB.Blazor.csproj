@@ -8,7 +8,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<PackageId>RTB.Blazor</PackageId>
-		<Version>1.0.5</Version>
+		<Version>1.0.6</Version>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>Fabian Becker</Authors>
 		<Description>WPF like Components for Blazor</Description>
