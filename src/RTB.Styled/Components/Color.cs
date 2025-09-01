@@ -9,18 +9,16 @@ public class Color : RTBStyleBase
 {
     [Parameter] public RTBColor? Value { get; set; }
 
-    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
+    protected override void BuildStyle(StyleBuilder builder)
     {
-        if (!Condition) return builder;
-
-        return builder.AppendIfNotNull("color", Value);
+        builder.Color(Value);
     }
 }
 
 public static class ColorExtensions
 {
-    public static IStyleBuilder Color(this IStyleBuilder builder, RTBColor? color)
+    public static StyleBuilder Color(this StyleBuilder builder, RTBColor? color)
     {
-        return builder.AppendIfNotNull("color", color);
+        return builder.SetIfNotNull("color", color);
     }
 }

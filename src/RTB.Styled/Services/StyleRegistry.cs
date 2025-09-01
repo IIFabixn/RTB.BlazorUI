@@ -1,188 +1,118 @@
 using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.JSInterop;
-using RTB.Blazor.Styled.Helper;
 
-namespace RTB.Blazor.Styled.Services;
-
-/// <summary>
-/// Registry for managing CSS styles with reference counting and injection into the document.
-/// </summary>
-public interface IStyleRegistry
+namespace RTB.Blazor.Styled.Services
 {
     /// <summary>
-    /// Gets or creates a unique class name for the given CSS.
+    /// Registry for scoped CSS: C# produces fully-scoped text, JS only clears+appends for a class.
     /// </summary>
-    /// <param name="css"></param>
-    /// <returns></returns>
-    string GetOrCreate(string css);
-
-    /// <summary>
-    /// Injects the given CSS into the document under the specified class name.
-    /// </summary>
-    /// <param name="css"></param>
-    /// <param name="className"></param>
-    /// <returns></returns>
-    ValueTask InjectInto(string css, string className);
-
-    /// <summary>
-    /// Tries to remove the style associated with the given class name.
-    /// </summary>
-    /// <param name="className"></param>
-    /// <returns></returns>
-    ValueTask<bool> TryRemove(string className);
-
-    /// <summary>
-    /// Clears all styles from the registry and the document.
-    /// </summary>
-    /// <returns></returns>
-    ValueTask ClearAll();
-}
-
-public sealed class StyleRegistry(IJSRuntime jsRuntime) : IStyleRegistry
-{
-    // value is the original css (null until first InjectInto)
-    private readonly ConcurrentDictionary<ulong, Entry> _entries = new();
-
-    /// <summary>
-    /// Reference count and emission state of a style entry.
-    /// </summary>
-    private sealed record Entry
+    public interface IStyleRegistry
     {
-        /// <summary>
-        /// Number of active references to this style.
-        /// </summary>
-        public int RefCount;
+        /// <summary>Acquire (or create) a stable class name. If null, a GUID-based name is generated.</summary>
+        string Acquire(string? preferredClassName = null);
 
-        /// <summary>
-        /// 0 = not emitted, 1 = emitting, 2 = emitted
-        /// </summary>
-        public int Emission;
+        /// <summary>Insert/update the fully-scoped CSS for the class. No-op if CSS unchanged.</summary>
+        ValueTask UpsertScopedAsync(string scopedCss, string className);
+
+        /// <summary>Release one reference; when it reaches zero, the rules are cleared and the class entry is removed.</summary>
+        ValueTask<bool> Release(string className);
+
+        /// <summary>Clear all injected styles and reset the registry.</summary>
+        ValueTask ClearAll();
+
+        /// <summary>Helper to generate a short, stable-looking class name.</summary>
+        string GenerateClassName(string prefix = "rtb-");
     }
 
-    /// <summary>
-    /// Gets or creates a unique class name for the given CSS.
-    /// </summary>
-    /// <param name="css"></param>
-    /// <returns></returns>
-    public string GetOrCreate(string css)
+    public sealed class StyleRegistry(IJSRuntime js) : IStyleRegistry
     {
-        var hash = CssHasher.Hash(css);
-        var entry = _entries.AddOrUpdate(
-            hash,
-            _ => new Entry { RefCount = 1, Emission = 0 },
-            (_, e) => { Interlocked.Increment(ref e.RefCount); return e; });
+        // className -> entry
+        private readonly ConcurrentDictionary<string, Entry> _entries =
+            new(StringComparer.Ordinal);
 
-        return $"s-{hash:X}";
-    }
-
-    /// <summary>
-    /// Injects the given CSS into the document under the specified class name.
-    /// </summary>
-    /// <param name="css"></param>
-    /// <param name="className"></param>
-    /// <returns></returns>
-    /// <exception cref="Exception"></exception>
-    /// <exception cref="ArgumentException"></exception>
-    public ValueTask InjectInto(string css, string className)
-    {
-        if (string.IsNullOrEmpty(className))
-            throw new Exception("Can't inject stylings into class without class definition. className should not be empty!");
-
-        if (string.IsNullOrWhiteSpace(css))
-            return ValueTask.CompletedTask;
-
-        if (!TryParseHash(className, out var hash))
-            throw new ArgumentException($"Invalid className format: {className}. Expected 's-<hex>'.", nameof(className));
-
-        if (!_entries.TryGetValue(hash, out var entry))
-            return ValueTask.CompletedTask; // no refs -> nothing to do
-
-        // Injection barrier: only the winner injects (0 -> 1)
-        if (Interlocked.CompareExchange(ref entry.Emission, 1, 0) == 0)
+        private sealed class Entry
         {
-            return EmitAsync(css, className, entry);
+            public int RefCount;
+            public string? LastCss;
+            public readonly SemaphoreSlim Gate = new(1, 1);
         }
 
-        // someone else is injecting or already injected
-        return ValueTask.CompletedTask;
-    }
+        public string GenerateClassName(string prefix = "rtb-")
+            => $"{prefix}{Guid.NewGuid():N}";
 
-    /// <summary>
-    /// Performs the actual injection of CSS into the document.
-    /// </summary>
-    /// <param name="css"></param>
-    /// <param name="className"></param>
-    /// <param name="entry"></param>
-    /// <returns></returns>
-    private async ValueTask EmitAsync(string css, string className, Entry entry)
-    {
-        try
+        public string Acquire(string? preferredClassName = null)
         {
-            await jsRuntime.InvokeVoidAsync("rtbStyled.injectInto", css, className);
-        }
-        finally
-        {
-            Volatile.Write(ref entry.Emission, 2); // mark as injected
-        }
-    }
+            var cls = string.IsNullOrWhiteSpace(preferredClassName)
+                      ? GenerateClassName("rtb-")
+                      : preferredClassName.Trim();
 
-    /// <summary>
-    /// Tries to remove the style associated with the given class name.
-    /// </summary>
-    /// <param name="className"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentException"></exception>
-    public async ValueTask<bool> TryRemove(string className)
-    {
-        if (string.IsNullOrEmpty(className)) return false;
-        if (!TryParseHash(className, out var hash))
-            throw new ArgumentException($"Invalid className format: {className}. Expected 's-<hex>'.", nameof(className));
+            _entries.AddOrUpdate(
+                cls,
+                _ => new Entry { RefCount = 1 },
+                (_, e) => { Interlocked.Increment(ref e.RefCount); return e; });
 
-        if (!_entries.TryGetValue(hash, out var entry)) return false;
-
-        // decrement refcount atomically
-        while (true)
-        {
-            var current = Volatile.Read(ref entry.RefCount);
-            if (current <= 0) return false;
-            if (Interlocked.CompareExchange(ref entry.RefCount, current - 1, current) == current)
-                break;
+            return cls;
         }
 
-        if (Volatile.Read(ref entry.RefCount) > 0) return false;
+        public async ValueTask UpsertScopedAsync(string scopedCss, string className)
+        {
+            if (string.IsNullOrWhiteSpace(className) || string.IsNullOrWhiteSpace(scopedCss))
+                return;
 
-        // last user: remove entry and clear rule
-        _entries.TryRemove(hash, out _);
+            if (!_entries.TryGetValue(className, out var entry))
+            {
+                // If the caller forgot to Acquire, create a single-ref entry so we can inject.
+                entry = _entries.GetOrAdd(className, _ => new Entry { RefCount = 1 });
+            }
 
-        // If injection is in-flight, clearing is still safe: JS can no-op if rule not present yet
-        await jsRuntime.InvokeVoidAsync("rtbStyled.clearRule", className);
-        return true;
-    }
+            await entry.Gate.WaitAsync().ConfigureAwait(false);
+            try
+            {
+                if (string.Equals(entry.LastCss, scopedCss, StringComparison.Ordinal))
+                    return; // unchanged
 
-    /// <summary>
-    /// Clears all styles from the registry and the document.
-    /// </summary>
-    /// <returns></returns>
-    public ValueTask ClearAll()
-    {
-        _entries.Clear();
-        return jsRuntime.InvokeVoidAsync("rtbStyled.clearAll");
-    }
+                // One-shot JS that clears .className and appends the given scoped CSS text
+                await js.InvokeVoidAsync("rtbStyled.injectScoped", scopedCss, className);
 
-    /// <summary>
-    /// Parses the hash from the class name.
-    /// </summary>
-    /// <param name="className"></param>
-    /// <param name="hash"></param>
-    /// <returns></returns>
-    private static bool TryParseHash(string className, out ulong hash)
-    {
-        var span = className.AsSpan();
-        if (span.Length < 3 || span[0] != 's' || span[1] != '-') { hash = 0; return false; }
-        var hex = span[2..].ToString();
-        return ulong.TryParse(hex, System.Globalization.NumberStyles.HexNumber, null, out hash);
+                entry.LastCss = scopedCss;
+            }
+            finally
+            {
+                entry.Gate.Release();
+            }
+        }
+
+        public async ValueTask<bool> Release(string className)
+        {
+            if (string.IsNullOrWhiteSpace(className)) return false;
+            if (!_entries.TryGetValue(className, out var entry)) return false;
+
+            // dec ref
+            while (true)
+            {
+                var cur = Volatile.Read(ref entry.RefCount);
+                if (cur <= 0) return false;
+                if (Interlocked.CompareExchange(ref entry.RefCount, cur - 1, cur) == cur)
+                    break;
+            }
+
+            if (Volatile.Read(ref entry.RefCount) > 0) return false;
+
+            // last user: remove & clear rules
+            _entries.TryRemove(className, out _);
+
+            // Clear is safe even if no rules exist yet
+            await js.InvokeVoidAsync("rtbStyled.clearRule", className);
+            return true;
+        }
+
+        public ValueTask ClearAll()
+        {
+            _entries.Clear();
+            return js.InvokeVoidAsync("rtbStyled.clearAll");
+        }
     }
 }

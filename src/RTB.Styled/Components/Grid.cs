@@ -24,32 +24,30 @@ public class Grid : RTBStyleBase
     [Parameter] public Spacing? Gap { get; set; }
     [Parameter] public Placement? ItemPlacement { get; set; }
 
-    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
+    protected override void BuildStyle(StyleBuilder builder)
     {
-        if (!Condition) return builder;
-
-        return builder
-            .Append("display", "grid")
-            .Append("grid-template-columns", TemplateColumns)
-            .Append("grid-template-rows", TemplateRows)
-            .AppendIfNotNull("gap", Gap)
-            .AppendIfNotNull("place-items", ItemPlacement?.ToCss());
+        builder
+            .Set("display", "grid")
+            .Set("grid-template-columns", TemplateColumns)
+            .Set("grid-template-rows", TemplateRows)
+            .SetIfNotNull("gap", Gap)
+            .SetIfNotNull("place-items", ItemPlacement?.ToCss());
     }
 }
 
 public static class GridExtensions
 {
-    public static IStyleBuilder Grid(this IStyleBuilder builder, 
+    public static StyleBuilder Grid(this StyleBuilder builder, 
         string templateColumns = "1fr", 
         string templateRows = "1fr", 
         Spacing? gap = null, 
         Grid.Placement? itemPlacement = null)
     {
         return builder
-            .Append("display", "grid")
-            .Append("grid-template-columns", templateColumns)
-            .Append("grid-template-rows", templateRows)
-            .AppendIfNotNull("gap", gap)
-            .AppendIfNotNull("place-items", itemPlacement?.ToCss());
+            .Set("display", "grid")
+            .Set("grid-template-columns", templateColumns)
+            .Set("grid-template-rows", templateRows)
+            .SetIfNotNull("gap", gap)
+            .SetIfNotNull("place-items", itemPlacement?.ToCss());
     }
 }

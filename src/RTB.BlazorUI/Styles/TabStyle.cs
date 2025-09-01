@@ -13,9 +13,9 @@ namespace RTB.Blazor.Styles
     {
         public RTBColor? Color { get; set; }
 
-        public IStyleBuilder ToStyle()
+        public StyleBuilder ToStyle()
         {
-            return StyleBuilder.Start.AppendIfNotNull("color", Color);
+            return StyleBuilder.Start.SetIfNotNull("color", Color);
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using Microsoft.Extensions.ObjectPool;
-using System;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,131 +7,158 @@ using System.Threading.Tasks;
 
 namespace RTB.Blazor.Styled.Core
 {
-    public sealed class StyleBuilder : IStyleBuilder, IStyleSnapshot
+    public sealed class StyleBuilder
     {
-        private static readonly ObjectPool<StringBuilder> _sbPool =
-            new DefaultObjectPool<StringBuilder>(new StringBuilderPooledObjectPolicy
-            {   
-                InitialCapacity = 256,
-                MaximumRetainedCapacity = 1024
-            });
-
-        private readonly List<IStyleContributor> _children = [];
-        private readonly Dictionary<string, string> _props = new(StringComparer.OrdinalIgnoreCase);
-        private readonly Dictionary<Type, IStyleModule> _modules = [];
+        // base declarations (for the root selector)
+        public DeclarationSet Base { get; } = [];
 
         public static StyleBuilder Start => new();
 
-        // IStyleSnapshot
-        IReadOnlyDictionary<string, string> IStyleSnapshot.Props => _props;
-        IReadOnlyDictionary<Type, IStyleModule> IStyleSnapshot.Modules => _modules;
-        IEnumerable<IStyleContributor> IStyleSnapshot.Children => _children;
-
-        public void Register(IStyleContributor child) => _children.Add(child);
-        public void Unregister(IStyleContributor child) => _children.Remove(child);
-
-        public IStyleBuilder Append(string property, string value)
+        // all other fragments (selectors, groups, keyframes)
+        private readonly List<IStyleFragment> _fragments = [];
+        private readonly List<IStyleContributor> _contributors = new();
+        private readonly object _gate = new();
+        public void Register(IStyleContributor c)
         {
-            if (string.IsNullOrWhiteSpace(property)) return this;
-            if (string.IsNullOrWhiteSpace(value)) return this;
-            _props[property.Trim()] = value;
+            if (c is null) return;
+            lock (_gate) _contributors.Add(c);
+        }
+
+        public void Unregister(IStyleContributor c)
+        {
+            if (c is null) return;
+            lock (_gate) _contributors.Remove(c);
+        }
+
+        /// Compose the builder from all registered contributors.
+        public void Compose()
+        {
+            // start fresh on each compose (render)
+            Base.Clear();
+            _fragments.Clear();
+
+            IStyleContributor[] snapshot;
+            lock (_gate) snapshot = [.. _contributors];
+
+            foreach (var c in snapshot)
+                c.Contribute(this);
+        }
+
+        public void AddFragment(IStyleFragment f)
+        {
+            if (f != null) _fragments.Add(f);
+        }
+
+        // Sugar for primitives
+        public StyleBuilder Set(string prop, string value)
+        {
+            Base.Add(prop, value);
             return this;
         }
 
-        public IStyleBuilder AppendIf(string property, string? value, bool condition)
+        public StyleBuilder SetIfNotNull(string? prop, string? value)
         {
-            if (!condition) return this;
-            // property must be valid; value may be null/empty → ignore
-            if (string.IsNullOrWhiteSpace(property) || string.IsNullOrWhiteSpace(value)) return this;
-            _props[property.Trim()] = value!;
-            return this;
+            if (string.IsNullOrWhiteSpace(prop) || string.IsNullOrWhiteSpace(value)) return this;
+            return Set(prop, value);
         }
 
-        public IStyleBuilder AppendIfNotNull(string property, string? value)
-            => AppendIf(property, value, !string.IsNullOrWhiteSpace(value));
-
-        public IStyleBuilder Join(params IStyleBuilder[] others)
+        public StyleBuilder SetIf(string? prop, string? value, Func<bool> Condition)
         {
-            if (others is null || others.Length == 0) return this;
-
-            foreach (var other in others)
-            {
-                if (other is not IStyleSnapshot snap) continue;
-
-                // props: last write wins
-                foreach (var kv in snap.Props)
-                    _props[kv.Key] = kv.Value;
-
-                // modules: merge generically by type
-                foreach (var kv in snap.Modules)
-                {
-                    var mine = GetOrAddModule(kv.Key);
-                    mine.JoinFrom(kv.Value);
-                }
-
-                // children: carry over
-                foreach (var c in snap.Children)
-                    if (!_children.Contains(c))
-                        _children.Add(c);
-            }
-            return this;
+            if (string.IsNullOrWhiteSpace(prop) || string.IsNullOrWhiteSpace(value) || !Condition()) return this;
+            return Set(prop, value);
         }
 
-        public string Build()
+        public StyleBuilder SetIf(string? prop, string? value, bool Condition) => SetIf(prop, value, () => Condition);
+
+
+        // Sugar: nested selector
+        public SelectorRule Selector(string selector, Action<StyleBuilder> build)
         {
-            var sb = _sbPool.Get();
-            try
+            var sb = new StyleBuilder();
+            build?.Invoke(sb);
+            var rule = new SelectorRule(selector)
             {
-                foreach (var child in _children)
-                    if (child.Condition) child.Contribute(this);
-
-                // Inside-blocks
-                sb.Append('{');
-                foreach (var kv in _props)
-                {
-                    sb.Append(kv.Key).Append(':').Append(kv.Value).Append(';'); // no extra allocs
-                }
-                foreach (var m in _modules.Values)
-                {
-                    if (m.HasInside) m.BuildInside(sb);
-                }
-                sb.Append('}');
-
-                // Outside blocks
-                foreach (var m in _modules.Values)
-                    if (m.HasOutside) m.BuildOutside(sb);
-
-                return sb.ToString().Trim();
-            }
-            catch (Exception ex)
-            {
-                Console.Error.WriteLine($"Error building style: {ex.Message}");
-                return string.Empty;
-            }
-            finally
-            {
-                Clear();
-                _sbPool.Return(sb);
-            }
+                Declarations = sb.Base
+            };
+            rule.Children.AddRange(sb._fragments);
+            _fragments.Add(rule);
+            return rule;
         }
 
-        public void Clear()
+        // Sugar: group rules
+        public GroupRule Media(string prelude, Action<StyleBuilder> build)
+            => Group("@media", prelude, build);
+        public GroupRule Supports(string prelude, Action<StyleBuilder> build)
+            => Group("@supports", prelude, build);
+        public GroupRule Container(string prelude, Action<StyleBuilder> build)
+            => Group("@container", prelude, build);
+
+        public GroupRule Group(string kind, string prelude, Action<StyleBuilder> build)
         {
-            _props.Clear();
-            foreach (var m in _modules.Values) m.Clear();
+            var sb = new StyleBuilder();
+            build?.Invoke(sb);
+            var g = new GroupRule(kind, prelude);
+            if (!sb.Base.IsEmpty) g.Children.Add(sb.Base);
+            g.Children.AddRange(sb._fragments);
+            _fragments.Add(g);
+            return g;
         }
 
-        // Generic (non-generic) registry access for extensibility
-        private IStyleModule GetOrAddModule(Type t)
+        private Keyframes FindOrAddKeyframes(string name)
         {
-            if (_modules.TryGetValue(t, out var existing)) return existing;
-            var created = (IStyleModule?)Activator.CreateInstance(t)
-                          ?? throw new InvalidOperationException($"Cannot create module {t.Name}");
-            _modules.Add(t, created);
+            for (int i = 0; i < _fragments.Count; i++)
+                if (_fragments[i] is Keyframes k && string.Equals(k.Name, name, StringComparison.Ordinal))
+                    return k;
+            var created = new Keyframes(name);
+            _fragments.Add(created);
             return created;
         }
 
-        public T GetOrAddModule<T>() where T : class, IStyleModule, new()
-            => (T)GetOrAddModule(typeof(T));
+        public Keyframes Keyframes(string name, Action<Keyframes> build)
+        {
+            var kf = FindOrAddKeyframes(name); // <- merge-by-name
+            build?.Invoke(kf);
+            return kf;
+        }
+
+        public string BuildScoped(string className)
+        {
+            if (string.IsNullOrWhiteSpace(className)) throw new ArgumentException(nameof(className));
+            var root = "." + className.TrimStart('.');
+
+            var sb = new StringBuilder(512);
+            var w = new ScopedWriter(sb, root);
+
+            // base
+            Base.Emit(w);
+
+            // others
+            foreach (var f in _fragments) f.Emit(w);
+
+            return sb.ToString();
+        }
+
+        public StyleBuilder Absorb(StyleBuilder other)
+        {
+            if (other is null) return this;
+            Base.Join(other.Base);
+            foreach (var f in GetFragments(other)) // expose a typed iterator or method
+                AddFragment(f);
+            return this;
+        }
+
+        private static IEnumerable<IStyleFragment> GetFragments(StyleBuilder other)
+        {
+            if (other is null) yield break;
+            foreach (var f in other._fragments)
+                yield return f;
+        }
+
+        public StyleBuilder ClearAll()
+        {
+            Base.Clear();
+            _fragments.Clear();
+            return this;
+        }
     }
 }

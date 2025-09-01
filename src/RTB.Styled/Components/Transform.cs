@@ -23,34 +23,29 @@ namespace RTB.Blazor.Styled.Components
         /// </summary>
         [Parameter] public string? Origin { get; set; }
 
-        public override IStyleBuilder BuildStyle(IStyleBuilder builder)
+        protected override void BuildStyle(StyleBuilder builder)
         {
-            if (!Condition) return builder;
-
-            builder.AppendIfNotNull("transform-origin", Origin);
+            builder.SetIfNotNull("transform-origin", Origin);
 
             var parts = Parts?.Where(p => !string.IsNullOrWhiteSpace(p)).ToArray();
             if (parts is { Length: > 0 })
-                return builder.Append("transform", string.Join(" ", parts));
-
-            // no transform when empty
-            return builder;
+                builder.Set("transform", string.Join(" ", parts));
         }
     }
 
     public static class TransformExtensions
     {
-        public static IStyleBuilder TransformNone(this IStyleBuilder b)
-            => b.Append("transform", "none");
+        public static StyleBuilder TransformNone(this StyleBuilder b)
+            => b.Set("transform", "none");
 
-        public static IStyleBuilder TransformOrigin(this IStyleBuilder b, string? origin)
-            => b.AppendIfNotNull("transform-origin", origin);
+        public static StyleBuilder TransformOrigin(this StyleBuilder b, string? origin)
+            => b.SetIfNotNull("transform-origin", origin);
 
-        public static IStyleBuilder Transform(this IStyleBuilder b, params string[] parts)
+        public static StyleBuilder Transform(this StyleBuilder b, params string[] parts)
         {
             var cleaned = parts?.Where(p => !string.IsNullOrWhiteSpace(p)).ToArray() ?? [];
             if (cleaned.Length == 0) return b;
-            return b.Append("transform", string.Join(" ", cleaned));
+            return b.Set("transform", string.Join(" ", cleaned));
         }
 
         // Helpers to create parts:

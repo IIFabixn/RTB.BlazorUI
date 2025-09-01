@@ -22,32 +22,29 @@ public class Keyframe : RTBStyleBase
     [Parameter, EditorRequired] 
     public required RenderFragment ChildContent { get; set; }
 
-    private readonly StyleBuilder _builder = StyleBuilder.Start;
+    private readonly StyleBuilder _frameBuilder = StyleBuilder.Start;
 
-    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
+    protected override void BuildStyle(StyleBuilder builder)
     {
-        if (!Condition || string.IsNullOrWhiteSpace(AnimationName)) return builder;
-        var parent = builder.AsConcrete();
-        var snap = (IStyleSnapshot)_builder;
+        if (string.IsNullOrWhiteSpace(AnimationName)) return;
+        
+        _frameBuilder.Compose();
+        if (_frameBuilder.Base.IsEmpty) return;
 
-        // Let Keyframe's own children write into its private builder
-        foreach (var child in snap.Children)
-            if (child.Condition) child.Contribute(_builder);
+        builder.Keyframes(AnimationName, k =>
+        {
+            var frame = new KeyframeFrame(Offset);
+            frame.Declarations.Join(_frameBuilder.Base);
+            k.Add(frame);
+        });
 
-        // Re-read updated props and emit a frame on the parent
-        snap = (IStyleSnapshot)_builder;
-        var decls = snap.Props.Select(p => (p.Key, p.Value)).ToArray();
-        if (decls.Length > 0)
-            parent.AppendKeyFrame(AnimationName, Offset, decls);
-
-        _builder.Clear();
-        return parent;
+        _frameBuilder.ClearAll();
     }
 
     protected override void BuildRenderTree(RenderTreeBuilder builder)
     {
         builder.OpenComponent<CascadingValue<StyleBuilder>>(0);
-        builder.AddAttribute(1, "Value", _builder);
+        builder.AddAttribute(1, "Value", _frameBuilder);
         builder.AddAttribute(2, "Name", nameof(StyleBuilder));
         builder.AddAttribute(3, "IsFixed", true);
         builder.AddAttribute(4, "ChildContent", ChildContent);

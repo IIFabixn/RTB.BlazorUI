@@ -15,47 +15,43 @@ public class Padding : RTBStyleBase
     [Parameter] public Spacing? Horizontal { get; set; }
     [Parameter] public Spacing? Vertical { get; set; }
 
-    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
+    protected override void BuildStyle(StyleBuilder builder)
     {
-        if (!Condition) return builder;
-
         builder.PaddingAll(All);
 
-        builder.AppendIf("padding", $"{Vertical ?? 0} {Horizontal ?? 0}", Horizontal.HasValue || Vertical.HasValue);
+        builder.SetIf("padding", $"{Vertical ?? 0} {Horizontal ?? 0}", Horizontal.HasValue || Vertical.HasValue);
 
         builder.PaddingTop(Top);
         builder.PaddingRight(Right);
         builder.PaddingBottom(Bottom);
         builder.PaddingLeft(Left);
-
-        return builder;
     }
 }
 
 public static class PaddingExtensions
 {
-    public static IStyleBuilder PaddingAll(this IStyleBuilder builder, Spacing? value)
+    public static StyleBuilder PaddingAll(this StyleBuilder builder, Spacing? value)
     {
-        return builder.AppendIfNotNull("padding", value);
+        return builder.SetIfNotNull("padding", value);
     }
 
-    public static IStyleBuilder PaddingTop(this IStyleBuilder builder, Spacing? value)
+    public static StyleBuilder PaddingTop(this StyleBuilder builder, Spacing? value)
     {
-        return builder.AppendIfNotNull("padding-top", value);
+        return builder.SetIfNotNull("padding-top", value);
     }
 
-    public static IStyleBuilder PaddingRight(this IStyleBuilder builder, Spacing? value)
+    public static StyleBuilder PaddingRight(this StyleBuilder builder, Spacing? value)
     {
-        return builder.AppendIfNotNull("padding-right", value);
+        return builder.SetIfNotNull("padding-right", value);
     }
 
-    public static IStyleBuilder PaddingBottom(this IStyleBuilder builder, Spacing? value)
+    public static StyleBuilder PaddingBottom(this StyleBuilder builder, Spacing? value)
     {
-        return builder.AppendIfNotNull("padding-bottom", value);
+        return builder.SetIfNotNull("padding-bottom", value);
     }
 
-    public static IStyleBuilder PaddingLeft(this IStyleBuilder builder, Spacing? value)
+    public static StyleBuilder PaddingLeft(this StyleBuilder builder, Spacing? value)
     {
-        return builder.AppendIfNotNull("padding-left", value);
+        return builder.SetIfNotNull("padding-left", value);
     }
 }

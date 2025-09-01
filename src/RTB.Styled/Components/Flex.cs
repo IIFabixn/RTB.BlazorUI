@@ -24,26 +24,24 @@ public class Flex : RTBStyleBase
     [Parameter] public int? Shrink { get; set; }
     [Parameter] public int? Grow { get; set; }
 
-    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
+    protected override void BuildStyle(StyleBuilder builder)
     {
-        if (!Condition) return builder;
-
-        return builder
-            .Append("display", "flex")
-            .AppendIfNotNull("flex-direction", Direction?.ToCss())
-            .AppendIfNotNull("flex-wrap", Wrap?.ToCss())
-            .AppendIfNotNull("justify-content", JustifyContent?.ToCss())
-            .AppendIfNotNull("align-items", AlignItems?.ToCss())
-            .AppendIfNotNull("align-content", AlignContent?.ToCss())
-            .AppendIfNotNull("gap", Gap)
-            .AppendIfNotNull("flex-shrink", Shrink?.ToString())
-            .AppendIfNotNull("flex-grow", Grow?.ToString());
+        builder
+            .Set("display", "flex")
+            .SetIfNotNull("flex-direction", Direction?.ToCss())
+            .SetIfNotNull("flex-wrap", Wrap?.ToCss())
+            .SetIfNotNull("justify-content", JustifyContent?.ToCss())
+            .SetIfNotNull("align-items", AlignItems?.ToCss())
+            .SetIfNotNull("align-content", AlignContent?.ToCss())
+            .SetIfNotNull("gap", Gap)
+            .SetIfNotNull("flex-shrink", Shrink?.ToString())
+            .SetIfNotNull("flex-grow", Grow?.ToString());
     }
 }
 
 public static class FlexExtensions
 {
-    public static IStyleBuilder Flex(this IStyleBuilder builder, 
+    public static StyleBuilder Flex(this StyleBuilder builder, 
         Flex.AxisDirection? direction = null, 
         Flex.WrapMode? wrap = null,
         Flex.Justify? justifyContent = null,
@@ -54,14 +52,14 @@ public static class FlexExtensions
         int? grow = null)
     {
         return builder
-            .Append("display", "flex")
-            .AppendIfNotNull("flex-direction", direction?.ToCss())
-            .AppendIfNotNull("flex-wrap", wrap?.ToCss())
-            .AppendIfNotNull("justify-content", justifyContent?.ToCss())
-            .AppendIfNotNull("align-items", alignItems?.ToCss())
-            .AppendIfNotNull("align-content", alignContent?.ToCss())
-            .AppendIfNotNull("gap", gap)
-            .AppendIfNotNull("flex-shrink", shrink?.ToString())
-            .AppendIfNotNull("flex-grow", grow?.ToString());
+            .Set("display", "flex")
+            .SetIfNotNull("flex-direction", direction?.ToCss())
+            .SetIfNotNull("flex-wrap", wrap?.ToCss())
+            .SetIfNotNull("justify-content", justifyContent?.ToCss())
+            .SetIfNotNull("align-items", alignItems?.ToCss())
+            .SetIfNotNull("align-content", alignContent?.ToCss())
+            .SetIfNotNull("gap", gap)
+            .SetIfNotNull("flex-shrink", shrink?.ToString())
+            .SetIfNotNull("flex-grow", grow?.ToString());
     }
 }

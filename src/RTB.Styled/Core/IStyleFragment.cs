@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace RTB.Blazor.Styled.Core
 {
-    public interface IStyleContributor
+    public interface IStyleFragment
     {
-        void Contribute(StyleBuilder builder);
+        void Emit(ScopedWriter w);
     }
 }

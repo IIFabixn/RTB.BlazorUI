@@ -20,32 +20,33 @@ public class Overflow : RTBStyleBase
     [Parameter] public OverflowMode? Y { get; set; }
     [Parameter] public OverflowMode? Value { get; set; }
 
-    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
+    protected override void BuildStyle(StyleBuilder builder)
     {
-        if (!Condition) return builder;
-
         if (X == null && Y == null && Value == null)
-            return builder.Append("overflow", OverflowMode.Auto.ToCss());
+        {
+            builder.Set("overflow", OverflowMode.Auto.ToCss());
+            return;
+        }
 
-        return builder.OverflowX(X).OverflowY(Y).Overflow(Value);
+        builder.OverflowX(X).OverflowY(Y).Overflow(Value);
     }
 }
 
 public static class OverflowExtensions
 {
-    public static IStyleBuilder Overflow(this IStyleBuilder builder,
+    public static StyleBuilder Overflow(this StyleBuilder builder,
         Overflow.OverflowMode? value = null)
     {
-        return builder.AppendIfNotNull("overflow", value?.ToCss());
+        return builder.Other("overflow", value?.ToCss());
     }
-    public static IStyleBuilder OverflowX(this IStyleBuilder builder,
+    public static StyleBuilder OverflowX(this StyleBuilder builder,
         Overflow.OverflowMode? value = null)
     {
-        return builder.AppendIfNotNull("overflow-x", value?.ToCss());
+        return builder.Other("overflow-x", value?.ToCss());
     }
-    public static IStyleBuilder OverflowY(this IStyleBuilder builder,
+    public static StyleBuilder OverflowY(this StyleBuilder builder,
         Overflow.OverflowMode? value = null)
     {
-        return builder.AppendIfNotNull("overflow-y", value?.ToCss());
+        return builder.Other("overflow-y", value?.ToCss());
     }
 }

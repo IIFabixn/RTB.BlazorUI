@@ -15,26 +15,22 @@ public class Margin : RTBStyleBase
     [Parameter] public Spacing? Horizontal { get; set; }
     [Parameter] public Spacing? Vertical { get; set; }
 
-    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
+    protected override void BuildStyle(StyleBuilder builder)
     {
-        if (!Condition) return builder;
+        builder.SetIfNotNull("margin", All);
 
-        builder.AppendIfNotNull("margin", All);
+        builder.SetIf("margin", $"{Vertical ?? 0} {Horizontal ?? 0}", Horizontal is not null || Vertical is not null);
 
-        builder.AppendIf("margin", $"{Vertical ?? 0} {Horizontal ?? 0}", Horizontal is not null || Vertical is not null);
-
-        builder.AppendIfNotNull("margin-top", Top);
-        builder.AppendIfNotNull("margin-right", Right);
-        builder.AppendIfNotNull("margin-bottom", Bottom);
-        builder.AppendIfNotNull("margin-left", Left);
-
-        return builder;
+        builder.SetIfNotNull("margin-top", Top);
+        builder.SetIfNotNull("margin-right", Right);
+        builder.SetIfNotNull("margin-bottom", Bottom);
+        builder.SetIfNotNull("margin-left", Left);
     }
 }
 
 public static class MarginExtensions
 {
-    public static IStyleBuilder Margin(this IStyleBuilder builder,
+    public static StyleBuilder Margin(this StyleBuilder builder,
         Spacing? all = null,
         Spacing? top = null,
         Spacing? right = null,
@@ -44,11 +40,11 @@ public static class MarginExtensions
         Spacing? vertical = null)
     {
         return builder
-            .AppendIfNotNull("margin", all)
-            .AppendIf("margin", $"{vertical ?? 0} {horizontal ?? 0}", horizontal is not null || vertical is not null)
-            .AppendIfNotNull("margin-top", top)
-            .AppendIfNotNull("margin-right", right)
-            .AppendIfNotNull("margin-bottom", bottom)
-            .AppendIfNotNull("margin-left", left);
+            .SetIfNotNull("margin", all)
+            .SetIf("margin", $"{vertical ?? 0} {horizontal ?? 0}", horizontal is not null || vertical is not null)
+            .SetIfNotNull("margin-top", top)
+            .SetIfNotNull("margin-right", right)
+            .SetIfNotNull("margin-bottom", bottom)
+            .SetIfNotNull("margin-left", left);
     }
 }

@@ -20,17 +20,15 @@ public class Positioned : RTBStyleBase
     [Parameter] public SizeExpression? Bottom { get; set; }
     [Parameter] public SizeExpression? Left { get; set; }
 
-    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
+    protected override void BuildStyle(StyleBuilder builder)
     {
-        if (!Condition) return builder;
-
-        return builder.Positioned(Position, Top, Right, Bottom, Left);
+        builder.Positioned(Position, Top, Right, Bottom, Left);
     }
 }
 
 public static class PositionedExtensions
 {
-    public static IStyleBuilder Positioned(this IStyleBuilder builder,
+    public static StyleBuilder Positioned(this StyleBuilder builder,
         Positioned.PositionMode position = Components.Positioned.PositionMode.Absolute,
         SizeExpression? top = null,
         SizeExpression? right = null,
@@ -38,10 +36,10 @@ public static class PositionedExtensions
         SizeExpression? left = null)
     {
         return builder
-            .Append("position", position.ToCss())
-            .AppendIfNotNull("top", top)
-            .AppendIfNotNull("right", right)
-            .AppendIfNotNull("bottom", bottom)
-            .AppendIfNotNull("left", left);
+            .Set("position", position.ToCss())
+            .SetIfNotNull("top", top)
+            .SetIfNotNull("right", right)
+            .SetIfNotNull("bottom", bottom)
+            .SetIfNotNull("left", left);
     }
 }

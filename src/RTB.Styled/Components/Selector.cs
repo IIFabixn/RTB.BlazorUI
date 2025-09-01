@@ -18,32 +18,20 @@ namespace RTB.Blazor.Styled.Components
         [Parameter, EditorRequired] public required RenderFragment ChildContent { get; set; }
         [Parameter] public string Query { get; set; } = string.Empty;
 
-        private readonly StyleBuilder _builder = StyleBuilder.Start;
+        private readonly StyleBuilder _inner = StyleBuilder.Start;
 
-        public override IStyleBuilder BuildStyle(IStyleBuilder builder)
+        protected override void BuildStyle(StyleBuilder builder)
         {
-            if (!Condition || string.IsNullOrWhiteSpace(Query)) return builder;
-            var parent = builder.AsConcrete();
-            var snap = (IStyleSnapshot)_builder;
-
-            // Let selector's children write into its private builder
-            foreach (var child in snap.Children)
-                if (child.Condition) child.Contribute(_builder);
-
-            // Re-read updated props and attach under Query
-            snap = (IStyleSnapshot)_builder;
-            var decls = snap.Props.Select(p => (p.Key, p.Value)).ToArray();
-            if (decls.Length > 0)
-                parent.AppendSelector(Query.Trim(), decls);
-
-            _builder.Clear();
-            return parent;
+            var query = string.IsNullOrWhiteSpace(Query) ? "&" : Query;
+            _inner.Compose();
+            builder.Selector(query, sb => sb.Absorb(_inner));
+            _inner.ClearAll();
         }
 
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
             builder.OpenComponent<CascadingValue<StyleBuilder>>(0);
-            builder.AddAttribute(1, "Value", _builder);
+            builder.AddAttribute(1, "Value", _inner);
             builder.AddAttribute(2, "Name", nameof(StyleBuilder));
             builder.AddAttribute(3, "IsFixed", true);
             builder.AddAttribute(4, "ChildContent", ChildContent);

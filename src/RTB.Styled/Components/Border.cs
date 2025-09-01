@@ -17,14 +17,10 @@ public class Border : RTBStyleBase
     [Parameter] public SizeUnit? Radius { get; set; }
     [Parameter] public BorderCorner? Corner { get; set; }
 
-    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
+    protected override void BuildStyle(StyleBuilder builder)
     {
-        if (!Condition) return builder;
-
         if (Corner is not null) builder.BorderRadius(Radius, Corner);
         if (Side is not null) builder.Border(Width, Style, Color, Side);
-
-        return builder;
     }
 
     [Flags]
@@ -75,30 +71,29 @@ public class Border : RTBStyleBase
 
 public static class BorderStyleExtensions
 {
-    public static IStyleBuilder BorderAll(this IStyleBuilder builder, SizeUnit? width, RTBColor color, BorderStyle style)
+    public static StyleBuilder BorderAll(this StyleBuilder builder, SizeUnit? width, RTBColor color, BorderStyle style)
     {
         string value = $"{width} {style.ToCss()} {color}";
-        builder.Append("border", value);
-        return builder;
+        return builder.Set("border", value);
     }
 
-    public static IStyleBuilder BorderNone(this IStyleBuilder builder)
+    public static StyleBuilder BorderNone(this StyleBuilder builder)
     {
-        return builder.Append("border", "unset");
+        return builder.Set("border", "unset");
     }
 
-    public static IStyleBuilder BorderRadiusAll(this IStyleBuilder builder, SizeUnit? radius)
+    public static StyleBuilder BorderRadiusAll(this StyleBuilder builder, SizeUnit? radius)
     {
         if (radius is null) return builder;
-        return builder.Append("border-radius", radius);
+        return builder.Set("border-radius", radius);
     }
 
-    public static IStyleBuilder BorderRadiusNone(this IStyleBuilder builder)
+    public static StyleBuilder BorderRadiusNone(this StyleBuilder builder)
     {
-        return builder.Append("border-radius", "unset");
+        return builder.Set("border-radius", "unset");
     }
 
-    public static IStyleBuilder Border(this IStyleBuilder builder, SizeUnit? width, BorderStyle style, RTBColor? color, BorderSide? side)
+    public static StyleBuilder Border(this StyleBuilder builder, SizeUnit? width, BorderStyle style, RTBColor? color, BorderSide? side)
     {
         if (side is null) return builder;
 
@@ -113,18 +108,18 @@ public static class BorderStyleExtensions
 
         string value = $"{width} {style.ToCss()} {color}";
         if (s.HasFlag(BorderSide.Top))
-            builder.Append("border-top", value);
+            builder.Set("border-top", value);
         if (s.HasFlag(BorderSide.Right))
-            builder.Append("border-right", value);
+            builder.Set("border-right", value);
         if (s.HasFlag(BorderSide.Bottom))
-            builder.Append("border-bottom", value);
+            builder.Set("border-bottom", value);
         if (s.HasFlag(BorderSide.Left))
-            builder.Append("border-left", value);
+            builder.Set("border-left", value);
 
         return builder;
     }
 
-    public static IStyleBuilder BorderRadius(this IStyleBuilder builder, SizeUnit? radius, BorderCorner? corner)
+    public static StyleBuilder BorderRadius(this StyleBuilder builder, SizeUnit? radius, BorderCorner? corner)
     {
         if (corner is null) return builder;
 
@@ -135,13 +130,13 @@ public static class BorderStyleExtensions
 
         var c = (BorderCorner)corner;
         if (c.HasFlag(BorderCorner.TopLeft))
-            builder.AppendIfNotNull("border-top-left-radius", radius);
+            builder.Set("border-top-left-radius", radius);
         if (c.HasFlag(BorderCorner.TopRight))
-            builder.AppendIfNotNull("border-top-right-radius", radius);
+            builder.Set("border-top-right-radius", radius);
         if (c.HasFlag(BorderCorner.BottomLeft))
-            builder.AppendIfNotNull("border-bottom-left-radius", radius);
+            builder.Set("border-bottom-left-radius", radius);
         if (c.HasFlag(BorderCorner.BottomRight))
-            builder.AppendIfNotNull("border-bottom-right-radius", radius);
+            builder.Set("border-bottom-right-radius", radius);
 
         return builder;
     }

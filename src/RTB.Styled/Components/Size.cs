@@ -17,35 +17,31 @@ public class Size : RTBStyleBase
     [Parameter] public bool FullWidth { get; set; }
     [Parameter] public bool FullHeight { get; set; }
 
-    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
+    protected override void BuildStyle(StyleBuilder builder)
     {
-        if (!Condition) return builder;
-
-        builder.AppendIf("width", "100%", FullWidth);
+        builder.SetIf("width", "100%", FullWidth);
         builder.Width(Width, MinWidth, MaxWidth);
 
-        builder.AppendIf("height", "100%", FullHeight);
+        builder.SetIf("height", "100%", FullHeight);
         builder.Height(Height, MinHeight, MaxHeight);
-
-        return builder;
     }
 }
 
 public static class SizeExtensions
 {
-    public static IStyleBuilder Height(this IStyleBuilder builder, SizeExpression? value, SizeExpression? min = null, SizeExpression? max = null)
+    public static StyleBuilder Height(this StyleBuilder builder, SizeExpression? value, SizeExpression? min = null, SizeExpression? max = null)
     {
         return builder
-            .AppendIfNotNull("height", value)
-            .AppendIfNotNull("min-height", min)
-            .AppendIfNotNull("max-height", max);
+            .SetIfNotNull("height", value)
+            .SetIfNotNull("min-height", min)
+            .SetIfNotNull("max-height", max);
     }
 
-    public static IStyleBuilder Width(this IStyleBuilder builder, SizeExpression? value, SizeExpression? min = null, SizeExpression? max = null)
+    public static StyleBuilder Width(this StyleBuilder builder, SizeExpression? value, SizeExpression? min = null, SizeExpression? max = null)
     {
         return builder
-            .AppendIfNotNull("width", value)
-            .AppendIfNotNull("min-width", min)
-            .AppendIfNotNull("max-width", max);
+            .SetIfNotNull("width", value)
+            .SetIfNotNull("min-width", min)
+            .SetIfNotNull("max-width", max);
     }
 }

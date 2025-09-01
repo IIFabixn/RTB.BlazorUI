@@ -1,48 +1,62 @@
-﻿@using RTB.Blazor.Styled
-@using RTB.Blazor.Styled.Components
+﻿@inherits ComponentBase
 @using RTB.Blazor.Styled.Core
-@using RTB.Blazor.Styled.Helper
 @using RTB.Blazor.Styled.Services
-
 @inject IStyleRegistry Registry
 
-@implements IAsyncDisposable
-
-@code {
-    [Parameter] public RenderFragment<string?> ChildContent { get; set; } = default!;
-
-    [Parameter] public string Classname { get; set; } = string.Empty;
-    [Parameter] public EventCallback<string> ClassnameChanged { get; set; }
-}
-
-<CascadingValue Value="@_builder" Name="@nameof(RTBStyleBase.StyleBuilder)" IsFixed="true">
-    @ChildContent(Classname)
+<CascadingValue Value="_builder" Name="StyleBuilder" IsFixed="true">
+    @ChildContent(CssClass)
 </CascadingValue>
 
 @code {
+    [Parameter] public RenderFragment<string>? ChildContent { get; set; }
+
+    // Optional extra class from the caller
+    [Parameter] public string? Class { get; set; }
+
+    // Optional externally-controlled class name (two-way bindable)
+    [Parameter] public string? Classname { get; set; }
+    [Parameter] public EventCallback<string?> ClassnameChanged { get; set; }
+
     private readonly StyleBuilder _builder = StyleBuilder.Start;
+
+    private string? _resolvedClass;   // the class this component uses
+    private string? _lastCss;         // memoized last emitted CSS
+
+    private string CssClass
+        => string.IsNullOrWhiteSpace(Class)
+            ? _resolvedClass ?? ""
+            : string.IsNullOrWhiteSpace(_resolvedClass) ? Class! : $"{_resolvedClass} {Class}";
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        var style = _builder.Build();
-        if (string.IsNullOrEmpty(style)) return;
-
-        var cls = Registry.GetOrCreate(style); // deterministic class name (no injection yet)
-        if (Classname == cls) return; // no change
-
-        Classname = cls;
-
-        await Registry.InjectInto(style, Classname);
-        if (ClassnameChanged.HasDelegate)
-        {
-            await ClassnameChanged.InvokeAsync(Classname);
-        }
+        if (string.IsNullOrWhiteSpace(_resolvedClass))
+            _resolvedClass = Registry.Acquire(Classname);
         
-        StateHasChanged();
+        _builder.Compose();
+        // Build CSS already scoped to the resolved class
+        var css = _builder.BuildScoped(_resolvedClass);
+        if (string.IsNullOrEmpty(css))
+            return;
+
+        // Skip if nothing changed
+        if (string.Equals(css, _lastCss, StringComparison.Ordinal))
+            return;
+
+        // Inject as-is (JS should *not* scope again; it should clear+append)
+        await Registry.UpsertScopedAsync(css, _resolvedClass);
+
+        _lastCss = css;
+
+        // Keep two-way binding in sync (only if parent didn't provide a fixed Classname)
+        if (Classname != _resolvedClass && ClassnameChanged.HasDelegate)
+            await ClassnameChanged.InvokeAsync(_resolvedClass);
+
+        await InvokeAsync(StateHasChanged);
     }
 
     public async ValueTask DisposeAsync()
     {
-        await Registry.TryRemove(Classname);
+        if (!string.IsNullOrWhiteSpace(_resolvedClass))
+            await Registry.Release(_resolvedClass);
     }
 }

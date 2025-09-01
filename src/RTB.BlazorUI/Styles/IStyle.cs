@@ -6,5 +6,5 @@ namespace RTB.Blazor.Styles;
 
 public interface IStyle
 {
-    IStyleBuilder ToStyle();
+    StyleBuilder ToStyle();
 }

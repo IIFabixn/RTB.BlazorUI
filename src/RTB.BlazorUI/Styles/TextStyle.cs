@@ -20,15 +20,15 @@ namespace RTB.Blazor.Styles
             return this;
         }
 
-        public virtual IStyleBuilder ToStyle()
+        public virtual StyleBuilder ToStyle()
         {
             return StyleBuilder.Start
-                .AppendIfNotNull("font-size", FontSize)
-                .AppendIfNotNull("font-weight", FontWeight)
-                .AppendIfNotNull("line-height", LineHeight)
-                .AppendIfNotNull("color", Color)
-                .AppendIfNotNull("text-decoration", TextDecoration)
-                .AppendIfNotNull("text-align", TextAlign?.ToCss());
+                .SetIfNotNull("font-size", FontSize)
+                .SetIfNotNull("font-weight", FontWeight)
+                .SetIfNotNull("line-height", LineHeight)
+                .SetIfNotNull("color", Color)
+                .SetIfNotNull("text-decoration", TextDecoration)
+                .SetIfNotNull("text-align", TextAlign?.ToCss());
         }
     }
 }

@@ -16,24 +16,23 @@ namespace RTB.Blazor.Styled.Components
         [Parameter, EditorRequired] public required RenderFragment ChildContent { get; set; }
         [Parameter, EditorRequired] public required BreakPoint BreakPoint { get; set; }
 
-        private readonly StyleBuilder _builder = StyleBuilder.Start;
+        private readonly StyleBuilder _inner = StyleBuilder.Start;
 
-        public override IStyleBuilder BuildStyle(IStyleBuilder builder)
+        protected override void BuildStyle(StyleBuilder builder)
         {
-            if (!Condition) return builder;
-
-            var style = _builder.Build();
-            return builder.AppendMedia(BreakPoint.ToQuery(), style);
+            _inner.Compose();
+            builder.Media(BreakPoint.ToQuery(), b =>  b.Absorb(_inner));
+            _inner.ClearAll();
         }
 
         protected override void BuildRenderTree(RenderTreeBuilder renderBuilder)
         {
             // Provide the private StyleBuilder to descendants
             renderBuilder.OpenComponent<CascadingValue<StyleBuilder>>(0);
-            renderBuilder.AddAttribute(1, "Value", _builder);
+            renderBuilder.AddAttribute(1, "Value", _inner);
             renderBuilder.AddAttribute(2, "Name", nameof(StyleBuilder));
-            renderBuilder.AddAttribute(2, "IsFixed", true);
-            renderBuilder.AddAttribute(3, "ChildContent", ChildContent);
+            renderBuilder.AddAttribute(3, "IsFixed", true);
+            renderBuilder.AddAttribute(4, "ChildContent", ChildContent);
             renderBuilder.CloseComponent();
         }
     }

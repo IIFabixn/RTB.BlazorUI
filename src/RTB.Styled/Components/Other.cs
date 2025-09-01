@@ -12,11 +12,9 @@ public class Other : RTBStyleBase
     [Parameter, EditorRequired] public string Property { get; set; } = string.Empty;
     [Parameter] public string? Value { get; set; }
 
-    public override IStyleBuilder BuildStyle(IStyleBuilder builder)
+    protected override void BuildStyle(StyleBuilder builder)
     {
-        if (!Condition) return builder;
-
-        return builder.AppendIfNotNull(Property, Value);
+        builder.Other(Property, Value);
     }
 }
 
@@ -25,8 +23,8 @@ public static class OtherExtensions
     /// <summary>
     /// Adds a custom CSS property and value to the style builder.
     /// </summary>
-    public static IStyleBuilder Other(this IStyleBuilder builder, string property, string? value)
+    public static StyleBuilder Other(this StyleBuilder builder, string property, string? value)
     {
-        return builder.AppendIfNotNull(property, value);
+        return builder.SetIfNotNull(property, value);
     }
 }

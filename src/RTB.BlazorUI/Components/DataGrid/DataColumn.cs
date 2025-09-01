@@ -105,18 +105,18 @@ namespace RTB.Blazor.Components.DataGrid
 
         private string? CellClass;
 
-        private readonly string style = StyleBuilder.Start
-            .Append("white-space", "nowrap")
-            .Append("overflow", "hidden")
-            .Append("text-overflow", "ellipsis")
-            .Build();
-
         protected override async Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
-            
-            CellClass ??= Registry.GetOrCreate(style);
-            await Registry.InjectInto(style, CellClass);
+
+            CellClass = Registry.Acquire("rtb-datacell");
+            var style = StyleBuilder.Start
+                .Set("white-space", "nowrap")
+                .Set("overflow", "hidden")
+                .Set("text-overflow", "ellipsis")
+                .BuildScoped(CellClass);
+
+            await Registry.UpsertScopedAsync(style, CellClass);
         }
 
         public override void RenderHeader(RenderTreeBuilder builder, int col)
