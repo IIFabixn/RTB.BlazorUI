@@ -27,7 +27,7 @@ namespace RTB.Blazor.Styled.Modules
             list.Add((property.Trim(), value));
         }
 
-        public void Build(StringBuilder sb)
+        public void BuildInside(StringBuilder sb)
         {
             foreach (var (selector, props) in _blocks)
             {
@@ -37,6 +37,8 @@ namespace RTB.Blazor.Styled.Modules
                 sb.Append('}');
             }
         }
+
+        public void BuildOutside(StringBuilder sb) => throw new NotImplementedException();
 
         public void Clear() => _blocks.Clear();
 

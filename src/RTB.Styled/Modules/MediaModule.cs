@@ -23,7 +23,8 @@ namespace RTB.Blazor.Styled.Modules
             list.Add(cssBlock);
         }
 
-        public void Build(StringBuilder sb)
+        public void BuildInside(StringBuilder sb) => throw new NotImplementedException();
+        public void BuildOutside(StringBuilder sb)
         {
             foreach (var (mq, blocks) in _medias)
             {

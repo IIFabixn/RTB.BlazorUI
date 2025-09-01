@@ -32,7 +32,9 @@ namespace RTB.Blazor.Styled.Modules
             frames.Add((offset.Trim(), props.ToList()));
         }
 
-        public void Build(StringBuilder sb)
+        public void BuildInside(StringBuilder sb) => throw new NotImplementedException();
+
+        public void BuildOutside(StringBuilder sb)
         {
             foreach (var (name, frames) in _anims)
             {

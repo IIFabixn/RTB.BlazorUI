@@ -10,7 +10,8 @@ namespace RTB.Blazor.Styled.Core
     {
         bool HasInside { get; }
         bool HasOutside { get; }
-        void Build(StringBuilder sb);
+        void BuildInside(StringBuilder sb);
+        void BuildOutside(StringBuilder sb);
         void Clear();
         void JoinFrom(IStyleModule other);
     }

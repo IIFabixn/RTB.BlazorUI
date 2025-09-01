@@ -93,13 +93,13 @@ namespace RTB.Blazor.Styled.Core
                 }
                 foreach (var m in _modules.Values)
                 {
-                    if (m.HasInside) m.Build(sb);
+                    if (m.HasInside) m.BuildInside(sb);
                 }
                 sb.Append('}');
 
                 // Outside blocks
                 foreach (var m in _modules.Values)
-                    if (m.HasOutside) m.Build(sb);
+                    if (m.HasOutside) m.BuildOutside(sb);
 
                 return sb.ToString().Trim();
             }
