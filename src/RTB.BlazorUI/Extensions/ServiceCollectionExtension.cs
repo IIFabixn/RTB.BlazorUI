@@ -46,7 +46,7 @@ namespace RTB.Blazor.Extensions
                 return this;
             }
 
-            public RTBConfig UseServices()
+            public RTBConfig UseDefaultServices()
             {
                 return UseBusyTracker()
                     .UseDialogService()

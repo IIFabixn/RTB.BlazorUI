@@ -30,11 +30,7 @@ namespace RTB.Blazor.Styled.Components
         [Parameter] public AnimationPlayState? PlayState { get; set; }
         [Parameter] public string? Composition { get; set; } // optional: "replace" | "add" (Animations 2)
 
-        // nested frames go here
         [Parameter, EditorRequired] public required RenderFragment KeyFrames { get; set; }
-
-        // private builder to collect "0%{...} to{...}" from <Keyframe/> children
-        private readonly StyleBuilder _framesBuilder = StyleBuilder.Start;
 
         public override IStyleBuilder BuildStyle(IStyleBuilder builder)
         {

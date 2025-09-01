@@ -85,19 +85,17 @@ namespace RTB.Blazor.Styled.Core
                 foreach (var child in _children)
                     if (child.Condition) child.Contribute(this);
 
-                // Inside-block?
-                bool hasInside = _props.Count > 0 || _modules.Values.Any(m => m.HasInside);
-                if (hasInside)
+                // Inside-blocks
+                sb.Append('{');
+                foreach (var kv in _props)
                 {
-                    sb.Append('{');
-                    foreach (var kv in _props)
-                    {
-                        sb.Append(kv.Key).Append(':').Append(kv.Value).Append(';'); // no extra allocs
-                    }
-                    foreach (var m in _modules.Values)
-                        if (m.HasInside) m.Build(sb);
-                    sb.Append('}');
+                    sb.Append(kv.Key).Append(':').Append(kv.Value).Append(';'); // no extra allocs
                 }
+                foreach (var m in _modules.Values)
+                {
+                    if (m.HasInside) m.Build(sb);
+                }
+                sb.Append('}');
 
                 // Outside blocks
                 foreach (var m in _modules.Values)
