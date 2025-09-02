@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ButtonStyle | RTB.Blazor </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ButtonStyle | RTB.Blazor ">
+      
+      <meta name="description" content="Style model for buttons, extending  with button-specific colors.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/IIFabixn/RTB.BlazorUI/new/develop/apiSpec/new?filename=RTB_Blazor_Styles_ButtonStyle.md&amp;value=---%0Auid%3A%20RTB.Blazor.Styles.ButtonStyle%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="RTB.Blazor">
+            RTB.Blazor
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="RTB.Blazor.Styles.ButtonStyle">
+
+
+
+  <h1 id="RTB_Blazor_Styles_ButtonStyle" data-uid="RTB.Blazor.Styles.ButtonStyle" class="text-break">
+Class ButtonStyle  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Styles/ButtonStyle.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="RTB.html">RTB</a>.<a class="xref" href="RTB.Blazor.html">Blazor</a>.<a class="xref" href="RTB.Blazor.Styles.html">Styles</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>RTB.Blazor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Style model for buttons, extending <a class="xref" href="RTB.Blazor.Styles.TextStyle.html">TextStyle</a> with button-specific colors.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ButtonStyle : TextStyle, IStyle</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="RTB.Blazor.Styles.TextStyle.html">TextStyle</a></div>
+      <div><span class="xref">ButtonStyle</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="RTB.Blazor.Styles.IStyle.html">IStyle</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styles.TextStyle.html#RTB_Blazor_Styles_TextStyle_FontSize">TextStyle.FontSize</a>
+    </div>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styles.TextStyle.html#RTB_Blazor_Styles_TextStyle_FontWeight">TextStyle.FontWeight</a>
+    </div>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styles.TextStyle.html#RTB_Blazor_Styles_TextStyle_LineHeight">TextStyle.LineHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styles.TextStyle.html#RTB_Blazor_Styles_TextStyle_Color">TextStyle.Color</a>
+    </div>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styles.TextStyle.html#RTB_Blazor_Styles_TextStyle_TextDecoration">TextStyle.TextDecoration</a>
+    </div>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styles.TextStyle.html#RTB_Blazor_Styles_TextStyle_TextAlign">TextStyle.TextAlign</a>
+    </div>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styles.TextStyle.html#RTB_Blazor_Styles_TextStyle_WithColor_System_Nullable_RTB_Blazor_Styled_Helper_RTBColor__">TextStyle.WithColor(RTBColor?)</a>
+    </div>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styles.TextStyle.html#RTB_Blazor_Styles_TextStyle_ToStyle">TextStyle.ToStyle()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+  <h2 id="RTB_Blazor_Styles_ButtonStyle_examples">Examples</h2>
+  <p>Example of using ButtonStyle with StyleBuilder:</p>
+<pre><code class="lang-csharp">var bs = new ButtonStyle
+{
+    BackgroundColor = RTBColor.FromRgb(33, 150, 243), // blue
+    DisabledBackgroundColor = RTBColor.FromRgb(189, 189, 189), // grey
+    DisabledColor = RTBColor.FromRgb(255, 255, 255) // white
+}.WithColor(RTBColor.FromRgb(255, 255, 255)); // text color for normal state
+
+var sb = bs.ToStyle()
+    .SetIf("background-color", bs.BackgroundColor?.HexRgba, bs.BackgroundColor.HasValue)
+    .SetIf("color", bs.Color?.HexRgba, bs.Color.HasValue)
+    .Selector("&amp;:disabled", b =&gt; b
+        .SetIf("background-color", bs.DisabledBackgroundColor?.HexRgba, bs.DisabledBackgroundColor.HasValue)
+        .SetIf("color", bs.DisabledColor?.HexRgba, bs.DisabledColor.HasValue));</code></pre>
+
+
+  <h2 id="RTB_Blazor_Styles_ButtonStyle_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This type is a passive data model: it does not emit CSS by itself. Consumers (e.g., Blazor components)
+should translate its properties into CSS using <a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a> or similar mechanisms.
+A <code>null</code> property indicates that no explicit value should be emitted and theming/defaults should apply.</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="RTB_Blazor_Styles_ButtonStyle_BackgroundColor_" data-uid="RTB.Blazor.Styles.ButtonStyle.BackgroundColor*"></a>
+
+  <h3 id="RTB_Blazor_Styles_ButtonStyle_BackgroundColor" data-uid="RTB.Blazor.Styles.ButtonStyle.BackgroundColor">
+  BackgroundColor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Styles/ButtonStyle.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Background color for the button in its normal (enabled) state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTBColor? BackgroundColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Helper.RTBColor.html">RTBColor</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="RTB_Blazor_Styles_ButtonStyle_BackgroundColor_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Use helpers like <a class="xref" href="RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_FromRgb_System_Byte_System_Byte_System_Byte_">FromRgb(byte, byte, byte)</a> or <a class="xref" href="RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_Parse_System_String_">Parse(string)</a>
+to construct values.</p>
+</div>
+
+
+
+
+  <a id="RTB_Blazor_Styles_ButtonStyle_DisabledBackgroundColor_" data-uid="RTB.Blazor.Styles.ButtonStyle.DisabledBackgroundColor*"></a>
+
+  <h3 id="RTB_Blazor_Styles_ButtonStyle_DisabledBackgroundColor" data-uid="RTB.Blazor.Styles.ButtonStyle.DisabledBackgroundColor">
+  DisabledBackgroundColor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Styles/ButtonStyle.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Background color for the button when it is disabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTBColor? DisabledBackgroundColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Helper.RTBColor.html">RTBColor</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="RTB_Blazor_Styles_ButtonStyle_DisabledBackgroundColor_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code>null</code>, consumers may fall back to <a class="xref" href="RTB.Blazor.Styles.ButtonStyle.html#RTB_Blazor_Styles_ButtonStyle_BackgroundColor">BackgroundColor</a> or theme defaults.</p>
+</div>
+
+
+
+
+  <a id="RTB_Blazor_Styles_ButtonStyle_DisabledColor_" data-uid="RTB.Blazor.Styles.ButtonStyle.DisabledColor*"></a>
+
+  <h3 id="RTB_Blazor_Styles_ButtonStyle_DisabledColor" data-uid="RTB.Blazor.Styles.ButtonStyle.DisabledColor">
+  DisabledColor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Styles/ButtonStyle.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Foreground text color to use when the button is disabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RTBColor? DisabledColor { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Helper.RTBColor.html">RTBColor</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="RTB_Blazor_Styles_ButtonStyle_DisabledColor_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If <code>null</code>, consumers should avoid emitting an explicit disabled text color and
+rely on default styles or theming.</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Styles/ButtonStyle.cs/#L38" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
