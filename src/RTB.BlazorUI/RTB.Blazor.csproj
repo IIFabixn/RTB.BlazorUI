@@ -6,6 +6,7 @@
 
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
 		<PackageId>RTB.Blazor</PackageId>
 		<Version>1.0.6</Version>

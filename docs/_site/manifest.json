@@ -1,0 +1,2174 @@
+{
+  "source_base_path": "C:/Repos/RTB.BlazorUI/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Components.DataGrid.ColumnBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Components.DataGrid.ColumnBase-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Components.DataGrid.ColumnBase<TRow>",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Components.DataGrid.ColumnBase-1.yml\" sourcestartlinenumber=\"1\">Base class for DataGrid columns.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Components.DataGrid.DataColumn-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Components.DataGrid.DataColumn-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Components.DataGrid.DataColumn<TRow, TValue>",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Components.DataGrid.DataColumn-2.yml\" sourcestartlinenumber=\"1\">A column that displays a value from the row using a provided function.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Components.DataGrid.IColumn-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Components.DataGrid.IColumn-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Components.DataGrid.IColumn<TRow>",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Components.DataGrid.IColumn-1.yml\" sourcestartlinenumber=\"1\">Column interface for DataGrid.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Components.DataGrid.ViewColumn-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Components.DataGrid.ViewColumn-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Components.DataGrid.ViewColumn<TRow>",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Components.DataGrid.ViewColumn-1.yml\" sourcestartlinenumber=\"1\">A column that uses a RenderFragment to display custom content.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Components.DataGrid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Components.DataGrid.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Components.DataGrid",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Components.Layout.StackBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Components.Layout.StackBase.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Components.Layout.StackBase",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Components.Layout.StackBase.yml\" sourcestartlinenumber=\"1\">Base class for layout stack components.\nA stack arranges its child content along a main axis (row or column),\noptionally reversing order, applying gaps, wrapping, and alignment similar to CSS flexbox.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Components.Layout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Components.Layout.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Components.Layout",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Components.RTBComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Components.RTBComponent.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Components.RTBComponent",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Components.RTBComponent.yml\" sourcestartlinenumber=\"1\">Base component for RTB Blazor components.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Components.TabItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Components.TabItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Components.TabItem",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Components.TabItem.yml\" sourcestartlinenumber=\"1\">A component representing a single tab item within a tab group.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Components.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Components.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Components",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Extensions.ServiceCollectionExtension.RTBConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Extensions.ServiceCollectionExtension.RTBConfig.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Extensions.ServiceCollectionExtension.RTBConfig",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Extensions.ServiceCollectionExtension.RTBConfig.yml\" sourcestartlinenumber=\"1\">Configuration class for selecting theme and enabling optional RTB Blazor services.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Extensions.ServiceCollectionExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Extensions.ServiceCollectionExtension.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Extensions.ServiceCollectionExtension",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Extensions.ServiceCollectionExtension.yml\" sourcestartlinenumber=\"1\">Provides extension methods for registering RTB Blazor services into the DI container.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Interfaces.IRegister-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Interfaces.IRegister-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Interfaces.IRegister<T>",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Interfaces.IRegister-1.yml\" sourcestartlinenumber=\"1\">Defines a contract for components that can register and unregister items of type <code class=\"typeparamref\">T</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Interfaces.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Interfaces",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Position.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Position.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Position",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Position.yml\" sourcestartlinenumber=\"1\">Represents the position of a UI element relative to a reference element or container.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.BusyIndicator.BusyIndicator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.BusyIndicator.BusyIndicator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.BusyIndicator.BusyIndicator",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.BusyIndicator.BusyIndicator.yml\" sourcestartlinenumber=\"1\">A Blazor component that conditionally renders a &quot;busy&quot; placeholder while work is in progress,\nas reported by an injected <xref href=\"RTB.Blazor.Services.BusyIndicator.IBusyTracker\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.BusyIndicator.BusyTracker.BusyToken.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.BusyIndicator.BusyTracker.BusyToken.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.BusyIndicator.BusyTracker.BusyToken",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.BusyIndicator.BusyTracker.BusyToken.yml\" sourcestartlinenumber=\"1\">Represents a tracked busy scope that automatically ends when disposed.\nUse with <code>using</code> to ensure the busy state is always released.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.BusyIndicator.BusyTracker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.BusyIndicator.BusyTracker.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.BusyIndicator.BusyTracker",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.BusyIndicator.BusyTracker.yml\" sourcestartlinenumber=\"1\">Default implementation of <xref href=\"RTB.Blazor.Services.BusyIndicator.IBusyTracker\" data-throw-if-not-resolved=\"false\"></xref> that tracks busy states by key\nusing reference-counted scopes stored in concurrent dictionaries.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.BusyIndicator.IBusyTracker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.BusyIndicator.IBusyTracker.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.BusyIndicator.IBusyTracker",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.BusyIndicator.IBusyTracker.yml\" sourcestartlinenumber=\"1\">Abstraction for tracking and reacting to &quot;busy&quot; states during asynchronous or long-running operations.\nUseful for driving UI concerns such as spinners, disabling actions, or detecting background work.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.BusyIndicator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.BusyIndicator.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.BusyIndicator",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.DataNavigation.DataNavigationService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.DataNavigation.DataNavigationService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.DataNavigation.DataNavigationService",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.DataNavigation.DataNavigationService.yml\" sourcestartlinenumber=\"1\">Default implementation of <xref href=\"RTB.Blazor.Services.DataNavigation.IDataNavigationService\" data-throw-if-not-resolved=\"false\"></xref> that stores parameters in-memory\nand delegates navigation to <xref href=\"Microsoft.AspNetCore.Components.NavigationManager\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.DataNavigation.IDataNavigationService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.DataNavigation.IDataNavigationService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.DataNavigation.IDataNavigationService",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.DataNavigation.IDataNavigationService.yml\" sourcestartlinenumber=\"1\">Provides a simple, in-memory handoff of data between navigations in Blazor and\na thin wrapper around <xref href=\"Microsoft.AspNetCore.Components.NavigationManager\" data-throw-if-not-resolved=\"false\"></xref> for page/component navigation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.DataNavigation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.DataNavigation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.DataNavigation",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Dialog.DialogBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Dialog.DialogBase.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Dialog.DialogBase",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.Dialog.DialogBase.yml\" sourcestartlinenumber=\"1\">Base class for dialog host components.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Dialog.DialogResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Dialog.DialogResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Dialog.DialogResult",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.Dialog.DialogResult.yml\" sourcestartlinenumber=\"1\">Immutable result returned by a dialog when it closes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Dialog.DialogResultKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Dialog.DialogResultKind.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Dialog.DialogResultKind",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.Dialog.DialogResultKind.yml\" sourcestartlinenumber=\"1\">Represents the outcome of a dialog interaction.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Dialog.DialogService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Dialog.DialogService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Dialog.DialogService",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.Dialog.DialogService.yml\" sourcestartlinenumber=\"1\">Default <xref href=\"RTB.Blazor.Services.Dialog.IDialogService\" data-throw-if-not-resolved=\"false\"></xref> implementation using <xref href=\"Microsoft.AspNetCore.Components.RenderFragment\" data-throw-if-not-resolved=\"false\"></xref> composition.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Dialog.IDialogReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Dialog.IDialogReference.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Dialog.IDialogReference",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.Dialog.IDialogReference.yml\" sourcestartlinenumber=\"1\">A reference to an active dialog instance. Allows awaiting completion and closing it programmatically.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Dialog.IDialogService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Dialog.IDialogService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Dialog.IDialogService",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.Dialog.IDialogService.yml\" sourcestartlinenumber=\"1\">Service surface for presenting dialogs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Dialog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Dialog.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Dialog",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.DragDrop.DragDropService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.DragDrop.DragDropService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.DragDrop.DragDropService",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.DragDrop.DragDropService.yml\" sourcestartlinenumber=\"1\">Default implementation of <xref href=\"RTB.Blazor.Services.DragDrop.IDragDropService\" data-throw-if-not-resolved=\"false\"></xref> for Blazor components.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.DragDrop.IDragDropService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.DragDrop.IDragDropService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.DragDrop.IDragDropService",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.DragDrop.IDragDropService.yml\" sourcestartlinenumber=\"1\">Provides a lightweight, in-memory mechanism to pass a single drag payload between draggable and droppable\ncomponents in a Blazor application.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.DragDrop.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.DragDrop.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.DragDrop",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Input.IInputService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Input.IInputService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Input.IInputService",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.Input.IInputService.yml\" sourcestartlinenumber=\"1\">Provides a Blazor-friendly keyboard input subscription service that bridges DOM keyboard events\nfrom JavaScript to .NET callbacks.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Input.InputService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Input.InputService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Input.InputService",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.Input.InputService.yml\" sourcestartlinenumber=\"1\">Default implementation of <xref href=\"RTB.Blazor.Services.Input.IInputService\" data-throw-if-not-resolved=\"false\"></xref> using <xref href=\"Microsoft.JSInterop.IJSRuntime\" data-throw-if-not-resolved=\"false\"></xref> to receive keyboard events from the browser.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Input.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Input.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Input",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Theme.ITheme.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Theme.ITheme.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Theme.ITheme",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.Theme.ITheme.yml\" sourcestartlinenumber=\"1\">Defines a contract for a UI theme within the Blazor UI layer.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Theme.IThemeService-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Theme.IThemeService-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Theme.IThemeService<TTheme>",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.Theme.IThemeService-1.yml\" sourcestartlinenumber=\"1\">Theme provider interface.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Theme.IThemeServiceFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Theme.IThemeServiceFactory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Theme.IThemeServiceFactory",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.Theme.IThemeServiceFactory.yml\" sourcestartlinenumber=\"1\">Factory interface to access the current theme service instance without a generic type.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Theme.RTBThemeService-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Theme.RTBThemeService-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Theme.RTBThemeService<TThemeBase>",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.Theme.RTBThemeService-1.yml\" sourcestartlinenumber=\"1\">Provides theme discovery, selection, and persistence for Blazor using JS interop.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Theme.ThemeAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Theme.ThemeAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Theme.ThemeAttribute",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Services.Theme.ThemeAttribute.yml\" sourcestartlinenumber=\"1\">Attribute to mark a class as a theme.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Services.Theme.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Services.Theme.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Services.Theme",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Animation.AnimationDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Animation.AnimationDirection.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Animation.AnimationDirection",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Animation.AnimationDirection.yml\" sourcestartlinenumber=\"1\">Maps to CSS <code>animation-direction</code> keywords.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Animation.AnimationFillMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Animation.AnimationFillMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Animation.AnimationFillMode",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Animation.AnimationFillMode.yml\" sourcestartlinenumber=\"1\">Maps to CSS <code>animation-fill-mode</code> keywords.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Animation.AnimationPlayState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Animation.AnimationPlayState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Animation.AnimationPlayState",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Animation.AnimationPlayState.yml\" sourcestartlinenumber=\"1\">Maps to CSS <code>animation-play-state</code> keywords.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Animation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Animation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Animation",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Animation.yml\" sourcestartlinenumber=\"1\">Describes animation-related CSS longhands and establishes an <xref href=\"keyframes\" data-throw-if-not-resolved=\"False\" data-raw-source=\"@keyframes\" sourcefile=\"api/RTB.Blazor.Styled.Components.Animation.yml\" sourcestartlinenumber=\"1\"></xref> scope for a single animation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.AnimationStyleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.AnimationStyleExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.AnimationStyleExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.AnimationStyleExtensions.yml\" sourcestartlinenumber=\"1\">Extension helpers that map <xref href=\"RTB.Blazor.Styled.Components.Animation\" data-throw-if-not-resolved=\"false\"></xref> parameters to CSS <code>animation-*</code> longhand declarations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Background.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Background.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Background",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Background.yml\" sourcestartlinenumber=\"1\">Contributes a CSS background-color declaration to the current style scope.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.BackgroundExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.BackgroundExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.BackgroundExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.BackgroundExtensions.yml\" sourcestartlinenumber=\"1\">Extension helpers for adding background-related CSS to a <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Border.BorderCorner.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Border.BorderCorner.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Border.BorderCorner",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Border.BorderCorner.yml\" sourcestartlinenumber=\"1\">Flags enum describing which corner(s) should receive a radius.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Border.BorderSide.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Border.BorderSide.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Border.BorderSide",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Border.BorderSide.yml\" sourcestartlinenumber=\"1\">Flags enum describing which side(s) of a box should receive border declarations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Border.BorderStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Border.BorderStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Border.BorderStyle",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Border.BorderStyle.yml\" sourcestartlinenumber=\"1\">CSS <code>border-style</code> values supported by this component.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Border.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Border.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Border",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Border.yml\" sourcestartlinenumber=\"1\">Contributes CSS <code>border</code> and <code>border-radius</code> declarations to the cascading <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.BorderStyleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.BorderStyleExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.BorderStyleExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.BorderStyleExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods on <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref> for composing border and radius declarations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Color.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Color.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Color",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Color.yml\" sourcestartlinenumber=\"1\">Contributes a CSS <code>color</code> declaration to the current <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref> scope.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.ColorExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.ColorExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.ColorExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.ColorExtensions.yml\" sourcestartlinenumber=\"1\"><xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref> extensions for the CSS <code>color</code> property.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Flex.Align.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Flex.Align.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Flex.Align",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Flex.Align.yml\" sourcestartlinenumber=\"1\">Alignment in the cross axis (or multi-line distribution for <xref href=\"RTB.Blazor.Styled.Components.Flex.AlignContent\" data-throw-if-not-resolved=\"false\"></xref>).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Flex.AxisDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Flex.AxisDirection.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Flex.AxisDirection",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Flex.AxisDirection.yml\" sourcestartlinenumber=\"1\">Flexbox main-axis direction. When omitted, the browser default is <code>row</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Flex.Justify.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Flex.Justify.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Flex.Justify",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Flex.Justify.yml\" sourcestartlinenumber=\"1\">Distribution along the main axis.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Flex.WrapMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Flex.WrapMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Flex.WrapMode",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Flex.WrapMode.yml\" sourcestartlinenumber=\"1\">Flexbox wrapping behavior. When omitted, the browser default is <code>nowrap</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Flex.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Flex.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Flex",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Flex.yml\" sourcestartlinenumber=\"1\">Contributes CSS declarations for a flex container (display: flex) to the current <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref> scope.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.FlexExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.FlexExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.FlexExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.FlexExtensions.yml\" sourcestartlinenumber=\"1\">Extension helpers for composing flex container styles fluently.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Grid.Placement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Grid.Placement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Grid.Placement",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Grid.Placement.yml\" sourcestartlinenumber=\"1\">Alignment values mapped to the CSS <code>place-items</code> property.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Grid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Grid.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Grid",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Grid.yml\" sourcestartlinenumber=\"1\">Contributes CSS for a grid container to the current <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref> scope.\nWhen placed inside a style scope, this component sets:</p>\n<ul sourcefile=\"api/RTB.Blazor.Styled.Components.Grid.yml\" sourcestartlinenumber=\"3\">\n<li sourcefile=\"api/RTB.Blazor.Styled.Components.Grid.yml\" sourcestartlinenumber=\"3\">display: grid</li>\n<li sourcefile=\"api/RTB.Blazor.Styled.Components.Grid.yml\" sourcestartlinenumber=\"4\">grid-template-columns</li>\n<li sourcefile=\"api/RTB.Blazor.Styled.Components.Grid.yml\" sourcestartlinenumber=\"5\">grid-template-rows</li>\n<li sourcefile=\"api/RTB.Blazor.Styled.Components.Grid.yml\" sourcestartlinenumber=\"6\">gap (optional)</li>\n<li sourcefile=\"api/RTB.Blazor.Styled.Components.Grid.yml\" sourcestartlinenumber=\"7\">place-items (optional)</li>\n</ul>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.GridExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.GridExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.GridExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.GridExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for configuring grid-related CSS on a <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.GridPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.GridPlacement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.GridPlacement",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.GridPlacement.yml\" sourcestartlinenumber=\"1\">Contributes CSS Grid placement declarations to a <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.GridPlacementExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.GridPlacementExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.GridPlacementExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.GridPlacementExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for composing CSS Grid placement with a <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Keyframe.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Keyframe.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Keyframe",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Keyframe.yml\" sourcestartlinenumber=\"1\">Represents a single keyframe entry inside an ancestor animation's <code><xref href=\"keyframes\" data-throw-if-not-resolved=\"False\" data-raw-source=\"@keyframes\" sourcefile=\"api/RTB.Blazor.Styled.Components.Keyframe.yml\" sourcestartlinenumber=\"1\"></xref></code> block.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Margin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Margin.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Margin",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Margin.yml\" sourcestartlinenumber=\"1\">Contributes CSS margin declarations to the current <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref> scope.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.MarginExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.MarginExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.MarginExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.MarginExtensions.yml\" sourcestartlinenumber=\"1\">Fluent extensions for applying CSS margin declarations using <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Media.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Media.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Media",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Media.yml\" sourcestartlinenumber=\"1\">Contributes a <code><xref href=\"media\" data-throw-if-not-resolved=\"False\" data-raw-source=\"@media\" sourcefile=\"api/RTB.Blazor.Styled.Components.Media.yml\" sourcestartlinenumber=\"1\"></xref></code> group to the ambient <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref> using a provided <xref href=\"RTB.Blazor.Styled.Components.Media.BreakPoint\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Opacity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Opacity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Opacity",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Opacity.yml\" sourcestartlinenumber=\"1\">Contributes the CSS <code>opacity</code> declaration to the current <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.OpacityExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.OpacityExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.OpacityExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.OpacityExtensions.yml\" sourcestartlinenumber=\"1\">Extension helpers for configuring <code>opacity</code> on a <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Other.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Other.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Other",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Other.yml\" sourcestartlinenumber=\"1\">A generic style component that writes an arbitrary CSS declaration to the current style scope.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.OtherExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.OtherExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.OtherExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.OtherExtensions.yml\" sourcestartlinenumber=\"1\">Extension helpers for emitting arbitrary CSS declarations using <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Overflow.OverflowMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Overflow.OverflowMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Overflow.OverflowMode",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Overflow.OverflowMode.yml\" sourcestartlinenumber=\"1\">Represents allowed values for CSS overflow properties.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Overflow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Overflow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Overflow",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Overflow.yml\" sourcestartlinenumber=\"1\">A style contributor that sets CSS overflow properties.\nBehavior:</p>\n<ul sourcefile=\"api/RTB.Blazor.Styled.Components.Overflow.yml\" sourcestartlinenumber=\"3\">\n<li sourcefile=\"api/RTB.Blazor.Styled.Components.Overflow.yml\" sourcestartlinenumber=\"3\">When all parameters (<xref href=\"RTB.Blazor.Styled.Components.Overflow.X\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"RTB.Blazor.Styled.Components.Overflow.Y\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"RTB.Blazor.Styled.Components.Overflow.Value\" data-throw-if-not-resolved=\"false\"></xref>) are null, this emits 'overflow: auto'.</li>\n<li sourcefile=\"api/RTB.Blazor.Styled.Components.Overflow.yml\" sourcestartlinenumber=\"4\">Otherwise, it emits any provided axis-specific values (overflow-x, overflow-y) and/or the shorthand (overflow).\nNote: If both axis-specific values and the shorthand are supplied, the emitted order is:\noverflow-x, overflow-y, overflow (last). In CSS, the shorthand can reset axis-specific values.\nPrefer setting either axis-specific values or the shorthand to avoid unintended overrides.</li>\n</ul>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.OverflowExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.OverflowExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.OverflowExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.OverflowExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods on <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref> for setting overflow-related CSS.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Padding.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Padding.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Padding",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Padding.yml\" sourcestartlinenumber=\"1\">Contributes CSS padding declarations to a cascading <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref>.\nSupports:</p>\n<ul sourcefile=\"api/RTB.Blazor.Styled.Components.Padding.yml\" sourcestartlinenumber=\"3\">\n<li sourcefile=\"api/RTB.Blazor.Styled.Components.Padding.yml\" sourcestartlinenumber=\"3\">A single value for all sides (<xref href=\"RTB.Blazor.Styled.Components.Padding.All\" data-throw-if-not-resolved=\"false\"></xref>).</li>\n<li sourcefile=\"api/RTB.Blazor.Styled.Components.Padding.yml\" sourcestartlinenumber=\"4\">Axis shorthands (<xref href=\"RTB.Blazor.Styled.Components.Padding.Vertical\" data-throw-if-not-resolved=\"false\"></xref> for top/bottom and <xref href=\"RTB.Blazor.Styled.Components.Padding.Horizontal\" data-throw-if-not-resolved=\"false\"></xref> for left/right).</li>\n<li sourcefile=\"api/RTB.Blazor.Styled.Components.Padding.yml\" sourcestartlinenumber=\"5\">Individual sides (<xref href=\"RTB.Blazor.Styled.Components.Padding.Top\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"RTB.Blazor.Styled.Components.Padding.Right\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"RTB.Blazor.Styled.Components.Padding.Bottom\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"RTB.Blazor.Styled.Components.Padding.Left\" data-throw-if-not-resolved=\"false\"></xref>).</li>\n</ul>\n<p>\nPrecedence (from lowest to highest):\n1) <xref href=\"RTB.Blazor.Styled.Components.Padding.All\" data-throw-if-not-resolved=\"false\"></xref> (padding)\n2) Axis shorthand via <xref href=\"RTB.Blazor.Styled.Components.Padding.Vertical\" data-throw-if-not-resolved=\"false\"></xref>/<xref href=\"RTB.Blazor.Styled.Components.Padding.Horizontal\" data-throw-if-not-resolved=\"false\"></xref> (padding: vertical horizontal)\n3) Individual sides (padding-top/right/bottom/left)\nLater declarations override earlier ones when present.\n</p>\n<p>\nNotes:\n- When only one axis is provided, the missing axis defaults to 0 (CSS zero).\n- Two-value padding shorthand uses the CSS form \"padding: &lt;vertical&gt; &lt;horizontal&gt;\",\n  i.e., \"top/bottom left/right\".\n</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.PaddingExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.PaddingExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.PaddingExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.PaddingExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods on <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref> for emitting padding declarations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Positioned.PositionMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Positioned.PositionMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Positioned.PositionMode",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Positioned.PositionMode.yml\" sourcestartlinenumber=\"1\">The CSS positioning mode to emit.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Positioned.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Positioned.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Positioned",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Positioned.yml\" sourcestartlinenumber=\"1\">A Blazor style contributor that emits CSS positioning declarations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.PositionedExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.PositionedExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.PositionedExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.PositionedExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref> related to CSS positioning.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.RTBStyleBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.RTBStyleBase.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.RTBStyleBase",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.RTBStyleBase.yml\" sourcestartlinenumber=\"1\">Base component for contributing styles to a <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref> within a Blazor render tree.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Selector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Selector.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Selector",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Selector.yml\" sourcestartlinenumber=\"1\">Blazor component that scopes child style contributions under a specific CSS selector/query.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Size.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Size.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Size",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Size.yml\" sourcestartlinenumber=\"1\">Contributes CSS size-related declarations (width/height and their min/max variants)\nto the current <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.SizeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.SizeExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.SizeExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.SizeExtensions.yml\" sourcestartlinenumber=\"1\">Extension methods for <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref> to compose size-related declarations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Styled.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Styled.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Styled",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Styled.yml\" sourcestartlinenumber=\"1\">A component that provides a scoped CSS class and style builder context to its children.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Transform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Transform.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Transform",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Transform.yml\" sourcestartlinenumber=\"1\">Modern transform component: compose transforms via Parts and set optional Origin.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.TransformExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.TransformExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.TransformExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.TransformExtensions.yml\" sourcestartlinenumber=\"1\">Extensions for fluent StyleBuilder usage.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Transition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Transition.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Transition",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Transition.yml\" sourcestartlinenumber=\"1\">Shorthand-first transitions with typed times and multi-item support.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.TransitionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.TransitionExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.TransitionExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.TransitionExtensions.yml\" sourcestartlinenumber=\"1\">Style builder extensions for transitions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.TransitionItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.TransitionItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.TransitionItem",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.TransitionItem.yml\" sourcestartlinenumber=\"1\">Single transition item for use in <xref href=\"RTB.Blazor.Styled.Components.Transition.Items\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Visibility.Mode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Visibility.Mode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Visibility.Mode",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Visibility.Mode.yml\" sourcestartlinenumber=\"1\">The visibility mode.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.Visibility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.Visibility.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.Visibility",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.Visibility.yml\" sourcestartlinenumber=\"1\">Sets the visibility of an element.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.VisibilityExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.VisibilityExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components.VisibilityExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Components.VisibilityExtensions.yml\" sourcestartlinenumber=\"1\">Style builder extensions for visibility.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Components.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Components.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Components",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Core.DeclarationSet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Core.DeclarationSet.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Core.DeclarationSet",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Core.DeclarationSet.yml\" sourcestartlinenumber=\"1\">Represents a mutable set of CSS declarations (property/value pairs) destined for the writer's current selector.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Core.GroupRule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Core.GroupRule.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Core.GroupRule",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Core.GroupRule.yml\" sourcestartlinenumber=\"1\">Represents a CSS grouping at-rule (e.g., <code><xref href=\"media\" data-throw-if-not-resolved=\"False\" data-raw-source=\"@media\" sourcefile=\"api/RTB.Blazor.Styled.Core.GroupRule.yml\" sourcestartlinenumber=\"1\"></xref></code>, <code><xref href=\"supports\" data-throw-if-not-resolved=\"False\" data-raw-source=\"@supports\" sourcefile=\"api/RTB.Blazor.Styled.Core.GroupRule.yml\" sourcestartlinenumber=\"1\"></xref></code>, <code><xref href=\"container\" data-throw-if-not-resolved=\"False\" data-raw-source=\"@container\" sourcefile=\"api/RTB.Blazor.Styled.Core.GroupRule.yml\" sourcestartlinenumber=\"1\"></xref></code>, <code><xref href=\"layer\" data-throw-if-not-resolved=\"False\" data-raw-source=\"@layer\" sourcefile=\"api/RTB.Blazor.Styled.Core.GroupRule.yml\" sourcestartlinenumber=\"1\"></xref></code>)\nthat wraps child <xref href=\"RTB.Blazor.Styled.Core.IStyleFragment\" data-throw-if-not-resolved=\"false\"></xref> instances inside a single block.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Core.IStyleContributor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Core.IStyleContributor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Core.IStyleContributor",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Core.IStyleContributor.yml\" sourcestartlinenumber=\"1\">Defines a participant that can contribute CSS to a <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref> during composition.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Core.IStyleFragment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Core.IStyleFragment.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Core.IStyleFragment",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Core.IStyleFragment.yml\" sourcestartlinenumber=\"1\">Defines a minimal contract for a style fragment capable of emitting CSS into a <xref href=\"RTB.Blazor.Styled.Core.ScopedWriter\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Core.KeyframeFrame.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Core.KeyframeFrame.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Core.KeyframeFrame",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Core.KeyframeFrame.yml\" sourcestartlinenumber=\"1\">Represents a single frame within a <code><xref href=\"keyframes\" data-throw-if-not-resolved=\"False\" data-raw-source=\"@keyframes\" sourcefile=\"api/RTB.Blazor.Styled.Core.KeyframeFrame.yml\" sourcestartlinenumber=\"1\"></xref></code> rule.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Core.Keyframes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Core.Keyframes.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Core.Keyframes",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Core.Keyframes.yml\" sourcestartlinenumber=\"1\">Represents a CSS <code><xref href=\"keyframes\" data-throw-if-not-resolved=\"False\" data-raw-source=\"@keyframes\" sourcefile=\"api/RTB.Blazor.Styled.Core.Keyframes.yml\" sourcestartlinenumber=\"1\"></xref></code> rule and its frames.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Core.ScopedWriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Core.ScopedWriter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Core.ScopedWriter",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Core.ScopedWriter.yml\" sourcestartlinenumber=\"1\">Provides a minimal, allocation-friendly writer for emitting scoped CSS strings.\nMaintains a selector stack to support nested emission contexts without copying strings.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Core.SelectorRule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Core.SelectorRule.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Core.SelectorRule",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Core.SelectorRule.yml\" sourcestartlinenumber=\"1\">Represents a CSS-like selector rule that emits its own declarations and any child fragments\nrelative to the current selector scope provided by a <xref href=\"RTB.Blazor.Styled.Core.ScopedWriter\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Core.StyleBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Core.StyleBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Core.StyleBuilder",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Core.StyleBuilder.yml\" sourcestartlinenumber=\"1\">A builder for CSS styles, supporting base declarations, nested selectors, groups (media/supports/container), and keyframes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Core.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Core.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Core",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Extensions.ServiceCollectionExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Extensions.ServiceCollectionExtension.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Extensions.ServiceCollectionExtension",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Extensions.ServiceCollectionExtension.yml\" sourcestartlinenumber=\"1\">Provides extension methods for registering RTB.Styled services in the dependency injection container.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.AttributeSelector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.AttributeSelector.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.AttributeSelector",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.AttributeSelector.yml\" sourcestartlinenumber=\"1\">CSS attribute selector.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.BinarySelector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.BinarySelector.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.BinarySelector",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.BinarySelector.yml\" sourcestartlinenumber=\"1\">Binary selector expression combining two selectors with a combinator/operator.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.BinarySizeExpression.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.BinarySizeExpression.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.BinarySizeExpression",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.BinarySizeExpression.yml\" sourcestartlinenumber=\"1\">Represents a binary size expression composed of two operands and an operator,\nrendered as a CSS calc() expression.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.BreakPoint.MediaType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.BreakPoint.MediaType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.BreakPoint.MediaType",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.BreakPoint.MediaType.yml\" sourcestartlinenumber=\"1\">Supported CSS media types.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.BreakPoint.OrientationType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.BreakPoint.OrientationType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.BreakPoint.OrientationType",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.BreakPoint.OrientationType.yml\" sourcestartlinenumber=\"1\">Supported device orientation values.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.BreakPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.BreakPoint.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.BreakPoint",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.BreakPoint.yml\" sourcestartlinenumber=\"1\">Represents a responsive CSS media query breakpoint.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.ClassSelector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.ClassSelector.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.ClassSelector",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.ClassSelector.yml\" sourcestartlinenumber=\"1\">CSS selector for an element with a specific class name.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.CssEnumExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.CssEnumExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.CssEnumExtensions",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.CssEnumExtensions.yml\" sourcestartlinenumber=\"1\">CSS enum extensions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.ElementSelector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.ElementSelector.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.ElementSelector",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.ElementSelector.yml\" sourcestartlinenumber=\"1\">CSS selector for an HTML element by name.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.FunctionalPseudoClass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.FunctionalPseudoClass",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.FunctionalPseudoClass.yml\" sourcestartlinenumber=\"1\">CSS functional pseudo-class selector, which can take arguments.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.GroupedSelector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.GroupedSelector.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.GroupedSelector",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.GroupedSelector.yml\" sourcestartlinenumber=\"1\">Group of selectors separated by commas.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.IdSelector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.IdSelector.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.IdSelector",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.IdSelector.yml\" sourcestartlinenumber=\"1\">CSS selector for an element with a specific ID.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.NumericLiteral.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.NumericLiteral.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.NumericLiteral",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.NumericLiteral.yml\" sourcestartlinenumber=\"1\">Represents a numeric literal value (unit-less).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.ParentSelector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.ParentSelector.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.ParentSelector",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.ParentSelector.yml\" sourcestartlinenumber=\"1\">Parent selector reference used in nested rules to refer to the current selector,\nsimilar to '&amp;' in SCSS. Useful for composing states or BEM-style suffixes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.Place.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.Place.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.Place",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.Place.yml\" sourcestartlinenumber=\"1\">CSS place enum.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.PseudoClass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.PseudoClass.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.PseudoClass",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.PseudoClass.yml\" sourcestartlinenumber=\"1\">CSS pseudo-class selector (non-functional).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.PseudoElement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.PseudoElement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.PseudoElement",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.PseudoElement.yml\" sourcestartlinenumber=\"1\">CSS pseudo-element selector.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.RTBColor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.RTBColor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.RTBColor",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.RTBColor.yml\" sourcestartlinenumber=\"1\">Represents a color in the sRGB RGBA color space (8-bit per channel).\nAligns with common CSS color syntaxes per MDN (hex, rgb[a], hsl[a], named).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.RTBColors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.RTBColors.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.RTBColors",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.RTBColors.yml\" sourcestartlinenumber=\"1\">Common named CSS colors (CSS Color Module Level 4).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.RawLiteral.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.RawLiteral.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.RawLiteral",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.RawLiteral.yml\" sourcestartlinenumber=\"1\">Represents a raw literal size expression that is emitted as-is.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.RawSelector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.RawSelector.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.RawSelector",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.RawSelector.yml\" sourcestartlinenumber=\"1\">Raw CSS selector expression. The content is emitted without transformation.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.SelectorExpression.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.SelectorExpression.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.SelectorExpression",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.SelectorExpression.yml\" sourcestartlinenumber=\"1\">Base type for a small, composable CSS selector DSL.\nUse provided factory helpers, static members, and operator overloads to build complex selectors\nin a type-safe way and render them to CSS with <xref href=\"RTB.Blazor.Styled.Helper.SelectorExpression.ToString\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.SizeExpression.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.SizeExpression.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.SizeExpression",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.SizeExpression.yml\" sourcestartlinenumber=\"1\">Base class for size expressions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.SizeLiteral.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.SizeLiteral.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.SizeLiteral",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.SizeLiteral.yml\" sourcestartlinenumber=\"1\">Represents a literal size value.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.SizeUnit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.SizeUnit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.SizeUnit",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.SizeUnit.yml\" sourcestartlinenumber=\"1\">Represents a CSS size value paired with a unit (px, rem, em, %, vw, vh).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.Spacing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.Spacing.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.Spacing",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.Spacing.yml\" sourcestartlinenumber=\"1\">Represents a CSS spacing value, which can be a numeric value and unit or the keyword <code>auto</code>.\nSupported units: <xref href=\"RTB.Blazor.Styled.Helper.Unit.Px\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"RTB.Blazor.Styled.Helper.Unit.Em\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"RTB.Blazor.Styled.Helper.Unit.Rem\" data-throw-if-not-resolved=\"false\"></xref>,\n<xref href=\"RTB.Blazor.Styled.Helper.Unit.Percent\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"RTB.Blazor.Styled.Helper.Unit.Vw\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"RTB.Blazor.Styled.Helper.Unit.Vh\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.Spacings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.Spacings.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.Spacings",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.Spacings.yml\" sourcestartlinenumber=\"1\">Helper methods to compose spacing arrays in the order: top, right, bottom, left.\nUseful for mapping to CSS shorthand properties (e.g., margin/padding).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.Unit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.Unit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper.Unit",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Helper.Unit.yml\" sourcestartlinenumber=\"1\">CSS related enums and extensions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Helper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Helper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Helper",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Services.IStyleRegistry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Services.IStyleRegistry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Services.IStyleRegistry",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Services.IStyleRegistry.yml\" sourcestartlinenumber=\"1\">Registry for scoped CSS</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Services.StyleRegistry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Services.StyleRegistry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Services.StyleRegistry",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styled.Services.StyleRegistry.yml\" sourcestartlinenumber=\"1\">Registry for scoped CSS</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styled.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styled.Services.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styled.Services",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styles.ButtonStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styles.ButtonStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styles.ButtonStyle",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styles.ButtonStyle.yml\" sourcestartlinenumber=\"1\">Style model for buttons, extending <xref href=\"RTB.Blazor.Styles.TextStyle\" data-throw-if-not-resolved=\"false\"></xref> with button-specific colors.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styles.IStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styles.IStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styles.IStyle",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styles.IStyle.yml\" sourcestartlinenumber=\"1\">Defines a typed style that can be converted into a <xref href=\"RTB.Blazor.Styled.Core.StyleBuilder\" data-throw-if-not-resolved=\"false\"></xref> for CSS emission.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styles.PreStyled.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styles.PreStyled.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styles.PreStyled",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styles.PreStyled.yml\" sourcestartlinenumber=\"1\">A minimal <xref href=\"RTB.Blazor.Styled.Components.RTBStyleBase\" data-throw-if-not-resolved=\"false\"></xref> implementation intended as a placeholder\nfor pre-styled or externally composed styles.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styles.TabStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styles.TabStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styles.TabStyle",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styles.TabStyle.yml\" sourcestartlinenumber=\"1\">Tab style settings.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styles.TextStyle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styles.TextStyle.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styles.TextStyle",
+      "Summary": "<p sourcefile=\"api/RTB.Blazor.Styles.TextStyle.yml\" sourcestartlinenumber=\"1\">Style class for text-related CSS properties.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.Styles.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.Styles.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor.Styles",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/RTB.Blazor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/RTB.Blazor.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "RTB.Blazor",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class InputService | RTB.Blazor </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class InputService | RTB.Blazor ">
+      
+      <meta name="description" content="Default implementation of  using  to receive keyboard events from the browser.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/IIFabixn/RTB.BlazorUI/new/develop/apiSpec/new?filename=RTB_Blazor_Services_Input_InputService.md&amp;value=---%0Auid%3A%20RTB.Blazor.Services.Input.InputService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="RTB.Blazor">
+            RTB.Blazor
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="RTB.Blazor.Services.Input.InputService">
+
+
+
+  <h1 id="RTB_Blazor_Services_Input_InputService" data-uid="RTB.Blazor.Services.Input.InputService" class="text-break">
+Class InputService  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Input/InputService.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="RTB.html">RTB</a>.<a class="xref" href="RTB.Blazor.html">Blazor</a>.<a class="xref" href="RTB.Blazor.Services.html">Services</a>.<a class="xref" href="RTB.Blazor.Services.Input.html">Input</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>RTB.Blazor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Default implementation of <a class="xref" href="RTB.Blazor.Services.Input.IInputService.html">IInputService</a> using <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.jsinterop.ijsruntime">IJSRuntime</a> to receive keyboard events from the browser.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class InputService : IInputService, IAsyncDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">InputService</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="RTB.Blazor.Services.Input.IInputService.html">IInputService</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="RTB_Blazor_Services_Input_InputService_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Expects the following JS functions to exist:</p>
+<ul>
+<li><code>inputService.register(dotNetObjRef)</code>: Attaches keydown/keyup listeners and forwards events via <a class="xref" href="RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_OnKeyDown_System_String_">OnKeyDown(string)</a> and <a class="xref" href="RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_OnKeyUp_System_String_">OnKeyUp(string)</a>.</li>
+<li><code>inputService.unregister()</code>: Detaches listeners.</li>
+</ul>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="RTB_Blazor_Services_Input_InputService__ctor_" data-uid="RTB.Blazor.Services.Input.InputService.#ctor*"></a>
+
+  <h3 id="RTB_Blazor_Services_Input_InputService__ctor_Microsoft_JSInterop_IJSRuntime_" data-uid="RTB.Blazor.Services.Input.InputService.#ctor(Microsoft.JSInterop.IJSRuntime)">
+  InputService(IJSRuntime)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Input/InputService.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Default implementation of <a class="xref" href="RTB.Blazor.Services.Input.IInputService.html">IInputService</a> using <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.jsinterop.ijsruntime">IJSRuntime</a> to receive keyboard events from the browser.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public InputService(IJSRuntime jsRuntime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>jsRuntime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.jsinterop.ijsruntime">IJSRuntime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="RTB_Blazor_Services_Input_InputService__ctor_Microsoft_JSInterop_IJSRuntime__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Expects the following JS functions to exist:</p>
+<ul>
+<li><code>inputService.register(dotNetObjRef)</code>: Attaches keydown/keyup listeners and forwards events via <a class="xref" href="RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_OnKeyDown_System_String_">OnKeyDown(string)</a> and <a class="xref" href="RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_OnKeyUp_System_String_">OnKeyUp(string)</a>.</li>
+<li><code>inputService.unregister()</code>: Detaches listeners.</li>
+</ul>
+</div>
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="RTB_Blazor_Services_Input_InputService_DisposeAsync_" data-uid="RTB.Blazor.Services.Input.InputService.DisposeAsync*"></a>
+
+  <h3 id="RTB_Blazor_Services_Input_InputService_DisposeAsync" data-uid="RTB.Blazor.Services.Input.InputService.DisposeAsync">
+  DisposeAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Input/InputService.cs/#L130"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Detaches JavaScript listeners and releases resources.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValueTask DisposeAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="RTB_Blazor_Services_Input_InputService_DisposeAsync_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Swallows errors if the JS runtime is already disposed (e.g., during app shutdown).</p>
+</div>
+
+
+
+
+  <a id="RTB_Blazor_Services_Input_InputService_InitializeAsync_" data-uid="RTB.Blazor.Services.Input.InputService.InitializeAsync*"></a>
+
+  <h3 id="RTB_Blazor_Services_Input_InputService_InitializeAsync" data-uid="RTB.Blazor.Services.Input.InputService.InitializeAsync">
+  InitializeAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Input/InputService.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes the JavaScript interop by attaching global keyboard listeners once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task InitializeAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task that completes when the JS listeners are attached.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="RTB_Blazor_Services_Input_InputService_InitializeAsync_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This calls the JS function <code>inputService.register(dotNetObjRef)</code>. Ensure a corresponding JS implementation exists and is loaded.
+Safe to call multiple times; only the first call needs to wire up JS.</p>
+</div>
+
+
+
+
+  <a id="RTB_Blazor_Services_Input_InputService_OnKeyDown_" data-uid="RTB.Blazor.Services.Input.InputService.OnKeyDown*"></a>
+
+  <h3 id="RTB_Blazor_Services_Input_InputService_OnKeyDown_System_String_" data-uid="RTB.Blazor.Services.Input.InputService.OnKeyDown(System.String)">
+  OnKeyDown(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Input/InputService.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invoked from JavaScript on keydown with the <code>KeyboardEvent.key</code> value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JSInvokable]
+public void OnKeyDown(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifier (exact string from the browser event).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Services_Input_InputService_OnKeyUp_" data-uid="RTB.Blazor.Services.Input.InputService.OnKeyUp*"></a>
+
+  <h3 id="RTB_Blazor_Services_Input_InputService_OnKeyUp_System_String_" data-uid="RTB.Blazor.Services.Input.InputService.OnKeyUp(System.String)">
+  OnKeyUp(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Input/InputService.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Invoked from JavaScript on keyup with the <code>KeyboardEvent.key</code> value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JSInvokable]
+public void OnKeyUp(string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifier (exact string from the browser event).</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Services_Input_InputService_RegisterKeyHandler_" data-uid="RTB.Blazor.Services.Input.InputService.RegisterKeyHandler*"></a>
+
+  <h3 id="RTB_Blazor_Services_Input_InputService_RegisterKeyHandler_System_String_System_Action_System_Boolean__" data-uid="RTB.Blazor.Services.Input.InputService.RegisterKeyHandler(System.String,System.Action{System.Boolean})">
+  RegisterKeyHandler(string, Action&lt;bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Input/InputService.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Subscribe a callback to a specific key as reported by <code>KeyboardEvent.key</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RegisterKeyHandler(string key, Action&lt;bool&gt; callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The key identifier string (e.g., &quot;Shift&quot;, &quot;Control&quot;, &quot;Alt&quot;, &quot;ArrowUp&quot;, &quot;a&quot;, &quot;A&quot;). Use the exact value produced by <code>KeyboardEvent.key</code>.</p>
+</dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The callback invoked with <code>true</code> on key down and <code>false</code> on key up.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="RTB_Blazor_Services_Input_InputService_RegisterKeyHandler_System_String_System_Action_System_Boolean___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Multiple handlers can be registered for the same key. Handlers are invoked in registration order.</p>
+</div>
+
+
+
+
+  <a id="RTB_Blazor_Services_Input_InputService_UnregisterKeyHandler_" data-uid="RTB.Blazor.Services.Input.InputService.UnregisterKeyHandler*"></a>
+
+  <h3 id="RTB_Blazor_Services_Input_InputService_UnregisterKeyHandler_System_String_System_Action_System_Boolean__" data-uid="RTB.Blazor.Services.Input.InputService.UnregisterKeyHandler(System.String,System.Action{System.Boolean})">
+  UnregisterKeyHandler(string, Action&lt;bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Input/InputService.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unsubscribe a previously registered callback for a specific key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnregisterKeyHandler(string key, Action&lt;bool&gt; callback)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The same key used during registration.</p>
+</dd>
+    <dt><code>callback</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The callback instance to remove.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Input/InputService.cs/#L60" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

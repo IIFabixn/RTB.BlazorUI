@@ -1,0 +1,310 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Components.Overflow.OverflowMode
+  commentId: T:RTB.Blazor.Styled.Components.Overflow.OverflowMode
+  id: Overflow.OverflowMode
+  parent: RTB.Blazor.Styled.Components
+  children:
+  - RTB.Blazor.Styled.Components.Overflow.OverflowMode.Auto
+  - RTB.Blazor.Styled.Components.Overflow.OverflowMode.Hidden
+  - RTB.Blazor.Styled.Components.Overflow.OverflowMode.Scroll
+  - RTB.Blazor.Styled.Components.Overflow.OverflowMode.Visible
+  langs:
+  - csharp
+  - vb
+  name: Overflow.OverflowMode
+  nameWithType: Overflow.OverflowMode
+  fullName: RTB.Blazor.Styled.Components.Overflow.OverflowMode
+  type: Enum
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Overflow.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: OverflowMode
+    path: ../src/RTB.Styled/Components/Overflow.cs
+    startLine: 25
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Represents allowed values for CSS overflow properties.
+  example: []
+  syntax:
+    content: public enum Overflow.OverflowMode
+    content.vb: Public Enum Overflow.OverflowMode
+  extensionMethods:
+  - System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+- uid: RTB.Blazor.Styled.Components.Overflow.OverflowMode.Visible
+  commentId: F:RTB.Blazor.Styled.Components.Overflow.OverflowMode.Visible
+  id: Visible
+  parent: RTB.Blazor.Styled.Components.Overflow.OverflowMode
+  langs:
+  - csharp
+  - vb
+  name: Visible
+  nameWithType: Overflow.OverflowMode.Visible
+  fullName: RTB.Blazor.Styled.Components.Overflow.OverflowMode.Visible
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Overflow.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Visible
+    path: ../src/RTB.Styled/Components/Overflow.cs
+    startLine: 28
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Maps to 'visible'. Content is not clipped, may render outside the element's box.
+  example: []
+  syntax:
+    content: Visible = 0
+    return:
+      type: RTB.Blazor.Styled.Components.Overflow.OverflowMode
+- uid: RTB.Blazor.Styled.Components.Overflow.OverflowMode.Hidden
+  commentId: F:RTB.Blazor.Styled.Components.Overflow.OverflowMode.Hidden
+  id: Hidden
+  parent: RTB.Blazor.Styled.Components.Overflow.OverflowMode
+  langs:
+  - csharp
+  - vb
+  name: Hidden
+  nameWithType: Overflow.OverflowMode.Hidden
+  fullName: RTB.Blazor.Styled.Components.Overflow.OverflowMode.Hidden
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Overflow.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Hidden
+    path: ../src/RTB.Styled/Components/Overflow.cs
+    startLine: 30
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Maps to 'hidden'. Content is clipped, no scrollbars.
+  example: []
+  syntax:
+    content: Hidden = 1
+    return:
+      type: RTB.Blazor.Styled.Components.Overflow.OverflowMode
+- uid: RTB.Blazor.Styled.Components.Overflow.OverflowMode.Scroll
+  commentId: F:RTB.Blazor.Styled.Components.Overflow.OverflowMode.Scroll
+  id: Scroll
+  parent: RTB.Blazor.Styled.Components.Overflow.OverflowMode
+  langs:
+  - csharp
+  - vb
+  name: Scroll
+  nameWithType: Overflow.OverflowMode.Scroll
+  fullName: RTB.Blazor.Styled.Components.Overflow.OverflowMode.Scroll
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Overflow.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Scroll
+    path: ../src/RTB.Styled/Components/Overflow.cs
+    startLine: 32
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Maps to 'scroll'. Content is clipped and scrollbars are always shown.
+  example: []
+  syntax:
+    content: Scroll = 2
+    return:
+      type: RTB.Blazor.Styled.Components.Overflow.OverflowMode
+- uid: RTB.Blazor.Styled.Components.Overflow.OverflowMode.Auto
+  commentId: F:RTB.Blazor.Styled.Components.Overflow.OverflowMode.Auto
+  id: Auto
+  parent: RTB.Blazor.Styled.Components.Overflow.OverflowMode
+  langs:
+  - csharp
+  - vb
+  name: Auto
+  nameWithType: Overflow.OverflowMode.Auto
+  fullName: RTB.Blazor.Styled.Components.Overflow.OverflowMode.Auto
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Overflow.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Auto
+    path: ../src/RTB.Styled/Components/Overflow.cs
+    startLine: 34
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Maps to 'auto'. Content is clipped and scrollbars appear when needed.
+  example: []
+  syntax:
+    content: Auto = 3
+    return:
+      type: RTB.Blazor.Styled.Components.Overflow.OverflowMode
+references:
+- uid: RTB.Blazor.Styled.Components
+  commentId: N:RTB.Blazor.Styled.Components
+  href: RTB.html
+  name: RTB.Blazor.Styled.Components
+  nameWithType: RTB.Blazor.Styled.Components
+  fullName: RTB.Blazor.Styled.Components
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+- uid: System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  parent: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  definition: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  commentId: T:RTB.Blazor.Styled.Helper.CssEnumExtensions
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html
+  name: CssEnumExtensions
+  nameWithType: CssEnumExtensions
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: RTB.Blazor.Styled.Components.Overflow.OverflowMode
+  commentId: T:RTB.Blazor.Styled.Components.Overflow.OverflowMode
+  parent: RTB.Blazor.Styled.Components
+  href: RTB.Blazor.Styled.Components.Overflow.html
+  name: Overflow.OverflowMode
+  nameWithType: Overflow.OverflowMode
+  fullName: RTB.Blazor.Styled.Components.Overflow.OverflowMode
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Overflow
+    name: Overflow
+    href: RTB.Blazor.Styled.Components.Overflow.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Overflow.OverflowMode
+    name: OverflowMode
+    href: RTB.Blazor.Styled.Components.Overflow.OverflowMode.html
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Overflow
+    name: Overflow
+    href: RTB.Blazor.Styled.Components.Overflow.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Overflow.OverflowMode
+    name: OverflowMode
+    href: RTB.Blazor.Styled.Components.Overflow.OverflowMode.html

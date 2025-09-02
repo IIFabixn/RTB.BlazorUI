@@ -1,0 +1,368 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Core.IStyleFragment
+  commentId: T:RTB.Blazor.Styled.Core.IStyleFragment
+  id: IStyleFragment
+  parent: RTB.Blazor.Styled.Core
+  children:
+  - RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  langs:
+  - csharp
+  - vb
+  name: IStyleFragment
+  nameWithType: IStyleFragment
+  fullName: RTB.Blazor.Styled.Core.IStyleFragment
+  type: Interface
+  source:
+    remote:
+      path: src/RTB.Styled/Core/IStyleFragment.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: IStyleFragment
+    path: ../src/RTB.Styled/Core/IStyleFragment.cs
+    startLine: 18
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Defines a minimal contract for a style fragment capable of emitting CSS into a <xref href="RTB.Blazor.Styled.Core.ScopedWriter" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    - Fragments should write directly to the provided writer to minimize allocations.
+
+    - Use the writer's current selector scope; push nested scopes via <xref href="RTB.Blazor.Styled.Core.ScopedWriter.WithSelector(System.String%2cSystem.Action)" data-throw-if-not-resolved="false"></xref> when needed.
+
+    - Do not capture or store the writer beyond the call to <xref href="RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)" data-throw-if-not-resolved="false"></xref>.
+
+    - No validation or escaping is performed; callers should provide valid selectors and declarations.
+
+    - Thread-safety is not required; a single writer should not be used concurrently from multiple threads.
+  example: []
+  syntax:
+    content: public interface IStyleFragment
+    content.vb: Public Interface IStyleFragment
+- uid: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  commentId: M:RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  id: Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  parent: RTB.Blazor.Styled.Core.IStyleFragment
+  langs:
+  - csharp
+  - vb
+  name: Emit(ScopedWriter)
+  nameWithType: IStyleFragment.Emit(ScopedWriter)
+  fullName: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Core/IStyleFragment.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Emit
+    path: ../src/RTB.Styled/Core/IStyleFragment.cs
+    startLine: 31
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Emits CSS for this fragment into the provided <xref href="RTB.Blazor.Styled.Core.ScopedWriter" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    Implementations should:
+
+    - Write directly via <xref href="RTB.Blazor.Styled.Core.ScopedWriter.Write(System.String)" data-throw-if-not-resolved="false"></xref>, <xref href="RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock(System.String%2cSystem.Collections.Generic.IReadOnlyDictionary%7bSystem.String%2cSystem.String%7d)" data-throw-if-not-resolved="false"></xref>,
+      and <xref href="RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations(System.Collections.Generic.IReadOnlyDictionary%7bSystem.String%2cSystem.String%7d)" data-throw-if-not-resolved="false"></xref>.
+    - Restore any selector scope they alter, preferably by using <xref href="RTB.Blazor.Styled.Core.ScopedWriter.WithSelector(System.String%2cSystem.Action)" data-throw-if-not-resolved="false"></xref>.
+
+    - Treat <code class="paramref">w</code> as non-null; passing null is invalid and may result in an <xref href="System.ArgumentNullException" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: void Emit(ScopedWriter w)
+    parameters:
+    - id: w
+      type: RTB.Blazor.Styled.Core.ScopedWriter
+      description: The writer that accumulates CSS and manages selector scope.
+    content.vb: Sub Emit(w As ScopedWriter)
+  overload: RTB.Blazor.Styled.Core.IStyleFragment.Emit*
+references:
+- uid: RTB.Blazor.Styled.Core.ScopedWriter
+  commentId: T:RTB.Blazor.Styled.Core.ScopedWriter
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  name: ScopedWriter
+  nameWithType: ScopedWriter
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.WithSelector(System.String,System.Action)
+  commentId: M:RTB.Blazor.Styled.Core.ScopedWriter.WithSelector(System.String,System.Action)
+  isExternal: true
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_WithSelector_System_String_System_Action_
+  name: WithSelector(string, Action)
+  nameWithType: ScopedWriter.WithSelector(string, Action)
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.WithSelector(string, System.Action)
+  nameWithType.vb: ScopedWriter.WithSelector(String, Action)
+  fullName.vb: RTB.Blazor.Styled.Core.ScopedWriter.WithSelector(String, System.Action)
+  name.vb: WithSelector(String, Action)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter.WithSelector(System.String,System.Action)
+    name: WithSelector
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_WithSelector_System_String_System_Action_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Action
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter.WithSelector(System.String,System.Action)
+    name: WithSelector
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_WithSelector_System_String_System_Action_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Action
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action
+  - name: )
+- uid: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  commentId: M:RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  parent: RTB.Blazor.Styled.Core.IStyleFragment
+  href: RTB.Blazor.Styled.Core.IStyleFragment.html#RTB_Blazor_Styled_Core_IStyleFragment_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  name: Emit(ScopedWriter)
+  nameWithType: IStyleFragment.Emit(ScopedWriter)
+  fullName: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+    name: Emit
+    href: RTB.Blazor.Styled.Core.IStyleFragment.html#RTB_Blazor_Styled_Core_IStyleFragment_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter
+    name: ScopedWriter
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+    name: Emit
+    href: RTB.Blazor.Styled.Core.IStyleFragment.html#RTB_Blazor_Styled_Core_IStyleFragment_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter
+    name: ScopedWriter
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  - name: )
+- uid: RTB.Blazor.Styled.Core
+  commentId: N:RTB.Blazor.Styled.Core
+  href: RTB.html
+  name: RTB.Blazor.Styled.Core
+  nameWithType: RTB.Blazor.Styled.Core
+  fullName: RTB.Blazor.Styled.Core
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+- uid: RTB.Blazor.Styled.Core.IStyleFragment
+  commentId: T:RTB.Blazor.Styled.Core.IStyleFragment
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.IStyleFragment.html
+  name: IStyleFragment
+  nameWithType: IStyleFragment
+  fullName: RTB.Blazor.Styled.Core.IStyleFragment
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.Write(System.String)
+  commentId: M:RTB.Blazor.Styled.Core.ScopedWriter.Write(System.String)
+  isExternal: true
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_Write_System_String_
+  name: Write(string)
+  nameWithType: ScopedWriter.Write(string)
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.Write(string)
+  nameWithType.vb: ScopedWriter.Write(String)
+  fullName.vb: RTB.Blazor.Styled.Core.ScopedWriter.Write(String)
+  name.vb: Write(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter.Write(System.String)
+    name: Write
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_Write_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter.Write(System.String)
+    name: Write
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_Write_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  commentId: M:RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  isExternal: true
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_WriteRuleBlock_System_String_System_Collections_Generic_IReadOnlyDictionary_System_String_System_String__
+  name: WriteRuleBlock(string, IReadOnlyDictionary<string, string>)
+  nameWithType: ScopedWriter.WriteRuleBlock(string, IReadOnlyDictionary<string, string>)
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock(string, System.Collections.Generic.IReadOnlyDictionary<string, string>)
+  nameWithType.vb: ScopedWriter.WriteRuleBlock(String, IReadOnlyDictionary(Of String, String))
+  fullName.vb: RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock(String, System.Collections.Generic.IReadOnlyDictionary(Of String, String))
+  name.vb: WriteRuleBlock(String, IReadOnlyDictionary(Of String, String))
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+    name: WriteRuleBlock
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_WriteRuleBlock_System_String_System_Collections_Generic_IReadOnlyDictionary_System_String_System_String__
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+    name: WriteRuleBlock
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_WriteRuleBlock_System_String_System_Collections_Generic_IReadOnlyDictionary_System_String_System_String__
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  commentId: M:RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  isExternal: true
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_WriteDeclarations_System_Collections_Generic_IReadOnlyDictionary_System_String_System_String__
+  name: WriteDeclarations(IReadOnlyDictionary<string, string>)
+  nameWithType: ScopedWriter.WriteDeclarations(IReadOnlyDictionary<string, string>)
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations(System.Collections.Generic.IReadOnlyDictionary<string, string>)
+  nameWithType.vb: ScopedWriter.WriteDeclarations(IReadOnlyDictionary(Of String, String))
+  fullName.vb: RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations(System.Collections.Generic.IReadOnlyDictionary(Of String, String))
+  name.vb: WriteDeclarations(IReadOnlyDictionary(Of String, String))
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+    name: WriteDeclarations
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_WriteDeclarations_System_Collections_Generic_IReadOnlyDictionary_System_String_System_String__
+  - name: (
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+    name: WriteDeclarations
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_WriteDeclarations_System_Collections_Generic_IReadOnlyDictionary_System_String_System_String__
+  - name: (
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: RTB.Blazor.Styled.Core.IStyleFragment.Emit*
+  commentId: Overload:RTB.Blazor.Styled.Core.IStyleFragment.Emit
+  href: RTB.Blazor.Styled.Core.IStyleFragment.html#RTB_Blazor_Styled_Core_IStyleFragment_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  name: Emit
+  nameWithType: IStyleFragment.Emit
+  fullName: RTB.Blazor.Styled.Core.IStyleFragment.Emit

@@ -1,0 +1,758 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Helper.ElementSelector
+  commentId: T:RTB.Blazor.Styled.Helper.ElementSelector
+  id: ElementSelector
+  parent: RTB.Blazor.Styled.Helper
+  children:
+  - RTB.Blazor.Styled.Helper.ElementSelector.#ctor(System.String)
+  - RTB.Blazor.Styled.Helper.ElementSelector.Name
+  - RTB.Blazor.Styled.Helper.ElementSelector.Render
+  langs:
+  - csharp
+  - vb
+  name: ElementSelector
+  nameWithType: ElementSelector
+  fullName: RTB.Blazor.Styled.Helper.ElementSelector
+  type: Class
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: ElementSelector
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 152
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: CSS selector for an HTML element by name.
+  example: []
+  syntax:
+    content: 'public sealed record ElementSelector : SelectorExpression, IEquatable<SelectorExpression>, IEquatable<ElementSelector>'
+    content.vb: Public NotInheritable Class ElementSelector Inherits SelectorExpression Implements IEquatable(Of SelectorExpression), IEquatable(Of ElementSelector)
+  inheritance:
+  - System.Object
+  - RTB.Blazor.Styled.Helper.SelectorExpression
+  implements:
+  - System.IEquatable{RTB.Blazor.Styled.Helper.SelectorExpression}
+  - System.IEquatable{RTB.Blazor.Styled.Helper.ElementSelector}
+  inheritedMembers:
+  - RTB.Blazor.Styled.Helper.SelectorExpression.Element(System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.Id(System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.Class(System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(System.String,System.String,System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RTB.Blazor.Styled.Helper.ElementSelector.#ctor(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.ElementSelector.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: RTB.Blazor.Styled.Helper.ElementSelector
+  langs:
+  - csharp
+  - vb
+  name: ElementSelector(string)
+  nameWithType: ElementSelector.ElementSelector(string)
+  fullName: RTB.Blazor.Styled.Helper.ElementSelector.ElementSelector(string)
+  type: Constructor
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: .ctor
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 152
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: CSS selector for an HTML element by name.
+  example: []
+  syntax:
+    content: public ElementSelector(string Name)
+    parameters:
+    - id: Name
+      type: System.String
+      description: HTML tag name.
+    content.vb: Public Sub New(Name As String)
+  overload: RTB.Blazor.Styled.Helper.ElementSelector.#ctor*
+  nameWithType.vb: ElementSelector.New(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.ElementSelector.New(String)
+  name.vb: New(String)
+- uid: RTB.Blazor.Styled.Helper.ElementSelector.Name
+  commentId: P:RTB.Blazor.Styled.Helper.ElementSelector.Name
+  id: Name
+  parent: RTB.Blazor.Styled.Helper.ElementSelector
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ElementSelector.Name
+  fullName: RTB.Blazor.Styled.Helper.ElementSelector.Name
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Name
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 152
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: HTML tag name.
+  example: []
+  syntax:
+    content: public string Name { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: RTB.Blazor.Styled.Helper.ElementSelector.Name*
+- uid: RTB.Blazor.Styled.Helper.ElementSelector.Render
+  commentId: M:RTB.Blazor.Styled.Helper.ElementSelector.Render
+  id: Render
+  parent: RTB.Blazor.Styled.Helper.ElementSelector
+  langs:
+  - csharp
+  - vb
+  name: Render()
+  nameWithType: ElementSelector.Render()
+  fullName: RTB.Blazor.Styled.Helper.ElementSelector.Render()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Render
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 155
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Renders the selector to CSS. Implemented by derived records.
+  example: []
+  syntax:
+    content: protected override string Render()
+    return:
+      type: System.String
+    content.vb: Protected Overrides Function Render() As String
+  overridden: RTB.Blazor.Styled.Helper.SelectorExpression.Render
+  overload: RTB.Blazor.Styled.Helper.ElementSelector.Render*
+references:
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression
+  commentId: T:RTB.Blazor.Styled.Helper.SelectorExpression
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html
+  name: SelectorExpression
+  nameWithType: SelectorExpression
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression
+- uid: System.IEquatable{RTB.Blazor.Styled.Helper.SelectorExpression}
+  commentId: T:System.IEquatable{RTB.Blazor.Styled.Helper.SelectorExpression}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SelectorExpression>
+  nameWithType: IEquatable<SelectorExpression>
+  fullName: System.IEquatable<RTB.Blazor.Styled.Helper.SelectorExpression>
+  nameWithType.vb: IEquatable(Of SelectorExpression)
+  fullName.vb: System.IEquatable(Of RTB.Blazor.Styled.Helper.SelectorExpression)
+  name.vb: IEquatable(Of SelectorExpression)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression
+    name: SelectorExpression
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression
+    name: SelectorExpression
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html
+  - name: )
+- uid: System.IEquatable{RTB.Blazor.Styled.Helper.ElementSelector}
+  commentId: T:System.IEquatable{RTB.Blazor.Styled.Helper.ElementSelector}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<ElementSelector>
+  nameWithType: IEquatable<ElementSelector>
+  fullName: System.IEquatable<RTB.Blazor.Styled.Helper.ElementSelector>
+  nameWithType.vb: IEquatable(Of ElementSelector)
+  fullName.vb: System.IEquatable(Of RTB.Blazor.Styled.Helper.ElementSelector)
+  name.vb: IEquatable(Of ElementSelector)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RTB.Blazor.Styled.Helper.ElementSelector
+    name: ElementSelector
+    href: RTB.Blazor.Styled.Helper.ElementSelector.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.ElementSelector
+    name: ElementSelector
+    href: RTB.Blazor.Styled.Helper.ElementSelector.html
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.Element(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.Element(System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Element_System_String_
+  name: Element(string)
+  nameWithType: SelectorExpression.Element(string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.Element(string)
+  nameWithType.vb: SelectorExpression.Element(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.Element(String)
+  name.vb: Element(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Element(System.String)
+    name: Element
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Element_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Element(System.String)
+    name: Element
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Element_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.Id(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.Id(System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Id_System_String_
+  name: Id(string)
+  nameWithType: SelectorExpression.Id(string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.Id(string)
+  nameWithType.vb: SelectorExpression.Id(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.Id(String)
+  name.vb: Id(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Id(System.String)
+    name: Id
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Id_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Id(System.String)
+    name: Id
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Id_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.Class(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.Class(System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Class_System_String_
+  name: Class(string)
+  nameWithType: SelectorExpression.Class(string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.Class(string)
+  nameWithType.vb: SelectorExpression.Class(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.Class(String)
+  name.vb: Class(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Class(System.String)
+    name: Class
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Class_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Class(System.String)
+    name: Class
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Class_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(System.String,System.String,System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(System.String,System.String,System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Attribute_System_String_System_String_System_String_
+  name: Attribute(string, string, string)
+  nameWithType: SelectorExpression.Attribute(string, string, string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(string, string, string)
+  nameWithType.vb: SelectorExpression.Attribute(String, String, String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(String, String, String)
+  name.vb: Attribute(String, String, String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(System.String,System.String,System.String)
+    name: Attribute
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Attribute_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(System.String,System.String,System.String)
+    name: Attribute
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Attribute_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoClass_System_String_
+  name: PseudoClass(string)
+  nameWithType: SelectorExpression.PseudoClass(string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(string)
+  nameWithType.vb: SelectorExpression.PseudoClass(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(String)
+  name.vb: PseudoClass(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(System.String)
+    name: PseudoClass
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoClass_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(System.String)
+    name: PseudoClass
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoClass_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoElement_System_String_
+  name: PseudoElement(string)
+  nameWithType: SelectorExpression.PseudoElement(string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(string)
+  nameWithType.vb: SelectorExpression.PseudoElement(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(String)
+  name.vb: PseudoElement(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(System.String)
+    name: PseudoElement
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoElement_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(System.String)
+    name: PseudoElement
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoElement_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.ToString
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.ToString
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_ToString
+  name: ToString()
+  nameWithType: SelectorExpression.ToString()
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.ToString()
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.ToString
+    name: ToString
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_ToString
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.ToString
+    name: ToString
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_ToString
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.ElementSelector.#ctor*
+  commentId: Overload:RTB.Blazor.Styled.Helper.ElementSelector.#ctor
+  href: RTB.Blazor.Styled.Helper.ElementSelector.html#RTB_Blazor_Styled_Helper_ElementSelector__ctor_System_String_
+  name: ElementSelector
+  nameWithType: ElementSelector.ElementSelector
+  fullName: RTB.Blazor.Styled.Helper.ElementSelector.ElementSelector
+  nameWithType.vb: ElementSelector.New
+  fullName.vb: RTB.Blazor.Styled.Helper.ElementSelector.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RTB.Blazor.Styled.Helper.ElementSelector.Name*
+  commentId: Overload:RTB.Blazor.Styled.Helper.ElementSelector.Name
+  href: RTB.Blazor.Styled.Helper.ElementSelector.html#RTB_Blazor_Styled_Helper_ElementSelector_Name
+  name: Name
+  nameWithType: ElementSelector.Name
+  fullName: RTB.Blazor.Styled.Helper.ElementSelector.Name
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.Render
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.Render
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Render
+  name: Render()
+  nameWithType: SelectorExpression.Render()
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.Render()
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Render
+    name: Render
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Render
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Render
+    name: Render
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Render
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.ElementSelector.Render*
+  commentId: Overload:RTB.Blazor.Styled.Helper.ElementSelector.Render
+  href: RTB.Blazor.Styled.Helper.ElementSelector.html#RTB_Blazor_Styled_Helper_ElementSelector_Render
+  name: Render
+  nameWithType: ElementSelector.Render
+  fullName: RTB.Blazor.Styled.Helper.ElementSelector.Render

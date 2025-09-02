@@ -1,0 +1,536 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.Dialog.IDialogService
+  commentId: T:RTB.Blazor.Services.Dialog.IDialogService
+  id: IDialogService
+  parent: RTB.Blazor.Services.Dialog
+  children:
+  - RTB.Blazor.Services.Dialog.IDialogService.Alert``1(System.Collections.Generic.Dictionary{System.String,System.Object})
+  - RTB.Blazor.Services.Dialog.IDialogService.ShowAsync(System.Type,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object})
+  - RTB.Blazor.Services.Dialog.IDialogService.ShowAsync``1(System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object})
+  langs:
+  - csharp
+  - vb
+  name: IDialogService
+  nameWithType: IDialogService
+  fullName: RTB.Blazor.Services.Dialog.IDialogService
+  type: Interface
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: IDialogService
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 122
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: Service surface for presenting dialogs.
+  remarks: >-
+    Registration (Program.cs):
+
+    <pre><code class="lang-csharp">builder.Services.AddScoped&lt;IDialogService, DialogService&gt;();</code></pre>
+
+    App.razor:
+
+    <pre><code class="lang-csharp">@using RTB.Blazor.Services.Dialog
+
+    @inject IDialogService DialogService
+
+
+    &lt;CascadingValue Value="DialogService"&gt;
+        &lt;Router AppAssembly="typeof(App).Assembly"&gt;
+            &lt;Found Context="routeData"&gt;
+                &lt;RouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)" /&gt;
+            &lt;/Found&gt;
+            &lt;NotFound&gt;...&lt;/NotFound&gt;
+        &lt;/Router&gt;
+        &lt;DialogProvider /&gt;
+    &lt;/CascadingValue&gt;</code></pre>
+
+    Usage in a component:
+
+    <pre><code class="lang-csharp">@inject IDialogService Dialogs
+
+
+    var result = await Dialogs.ShowAsync&lt;MyDialog&gt;(new()
+
+    {
+        ["Title"] = "Edit item",
+        ["Model"] = item
+    });
+
+    if (result.Kind is DialogResultKind.Ok) { /* handle success */ }</code></pre>
+  example: []
+  syntax:
+    content: public interface IDialogService
+    content.vb: Public Interface IDialogService
+- uid: RTB.Blazor.Services.Dialog.IDialogService.ShowAsync``1(System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object})
+  commentId: M:RTB.Blazor.Services.Dialog.IDialogService.ShowAsync``1(System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object})
+  id: ShowAsync``1(System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object})
+  parent: RTB.Blazor.Services.Dialog.IDialogService
+  langs:
+  - csharp
+  - vb
+  name: ShowAsync<TDialog>(Dictionary<string, object?>?, Dictionary<string, object?>?)
+  nameWithType: IDialogService.ShowAsync<TDialog>(Dictionary<string, object?>?, Dictionary<string, object?>?)
+  fullName: RTB.Blazor.Services.Dialog.IDialogService.ShowAsync<TDialog>(System.Collections.Generic.Dictionary<string, object?>?, System.Collections.Generic.Dictionary<string, object?>?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: ShowAsync
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 131
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: Shows a dialog rendering the specified <code class="typeparamref">TDialog</code> component.
+  example: []
+  syntax:
+    content: 'Task<DialogResult> ShowAsync<TDialog>(Dictionary<string, object?>? contentParameters = null, Dictionary<string, object?>? dialogParameters = null) where TDialog : IComponent'
+    parameters:
+    - id: contentParameters
+      type: System.Collections.Generic.Dictionary{System.String,System.Object}
+      description: Attributes passed to the dialog content component.
+    - id: dialogParameters
+      type: System.Collections.Generic.Dictionary{System.String,System.Object}
+      description: Attributes passed to the dialog host (e.g., size, modality).
+    typeParameters:
+    - id: TDialog
+      description: The dialog content component type.
+    return:
+      type: System.Threading.Tasks.Task{RTB.Blazor.Services.Dialog.DialogResult}
+      description: A task that completes with the <xref href="RTB.Blazor.Services.Dialog.DialogResult" data-throw-if-not-resolved="false"></xref> when the dialog closes.
+    content.vb: Function ShowAsync(Of TDialog As IComponent)(contentParameters As Dictionary(Of String, Object) = Nothing, dialogParameters As Dictionary(Of String, Object) = Nothing) As Task(Of DialogResult)
+  overload: RTB.Blazor.Services.Dialog.IDialogService.ShowAsync*
+  nameWithType.vb: IDialogService.ShowAsync(Of TDialog)(Dictionary(Of String, Object), Dictionary(Of String, Object))
+  fullName.vb: RTB.Blazor.Services.Dialog.IDialogService.ShowAsync(Of TDialog)(System.Collections.Generic.Dictionary(Of String, Object), System.Collections.Generic.Dictionary(Of String, Object))
+  name.vb: ShowAsync(Of TDialog)(Dictionary(Of String, Object), Dictionary(Of String, Object))
+- uid: RTB.Blazor.Services.Dialog.IDialogService.ShowAsync(System.Type,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object})
+  commentId: M:RTB.Blazor.Services.Dialog.IDialogService.ShowAsync(System.Type,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object})
+  id: ShowAsync(System.Type,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object})
+  parent: RTB.Blazor.Services.Dialog.IDialogService
+  langs:
+  - csharp
+  - vb
+  name: ShowAsync(Type, Dictionary<string, object?>?, Dictionary<string, object?>?)
+  nameWithType: IDialogService.ShowAsync(Type, Dictionary<string, object?>?, Dictionary<string, object?>?)
+  fullName: RTB.Blazor.Services.Dialog.IDialogService.ShowAsync(System.Type, System.Collections.Generic.Dictionary<string, object?>?, System.Collections.Generic.Dictionary<string, object?>?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: ShowAsync
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 143
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: Shows a dialog rendering the specified component <code class="paramref">dialogType</code>.
+  example: []
+  syntax:
+    content: Task<DialogResult> ShowAsync(Type dialogType, Dictionary<string, object?>? contentParameters = null, Dictionary<string, object?>? dialogParameters = null)
+    parameters:
+    - id: dialogType
+      type: System.Type
+      description: The dialog content component type (must implement <xref href="Microsoft.AspNetCore.Components.IComponent" data-throw-if-not-resolved="false"></xref>).
+    - id: contentParameters
+      type: System.Collections.Generic.Dictionary{System.String,System.Object}
+      description: Attributes passed to the dialog content component.
+    - id: dialogParameters
+      type: System.Collections.Generic.Dictionary{System.String,System.Object}
+      description: Attributes passed to the dialog host (e.g., size, modality).
+    return:
+      type: System.Threading.Tasks.Task{RTB.Blazor.Services.Dialog.DialogResult}
+      description: A task that completes with the <xref href="RTB.Blazor.Services.Dialog.DialogResult" data-throw-if-not-resolved="false"></xref> when the dialog closes.
+    content.vb: Function ShowAsync(dialogType As Type, contentParameters As Dictionary(Of String, Object) = Nothing, dialogParameters As Dictionary(Of String, Object) = Nothing) As Task(Of DialogResult)
+  overload: RTB.Blazor.Services.Dialog.IDialogService.ShowAsync*
+  nameWithType.vb: IDialogService.ShowAsync(Type, Dictionary(Of String, Object), Dictionary(Of String, Object))
+  fullName.vb: RTB.Blazor.Services.Dialog.IDialogService.ShowAsync(System.Type, System.Collections.Generic.Dictionary(Of String, Object), System.Collections.Generic.Dictionary(Of String, Object))
+  name.vb: ShowAsync(Type, Dictionary(Of String, Object), Dictionary(Of String, Object))
+- uid: RTB.Blazor.Services.Dialog.IDialogService.Alert``1(System.Collections.Generic.Dictionary{System.String,System.Object})
+  commentId: M:RTB.Blazor.Services.Dialog.IDialogService.Alert``1(System.Collections.Generic.Dictionary{System.String,System.Object})
+  id: Alert``1(System.Collections.Generic.Dictionary{System.String,System.Object})
+  parent: RTB.Blazor.Services.Dialog.IDialogService
+  langs:
+  - csharp
+  - vb
+  name: Alert<TDialog>(Dictionary<string, object?>?)
+  nameWithType: IDialogService.Alert<TDialog>(Dictionary<string, object?>?)
+  fullName: RTB.Blazor.Services.Dialog.IDialogService.Alert<TDialog>(System.Collections.Generic.Dictionary<string, object?>?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Alert
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 156
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: Presents a transient alert using the specified <code class="typeparamref">TDialog</code> content.
+  remarks: This is fire-and-forget and does not return a <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>. Use for notifications/toasts.
+  example: []
+  syntax:
+    content: 'void Alert<TDialog>(Dictionary<string, object?>? parameters = null) where TDialog : IComponent'
+    parameters:
+    - id: parameters
+      type: System.Collections.Generic.Dictionary{System.String,System.Object}
+      description: Attributes passed to the alert content component.
+    typeParameters:
+    - id: TDialog
+    content.vb: Sub Alert(Of TDialog As IComponent)(parameters As Dictionary(Of String, Object) = Nothing)
+  overload: RTB.Blazor.Services.Dialog.IDialogService.Alert*
+  nameWithType.vb: IDialogService.Alert(Of TDialog)(Dictionary(Of String, Object))
+  fullName.vb: RTB.Blazor.Services.Dialog.IDialogService.Alert(Of TDialog)(System.Collections.Generic.Dictionary(Of String, Object))
+  name.vb: Alert(Of TDialog)(Dictionary(Of String, Object))
+references:
+- uid: RTB.Blazor.Services.Dialog
+  commentId: N:RTB.Blazor.Services.Dialog
+  href: RTB.html
+  name: RTB.Blazor.Services.Dialog
+  nameWithType: RTB.Blazor.Services.Dialog
+  fullName: RTB.Blazor.Services.Dialog
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Dialog
+    name: Dialog
+    href: RTB.Blazor.Services.Dialog.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Dialog
+    name: Dialog
+    href: RTB.Blazor.Services.Dialog.html
+- uid: RTB.Blazor.Services.Dialog.DialogResult
+  commentId: T:RTB.Blazor.Services.Dialog.DialogResult
+  parent: RTB.Blazor.Services.Dialog
+  href: RTB.Blazor.Services.Dialog.DialogResult.html
+  name: DialogResult
+  nameWithType: DialogResult
+  fullName: RTB.Blazor.Services.Dialog.DialogResult
+- uid: RTB.Blazor.Services.Dialog.IDialogService.ShowAsync*
+  commentId: Overload:RTB.Blazor.Services.Dialog.IDialogService.ShowAsync
+  href: RTB.Blazor.Services.Dialog.IDialogService.html#RTB_Blazor_Services_Dialog_IDialogService_ShowAsync__1_System_Collections_Generic_Dictionary_System_String_System_Object__System_Collections_Generic_Dictionary_System_String_System_Object__
+  name: ShowAsync
+  nameWithType: IDialogService.ShowAsync
+  fullName: RTB.Blazor.Services.Dialog.IDialogService.ShowAsync
+- uid: System.Collections.Generic.Dictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, object>
+  nameWithType: Dictionary<string, object>
+  fullName: System.Collections.Generic.Dictionary<string, object>
+  nameWithType.vb: Dictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, Object)
+  name.vb: Dictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Threading.Tasks.Task{RTB.Blazor.Services.Dialog.DialogResult}
+  commentId: T:System.Threading.Tasks.Task{RTB.Blazor.Services.Dialog.DialogResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<DialogResult>
+  nameWithType: Task<DialogResult>
+  fullName: System.Threading.Tasks.Task<RTB.Blazor.Services.Dialog.DialogResult>
+  nameWithType.vb: Task(Of DialogResult)
+  fullName.vb: System.Threading.Tasks.Task(Of RTB.Blazor.Services.Dialog.DialogResult)
+  name.vb: Task(Of DialogResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: RTB.Blazor.Services.Dialog.DialogResult
+    name: DialogResult
+    href: RTB.Blazor.Services.Dialog.DialogResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Services.Dialog.DialogResult
+    name: DialogResult
+    href: RTB.Blazor.Services.Dialog.DialogResult.html
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Microsoft.AspNetCore.Components.IComponent
+  commentId: T:Microsoft.AspNetCore.Components.IComponent
+  parent: Microsoft.AspNetCore.Components
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.icomponent
+  name: IComponent
+  nameWithType: IComponent
+  fullName: Microsoft.AspNetCore.Components.IComponent
+- uid: System.Type
+  commentId: T:System.Type
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.type
+  name: Type
+  nameWithType: Type
+  fullName: System.Type
+- uid: Microsoft.AspNetCore.Components
+  commentId: N:Microsoft.AspNetCore.Components
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Components
+  nameWithType: Microsoft.AspNetCore.Components
+  fullName: Microsoft.AspNetCore.Components
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Components
+    name: Components
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Components
+    name: Components
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: RTB.Blazor.Services.Dialog.IDialogService.Alert*
+  commentId: Overload:RTB.Blazor.Services.Dialog.IDialogService.Alert
+  href: RTB.Blazor.Services.Dialog.IDialogService.html#RTB_Blazor_Services_Dialog_IDialogService_Alert__1_System_Collections_Generic_Dictionary_System_String_System_Object__
+  name: Alert
+  nameWithType: IDialogService.Alert
+  fullName: RTB.Blazor.Services.Dialog.IDialogService.Alert

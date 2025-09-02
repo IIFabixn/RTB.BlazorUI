@@ -1,0 +1,42 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Interfaces
+  commentId: N:RTB.Blazor.Interfaces
+  id: RTB.Blazor.Interfaces
+  children:
+  - RTB.Blazor.Interfaces.IRegister`1
+  langs:
+  - csharp
+  - vb
+  name: RTB.Blazor.Interfaces
+  nameWithType: RTB.Blazor.Interfaces
+  fullName: RTB.Blazor.Interfaces
+  type: Namespace
+  assemblies:
+  - RTB.Blazor
+references:
+- uid: RTB.Blazor.Interfaces.IRegister`1
+  commentId: T:RTB.Blazor.Interfaces.IRegister`1
+  href: RTB.Blazor.Interfaces.IRegister-1.html
+  name: IRegister<T>
+  nameWithType: IRegister<T>
+  fullName: RTB.Blazor.Interfaces.IRegister<T>
+  nameWithType.vb: IRegister(Of T)
+  fullName.vb: RTB.Blazor.Interfaces.IRegister(Of T)
+  name.vb: IRegister(Of T)
+  spec.csharp:
+  - uid: RTB.Blazor.Interfaces.IRegister`1
+    name: IRegister
+    href: RTB.Blazor.Interfaces.IRegister-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: RTB.Blazor.Interfaces.IRegister`1
+    name: IRegister
+    href: RTB.Blazor.Interfaces.IRegister-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

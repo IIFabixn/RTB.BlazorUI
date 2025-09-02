@@ -1,0 +1,429 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Components.OtherExtensions
+  commentId: T:RTB.Blazor.Styled.Components.OtherExtensions
+  id: OtherExtensions
+  parent: RTB.Blazor.Styled.Components
+  children:
+  - RTB.Blazor.Styled.Components.OtherExtensions.Other(RTB.Blazor.Styled.Core.StyleBuilder,System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: OtherExtensions
+  nameWithType: OtherExtensions
+  fullName: RTB.Blazor.Styled.Components.OtherExtensions
+  type: Class
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Other.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: OtherExtensions
+    path: ../src/RTB.Styled/Components/Other.cs
+    startLine: 63
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Extension helpers for emitting arbitrary CSS declarations using <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static class OtherExtensions
+    content.vb: Public Module OtherExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RTB.Blazor.Styled.Components.OtherExtensions.Other(RTB.Blazor.Styled.Core.StyleBuilder,System.String,System.String)
+  commentId: M:RTB.Blazor.Styled.Components.OtherExtensions.Other(RTB.Blazor.Styled.Core.StyleBuilder,System.String,System.String)
+  id: Other(RTB.Blazor.Styled.Core.StyleBuilder,System.String,System.String)
+  isExtensionMethod: true
+  parent: RTB.Blazor.Styled.Components.OtherExtensions
+  langs:
+  - csharp
+  - vb
+  name: Other(StyleBuilder, string, string?)
+  nameWithType: OtherExtensions.Other(StyleBuilder, string, string?)
+  fullName: RTB.Blazor.Styled.Components.OtherExtensions.Other(RTB.Blazor.Styled.Core.StyleBuilder, string, string?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Other.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Other
+    path: ../src/RTB.Styled/Components/Other.cs
+    startLine: 82
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Adds a custom CSS property and value to the style builder.
+  remarks: No declaration is added when either <code class="paramref">property</code> or <code class="paramref">value</code> is null or whitespace.
+  example:
+  - >-
+    <pre><code class="lang-csharp">var css = StyleBuilder.Start
+        .Other("gap", "1rem")
+        .Other("--ring-color", "hsl(210 100% 50%)");</code></pre>
+  syntax:
+    content: public static StyleBuilder Other(this StyleBuilder builder, string property, string? value)
+    parameters:
+    - id: builder
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The target <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref>.
+    - id: property
+      type: System.String
+      description: The CSS property name (e.g., "gap", "--my-var"). Ignored when null or whitespace.
+    - id: value
+      type: System.String
+      description: The CSS value to assign. Ignored when null or whitespace.
+    return:
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The same <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref> instance for chaining.
+    content.vb: Public Shared Function Other(builder As StyleBuilder, [property] As String, value As String) As StyleBuilder
+  overload: RTB.Blazor.Styled.Components.OtherExtensions.Other*
+  nameWithType.vb: OtherExtensions.Other(StyleBuilder, String, String)
+  fullName.vb: RTB.Blazor.Styled.Components.OtherExtensions.Other(RTB.Blazor.Styled.Core.StyleBuilder, String, String)
+  name.vb: Other(StyleBuilder, String, String)
+references:
+- uid: RTB.Blazor.Styled.Core.StyleBuilder
+  commentId: T:RTB.Blazor.Styled.Core.StyleBuilder
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.StyleBuilder.html
+  name: StyleBuilder
+  nameWithType: StyleBuilder
+  fullName: RTB.Blazor.Styled.Core.StyleBuilder
+- uid: RTB.Blazor.Styled.Components
+  commentId: N:RTB.Blazor.Styled.Components
+  href: RTB.html
+  name: RTB.Blazor.Styled.Components
+  nameWithType: RTB.Blazor.Styled.Components
+  fullName: RTB.Blazor.Styled.Components
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Core
+  commentId: N:RTB.Blazor.Styled.Core
+  href: RTB.html
+  name: RTB.Blazor.Styled.Core
+  nameWithType: RTB.Blazor.Styled.Core
+  fullName: RTB.Blazor.Styled.Core
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RTB.Blazor.Styled.Components.OtherExtensions.Other*
+  commentId: Overload:RTB.Blazor.Styled.Components.OtherExtensions.Other
+  href: RTB.Blazor.Styled.Components.OtherExtensions.html#RTB_Blazor_Styled_Components_OtherExtensions_Other_RTB_Blazor_Styled_Core_StyleBuilder_System_String_System_String_
+  name: Other
+  nameWithType: OtherExtensions.Other
+  fullName: RTB.Blazor.Styled.Components.OtherExtensions.Other
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

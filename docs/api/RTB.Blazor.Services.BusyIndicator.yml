@@ -1,0 +1,99 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.BusyIndicator
+  commentId: N:RTB.Blazor.Services.BusyIndicator
+  id: RTB.Blazor.Services.BusyIndicator
+  children:
+  - RTB.Blazor.Services.BusyIndicator.BusyIndicator
+  - RTB.Blazor.Services.BusyIndicator.BusyTracker
+  - RTB.Blazor.Services.BusyIndicator.BusyTracker.BusyToken
+  - RTB.Blazor.Services.BusyIndicator.IBusyTracker
+  langs:
+  - csharp
+  - vb
+  name: RTB.Blazor.Services.BusyIndicator
+  nameWithType: RTB.Blazor.Services.BusyIndicator
+  fullName: RTB.Blazor.Services.BusyIndicator
+  type: Namespace
+  assemblies:
+  - RTB.Blazor
+references:
+- uid: RTB.Blazor.Services.BusyIndicator.BusyIndicator
+  commentId: T:RTB.Blazor.Services.BusyIndicator.BusyIndicator
+  href: RTB.Blazor.Services.BusyIndicator.BusyIndicator.html
+  name: BusyIndicator
+  nameWithType: BusyIndicator
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyIndicator
+- uid: RTB.Blazor.Services.BusyIndicator.IBusyTracker
+  commentId: T:RTB.Blazor.Services.BusyIndicator.IBusyTracker
+  parent: RTB.Blazor.Services.BusyIndicator
+  href: RTB.Blazor.Services.BusyIndicator.IBusyTracker.html
+  name: IBusyTracker
+  nameWithType: IBusyTracker
+  fullName: RTB.Blazor.Services.BusyIndicator.IBusyTracker
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker
+  commentId: T:RTB.Blazor.Services.BusyIndicator.BusyTracker
+  href: RTB.Blazor.Services.BusyIndicator.BusyTracker.html
+  name: BusyTracker
+  nameWithType: BusyTracker
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.BusyToken
+  commentId: T:RTB.Blazor.Services.BusyIndicator.BusyTracker.BusyToken
+  href: RTB.Blazor.Services.BusyIndicator.BusyTracker.html
+  name: BusyTracker.BusyToken
+  nameWithType: BusyTracker.BusyToken
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker.BusyToken
+  spec.csharp:
+  - uid: RTB.Blazor.Services.BusyIndicator.BusyTracker
+    name: BusyTracker
+    href: RTB.Blazor.Services.BusyIndicator.BusyTracker.html
+  - name: .
+  - uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.BusyToken
+    name: BusyToken
+    href: RTB.Blazor.Services.BusyIndicator.BusyTracker.BusyToken.html
+  spec.vb:
+  - uid: RTB.Blazor.Services.BusyIndicator.BusyTracker
+    name: BusyTracker
+    href: RTB.Blazor.Services.BusyIndicator.BusyTracker.html
+  - name: .
+  - uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.BusyToken
+    name: BusyToken
+    href: RTB.Blazor.Services.BusyIndicator.BusyTracker.BusyToken.html
+- uid: RTB.Blazor.Services.BusyIndicator
+  commentId: N:RTB.Blazor.Services.BusyIndicator
+  href: RTB.html
+  name: RTB.Blazor.Services.BusyIndicator
+  nameWithType: RTB.Blazor.Services.BusyIndicator
+  fullName: RTB.Blazor.Services.BusyIndicator
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.BusyIndicator
+    name: BusyIndicator
+    href: RTB.Blazor.Services.BusyIndicator.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.BusyIndicator
+    name: BusyIndicator
+    href: RTB.Blazor.Services.BusyIndicator.html

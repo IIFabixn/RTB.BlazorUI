@@ -1,0 +1,1096 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Core.DeclarationSet
+  commentId: T:RTB.Blazor.Styled.Core.DeclarationSet
+  id: DeclarationSet
+  parent: RTB.Blazor.Styled.Core
+  children:
+  - RTB.Blazor.Styled.Core.DeclarationSet.Add(System.String,System.String)
+  - RTB.Blazor.Styled.Core.DeclarationSet.Clear
+  - RTB.Blazor.Styled.Core.DeclarationSet.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  - RTB.Blazor.Styled.Core.DeclarationSet.GetEnumerator
+  - RTB.Blazor.Styled.Core.DeclarationSet.IsEmpty
+  - RTB.Blazor.Styled.Core.DeclarationSet.Join(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  langs:
+  - csharp
+  - vb
+  name: DeclarationSet
+  nameWithType: DeclarationSet
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet
+  type: Class
+  source:
+    remote:
+      path: src/RTB.Styled/Core/DeclarationSet.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: DeclarationSet
+    path: ../src/RTB.Styled/Core/DeclarationSet.cs
+    startLine: 21
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Represents a mutable set of CSS declarations (property/value pairs) destined for the writer's current selector.
+  remarks: >-
+    - Properties and values are trimmed on insert; null or whitespace-only inputs are ignored.<br />
+
+    - Adding the same property more than once overwrites the previous value (last-write-wins).<br />
+
+    - <xref href="RTB.Blazor.Styled.Core.DeclarationSet.Join(System.Collections.Generic.IEnumerable%7bSystem.Collections.Generic.KeyValuePair%7bSystem.String%2cSystem.String%7d%7d)" data-throw-if-not-resolved="false"></xref> merges another sequence using the same add rules.<br />
+
+    - <xref href="RTB.Blazor.Styled.Core.DeclarationSet.Emit(RTB.Blazor.Styled.Core.ScopedWriter)" data-throw-if-not-resolved="false"></xref> writes a rule block for <xref href="RTB.Blazor.Styled.Core.ScopedWriter.CurrentSelector" data-throw-if-not-resolved="false"></xref> and does nothing when empty.<br />
+
+    - Emission order follows the dictionary's enumeration order. While .NET currently preserves insertion order for <xref href="System.Collections.Generic.Dictionary%602" data-throw-if-not-resolved="false"></xref>, callers should not rely on a specific order.<br />
+
+    - No validation or escaping of CSS is performed; callers must provide valid CSS identifiers and values.<br />
+
+    - This type is not thread-safe.
+  example: []
+  syntax:
+    content: 'public sealed class DeclarationSet : IStyleFragment, IEnumerable<KeyValuePair<string, string>>, IEnumerable'
+    content.vb: Public NotInheritable Class DeclarationSet Implements IStyleFragment, IEnumerable(Of KeyValuePair(Of String, String)), IEnumerable
+  inheritance:
+  - System.Object
+  implements:
+  - RTB.Blazor.Styled.Core.IStyleFragment
+  - System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}
+  - System.Collections.IEnumerable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RTB.Blazor.Styled.Core.DeclarationSet.IsEmpty
+  commentId: P:RTB.Blazor.Styled.Core.DeclarationSet.IsEmpty
+  id: IsEmpty
+  parent: RTB.Blazor.Styled.Core.DeclarationSet
+  langs:
+  - csharp
+  - vb
+  name: IsEmpty
+  nameWithType: DeclarationSet.IsEmpty
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet.IsEmpty
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Core/DeclarationSet.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: IsEmpty
+    path: ../src/RTB.Styled/Core/DeclarationSet.cs
+    startLine: 28
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Gets a value indicating whether the set contains no declarations.
+  example: []
+  syntax:
+    content: public bool IsEmpty { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsEmpty As Boolean
+  overload: RTB.Blazor.Styled.Core.DeclarationSet.IsEmpty*
+- uid: RTB.Blazor.Styled.Core.DeclarationSet.Add(System.String,System.String)
+  commentId: M:RTB.Blazor.Styled.Core.DeclarationSet.Add(System.String,System.String)
+  id: Add(System.String,System.String)
+  parent: RTB.Blazor.Styled.Core.DeclarationSet
+  langs:
+  - csharp
+  - vb
+  name: Add(string, string)
+  nameWithType: DeclarationSet.Add(string, string)
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet.Add(string, string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Core/DeclarationSet.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Add
+    path: ../src/RTB.Styled/Core/DeclarationSet.cs
+    startLine: 39
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Adds or replaces a CSS declaration.
+  remarks: >-
+    Both <code class="paramref">prop</code> and <code class="paramref">value</code> are trimmed. If either is null/whitespace, the call is ignored.
+
+    When the same property is added multiple times, the last value wins.
+  example: []
+  syntax:
+    content: public void Add(string prop, string value)
+    parameters:
+    - id: prop
+      type: System.String
+      description: The CSS property name. Null or whitespace is ignored.
+    - id: value
+      type: System.String
+      description: The CSS value. Null or whitespace is ignored.
+    content.vb: Public Sub Add(prop As String, value As String)
+  overload: RTB.Blazor.Styled.Core.DeclarationSet.Add*
+  nameWithType.vb: DeclarationSet.Add(String, String)
+  fullName.vb: RTB.Blazor.Styled.Core.DeclarationSet.Add(String, String)
+  name.vb: Add(String, String)
+- uid: RTB.Blazor.Styled.Core.DeclarationSet.Join(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  commentId: M:RTB.Blazor.Styled.Core.DeclarationSet.Join(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  id: Join(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  parent: RTB.Blazor.Styled.Core.DeclarationSet
+  langs:
+  - csharp
+  - vb
+  name: Join(IEnumerable<KeyValuePair<string, string>>)
+  nameWithType: DeclarationSet.Join(IEnumerable<KeyValuePair<string, string>>)
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet.Join(System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Core/DeclarationSet.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Join
+    path: ../src/RTB.Styled/Core/DeclarationSet.cs
+    startLine: 52
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Merges a sequence of declarations into this set using last-write-wins semantics.
+  remarks: Each pair is processed via <xref href="RTB.Blazor.Styled.Core.DeclarationSet.Add(System.String%2cSystem.String)" data-throw-if-not-resolved="false"></xref>; null or whitespace keys/values are ignored.
+  example: []
+  syntax:
+    content: public void Join(IEnumerable<KeyValuePair<string, string>> source)
+    parameters:
+    - id: source
+      type: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}
+      description: The source sequence of property/value pairs. If null, the call is a no-op.
+    content.vb: Public Sub Join(source As IEnumerable(Of KeyValuePair(Of String, String)))
+  overload: RTB.Blazor.Styled.Core.DeclarationSet.Join*
+  nameWithType.vb: DeclarationSet.Join(IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName.vb: RTB.Blazor.Styled.Core.DeclarationSet.Join(System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  name.vb: Join(IEnumerable(Of KeyValuePair(Of String, String)))
+- uid: RTB.Blazor.Styled.Core.DeclarationSet.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  commentId: M:RTB.Blazor.Styled.Core.DeclarationSet.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  id: Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  parent: RTB.Blazor.Styled.Core.DeclarationSet
+  langs:
+  - csharp
+  - vb
+  name: Emit(ScopedWriter)
+  nameWithType: DeclarationSet.Emit(ScopedWriter)
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Core/DeclarationSet.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Emit
+    path: ../src/RTB.Styled/Core/DeclarationSet.cs
+    startLine: 67
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Emits a CSS rule block for the current selector into the provided writer.
+  remarks: >-
+    - No output is written if the set is empty.<br />
+
+    - Uses <xref href="RTB.Blazor.Styled.Core.ScopedWriter.CurrentSelector" data-throw-if-not-resolved="false"></xref> for the selector and writes all current declarations as-is.<br />
+
+    - This method does not clear the set after emission; callers manage lifecycle as needed.
+  example: []
+  syntax:
+    content: public void Emit(ScopedWriter w)
+    parameters:
+    - id: w
+      type: RTB.Blazor.Styled.Core.ScopedWriter
+      description: The writer that receives the CSS output. Must not be null.
+    content.vb: Public Sub Emit(w As ScopedWriter)
+  overload: RTB.Blazor.Styled.Core.DeclarationSet.Emit*
+  implements:
+  - RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+- uid: RTB.Blazor.Styled.Core.DeclarationSet.Clear
+  commentId: M:RTB.Blazor.Styled.Core.DeclarationSet.Clear
+  id: Clear
+  parent: RTB.Blazor.Styled.Core.DeclarationSet
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: DeclarationSet.Clear()
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet.Clear()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Core/DeclarationSet.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Clear
+    path: ../src/RTB.Styled/Core/DeclarationSet.cs
+    startLine: 76
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Removes all declarations from the set.
+  example: []
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: RTB.Blazor.Styled.Core.DeclarationSet.Clear*
+- uid: RTB.Blazor.Styled.Core.DeclarationSet.GetEnumerator
+  commentId: M:RTB.Blazor.Styled.Core.DeclarationSet.GetEnumerator
+  id: GetEnumerator
+  parent: RTB.Blazor.Styled.Core.DeclarationSet
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: DeclarationSet.GetEnumerator()
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Core/DeclarationSet.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: GetEnumerator
+    path: ../src/RTB.Styled/Core/DeclarationSet.cs
+    startLine: 85
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Returns an enumerator that iterates through the declarations in this set.
+  remarks: The enumeration order matches the underlying dictionary's enumeration order.
+  example: []
+  syntax:
+    content: public IEnumerator<KeyValuePair<string, string>> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{System.Collections.Generic.KeyValuePair{System.String,System.String}}
+      description: An enumerator over property/value pairs.
+    content.vb: Public Function GetEnumerator() As IEnumerator(Of KeyValuePair(Of String, String))
+  overload: RTB.Blazor.Styled.Core.DeclarationSet.GetEnumerator*
+  implements:
+  - System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}.GetEnumerator
+references:
+- uid: RTB.Blazor.Styled.Core.DeclarationSet.Join(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  commentId: M:RTB.Blazor.Styled.Core.DeclarationSet.Join(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+  isExternal: true
+  href: RTB.Blazor.Styled.Core.DeclarationSet.html#RTB_Blazor_Styled_Core_DeclarationSet_Join_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  name: Join(IEnumerable<KeyValuePair<string, string>>)
+  nameWithType: DeclarationSet.Join(IEnumerable<KeyValuePair<string, string>>)
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet.Join(System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>)
+  nameWithType.vb: DeclarationSet.Join(IEnumerable(Of KeyValuePair(Of String, String)))
+  fullName.vb: RTB.Blazor.Styled.Core.DeclarationSet.Join(System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)))
+  name.vb: Join(IEnumerable(Of KeyValuePair(Of String, String)))
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Core.DeclarationSet.Join(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+    name: Join
+    href: RTB.Blazor.Styled.Core.DeclarationSet.html#RTB_Blazor_Styled_Core_DeclarationSet_Join_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Core.DeclarationSet.Join(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})
+    name: Join
+    href: RTB.Blazor.Styled.Core.DeclarationSet.html#RTB_Blazor_Styled_Core_DeclarationSet_Join_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+  - name: )
+- uid: RTB.Blazor.Styled.Core.DeclarationSet.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  commentId: M:RTB.Blazor.Styled.Core.DeclarationSet.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  href: RTB.Blazor.Styled.Core.DeclarationSet.html#RTB_Blazor_Styled_Core_DeclarationSet_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  name: Emit(ScopedWriter)
+  nameWithType: DeclarationSet.Emit(ScopedWriter)
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Core.DeclarationSet.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+    name: Emit
+    href: RTB.Blazor.Styled.Core.DeclarationSet.html#RTB_Blazor_Styled_Core_DeclarationSet_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter
+    name: ScopedWriter
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Core.DeclarationSet.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+    name: Emit
+    href: RTB.Blazor.Styled.Core.DeclarationSet.html#RTB_Blazor_Styled_Core_DeclarationSet_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter
+    name: ScopedWriter
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  - name: )
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.CurrentSelector
+  commentId: P:RTB.Blazor.Styled.Core.ScopedWriter.CurrentSelector
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_CurrentSelector
+  name: CurrentSelector
+  nameWithType: ScopedWriter.CurrentSelector
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.CurrentSelector
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: RTB.Blazor.Styled.Core
+  commentId: N:RTB.Blazor.Styled.Core
+  href: RTB.html
+  name: RTB.Blazor.Styled.Core
+  nameWithType: RTB.Blazor.Styled.Core
+  fullName: RTB.Blazor.Styled.Core
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RTB.Blazor.Styled.Core.IStyleFragment
+  commentId: T:RTB.Blazor.Styled.Core.IStyleFragment
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.IStyleFragment.html
+  name: IStyleFragment
+  nameWithType: IStyleFragment
+  fullName: RTB.Blazor.Styled.Core.IStyleFragment
+- uid: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<KeyValuePair<string, string>>
+  nameWithType: IEnumerable<KeyValuePair<string, string>>
+  fullName: System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>
+  nameWithType.vb: IEnumerable(Of KeyValuePair(Of String, String))
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String))
+  name.vb: IEnumerable(Of KeyValuePair(Of String, String))
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.Collections.IEnumerable
+  commentId: T:System.Collections.IEnumerable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: System.Collections.IEnumerable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: RTB.Blazor.Styled.Core.DeclarationSet.IsEmpty*
+  commentId: Overload:RTB.Blazor.Styled.Core.DeclarationSet.IsEmpty
+  href: RTB.Blazor.Styled.Core.DeclarationSet.html#RTB_Blazor_Styled_Core_DeclarationSet_IsEmpty
+  name: IsEmpty
+  nameWithType: DeclarationSet.IsEmpty
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet.IsEmpty
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RTB.Blazor.Styled.Core.DeclarationSet.Add*
+  commentId: Overload:RTB.Blazor.Styled.Core.DeclarationSet.Add
+  href: RTB.Blazor.Styled.Core.DeclarationSet.html#RTB_Blazor_Styled_Core_DeclarationSet_Add_System_String_System_String_
+  name: Add
+  nameWithType: DeclarationSet.Add
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet.Add
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RTB.Blazor.Styled.Core.DeclarationSet.Add(System.String,System.String)
+  commentId: M:RTB.Blazor.Styled.Core.DeclarationSet.Add(System.String,System.String)
+  isExternal: true
+  href: RTB.Blazor.Styled.Core.DeclarationSet.html#RTB_Blazor_Styled_Core_DeclarationSet_Add_System_String_System_String_
+  name: Add(string, string)
+  nameWithType: DeclarationSet.Add(string, string)
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet.Add(string, string)
+  nameWithType.vb: DeclarationSet.Add(String, String)
+  fullName.vb: RTB.Blazor.Styled.Core.DeclarationSet.Add(String, String)
+  name.vb: Add(String, String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Core.DeclarationSet.Add(System.String,System.String)
+    name: Add
+    href: RTB.Blazor.Styled.Core.DeclarationSet.html#RTB_Blazor_Styled_Core_DeclarationSet_Add_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Core.DeclarationSet.Add(System.String,System.String)
+    name: Add
+    href: RTB.Blazor.Styled.Core.DeclarationSet.html#RTB_Blazor_Styled_Core_DeclarationSet_Add_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Core.DeclarationSet.Join*
+  commentId: Overload:RTB.Blazor.Styled.Core.DeclarationSet.Join
+  href: RTB.Blazor.Styled.Core.DeclarationSet.html#RTB_Blazor_Styled_Core_DeclarationSet_Join_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___
+  name: Join
+  nameWithType: DeclarationSet.Join
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet.Join
+- uid: RTB.Blazor.Styled.Core.DeclarationSet.Emit*
+  commentId: Overload:RTB.Blazor.Styled.Core.DeclarationSet.Emit
+  href: RTB.Blazor.Styled.Core.DeclarationSet.html#RTB_Blazor_Styled_Core_DeclarationSet_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  name: Emit
+  nameWithType: DeclarationSet.Emit
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet.Emit
+- uid: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  commentId: M:RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  parent: RTB.Blazor.Styled.Core.IStyleFragment
+  href: RTB.Blazor.Styled.Core.IStyleFragment.html#RTB_Blazor_Styled_Core_IStyleFragment_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  name: Emit(ScopedWriter)
+  nameWithType: IStyleFragment.Emit(ScopedWriter)
+  fullName: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+    name: Emit
+    href: RTB.Blazor.Styled.Core.IStyleFragment.html#RTB_Blazor_Styled_Core_IStyleFragment_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter
+    name: ScopedWriter
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+    name: Emit
+    href: RTB.Blazor.Styled.Core.IStyleFragment.html#RTB_Blazor_Styled_Core_IStyleFragment_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter
+    name: ScopedWriter
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  - name: )
+- uid: RTB.Blazor.Styled.Core.ScopedWriter
+  commentId: T:RTB.Blazor.Styled.Core.ScopedWriter
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  name: ScopedWriter
+  nameWithType: ScopedWriter
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter
+- uid: RTB.Blazor.Styled.Core.DeclarationSet.Clear*
+  commentId: Overload:RTB.Blazor.Styled.Core.DeclarationSet.Clear
+  href: RTB.Blazor.Styled.Core.DeclarationSet.html#RTB_Blazor_Styled_Core_DeclarationSet_Clear
+  name: Clear
+  nameWithType: DeclarationSet.Clear
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet.Clear
+- uid: RTB.Blazor.Styled.Core.DeclarationSet.GetEnumerator*
+  commentId: Overload:RTB.Blazor.Styled.Core.DeclarationSet.GetEnumerator
+  href: RTB.Blazor.Styled.Core.DeclarationSet.html#RTB_Blazor_Styled_Core_DeclarationSet_GetEnumerator
+  name: GetEnumerator
+  nameWithType: DeclarationSet.GetEnumerator
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet.GetEnumerator
+- uid: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}.GetEnumerator
+  parent: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}
+  definition: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<KeyValuePair<string, string>>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string, string>>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of KeyValuePair(Of String, String)).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of String, String)).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator{System.Collections.Generic.KeyValuePair{System.String,System.String}}
+  commentId: T:System.Collections.Generic.IEnumerator{System.Collections.Generic.KeyValuePair{System.String,System.String}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<KeyValuePair<string, string>>
+  nameWithType: IEnumerator<KeyValuePair<string, string>>
+  fullName: System.Collections.Generic.IEnumerator<System.Collections.Generic.KeyValuePair<string, string>>
+  nameWithType.vb: IEnumerator(Of KeyValuePair(Of String, String))
+  fullName.vb: System.Collections.Generic.IEnumerator(Of System.Collections.Generic.KeyValuePair(Of String, String))
+  name.vb: IEnumerator(Of KeyValuePair(Of String, String))
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.KeyValuePair`2
+    name: KeyValuePair
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable`1.GetEnumerator
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<T>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of T).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

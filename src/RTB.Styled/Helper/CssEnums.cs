@@ -6,11 +6,70 @@ using System.Threading.Tasks;
 
 namespace RTB.Blazor.Styled.Helper;
 
-public enum Unit { Px, Rem, Em, Percent, Vw, Vh }
-public enum Place { Start, End, Center, Stretch }
+/// <summary>
+/// CSS related enums and extensions.
+/// </summary>
+public enum Unit 
+{
+    /// <summary>
+    /// Pixels
+    /// </summary>
+    Px,
+    /// <summary>
+    /// Root em
+    /// </summary>
+    Rem,
+    /// <summary>
+    /// Em
+    /// </summary>
+    Em,
+    /// <summary>
+    /// Percent
+    /// </summary>
+    Percent,
+    /// <summary>
+    /// Viewport width
+    /// </summary>
+    Vw,
+    /// <summary>
+    /// Viewport height
+    /// </summary>
+    Vh
+}
 
+/// <summary>
+/// CSS place enum.
+/// </summary>
+public enum Place 
+{
+    /// <summary>
+    /// Start (flex-start)
+    /// </summary>
+    Start,
+    /// <summary>
+    /// End (flex-end)
+    /// </summary>
+    End,
+    /// <summary>
+    /// Center
+    /// </summary>
+    Center,
+    /// <summary>
+    /// Stretch
+    /// </summary>
+    Stretch
+}
+
+/// <summary>
+/// CSS enum extensions.
+/// </summary>
 public static class CssEnumExtensions
 {
+    /// <summary>
+    /// Converts an enum value to a CSS-compatible string (kebab-case).
+    /// </summary>
+    /// <param name="e"></param>
+    /// <returns></returns>
     public static string ToCss(this Enum e)
     {
         var src = e.ToString();

@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.Input
+  commentId: N:RTB.Blazor.Services.Input
+  id: RTB.Blazor.Services.Input
+  children:
+  - RTB.Blazor.Services.Input.IInputService
+  - RTB.Blazor.Services.Input.InputService
+  langs:
+  - csharp
+  - vb
+  name: RTB.Blazor.Services.Input
+  nameWithType: RTB.Blazor.Services.Input
+  fullName: RTB.Blazor.Services.Input
+  type: Namespace
+  assemblies:
+  - RTB.Blazor
+references:
+- uid: RTB.Blazor.Services.Input.IInputService
+  commentId: T:RTB.Blazor.Services.Input.IInputService
+  parent: RTB.Blazor.Services.Input
+  href: RTB.Blazor.Services.Input.IInputService.html
+  name: IInputService
+  nameWithType: IInputService
+  fullName: RTB.Blazor.Services.Input.IInputService
+- uid: RTB.Blazor.Services.Input.InputService
+  commentId: T:RTB.Blazor.Services.Input.InputService
+  href: RTB.Blazor.Services.Input.InputService.html
+  name: InputService
+  nameWithType: InputService
+  fullName: RTB.Blazor.Services.Input.InputService
+- uid: RTB.Blazor.Services.Input
+  commentId: N:RTB.Blazor.Services.Input
+  href: RTB.html
+  name: RTB.Blazor.Services.Input
+  nameWithType: RTB.Blazor.Services.Input
+  fullName: RTB.Blazor.Services.Input
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Input
+    name: Input
+    href: RTB.Blazor.Services.Input.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Input
+    name: Input
+    href: RTB.Blazor.Services.Input.html

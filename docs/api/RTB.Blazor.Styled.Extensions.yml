@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Extensions
+  commentId: N:RTB.Blazor.Styled.Extensions
+  id: RTB.Blazor.Styled.Extensions
+  children:
+  - RTB.Blazor.Styled.Extensions.ServiceCollectionExtension
+  langs:
+  - csharp
+  - vb
+  name: RTB.Blazor.Styled.Extensions
+  nameWithType: RTB.Blazor.Styled.Extensions
+  fullName: RTB.Blazor.Styled.Extensions
+  type: Namespace
+  assemblies:
+  - RTB.Blazor.Styled
+references:
+- uid: RTB.Blazor.Styled.Extensions.ServiceCollectionExtension
+  commentId: T:RTB.Blazor.Styled.Extensions.ServiceCollectionExtension
+  href: RTB.Blazor.Styled.Extensions.ServiceCollectionExtension.html
+  name: ServiceCollectionExtension
+  nameWithType: ServiceCollectionExtension
+  fullName: RTB.Blazor.Styled.Extensions.ServiceCollectionExtension

@@ -1,0 +1,167 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Core.IStyleContributor
+  commentId: T:RTB.Blazor.Styled.Core.IStyleContributor
+  id: IStyleContributor
+  parent: RTB.Blazor.Styled.Core
+  children:
+  - RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)
+  langs:
+  - csharp
+  - vb
+  name: IStyleContributor
+  nameWithType: IStyleContributor
+  fullName: RTB.Blazor.Styled.Core.IStyleContributor
+  type: Interface
+  source:
+    remote:
+      path: src/RTB.Styled/Core/IStyleContributor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: IStyleContributor
+    path: ../src/RTB.Styled/Core/IStyleContributor.cs
+    startLine: 21
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Defines a participant that can contribute CSS to a <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref> during composition.
+  remarks: >-
+    Usage:
+
+    - Register an implementation with <code>StyleBuilder.Register(IStyleContributor)</code>.
+
+    - When <code>StyleBuilder.Compose()</code> is invoked, the builder calls <xref href="RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)" data-throw-if-not-resolved="false"></xref>
+      on each registered contributor to aggregate base declarations, selectors, groups, and keyframes.
+    Guidance:
+
+    - Implementations should be deterministic and idempotent (safe to call multiple times).
+
+    - Treat the builder as the sole output channel; avoid external side effects.
+
+    - Do not retain references to the provided <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref> beyond the call.
+  example: []
+  syntax:
+    content: public interface IStyleContributor
+    content.vb: Public Interface IStyleContributor
+- uid: RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)
+  commentId: M:RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)
+  id: Contribute(RTB.Blazor.Styled.Core.StyleBuilder)
+  parent: RTB.Blazor.Styled.Core.IStyleContributor
+  langs:
+  - csharp
+  - vb
+  name: Contribute(StyleBuilder)
+  nameWithType: IStyleContributor.Contribute(StyleBuilder)
+  fullName: RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Core/IStyleContributor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Contribute
+    path: ../src/RTB.Styled/Core/IStyleContributor.cs
+    startLine: 33
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Contributes style declarations and fragments to the provided <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: void Contribute(StyleBuilder builder)
+    parameters:
+    - id: builder
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: >-
+        The style builder to mutate by adding base declarations, selector rules, group rules, and/or keyframes.
+
+        Must not be <code>null</code>.
+    content.vb: Sub Contribute(builder As StyleBuilder)
+  overload: RTB.Blazor.Styled.Core.IStyleContributor.Contribute*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Implementations may throw if <code class="paramref">builder</code> is <code>null</code>.
+references:
+- uid: RTB.Blazor.Styled.Core.StyleBuilder
+  commentId: T:RTB.Blazor.Styled.Core.StyleBuilder
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.StyleBuilder.html
+  name: StyleBuilder
+  nameWithType: StyleBuilder
+  fullName: RTB.Blazor.Styled.Core.StyleBuilder
+- uid: RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)
+  commentId: M:RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)
+  href: RTB.Blazor.Styled.Core.IStyleContributor.html#RTB_Blazor_Styled_Core_IStyleContributor_Contribute_RTB_Blazor_Styled_Core_StyleBuilder_
+  name: Contribute(StyleBuilder)
+  nameWithType: IStyleContributor.Contribute(StyleBuilder)
+  fullName: RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)
+    name: Contribute
+    href: RTB.Blazor.Styled.Core.IStyleContributor.html#RTB_Blazor_Styled_Core_IStyleContributor_Contribute_RTB_Blazor_Styled_Core_StyleBuilder_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.StyleBuilder
+    name: StyleBuilder
+    href: RTB.Blazor.Styled.Core.StyleBuilder.html
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)
+    name: Contribute
+    href: RTB.Blazor.Styled.Core.IStyleContributor.html#RTB_Blazor_Styled_Core_IStyleContributor_Contribute_RTB_Blazor_Styled_Core_StyleBuilder_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.StyleBuilder
+    name: StyleBuilder
+    href: RTB.Blazor.Styled.Core.StyleBuilder.html
+  - name: )
+- uid: RTB.Blazor.Styled.Core
+  commentId: N:RTB.Blazor.Styled.Core
+  href: RTB.html
+  name: RTB.Blazor.Styled.Core
+  nameWithType: RTB.Blazor.Styled.Core
+  fullName: RTB.Blazor.Styled.Core
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: RTB.Blazor.Styled.Core.IStyleContributor.Contribute*
+  commentId: Overload:RTB.Blazor.Styled.Core.IStyleContributor.Contribute
+  href: RTB.Blazor.Styled.Core.IStyleContributor.html#RTB_Blazor_Styled_Core_IStyleContributor_Contribute_RTB_Blazor_Styled_Core_StyleBuilder_
+  name: Contribute
+  nameWithType: IStyleContributor.Contribute
+  fullName: RTB.Blazor.Styled.Core.IStyleContributor.Contribute

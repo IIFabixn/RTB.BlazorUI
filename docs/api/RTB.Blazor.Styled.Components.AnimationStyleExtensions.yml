@@ -1,0 +1,959 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions
+  commentId: T:RTB.Blazor.Styled.Components.AnimationStyleExtensions
+  id: AnimationStyleExtensions
+  parent: RTB.Blazor.Styled.Components
+  children:
+  - RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDelay(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.TimeSpan})
+  - RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDirection(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationDirection})
+  - RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDuration(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.TimeSpan})
+  - RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationFillMode(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationFillMode})
+  - RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationIterationCount(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.Int32},System.Boolean)
+  - RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationName(RTB.Blazor.Styled.Core.StyleBuilder,System.String)
+  - RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationPlayState(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationPlayState})
+  - RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationTiming(RTB.Blazor.Styled.Core.StyleBuilder,System.String)
+  langs:
+  - csharp
+  - vb
+  name: AnimationStyleExtensions
+  nameWithType: AnimationStyleExtensions
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions
+  type: Class
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: AnimationStyleExtensions
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 220
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Extension helpers that map <xref href="RTB.Blazor.Styled.Components.Animation" data-throw-if-not-resolved="false"></xref> parameters to CSS <code>animation-*</code> longhand declarations.
+  remarks: >-
+    - These helpers set individual longhand properties; no shorthand <code>animation</code> is emitted.<br />
+
+    - Methods omit properties when inputs are null/whitespace; no validation of CSS values is performed.<br />
+
+    - Returned <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref> enables fluent chaining.
+  example: []
+  syntax:
+    content: public static class AnimationStyleExtensions
+    content.vb: Public Module AnimationStyleExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationName(RTB.Blazor.Styled.Core.StyleBuilder,System.String)
+  commentId: M:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationName(RTB.Blazor.Styled.Core.StyleBuilder,System.String)
+  id: AnimationName(RTB.Blazor.Styled.Core.StyleBuilder,System.String)
+  isExtensionMethod: true
+  parent: RTB.Blazor.Styled.Components.AnimationStyleExtensions
+  langs:
+  - csharp
+  - vb
+  name: AnimationName(StyleBuilder, string?)
+  nameWithType: AnimationStyleExtensions.AnimationName(StyleBuilder, string?)
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationName(RTB.Blazor.Styled.Core.StyleBuilder, string?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: AnimationName
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 226
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Sets <code>animation-name</code> when <code class="paramref">name</code> is not null/whitespace; otherwise omitted.
+  example: []
+  syntax:
+    content: public static StyleBuilder AnimationName(this StyleBuilder b, string? name)
+    parameters:
+    - id: b
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+    - id: name
+      type: System.String
+    return:
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The same <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref> instance for chaining.
+    content.vb: Public Shared Function AnimationName(b As StyleBuilder, name As String) As StyleBuilder
+  overload: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationName*
+  nameWithType.vb: AnimationStyleExtensions.AnimationName(StyleBuilder, String)
+  fullName.vb: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationName(RTB.Blazor.Styled.Core.StyleBuilder, String)
+  name.vb: AnimationName(StyleBuilder, String)
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDuration(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.TimeSpan})
+  commentId: M:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDuration(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.TimeSpan})
+  id: AnimationDuration(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.TimeSpan})
+  isExtensionMethod: true
+  parent: RTB.Blazor.Styled.Components.AnimationStyleExtensions
+  langs:
+  - csharp
+  - vb
+  name: AnimationDuration(StyleBuilder, TimeSpan?)
+  nameWithType: AnimationStyleExtensions.AnimationDuration(StyleBuilder, TimeSpan?)
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDuration(RTB.Blazor.Styled.Core.StyleBuilder, System.TimeSpan?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: AnimationDuration
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 238
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Sets <code>animation-duration</code> using s/ms formatting.
+  remarks: >-
+    - When <code class="paramref">t</code> is null, an empty value is passed which is ignored by the underlying declaration set.<br />
+
+    - Values &lt; 1 second are rounded to the nearest millisecond (e.g., 249.6ms → "250ms").<br />
+
+    - Values ≥ 1 second use seconds; integers are emitted without decimals (e.g., "2s"), fractional values use up to 3 decimals (e.g., "1.25s").
+  example: []
+  syntax:
+    content: public static StyleBuilder AnimationDuration(this StyleBuilder b, TimeSpan? t)
+    parameters:
+    - id: b
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+    - id: t
+      type: System.Nullable{System.TimeSpan}
+    return:
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The same <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref> instance for chaining.
+    content.vb: Public Shared Function AnimationDuration(b As StyleBuilder, t As TimeSpan?) As StyleBuilder
+  overload: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDuration*
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDelay(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.TimeSpan})
+  commentId: M:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDelay(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.TimeSpan})
+  id: AnimationDelay(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.TimeSpan})
+  isExtensionMethod: true
+  parent: RTB.Blazor.Styled.Components.AnimationStyleExtensions
+  langs:
+  - csharp
+  - vb
+  name: AnimationDelay(StyleBuilder, TimeSpan?)
+  nameWithType: AnimationStyleExtensions.AnimationDelay(StyleBuilder, TimeSpan?)
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDelay(RTB.Blazor.Styled.Core.StyleBuilder, System.TimeSpan?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: AnimationDelay
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 248
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Sets <code>animation-delay</code> using s/ms formatting.
+  remarks: Uses the same formatting and omission rules as <xref href="RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDuration(RTB.Blazor.Styled.Core.StyleBuilder%2cSystem.Nullable%7bSystem.TimeSpan%7d)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static StyleBuilder AnimationDelay(this StyleBuilder b, TimeSpan? t)
+    parameters:
+    - id: b
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+    - id: t
+      type: System.Nullable{System.TimeSpan}
+    return:
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The same <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref> instance for chaining.
+    content.vb: Public Shared Function AnimationDelay(b As StyleBuilder, t As TimeSpan?) As StyleBuilder
+  overload: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDelay*
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationTiming(RTB.Blazor.Styled.Core.StyleBuilder,System.String)
+  commentId: M:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationTiming(RTB.Blazor.Styled.Core.StyleBuilder,System.String)
+  id: AnimationTiming(RTB.Blazor.Styled.Core.StyleBuilder,System.String)
+  isExtensionMethod: true
+  parent: RTB.Blazor.Styled.Components.AnimationStyleExtensions
+  langs:
+  - csharp
+  - vb
+  name: AnimationTiming(StyleBuilder, string?)
+  nameWithType: AnimationStyleExtensions.AnimationTiming(StyleBuilder, string?)
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationTiming(RTB.Blazor.Styled.Core.StyleBuilder, string?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: AnimationTiming
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 255
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Sets <code>animation-timing-function</code> when <code class="paramref">tf</code> is not null/whitespace; otherwise omitted.
+  example: []
+  syntax:
+    content: public static StyleBuilder AnimationTiming(this StyleBuilder b, string? tf)
+    parameters:
+    - id: b
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+    - id: tf
+      type: System.String
+    return:
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The same <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref> instance for chaining.
+    content.vb: Public Shared Function AnimationTiming(b As StyleBuilder, tf As String) As StyleBuilder
+  overload: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationTiming*
+  nameWithType.vb: AnimationStyleExtensions.AnimationTiming(StyleBuilder, String)
+  fullName.vb: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationTiming(RTB.Blazor.Styled.Core.StyleBuilder, String)
+  name.vb: AnimationTiming(StyleBuilder, String)
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationIterationCount(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.Int32},System.Boolean)
+  commentId: M:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationIterationCount(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.Int32},System.Boolean)
+  id: AnimationIterationCount(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.Int32},System.Boolean)
+  isExtensionMethod: true
+  parent: RTB.Blazor.Styled.Components.AnimationStyleExtensions
+  langs:
+  - csharp
+  - vb
+  name: AnimationIterationCount(StyleBuilder, int?, bool)
+  nameWithType: AnimationStyleExtensions.AnimationIterationCount(StyleBuilder, int?, bool)
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationIterationCount(RTB.Blazor.Styled.Core.StyleBuilder, int?, bool)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: AnimationIterationCount
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 265
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Sets <code>animation-iteration-count</code> to either a number or <code>infinite</code>.
+  example: []
+  syntax:
+    content: public static StyleBuilder AnimationIterationCount(this StyleBuilder b, int? count, bool infinite = false)
+    parameters:
+    - id: b
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref> being configured.
+    - id: count
+      type: System.Nullable{System.Int32}
+      description: Number of iterations when <code class="paramref">infinite</code> is false. Not validated; avoid negative values per CSS spec.
+    - id: infinite
+      type: System.Boolean
+      description: When true, sets <code>infinite</code> and ignores <code class="paramref">count</code>.
+    return:
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The same <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref> instance for chaining.
+    content.vb: Public Shared Function AnimationIterationCount(b As StyleBuilder, count As Integer?, infinite As Boolean = False) As StyleBuilder
+  overload: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationIterationCount*
+  nameWithType.vb: AnimationStyleExtensions.AnimationIterationCount(StyleBuilder, Integer?, Boolean)
+  fullName.vb: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationIterationCount(RTB.Blazor.Styled.Core.StyleBuilder, Integer?, Boolean)
+  name.vb: AnimationIterationCount(StyleBuilder, Integer?, Boolean)
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDirection(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationDirection})
+  commentId: M:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDirection(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationDirection})
+  id: AnimationDirection(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationDirection})
+  isExtensionMethod: true
+  parent: RTB.Blazor.Styled.Components.AnimationStyleExtensions
+  langs:
+  - csharp
+  - vb
+  name: AnimationDirection(StyleBuilder, AnimationDirection?)
+  nameWithType: AnimationStyleExtensions.AnimationDirection(StyleBuilder, Animation.AnimationDirection?)
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDirection(RTB.Blazor.Styled.Core.StyleBuilder, RTB.Blazor.Styled.Components.Animation.AnimationDirection?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: AnimationDirection
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 278
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Sets <code>animation-direction</code> when <code class="paramref">dir</code> is not null; otherwise omitted.
+  remarks: 'Maps enum values to CSS keywords: Normal → <code>normal</code>, Reverse → <code>reverse</code>, Alternate → <code>alternate</code>, AlternateReverse → <code>alternate-reverse</code>.'
+  example: []
+  syntax:
+    content: public static StyleBuilder AnimationDirection(this StyleBuilder b, Animation.AnimationDirection? dir)
+    parameters:
+    - id: b
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+    - id: dir
+      type: System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationDirection}
+    return:
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The same <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref> instance for chaining.
+    content.vb: Public Shared Function AnimationDirection(b As StyleBuilder, dir As Animation.AnimationDirection?) As StyleBuilder
+  overload: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDirection*
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationFillMode(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationFillMode})
+  commentId: M:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationFillMode(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationFillMode})
+  id: AnimationFillMode(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationFillMode})
+  isExtensionMethod: true
+  parent: RTB.Blazor.Styled.Components.AnimationStyleExtensions
+  langs:
+  - csharp
+  - vb
+  name: AnimationFillMode(StyleBuilder, AnimationFillMode?)
+  nameWithType: AnimationStyleExtensions.AnimationFillMode(StyleBuilder, Animation.AnimationFillMode?)
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationFillMode(RTB.Blazor.Styled.Core.StyleBuilder, RTB.Blazor.Styled.Components.Animation.AnimationFillMode?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: AnimationFillMode
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 288
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Sets <code>animation-fill-mode</code> when <code class="paramref">fill</code> is not null; otherwise omitted.
+  remarks: 'Maps enum values to CSS keywords: None → <code>none</code>, Forwards → <code>forwards</code>, Backwards → <code>backwards</code>, Both → <code>both</code>.'
+  example: []
+  syntax:
+    content: public static StyleBuilder AnimationFillMode(this StyleBuilder b, Animation.AnimationFillMode? fill)
+    parameters:
+    - id: b
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+    - id: fill
+      type: System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationFillMode}
+    return:
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The same <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref> instance for chaining.
+    content.vb: Public Shared Function AnimationFillMode(b As StyleBuilder, fill As Animation.AnimationFillMode?) As StyleBuilder
+  overload: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationFillMode*
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationPlayState(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationPlayState})
+  commentId: M:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationPlayState(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationPlayState})
+  id: AnimationPlayState(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationPlayState})
+  isExtensionMethod: true
+  parent: RTB.Blazor.Styled.Components.AnimationStyleExtensions
+  langs:
+  - csharp
+  - vb
+  name: AnimationPlayState(StyleBuilder, AnimationPlayState?)
+  nameWithType: AnimationStyleExtensions.AnimationPlayState(StyleBuilder, Animation.AnimationPlayState?)
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationPlayState(RTB.Blazor.Styled.Core.StyleBuilder, RTB.Blazor.Styled.Components.Animation.AnimationPlayState?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: AnimationPlayState
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 298
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Sets <code>animation-play-state</code> when <code class="paramref">st</code> is not null; otherwise omitted.
+  remarks: 'Maps enum values to CSS keywords: Running → <code>running</code>, Paused → <code>paused</code>.'
+  example: []
+  syntax:
+    content: public static StyleBuilder AnimationPlayState(this StyleBuilder b, Animation.AnimationPlayState? st)
+    parameters:
+    - id: b
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+    - id: st
+      type: System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationPlayState}
+    return:
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The same <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref> instance for chaining.
+    content.vb: Public Shared Function AnimationPlayState(b As StyleBuilder, st As Animation.AnimationPlayState?) As StyleBuilder
+  overload: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationPlayState*
+references:
+- uid: RTB.Blazor.Styled.Components.Animation
+  commentId: T:RTB.Blazor.Styled.Components.Animation
+  href: RTB.Blazor.Styled.Components.Animation.html
+  name: Animation
+  nameWithType: Animation
+  fullName: RTB.Blazor.Styled.Components.Animation
+- uid: RTB.Blazor.Styled.Core.StyleBuilder
+  commentId: T:RTB.Blazor.Styled.Core.StyleBuilder
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.StyleBuilder.html
+  name: StyleBuilder
+  nameWithType: StyleBuilder
+  fullName: RTB.Blazor.Styled.Core.StyleBuilder
+- uid: RTB.Blazor.Styled.Components
+  commentId: N:RTB.Blazor.Styled.Components
+  href: RTB.html
+  name: RTB.Blazor.Styled.Components
+  nameWithType: RTB.Blazor.Styled.Components
+  fullName: RTB.Blazor.Styled.Components
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Core
+  commentId: N:RTB.Blazor.Styled.Core
+  href: RTB.html
+  name: RTB.Blazor.Styled.Core
+  nameWithType: RTB.Blazor.Styled.Core
+  fullName: RTB.Blazor.Styled.Core
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationName*
+  commentId: Overload:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationName
+  href: RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationName_RTB_Blazor_Styled_Core_StyleBuilder_System_String_
+  name: AnimationName
+  nameWithType: AnimationStyleExtensions.AnimationName
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDuration*
+  commentId: Overload:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDuration
+  href: RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationDuration_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_System_TimeSpan__
+  name: AnimationDuration
+  nameWithType: AnimationStyleExtensions.AnimationDuration
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDuration
+- uid: System.Nullable{System.TimeSpan}
+  commentId: T:System.Nullable{System.TimeSpan}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan?
+  nameWithType: TimeSpan?
+  fullName: System.TimeSpan?
+  spec.csharp:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  spec.vb:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDuration(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.TimeSpan})
+  commentId: M:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDuration(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.TimeSpan})
+  isExternal: true
+  href: RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationDuration_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_System_TimeSpan__
+  name: AnimationDuration(StyleBuilder, TimeSpan?)
+  nameWithType: AnimationStyleExtensions.AnimationDuration(StyleBuilder, TimeSpan?)
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDuration(RTB.Blazor.Styled.Core.StyleBuilder, System.TimeSpan?)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDuration(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.TimeSpan})
+    name: AnimationDuration
+    href: RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationDuration_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_System_TimeSpan__
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.StyleBuilder
+    name: StyleBuilder
+    href: RTB.Blazor.Styled.Core.StyleBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDuration(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{System.TimeSpan})
+    name: AnimationDuration
+    href: RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationDuration_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_System_TimeSpan__
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.StyleBuilder
+    name: StyleBuilder
+    href: RTB.Blazor.Styled.Core.StyleBuilder.html
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  - name: )
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDelay*
+  commentId: Overload:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDelay
+  href: RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationDelay_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_System_TimeSpan__
+  name: AnimationDelay
+  nameWithType: AnimationStyleExtensions.AnimationDelay
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDelay
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationTiming*
+  commentId: Overload:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationTiming
+  href: RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationTiming_RTB_Blazor_Styled_Core_StyleBuilder_System_String_
+  name: AnimationTiming
+  nameWithType: AnimationStyleExtensions.AnimationTiming
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationTiming
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationIterationCount*
+  commentId: Overload:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationIterationCount
+  href: RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationIterationCount_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_System_Int32__System_Boolean_
+  name: AnimationIterationCount
+  nameWithType: AnimationStyleExtensions.AnimationIterationCount
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationIterationCount
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDirection*
+  commentId: Overload:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDirection
+  href: RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationDirection_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Components_Animation_AnimationDirection__
+  name: AnimationDirection
+  nameWithType: AnimationStyleExtensions.AnimationDirection
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationDirection
+- uid: System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationDirection}
+  commentId: T:System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationDirection}
+  parent: System
+  definition: System.Nullable`1
+  href: RTB.Blazor.Styled.Components.Animation.html
+  name: Animation.AnimationDirection?
+  nameWithType: Animation.AnimationDirection?
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationDirection?
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationDirection
+    name: AnimationDirection
+    href: RTB.Blazor.Styled.Components.Animation.AnimationDirection.html
+  - name: '?'
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationDirection
+    name: AnimationDirection
+    href: RTB.Blazor.Styled.Components.Animation.AnimationDirection.html
+  - name: '?'
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationFillMode*
+  commentId: Overload:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationFillMode
+  href: RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationFillMode_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Components_Animation_AnimationFillMode__
+  name: AnimationFillMode
+  nameWithType: AnimationStyleExtensions.AnimationFillMode
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationFillMode
+- uid: System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationFillMode}
+  commentId: T:System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationFillMode}
+  parent: System
+  definition: System.Nullable`1
+  href: RTB.Blazor.Styled.Components.Animation.html
+  name: Animation.AnimationFillMode?
+  nameWithType: Animation.AnimationFillMode?
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationFillMode?
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+    name: AnimationFillMode
+    href: RTB.Blazor.Styled.Components.Animation.AnimationFillMode.html
+  - name: '?'
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+    name: AnimationFillMode
+    href: RTB.Blazor.Styled.Components.Animation.AnimationFillMode.html
+  - name: '?'
+- uid: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationPlayState*
+  commentId: Overload:RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationPlayState
+  href: RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationPlayState_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Components_Animation_AnimationPlayState__
+  name: AnimationPlayState
+  nameWithType: AnimationStyleExtensions.AnimationPlayState
+  fullName: RTB.Blazor.Styled.Components.AnimationStyleExtensions.AnimationPlayState
+- uid: System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationPlayState}
+  commentId: T:System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationPlayState}
+  parent: System
+  definition: System.Nullable`1
+  href: RTB.Blazor.Styled.Components.Animation.html
+  name: Animation.AnimationPlayState?
+  nameWithType: Animation.AnimationPlayState?
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationPlayState?
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+    name: AnimationPlayState
+    href: RTB.Blazor.Styled.Components.Animation.AnimationPlayState.html
+  - name: '?'
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+    name: AnimationPlayState
+    href: RTB.Blazor.Styled.Components.Animation.AnimationPlayState.html
+  - name: '?'

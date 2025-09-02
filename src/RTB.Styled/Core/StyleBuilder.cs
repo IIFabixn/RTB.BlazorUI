@@ -7,30 +7,49 @@ using System.Threading.Tasks;
 
 namespace RTB.Blazor.Styled.Core
 {
+    /// <summary>
+    /// A builder for CSS styles, supporting base declarations, nested selectors, groups (media/supports/container), and keyframes.
+    /// </summary>
     public sealed class StyleBuilder
     {
-        // base declarations (for the root selector)
+        /// <summary>
+        /// Base declarations (the root level, no selector).
+        /// </summary>
         public DeclarationSet Base { get; } = [];
 
+        /// <summary>
+        /// Create a new StyleBuilder instance.
+        /// </summary>
         public static StyleBuilder Start => new();
 
         // all other fragments (selectors, groups, keyframes)
         private readonly List<IStyleFragment> _fragments = [];
-        private readonly List<IStyleContributor> _contributors = new();
+        private readonly List<IStyleContributor> _contributors = [];
         private readonly object _gate = new();
+
+        /// <summary>
+        /// Register a style contributor to participate in the next composition.
+        /// </summary>
+        /// <param name="c"></param>
         public void Register(IStyleContributor c)
         {
             if (c is null) return;
             lock (_gate) _contributors.Add(c);
         }
 
+        /// <summary>
+        /// Unregister a style contributor.
+        /// </summary>
+        /// <param name="c"></param>
         public void Unregister(IStyleContributor c)
         {
             if (c is null) return;
             lock (_gate) _contributors.Remove(c);
         }
 
-        /// Compose the builder from all registered contributors.
+        /// <summary>
+        /// Compose the style by clearing existing declarations and fragments,
+        /// </summary>
         public void Compose()
         {
             // start fresh on each compose (render)
@@ -44,34 +63,67 @@ namespace RTB.Blazor.Styled.Core
                 c.Contribute(this);
         }
 
+        /// <summary>
+        /// Add a style fragment (selector, group, keyframes).
+        /// </summary>
+        /// <param name="f"></param>
         public void AddFragment(IStyleFragment f)
         {
             if (f != null) _fragments.Add(f);
         }
 
-        // Sugar for primitives
+        /// <summary>
+        /// Set a CSS property to a value in the base declaration set.
+        /// </summary>
+        /// <param name="prop"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public StyleBuilder Set(string prop, string value)
         {
             Base.Add(prop, value);
             return this;
         }
 
+        /// <summary>
+        /// Set a CSS property to a value in the base declaration set if both are not null or whitespace.
+        /// </summary>
+        /// <param name="prop"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public StyleBuilder SetIfNotNull(string? prop, string? value)
         {
             if (string.IsNullOrWhiteSpace(prop) || string.IsNullOrWhiteSpace(value)) return this;
             return Set(prop, value);
         }
 
+        /// <summary>
+        /// Set a CSS property to a value in the base declaration set if both are not null or whitespace and the condition is true.
+        /// </summary>
+        /// <param name="prop"></param>
+        /// <param name="value"></param>
+        /// <param name="Condition"></param>
+        /// <returns></returns>
         public StyleBuilder SetIf(string? prop, string? value, Func<bool> Condition)
         {
             if (string.IsNullOrWhiteSpace(prop) || string.IsNullOrWhiteSpace(value) || !Condition()) return this;
             return Set(prop, value);
         }
 
+        /// <summary>
+        /// Set a CSS property to a value in the base declaration set if both are not null or whitespace and the condition is true.
+        /// </summary>
+        /// <param name="prop"></param>
+        /// <param name="value"></param>
+        /// <param name="Condition"></param>
+        /// <returns></returns>
         public StyleBuilder SetIf(string? prop, string? value, bool Condition) => SetIf(prop, value, () => Condition);
 
-
-        // Sugar: nested selector
+        /// <summary>
+        /// Add a selector rule with nested declarations and optional child fragments.
+        /// </summary>
+        /// <param name="selector"></param>
+        /// <param name="build"></param>
+        /// <returns></returns>
         public SelectorRule Selector(string selector, Action<StyleBuilder> build)
         {
             var sb = new StyleBuilder();
@@ -85,14 +137,40 @@ namespace RTB.Blazor.Styled.Core
             return rule;
         }
 
-        // Sugar: group rules
+        /// <summary>
+        /// Add a group rule (media, supports, container) with nested declarations and optional child fragments.
+        /// </summary>
+        /// <param name="prelude"></param>
+        /// <param name="build"></param>
+        /// <returns></returns>
         public GroupRule Media(string prelude, Action<StyleBuilder> build)
             => Group("@media", prelude, build);
+
+        /// <summary>
+        /// Add a group rule (media, supports, container) with nested declarations and optional child fragments.
+        /// </summary>
+        /// <param name="prelude"></param>
+        /// <param name="build"></param>
+        /// <returns></returns>
         public GroupRule Supports(string prelude, Action<StyleBuilder> build)
             => Group("@supports", prelude, build);
+
+        /// <summary>
+        /// Add a group rule (media, supports, container) with nested declarations and optional child fragments.
+        /// </summary>
+        /// <param name="prelude"></param>
+        /// <param name="build"></param>
+        /// <returns></returns>
         public GroupRule Container(string prelude, Action<StyleBuilder> build)
             => Group("@container", prelude, build);
 
+        /// <summary>
+        /// Add a group rule (media, supports, container) with nested declarations and optional child fragments.
+        /// </summary>
+        /// <param name="kind"></param>
+        /// <param name="prelude"></param>
+        /// <param name="build"></param>
+        /// <returns></returns>
         public GroupRule Group(string kind, string prelude, Action<StyleBuilder> build)
         {
             var sb = new StyleBuilder();
@@ -104,6 +182,11 @@ namespace RTB.Blazor.Styled.Core
             return g;
         }
 
+        /// <summary>
+        /// Find an existing keyframes block by name or create a new one.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         private Keyframes FindOrAddKeyframes(string name)
         {
             for (int i = 0; i < _fragments.Count; i++)
@@ -114,6 +197,12 @@ namespace RTB.Blazor.Styled.Core
             return created;
         }
 
+        /// <summary>
+        /// Add or modify a keyframes block by name with nested frames.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="build"></param>
+        /// <returns></returns>
         public Keyframes Keyframes(string name, Action<Keyframes> build)
         {
             var kf = FindOrAddKeyframes(name); // <- merge-by-name
@@ -121,6 +210,12 @@ namespace RTB.Blazor.Styled.Core
             return kf;
         }
 
+        /// <summary>
+        /// Build the complete CSS style as a string, scoped to the provided class name.
+        /// </summary>
+        /// <param name="className"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public string BuildScoped(string className)
         {
             if (string.IsNullOrWhiteSpace(className)) throw new ArgumentException(nameof(className));
@@ -138,6 +233,11 @@ namespace RTB.Blazor.Styled.Core
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Absorb another StyleBuilder's base declarations and fragments into this one.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public StyleBuilder Absorb(StyleBuilder other)
         {
             if (other is null) return this;
@@ -147,18 +247,22 @@ namespace RTB.Blazor.Styled.Core
             return this;
         }
 
-        private static IEnumerable<IStyleFragment> GetFragments(StyleBuilder other)
-        {
-            if (other is null) yield break;
-            foreach (var f in other._fragments)
-                yield return f;
-        }
-
+        /// <summary>
+        /// Clear all base declarations and fragments.
+        /// </summary>
+        /// <returns></returns>
         public StyleBuilder ClearAll()
         {
             Base.Clear();
             _fragments.Clear();
             return this;
+        }
+
+        private static IEnumerable<IStyleFragment> GetFragments(StyleBuilder other)
+        {
+            if (other is null) yield break;
+            foreach (var f in other._fragments)
+                yield return f;
         }
     }
 }

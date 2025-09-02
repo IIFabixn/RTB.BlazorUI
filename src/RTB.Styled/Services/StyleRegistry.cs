@@ -7,7 +7,7 @@ using Microsoft.JSInterop;
 namespace RTB.Blazor.Styled.Services
 {
     /// <summary>
-    /// Registry for scoped CSS: C# produces fully-scoped text, JS only clears+appends for a class.
+    /// Registry for scoped CSS
     /// </summary>
     public interface IStyleRegistry
     {
@@ -27,6 +27,10 @@ namespace RTB.Blazor.Styled.Services
         string GenerateClassName(string prefix = "rtb-");
     }
 
+    /// <summary>
+    /// <inheritdoc cref="IStyleRegistry"/>
+    /// </summary>
+    /// <param name="js"></param>
     public sealed class StyleRegistry(IJSRuntime js) : IStyleRegistry
     {
         // className -> entry
@@ -40,9 +44,19 @@ namespace RTB.Blazor.Styled.Services
             public readonly SemaphoreSlim Gate = new(1, 1);
         }
 
+        /// <summary>
+        /// <inheritdoc cref="IStyleRegistry.GenerateClassName(string)"/>
+        /// </summary>
+        /// <param name="prefix"></param>
+        /// <returns></returns>
         public string GenerateClassName(string prefix = "rtb-")
             => $"{prefix}{Guid.NewGuid():N}";
 
+        /// <summary>
+        /// <inheritdoc cref="IStyleRegistry.Acquire(string?)"/>
+        /// </summary>
+        /// <param name="preferredClassName"></param>
+        /// <returns></returns>
         public string Acquire(string? preferredClassName = null)
         {
             var cls = string.IsNullOrWhiteSpace(preferredClassName)
@@ -57,6 +71,12 @@ namespace RTB.Blazor.Styled.Services
             return cls;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="IStyleRegistry.UpsertScopedAsync(string, string)"/>
+        /// </summary>
+        /// <param name="scopedCss"></param>
+        /// <param name="className"></param>
+        /// <returns></returns>
         public async ValueTask UpsertScopedAsync(string scopedCss, string className)
         {
             if (string.IsNullOrWhiteSpace(className) || string.IsNullOrWhiteSpace(scopedCss))
@@ -85,6 +105,11 @@ namespace RTB.Blazor.Styled.Services
             }
         }
 
+        /// <summary>
+        /// <inheritdoc cref="IStyleRegistry.Release(string)"/>
+        /// </summary>
+        /// <param name="className"></param>
+        /// <returns></returns>
         public async ValueTask<bool> Release(string className)
         {
             if (string.IsNullOrWhiteSpace(className)) return false;
@@ -109,6 +134,10 @@ namespace RTB.Blazor.Styled.Services
             return true;
         }
 
+        /// <summary>
+        /// <inheritdoc cref="IStyleRegistry.ClearAll"/>
+        /// </summary>
+        /// <returns></returns>
         public ValueTask ClearAll()
         {
             _entries.Clear();

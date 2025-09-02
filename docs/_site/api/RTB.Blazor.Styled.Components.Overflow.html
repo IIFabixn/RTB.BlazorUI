@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Overflow | RTB.Blazor </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Overflow | RTB.Blazor ">
+      
+      <meta name="description" content="A style contributor that sets CSS overflow properties. Behavior:  When all parameters (, , ) are null, this emits &#39;overflow: auto&#39;. Otherwise, it emits any provided axis-specific values (overflow-x, overflow-y) and/or the shorthand (overflow). Note: If both axis-specific values and the shorthand are supplied, the emitted order is: overflow-x, overflow-y, overflow (last). In CSS, the shorthand can reset axis-specific values. Prefer setting either axis-specific values or the shorthand to avoid unintended overrides.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/IIFabixn/RTB.BlazorUI/new/develop/apiSpec/new?filename=RTB_Blazor_Styled_Components_Overflow.md&amp;value=---%0Auid%3A%20RTB.Blazor.Styled.Components.Overflow%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="RTB.Blazor">
+            RTB.Blazor
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="RTB.Blazor.Styled.Components.Overflow">
+
+
+
+  <h1 id="RTB_Blazor_Styled_Components_Overflow" data-uid="RTB.Blazor.Styled.Components.Overflow" class="text-break">
+Class Overflow  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Overflow.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="RTB.html">RTB</a>.<a class="xref" href="RTB.Blazor.html">Blazor</a>.<a class="xref" href="RTB.Blazor.Styled.html">Styled</a>.<a class="xref" href="RTB.Blazor.Styled.Components.html">Components</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>RTB.Blazor.Styled.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A style contributor that sets CSS overflow properties.
+Behavior:</p>
+<ul>
+<li>When all parameters (<a class="xref" href="RTB.Blazor.Styled.Components.Overflow.html#RTB_Blazor_Styled_Components_Overflow_X">X</a>, <a class="xref" href="RTB.Blazor.Styled.Components.Overflow.html#RTB_Blazor_Styled_Components_Overflow_Y">Y</a>, <a class="xref" href="RTB.Blazor.Styled.Components.Overflow.html#RTB_Blazor_Styled_Components_Overflow_Value">Value</a>) are null, this emits 'overflow: auto'.</li>
+<li>Otherwise, it emits any provided axis-specific values (overflow-x, overflow-y) and/or the shorthand (overflow).
+Note: If both axis-specific values and the shorthand are supplied, the emitted order is:
+overflow-x, overflow-y, overflow (last). In CSS, the shorthand can reset axis-specific values.
+Prefer setting either axis-specific values or the shorthand to avoid unintended overrides.</li>
+</ul>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Overflow : RTBStyleBase, IComponent, IHandleEvent, IHandleAfterRender, IStyleContributor, IAsyncDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase">ComponentBase</a></div>
+      <div><a class="xref" href="RTB.Blazor.Styled.Components.RTBStyleBase.html">RTBStyleBase</a></div>
+      <div><span class="xref">Overflow</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.icomponent">IComponent</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleevent">IHandleEvent</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleafterrender">IHandleAfterRender</a></div>
+      <div><a class="xref" href="RTB.Blazor.Styled.Core.IStyleContributor.html">IStyleContributor</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_StyleBuilder">RTBStyleBase.StyleBuilder</a>
+    </div>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_Condition">RTBStyleBase.Condition</a>
+    </div>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_OnInitialized">RTBStyleBase.OnInitialized()</a>
+    </div>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_OnParametersSet">RTBStyleBase.OnParametersSet()</a>
+    </div>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_DisposeAsync">RTBStyleBase.DisposeAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.buildrendertree">ComponentBase.BuildRenderTree(RenderTreeBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync">ComponentBase.OnInitializedAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync">ComponentBase.OnParametersSetAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged">ComponentBase.StateHasChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.shouldrender">ComponentBase.ShouldRender()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrender">ComponentBase.OnAfterRender(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync">ComponentBase.OnAfterRenderAsync(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-action)">ComponentBase.InvokeAsync(Action)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-func((system-threading-tasks-task)))">ComponentBase.InvokeAsync(Func&lt;Task&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.dispatchexceptionasync">ComponentBase.DispatchExceptionAsync(Exception)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync">ComponentBase.SetParametersAsync(ParameterView)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.rendererinfo">ComponentBase.RendererInfo</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.assets">ComponentBase.Assets</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.assignedrendermode">ComponentBase.AssignedRenderMode</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="RTB_Blazor_Styled_Components_Overflow_Value_" data-uid="RTB.Blazor.Styled.Components.Overflow.Value*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Components_Overflow_Value" data-uid="RTB.Blazor.Styled.Components.Overflow.Value">
+  Value
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Overflow.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the 'overflow' shorthand (both axes).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public Overflow.OverflowMode? Value { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Components.Overflow.html">Overflow</a>.<a class="xref" href="RTB.Blazor.Styled.Components.Overflow.OverflowMode.html">OverflowMode</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="RTB_Blazor_Styled_Components_Overflow_Value_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>When null, no 'overflow' shorthand is emitted unless both <a class="xref" href="RTB.Blazor.Styled.Components.Overflow.html#RTB_Blazor_Styled_Components_Overflow_X">X</a> and <a class="xref" href="RTB.Blazor.Styled.Components.Overflow.html#RTB_Blazor_Styled_Components_Overflow_Y">Y</a> are also null,
+in which case the component defaults to 'overflow: auto'.</p>
+</div>
+
+
+
+
+  <a id="RTB_Blazor_Styled_Components_Overflow_X_" data-uid="RTB.Blazor.Styled.Components.Overflow.X*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Components_Overflow_X" data-uid="RTB.Blazor.Styled.Components.Overflow.X">
+  X
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Overflow.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets 'overflow-x' for the horizontal axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public Overflow.OverflowMode? X { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Components.Overflow.html">Overflow</a>.<a class="xref" href="RTB.Blazor.Styled.Components.Overflow.OverflowMode.html">OverflowMode</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="RTB_Blazor_Styled_Components_Overflow_X_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>When null, no 'overflow-x' declaration is emitted.</p>
+</div>
+
+
+
+
+  <a id="RTB_Blazor_Styled_Components_Overflow_Y_" data-uid="RTB.Blazor.Styled.Components.Overflow.Y*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Components_Overflow_Y" data-uid="RTB.Blazor.Styled.Components.Overflow.Y">
+  Y
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Overflow.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets 'overflow-y' for the vertical axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public Overflow.OverflowMode? Y { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Components.Overflow.html">Overflow</a>.<a class="xref" href="RTB.Blazor.Styled.Components.Overflow.OverflowMode.html">OverflowMode</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="RTB_Blazor_Styled_Components_Overflow_Y_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>When null, no 'overflow-y' declaration is emitted.</p>
+</div>
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="RTB_Blazor_Styled_Components_Overflow_BuildStyle_" data-uid="RTB.Blazor.Styled.Components.Overflow.BuildStyle*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Components_Overflow_BuildStyle_RTB_Blazor_Styled_Core_StyleBuilder_" data-uid="RTB.Blazor.Styled.Components.Overflow.BuildStyle(RTB.Blazor.Styled.Core.StyleBuilder)">
+  BuildStyle(StyleBuilder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Overflow.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Contributes CSS declarations for overflow properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void BuildStyle(StyleBuilder builder)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a></dt>
+    <dd><p>The style builder that receives declarations.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="RTB_Blazor_Styled_Components_Overflow_BuildStyle_RTB_Blazor_Styled_Core_StyleBuilder__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><ul>
+<li>If all properties are null, emits 'overflow: auto'.</li>
+<li>Otherwise emits 'overflow-x' and/or 'overflow-y' for provided axes, and 'overflow' for <a class="xref" href="RTB.Blazor.Styled.Components.Overflow.html#RTB_Blazor_Styled_Components_Overflow_Value">Value</a>.
+The shorthand is emitted last and may override axis-specific values per CSS rules.</li>
+</ul>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Overflow.cs/#L21" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

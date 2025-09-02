@@ -1,0 +1,100 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.Dialog
+  commentId: N:RTB.Blazor.Services.Dialog
+  id: RTB.Blazor.Services.Dialog
+  children:
+  - RTB.Blazor.Services.Dialog.DialogBase
+  - RTB.Blazor.Services.Dialog.DialogResult
+  - RTB.Blazor.Services.Dialog.DialogResultKind
+  - RTB.Blazor.Services.Dialog.DialogService
+  - RTB.Blazor.Services.Dialog.IDialogReference
+  - RTB.Blazor.Services.Dialog.IDialogService
+  langs:
+  - csharp
+  - vb
+  name: RTB.Blazor.Services.Dialog
+  nameWithType: RTB.Blazor.Services.Dialog
+  fullName: RTB.Blazor.Services.Dialog
+  type: Namespace
+  assemblies:
+  - RTB.Blazor
+references:
+- uid: RTB.Blazor.Services.Dialog.DialogBase
+  commentId: T:RTB.Blazor.Services.Dialog.DialogBase
+  href: RTB.Blazor.Services.Dialog.DialogBase.html
+  name: DialogBase
+  nameWithType: DialogBase
+  fullName: RTB.Blazor.Services.Dialog.DialogBase
+- uid: RTB.Blazor.Services.Dialog.DialogResultKind
+  commentId: T:RTB.Blazor.Services.Dialog.DialogResultKind
+  parent: RTB.Blazor.Services.Dialog
+  href: RTB.Blazor.Services.Dialog.DialogResultKind.html
+  name: DialogResultKind
+  nameWithType: DialogResultKind
+  fullName: RTB.Blazor.Services.Dialog.DialogResultKind
+- uid: RTB.Blazor.Services.Dialog.DialogResult
+  commentId: T:RTB.Blazor.Services.Dialog.DialogResult
+  parent: RTB.Blazor.Services.Dialog
+  href: RTB.Blazor.Services.Dialog.DialogResult.html
+  name: DialogResult
+  nameWithType: DialogResult
+  fullName: RTB.Blazor.Services.Dialog.DialogResult
+- uid: RTB.Blazor.Services.Dialog.IDialogReference
+  commentId: T:RTB.Blazor.Services.Dialog.IDialogReference
+  parent: RTB.Blazor.Services.Dialog
+  href: RTB.Blazor.Services.Dialog.IDialogReference.html
+  name: IDialogReference
+  nameWithType: IDialogReference
+  fullName: RTB.Blazor.Services.Dialog.IDialogReference
+- uid: RTB.Blazor.Services.Dialog.IDialogService
+  commentId: T:RTB.Blazor.Services.Dialog.IDialogService
+  parent: RTB.Blazor.Services.Dialog
+  href: RTB.Blazor.Services.Dialog.IDialogService.html
+  name: IDialogService
+  nameWithType: IDialogService
+  fullName: RTB.Blazor.Services.Dialog.IDialogService
+- uid: RTB.Blazor.Services.Dialog.DialogService
+  commentId: T:RTB.Blazor.Services.Dialog.DialogService
+  href: RTB.Blazor.Services.Dialog.DialogService.html
+  name: DialogService
+  nameWithType: DialogService
+  fullName: RTB.Blazor.Services.Dialog.DialogService
+- uid: RTB.Blazor.Services.Dialog
+  commentId: N:RTB.Blazor.Services.Dialog
+  href: RTB.html
+  name: RTB.Blazor.Services.Dialog
+  nameWithType: RTB.Blazor.Services.Dialog
+  fullName: RTB.Blazor.Services.Dialog
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Dialog
+    name: Dialog
+    href: RTB.Blazor.Services.Dialog.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Dialog
+    name: Dialog
+    href: RTB.Blazor.Services.Dialog.html

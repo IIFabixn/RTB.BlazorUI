@@ -1,0 +1,326 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.DragDrop.IDragDropService
+  commentId: T:RTB.Blazor.Services.DragDrop.IDragDropService
+  id: IDragDropService
+  parent: RTB.Blazor.Services.DragDrop
+  children:
+  - RTB.Blazor.Services.DragDrop.IDragDropService.DraggedItemData
+  - RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop``1
+  - RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag``1(``0)
+  langs:
+  - csharp
+  - vb
+  name: IDragDropService
+  nameWithType: IDragDropService
+  fullName: RTB.Blazor.Services.DragDrop.IDragDropService
+  type: Interface
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/DragDrop/DragDropService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: IDragDropService
+    path: ../src/RTB.BlazorUI/Services/DragDrop/DragDropService.cs
+    startLine: 17
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.DragDrop
+  summary: >-
+    Provides a lightweight, in-memory mechanism to pass a single drag payload between draggable and droppable
+
+    components in a Blazor application.
+  remarks: >-
+    Usage:
+
+    - Call <xref href="RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag%60%601(%60%600)" data-throw-if-not-resolved="false"></xref> when a drag operation begins.
+
+    - Call <xref href="RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop%60%601" data-throw-if-not-resolved="false"></xref> on the drop target to retrieve and clear the payload.
+
+    Notes:
+
+    - The stored payload is cleared on every successful call to <xref href="RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop%60%601" data-throw-if-not-resolved="false"></xref>.
+
+    - Intended DI lifetime is Scoped in Blazor (one instance per circuit/user session).
+
+    - Not thread-safe. Access from the Blazor UI synchronization context.
+  example: []
+  syntax:
+    content: public interface IDragDropService
+    content.vb: Public Interface IDragDropService
+- uid: RTB.Blazor.Services.DragDrop.IDragDropService.DraggedItemData
+  commentId: P:RTB.Blazor.Services.DragDrop.IDragDropService.DraggedItemData
+  id: DraggedItemData
+  parent: RTB.Blazor.Services.DragDrop.IDragDropService
+  langs:
+  - csharp
+  - vb
+  name: DraggedItemData
+  nameWithType: IDragDropService.DraggedItemData
+  fullName: RTB.Blazor.Services.DragDrop.IDragDropService.DraggedItemData
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/DragDrop/DragDropService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: DraggedItemData
+    path: ../src/RTB.BlazorUI/Services/DragDrop/DragDropService.cs
+    startLine: 26
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.DragDrop
+  summary: Gets the raw object currently stored as the drag payload.
+  remarks: >-
+    This value is set by <xref href="RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag%60%601(%60%600)" data-throw-if-not-resolved="false"></xref> and cleared by <xref href="RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop%60%601" data-throw-if-not-resolved="false"></xref>.
+
+    Prefer using the typed APIs instead of accessing this property directly.
+  example: []
+  syntax:
+    content: object? DraggedItemData { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property DraggedItemData As Object
+  overload: RTB.Blazor.Services.DragDrop.IDragDropService.DraggedItemData*
+- uid: RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag``1(``0)
+  commentId: M:RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag``1(``0)
+  id: StartDrag``1(``0)
+  parent: RTB.Blazor.Services.DragDrop.IDragDropService
+  langs:
+  - csharp
+  - vb
+  name: StartDrag<TObject>(TObject?)
+  nameWithType: IDragDropService.StartDrag<TObject>(TObject?)
+  fullName: RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag<TObject>(TObject?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/DragDrop/DragDropService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: StartDrag
+    path: ../src/RTB.BlazorUI/Services/DragDrop/DragDropService.cs
+    startLine: 36
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.DragDrop
+  summary: Starts a drag operation by storing the provided payload.
+  remarks: This method overwrites any previously stored payload.
+  example: []
+  syntax:
+    content: void StartDrag<TObject>(TObject? itemData)
+    parameters:
+    - id: itemData
+      type: '{TObject}'
+      description: The payload to store. May be null to explicitly indicate no data.
+    typeParameters:
+    - id: TObject
+      description: The compile-time type of the payload.
+    content.vb: Sub StartDrag(Of TObject)(itemData As TObject)
+  overload: RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag*
+  nameWithType.vb: IDragDropService.StartDrag(Of TObject)(TObject)
+  fullName.vb: RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag(Of TObject)(TObject)
+  name.vb: StartDrag(Of TObject)(TObject)
+- uid: RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop``1
+  commentId: M:RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop``1
+  id: GetDataOnDrop``1
+  parent: RTB.Blazor.Services.DragDrop.IDragDropService
+  langs:
+  - csharp
+  - vb
+  name: GetDataOnDrop<TObject>()
+  nameWithType: IDragDropService.GetDataOnDrop<TObject>()
+  fullName: RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop<TObject>()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/DragDrop/DragDropService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: GetDataOnDrop
+    path: ../src/RTB.BlazorUI/Services/DragDrop/DragDropService.cs
+    startLine: 49
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.DragDrop
+  summary: Retrieves the drag payload as the requested type and clears the stored payload.
+  remarks: After calling this method, the internal payload is reset to its default (null).
+  example: []
+  syntax:
+    content: TObject? GetDataOnDrop<TObject>()
+    typeParameters:
+    - id: TObject
+      description: The expected type for the payload.
+    return:
+      type: '{TObject}'
+      description: The stored payload cast to <code class="typeparamref">TObject</code>.
+    content.vb: Function GetDataOnDrop(Of TObject)() As TObject
+  overload: RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop*
+  exceptions:
+  - type: System.InvalidCastException
+    commentId: T:System.InvalidCastException
+    description: Thrown when no payload is present or the stored payload cannot be cast to <code class="typeparamref">TObject</code>.
+  nameWithType.vb: IDragDropService.GetDataOnDrop(Of TObject)()
+  fullName.vb: RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop(Of TObject)()
+  name.vb: GetDataOnDrop(Of TObject)()
+references:
+- uid: RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag``1(``0)
+  commentId: M:RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag``1(``0)
+  href: RTB.Blazor.Services.DragDrop.IDragDropService.html#RTB_Blazor_Services_DragDrop_IDragDropService_StartDrag__1___0_
+  name: StartDrag<TObject>(TObject)
+  nameWithType: IDragDropService.StartDrag<TObject>(TObject)
+  fullName: RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag<TObject>(TObject)
+  nameWithType.vb: IDragDropService.StartDrag(Of TObject)(TObject)
+  fullName.vb: RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag(Of TObject)(TObject)
+  name.vb: StartDrag(Of TObject)(TObject)
+  spec.csharp:
+  - uid: RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag``1(``0)
+    name: StartDrag
+    href: RTB.Blazor.Services.DragDrop.IDragDropService.html#RTB_Blazor_Services_DragDrop_IDragDropService_StartDrag__1___0_
+  - name: <
+  - name: TObject
+  - name: '>'
+  - name: (
+  - name: TObject
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag``1(``0)
+    name: StartDrag
+    href: RTB.Blazor.Services.DragDrop.IDragDropService.html#RTB_Blazor_Services_DragDrop_IDragDropService_StartDrag__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TObject
+  - name: )
+  - name: (
+  - name: TObject
+  - name: )
+- uid: RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop``1
+  commentId: M:RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop``1
+  parent: RTB.Blazor.Services.DragDrop.IDragDropService
+  href: RTB.Blazor.Services.DragDrop.IDragDropService.html#RTB_Blazor_Services_DragDrop_IDragDropService_GetDataOnDrop__1
+  name: GetDataOnDrop<TObject>()
+  nameWithType: IDragDropService.GetDataOnDrop<TObject>()
+  fullName: RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop<TObject>()
+  nameWithType.vb: IDragDropService.GetDataOnDrop(Of TObject)()
+  fullName.vb: RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop(Of TObject)()
+  name.vb: GetDataOnDrop(Of TObject)()
+  spec.csharp:
+  - uid: RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop``1
+    name: GetDataOnDrop
+    href: RTB.Blazor.Services.DragDrop.IDragDropService.html#RTB_Blazor_Services_DragDrop_IDragDropService_GetDataOnDrop__1
+  - name: <
+  - name: TObject
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop``1
+    name: GetDataOnDrop
+    href: RTB.Blazor.Services.DragDrop.IDragDropService.html#RTB_Blazor_Services_DragDrop_IDragDropService_GetDataOnDrop__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TObject
+  - name: )
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Services.DragDrop
+  commentId: N:RTB.Blazor.Services.DragDrop
+  href: RTB.html
+  name: RTB.Blazor.Services.DragDrop
+  nameWithType: RTB.Blazor.Services.DragDrop
+  fullName: RTB.Blazor.Services.DragDrop
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.DragDrop
+    name: DragDrop
+    href: RTB.Blazor.Services.DragDrop.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.DragDrop
+    name: DragDrop
+    href: RTB.Blazor.Services.DragDrop.html
+- uid: RTB.Blazor.Services.DragDrop.IDragDropService
+  commentId: T:RTB.Blazor.Services.DragDrop.IDragDropService
+  parent: RTB.Blazor.Services.DragDrop
+  href: RTB.Blazor.Services.DragDrop.IDragDropService.html
+  name: IDragDropService
+  nameWithType: IDragDropService
+  fullName: RTB.Blazor.Services.DragDrop.IDragDropService
+- uid: RTB.Blazor.Services.DragDrop.IDragDropService.DraggedItemData*
+  commentId: Overload:RTB.Blazor.Services.DragDrop.IDragDropService.DraggedItemData
+  href: RTB.Blazor.Services.DragDrop.IDragDropService.html#RTB_Blazor_Services_DragDrop_IDragDropService_DraggedItemData
+  name: DraggedItemData
+  nameWithType: IDragDropService.DraggedItemData
+  fullName: RTB.Blazor.Services.DragDrop.IDragDropService.DraggedItemData
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag*
+  commentId: Overload:RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag
+  href: RTB.Blazor.Services.DragDrop.IDragDropService.html#RTB_Blazor_Services_DragDrop_IDragDropService_StartDrag__1___0_
+  name: StartDrag
+  nameWithType: IDragDropService.StartDrag
+  fullName: RTB.Blazor.Services.DragDrop.IDragDropService.StartDrag
+- uid: '{TObject}'
+  commentId: '!:TObject'
+  definition: TObject
+  name: TObject
+  nameWithType: TObject
+  fullName: TObject
+- uid: TObject
+  name: TObject
+  nameWithType: TObject
+  fullName: TObject
+- uid: System.InvalidCastException
+  commentId: T:System.InvalidCastException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidcastexception
+  name: InvalidCastException
+  nameWithType: InvalidCastException
+  fullName: System.InvalidCastException
+- uid: RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop*
+  commentId: Overload:RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop
+  href: RTB.Blazor.Services.DragDrop.IDragDropService.html#RTB_Blazor_Services_DragDrop_IDragDropService_GetDataOnDrop__1
+  name: GetDataOnDrop
+  nameWithType: IDragDropService.GetDataOnDrop
+  fullName: RTB.Blazor.Services.DragDrop.IDragDropService.GetDataOnDrop

@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Services
+  commentId: N:RTB.Blazor.Styled.Services
+  id: RTB.Blazor.Styled.Services
+  children:
+  - RTB.Blazor.Styled.Services.IStyleRegistry
+  - RTB.Blazor.Styled.Services.StyleRegistry
+  langs:
+  - csharp
+  - vb
+  name: RTB.Blazor.Styled.Services
+  nameWithType: RTB.Blazor.Styled.Services
+  fullName: RTB.Blazor.Styled.Services
+  type: Namespace
+  assemblies:
+  - RTB.Blazor.Styled
+references:
+- uid: RTB.Blazor.Styled.Services.IStyleRegistry
+  commentId: T:RTB.Blazor.Styled.Services.IStyleRegistry
+  parent: RTB.Blazor.Styled.Services
+  href: RTB.Blazor.Styled.Services.IStyleRegistry.html
+  name: IStyleRegistry
+  nameWithType: IStyleRegistry
+  fullName: RTB.Blazor.Styled.Services.IStyleRegistry
+- uid: RTB.Blazor.Styled.Services.StyleRegistry
+  commentId: T:RTB.Blazor.Styled.Services.StyleRegistry
+  href: RTB.Blazor.Styled.Services.StyleRegistry.html
+  name: StyleRegistry
+  nameWithType: StyleRegistry
+  fullName: RTB.Blazor.Styled.Services.StyleRegistry
+- uid: RTB.Blazor.Styled.Services
+  commentId: N:RTB.Blazor.Styled.Services
+  href: RTB.html
+  name: RTB.Blazor.Styled.Services
+  nameWithType: RTB.Blazor.Styled.Services
+  fullName: RTB.Blazor.Styled.Services
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Services
+    name: Services
+    href: RTB.Blazor.Styled.Services.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Services
+    name: Services
+    href: RTB.Blazor.Styled.Services.html

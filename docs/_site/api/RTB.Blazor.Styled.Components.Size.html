@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Size | RTB.Blazor </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Size | RTB.Blazor ">
+      
+      <meta name="description" content="Contributes CSS size-related declarations (width/height and their min/max variants) to the current .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/IIFabixn/RTB.BlazorUI/new/develop/apiSpec/new?filename=RTB_Blazor_Styled_Components_Size.md&amp;value=---%0Auid%3A%20RTB.Blazor.Styled.Components.Size%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="RTB.Blazor">
+            RTB.Blazor
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="RTB.Blazor.Styled.Components.Size">
+
+
+
+  <h1 id="RTB_Blazor_Styled_Components_Size" data-uid="RTB.Blazor.Styled.Components.Size" class="text-break">
+Class Size  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Size.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="RTB.html">RTB</a>.<a class="xref" href="RTB.Blazor.html">Blazor</a>.<a class="xref" href="RTB.Blazor.Styled.html">Styled</a>.<a class="xref" href="RTB.Blazor.Styled.Components.html">Components</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>RTB.Blazor.Styled.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Contributes CSS size-related declarations (width/height and their min/max variants)
+to the current <a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Size : RTBStyleBase, IComponent, IHandleEvent, IHandleAfterRender, IStyleContributor, IAsyncDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase">ComponentBase</a></div>
+      <div><a class="xref" href="RTB.Blazor.Styled.Components.RTBStyleBase.html">RTBStyleBase</a></div>
+      <div><span class="xref">Size</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.icomponent">IComponent</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleevent">IHandleEvent</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleafterrender">IHandleAfterRender</a></div>
+      <div><a class="xref" href="RTB.Blazor.Styled.Core.IStyleContributor.html">IStyleContributor</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncdisposable">IAsyncDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_StyleBuilder">RTBStyleBase.StyleBuilder</a>
+    </div>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_Condition">RTBStyleBase.Condition</a>
+    </div>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_OnInitialized">RTBStyleBase.OnInitialized()</a>
+    </div>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_OnParametersSet">RTBStyleBase.OnParametersSet()</a>
+    </div>
+    <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_DisposeAsync">RTBStyleBase.DisposeAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.buildrendertree">ComponentBase.BuildRenderTree(RenderTreeBuilder)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync">ComponentBase.OnInitializedAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync">ComponentBase.OnParametersSetAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged">ComponentBase.StateHasChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.shouldrender">ComponentBase.ShouldRender()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrender">ComponentBase.OnAfterRender(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync">ComponentBase.OnAfterRenderAsync(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-action)">ComponentBase.InvokeAsync(Action)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-func((system-threading-tasks-task)))">ComponentBase.InvokeAsync(Func&lt;Task&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.dispatchexceptionasync">ComponentBase.DispatchExceptionAsync(Exception)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync">ComponentBase.SetParametersAsync(ParameterView)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.rendererinfo">ComponentBase.RendererInfo</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.assets">ComponentBase.Assets</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.assignedrendermode">ComponentBase.AssignedRenderMode</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+  <h2 id="RTB_Blazor_Styled_Components_Size_examples">Examples</h2>
+  <p>The component can be used inside a context where a <a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a> is cascading:</p>
+<pre><code class="lang-csharp">&lt;!-- In a Razor file where StyleBuilder is provided --&gt;
+&lt;Size FullWidth="true" MinHeight="someSizeExpression" /&gt;</code></pre>
+<p>Or programmatically through the extension methods:</p>
+<pre><code class="lang-csharp">builder.Width(value: widthExpr, min: minWidthExpr, max: maxWidthExpr)
+       .Height(value: heightExpr, min: minHeightExpr, max: maxHeightExpr);</code></pre>
+
+
+  <h2 id="RTB_Blazor_Styled_Components_Size_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><ul>
+<li>If <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_FullWidth">FullWidth</a> is true, a base declaration <code>width: 100%</code> is emitted.
+If <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_Width">Width</a> is also provided, it will override the earlier 100% declaration,
+because it is applied afterward.</li>
+<li>The same precedence applies to <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_FullHeight">FullHeight</a> and <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_Height">Height</a>.</li>
+<li>Use <a class="xref" href="RTB.Blazor.Styled.Helper.SizeExpression.html">SizeExpression</a> values to ensure valid CSS (e.g., px, rem, %, vw, vh).</li>
+</ul>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="RTB_Blazor_Styled_Components_Size_FullHeight_" data-uid="RTB.Blazor.Styled.Components.Size.FullHeight*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Components_Size_FullHeight" data-uid="RTB.Blazor.Styled.Components.Size.FullHeight">
+  FullHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Size.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, emits <code>height: 100%</code> before applying <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_Height">Height</a>.
+If <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_Height">Height</a> is set, it will override this declaration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public bool FullHeight { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Components_Size_FullWidth_" data-uid="RTB.Blazor.Styled.Components.Size.FullWidth*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Components_Size_FullWidth" data-uid="RTB.Blazor.Styled.Components.Size.FullWidth">
+  FullWidth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Size.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If true, emits <code>width: 100%</code> before applying <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_Width">Width</a>.
+If <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_Width">Width</a> is set, it will override this declaration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public bool FullWidth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Components_Size_Height_" data-uid="RTB.Blazor.Styled.Components.Size.Height*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Components_Size_Height" data-uid="RTB.Blazor.Styled.Components.Size.Height">
+  Height
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Size.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The preferred height as a <a class="xref" href="RTB.Blazor.Styled.Helper.SizeExpression.html">SizeExpression</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public SizeExpression? Height { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Helper.SizeExpression.html">SizeExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Components_Size_MaxHeight_" data-uid="RTB.Blazor.Styled.Components.Size.MaxHeight*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Components_Size_MaxHeight" data-uid="RTB.Blazor.Styled.Components.Size.MaxHeight">
+  MaxHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Size.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum height as a <a class="xref" href="RTB.Blazor.Styled.Helper.SizeExpression.html">SizeExpression</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public SizeExpression? MaxHeight { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Helper.SizeExpression.html">SizeExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Components_Size_MaxWidth_" data-uid="RTB.Blazor.Styled.Components.Size.MaxWidth*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Components_Size_MaxWidth" data-uid="RTB.Blazor.Styled.Components.Size.MaxWidth">
+  MaxWidth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Size.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The maximum width as a <a class="xref" href="RTB.Blazor.Styled.Helper.SizeExpression.html">SizeExpression</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public SizeExpression? MaxWidth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Helper.SizeExpression.html">SizeExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Components_Size_MinHeight_" data-uid="RTB.Blazor.Styled.Components.Size.MinHeight*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Components_Size_MinHeight" data-uid="RTB.Blazor.Styled.Components.Size.MinHeight">
+  MinHeight
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Size.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The minimum height as a <a class="xref" href="RTB.Blazor.Styled.Helper.SizeExpression.html">SizeExpression</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public SizeExpression? MinHeight { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Helper.SizeExpression.html">SizeExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Components_Size_MinWidth_" data-uid="RTB.Blazor.Styled.Components.Size.MinWidth*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Components_Size_MinWidth" data-uid="RTB.Blazor.Styled.Components.Size.MinWidth">
+  MinWidth
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Size.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The minimum width as a <a class="xref" href="RTB.Blazor.Styled.Helper.SizeExpression.html">SizeExpression</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public SizeExpression? MinWidth { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Helper.SizeExpression.html">SizeExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Components_Size_Width_" data-uid="RTB.Blazor.Styled.Components.Size.Width*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Components_Size_Width" data-uid="RTB.Blazor.Styled.Components.Size.Width">
+  Width
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Size.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The preferred width as a <a class="xref" href="RTB.Blazor.Styled.Helper.SizeExpression.html">SizeExpression</a> (e.g., 100px, 10rem, 50%).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public SizeExpression? Width { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Helper.SizeExpression.html">SizeExpression</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="RTB_Blazor_Styled_Components_Size_BuildStyle_" data-uid="RTB.Blazor.Styled.Components.Size.BuildStyle*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Components_Size_BuildStyle_RTB_Blazor_Styled_Core_StyleBuilder_" data-uid="RTB.Blazor.Styled.Components.Size.BuildStyle(RTB.Blazor.Styled.Core.StyleBuilder)">
+  BuildStyle(StyleBuilder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Size.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Implementors define style declarations and nested rules here.</p>
+<p>Applies size-related CSS declarations to the provided <code class="paramref">builder</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void BuildStyle(StyleBuilder builder)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a></dt>
+    <dd><p>The <a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a> to receive the CSS declarations.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="RTB_Blazor_Styled_Components_Size_BuildStyle_RTB_Blazor_Styled_Core_StyleBuilder__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Order of application:</p>
+<ol>
+<li>If <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_FullWidth">FullWidth</a> is true, set <code>width: 100%</code>.</li>
+<li>Apply <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_Width">Width</a>, <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_MinWidth">MinWidth</a>, <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_MaxWidth">MaxWidth</a>.</li>
+<li>If <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_FullHeight">FullHeight</a> is true, set <code>height: 100%</code>.</li>
+<li>Apply <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_Height">Height</a>, <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_MinHeight">MinHeight</a>, <a class="xref" href="RTB.Blazor.Styled.Components.Size.html#RTB_Blazor_Styled_Components_Size_MaxHeight">MaxHeight</a>.
+Later declarations override earlier ones for the same property.</li>
+</ol>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Components/Size.cs/#L31" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

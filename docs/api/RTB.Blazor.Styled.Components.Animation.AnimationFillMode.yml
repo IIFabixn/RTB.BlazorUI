@@ -1,0 +1,314 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+  commentId: T:RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+  id: Animation.AnimationFillMode
+  parent: RTB.Blazor.Styled.Components
+  children:
+  - RTB.Blazor.Styled.Components.Animation.AnimationFillMode.Backwards
+  - RTB.Blazor.Styled.Components.Animation.AnimationFillMode.Both
+  - RTB.Blazor.Styled.Components.Animation.AnimationFillMode.Forwards
+  - RTB.Blazor.Styled.Components.Animation.AnimationFillMode.None
+  langs:
+  - csharp
+  - vb
+  name: Animation.AnimationFillMode
+  nameWithType: Animation.AnimationFillMode
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+  type: Enum
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: AnimationFillMode
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 61
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Maps to CSS <code>animation-fill-mode</code> keywords.
+  remarks: >-
+    None → <code>none</code>, Forwards → <code>forwards</code>, Backwards → <code>backwards</code>, Both → <code>both</code>.<br />
+
+    When omitted, the UA default is <code>none</code>.
+  example: []
+  syntax:
+    content: public enum Animation.AnimationFillMode
+    content.vb: Public Enum Animation.AnimationFillMode
+  extensionMethods:
+  - System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+- uid: RTB.Blazor.Styled.Components.Animation.AnimationFillMode.None
+  commentId: F:RTB.Blazor.Styled.Components.Animation.AnimationFillMode.None
+  id: None
+  parent: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: Animation.AnimationFillMode.None
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationFillMode.None
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: None
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 64
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: 'CSS: <code>none</code>. Do not retain styles before/after execution.'
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+- uid: RTB.Blazor.Styled.Components.Animation.AnimationFillMode.Forwards
+  commentId: F:RTB.Blazor.Styled.Components.Animation.AnimationFillMode.Forwards
+  id: Forwards
+  parent: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+  langs:
+  - csharp
+  - vb
+  name: Forwards
+  nameWithType: Animation.AnimationFillMode.Forwards
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationFillMode.Forwards
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Forwards
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 66
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: 'CSS: <code>forwards</code>. Retain styles from the last keyframe after completion.'
+  example: []
+  syntax:
+    content: Forwards = 1
+    return:
+      type: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+- uid: RTB.Blazor.Styled.Components.Animation.AnimationFillMode.Backwards
+  commentId: F:RTB.Blazor.Styled.Components.Animation.AnimationFillMode.Backwards
+  id: Backwards
+  parent: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+  langs:
+  - csharp
+  - vb
+  name: Backwards
+  nameWithType: Animation.AnimationFillMode.Backwards
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationFillMode.Backwards
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Backwards
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 68
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: 'CSS: <code>backwards</code>. Apply styles from the first keyframe during the delay.'
+  example: []
+  syntax:
+    content: Backwards = 2
+    return:
+      type: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+- uid: RTB.Blazor.Styled.Components.Animation.AnimationFillMode.Both
+  commentId: F:RTB.Blazor.Styled.Components.Animation.AnimationFillMode.Both
+  id: Both
+  parent: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+  langs:
+  - csharp
+  - vb
+  name: Both
+  nameWithType: Animation.AnimationFillMode.Both
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationFillMode.Both
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Both
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 70
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: 'CSS: <code>both</code>. Applies both <code>forwards</code> and <code>backwards</code> behaviors.'
+  example: []
+  syntax:
+    content: Both = 3
+    return:
+      type: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+references:
+- uid: RTB.Blazor.Styled.Components
+  commentId: N:RTB.Blazor.Styled.Components
+  href: RTB.html
+  name: RTB.Blazor.Styled.Components
+  nameWithType: RTB.Blazor.Styled.Components
+  fullName: RTB.Blazor.Styled.Components
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+- uid: System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  parent: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  definition: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  commentId: T:RTB.Blazor.Styled.Helper.CssEnumExtensions
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html
+  name: CssEnumExtensions
+  nameWithType: CssEnumExtensions
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+  commentId: T:RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+  parent: RTB.Blazor.Styled.Components
+  href: RTB.Blazor.Styled.Components.Animation.html
+  name: Animation.AnimationFillMode
+  nameWithType: Animation.AnimationFillMode
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+    name: AnimationFillMode
+    href: RTB.Blazor.Styled.Components.Animation.AnimationFillMode.html
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+    name: AnimationFillMode
+    href: RTB.Blazor.Styled.Components.Animation.AnimationFillMode.html

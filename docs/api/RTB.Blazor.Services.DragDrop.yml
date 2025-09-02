@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.DragDrop
+  commentId: N:RTB.Blazor.Services.DragDrop
+  id: RTB.Blazor.Services.DragDrop
+  children:
+  - RTB.Blazor.Services.DragDrop.DragDropService
+  - RTB.Blazor.Services.DragDrop.IDragDropService
+  langs:
+  - csharp
+  - vb
+  name: RTB.Blazor.Services.DragDrop
+  nameWithType: RTB.Blazor.Services.DragDrop
+  fullName: RTB.Blazor.Services.DragDrop
+  type: Namespace
+  assemblies:
+  - RTB.Blazor
+references:
+- uid: RTB.Blazor.Services.DragDrop.IDragDropService
+  commentId: T:RTB.Blazor.Services.DragDrop.IDragDropService
+  parent: RTB.Blazor.Services.DragDrop
+  href: RTB.Blazor.Services.DragDrop.IDragDropService.html
+  name: IDragDropService
+  nameWithType: IDragDropService
+  fullName: RTB.Blazor.Services.DragDrop.IDragDropService
+- uid: RTB.Blazor.Services.DragDrop.DragDropService
+  commentId: T:RTB.Blazor.Services.DragDrop.DragDropService
+  href: RTB.Blazor.Services.DragDrop.DragDropService.html
+  name: DragDropService
+  nameWithType: DragDropService
+  fullName: RTB.Blazor.Services.DragDrop.DragDropService
+- uid: RTB.Blazor.Services.DragDrop
+  commentId: N:RTB.Blazor.Services.DragDrop
+  href: RTB.html
+  name: RTB.Blazor.Services.DragDrop
+  nameWithType: RTB.Blazor.Services.DragDrop
+  fullName: RTB.Blazor.Services.DragDrop
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.DragDrop
+    name: DragDrop
+    href: RTB.Blazor.Services.DragDrop.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.DragDrop
+    name: DragDrop
+    href: RTB.Blazor.Services.DragDrop.html

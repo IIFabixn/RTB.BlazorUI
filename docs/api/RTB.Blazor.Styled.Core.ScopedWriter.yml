@@ -1,0 +1,761 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Core.ScopedWriter
+  commentId: T:RTB.Blazor.Styled.Core.ScopedWriter
+  id: ScopedWriter
+  parent: RTB.Blazor.Styled.Core
+  children:
+  - RTB.Blazor.Styled.Core.ScopedWriter.#ctor(System.Text.StringBuilder,System.String)
+  - RTB.Blazor.Styled.Core.ScopedWriter.CurrentSelector
+  - RTB.Blazor.Styled.Core.ScopedWriter.WithSelector(System.String,System.Action)
+  - RTB.Blazor.Styled.Core.ScopedWriter.Write(System.String)
+  - RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  - RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  langs:
+  - csharp
+  - vb
+  name: ScopedWriter
+  nameWithType: ScopedWriter
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter
+  type: Class
+  source:
+    remote:
+      path: src/RTB.Styled/Core/ScopedWriter.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: ScopedWriter
+    path: ../src/RTB.Styled/Core/ScopedWriter.cs
+    startLine: 17
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: >-
+    Provides a minimal, allocation-friendly writer for emitting scoped CSS strings.
+
+    Maintains a selector stack to support nested emission contexts without copying strings.
+  remarks: >-
+    - This type does not validate or escape CSS. Callers must provide valid CSS selectors and declarations.
+
+    - The root selector is pushed at construction and remains at the base of the stack until disposal/end of usage.
+
+    - Designed for high-throughput string building scenarios; all writes append directly to the provided <xref href="System.Text.StringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public sealed class ScopedWriter
+    content.vb: Public NotInheritable Class ScopedWriter
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.CurrentSelector
+  commentId: P:RTB.Blazor.Styled.Core.ScopedWriter.CurrentSelector
+  id: CurrentSelector
+  parent: RTB.Blazor.Styled.Core.ScopedWriter
+  langs:
+  - csharp
+  - vb
+  name: CurrentSelector
+  nameWithType: ScopedWriter.CurrentSelector
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.CurrentSelector
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Core/ScopedWriter.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: CurrentSelector
+    path: ../src/RTB.Styled/Core/ScopedWriter.cs
+    startLine: 28
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Gets the selector at the top of the selector stack.
+  example: []
+  syntax:
+    content: public string CurrentSelector { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property CurrentSelector As String
+  overload: RTB.Blazor.Styled.Core.ScopedWriter.CurrentSelector*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: Thrown if accessed after the internal stack has been fully unwound (should not occur in normal usage).
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.#ctor(System.Text.StringBuilder,System.String)
+  commentId: M:RTB.Blazor.Styled.Core.ScopedWriter.#ctor(System.Text.StringBuilder,System.String)
+  id: '#ctor(System.Text.StringBuilder,System.String)'
+  parent: RTB.Blazor.Styled.Core.ScopedWriter
+  langs:
+  - csharp
+  - vb
+  name: ScopedWriter(StringBuilder, string)
+  nameWithType: ScopedWriter.ScopedWriter(StringBuilder, string)
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.ScopedWriter(System.Text.StringBuilder, string)
+  type: Constructor
+  source:
+    remote:
+      path: src/RTB.Styled/Core/ScopedWriter.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: .ctor
+    path: ../src/RTB.Styled/Core/ScopedWriter.cs
+    startLine: 38
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Initializes a new instance of <xref href="RTB.Blazor.Styled.Core.ScopedWriter" data-throw-if-not-resolved="false"></xref> using the provided <xref href="System.Text.StringBuilder" data-throw-if-not-resolved="false"></xref> and root selector.
+  remarks: The constructor does not write anything immediately; it only establishes the initial scope.
+  example: []
+  syntax:
+    content: public ScopedWriter(StringBuilder sb, string rootSelector)
+    parameters:
+    - id: sb
+      type: System.Text.StringBuilder
+      description: The <xref href="System.Text.StringBuilder" data-throw-if-not-resolved="false"></xref> to which CSS will be appended. Must not be null.
+    - id: rootSelector
+      type: System.String
+      description: The root CSS selector to seed the selector stack. Must not be null.
+    content.vb: Public Sub New(sb As StringBuilder, rootSelector As String)
+  overload: RTB.Blazor.Styled.Core.ScopedWriter.#ctor*
+  nameWithType.vb: ScopedWriter.New(StringBuilder, String)
+  fullName.vb: RTB.Blazor.Styled.Core.ScopedWriter.New(System.Text.StringBuilder, String)
+  name.vb: New(StringBuilder, String)
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.WithSelector(System.String,System.Action)
+  commentId: M:RTB.Blazor.Styled.Core.ScopedWriter.WithSelector(System.String,System.Action)
+  id: WithSelector(System.String,System.Action)
+  parent: RTB.Blazor.Styled.Core.ScopedWriter
+  langs:
+  - csharp
+  - vb
+  name: WithSelector(string, Action)
+  nameWithType: ScopedWriter.WithSelector(string, Action)
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.WithSelector(string, System.Action)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Core/ScopedWriter.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: WithSelector
+    path: ../src/RTB.Styled/Core/ScopedWriter.cs
+    startLine: 52
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Temporarily pushes a selector onto the stack, executes the provided <code class="paramref">emit</code> action, then restores the previous selector.
+  remarks: Uses a try/finally to guarantee the selector is popped even if <code class="paramref">emit</code> throws.
+  example: []
+  syntax:
+    content: public void WithSelector(string selector, Action emit)
+    parameters:
+    - id: selector
+      type: System.String
+      description: The selector to push for the duration of <code class="paramref">emit</code>.
+    - id: emit
+      type: System.Action
+      description: An action that writes within the new selector scope.
+    content.vb: Public Sub WithSelector(selector As String, emit As Action)
+  overload: RTB.Blazor.Styled.Core.ScopedWriter.WithSelector*
+  nameWithType.vb: ScopedWriter.WithSelector(String, Action)
+  fullName.vb: RTB.Blazor.Styled.Core.ScopedWriter.WithSelector(String, System.Action)
+  name.vb: WithSelector(String, Action)
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.Write(System.String)
+  commentId: M:RTB.Blazor.Styled.Core.ScopedWriter.Write(System.String)
+  id: Write(System.String)
+  parent: RTB.Blazor.Styled.Core.ScopedWriter
+  langs:
+  - csharp
+  - vb
+  name: Write(string)
+  nameWithType: ScopedWriter.Write(string)
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.Write(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Core/ScopedWriter.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Write
+    path: ../src/RTB.Styled/Core/ScopedWriter.cs
+    startLine: 65
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Appends the specified string to the underlying <xref href="System.Text.StringBuilder" data-throw-if-not-resolved="false"></xref> without modification.
+  remarks: No validation or escaping is performed.
+  example: []
+  syntax:
+    content: public void Write(string s)
+    parameters:
+    - id: s
+      type: System.String
+      description: The string to append.
+    content.vb: Public Sub Write(s As String)
+  overload: RTB.Blazor.Styled.Core.ScopedWriter.Write*
+  nameWithType.vb: ScopedWriter.Write(String)
+  fullName.vb: RTB.Blazor.Styled.Core.ScopedWriter.Write(String)
+  name.vb: Write(String)
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  commentId: M:RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  id: WriteRuleBlock(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  parent: RTB.Blazor.Styled.Core.ScopedWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteRuleBlock(string, IReadOnlyDictionary<string, string>)
+  nameWithType: ScopedWriter.WriteRuleBlock(string, IReadOnlyDictionary<string, string>)
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock(string, System.Collections.Generic.IReadOnlyDictionary<string, string>)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Core/ScopedWriter.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: WriteRuleBlock
+    path: ../src/RTB.Styled/Core/ScopedWriter.cs
+    startLine: 76
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: 'Writes a CSS rule block of the form: <code>{selector}{{k:v;...}}</code>.'
+  remarks: >-
+    - Keys are written as-is as property names; values are written as-is as property values.
+
+    - No whitespace or formatting is added beyond curly braces and semicolons to minimize allocations.
+  example: []
+  syntax:
+    content: public void WriteRuleBlock(string selector, IReadOnlyDictionary<string, string> decls)
+    parameters:
+    - id: selector
+      type: System.String
+      description: The CSS selector for the rule block.
+    - id: decls
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}
+      description: A read-only dictionary of CSS declarations (property/value pairs).
+    content.vb: Public Sub WriteRuleBlock(selector As String, decls As IReadOnlyDictionary(Of String, String))
+  overload: RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock*
+  nameWithType.vb: ScopedWriter.WriteRuleBlock(String, IReadOnlyDictionary(Of String, String))
+  fullName.vb: RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock(String, System.Collections.Generic.IReadOnlyDictionary(Of String, String))
+  name.vb: WriteRuleBlock(String, IReadOnlyDictionary(Of String, String))
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  commentId: M:RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  id: WriteDeclarations(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})
+  parent: RTB.Blazor.Styled.Core.ScopedWriter
+  langs:
+  - csharp
+  - vb
+  name: WriteDeclarations(IReadOnlyDictionary<string, string>)
+  nameWithType: ScopedWriter.WriteDeclarations(IReadOnlyDictionary<string, string>)
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations(System.Collections.Generic.IReadOnlyDictionary<string, string>)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Core/ScopedWriter.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: WriteDeclarations
+    path: ../src/RTB.Styled/Core/ScopedWriter.cs
+    startLine: 91
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Writes a sequence of CSS declarations in the form <code>prop:value;</code> for each pair.
+  remarks: >-
+    - Declarations are emitted in the dictionary's enumeration order.
+
+    - No additional whitespace or escaping is applied.
+  example: []
+  syntax:
+    content: public void WriteDeclarations(IReadOnlyDictionary<string, string> decls)
+    parameters:
+    - id: decls
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}
+      description: A read-only dictionary of CSS declarations (property/value pairs).
+    content.vb: Public Sub WriteDeclarations(decls As IReadOnlyDictionary(Of String, String))
+  overload: RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations*
+  nameWithType.vb: ScopedWriter.WriteDeclarations(IReadOnlyDictionary(Of String, String))
+  fullName.vb: RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations(System.Collections.Generic.IReadOnlyDictionary(Of String, String))
+  name.vb: WriteDeclarations(IReadOnlyDictionary(Of String, String))
+references:
+- uid: System.Text.StringBuilder
+  commentId: T:System.Text.StringBuilder
+  parent: System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.text.stringbuilder
+  name: StringBuilder
+  nameWithType: StringBuilder
+  fullName: System.Text.StringBuilder
+- uid: RTB.Blazor.Styled.Core
+  commentId: N:RTB.Blazor.Styled.Core
+  href: RTB.html
+  name: RTB.Blazor.Styled.Core
+  nameWithType: RTB.Blazor.Styled.Core
+  fullName: RTB.Blazor.Styled.Core
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System.Text
+  commentId: N:System.Text
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Text
+  nameWithType: System.Text
+  fullName: System.Text
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Text
+    name: Text
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.text
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.CurrentSelector*
+  commentId: Overload:RTB.Blazor.Styled.Core.ScopedWriter.CurrentSelector
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_CurrentSelector
+  name: CurrentSelector
+  nameWithType: ScopedWriter.CurrentSelector
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.CurrentSelector
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RTB.Blazor.Styled.Core.ScopedWriter
+  commentId: T:RTB.Blazor.Styled.Core.ScopedWriter
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  name: ScopedWriter
+  nameWithType: ScopedWriter
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.#ctor*
+  commentId: Overload:RTB.Blazor.Styled.Core.ScopedWriter.#ctor
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter__ctor_System_Text_StringBuilder_System_String_
+  name: ScopedWriter
+  nameWithType: ScopedWriter.ScopedWriter
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.ScopedWriter
+  nameWithType.vb: ScopedWriter.New
+  fullName.vb: RTB.Blazor.Styled.Core.ScopedWriter.New
+  name.vb: New
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.WithSelector*
+  commentId: Overload:RTB.Blazor.Styled.Core.ScopedWriter.WithSelector
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_WithSelector_System_String_System_Action_
+  name: WithSelector
+  nameWithType: ScopedWriter.WithSelector
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.WithSelector
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.Write*
+  commentId: Overload:RTB.Blazor.Styled.Core.ScopedWriter.Write
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_Write_System_String_
+  name: Write
+  nameWithType: ScopedWriter.Write
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.Write
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock*
+  commentId: Overload:RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_WriteRuleBlock_System_String_System_Collections_Generic_IReadOnlyDictionary_System_String_System_String__
+  name: WriteRuleBlock
+  nameWithType: ScopedWriter.WriteRuleBlock
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.WriteRuleBlock
+- uid: System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{System.String,System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<string, string>
+  nameWithType: IReadOnlyDictionary<string, string>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<string, string>
+  nameWithType.vb: IReadOnlyDictionary(Of String, String)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of String, String)
+  name.vb: IReadOnlyDictionary(Of String, String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations*
+  commentId: Overload:RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html#RTB_Blazor_Styled_Core_ScopedWriter_WriteDeclarations_System_Collections_Generic_IReadOnlyDictionary_System_String_System_String__
+  name: WriteDeclarations
+  nameWithType: ScopedWriter.WriteDeclarations
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter.WriteDeclarations

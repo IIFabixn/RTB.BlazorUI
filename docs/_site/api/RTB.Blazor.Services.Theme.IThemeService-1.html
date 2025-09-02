@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IThemeService&lt;TTheme&gt; | RTB.Blazor </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IThemeService&lt;TTheme&gt; | RTB.Blazor ">
+      
+      <meta name="description" content="Theme provider interface.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/IIFabixn/RTB.BlazorUI/new/develop/apiSpec/new?filename=RTB_Blazor_Services_Theme_IThemeService_1.md&amp;value=---%0Auid%3A%20RTB.Blazor.Services.Theme.IThemeService%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="RTB.Blazor">
+            RTB.Blazor
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="RTB.Blazor.Services.Theme.IThemeService`1">
+
+
+
+  <h1 id="RTB_Blazor_Services_Theme_IThemeService_1" data-uid="RTB.Blazor.Services.Theme.IThemeService`1" class="text-break">
+Interface IThemeService&lt;TTheme&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Theme/IThemeService.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="RTB.html">RTB</a>.<a class="xref" href="RTB.Blazor.html">Blazor</a>.<a class="xref" href="RTB.Blazor.Services.html">Services</a>.<a class="xref" href="RTB.Blazor.Services.Theme.html">Theme</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>RTB.Blazor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Theme provider interface.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IThemeService&lt;TTheme&gt; where TTheme : ITheme</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TTheme</code></dt>
+    <dd><p>Interface type that represents a Theme and implements <a class="xref" href="RTB.Blazor.Services.Theme.ITheme.html">ITheme</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h2 id="RTB_Blazor_Services_Theme_IThemeService_1_examples">Examples</h2>
+  <p>Example usage in a Blazor component:</p>
+<pre><code class="lang-csharp">@inject IThemeService&lt;MyTheme&gt; ThemeService
+
+&lt;select @onchange="OnChange"&gt;
+    @foreach (var theme in ThemeService.Themes)
+    {
+        &lt;option selected="@(theme == ThemeService.Current)" value="@theme.Name"&gt;@theme.Name&lt;/option&gt;
+    }
+&lt;/select&gt;
+
+@code {
+    protected override void OnInitialized()
+    {
+        ThemeService.OnThemeChanged += StateHasChanged;
+    }
+
+    private async Task OnChange(ChangeEventArgs e)
+    {
+        var next = ThemeService.Themes.First(t =&gt; t.Name == (string)e.Value!);
+        await ThemeService.SetThemeAsync(next);
+    }
+
+    public void Dispose()
+    {
+        ThemeService.OnThemeChanged -= StateHasChanged;
+    }
+}</code></pre>
+
+
+  <h2 id="RTB_Blazor_Services_Theme_IThemeService_1_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Typical implementations:</p>
+<ul>
+<li>Expose a list of available themes via <a class="xref" href="RTB.Blazor.Services.Theme.IThemeService-1.html#RTB_Blazor_Services_Theme_IThemeService_1_Themes">Themes</a>.</li>
+<li>Track the currently selected theme via <a class="xref" href="RTB.Blazor.Services.Theme.IThemeService-1.html#RTB_Blazor_Services_Theme_IThemeService_1_Current">Current</a>.</li>
+<li>Optionally persist the selection (e.g., to local storage in Blazor, preferences in MAUI).</li>
+<li>Raise <a class="xref" href="RTB.Blazor.Services.Theme.IThemeService-1.html#RTB_Blazor_Services_Theme_IThemeService_1_OnThemeChanged">OnThemeChanged</a> after the theme is changed.</li>
+</ul>
+<p>Threading:</p>
+<ul>
+<li><a class="xref" href="RTB.Blazor.Services.Theme.IThemeService-1.html#RTB_Blazor_Services_Theme_IThemeService_1_OnThemeChanged">OnThemeChanged</a> may be raised on a non-UI thread; consumers should marshal to the UI thread if required.</li>
+</ul>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="RTB_Blazor_Services_Theme_IThemeService_1_Current_" data-uid="RTB.Blazor.Services.Theme.IThemeService`1.Current*"></a>
+
+  <h3 id="RTB_Blazor_Services_Theme_IThemeService_1_Current" data-uid="RTB.Blazor.Services.Theme.IThemeService`1.Current">
+  Current
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Theme/IThemeService.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the currently active theme.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TTheme Current { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TTheme</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Services_Theme_IThemeService_1_Default_" data-uid="RTB.Blazor.Services.Theme.IThemeService`1.Default*"></a>
+
+  <h3 id="RTB_Blazor_Services_Theme_IThemeService_1_Default" data-uid="RTB.Blazor.Services.Theme.IThemeService`1.Default">
+  Default
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Theme/IThemeService.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the default theme used when no persisted preference is available.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TTheme Default { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">TTheme</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Services_Theme_IThemeService_1_Themes_" data-uid="RTB.Blazor.Services.Theme.IThemeService`1.Themes*"></a>
+
+  <h3 id="RTB_Blazor_Services_Theme_IThemeService_1_Themes" data-uid="RTB.Blazor.Services.Theme.IThemeService`1.Themes">
+  Themes
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Theme/IThemeService.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the list of available themes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IList&lt;TTheme&gt; Themes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;TTheme&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="RTB_Blazor_Services_Theme_IThemeService_1_SetThemeAsync_" data-uid="RTB.Blazor.Services.Theme.IThemeService`1.SetThemeAsync*"></a>
+
+  <h3 id="RTB_Blazor_Services_Theme_IThemeService_1_SetThemeAsync__0_" data-uid="RTB.Blazor.Services.Theme.IThemeService`1.SetThemeAsync(`0)">
+  SetThemeAsync(TTheme)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Theme/IThemeService.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the current theme.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ValueTask SetThemeAsync(TTheme theme)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>theme</code> <span class="xref">TTheme</span></dt>
+    <dd><p>The theme to apply.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask">ValueTask</a></dt>
+    <dd><p>A task-like value representing the asynchronous operation. Implementations may persist
+the selection and apply side effects (e.g., updating CSS variables) before completing.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="RTB_Blazor_Services_Theme_IThemeService_1_OnThemeChanged" data-uid="RTB.Blazor.Services.Theme.IThemeService`1.OnThemeChanged">
+  OnThemeChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Theme/IThemeService.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Occurs after the current theme has changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event Action? OnThemeChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action">Action</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <h4 class="section" id="RTB_Blazor_Services_Theme_IThemeService_1_OnThemeChanged_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Implementations should invoke this event after updating <a class="xref" href="RTB.Blazor.Services.Theme.IThemeService-1.html#RTB_Blazor_Services_Theme_IThemeService_1_Current">Current</a>.
+Subscribers should assume it may be raised on a non-UI thread.</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.BlazorUI/Services/Theme/IThemeService.cs/#L56" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styles
+  commentId: N:RTB.Blazor.Styles
+  id: RTB.Blazor.Styles
+  children:
+  - RTB.Blazor.Styles.ButtonStyle
+  - RTB.Blazor.Styles.IStyle
+  - RTB.Blazor.Styles.PreStyled
+  - RTB.Blazor.Styles.TabStyle
+  - RTB.Blazor.Styles.TextStyle
+  langs:
+  - csharp
+  - vb
+  name: RTB.Blazor.Styles
+  nameWithType: RTB.Blazor.Styles
+  fullName: RTB.Blazor.Styles
+  type: Namespace
+  assemblies:
+  - RTB.Blazor
+references:
+- uid: RTB.Blazor.Styles.ButtonStyle
+  commentId: T:RTB.Blazor.Styles.ButtonStyle
+  href: RTB.Blazor.Styles.ButtonStyle.html
+  name: ButtonStyle
+  nameWithType: ButtonStyle
+  fullName: RTB.Blazor.Styles.ButtonStyle
+- uid: RTB.Blazor.Styles.IStyle
+  commentId: T:RTB.Blazor.Styles.IStyle
+  parent: RTB.Blazor.Styles
+  href: RTB.Blazor.Styles.IStyle.html
+  name: IStyle
+  nameWithType: IStyle
+  fullName: RTB.Blazor.Styles.IStyle
+- uid: RTB.Blazor.Styles.PreStyled
+  commentId: T:RTB.Blazor.Styles.PreStyled
+  href: RTB.Blazor.Styles.PreStyled.html
+  name: PreStyled
+  nameWithType: PreStyled
+  fullName: RTB.Blazor.Styles.PreStyled
+- uid: RTB.Blazor.Styles.TabStyle
+  commentId: T:RTB.Blazor.Styles.TabStyle
+  href: RTB.Blazor.Styles.TabStyle.html
+  name: TabStyle
+  nameWithType: TabStyle
+  fullName: RTB.Blazor.Styles.TabStyle
+- uid: RTB.Blazor.Styles.TextStyle
+  commentId: T:RTB.Blazor.Styles.TextStyle
+  parent: RTB.Blazor.Styles
+  href: RTB.Blazor.Styles.TextStyle.html
+  name: TextStyle
+  nameWithType: TextStyle
+  fullName: RTB.Blazor.Styles.TextStyle
+- uid: RTB.Blazor.Styles
+  commentId: N:RTB.Blazor.Styles
+  href: RTB.html
+  name: RTB.Blazor.Styles
+  nameWithType: RTB.Blazor.Styles
+  fullName: RTB.Blazor.Styles
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styles
+    name: Styles
+    href: RTB.Blazor.Styles.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styles
+    name: Styles
+    href: RTB.Blazor.Styles.html

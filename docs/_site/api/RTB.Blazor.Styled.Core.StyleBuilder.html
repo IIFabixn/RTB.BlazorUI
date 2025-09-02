@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class StyleBuilder | RTB.Blazor </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class StyleBuilder | RTB.Blazor ">
+      
+      <meta name="description" content="A builder for CSS styles, supporting base declarations, nested selectors, groups (media/supports/container), and keyframes.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/IIFabixn/RTB.BlazorUI/new/develop/apiSpec/new?filename=RTB_Blazor_Styled_Core_StyleBuilder.md&amp;value=---%0Auid%3A%20RTB.Blazor.Styled.Core.StyleBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="RTB.Blazor">
+            RTB.Blazor
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="RTB.Blazor.Styled.Core.StyleBuilder">
+
+
+
+  <h1 id="RTB_Blazor_Styled_Core_StyleBuilder" data-uid="RTB.Blazor.Styled.Core.StyleBuilder" class="text-break">
+Class StyleBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="RTB.html">RTB</a>.<a class="xref" href="RTB.Blazor.html">Blazor</a>.<a class="xref" href="RTB.Blazor.Styled.html">Styled</a>.<a class="xref" href="RTB.Blazor.Styled.Core.html">Core</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>RTB.Blazor.Styled.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A builder for CSS styles, supporting base declarations, nested selectors, groups (media/supports/container), and keyframes.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class StyleBuilder</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">StyleBuilder</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationDelay_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_System_TimeSpan__">AnimationStyleExtensions.AnimationDelay(StyleBuilder, TimeSpan?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationDirection_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Components_Animation_AnimationDirection__">AnimationStyleExtensions.AnimationDirection(StyleBuilder, Animation.AnimationDirection?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationDuration_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_System_TimeSpan__">AnimationStyleExtensions.AnimationDuration(StyleBuilder, TimeSpan?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationFillMode_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Components_Animation_AnimationFillMode__">AnimationStyleExtensions.AnimationFillMode(StyleBuilder, Animation.AnimationFillMode?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationIterationCount_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_System_Int32__System_Boolean_">AnimationStyleExtensions.AnimationIterationCount(StyleBuilder, int?, bool)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationName_RTB_Blazor_Styled_Core_StyleBuilder_System_String_">AnimationStyleExtensions.AnimationName(StyleBuilder, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationPlayState_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Components_Animation_AnimationPlayState__">AnimationStyleExtensions.AnimationPlayState(StyleBuilder, Animation.AnimationPlayState?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.AnimationStyleExtensions.html#RTB_Blazor_Styled_Components_AnimationStyleExtensions_AnimationTiming_RTB_Blazor_Styled_Core_StyleBuilder_System_String_">AnimationStyleExtensions.AnimationTiming(StyleBuilder, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.BackgroundExtensions.html#RTB_Blazor_Styled_Components_BackgroundExtensions_Background_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_RTBColor__">BackgroundExtensions.Background(StyleBuilder, RTBColor?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.BorderStyleExtensions.html#RTB_Blazor_Styled_Components_BorderStyleExtensions_Border_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_SizeUnit__RTB_Blazor_Styled_Components_Border_BorderStyle_System_Nullable_RTB_Blazor_Styled_Helper_RTBColor__System_Nullable_RTB_Blazor_Styled_Components_Border_BorderSide__">BorderStyleExtensions.Border(StyleBuilder, SizeUnit?, Border.BorderStyle, RTBColor?, Border.BorderSide?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.BorderStyleExtensions.html#RTB_Blazor_Styled_Components_BorderStyleExtensions_BorderAll_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_SizeUnit__RTB_Blazor_Styled_Helper_RTBColor_RTB_Blazor_Styled_Components_Border_BorderStyle_">BorderStyleExtensions.BorderAll(StyleBuilder, SizeUnit?, RTBColor, Border.BorderStyle)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.BorderStyleExtensions.html#RTB_Blazor_Styled_Components_BorderStyleExtensions_BorderNone_RTB_Blazor_Styled_Core_StyleBuilder_">BorderStyleExtensions.BorderNone(StyleBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.BorderStyleExtensions.html#RTB_Blazor_Styled_Components_BorderStyleExtensions_BorderRadius_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_SizeUnit__System_Nullable_RTB_Blazor_Styled_Components_Border_BorderCorner__">BorderStyleExtensions.BorderRadius(StyleBuilder, SizeUnit?, Border.BorderCorner?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.BorderStyleExtensions.html#RTB_Blazor_Styled_Components_BorderStyleExtensions_BorderRadiusAll_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_SizeUnit__">BorderStyleExtensions.BorderRadiusAll(StyleBuilder, SizeUnit?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.BorderStyleExtensions.html#RTB_Blazor_Styled_Components_BorderStyleExtensions_BorderRadiusNone_RTB_Blazor_Styled_Core_StyleBuilder_">BorderStyleExtensions.BorderRadiusNone(StyleBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.ColorExtensions.html#RTB_Blazor_Styled_Components_ColorExtensions_Color_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_RTBColor__">ColorExtensions.Color(StyleBuilder, RTBColor?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.FlexExtensions.html#RTB_Blazor_Styled_Components_FlexExtensions_Flex_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Components_Flex_AxisDirection__System_Nullable_RTB_Blazor_Styled_Components_Flex_WrapMode__System_Nullable_RTB_Blazor_Styled_Components_Flex_Justify__System_Nullable_RTB_Blazor_Styled_Components_Flex_Align__System_Nullable_RTB_Blazor_Styled_Components_Flex_Align__System_Nullable_RTB_Blazor_Styled_Helper_Spacing__System_Nullable_System_Int32__System_Nullable_System_Int32__">FlexExtensions.Flex(StyleBuilder, Flex.AxisDirection?, Flex.WrapMode?, Flex.Justify?, Flex.Align?, Flex.Align?, Spacing?, int?, int?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.GridExtensions.html#RTB_Blazor_Styled_Components_GridExtensions_Grid_RTB_Blazor_Styled_Core_StyleBuilder_System_String_System_String_System_Nullable_RTB_Blazor_Styled_Helper_Spacing__System_Nullable_RTB_Blazor_Styled_Components_Grid_Placement__">GridExtensions.Grid(StyleBuilder, string, string, Spacing?, Grid.Placement?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.GridPlacementExtensions.html#RTB_Blazor_Styled_Components_GridPlacementExtensions_GridPlacement_RTB_Blazor_Styled_Core_StyleBuilder_System_Int32_System_Int32_System_Int32_System_Int32_">GridPlacementExtensions.GridPlacement(StyleBuilder, int, int, int, int)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.MarginExtensions.html#RTB_Blazor_Styled_Components_MarginExtensions_Margin_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_Spacing__System_Nullable_RTB_Blazor_Styled_Helper_Spacing__System_Nullable_RTB_Blazor_Styled_Helper_Spacing__System_Nullable_RTB_Blazor_Styled_Helper_Spacing__System_Nullable_RTB_Blazor_Styled_Helper_Spacing__System_Nullable_RTB_Blazor_Styled_Helper_Spacing__System_Nullable_RTB_Blazor_Styled_Helper_Spacing__">MarginExtensions.Margin(StyleBuilder, Spacing?, Spacing?, Spacing?, Spacing?, Spacing?, Spacing?, Spacing?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.OpacityExtensions.html#RTB_Blazor_Styled_Components_OpacityExtensions_Opacity_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_System_Double__">OpacityExtensions.Opacity(StyleBuilder, double?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.OtherExtensions.html#RTB_Blazor_Styled_Components_OtherExtensions_Other_RTB_Blazor_Styled_Core_StyleBuilder_System_String_System_String_">OtherExtensions.Other(StyleBuilder, string, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.OverflowExtensions.html#RTB_Blazor_Styled_Components_OverflowExtensions_Overflow_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Components_Overflow_OverflowMode__">OverflowExtensions.Overflow(StyleBuilder, Overflow.OverflowMode?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.OverflowExtensions.html#RTB_Blazor_Styled_Components_OverflowExtensions_OverflowX_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Components_Overflow_OverflowMode__">OverflowExtensions.OverflowX(StyleBuilder, Overflow.OverflowMode?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.OverflowExtensions.html#RTB_Blazor_Styled_Components_OverflowExtensions_OverflowY_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Components_Overflow_OverflowMode__">OverflowExtensions.OverflowY(StyleBuilder, Overflow.OverflowMode?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.PaddingExtensions.html#RTB_Blazor_Styled_Components_PaddingExtensions_PaddingAll_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_Spacing__">PaddingExtensions.PaddingAll(StyleBuilder, Spacing?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.PaddingExtensions.html#RTB_Blazor_Styled_Components_PaddingExtensions_PaddingBottom_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_Spacing__">PaddingExtensions.PaddingBottom(StyleBuilder, Spacing?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.PaddingExtensions.html#RTB_Blazor_Styled_Components_PaddingExtensions_PaddingLeft_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_Spacing__">PaddingExtensions.PaddingLeft(StyleBuilder, Spacing?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.PaddingExtensions.html#RTB_Blazor_Styled_Components_PaddingExtensions_PaddingRight_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_Spacing__">PaddingExtensions.PaddingRight(StyleBuilder, Spacing?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.PaddingExtensions.html#RTB_Blazor_Styled_Components_PaddingExtensions_PaddingTop_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_Spacing__">PaddingExtensions.PaddingTop(StyleBuilder, Spacing?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.PositionedExtensions.html#RTB_Blazor_Styled_Components_PositionedExtensions_Positioned_RTB_Blazor_Styled_Core_StyleBuilder_RTB_Blazor_Styled_Components_Positioned_PositionMode_RTB_Blazor_Styled_Helper_SizeExpression_RTB_Blazor_Styled_Helper_SizeExpression_RTB_Blazor_Styled_Helper_SizeExpression_RTB_Blazor_Styled_Helper_SizeExpression_">PositionedExtensions.Positioned(StyleBuilder, Positioned.PositionMode, SizeExpression?, SizeExpression?, SizeExpression?, SizeExpression?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.SizeExtensions.html#RTB_Blazor_Styled_Components_SizeExtensions_Height_RTB_Blazor_Styled_Core_StyleBuilder_RTB_Blazor_Styled_Helper_SizeExpression_RTB_Blazor_Styled_Helper_SizeExpression_RTB_Blazor_Styled_Helper_SizeExpression_">SizeExtensions.Height(StyleBuilder, SizeExpression?, SizeExpression?, SizeExpression?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.SizeExtensions.html#RTB_Blazor_Styled_Components_SizeExtensions_Width_RTB_Blazor_Styled_Core_StyleBuilder_RTB_Blazor_Styled_Helper_SizeExpression_RTB_Blazor_Styled_Helper_SizeExpression_RTB_Blazor_Styled_Helper_SizeExpression_">SizeExtensions.Width(StyleBuilder, SizeExpression?, SizeExpression?, SizeExpression?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.TransformExtensions.html#RTB_Blazor_Styled_Components_TransformExtensions_Transform_RTB_Blazor_Styled_Core_StyleBuilder_System_String___">TransformExtensions.Transform(StyleBuilder, params string[])</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.TransformExtensions.html#RTB_Blazor_Styled_Components_TransformExtensions_TransformNone_RTB_Blazor_Styled_Core_StyleBuilder_">TransformExtensions.TransformNone(StyleBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.TransformExtensions.html#RTB_Blazor_Styled_Components_TransformExtensions_TransformOrigin_RTB_Blazor_Styled_Core_StyleBuilder_System_String_">TransformExtensions.TransformOrigin(StyleBuilder, string?)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.TransitionExtensions.html#RTB_Blazor_Styled_Components_TransitionExtensions_Transition_RTB_Blazor_Styled_Core_StyleBuilder_RTB_Blazor_Styled_Components_TransitionItem___">TransitionExtensions.Transition(StyleBuilder, params TransitionItem[])</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.TransitionExtensions.html#RTB_Blazor_Styled_Components_TransitionExtensions_WillChange_RTB_Blazor_Styled_Core_StyleBuilder_System_String_">TransitionExtensions.WillChange(StyleBuilder, string)</a>
+  </div>
+  <div>
+      <a class="xref" href="RTB.Blazor.Styled.Components.VisibilityExtensions.html#RTB_Blazor_Styled_Components_VisibilityExtensions_Visibility_RTB_Blazor_Styled_Core_StyleBuilder_RTB_Blazor_Styled_Components_Visibility_Mode_">VisibilityExtensions.Visibility(StyleBuilder, Visibility.Mode)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_Base_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Base*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_Base" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Base">
+  Base
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Base declarations (the root level, no selector).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DeclarationSet Base { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Core.DeclarationSet.html">DeclarationSet</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_Start_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Start*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_Start" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Start">
+  Start
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create a new StyleBuilder instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static StyleBuilder Start { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_Absorb_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Absorb*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_Absorb_RTB_Blazor_Styled_Core_StyleBuilder_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Absorb(RTB.Blazor.Styled.Core.StyleBuilder)">
+  Absorb(StyleBuilder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Absorb another StyleBuilder's base declarations and fragments into this one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StyleBuilder Absorb(StyleBuilder other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_AddFragment_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.AddFragment*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_AddFragment_RTB_Blazor_Styled_Core_IStyleFragment_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.AddFragment(RTB.Blazor.Styled.Core.IStyleFragment)">
+  AddFragment(IStyleFragment)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add a style fragment (selector, group, keyframes).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddFragment(IStyleFragment f)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>f</code> <a class="xref" href="RTB.Blazor.Styled.Core.IStyleFragment.html">IStyleFragment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_BuildScoped_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.BuildScoped*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_BuildScoped_System_String_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.BuildScoped(System.String)">
+  BuildScoped(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L219"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Build the complete CSS style as a string, scoped to the provided class name.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string BuildScoped(string className)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>className</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_ClearAll_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.ClearAll*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_ClearAll" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.ClearAll">
+  ClearAll()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L254"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clear all base declarations and fragments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StyleBuilder ClearAll()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_Compose_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Compose*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_Compose" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Compose">
+  Compose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L53"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compose the style by clearing existing declarations and fragments,</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Compose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_Container_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Container*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_Container_System_String_System_Action_RTB_Blazor_Styled_Core_StyleBuilder__" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Container(System.String,System.Action{RTB.Blazor.Styled.Core.StyleBuilder})">
+  Container(string, Action&lt;StyleBuilder&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add a group rule (media, supports, container) with nested declarations and optional child fragments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GroupRule Container(string prelude, Action&lt;StyleBuilder&gt; build)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prelude</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>build</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Core.GroupRule.html">GroupRule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_Group_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Group*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_Group_System_String_System_String_System_Action_RTB_Blazor_Styled_Core_StyleBuilder__" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Group(System.String,System.String,System.Action{RTB.Blazor.Styled.Core.StyleBuilder})">
+  Group(string, string, Action&lt;StyleBuilder&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L174"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add a group rule (media, supports, container) with nested declarations and optional child fragments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GroupRule Group(string kind, string prelude, Action&lt;StyleBuilder&gt; build)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>kind</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>prelude</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>build</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Core.GroupRule.html">GroupRule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_Keyframes_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Keyframes*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_Keyframes_System_String_System_Action_RTB_Blazor_Styled_Core_Keyframes__" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Keyframes(System.String,System.Action{RTB.Blazor.Styled.Core.Keyframes})">
+  Keyframes(string, Action&lt;Keyframes&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add or modify a keyframes block by name with nested frames.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Keyframes Keyframes(string name, Action&lt;Keyframes&gt; build)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>build</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="RTB.Blazor.Styled.Core.Keyframes.html">Keyframes</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Core.Keyframes.html">Keyframes</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_Media_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Media*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_Media_System_String_System_Action_RTB_Blazor_Styled_Core_StyleBuilder__" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Media(System.String,System.Action{RTB.Blazor.Styled.Core.StyleBuilder})">
+  Media(string, Action&lt;StyleBuilder&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add a group rule (media, supports, container) with nested declarations and optional child fragments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GroupRule Media(string prelude, Action&lt;StyleBuilder&gt; build)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prelude</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>build</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Core.GroupRule.html">GroupRule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_Register_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Register*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_Register_RTB_Blazor_Styled_Core_IStyleContributor_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Register(RTB.Blazor.Styled.Core.IStyleContributor)">
+  Register(IStyleContributor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Register a style contributor to participate in the next composition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Register(IStyleContributor c)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c</code> <a class="xref" href="RTB.Blazor.Styled.Core.IStyleContributor.html">IStyleContributor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_Selector_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Selector*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_Selector_System_String_System_Action_RTB_Blazor_Styled_Core_StyleBuilder__" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Selector(System.String,System.Action{RTB.Blazor.Styled.Core.StyleBuilder})">
+  Selector(string, Action&lt;StyleBuilder&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add a selector rule with nested declarations and optional child fragments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SelectorRule Selector(string selector, Action&lt;StyleBuilder&gt; build)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>selector</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>build</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Core.SelectorRule.html">SelectorRule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_Set_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Set*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_Set_System_String_System_String_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Set(System.String,System.String)">
+  Set(string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set a CSS property to a value in the base declaration set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StyleBuilder Set(string prop, string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prop</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_SetIf_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.SetIf*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_SetIf_System_String_System_String_System_Boolean_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.SetIf(System.String,System.String,System.Boolean)">
+  SetIf(string?, string?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set a CSS property to a value in the base declaration set if both are not null or whitespace and the condition is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StyleBuilder SetIf(string? prop, string? value, bool Condition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prop</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>Condition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_SetIf_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.SetIf*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_SetIf_System_String_System_String_System_Func_System_Boolean__" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.SetIf(System.String,System.String,System.Func{System.Boolean})">
+  SetIf(string?, string?, Func&lt;bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set a CSS property to a value in the base declaration set if both are not null or whitespace and the condition is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StyleBuilder SetIf(string? prop, string? value, Func&lt;bool&gt; Condition)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prop</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>Condition</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_SetIfNotNull_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.SetIfNotNull*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_SetIfNotNull_System_String_System_String_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.SetIfNotNull(System.String,System.String)">
+  SetIfNotNull(string?, string?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set a CSS property to a value in the base declaration set if both are not null or whitespace.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StyleBuilder SetIfNotNull(string? prop, string? value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prop</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_Supports_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Supports*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_Supports_System_String_System_Action_RTB_Blazor_Styled_Core_StyleBuilder__" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Supports(System.String,System.Action{RTB.Blazor.Styled.Core.StyleBuilder})">
+  Supports(string, Action&lt;StyleBuilder&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L155"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add a group rule (media, supports, container) with nested declarations and optional child fragments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GroupRule Supports(string prelude, Action&lt;StyleBuilder&gt; build)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>prelude</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>build</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="RTB.Blazor.Styled.Core.StyleBuilder.html">StyleBuilder</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="RTB.Blazor.Styled.Core.GroupRule.html">GroupRule</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="RTB_Blazor_Styled_Core_StyleBuilder_Unregister_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Unregister*"></a>
+
+  <h3 id="RTB_Blazor_Styled_Core_StyleBuilder_Unregister_RTB_Blazor_Styled_Core_IStyleContributor_" data-uid="RTB.Blazor.Styled.Core.StyleBuilder.Unregister(RTB.Blazor.Styled.Core.IStyleContributor)">
+  Unregister(IStyleContributor)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unregister a style contributor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Unregister(IStyleContributor c)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>c</code> <a class="xref" href="RTB.Blazor.Styled.Core.IStyleContributor.html">IStyleContributor</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/IIFabixn/RTB.BlazorUI/blob/develop/src/RTB.Styled/Core/StyleBuilder.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

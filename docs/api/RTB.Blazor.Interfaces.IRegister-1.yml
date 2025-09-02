@@ -1,0 +1,164 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Interfaces.IRegister`1
+  commentId: T:RTB.Blazor.Interfaces.IRegister`1
+  id: IRegister`1
+  parent: RTB.Blazor.Interfaces
+  children:
+  - RTB.Blazor.Interfaces.IRegister`1.Register(`0)
+  - RTB.Blazor.Interfaces.IRegister`1.Unregister(`0)
+  langs:
+  - csharp
+  - vb
+  name: IRegister<T>
+  nameWithType: IRegister<T>
+  fullName: RTB.Blazor.Interfaces.IRegister<T>
+  type: Interface
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Interfaces/IRegister.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: IRegister
+    path: ../src/RTB.BlazorUI/Interfaces/IRegister.cs
+    startLine: 17
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Interfaces
+  summary: Defines a contract for components that can register and unregister items of type <code class="typeparamref">T</code>.
+  remarks: Implementations should document thread-safety and whether operations are idempotent.
+  example: []
+  syntax:
+    content: public interface IRegister<T>
+    typeParameters:
+    - id: T
+      description: The type of item to register and unregister. Implementations may constrain or validate this type.
+    content.vb: Public Interface IRegister(Of T)
+  nameWithType.vb: IRegister(Of T)
+  fullName.vb: RTB.Blazor.Interfaces.IRegister(Of T)
+  name.vb: IRegister(Of T)
+- uid: RTB.Blazor.Interfaces.IRegister`1.Register(`0)
+  commentId: M:RTB.Blazor.Interfaces.IRegister`1.Register(`0)
+  id: Register(`0)
+  parent: RTB.Blazor.Interfaces.IRegister`1
+  langs:
+  - csharp
+  - vb
+  name: Register(T)
+  nameWithType: IRegister<T>.Register(T)
+  fullName: RTB.Blazor.Interfaces.IRegister<T>.Register(T)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Interfaces/IRegister.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Register
+    path: ../src/RTB.BlazorUI/Interfaces/IRegister.cs
+    startLine: 25
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Interfaces
+  summary: Registers the specified item with the implementing component.
+  example: []
+  syntax:
+    content: void Register(T item)
+    parameters:
+    - id: item
+      type: '{T}'
+      description: The item to register. When <code class="typeparamref">T</code> is a reference type, this parameter should not be null.
+    content.vb: Sub Register(item As T)
+  overload: RTB.Blazor.Interfaces.IRegister`1.Register*
+  nameWithType.vb: IRegister(Of T).Register(T)
+  fullName.vb: RTB.Blazor.Interfaces.IRegister(Of T).Register(T)
+- uid: RTB.Blazor.Interfaces.IRegister`1.Unregister(`0)
+  commentId: M:RTB.Blazor.Interfaces.IRegister`1.Unregister(`0)
+  id: Unregister(`0)
+  parent: RTB.Blazor.Interfaces.IRegister`1
+  langs:
+  - csharp
+  - vb
+  name: Unregister(T)
+  nameWithType: IRegister<T>.Unregister(T)
+  fullName: RTB.Blazor.Interfaces.IRegister<T>.Unregister(T)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Interfaces/IRegister.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Unregister
+    path: ../src/RTB.BlazorUI/Interfaces/IRegister.cs
+    startLine: 33
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Interfaces
+  summary: Unregisters the specified item from the implementing component.
+  example: []
+  syntax:
+    content: void Unregister(T item)
+    parameters:
+    - id: item
+      type: '{T}'
+      description: The item to unregister. When <code class="typeparamref">T</code> is a reference type, this parameter should not be null.
+    content.vb: Sub Unregister(item As T)
+  overload: RTB.Blazor.Interfaces.IRegister`1.Unregister*
+  nameWithType.vb: IRegister(Of T).Unregister(T)
+  fullName.vb: RTB.Blazor.Interfaces.IRegister(Of T).Unregister(T)
+references:
+- uid: RTB.Blazor.Interfaces
+  commentId: N:RTB.Blazor.Interfaces
+  href: RTB.html
+  name: RTB.Blazor.Interfaces
+  nameWithType: RTB.Blazor.Interfaces
+  fullName: RTB.Blazor.Interfaces
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Interfaces
+    name: Interfaces
+    href: RTB.Blazor.Interfaces.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Interfaces
+    name: Interfaces
+    href: RTB.Blazor.Interfaces.html
+- uid: RTB.Blazor.Interfaces.IRegister`1.Register*
+  commentId: Overload:RTB.Blazor.Interfaces.IRegister`1.Register
+  href: RTB.Blazor.Interfaces.IRegister-1.html#RTB_Blazor_Interfaces_IRegister_1_Register__0_
+  name: Register
+  nameWithType: IRegister<T>.Register
+  fullName: RTB.Blazor.Interfaces.IRegister<T>.Register
+  nameWithType.vb: IRegister(Of T).Register
+  fullName.vb: RTB.Blazor.Interfaces.IRegister(Of T).Register
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: RTB.Blazor.Interfaces.IRegister`1.Unregister*
+  commentId: Overload:RTB.Blazor.Interfaces.IRegister`1.Unregister
+  href: RTB.Blazor.Interfaces.IRegister-1.html#RTB_Blazor_Interfaces_IRegister_1_Unregister__0_
+  name: Unregister
+  nameWithType: IRegister<T>.Unregister
+  fullName: RTB.Blazor.Interfaces.IRegister<T>.Unregister
+  nameWithType.vb: IRegister(Of T).Unregister
+  fullName.vb: RTB.Blazor.Interfaces.IRegister(Of T).Unregister

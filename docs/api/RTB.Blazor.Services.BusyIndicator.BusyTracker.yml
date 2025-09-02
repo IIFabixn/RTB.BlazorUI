@@ -1,0 +1,1103 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker
+  commentId: T:RTB.Blazor.Services.BusyIndicator.BusyTracker
+  id: BusyTracker
+  parent: RTB.Blazor.Services.BusyIndicator
+  children:
+  - RTB.Blazor.Services.BusyIndicator.BusyTracker.Await(System.String)
+  - RTB.Blazor.Services.BusyIndicator.BusyTracker.CurrentState
+  - RTB.Blazor.Services.BusyIndicator.BusyTracker.IsAnyBusy
+  - RTB.Blazor.Services.BusyIndicator.BusyTracker.IsBusy(System.String)
+  - RTB.Blazor.Services.BusyIndicator.BusyTracker.OnBusyChanged
+  - RTB.Blazor.Services.BusyIndicator.BusyTracker.Track(System.String,System.Action)
+  - RTB.Blazor.Services.BusyIndicator.BusyTracker.Tracks
+  langs:
+  - csharp
+  - vb
+  name: BusyTracker
+  nameWithType: BusyTracker
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker
+  type: Class
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: BusyTracker
+    path: ../src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+    startLine: 91
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.BusyIndicator
+  summary: >-
+    Default implementation of <xref href="RTB.Blazor.Services.BusyIndicator.IBusyTracker" data-throw-if-not-resolved="false"></xref> that tracks busy states by key
+
+    using reference-counted scopes stored in concurrent dictionaries.
+  remarks: >-
+    Thread-safe. Designed for UI scenarios (e.g., Blazor) to reflect background work state.
+
+    Keys are case-sensitive. Disposing a tracking token decrements the count and may complete any awaiting task.
+  example: []
+  syntax:
+    content: 'public class BusyTracker : IBusyTracker'
+    content.vb: Public Class BusyTracker Implements IBusyTracker
+  inheritance:
+  - System.Object
+  implements:
+  - RTB.Blazor.Services.BusyIndicator.IBusyTracker
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.Tracks
+  commentId: P:RTB.Blazor.Services.BusyIndicator.BusyTracker.Tracks
+  id: Tracks
+  parent: RTB.Blazor.Services.BusyIndicator.BusyTracker
+  langs:
+  - csharp
+  - vb
+  name: Tracks
+  nameWithType: BusyTracker.Tracks
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker.Tracks
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Tracks
+    path: ../src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+    startLine: 102
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.BusyIndicator
+  summary: The set of keys that are currently busy (i.e., have a positive outstanding count).
+  example: []
+  syntax:
+    content: public string[] Tracks { get; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public ReadOnly Property Tracks As String()
+  overload: RTB.Blazor.Services.BusyIndicator.BusyTracker.Tracks*
+  implements:
+  - RTB.Blazor.Services.BusyIndicator.IBusyTracker.Tracks
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.OnBusyChanged
+  commentId: E:RTB.Blazor.Services.BusyIndicator.BusyTracker.OnBusyChanged
+  id: OnBusyChanged
+  parent: RTB.Blazor.Services.BusyIndicator.BusyTracker
+  langs:
+  - csharp
+  - vb
+  name: OnBusyChanged
+  nameWithType: BusyTracker.OnBusyChanged
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker.OnBusyChanged
+  type: Event
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: OnBusyChanged
+    path: ../src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+    startLine: 111
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.BusyIndicator
+  summary: Raised when any busy state changes (work begins or ends).
+  remarks: >-
+    The provided string argument is the key whose state changed.
+
+    In Blazor components, marshal UI updates via InvokeAsync(StateHasChanged).
+  example: []
+  syntax:
+    content: public event Action<string?>? OnBusyChanged
+    return:
+      type: System.Action{System.String}
+    content.vb: Public Event OnBusyChanged As Action(Of String)
+  implements:
+  - RTB.Blazor.Services.BusyIndicator.IBusyTracker.OnBusyChanged
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.IsBusy(System.String)
+  commentId: M:RTB.Blazor.Services.BusyIndicator.BusyTracker.IsBusy(System.String)
+  id: IsBusy(System.String)
+  parent: RTB.Blazor.Services.BusyIndicator.BusyTracker
+  langs:
+  - csharp
+  - vb
+  name: IsBusy(string?)
+  nameWithType: BusyTracker.IsBusy(string?)
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker.IsBusy(string?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: IsBusy
+    path: ../src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+    startLine: 114
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.BusyIndicator
+  summary: Determines whether the specified key is currently busy.
+  example: []
+  syntax:
+    content: public bool IsBusy(string? key = "")
+    parameters:
+    - id: key
+      type: System.String
+      description: The key to check. When null or empty, this reports whether any key is busy (<xref href="RTB.Blazor.Services.BusyIndicator.IBusyTracker.IsAnyBusy" data-throw-if-not-resolved="false"></xref>).
+    return:
+      type: System.Boolean
+      description: >-
+        True if the specified key has an outstanding busy count greater than zero;
+
+        or, when key is null/empty, true if any key is busy.
+    content.vb: Public Function IsBusy(key As String = "") As Boolean
+  overload: RTB.Blazor.Services.BusyIndicator.BusyTracker.IsBusy*
+  implements:
+  - RTB.Blazor.Services.BusyIndicator.IBusyTracker.IsBusy(System.String)
+  nameWithType.vb: BusyTracker.IsBusy(String)
+  fullName.vb: RTB.Blazor.Services.BusyIndicator.BusyTracker.IsBusy(String)
+  name.vb: IsBusy(String)
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.IsAnyBusy
+  commentId: P:RTB.Blazor.Services.BusyIndicator.BusyTracker.IsAnyBusy
+  id: IsAnyBusy
+  parent: RTB.Blazor.Services.BusyIndicator.BusyTracker
+  langs:
+  - csharp
+  - vb
+  name: IsAnyBusy
+  nameWithType: BusyTracker.IsAnyBusy
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker.IsAnyBusy
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: IsAnyBusy
+    path: ../src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+    startLine: 118
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.BusyIndicator
+  summary: Indicates whether any tracked key is currently busy.
+  example: []
+  syntax:
+    content: public bool IsAnyBusy { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsAnyBusy As Boolean
+  overload: RTB.Blazor.Services.BusyIndicator.BusyTracker.IsAnyBusy*
+  implements:
+  - RTB.Blazor.Services.BusyIndicator.IBusyTracker.IsAnyBusy
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.CurrentState
+  commentId: P:RTB.Blazor.Services.BusyIndicator.BusyTracker.CurrentState
+  id: CurrentState
+  parent: RTB.Blazor.Services.BusyIndicator.BusyTracker
+  langs:
+  - csharp
+  - vb
+  name: CurrentState
+  nameWithType: BusyTracker.CurrentState
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker.CurrentState
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: CurrentState
+    path: ../src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+    startLine: 127
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.BusyIndicator
+  summary: Returns the current mapping of keys to their active scope counts.
+  remarks: >-
+    This is a live, thread-safe view backed by a <xref href="System.Collections.Concurrent.ConcurrentDictionary%602" data-throw-if-not-resolved="false"></xref>.
+
+    Contents can change while iterating; prefer enumerating promptly.
+  example: []
+  syntax:
+    content: public IReadOnlyDictionary<string, int> CurrentState { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Int32}
+    content.vb: Public ReadOnly Property CurrentState As IReadOnlyDictionary(Of String, Integer)
+  overload: RTB.Blazor.Services.BusyIndicator.BusyTracker.CurrentState*
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.Track(System.String,System.Action)
+  commentId: M:RTB.Blazor.Services.BusyIndicator.BusyTracker.Track(System.String,System.Action)
+  id: Track(System.String,System.Action)
+  parent: RTB.Blazor.Services.BusyIndicator.BusyTracker
+  langs:
+  - csharp
+  - vb
+  name: Track(string, Action?)
+  nameWithType: BusyTracker.Track(string, Action?)
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker.Track(string, System.Action?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Track
+    path: ../src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+    startLine: 130
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.BusyIndicator
+  summary: Begins tracking a busy scope for the specified key and returns a token that ends the scope on dispose.
+  example:
+  - >-
+    using var _ = busyTracker.Track(); // key becomes the caller's method name
+
+    await DoWorkAsync();
+
+    // disposing '_' marks this scope as complete
+  syntax:
+    content: public IDisposable Track(string key = "", Action? onDispose = null)
+    parameters:
+    - id: key
+      type: System.String
+    - id: onDispose
+      type: System.Action
+      description: Optional callback invoked after the busy scope is ended and the internal count is decremented/cleared.
+    return:
+      type: System.IDisposable
+      description: An <xref href="System.IDisposable" data-throw-if-not-resolved="false"></xref> token. Dispose to end the busy scope. Intended to be used with a using statement.
+    content.vb: Public Function Track(key As String = "", onDispose As Action = Nothing) As IDisposable
+  overload: RTB.Blazor.Services.BusyIndicator.BusyTracker.Track*
+  implements:
+  - RTB.Blazor.Services.BusyIndicator.IBusyTracker.Track(System.String,System.Action)
+  nameWithType.vb: BusyTracker.Track(String, Action)
+  fullName.vb: RTB.Blazor.Services.BusyIndicator.BusyTracker.Track(String, System.Action)
+  name.vb: Track(String, Action)
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.Await(System.String)
+  commentId: M:RTB.Blazor.Services.BusyIndicator.BusyTracker.Await(System.String)
+  id: Await(System.String)
+  parent: RTB.Blazor.Services.BusyIndicator.BusyTracker
+  langs:
+  - csharp
+  - vb
+  name: Await(string)
+  nameWithType: BusyTracker.Await(string)
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker.Await(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Await
+    path: ../src/RTB.BlazorUI/Services/BusyIndicator/BusyTracker.cs
+    startLine: 142
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.BusyIndicator
+  summary: Returns a task that completes when the specified key is no longer busy.
+  remarks: >-
+    Only a single waiter is maintained per key; subsequent calls overwrite previous waiters.
+
+    Continuations run asynchronously.
+  example: []
+  syntax:
+    content: public Task Await(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key to await completion for.
+    return:
+      type: System.Threading.Tasks.Task
+      description: >-
+        A task that completes when the key's busy count reaches zero.
+
+        If the key is not currently busy, the task is already completed.
+    content.vb: Public Function Await(key As String) As Task
+  overload: RTB.Blazor.Services.BusyIndicator.BusyTracker.Await*
+  implements:
+  - RTB.Blazor.Services.BusyIndicator.IBusyTracker.Await(System.String)
+  nameWithType.vb: BusyTracker.Await(String)
+  fullName.vb: RTB.Blazor.Services.BusyIndicator.BusyTracker.Await(String)
+  name.vb: Await(String)
+references:
+- uid: RTB.Blazor.Services.BusyIndicator.IBusyTracker
+  commentId: T:RTB.Blazor.Services.BusyIndicator.IBusyTracker
+  parent: RTB.Blazor.Services.BusyIndicator
+  href: RTB.Blazor.Services.BusyIndicator.IBusyTracker.html
+  name: IBusyTracker
+  nameWithType: IBusyTracker
+  fullName: RTB.Blazor.Services.BusyIndicator.IBusyTracker
+- uid: RTB.Blazor.Services.BusyIndicator
+  commentId: N:RTB.Blazor.Services.BusyIndicator
+  href: RTB.html
+  name: RTB.Blazor.Services.BusyIndicator
+  nameWithType: RTB.Blazor.Services.BusyIndicator
+  fullName: RTB.Blazor.Services.BusyIndicator
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.BusyIndicator
+    name: BusyIndicator
+    href: RTB.Blazor.Services.BusyIndicator.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.BusyIndicator
+    name: BusyIndicator
+    href: RTB.Blazor.Services.BusyIndicator.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.Tracks*
+  commentId: Overload:RTB.Blazor.Services.BusyIndicator.BusyTracker.Tracks
+  href: RTB.Blazor.Services.BusyIndicator.BusyTracker.html#RTB_Blazor_Services_BusyIndicator_BusyTracker_Tracks
+  name: Tracks
+  nameWithType: BusyTracker.Tracks
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker.Tracks
+- uid: RTB.Blazor.Services.BusyIndicator.IBusyTracker.Tracks
+  commentId: P:RTB.Blazor.Services.BusyIndicator.IBusyTracker.Tracks
+  parent: RTB.Blazor.Services.BusyIndicator.IBusyTracker
+  href: RTB.Blazor.Services.BusyIndicator.IBusyTracker.html#RTB_Blazor_Services_BusyIndicator_IBusyTracker_Tracks
+  name: Tracks
+  nameWithType: IBusyTracker.Tracks
+  fullName: RTB.Blazor.Services.BusyIndicator.IBusyTracker.Tracks
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Services.BusyIndicator.IBusyTracker.OnBusyChanged
+  commentId: E:RTB.Blazor.Services.BusyIndicator.IBusyTracker.OnBusyChanged
+  parent: RTB.Blazor.Services.BusyIndicator.IBusyTracker
+  href: RTB.Blazor.Services.BusyIndicator.IBusyTracker.html#RTB_Blazor_Services_BusyIndicator_IBusyTracker_OnBusyChanged
+  name: OnBusyChanged
+  nameWithType: IBusyTracker.OnBusyChanged
+  fullName: RTB.Blazor.Services.BusyIndicator.IBusyTracker.OnBusyChanged
+- uid: System.Action{System.String}
+  commentId: T:System.Action{System.String}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<string>
+  nameWithType: Action<string>
+  fullName: System.Action<string>
+  nameWithType.vb: Action(Of String)
+  fullName.vb: System.Action(Of String)
+  name.vb: Action(Of String)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RTB.Blazor.Services.BusyIndicator.IBusyTracker.IsAnyBusy
+  commentId: P:RTB.Blazor.Services.BusyIndicator.IBusyTracker.IsAnyBusy
+  parent: RTB.Blazor.Services.BusyIndicator.IBusyTracker
+  href: RTB.Blazor.Services.BusyIndicator.IBusyTracker.html#RTB_Blazor_Services_BusyIndicator_IBusyTracker_IsAnyBusy
+  name: IsAnyBusy
+  nameWithType: IBusyTracker.IsAnyBusy
+  fullName: RTB.Blazor.Services.BusyIndicator.IBusyTracker.IsAnyBusy
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.IsBusy*
+  commentId: Overload:RTB.Blazor.Services.BusyIndicator.BusyTracker.IsBusy
+  href: RTB.Blazor.Services.BusyIndicator.BusyTracker.html#RTB_Blazor_Services_BusyIndicator_BusyTracker_IsBusy_System_String_
+  name: IsBusy
+  nameWithType: BusyTracker.IsBusy
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker.IsBusy
+- uid: RTB.Blazor.Services.BusyIndicator.IBusyTracker.IsBusy(System.String)
+  commentId: M:RTB.Blazor.Services.BusyIndicator.IBusyTracker.IsBusy(System.String)
+  parent: RTB.Blazor.Services.BusyIndicator.IBusyTracker
+  isExternal: true
+  href: RTB.Blazor.Services.BusyIndicator.IBusyTracker.html#RTB_Blazor_Services_BusyIndicator_IBusyTracker_IsBusy_System_String_
+  name: IsBusy(string)
+  nameWithType: IBusyTracker.IsBusy(string)
+  fullName: RTB.Blazor.Services.BusyIndicator.IBusyTracker.IsBusy(string)
+  nameWithType.vb: IBusyTracker.IsBusy(String)
+  fullName.vb: RTB.Blazor.Services.BusyIndicator.IBusyTracker.IsBusy(String)
+  name.vb: IsBusy(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Services.BusyIndicator.IBusyTracker.IsBusy(System.String)
+    name: IsBusy
+    href: RTB.Blazor.Services.BusyIndicator.IBusyTracker.html#RTB_Blazor_Services_BusyIndicator_IBusyTracker_IsBusy_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.BusyIndicator.IBusyTracker.IsBusy(System.String)
+    name: IsBusy
+    href: RTB.Blazor.Services.BusyIndicator.IBusyTracker.html#RTB_Blazor_Services_BusyIndicator_IBusyTracker_IsBusy_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.IsAnyBusy*
+  commentId: Overload:RTB.Blazor.Services.BusyIndicator.BusyTracker.IsAnyBusy
+  href: RTB.Blazor.Services.BusyIndicator.BusyTracker.html#RTB_Blazor_Services_BusyIndicator_BusyTracker_IsAnyBusy
+  name: IsAnyBusy
+  nameWithType: BusyTracker.IsAnyBusy
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker.IsAnyBusy
+- uid: System.Collections.Concurrent.ConcurrentDictionary`2
+  commentId: T:System.Collections.Concurrent.ConcurrentDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentdictionary-2
+  name: ConcurrentDictionary<TKey, TValue>
+  nameWithType: ConcurrentDictionary<TKey, TValue>
+  fullName: System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
+  nameWithType.vb: ConcurrentDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Concurrent.ConcurrentDictionary(Of TKey, TValue)
+  name.vb: ConcurrentDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Concurrent.ConcurrentDictionary`2
+    name: ConcurrentDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentdictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Concurrent.ConcurrentDictionary`2
+    name: ConcurrentDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.concurrent.concurrentdictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.CurrentState*
+  commentId: Overload:RTB.Blazor.Services.BusyIndicator.BusyTracker.CurrentState
+  href: RTB.Blazor.Services.BusyIndicator.BusyTracker.html#RTB_Blazor_Services_BusyIndicator_BusyTracker_CurrentState
+  name: CurrentState
+  nameWithType: BusyTracker.CurrentState
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker.CurrentState
+- uid: System.Collections.Generic.IReadOnlyDictionary{System.String,System.Int32}
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary{System.String,System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<string, int>
+  nameWithType: IReadOnlyDictionary<string, int>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<string, int>
+  nameWithType.vb: IReadOnlyDictionary(Of String, Integer)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of String, Integer)
+  name.vb: IReadOnlyDictionary(Of String, Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyDictionary`2
+  commentId: T:System.Collections.Generic.IReadOnlyDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  name: IReadOnlyDictionary<TKey, TValue>
+  nameWithType: IReadOnlyDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>
+  nameWithType.vb: IReadOnlyDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IReadOnlyDictionary(Of TKey, TValue)
+  name.vb: IReadOnlyDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyDictionary`2
+    name: IReadOnlyDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Runtime.CompilerServices.CallerMemberNameAttribute
+  commentId: T:System.Runtime.CompilerServices.CallerMemberNameAttribute
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.compilerservices.callermembernameattribute
+  name: CallerMemberNameAttribute
+  nameWithType: CallerMemberNameAttribute
+  fullName: System.Runtime.CompilerServices.CallerMemberNameAttribute
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.Track*
+  commentId: Overload:RTB.Blazor.Services.BusyIndicator.BusyTracker.Track
+  href: RTB.Blazor.Services.BusyIndicator.BusyTracker.html#RTB_Blazor_Services_BusyIndicator_BusyTracker_Track_System_String_System_Action_
+  name: Track
+  nameWithType: BusyTracker.Track
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker.Track
+- uid: RTB.Blazor.Services.BusyIndicator.IBusyTracker.Track(System.String,System.Action)
+  commentId: M:RTB.Blazor.Services.BusyIndicator.IBusyTracker.Track(System.String,System.Action)
+  parent: RTB.Blazor.Services.BusyIndicator.IBusyTracker
+  isExternal: true
+  href: RTB.Blazor.Services.BusyIndicator.IBusyTracker.html#RTB_Blazor_Services_BusyIndicator_IBusyTracker_Track_System_String_System_Action_
+  name: Track(string, Action)
+  nameWithType: IBusyTracker.Track(string, Action)
+  fullName: RTB.Blazor.Services.BusyIndicator.IBusyTracker.Track(string, System.Action)
+  nameWithType.vb: IBusyTracker.Track(String, Action)
+  fullName.vb: RTB.Blazor.Services.BusyIndicator.IBusyTracker.Track(String, System.Action)
+  name.vb: Track(String, Action)
+  spec.csharp:
+  - uid: RTB.Blazor.Services.BusyIndicator.IBusyTracker.Track(System.String,System.Action)
+    name: Track
+    href: RTB.Blazor.Services.BusyIndicator.IBusyTracker.html#RTB_Blazor_Services_BusyIndicator_IBusyTracker_Track_System_String_System_Action_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Action
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.BusyIndicator.IBusyTracker.Track(System.String,System.Action)
+    name: Track
+    href: RTB.Blazor.Services.BusyIndicator.IBusyTracker.html#RTB_Blazor_Services_BusyIndicator_IBusyTracker_Track_System_String_System_Action_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Action
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action
+  - name: )
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: RTB.Blazor.Services.BusyIndicator.BusyTracker.Await*
+  commentId: Overload:RTB.Blazor.Services.BusyIndicator.BusyTracker.Await
+  href: RTB.Blazor.Services.BusyIndicator.BusyTracker.html#RTB_Blazor_Services_BusyIndicator_BusyTracker_Await_System_String_
+  name: Await
+  nameWithType: BusyTracker.Await
+  fullName: RTB.Blazor.Services.BusyIndicator.BusyTracker.Await
+- uid: RTB.Blazor.Services.BusyIndicator.IBusyTracker.Await(System.String)
+  commentId: M:RTB.Blazor.Services.BusyIndicator.IBusyTracker.Await(System.String)
+  parent: RTB.Blazor.Services.BusyIndicator.IBusyTracker
+  isExternal: true
+  href: RTB.Blazor.Services.BusyIndicator.IBusyTracker.html#RTB_Blazor_Services_BusyIndicator_IBusyTracker_Await_System_String_
+  name: Await(string)
+  nameWithType: IBusyTracker.Await(string)
+  fullName: RTB.Blazor.Services.BusyIndicator.IBusyTracker.Await(string)
+  nameWithType.vb: IBusyTracker.Await(String)
+  fullName.vb: RTB.Blazor.Services.BusyIndicator.IBusyTracker.Await(String)
+  name.vb: Await(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Services.BusyIndicator.IBusyTracker.Await(System.String)
+    name: Await
+    href: RTB.Blazor.Services.BusyIndicator.IBusyTracker.html#RTB_Blazor_Services_BusyIndicator_IBusyTracker_Await_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.BusyIndicator.IBusyTracker.Await(System.String)
+    name: Await
+    href: RTB.Blazor.Services.BusyIndicator.IBusyTracker.html#RTB_Blazor_Services_BusyIndicator_IBusyTracker_Await_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

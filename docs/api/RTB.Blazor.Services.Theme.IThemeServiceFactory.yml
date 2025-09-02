@@ -1,0 +1,129 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.Theme.IThemeServiceFactory
+  commentId: T:RTB.Blazor.Services.Theme.IThemeServiceFactory
+  id: IThemeServiceFactory
+  parent: RTB.Blazor.Services.Theme
+  children:
+  - RTB.Blazor.Services.Theme.IThemeServiceFactory.GetCurrent
+  langs:
+  - csharp
+  - vb
+  name: IThemeServiceFactory
+  nameWithType: IThemeServiceFactory
+  fullName: RTB.Blazor.Services.Theme.IThemeServiceFactory
+  type: Interface
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: IThemeServiceFactory
+    path: ../src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+    startLine: 99
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Theme
+  summary: Factory interface to access the current theme service instance without a generic type.
+  remarks: >-
+    Useful in scenarios where the concrete <code>TTheme</code> is not known at compile time,
+
+    such as dynamic composition or cross-cutting infrastructure.
+  example: []
+  syntax:
+    content: public interface IThemeServiceFactory
+    content.vb: Public Interface IThemeServiceFactory
+- uid: RTB.Blazor.Services.Theme.IThemeServiceFactory.GetCurrent
+  commentId: M:RTB.Blazor.Services.Theme.IThemeServiceFactory.GetCurrent
+  id: GetCurrent
+  parent: RTB.Blazor.Services.Theme.IThemeServiceFactory
+  langs:
+  - csharp
+  - vb
+  name: GetCurrent()
+  nameWithType: IThemeServiceFactory.GetCurrent()
+  fullName: RTB.Blazor.Services.Theme.IThemeServiceFactory.GetCurrent()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: GetCurrent
+    path: ../src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+    startLine: 105
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Theme
+  summary: Gets the current theme service instance as an <xref href="System.Object" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: object GetCurrent()
+    return:
+      type: System.Object
+      description: The current theme service instance; callers may cast to the expected generic interface.
+    content.vb: Function GetCurrent() As Object
+  overload: RTB.Blazor.Services.Theme.IThemeServiceFactory.GetCurrent*
+references:
+- uid: RTB.Blazor.Services.Theme
+  commentId: N:RTB.Blazor.Services.Theme
+  href: RTB.html
+  name: RTB.Blazor.Services.Theme
+  nameWithType: RTB.Blazor.Services.Theme
+  fullName: RTB.Blazor.Services.Theme
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Theme
+    name: Theme
+    href: RTB.Blazor.Services.Theme.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Theme
+    name: Theme
+    href: RTB.Blazor.Services.Theme.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RTB.Blazor.Services.Theme.IThemeServiceFactory.GetCurrent*
+  commentId: Overload:RTB.Blazor.Services.Theme.IThemeServiceFactory.GetCurrent
+  href: RTB.Blazor.Services.Theme.IThemeServiceFactory.html#RTB_Blazor_Services_Theme_IThemeServiceFactory_GetCurrent
+  name: GetCurrent
+  nameWithType: IThemeServiceFactory.GetCurrent
+  fullName: RTB.Blazor.Services.Theme.IThemeServiceFactory.GetCurrent
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

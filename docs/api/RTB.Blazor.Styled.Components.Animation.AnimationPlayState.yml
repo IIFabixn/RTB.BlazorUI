@@ -1,0 +1,256 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+  commentId: T:RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+  id: Animation.AnimationPlayState
+  parent: RTB.Blazor.Styled.Components
+  children:
+  - RTB.Blazor.Styled.Components.Animation.AnimationPlayState.Paused
+  - RTB.Blazor.Styled.Components.Animation.AnimationPlayState.Running
+  langs:
+  - csharp
+  - vb
+  name: Animation.AnimationPlayState
+  nameWithType: Animation.AnimationPlayState
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+  type: Enum
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: AnimationPlayState
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 80
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Maps to CSS <code>animation-play-state</code> keywords.
+  remarks: >-
+    Running → <code>running</code>, Paused → <code>paused</code>.<br />
+
+    When omitted, the UA default is <code>running</code>.
+  example: []
+  syntax:
+    content: public enum Animation.AnimationPlayState
+    content.vb: Public Enum Animation.AnimationPlayState
+  extensionMethods:
+  - System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+- uid: RTB.Blazor.Styled.Components.Animation.AnimationPlayState.Running
+  commentId: F:RTB.Blazor.Styled.Components.Animation.AnimationPlayState.Running
+  id: Running
+  parent: RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+  langs:
+  - csharp
+  - vb
+  name: Running
+  nameWithType: Animation.AnimationPlayState.Running
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationPlayState.Running
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Running
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 83
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: 'CSS: <code>running</code>. The animation is playing.'
+  example: []
+  syntax:
+    content: Running = 0
+    return:
+      type: RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+- uid: RTB.Blazor.Styled.Components.Animation.AnimationPlayState.Paused
+  commentId: F:RTB.Blazor.Styled.Components.Animation.AnimationPlayState.Paused
+  id: Paused
+  parent: RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+  langs:
+  - csharp
+  - vb
+  name: Paused
+  nameWithType: Animation.AnimationPlayState.Paused
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationPlayState.Paused
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Paused
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 85
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: 'CSS: <code>paused</code>. The animation is paused.'
+  example: []
+  syntax:
+    content: Paused = 1
+    return:
+      type: RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+references:
+- uid: RTB.Blazor.Styled.Components
+  commentId: N:RTB.Blazor.Styled.Components
+  href: RTB.html
+  name: RTB.Blazor.Styled.Components
+  nameWithType: RTB.Blazor.Styled.Components
+  fullName: RTB.Blazor.Styled.Components
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+- uid: System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  parent: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  definition: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  commentId: T:RTB.Blazor.Styled.Helper.CssEnumExtensions
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html
+  name: CssEnumExtensions
+  nameWithType: CssEnumExtensions
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+  commentId: T:RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+  parent: RTB.Blazor.Styled.Components
+  href: RTB.Blazor.Styled.Components.Animation.html
+  name: Animation.AnimationPlayState
+  nameWithType: Animation.AnimationPlayState
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+    name: AnimationPlayState
+    href: RTB.Blazor.Styled.Components.Animation.AnimationPlayState.html
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+    name: AnimationPlayState
+    href: RTB.Blazor.Styled.Components.Animation.AnimationPlayState.html

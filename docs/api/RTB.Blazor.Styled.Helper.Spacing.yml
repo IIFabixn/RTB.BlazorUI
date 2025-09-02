@@ -1,0 +1,2043 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Helper.Spacing
+  commentId: T:RTB.Blazor.Styled.Helper.Spacing
+  id: Spacing
+  parent: RTB.Blazor.Styled.Helper
+  children:
+  - RTB.Blazor.Styled.Helper.Spacing.Abs
+  - RTB.Blazor.Styled.Helper.Spacing.Auto
+  - RTB.Blazor.Styled.Helper.Spacing.Clamp(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  - RTB.Blazor.Styled.Helper.Spacing.Em(System.Double)
+  - RTB.Blazor.Styled.Helper.Spacing.Equals(RTB.Blazor.Styled.Helper.Spacing)
+  - RTB.Blazor.Styled.Helper.Spacing.Equals(System.Object)
+  - RTB.Blazor.Styled.Helper.Spacing.GetHashCode
+  - RTB.Blazor.Styled.Helper.Spacing.IsAuto
+  - RTB.Blazor.Styled.Helper.Spacing.Max(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  - RTB.Blazor.Styled.Helper.Spacing.Min(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  - RTB.Blazor.Styled.Helper.Spacing.Parse(System.String)
+  - RTB.Blazor.Styled.Helper.Spacing.Px(System.Double)
+  - RTB.Blazor.Styled.Helper.Spacing.Rem(System.Double)
+  - RTB.Blazor.Styled.Helper.Spacing.ToString
+  - RTB.Blazor.Styled.Helper.Spacing.Unit
+  - RTB.Blazor.Styled.Helper.Spacing.Value
+  - RTB.Blazor.Styled.Helper.Spacing.Vh(System.Double)
+  - RTB.Blazor.Styled.Helper.Spacing.Vw(System.Double)
+  - RTB.Blazor.Styled.Helper.Spacing.Zero
+  - RTB.Blazor.Styled.Helper.Spacing.op_Addition(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  - RTB.Blazor.Styled.Helper.Spacing.op_Division(RTB.Blazor.Styled.Helper.Spacing,System.Double)
+  - RTB.Blazor.Styled.Helper.Spacing.op_Equality(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  - RTB.Blazor.Styled.Helper.Spacing.op_GreaterThan(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  - RTB.Blazor.Styled.Helper.Spacing.op_GreaterThanOrEqual(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  - RTB.Blazor.Styled.Helper.Spacing.op_Implicit(RTB.Blazor.Styled.Helper.Spacing)~System.String
+  - RTB.Blazor.Styled.Helper.Spacing.op_Implicit(System.Double)~RTB.Blazor.Styled.Helper.Spacing
+  - RTB.Blazor.Styled.Helper.Spacing.op_Implicit(System.Int32)~RTB.Blazor.Styled.Helper.Spacing
+  - RTB.Blazor.Styled.Helper.Spacing.op_Implicit(System.String)~RTB.Blazor.Styled.Helper.Spacing
+  - RTB.Blazor.Styled.Helper.Spacing.op_Inequality(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  - RTB.Blazor.Styled.Helper.Spacing.op_LessThan(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  - RTB.Blazor.Styled.Helper.Spacing.op_LessThanOrEqual(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  - RTB.Blazor.Styled.Helper.Spacing.op_Multiply(RTB.Blazor.Styled.Helper.Spacing,System.Double)
+  - RTB.Blazor.Styled.Helper.Spacing.op_Multiply(System.Double,RTB.Blazor.Styled.Helper.Spacing)
+  - RTB.Blazor.Styled.Helper.Spacing.op_Subtraction(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  langs:
+  - csharp
+  - vb
+  name: Spacing
+  nameWithType: Spacing
+  fullName: RTB.Blazor.Styled.Helper.Spacing
+  type: Struct
+  source:
+    id: Spacing
+    path: System.Text.RegularExpressions.Generator\System.Text.RegularExpressions.Generator.RegexGenerator\RegexGenerator.g.cs
+    startLine: 111
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: >-
+    Represents a CSS spacing value, which can be a numeric value and unit or the keyword <code>auto</code>.
+
+    Supported units: <xref href="RTB.Blazor.Styled.Helper.Unit.Px" data-throw-if-not-resolved="false"></xref>, <xref href="RTB.Blazor.Styled.Helper.Unit.Em" data-throw-if-not-resolved="false"></xref>, <xref href="RTB.Blazor.Styled.Helper.Unit.Rem" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="RTB.Blazor.Styled.Helper.Unit.Percent" data-throw-if-not-resolved="false"></xref>, <xref href="RTB.Blazor.Styled.Helper.Unit.Vw" data-throw-if-not-resolved="false"></xref>, <xref href="RTB.Blazor.Styled.Helper.Unit.Vh" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public readonly struct Spacing : IEquatable<Spacing>'
+    content.vb: Public Structure Spacing Implements IEquatable(Of Spacing)
+  implements:
+  - System.IEquatable{RTB.Blazor.Styled.Helper.Spacing}
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RTB.Blazor.Styled.Helper.Spacing.IsAuto
+  commentId: P:RTB.Blazor.Styled.Helper.Spacing.IsAuto
+  id: IsAuto
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: IsAuto
+  nameWithType: Spacing.IsAuto
+  fullName: RTB.Blazor.Styled.Helper.Spacing.IsAuto
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: IsAuto
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 48
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Gets a value indicating whether this spacing represents the CSS keyword <code>auto</code>.
+  example: []
+  syntax:
+    content: public bool IsAuto { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsAuto As Boolean
+  overload: RTB.Blazor.Styled.Helper.Spacing.IsAuto*
+- uid: RTB.Blazor.Styled.Helper.Spacing.Value
+  commentId: P:RTB.Blazor.Styled.Helper.Spacing.Value
+  id: Value
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: Spacing.Value
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Value
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Value
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 53
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Gets the numeric value. Meaningful only when <xref href="RTB.Blazor.Styled.Helper.Spacing.IsAuto" data-throw-if-not-resolved="false"></xref> is <code>false</code>.
+  example: []
+  syntax:
+    content: public double Value { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Value As Double
+  overload: RTB.Blazor.Styled.Helper.Spacing.Value*
+- uid: RTB.Blazor.Styled.Helper.Spacing.Unit
+  commentId: P:RTB.Blazor.Styled.Helper.Spacing.Unit
+  id: Unit
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Unit
+  nameWithType: Spacing.Unit
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Unit
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Unit
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 58
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Gets the unit of measure. Meaningful only when <xref href="RTB.Blazor.Styled.Helper.Spacing.IsAuto" data-throw-if-not-resolved="false"></xref> is <code>false</code>.
+  example: []
+  syntax:
+    content: public Unit Unit { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.Unit
+    content.vb: Public ReadOnly Property Unit As Unit
+  overload: RTB.Blazor.Styled.Helper.Spacing.Unit*
+- uid: RTB.Blazor.Styled.Helper.Spacing.ToString
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.ToString
+  id: ToString
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Spacing.ToString()
+  fullName: RTB.Blazor.Styled.Helper.Spacing.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: ToString
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 63
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Returns the CSS string representation of the spacing (e.g., <code>10px</code>, <code>1.5rem</code>, <code>auto</code>).
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: RTB.Blazor.Styled.Helper.Spacing.ToString*
+- uid: RTB.Blazor.Styled.Helper.Spacing.Auto
+  commentId: F:RTB.Blazor.Styled.Helper.Spacing.Auto
+  id: Auto
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Auto
+  nameWithType: Spacing.Auto
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Auto
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Auto
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 80
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Gets a spacing representing the CSS keyword <code>auto</code>.
+  example: []
+  syntax:
+    content: public static readonly Spacing Auto
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared ReadOnly Auto As Spacing
+- uid: RTB.Blazor.Styled.Helper.Spacing.Zero
+  commentId: F:RTB.Blazor.Styled.Helper.Spacing.Zero
+  id: Zero
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Zero
+  nameWithType: Spacing.Zero
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Zero
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Zero
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 85
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Gets a spacing of zero pixels.
+  example: []
+  syntax:
+    content: public static readonly Spacing Zero
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared ReadOnly Zero As Spacing
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Implicit(System.Int32)~RTB.Blazor.Styled.Helper.Spacing
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.op_Implicit(System.Int32)~RTB.Blazor.Styled.Helper.Spacing
+  id: op_Implicit(System.Int32)~RTB.Blazor.Styled.Helper.Spacing
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: implicit operator Spacing(int)
+  nameWithType: Spacing.implicit operator Spacing(int)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.implicit operator RTB.Blazor.Styled.Helper.Spacing(int)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Implicit
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 91
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Implicitly converts an <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> value to a pixel spacing.
+  example: []
+  syntax:
+    content: public static implicit operator Spacing(int px)
+    parameters:
+    - id: px
+      type: System.Int32
+      description: The pixel value.
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Widening Operator CType(px As Integer) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.op_Implicit*
+  nameWithType.vb: Spacing.CType(Integer)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.CType(Integer)
+  name.vb: CType(Integer)
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Implicit(System.Double)~RTB.Blazor.Styled.Helper.Spacing
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.op_Implicit(System.Double)~RTB.Blazor.Styled.Helper.Spacing
+  id: op_Implicit(System.Double)~RTB.Blazor.Styled.Helper.Spacing
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: implicit operator Spacing(double)
+  nameWithType: Spacing.implicit operator Spacing(double)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.implicit operator RTB.Blazor.Styled.Helper.Spacing(double)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Implicit
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 97
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Implicitly converts a <xref href="System.Double" data-throw-if-not-resolved="false"></xref> value to a pixel spacing.
+  example: []
+  syntax:
+    content: public static implicit operator Spacing(double px)
+    parameters:
+    - id: px
+      type: System.Double
+      description: The pixel value.
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Widening Operator CType(px As Double) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.op_Implicit*
+  nameWithType.vb: Spacing.CType(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.CType(Double)
+  name.vb: CType(Double)
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Implicit(System.String)~RTB.Blazor.Styled.Helper.Spacing
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.op_Implicit(System.String)~RTB.Blazor.Styled.Helper.Spacing
+  id: op_Implicit(System.String)~RTB.Blazor.Styled.Helper.Spacing
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: implicit operator Spacing(string)
+  nameWithType: Spacing.implicit operator Spacing(string)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.implicit operator RTB.Blazor.Styled.Helper.Spacing(string)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Implicit
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 105
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Implicitly parses a CSS spacing literal (e.g., <code>"10px"</code>, <code>"1.5rem"</code>, <code>"auto"</code>).
+  example: []
+  syntax:
+    content: public static implicit operator Spacing(string literal)
+    parameters:
+    - id: literal
+      type: System.String
+      description: The CSS spacing literal.
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Widening Operator CType(literal As String) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.op_Implicit*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: Thrown when <code class="paramref">literal</code> is null.
+  - type: System.FormatException
+    commentId: T:System.FormatException
+    description: Thrown when the literal cannot be parsed.
+  nameWithType.vb: Spacing.CType(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.CType(String)
+  name.vb: CType(String)
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Implicit(RTB.Blazor.Styled.Helper.Spacing)~System.String
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.op_Implicit(RTB.Blazor.Styled.Helper.Spacing)~System.String
+  id: op_Implicit(RTB.Blazor.Styled.Helper.Spacing)~System.String
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: implicit operator string(Spacing)
+  nameWithType: Spacing.implicit operator string(Spacing)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.implicit operator string(RTB.Blazor.Styled.Helper.Spacing)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Implicit
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 111
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Implicitly converts the spacing to its CSS string representation.
+  example: []
+  syntax:
+    content: public static implicit operator string(Spacing s)
+    parameters:
+    - id: s
+      type: RTB.Blazor.Styled.Helper.Spacing
+      description: The spacing.
+    return:
+      type: System.String
+    content.vb: Public Shared Widening Operator CType(s As Spacing) As String
+  overload: RTB.Blazor.Styled.Helper.Spacing.op_Implicit*
+  nameWithType.vb: Spacing.CType(Spacing)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.CType(RTB.Blazor.Styled.Helper.Spacing)
+  name.vb: CType(Spacing)
+- uid: RTB.Blazor.Styled.Helper.Spacing.Parse(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.Parse(System.String)
+  id: Parse(System.String)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Parse(string)
+  nameWithType: Spacing.Parse(string)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Parse(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Parse
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 123
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: >-
+    Parses a CSS spacing literal (e.g., <code>10px</code>, <code>1.5rem</code>, <code>25%</code>, <code>auto</code>).
+
+    If unit is omitted, pixels are assumed.
+  example: []
+  syntax:
+    content: public static Spacing Parse(string text)
+    parameters:
+    - id: text
+      type: System.String
+      description: The input text.
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+      description: The parsed <xref href="RTB.Blazor.Styled.Helper.Spacing" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function Parse(text As String) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.Parse*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: If <code class="paramref">text</code> is null.
+  - type: System.FormatException
+    commentId: T:System.FormatException
+    description: If the text cannot be parsed or the unit is unknown.
+  nameWithType.vb: Spacing.Parse(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.Parse(String)
+  name.vb: Parse(String)
+- uid: RTB.Blazor.Styled.Helper.Spacing.Px(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.Px(System.Double)
+  id: Px(System.Double)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Px(double)
+  nameWithType: Spacing.Px(double)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Px(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Px
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 159
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Creates a pixel spacing.
+  example: []
+  syntax:
+    content: public static Spacing Px(double v)
+    parameters:
+    - id: v
+      type: System.Double
+      description: The value in pixels.
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Function Px(v As Double) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.Px*
+  nameWithType.vb: Spacing.Px(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.Px(Double)
+  name.vb: Px(Double)
+- uid: RTB.Blazor.Styled.Helper.Spacing.Em(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.Em(System.Double)
+  id: Em(System.Double)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Em(double)
+  nameWithType: Spacing.Em(double)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Em(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Em
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 165
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Creates an em spacing.
+  example: []
+  syntax:
+    content: public static Spacing Em(double v)
+    parameters:
+    - id: v
+      type: System.Double
+      description: The value in em.
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Function Em(v As Double) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.Em*
+  nameWithType.vb: Spacing.Em(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.Em(Double)
+  name.vb: Em(Double)
+- uid: RTB.Blazor.Styled.Helper.Spacing.Rem(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.Rem(System.Double)
+  id: Rem(System.Double)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Rem(double)
+  nameWithType: Spacing.Rem(double)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Rem(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Rem
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 171
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Creates a rem spacing.
+  example: []
+  syntax:
+    content: public static Spacing Rem(double v)
+    parameters:
+    - id: v
+      type: System.Double
+      description: The value in rem.
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Function [Rem](v As Double) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.Rem*
+  nameWithType.vb: Spacing.Rem(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.Rem(Double)
+  name.vb: Rem(Double)
+- uid: RTB.Blazor.Styled.Helper.Spacing.Vw(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.Vw(System.Double)
+  id: Vw(System.Double)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Vw(double)
+  nameWithType: Spacing.Vw(double)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Vw(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Vw
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 177
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Creates a viewport width spacing.
+  example: []
+  syntax:
+    content: public static Spacing Vw(double v)
+    parameters:
+    - id: v
+      type: System.Double
+      description: The value in vw.
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Function Vw(v As Double) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.Vw*
+  nameWithType.vb: Spacing.Vw(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.Vw(Double)
+  name.vb: Vw(Double)
+- uid: RTB.Blazor.Styled.Helper.Spacing.Vh(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.Vh(System.Double)
+  id: Vh(System.Double)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Vh(double)
+  nameWithType: Spacing.Vh(double)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Vh(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Vh
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 183
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Creates a viewport height spacing.
+  example: []
+  syntax:
+    content: public static Spacing Vh(double v)
+    parameters:
+    - id: v
+      type: System.Double
+      description: The value in vh.
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Function Vh(v As Double) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.Vh*
+  nameWithType.vb: Spacing.Vh(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.Vh(Double)
+  name.vb: Vh(Double)
+- uid: RTB.Blazor.Styled.Helper.Spacing.Equals(RTB.Blazor.Styled.Helper.Spacing)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.Equals(RTB.Blazor.Styled.Helper.Spacing)
+  id: Equals(RTB.Blazor.Styled.Helper.Spacing)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Equals(Spacing)
+  nameWithType: Spacing.Equals(Spacing)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Equals(RTB.Blazor.Styled.Helper.Spacing)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Equals
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 188
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Indicates whether the current object is equal to another <xref href="RTB.Blazor.Styled.Helper.Spacing" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Equals(Spacing other)
+    parameters:
+    - id: other
+      type: RTB.Blazor.Styled.Helper.Spacing
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As Spacing) As Boolean
+  overload: RTB.Blazor.Styled.Helper.Spacing.Equals*
+  implements:
+  - System.IEquatable{RTB.Blazor.Styled.Helper.Spacing}.Equals(RTB.Blazor.Styled.Helper.Spacing)
+- uid: RTB.Blazor.Styled.Helper.Spacing.GetHashCode
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.GetHashCode
+  id: GetHashCode
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Spacing.GetHashCode()
+  fullName: RTB.Blazor.Styled.Helper.Spacing.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: GetHashCode
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 193
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Returns a hash code for the spacing.
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: RTB.Blazor.Styled.Helper.Spacing.GetHashCode*
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Addition(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.op_Addition(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  id: op_Addition(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: operator +(Spacing, Spacing)
+  nameWithType: Spacing.operator +(Spacing, Spacing)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator +(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Addition
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 210
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Adds two spacing values with the same unit.
+  example: []
+  syntax:
+    content: public static Spacing operator +(Spacing a, Spacing b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.Spacing
+    - id: b
+      type: RTB.Blazor.Styled.Helper.Spacing
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Operator +(a As Spacing, b As Spacing) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.op_Addition*
+  nameWithType.vb: Spacing.+(Spacing, Spacing)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.+(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  name.vb: +(Spacing, Spacing)
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Subtraction(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.op_Subtraction(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  id: op_Subtraction(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: operator -(Spacing, Spacing)
+  nameWithType: Spacing.operator -(Spacing, Spacing)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator -(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Subtraction
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 215
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Subtracts two spacing values with the same unit.
+  example: []
+  syntax:
+    content: public static Spacing operator -(Spacing a, Spacing b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.Spacing
+    - id: b
+      type: RTB.Blazor.Styled.Helper.Spacing
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Operator -(a As Spacing, b As Spacing) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.op_Subtraction*
+  nameWithType.vb: Spacing.-(Spacing, Spacing)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.-(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  name.vb: -(Spacing, Spacing)
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Multiply(RTB.Blazor.Styled.Helper.Spacing,System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.op_Multiply(RTB.Blazor.Styled.Helper.Spacing,System.Double)
+  id: op_Multiply(RTB.Blazor.Styled.Helper.Spacing,System.Double)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: operator *(Spacing, double)
+  nameWithType: Spacing.operator *(Spacing, double)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator *(RTB.Blazor.Styled.Helper.Spacing, double)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Multiply
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 220
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Multiplies a spacing by a scalar.
+  example: []
+  syntax:
+    content: public static Spacing operator *(Spacing a, double k)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.Spacing
+    - id: k
+      type: System.Double
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Operator *(a As Spacing, k As Double) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.op_Multiply*
+  nameWithType.vb: Spacing.*(Spacing, Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.*(RTB.Blazor.Styled.Helper.Spacing, Double)
+  name.vb: '*(Spacing, Double)'
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Multiply(System.Double,RTB.Blazor.Styled.Helper.Spacing)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.op_Multiply(System.Double,RTB.Blazor.Styled.Helper.Spacing)
+  id: op_Multiply(System.Double,RTB.Blazor.Styled.Helper.Spacing)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: operator *(double, Spacing)
+  nameWithType: Spacing.operator *(double, Spacing)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator *(double, RTB.Blazor.Styled.Helper.Spacing)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Multiply
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 225
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Multiplies a spacing by a scalar.
+  example: []
+  syntax:
+    content: public static Spacing operator *(double k, Spacing a)
+    parameters:
+    - id: k
+      type: System.Double
+    - id: a
+      type: RTB.Blazor.Styled.Helper.Spacing
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Operator *(k As Double, a As Spacing) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.op_Multiply*
+  nameWithType.vb: Spacing.*(Double, Spacing)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.*(Double, RTB.Blazor.Styled.Helper.Spacing)
+  name.vb: '*(Double, Spacing)'
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Division(RTB.Blazor.Styled.Helper.Spacing,System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.op_Division(RTB.Blazor.Styled.Helper.Spacing,System.Double)
+  id: op_Division(RTB.Blazor.Styled.Helper.Spacing,System.Double)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: operator /(Spacing, double)
+  nameWithType: Spacing.operator /(Spacing, double)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator /(RTB.Blazor.Styled.Helper.Spacing, double)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Division
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 230
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Divides a spacing by a scalar.
+  example: []
+  syntax:
+    content: public static Spacing operator /(Spacing a, double k)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.Spacing
+    - id: k
+      type: System.Double
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Operator /(a As Spacing, k As Double) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.op_Division*
+  nameWithType.vb: Spacing./(Spacing, Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing./(RTB.Blazor.Styled.Helper.Spacing, Double)
+  name.vb: /(Spacing, Double)
+- uid: RTB.Blazor.Styled.Helper.Spacing.Abs
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.Abs
+  id: Abs
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Abs()
+  nameWithType: Spacing.Abs()
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Abs()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Abs
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 235
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Returns a spacing with the absolute numeric value of this spacing.
+  example: []
+  syntax:
+    content: public Spacing Abs()
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Function Abs() As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.Abs*
+- uid: RTB.Blazor.Styled.Helper.Spacing.Min(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.Min(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  id: Min(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Min(Spacing, Spacing)
+  nameWithType: Spacing.Min(Spacing, Spacing)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Min(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Min
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 240
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Returns the minimum of two spacing values (same unit required).
+  example: []
+  syntax:
+    content: public static Spacing Min(Spacing a, Spacing b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.Spacing
+    - id: b
+      type: RTB.Blazor.Styled.Helper.Spacing
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Function Min(a As Spacing, b As Spacing) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.Min*
+- uid: RTB.Blazor.Styled.Helper.Spacing.Max(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.Max(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  id: Max(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Max(Spacing, Spacing)
+  nameWithType: Spacing.Max(Spacing, Spacing)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Max(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Max
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 245
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Returns the maximum of two spacing values (same unit required).
+  example: []
+  syntax:
+    content: public static Spacing Max(Spacing a, Spacing b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.Spacing
+    - id: b
+      type: RTB.Blazor.Styled.Helper.Spacing
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Function Max(a As Spacing, b As Spacing) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.Max*
+- uid: RTB.Blazor.Styled.Helper.Spacing.Clamp(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.Clamp(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  id: Clamp(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Clamp(Spacing, Spacing, Spacing)
+  nameWithType: Spacing.Clamp(Spacing, Spacing, Spacing)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Clamp(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Clamp
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 250
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Clamps a spacing between <code class="paramref">min</code> and <code class="paramref">max</code> (same unit required).
+  example: []
+  syntax:
+    content: public static Spacing Clamp(Spacing value, Spacing min, Spacing max)
+    parameters:
+    - id: value
+      type: RTB.Blazor.Styled.Helper.Spacing
+    - id: min
+      type: RTB.Blazor.Styled.Helper.Spacing
+    - id: max
+      type: RTB.Blazor.Styled.Helper.Spacing
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing
+    content.vb: Public Shared Function Clamp(value As Spacing, min As Spacing, max As Spacing) As Spacing
+  overload: RTB.Blazor.Styled.Helper.Spacing.Clamp*
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_GreaterThan(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.op_GreaterThan(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  id: op_GreaterThan(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: operator >(Spacing, Spacing)
+  nameWithType: Spacing.operator >(Spacing, Spacing)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator >(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_GreaterThan
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 255
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Returns <code>true</code> if <code class="paramref">a</code> is greater than <code class="paramref">b</code> (same unit required).
+  example: []
+  syntax:
+    content: public static bool operator >(Spacing a, Spacing b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.Spacing
+    - id: b
+      type: RTB.Blazor.Styled.Helper.Spacing
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator >(a As Spacing, b As Spacing) As Boolean
+  overload: RTB.Blazor.Styled.Helper.Spacing.op_GreaterThan*
+  nameWithType.vb: Spacing.>(Spacing, Spacing)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.>(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  name.vb: '>(Spacing, Spacing)'
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_LessThan(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.op_LessThan(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  id: op_LessThan(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: operator <(Spacing, Spacing)
+  nameWithType: Spacing.operator <(Spacing, Spacing)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator <(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_LessThan
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 260
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Returns <code>true</code> if <code class="paramref">a</code> is less than <code class="paramref">b</code> (same unit required).
+  example: []
+  syntax:
+    content: public static bool operator <(Spacing a, Spacing b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.Spacing
+    - id: b
+      type: RTB.Blazor.Styled.Helper.Spacing
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <(a As Spacing, b As Spacing) As Boolean
+  overload: RTB.Blazor.Styled.Helper.Spacing.op_LessThan*
+  nameWithType.vb: Spacing.<(Spacing, Spacing)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.<(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  name.vb: <(Spacing, Spacing)
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_GreaterThanOrEqual(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.op_GreaterThanOrEqual(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  id: op_GreaterThanOrEqual(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: operator >=(Spacing, Spacing)
+  nameWithType: Spacing.operator >=(Spacing, Spacing)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator >=(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_GreaterThanOrEqual
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 265
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Returns <code>true</code> if <code class="paramref">a</code> is greater than or equal to <code class="paramref">b</code> (same unit required).
+  example: []
+  syntax:
+    content: public static bool operator >=(Spacing a, Spacing b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.Spacing
+    - id: b
+      type: RTB.Blazor.Styled.Helper.Spacing
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator >=(a As Spacing, b As Spacing) As Boolean
+  overload: RTB.Blazor.Styled.Helper.Spacing.op_GreaterThanOrEqual*
+  nameWithType.vb: Spacing.>=(Spacing, Spacing)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.>=(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  name.vb: '>=(Spacing, Spacing)'
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_LessThanOrEqual(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.op_LessThanOrEqual(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  id: op_LessThanOrEqual(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: operator <=(Spacing, Spacing)
+  nameWithType: Spacing.operator <=(Spacing, Spacing)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator <=(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_LessThanOrEqual
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 270
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Returns <code>true</code> if <code class="paramref">a</code> is less than or equal to <code class="paramref">b</code> (same unit required).
+  example: []
+  syntax:
+    content: public static bool operator <=(Spacing a, Spacing b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.Spacing
+    - id: b
+      type: RTB.Blazor.Styled.Helper.Spacing
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <=(a As Spacing, b As Spacing) As Boolean
+  overload: RTB.Blazor.Styled.Helper.Spacing.op_LessThanOrEqual*
+  nameWithType.vb: Spacing.<=(Spacing, Spacing)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.<=(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  name.vb: <=(Spacing, Spacing)
+- uid: RTB.Blazor.Styled.Helper.Spacing.Equals(System.Object)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: Spacing.Equals(object?)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Equals
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 275
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Determines whether the specified object is equal to the current <xref href="RTB.Blazor.Styled.Helper.Spacing" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: RTB.Blazor.Styled.Helper.Spacing.Equals*
+  nameWithType.vb: Spacing.Equals(Object)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.Equals(Object)
+  name.vb: Equals(Object)
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Equality(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.op_Equality(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  id: op_Equality(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: operator ==(Spacing, Spacing)
+  nameWithType: Spacing.operator ==(Spacing, Spacing)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator ==(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Equality
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 283
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Determines whether two <xref href="RTB.Blazor.Styled.Helper.Spacing" data-throw-if-not-resolved="false"></xref> instances are equal.
+  example: []
+  syntax:
+    content: public static bool operator ==(Spacing left, Spacing right)
+    parameters:
+    - id: left
+      type: RTB.Blazor.Styled.Helper.Spacing
+    - id: right
+      type: RTB.Blazor.Styled.Helper.Spacing
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator =(left As Spacing, right As Spacing) As Boolean
+  overload: RTB.Blazor.Styled.Helper.Spacing.op_Equality*
+  nameWithType.vb: Spacing.=(Spacing, Spacing)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.=(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  name.vb: =(Spacing, Spacing)
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Inequality(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  commentId: M:RTB.Blazor.Styled.Helper.Spacing.op_Inequality(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  id: op_Inequality(RTB.Blazor.Styled.Helper.Spacing,RTB.Blazor.Styled.Helper.Spacing)
+  parent: RTB.Blazor.Styled.Helper.Spacing
+  langs:
+  - csharp
+  - vb
+  name: operator !=(Spacing, Spacing)
+  nameWithType: Spacing.operator !=(Spacing, Spacing)
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator !=(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/Spacing.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Inequality
+    path: ../src/RTB.Styled/Helper/Spacing.cs
+    startLine: 291
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Determines whether two <xref href="RTB.Blazor.Styled.Helper.Spacing" data-throw-if-not-resolved="false"></xref> instances are not equal.
+  example: []
+  syntax:
+    content: public static bool operator !=(Spacing left, Spacing right)
+    parameters:
+    - id: left
+      type: RTB.Blazor.Styled.Helper.Spacing
+    - id: right
+      type: RTB.Blazor.Styled.Helper.Spacing
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Operator <>(left As Spacing, right As Spacing) As Boolean
+  overload: RTB.Blazor.Styled.Helper.Spacing.op_Inequality*
+  nameWithType.vb: Spacing.<>(Spacing, Spacing)
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.<>(RTB.Blazor.Styled.Helper.Spacing, RTB.Blazor.Styled.Helper.Spacing)
+  name.vb: <>(Spacing, Spacing)
+references:
+- uid: RTB.Blazor.Styled.Helper.Unit.Px
+  commentId: F:RTB.Blazor.Styled.Helper.Unit.Px
+  href: RTB.Blazor.Styled.Helper.Unit.html#RTB_Blazor_Styled_Helper_Unit_Px
+  name: Px
+  nameWithType: Unit.Px
+  fullName: RTB.Blazor.Styled.Helper.Unit.Px
+- uid: RTB.Blazor.Styled.Helper.Unit.Em
+  commentId: F:RTB.Blazor.Styled.Helper.Unit.Em
+  href: RTB.Blazor.Styled.Helper.Unit.html#RTB_Blazor_Styled_Helper_Unit_Em
+  name: Em
+  nameWithType: Unit.Em
+  fullName: RTB.Blazor.Styled.Helper.Unit.Em
+- uid: RTB.Blazor.Styled.Helper.Unit.Rem
+  commentId: F:RTB.Blazor.Styled.Helper.Unit.Rem
+  href: RTB.Blazor.Styled.Helper.Unit.html#RTB_Blazor_Styled_Helper_Unit_Rem
+  name: Rem
+  nameWithType: Unit.Rem
+  fullName: RTB.Blazor.Styled.Helper.Unit.Rem
+- uid: RTB.Blazor.Styled.Helper.Unit.Percent
+  commentId: F:RTB.Blazor.Styled.Helper.Unit.Percent
+  href: RTB.Blazor.Styled.Helper.Unit.html#RTB_Blazor_Styled_Helper_Unit_Percent
+  name: Percent
+  nameWithType: Unit.Percent
+  fullName: RTB.Blazor.Styled.Helper.Unit.Percent
+- uid: RTB.Blazor.Styled.Helper.Unit.Vw
+  commentId: F:RTB.Blazor.Styled.Helper.Unit.Vw
+  href: RTB.Blazor.Styled.Helper.Unit.html#RTB_Blazor_Styled_Helper_Unit_Vw
+  name: Vw
+  nameWithType: Unit.Vw
+  fullName: RTB.Blazor.Styled.Helper.Unit.Vw
+- uid: RTB.Blazor.Styled.Helper.Unit.Vh
+  commentId: F:RTB.Blazor.Styled.Helper.Unit.Vh
+  href: RTB.Blazor.Styled.Helper.Unit.html#RTB_Blazor_Styled_Helper_Unit_Vh
+  name: Vh
+  nameWithType: Unit.Vh
+  fullName: RTB.Blazor.Styled.Helper.Unit.Vh
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: System.IEquatable{RTB.Blazor.Styled.Helper.Spacing}
+  commentId: T:System.IEquatable{RTB.Blazor.Styled.Helper.Spacing}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<Spacing>
+  nameWithType: IEquatable<Spacing>
+  fullName: System.IEquatable<RTB.Blazor.Styled.Helper.Spacing>
+  nameWithType.vb: IEquatable(Of Spacing)
+  fullName.vb: System.IEquatable(Of RTB.Blazor.Styled.Helper.Spacing)
+  name.vb: IEquatable(Of Spacing)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RTB.Blazor.Styled.Helper.Spacing
+    name: Spacing
+    href: RTB.Blazor.Styled.Helper.Spacing.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.Spacing
+    name: Spacing
+    href: RTB.Blazor.Styled.Helper.Spacing.html
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RTB.Blazor.Styled.Helper.Spacing.IsAuto*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.IsAuto
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_IsAuto
+  name: IsAuto
+  nameWithType: Spacing.IsAuto
+  fullName: RTB.Blazor.Styled.Helper.Spacing.IsAuto
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RTB.Blazor.Styled.Helper.Spacing.IsAuto
+  commentId: P:RTB.Blazor.Styled.Helper.Spacing.IsAuto
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_IsAuto
+  name: IsAuto
+  nameWithType: Spacing.IsAuto
+  fullName: RTB.Blazor.Styled.Helper.Spacing.IsAuto
+- uid: RTB.Blazor.Styled.Helper.Spacing.Value*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.Value
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_Value
+  name: Value
+  nameWithType: Spacing.Value
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Value
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: RTB.Blazor.Styled.Helper.Spacing.Unit*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.Unit
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_Unit
+  name: Unit
+  nameWithType: Spacing.Unit
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Unit
+- uid: RTB.Blazor.Styled.Helper.Unit
+  commentId: T:RTB.Blazor.Styled.Helper.Unit
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.Unit.html
+  name: Unit
+  nameWithType: Unit
+  fullName: RTB.Blazor.Styled.Helper.Unit
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.Spacing.ToString*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.ToString
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_ToString
+  name: ToString
+  nameWithType: Spacing.ToString
+  fullName: RTB.Blazor.Styled.Helper.Spacing.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: RTB.Blazor.Styled.Helper.Spacing
+  commentId: T:RTB.Blazor.Styled.Helper.Spacing
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.Spacing.html
+  name: Spacing
+  nameWithType: Spacing
+  fullName: RTB.Blazor.Styled.Helper.Spacing
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Implicit*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.op_Implicit
+  name: implicit operator
+  nameWithType: Spacing.implicit operator
+  fullName: RTB.Blazor.Styled.Helper.Spacing.implicit operator
+  nameWithType.vb: Spacing.CType
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.CType
+  name.vb: CType
+  spec.csharp:
+  - name: implicit
+  - name: " "
+  - name: operator
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.FormatException
+  commentId: T:System.FormatException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.formatexception
+  name: FormatException
+  nameWithType: FormatException
+  fullName: System.FormatException
+- uid: RTB.Blazor.Styled.Helper.Spacing.Parse*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.Parse
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_Parse_System_String_
+  name: Parse
+  nameWithType: Spacing.Parse
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Parse
+- uid: RTB.Blazor.Styled.Helper.Spacing.Px*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.Px
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_Px_System_Double_
+  name: Px
+  nameWithType: Spacing.Px
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Px
+- uid: RTB.Blazor.Styled.Helper.Spacing.Em*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.Em
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_Em_System_Double_
+  name: Em
+  nameWithType: Spacing.Em
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Em
+- uid: RTB.Blazor.Styled.Helper.Spacing.Rem*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.Rem
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_Rem_System_Double_
+  name: Rem
+  nameWithType: Spacing.Rem
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Rem
+- uid: RTB.Blazor.Styled.Helper.Spacing.Vw*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.Vw
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_Vw_System_Double_
+  name: Vw
+  nameWithType: Spacing.Vw
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Vw
+- uid: RTB.Blazor.Styled.Helper.Spacing.Vh*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.Vh
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_Vh_System_Double_
+  name: Vh
+  nameWithType: Spacing.Vh
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Vh
+- uid: RTB.Blazor.Styled.Helper.Spacing.Equals*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.Equals
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_Equals_RTB_Blazor_Styled_Helper_Spacing_
+  name: Equals
+  nameWithType: Spacing.Equals
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Equals
+- uid: System.IEquatable{RTB.Blazor.Styled.Helper.Spacing}.Equals(RTB.Blazor.Styled.Helper.Spacing)
+  commentId: M:System.IEquatable{RTB.Blazor.Styled.Helper.Spacing}.Equals(RTB.Blazor.Styled.Helper.Spacing)
+  parent: System.IEquatable{RTB.Blazor.Styled.Helper.Spacing}
+  definition: System.IEquatable`1.Equals(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(Spacing)
+  nameWithType: IEquatable<Spacing>.Equals(Spacing)
+  fullName: System.IEquatable<RTB.Blazor.Styled.Helper.Spacing>.Equals(RTB.Blazor.Styled.Helper.Spacing)
+  nameWithType.vb: IEquatable(Of Spacing).Equals(Spacing)
+  fullName.vb: System.IEquatable(Of RTB.Blazor.Styled.Helper.Spacing).Equals(RTB.Blazor.Styled.Helper.Spacing)
+  spec.csharp:
+  - uid: System.IEquatable{RTB.Blazor.Styled.Helper.Spacing}.Equals(RTB.Blazor.Styled.Helper.Spacing)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: RTB.Blazor.Styled.Helper.Spacing
+    name: Spacing
+    href: RTB.Blazor.Styled.Helper.Spacing.html
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable{RTB.Blazor.Styled.Helper.Spacing}.Equals(RTB.Blazor.Styled.Helper.Spacing)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - uid: RTB.Blazor.Styled.Helper.Spacing
+    name: Spacing
+    href: RTB.Blazor.Styled.Helper.Spacing.html
+  - name: )
+- uid: System.IEquatable`1.Equals(`0)
+  commentId: M:System.IEquatable`1.Equals(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  name: Equals(T)
+  nameWithType: IEquatable<T>.Equals(T)
+  fullName: System.IEquatable<T>.Equals(T)
+  nameWithType.vb: IEquatable(Of T).Equals(T)
+  fullName.vb: System.IEquatable(Of T).Equals(T)
+  spec.csharp:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.IEquatable`1.Equals(`0)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1.equals
+  - name: (
+  - name: T
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.Spacing.GetHashCode*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.GetHashCode
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_GetHashCode
+  name: GetHashCode
+  nameWithType: Spacing.GetHashCode
+  fullName: RTB.Blazor.Styled.Helper.Spacing.GetHashCode
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Addition*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.op_Addition
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_Addition_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+  name: operator +
+  nameWithType: Spacing.operator +
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator +
+  nameWithType.vb: Spacing.+
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.+
+  name.vb: +
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.Spacing.op_Addition*
+    name: +
+    href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_Addition_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Subtraction*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.op_Subtraction
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_Subtraction_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+  name: operator -
+  nameWithType: Spacing.operator -
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator -
+  nameWithType.vb: Spacing.-
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.-
+  name.vb: '-'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.Spacing.op_Subtraction*
+    name: '-'
+    href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_Subtraction_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Multiply*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.op_Multiply
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_Multiply_RTB_Blazor_Styled_Helper_Spacing_System_Double_
+  name: operator *
+  nameWithType: Spacing.operator *
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator *
+  nameWithType.vb: Spacing.*
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.*
+  name.vb: '*'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.Spacing.op_Multiply*
+    name: '*'
+    href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_Multiply_RTB_Blazor_Styled_Helper_Spacing_System_Double_
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Division*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.op_Division
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_Division_RTB_Blazor_Styled_Helper_Spacing_System_Double_
+  name: operator /
+  nameWithType: Spacing.operator /
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator /
+  nameWithType.vb: Spacing./
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing./
+  name.vb: /
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.Spacing.op_Division*
+    name: /
+    href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_Division_RTB_Blazor_Styled_Helper_Spacing_System_Double_
+- uid: RTB.Blazor.Styled.Helper.Spacing.Abs*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.Abs
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_Abs
+  name: Abs
+  nameWithType: Spacing.Abs
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Abs
+- uid: RTB.Blazor.Styled.Helper.Spacing.Min*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.Min
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_Min_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+  name: Min
+  nameWithType: Spacing.Min
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Min
+- uid: RTB.Blazor.Styled.Helper.Spacing.Max*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.Max
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_Max_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+  name: Max
+  nameWithType: Spacing.Max
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Max
+- uid: RTB.Blazor.Styled.Helper.Spacing.Clamp*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.Clamp
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_Clamp_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+  name: Clamp
+  nameWithType: Spacing.Clamp
+  fullName: RTB.Blazor.Styled.Helper.Spacing.Clamp
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_GreaterThan*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.op_GreaterThan
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_GreaterThan_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+  name: operator >
+  nameWithType: Spacing.operator >
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator >
+  nameWithType.vb: Spacing.>
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.>
+  name.vb: '>'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.Spacing.op_GreaterThan*
+    name: '>'
+    href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_GreaterThan_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_LessThan*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.op_LessThan
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_LessThan_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+  name: operator <
+  nameWithType: Spacing.operator <
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator <
+  nameWithType.vb: Spacing.<
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.<
+  name.vb: <
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.Spacing.op_LessThan*
+    name: <
+    href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_LessThan_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_GreaterThanOrEqual*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.op_GreaterThanOrEqual
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_GreaterThanOrEqual_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+  name: operator >=
+  nameWithType: Spacing.operator >=
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator >=
+  nameWithType.vb: Spacing.>=
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.>=
+  name.vb: '>='
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.Spacing.op_GreaterThanOrEqual*
+    name: '>='
+    href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_GreaterThanOrEqual_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_LessThanOrEqual*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.op_LessThanOrEqual
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_LessThanOrEqual_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+  name: operator <=
+  nameWithType: Spacing.operator <=
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator <=
+  nameWithType.vb: Spacing.<=
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.<=
+  name.vb: <=
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.Spacing.op_LessThanOrEqual*
+    name: <=
+    href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_LessThanOrEqual_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Equality*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.op_Equality
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_Equality_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+  name: operator ==
+  nameWithType: Spacing.operator ==
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator ==
+  nameWithType.vb: Spacing.=
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.=
+  name.vb: =
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.Spacing.op_Equality*
+    name: ==
+    href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_Equality_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+- uid: RTB.Blazor.Styled.Helper.Spacing.op_Inequality*
+  commentId: Overload:RTB.Blazor.Styled.Helper.Spacing.op_Inequality
+  href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_Inequality_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_
+  name: operator !=
+  nameWithType: Spacing.operator !=
+  fullName: RTB.Blazor.Styled.Helper.Spacing.operator !=
+  nameWithType.vb: Spacing.<>
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing.<>
+  name.vb: <>
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.Spacing.op_Inequality*
+    name: '!='
+    href: RTB.Blazor.Styled.Helper.Spacing.html#RTB_Blazor_Styled_Helper_Spacing_op_Inequality_RTB_Blazor_Styled_Helper_Spacing_RTB_Blazor_Styled_Helper_Spacing_

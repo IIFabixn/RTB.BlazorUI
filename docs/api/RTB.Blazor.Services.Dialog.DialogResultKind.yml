@@ -1,0 +1,265 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.Dialog.DialogResultKind
+  commentId: T:RTB.Blazor.Services.Dialog.DialogResultKind
+  id: DialogResultKind
+  parent: RTB.Blazor.Services.Dialog
+  children:
+  - RTB.Blazor.Services.Dialog.DialogResultKind.Cancel
+  - RTB.Blazor.Services.Dialog.DialogResultKind.None
+  - RTB.Blazor.Services.Dialog.DialogResultKind.Ok
+  langs:
+  - csharp
+  - vb
+  name: DialogResultKind
+  nameWithType: DialogResultKind
+  fullName: RTB.Blazor.Services.Dialog.DialogResultKind
+  type: Enum
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: DialogResultKind
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 8
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: Represents the outcome of a dialog interaction.
+  example: []
+  syntax:
+    content: public enum DialogResultKind
+    content.vb: Public Enum DialogResultKind
+  extensionMethods:
+  - System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+- uid: RTB.Blazor.Services.Dialog.DialogResultKind.Ok
+  commentId: F:RTB.Blazor.Services.Dialog.DialogResultKind.Ok
+  id: Ok
+  parent: RTB.Blazor.Services.Dialog.DialogResultKind
+  langs:
+  - csharp
+  - vb
+  name: Ok
+  nameWithType: DialogResultKind.Ok
+  fullName: RTB.Blazor.Services.Dialog.DialogResultKind.Ok
+  type: Field
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Ok
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 13
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: The dialog completed successfully (e.g., primary action).
+  example: []
+  syntax:
+    content: Ok = 0
+    return:
+      type: RTB.Blazor.Services.Dialog.DialogResultKind
+- uid: RTB.Blazor.Services.Dialog.DialogResultKind.Cancel
+  commentId: F:RTB.Blazor.Services.Dialog.DialogResultKind.Cancel
+  id: Cancel
+  parent: RTB.Blazor.Services.Dialog.DialogResultKind
+  langs:
+  - csharp
+  - vb
+  name: Cancel
+  nameWithType: DialogResultKind.Cancel
+  fullName: RTB.Blazor.Services.Dialog.DialogResultKind.Cancel
+  type: Field
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Cancel
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 18
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: The dialog was canceled (e.g., secondary action, escape, close button).
+  example: []
+  syntax:
+    content: Cancel = 1
+    return:
+      type: RTB.Blazor.Services.Dialog.DialogResultKind
+- uid: RTB.Blazor.Services.Dialog.DialogResultKind.None
+  commentId: F:RTB.Blazor.Services.Dialog.DialogResultKind.None
+  id: None
+  parent: RTB.Blazor.Services.Dialog.DialogResultKind
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: DialogResultKind.None
+  fullName: RTB.Blazor.Services.Dialog.DialogResultKind.None
+  type: Field
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: None
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 23
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: The dialog closed without an explicit result. Typically used as a sentinel.
+  example: []
+  syntax:
+    content: None = 2
+    return:
+      type: RTB.Blazor.Services.Dialog.DialogResultKind
+references:
+- uid: RTB.Blazor.Services.Dialog
+  commentId: N:RTB.Blazor.Services.Dialog
+  href: RTB.html
+  name: RTB.Blazor.Services.Dialog
+  nameWithType: RTB.Blazor.Services.Dialog
+  fullName: RTB.Blazor.Services.Dialog
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Dialog
+    name: Dialog
+    href: RTB.Blazor.Services.Dialog.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Dialog
+    name: Dialog
+    href: RTB.Blazor.Services.Dialog.html
+- uid: System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  parent: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  definition: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  commentId: T:RTB.Blazor.Styled.Helper.CssEnumExtensions
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html
+  name: CssEnumExtensions
+  nameWithType: CssEnumExtensions
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: RTB.Blazor.Services.Dialog.DialogResultKind
+  commentId: T:RTB.Blazor.Services.Dialog.DialogResultKind
+  parent: RTB.Blazor.Services.Dialog
+  href: RTB.Blazor.Services.Dialog.DialogResultKind.html
+  name: DialogResultKind
+  nameWithType: DialogResultKind
+  fullName: RTB.Blazor.Services.Dialog.DialogResultKind

@@ -1,0 +1,919 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1
+  commentId: T:RTB.Blazor.Components.DataGrid.IColumn`1
+  id: IColumn`1
+  parent: RTB.Blazor.Components.DataGrid
+  children:
+  - RTB.Blazor.Components.DataGrid.IColumn`1.CanSort
+  - RTB.Blazor.Components.DataGrid.IColumn`1.DefaultSortDescending
+  - RTB.Blazor.Components.DataGrid.IColumn`1.MaxWidth
+  - RTB.Blazor.Components.DataGrid.IColumn`1.MinWidth
+  - RTB.Blazor.Components.DataGrid.IColumn`1.Name
+  - RTB.Blazor.Components.DataGrid.IColumn`1.ParentGrid
+  - RTB.Blazor.Components.DataGrid.IColumn`1.RenderCell(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder,`0,System.Int32)
+  - RTB.Blazor.Components.DataGrid.IColumn`1.RenderHeader(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder,System.Int32)
+  - RTB.Blazor.Components.DataGrid.IColumn`1.SortDescending
+  - RTB.Blazor.Components.DataGrid.IColumn`1.SortKey
+  - RTB.Blazor.Components.DataGrid.IColumn`1.Spacings
+  - RTB.Blazor.Components.DataGrid.IColumn`1.Width
+  langs:
+  - csharp
+  - vb
+  name: IColumn<TRow>
+  nameWithType: IColumn<TRow>
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>
+  type: Interface
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: IColumn
+    path: ../src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+    startLine: 13
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Components.DataGrid
+  summary: Column interface for DataGrid.
+  example: []
+  syntax:
+    content: 'public interface IColumn<TRow> : IDisposable'
+    typeParameters:
+    - id: TRow
+      description: ''
+    content.vb: Public Interface IColumn(Of TRow) Inherits IDisposable
+  inheritedMembers:
+  - System.IDisposable.Dispose
+  nameWithType.vb: IColumn(Of TRow)
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow)
+  name.vb: IColumn(Of TRow)
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.ParentGrid
+  commentId: P:RTB.Blazor.Components.DataGrid.IColumn`1.ParentGrid
+  id: ParentGrid
+  parent: RTB.Blazor.Components.DataGrid.IColumn`1
+  langs:
+  - csharp
+  - vb
+  name: ParentGrid
+  nameWithType: IColumn<TRow>.ParentGrid
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.ParentGrid
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: ParentGrid
+    path: ../src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+    startLine: 18
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Components.DataGrid
+  summary: Reference to the parent grid for registration.
+  example: []
+  syntax:
+    content: IRegister<ColumnBase<TRow>>? ParentGrid { get; set; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Interfaces.IRegister{RTB.Blazor.Components.DataGrid.ColumnBase{{TRow}}}
+    content.vb: Property ParentGrid As IRegister(Of ColumnBase(Of TRow))
+  overload: RTB.Blazor.Components.DataGrid.IColumn`1.ParentGrid*
+  nameWithType.vb: IColumn(Of TRow).ParentGrid
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).ParentGrid
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.RenderHeader(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder,System.Int32)
+  commentId: M:RTB.Blazor.Components.DataGrid.IColumn`1.RenderHeader(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder,System.Int32)
+  id: RenderHeader(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder,System.Int32)
+  parent: RTB.Blazor.Components.DataGrid.IColumn`1
+  langs:
+  - csharp
+  - vb
+  name: RenderHeader(RenderTreeBuilder, int)
+  nameWithType: IColumn<TRow>.RenderHeader(RenderTreeBuilder, int)
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.RenderHeader(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder, int)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: RenderHeader
+    path: ../src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+    startLine: 25
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Components.DataGrid
+  summary: Renders the header for the column.
+  example: []
+  syntax:
+    content: void RenderHeader(RenderTreeBuilder builder, int col)
+    parameters:
+    - id: builder
+      type: Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+      description: ''
+    - id: col
+      type: System.Int32
+      description: ''
+    content.vb: Sub RenderHeader(builder As RenderTreeBuilder, col As Integer)
+  overload: RTB.Blazor.Components.DataGrid.IColumn`1.RenderHeader*
+  nameWithType.vb: IColumn(Of TRow).RenderHeader(RenderTreeBuilder, Integer)
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).RenderHeader(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder, Integer)
+  name.vb: RenderHeader(RenderTreeBuilder, Integer)
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.RenderCell(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder,`0,System.Int32)
+  commentId: M:RTB.Blazor.Components.DataGrid.IColumn`1.RenderCell(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder,`0,System.Int32)
+  id: RenderCell(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder,`0,System.Int32)
+  parent: RTB.Blazor.Components.DataGrid.IColumn`1
+  langs:
+  - csharp
+  - vb
+  name: RenderCell(RenderTreeBuilder, TRow, int)
+  nameWithType: IColumn<TRow>.RenderCell(RenderTreeBuilder, TRow, int)
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.RenderCell(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder, TRow, int)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: RenderCell
+    path: ../src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+    startLine: 33
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Components.DataGrid
+  summary: Renders a cell for the given row and column index.
+  example: []
+  syntax:
+    content: void RenderCell(RenderTreeBuilder builder, TRow row, int col)
+    parameters:
+    - id: builder
+      type: Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+      description: ''
+    - id: row
+      type: '{TRow}'
+      description: ''
+    - id: col
+      type: System.Int32
+      description: ''
+    content.vb: Sub RenderCell(builder As RenderTreeBuilder, row As TRow, col As Integer)
+  overload: RTB.Blazor.Components.DataGrid.IColumn`1.RenderCell*
+  nameWithType.vb: IColumn(Of TRow).RenderCell(RenderTreeBuilder, TRow, Integer)
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).RenderCell(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder, TRow, Integer)
+  name.vb: RenderCell(RenderTreeBuilder, TRow, Integer)
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.Name
+  commentId: P:RTB.Blazor.Components.DataGrid.IColumn`1.Name
+  id: Name
+  parent: RTB.Blazor.Components.DataGrid.IColumn`1
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IColumn<TRow>.Name
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.Name
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Name
+    path: ../src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+    startLine: 38
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Components.DataGrid
+  summary: The unique identifier for the column.
+  example: []
+  syntax:
+    content: string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Name As String
+  overload: RTB.Blazor.Components.DataGrid.IColumn`1.Name*
+  nameWithType.vb: IColumn(Of TRow).Name
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).Name
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.Width
+  commentId: P:RTB.Blazor.Components.DataGrid.IColumn`1.Width
+  id: Width
+  parent: RTB.Blazor.Components.DataGrid.IColumn`1
+  langs:
+  - csharp
+  - vb
+  name: Width
+  nameWithType: IColumn<TRow>.Width
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.Width
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Width
+    path: ../src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+    startLine: 43
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Components.DataGrid
+  summary: Optional content for the column header.
+  example: []
+  syntax:
+    content: string? Width { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Width As String
+  overload: RTB.Blazor.Components.DataGrid.IColumn`1.Width*
+  nameWithType.vb: IColumn(Of TRow).Width
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).Width
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.MinWidth
+  commentId: P:RTB.Blazor.Components.DataGrid.IColumn`1.MinWidth
+  id: MinWidth
+  parent: RTB.Blazor.Components.DataGrid.IColumn`1
+  langs:
+  - csharp
+  - vb
+  name: MinWidth
+  nameWithType: IColumn<TRow>.MinWidth
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.MinWidth
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: MinWidth
+    path: ../src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+    startLine: 48
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Components.DataGrid
+  summary: Optional minimum width for the column.
+  example: []
+  syntax:
+    content: string? MinWidth { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property MinWidth As String
+  overload: RTB.Blazor.Components.DataGrid.IColumn`1.MinWidth*
+  nameWithType.vb: IColumn(Of TRow).MinWidth
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).MinWidth
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.MaxWidth
+  commentId: P:RTB.Blazor.Components.DataGrid.IColumn`1.MaxWidth
+  id: MaxWidth
+  parent: RTB.Blazor.Components.DataGrid.IColumn`1
+  langs:
+  - csharp
+  - vb
+  name: MaxWidth
+  nameWithType: IColumn<TRow>.MaxWidth
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.MaxWidth
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: MaxWidth
+    path: ../src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+    startLine: 53
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Components.DataGrid
+  summary: Optional maximum width for the column.
+  example: []
+  syntax:
+    content: string? MaxWidth { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property MaxWidth As String
+  overload: RTB.Blazor.Components.DataGrid.IColumn`1.MaxWidth*
+  nameWithType.vb: IColumn(Of TRow).MaxWidth
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).MaxWidth
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.Spacings
+  commentId: P:RTB.Blazor.Components.DataGrid.IColumn`1.Spacings
+  id: Spacings
+  parent: RTB.Blazor.Components.DataGrid.IColumn`1
+  langs:
+  - csharp
+  - vb
+  name: Spacings
+  nameWithType: IColumn<TRow>.Spacings
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.Spacings
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Spacings
+    path: ../src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+    startLine: 58
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Components.DataGrid
+  summary: Optional spacings for the column header.
+  example: []
+  syntax:
+    content: Spacing[] Spacings { get; set; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.Spacing[]
+    content.vb: Property Spacings As Spacing()
+  overload: RTB.Blazor.Components.DataGrid.IColumn`1.Spacings*
+  nameWithType.vb: IColumn(Of TRow).Spacings
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).Spacings
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.SortKey
+  commentId: P:RTB.Blazor.Components.DataGrid.IColumn`1.SortKey
+  id: SortKey
+  parent: RTB.Blazor.Components.DataGrid.IColumn`1
+  langs:
+  - csharp
+  - vb
+  name: SortKey
+  nameWithType: IColumn<TRow>.SortKey
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.SortKey
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: SortKey
+    path: ../src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+    startLine: 63
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Components.DataGrid
+  summary: Optional Sorting key function for the column.
+  example: []
+  syntax:
+    content: Func<TRow, IComparable>? SortKey { get; set; }
+    parameters: []
+    return:
+      type: System.Func{{TRow},System.IComparable}
+    content.vb: Property SortKey As Func(Of TRow, IComparable)
+  overload: RTB.Blazor.Components.DataGrid.IColumn`1.SortKey*
+  nameWithType.vb: IColumn(Of TRow).SortKey
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).SortKey
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.DefaultSortDescending
+  commentId: P:RTB.Blazor.Components.DataGrid.IColumn`1.DefaultSortDescending
+  id: DefaultSortDescending
+  parent: RTB.Blazor.Components.DataGrid.IColumn`1
+  langs:
+  - csharp
+  - vb
+  name: DefaultSortDescending
+  nameWithType: IColumn<TRow>.DefaultSortDescending
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.DefaultSortDescending
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: DefaultSortDescending
+    path: ../src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+    startLine: 68
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Components.DataGrid
+  summary: Indicates if the default sort order is descending.
+  example: []
+  syntax:
+    content: bool DefaultSortDescending { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Property DefaultSortDescending As Boolean
+  overload: RTB.Blazor.Components.DataGrid.IColumn`1.DefaultSortDescending*
+  nameWithType.vb: IColumn(Of TRow).DefaultSortDescending
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).DefaultSortDescending
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.SortDescending
+  commentId: P:RTB.Blazor.Components.DataGrid.IColumn`1.SortDescending
+  id: SortDescending
+  parent: RTB.Blazor.Components.DataGrid.IColumn`1
+  langs:
+  - csharp
+  - vb
+  name: SortDescending
+  nameWithType: IColumn<TRow>.SortDescending
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.SortDescending
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: SortDescending
+    path: ../src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+    startLine: 73
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Components.DataGrid
+  summary: Indicates if the current sort order is descending.
+  example: []
+  syntax:
+    content: bool SortDescending { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Property SortDescending As Boolean
+  overload: RTB.Blazor.Components.DataGrid.IColumn`1.SortDescending*
+  nameWithType.vb: IColumn(Of TRow).SortDescending
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).SortDescending
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.CanSort
+  commentId: P:RTB.Blazor.Components.DataGrid.IColumn`1.CanSort
+  id: CanSort
+  parent: RTB.Blazor.Components.DataGrid.IColumn`1
+  langs:
+  - csharp
+  - vb
+  name: CanSort
+  nameWithType: IColumn<TRow>.CanSort
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.CanSort
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: CanSort
+    path: ../src/RTB.BlazorUI/Components/DataGrid/DataColumn.cs
+    startLine: 78
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Components.DataGrid
+  summary: Indicates if the column can be sorted.
+  example: []
+  syntax:
+    content: bool CanSort { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property CanSort As Boolean
+  overload: RTB.Blazor.Components.DataGrid.IColumn`1.CanSort*
+  nameWithType.vb: IColumn(Of TRow).CanSort
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).CanSort
+references:
+- uid: RTB.Blazor.Components.DataGrid
+  commentId: N:RTB.Blazor.Components.DataGrid
+  href: RTB.html
+  name: RTB.Blazor.Components.DataGrid
+  nameWithType: RTB.Blazor.Components.DataGrid
+  fullName: RTB.Blazor.Components.DataGrid
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Components
+    name: Components
+    href: RTB.Blazor.Components.html
+  - name: .
+  - uid: RTB.Blazor.Components.DataGrid
+    name: DataGrid
+    href: RTB.Blazor.Components.DataGrid.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Components
+    name: Components
+    href: RTB.Blazor.Components.html
+  - name: .
+  - uid: RTB.Blazor.Components.DataGrid
+    name: DataGrid
+    href: RTB.Blazor.Components.DataGrid.html
+- uid: System.IDisposable.Dispose
+  commentId: M:System.IDisposable.Dispose
+  parent: System.IDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  name: Dispose()
+  nameWithType: IDisposable.Dispose()
+  fullName: System.IDisposable.Dispose()
+  spec.csharp:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IDisposable.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.idisposable.dispose
+  - name: (
+  - name: )
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.ParentGrid*
+  commentId: Overload:RTB.Blazor.Components.DataGrid.IColumn`1.ParentGrid
+  href: RTB.Blazor.Components.DataGrid.IColumn-1.html#RTB_Blazor_Components_DataGrid_IColumn_1_ParentGrid
+  name: ParentGrid
+  nameWithType: IColumn<TRow>.ParentGrid
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.ParentGrid
+  nameWithType.vb: IColumn(Of TRow).ParentGrid
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).ParentGrid
+- uid: RTB.Blazor.Interfaces.IRegister{RTB.Blazor.Components.DataGrid.ColumnBase{{TRow}}}
+  commentId: T:RTB.Blazor.Interfaces.IRegister{RTB.Blazor.Components.DataGrid.ColumnBase{`0}}
+  parent: RTB.Blazor.Interfaces
+  definition: RTB.Blazor.Interfaces.IRegister`1
+  href: RTB.Blazor.Interfaces.IRegister-1.html
+  name: IRegister<ColumnBase<TRow>>
+  nameWithType: IRegister<ColumnBase<TRow>>
+  fullName: RTB.Blazor.Interfaces.IRegister<RTB.Blazor.Components.DataGrid.ColumnBase<TRow>>
+  nameWithType.vb: IRegister(Of ColumnBase(Of TRow))
+  fullName.vb: RTB.Blazor.Interfaces.IRegister(Of RTB.Blazor.Components.DataGrid.ColumnBase(Of TRow))
+  name.vb: IRegister(Of ColumnBase(Of TRow))
+  spec.csharp:
+  - uid: RTB.Blazor.Interfaces.IRegister`1
+    name: IRegister
+    href: RTB.Blazor.Interfaces.IRegister-1.html
+  - name: <
+  - uid: RTB.Blazor.Components.DataGrid.ColumnBase`1
+    name: ColumnBase
+    href: RTB.Blazor.Components.DataGrid.ColumnBase-1.html
+  - name: <
+  - name: TRow
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: RTB.Blazor.Interfaces.IRegister`1
+    name: IRegister
+    href: RTB.Blazor.Interfaces.IRegister-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Components.DataGrid.ColumnBase`1
+    name: ColumnBase
+    href: RTB.Blazor.Components.DataGrid.ColumnBase-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRow
+  - name: )
+  - name: )
+- uid: RTB.Blazor.Interfaces.IRegister`1
+  commentId: T:RTB.Blazor.Interfaces.IRegister`1
+  href: RTB.Blazor.Interfaces.IRegister-1.html
+  name: IRegister<T>
+  nameWithType: IRegister<T>
+  fullName: RTB.Blazor.Interfaces.IRegister<T>
+  nameWithType.vb: IRegister(Of T)
+  fullName.vb: RTB.Blazor.Interfaces.IRegister(Of T)
+  name.vb: IRegister(Of T)
+  spec.csharp:
+  - uid: RTB.Blazor.Interfaces.IRegister`1
+    name: IRegister
+    href: RTB.Blazor.Interfaces.IRegister-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: RTB.Blazor.Interfaces.IRegister`1
+    name: IRegister
+    href: RTB.Blazor.Interfaces.IRegister-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RTB.Blazor.Interfaces
+  commentId: N:RTB.Blazor.Interfaces
+  href: RTB.html
+  name: RTB.Blazor.Interfaces
+  nameWithType: RTB.Blazor.Interfaces
+  fullName: RTB.Blazor.Interfaces
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Interfaces
+    name: Interfaces
+    href: RTB.Blazor.Interfaces.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Interfaces
+    name: Interfaces
+    href: RTB.Blazor.Interfaces.html
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.RenderHeader*
+  commentId: Overload:RTB.Blazor.Components.DataGrid.IColumn`1.RenderHeader
+  href: RTB.Blazor.Components.DataGrid.IColumn-1.html#RTB_Blazor_Components_DataGrid_IColumn_1_RenderHeader_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_System_Int32_
+  name: RenderHeader
+  nameWithType: IColumn<TRow>.RenderHeader
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.RenderHeader
+  nameWithType.vb: IColumn(Of TRow).RenderHeader
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).RenderHeader
+- uid: Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+  commentId: T:Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+  parent: Microsoft.AspNetCore.Components.Rendering
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering.rendertreebuilder
+  name: RenderTreeBuilder
+  nameWithType: RenderTreeBuilder
+  fullName: Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Microsoft.AspNetCore.Components.Rendering
+  commentId: N:Microsoft.AspNetCore.Components.Rendering
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Components.Rendering
+  nameWithType: Microsoft.AspNetCore.Components.Rendering
+  fullName: Microsoft.AspNetCore.Components.Rendering
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Components
+    name: Components
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components
+  - name: .
+  - uid: Microsoft.AspNetCore.Components.Rendering
+    name: Rendering
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Components
+    name: Components
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components
+  - name: .
+  - uid: Microsoft.AspNetCore.Components.Rendering
+    name: Rendering
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.RenderCell*
+  commentId: Overload:RTB.Blazor.Components.DataGrid.IColumn`1.RenderCell
+  href: RTB.Blazor.Components.DataGrid.IColumn-1.html#RTB_Blazor_Components_DataGrid_IColumn_1_RenderCell_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder__0_System_Int32_
+  name: RenderCell
+  nameWithType: IColumn<TRow>.RenderCell
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.RenderCell
+  nameWithType.vb: IColumn(Of TRow).RenderCell
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).RenderCell
+- uid: '{TRow}'
+  commentId: '!:TRow'
+  definition: TRow
+  name: TRow
+  nameWithType: TRow
+  fullName: TRow
+- uid: TRow
+  name: TRow
+  nameWithType: TRow
+  fullName: TRow
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.Name*
+  commentId: Overload:RTB.Blazor.Components.DataGrid.IColumn`1.Name
+  href: RTB.Blazor.Components.DataGrid.IColumn-1.html#RTB_Blazor_Components_DataGrid_IColumn_1_Name
+  name: Name
+  nameWithType: IColumn<TRow>.Name
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.Name
+  nameWithType.vb: IColumn(Of TRow).Name
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.Width*
+  commentId: Overload:RTB.Blazor.Components.DataGrid.IColumn`1.Width
+  href: RTB.Blazor.Components.DataGrid.IColumn-1.html#RTB_Blazor_Components_DataGrid_IColumn_1_Width
+  name: Width
+  nameWithType: IColumn<TRow>.Width
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.Width
+  nameWithType.vb: IColumn(Of TRow).Width
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).Width
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.MinWidth*
+  commentId: Overload:RTB.Blazor.Components.DataGrid.IColumn`1.MinWidth
+  href: RTB.Blazor.Components.DataGrid.IColumn-1.html#RTB_Blazor_Components_DataGrid_IColumn_1_MinWidth
+  name: MinWidth
+  nameWithType: IColumn<TRow>.MinWidth
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.MinWidth
+  nameWithType.vb: IColumn(Of TRow).MinWidth
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).MinWidth
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.MaxWidth*
+  commentId: Overload:RTB.Blazor.Components.DataGrid.IColumn`1.MaxWidth
+  href: RTB.Blazor.Components.DataGrid.IColumn-1.html#RTB_Blazor_Components_DataGrid_IColumn_1_MaxWidth
+  name: MaxWidth
+  nameWithType: IColumn<TRow>.MaxWidth
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.MaxWidth
+  nameWithType.vb: IColumn(Of TRow).MaxWidth
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).MaxWidth
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.Spacings*
+  commentId: Overload:RTB.Blazor.Components.DataGrid.IColumn`1.Spacings
+  href: RTB.Blazor.Components.DataGrid.IColumn-1.html#RTB_Blazor_Components_DataGrid_IColumn_1_Spacings
+  name: Spacings
+  nameWithType: IColumn<TRow>.Spacings
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.Spacings
+  nameWithType.vb: IColumn(Of TRow).Spacings
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).Spacings
+- uid: RTB.Blazor.Styled.Helper.Spacing[]
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.Spacing.html
+  name: Spacing[]
+  nameWithType: Spacing[]
+  fullName: RTB.Blazor.Styled.Helper.Spacing[]
+  nameWithType.vb: Spacing()
+  fullName.vb: RTB.Blazor.Styled.Helper.Spacing()
+  name.vb: Spacing()
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.Spacing
+    name: Spacing
+    href: RTB.Blazor.Styled.Helper.Spacing.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.Spacing
+    name: Spacing
+    href: RTB.Blazor.Styled.Helper.Spacing.html
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.SortKey*
+  commentId: Overload:RTB.Blazor.Components.DataGrid.IColumn`1.SortKey
+  href: RTB.Blazor.Components.DataGrid.IColumn-1.html#RTB_Blazor_Components_DataGrid_IColumn_1_SortKey
+  name: SortKey
+  nameWithType: IColumn<TRow>.SortKey
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.SortKey
+  nameWithType.vb: IColumn(Of TRow).SortKey
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).SortKey
+- uid: System.Func{{TRow},System.IComparable}
+  commentId: T:System.Func{`0,System.IComparable}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<TRow, IComparable>
+  nameWithType: Func<TRow, IComparable>
+  fullName: System.Func<TRow, System.IComparable>
+  nameWithType.vb: Func(Of TRow, IComparable)
+  fullName.vb: System.Func(Of TRow, System.IComparable)
+  name.vb: Func(Of TRow, IComparable)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: TRow
+  - name: ','
+  - name: " "
+  - uid: System.IComparable
+    name: IComparable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRow
+  - name: ','
+  - name: " "
+  - uid: System.IComparable
+    name: IComparable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.DefaultSortDescending*
+  commentId: Overload:RTB.Blazor.Components.DataGrid.IColumn`1.DefaultSortDescending
+  href: RTB.Blazor.Components.DataGrid.IColumn-1.html#RTB_Blazor_Components_DataGrid_IColumn_1_DefaultSortDescending
+  name: DefaultSortDescending
+  nameWithType: IColumn<TRow>.DefaultSortDescending
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.DefaultSortDescending
+  nameWithType.vb: IColumn(Of TRow).DefaultSortDescending
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).DefaultSortDescending
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.SortDescending*
+  commentId: Overload:RTB.Blazor.Components.DataGrid.IColumn`1.SortDescending
+  href: RTB.Blazor.Components.DataGrid.IColumn-1.html#RTB_Blazor_Components_DataGrid_IColumn_1_SortDescending
+  name: SortDescending
+  nameWithType: IColumn<TRow>.SortDescending
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.SortDescending
+  nameWithType.vb: IColumn(Of TRow).SortDescending
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).SortDescending
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1.CanSort*
+  commentId: Overload:RTB.Blazor.Components.DataGrid.IColumn`1.CanSort
+  href: RTB.Blazor.Components.DataGrid.IColumn-1.html#RTB_Blazor_Components_DataGrid_IColumn_1_CanSort
+  name: CanSort
+  nameWithType: IColumn<TRow>.CanSort
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>.CanSort
+  nameWithType.vb: IColumn(Of TRow).CanSort
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow).CanSort

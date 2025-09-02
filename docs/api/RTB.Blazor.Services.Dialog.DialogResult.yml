@@ -1,0 +1,664 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.Dialog.DialogResult
+  commentId: T:RTB.Blazor.Services.Dialog.DialogResult
+  id: DialogResult
+  parent: RTB.Blazor.Services.Dialog
+  children:
+  - RTB.Blazor.Services.Dialog.DialogResult.#ctor(RTB.Blazor.Services.Dialog.DialogResultKind,System.Object)
+  - RTB.Blazor.Services.Dialog.DialogResult.Cancel(System.Object)
+  - RTB.Blazor.Services.Dialog.DialogResult.Data
+  - RTB.Blazor.Services.Dialog.DialogResult.Kind
+  - RTB.Blazor.Services.Dialog.DialogResult.Ok(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: DialogResult
+  nameWithType: DialogResult
+  fullName: RTB.Blazor.Services.Dialog.DialogResult
+  type: Class
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: DialogResult
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 46
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: Immutable result returned by a dialog when it closes.
+  remarks: Use <xref href="RTB.Blazor.Services.Dialog.DialogResult.Ok(System.Object)" data-throw-if-not-resolved="false"></xref> or <xref href="RTB.Blazor.Services.Dialog.DialogResult.Cancel(System.Object)" data-throw-if-not-resolved="false"></xref> to create a result with a conventional outcome.
+  example:
+  - >-
+    In a dialog component:
+
+
+    [CascadingParameter] public IDialogReference? Dialog { get; set; }
+
+
+    void Save()
+        =&gt; Dialog?.Close(DialogResult.Ok(new { Name, Email }));
+
+    void Dismiss()
+        =&gt; Dialog?.Close(); // Equivalent to Cancel()
+  syntax:
+    content: 'public sealed record DialogResult : IEquatable<DialogResult>'
+    content.vb: Public NotInheritable Class DialogResult Implements IEquatable(Of DialogResult)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{RTB.Blazor.Services.Dialog.DialogResult}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RTB.Blazor.Services.Dialog.DialogResult.#ctor(RTB.Blazor.Services.Dialog.DialogResultKind,System.Object)
+  commentId: M:RTB.Blazor.Services.Dialog.DialogResult.#ctor(RTB.Blazor.Services.Dialog.DialogResultKind,System.Object)
+  id: '#ctor(RTB.Blazor.Services.Dialog.DialogResultKind,System.Object)'
+  parent: RTB.Blazor.Services.Dialog.DialogResult
+  langs:
+  - csharp
+  - vb
+  name: DialogResult(DialogResultKind, object?)
+  nameWithType: DialogResult.DialogResult(DialogResultKind, object?)
+  fullName: RTB.Blazor.Services.Dialog.DialogResult.DialogResult(RTB.Blazor.Services.Dialog.DialogResultKind, object?)
+  type: Constructor
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: .ctor
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 46
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: Immutable result returned by a dialog when it closes.
+  remarks: Use <xref href="RTB.Blazor.Services.Dialog.DialogResult.Ok(System.Object)" data-throw-if-not-resolved="false"></xref> or <xref href="RTB.Blazor.Services.Dialog.DialogResult.Cancel(System.Object)" data-throw-if-not-resolved="false"></xref> to create a result with a conventional outcome.
+  example:
+  - >-
+    In a dialog component:
+
+
+    [CascadingParameter] public IDialogReference? Dialog { get; set; }
+
+
+    void Save()
+        =&gt; Dialog?.Close(DialogResult.Ok(new { Name, Email }));
+
+    void Dismiss()
+        =&gt; Dialog?.Close(); // Equivalent to Cancel()
+  syntax:
+    content: public DialogResult(DialogResultKind Kind, object? Data = null)
+    parameters:
+    - id: Kind
+      type: RTB.Blazor.Services.Dialog.DialogResultKind
+      description: The outcome of the dialog.
+    - id: Data
+      type: System.Object
+      description: Optional payload returned by the dialog (e.g., form data).
+    content.vb: Public Sub New(Kind As DialogResultKind, Data As Object = Nothing)
+  overload: RTB.Blazor.Services.Dialog.DialogResult.#ctor*
+  nameWithType.vb: DialogResult.New(DialogResultKind, Object)
+  fullName.vb: RTB.Blazor.Services.Dialog.DialogResult.New(RTB.Blazor.Services.Dialog.DialogResultKind, Object)
+  name.vb: New(DialogResultKind, Object)
+- uid: RTB.Blazor.Services.Dialog.DialogResult.Kind
+  commentId: P:RTB.Blazor.Services.Dialog.DialogResult.Kind
+  id: Kind
+  parent: RTB.Blazor.Services.Dialog.DialogResult
+  langs:
+  - csharp
+  - vb
+  name: Kind
+  nameWithType: DialogResult.Kind
+  fullName: RTB.Blazor.Services.Dialog.DialogResult.Kind
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Kind
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 46
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: The outcome of the dialog.
+  example: []
+  syntax:
+    content: public DialogResultKind Kind { get; init; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Services.Dialog.DialogResultKind
+    content.vb: Public Property Kind As DialogResultKind
+  overload: RTB.Blazor.Services.Dialog.DialogResult.Kind*
+- uid: RTB.Blazor.Services.Dialog.DialogResult.Data
+  commentId: P:RTB.Blazor.Services.Dialog.DialogResult.Data
+  id: Data
+  parent: RTB.Blazor.Services.Dialog.DialogResult
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: DialogResult.Data
+  fullName: RTB.Blazor.Services.Dialog.DialogResult.Data
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Data
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 46
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: Optional payload returned by the dialog (e.g., form data).
+  example: []
+  syntax:
+    content: public object? Data { get; init; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property Data As Object
+  overload: RTB.Blazor.Services.Dialog.DialogResult.Data*
+- uid: RTB.Blazor.Services.Dialog.DialogResult.Ok(System.Object)
+  commentId: M:RTB.Blazor.Services.Dialog.DialogResult.Ok(System.Object)
+  id: Ok(System.Object)
+  parent: RTB.Blazor.Services.Dialog.DialogResult
+  langs:
+  - csharp
+  - vb
+  name: Ok(object?)
+  nameWithType: DialogResult.Ok(object?)
+  fullName: RTB.Blazor.Services.Dialog.DialogResult.Ok(object?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Ok
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 51
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: Creates a successful result with an optional payload.
+  example: []
+  syntax:
+    content: public static DialogResult Ok(object? data = null)
+    parameters:
+    - id: data
+      type: System.Object
+    return:
+      type: RTB.Blazor.Services.Dialog.DialogResult
+    content.vb: Public Shared Function Ok(data As Object = Nothing) As DialogResult
+  overload: RTB.Blazor.Services.Dialog.DialogResult.Ok*
+  nameWithType.vb: DialogResult.Ok(Object)
+  fullName.vb: RTB.Blazor.Services.Dialog.DialogResult.Ok(Object)
+  name.vb: Ok(Object)
+- uid: RTB.Blazor.Services.Dialog.DialogResult.Cancel(System.Object)
+  commentId: M:RTB.Blazor.Services.Dialog.DialogResult.Cancel(System.Object)
+  id: Cancel(System.Object)
+  parent: RTB.Blazor.Services.Dialog.DialogResult
+  langs:
+  - csharp
+  - vb
+  name: Cancel(object?)
+  nameWithType: DialogResult.Cancel(object?)
+  fullName: RTB.Blazor.Services.Dialog.DialogResult.Cancel(object?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Cancel
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 56
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: Creates a canceled result with an optional payload (e.g., reason).
+  example: []
+  syntax:
+    content: public static DialogResult Cancel(object? data = null)
+    parameters:
+    - id: data
+      type: System.Object
+    return:
+      type: RTB.Blazor.Services.Dialog.DialogResult
+    content.vb: Public Shared Function Cancel(data As Object = Nothing) As DialogResult
+  overload: RTB.Blazor.Services.Dialog.DialogResult.Cancel*
+  nameWithType.vb: DialogResult.Cancel(Object)
+  fullName.vb: RTB.Blazor.Services.Dialog.DialogResult.Cancel(Object)
+  name.vb: Cancel(Object)
+references:
+- uid: RTB.Blazor.Services.Dialog.DialogResult.Ok(System.Object)
+  commentId: M:RTB.Blazor.Services.Dialog.DialogResult.Ok(System.Object)
+  isExternal: true
+  href: RTB.Blazor.Services.Dialog.DialogResult.html#RTB_Blazor_Services_Dialog_DialogResult_Ok_System_Object_
+  name: Ok(object)
+  nameWithType: DialogResult.Ok(object)
+  fullName: RTB.Blazor.Services.Dialog.DialogResult.Ok(object)
+  nameWithType.vb: DialogResult.Ok(Object)
+  fullName.vb: RTB.Blazor.Services.Dialog.DialogResult.Ok(Object)
+  name.vb: Ok(Object)
+  spec.csharp:
+  - uid: RTB.Blazor.Services.Dialog.DialogResult.Ok(System.Object)
+    name: Ok
+    href: RTB.Blazor.Services.Dialog.DialogResult.html#RTB_Blazor_Services_Dialog_DialogResult_Ok_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.Dialog.DialogResult.Ok(System.Object)
+    name: Ok
+    href: RTB.Blazor.Services.Dialog.DialogResult.html#RTB_Blazor_Services_Dialog_DialogResult_Ok_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: RTB.Blazor.Services.Dialog.DialogResult.Cancel(System.Object)
+  commentId: M:RTB.Blazor.Services.Dialog.DialogResult.Cancel(System.Object)
+  isExternal: true
+  href: RTB.Blazor.Services.Dialog.DialogResult.html#RTB_Blazor_Services_Dialog_DialogResult_Cancel_System_Object_
+  name: Cancel(object)
+  nameWithType: DialogResult.Cancel(object)
+  fullName: RTB.Blazor.Services.Dialog.DialogResult.Cancel(object)
+  nameWithType.vb: DialogResult.Cancel(Object)
+  fullName.vb: RTB.Blazor.Services.Dialog.DialogResult.Cancel(Object)
+  name.vb: Cancel(Object)
+  spec.csharp:
+  - uid: RTB.Blazor.Services.Dialog.DialogResult.Cancel(System.Object)
+    name: Cancel
+    href: RTB.Blazor.Services.Dialog.DialogResult.html#RTB_Blazor_Services_Dialog_DialogResult_Cancel_System_Object_
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.Dialog.DialogResult.Cancel(System.Object)
+    name: Cancel
+    href: RTB.Blazor.Services.Dialog.DialogResult.html#RTB_Blazor_Services_Dialog_DialogResult_Cancel_System_Object_
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: RTB.Blazor.Services.Dialog
+  commentId: N:RTB.Blazor.Services.Dialog
+  href: RTB.html
+  name: RTB.Blazor.Services.Dialog
+  nameWithType: RTB.Blazor.Services.Dialog
+  fullName: RTB.Blazor.Services.Dialog
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Dialog
+    name: Dialog
+    href: RTB.Blazor.Services.Dialog.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Dialog
+    name: Dialog
+    href: RTB.Blazor.Services.Dialog.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{RTB.Blazor.Services.Dialog.DialogResult}
+  commentId: T:System.IEquatable{RTB.Blazor.Services.Dialog.DialogResult}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<DialogResult>
+  nameWithType: IEquatable<DialogResult>
+  fullName: System.IEquatable<RTB.Blazor.Services.Dialog.DialogResult>
+  nameWithType.vb: IEquatable(Of DialogResult)
+  fullName.vb: System.IEquatable(Of RTB.Blazor.Services.Dialog.DialogResult)
+  name.vb: IEquatable(Of DialogResult)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RTB.Blazor.Services.Dialog.DialogResult
+    name: DialogResult
+    href: RTB.Blazor.Services.Dialog.DialogResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Services.Dialog.DialogResult
+    name: DialogResult
+    href: RTB.Blazor.Services.Dialog.DialogResult.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RTB.Blazor.Services.Dialog.DialogResult.#ctor*
+  commentId: Overload:RTB.Blazor.Services.Dialog.DialogResult.#ctor
+  href: RTB.Blazor.Services.Dialog.DialogResult.html#RTB_Blazor_Services_Dialog_DialogResult__ctor_RTB_Blazor_Services_Dialog_DialogResultKind_System_Object_
+  name: DialogResult
+  nameWithType: DialogResult.DialogResult
+  fullName: RTB.Blazor.Services.Dialog.DialogResult.DialogResult
+  nameWithType.vb: DialogResult.New
+  fullName.vb: RTB.Blazor.Services.Dialog.DialogResult.New
+  name.vb: New
+- uid: RTB.Blazor.Services.Dialog.DialogResultKind
+  commentId: T:RTB.Blazor.Services.Dialog.DialogResultKind
+  parent: RTB.Blazor.Services.Dialog
+  href: RTB.Blazor.Services.Dialog.DialogResultKind.html
+  name: DialogResultKind
+  nameWithType: DialogResultKind
+  fullName: RTB.Blazor.Services.Dialog.DialogResultKind
+- uid: RTB.Blazor.Services.Dialog.DialogResult.Kind*
+  commentId: Overload:RTB.Blazor.Services.Dialog.DialogResult.Kind
+  href: RTB.Blazor.Services.Dialog.DialogResult.html#RTB_Blazor_Services_Dialog_DialogResult_Kind
+  name: Kind
+  nameWithType: DialogResult.Kind
+  fullName: RTB.Blazor.Services.Dialog.DialogResult.Kind
+- uid: RTB.Blazor.Services.Dialog.DialogResult.Data*
+  commentId: Overload:RTB.Blazor.Services.Dialog.DialogResult.Data
+  href: RTB.Blazor.Services.Dialog.DialogResult.html#RTB_Blazor_Services_Dialog_DialogResult_Data
+  name: Data
+  nameWithType: DialogResult.Data
+  fullName: RTB.Blazor.Services.Dialog.DialogResult.Data
+- uid: RTB.Blazor.Services.Dialog.DialogResult.Ok*
+  commentId: Overload:RTB.Blazor.Services.Dialog.DialogResult.Ok
+  href: RTB.Blazor.Services.Dialog.DialogResult.html#RTB_Blazor_Services_Dialog_DialogResult_Ok_System_Object_
+  name: Ok
+  nameWithType: DialogResult.Ok
+  fullName: RTB.Blazor.Services.Dialog.DialogResult.Ok
+- uid: RTB.Blazor.Services.Dialog.DialogResult
+  commentId: T:RTB.Blazor.Services.Dialog.DialogResult
+  parent: RTB.Blazor.Services.Dialog
+  href: RTB.Blazor.Services.Dialog.DialogResult.html
+  name: DialogResult
+  nameWithType: DialogResult
+  fullName: RTB.Blazor.Services.Dialog.DialogResult
+- uid: RTB.Blazor.Services.Dialog.DialogResult.Cancel*
+  commentId: Overload:RTB.Blazor.Services.Dialog.DialogResult.Cancel
+  href: RTB.Blazor.Services.Dialog.DialogResult.html#RTB_Blazor_Services_Dialog_DialogResult_Cancel_System_Object_
+  name: Cancel
+  nameWithType: DialogResult.Cancel
+  fullName: RTB.Blazor.Services.Dialog.DialogResult.Cancel

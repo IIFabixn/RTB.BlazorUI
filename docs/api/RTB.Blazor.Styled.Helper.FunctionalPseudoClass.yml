@@ -1,0 +1,1484 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  commentId: T:RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  id: FunctionalPseudoClass
+  parent: RTB.Blazor.Styled.Helper
+  children:
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.#ctor(System.String,System.Collections.Generic.IEnumerable{RTB.Blazor.Styled.Helper.SelectorExpression})
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Arguments
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Dir(System.String)
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Has(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HasSlotted(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostContext(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostSelector(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Is(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Lang(System.String)
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Name
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Not(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthChild(System.String)
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastChild(System.String)
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastOfType(System.String)
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthOfType(System.String)
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Render
+  - RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Where(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  langs:
+  - csharp
+  - vb
+  name: FunctionalPseudoClass
+  nameWithType: FunctionalPseudoClass
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  type: Class
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: FunctionalPseudoClass
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 354
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: CSS functional pseudo-class selector, which can take arguments.
+  example: []
+  syntax:
+    content: 'public sealed record FunctionalPseudoClass : SelectorExpression, IEquatable<SelectorExpression>, IEquatable<FunctionalPseudoClass>'
+    content.vb: Public NotInheritable Class FunctionalPseudoClass Inherits SelectorExpression Implements IEquatable(Of SelectorExpression), IEquatable(Of FunctionalPseudoClass)
+  inheritance:
+  - System.Object
+  - RTB.Blazor.Styled.Helper.SelectorExpression
+  implements:
+  - System.IEquatable{RTB.Blazor.Styled.Helper.SelectorExpression}
+  - System.IEquatable{RTB.Blazor.Styled.Helper.FunctionalPseudoClass}
+  inheritedMembers:
+  - RTB.Blazor.Styled.Helper.SelectorExpression.Element(System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.Id(System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.Class(System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(System.String,System.String,System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.#ctor(System.String,System.Collections.Generic.IEnumerable{RTB.Blazor.Styled.Helper.SelectorExpression})
+  commentId: M:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.#ctor(System.String,System.Collections.Generic.IEnumerable{RTB.Blazor.Styled.Helper.SelectorExpression})
+  id: '#ctor(System.String,System.Collections.Generic.IEnumerable{RTB.Blazor.Styled.Helper.SelectorExpression})'
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: FunctionalPseudoClass(string, IEnumerable<SelectorExpression>)
+  nameWithType: FunctionalPseudoClass.FunctionalPseudoClass(string, IEnumerable<SelectorExpression>)
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.FunctionalPseudoClass(string, System.Collections.Generic.IEnumerable<RTB.Blazor.Styled.Helper.SelectorExpression>)
+  type: Constructor
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: .ctor
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 354
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: CSS functional pseudo-class selector, which can take arguments.
+  example: []
+  syntax:
+    content: public FunctionalPseudoClass(string Name, IEnumerable<SelectorExpression> Arguments)
+    parameters:
+    - id: Name
+      type: System.String
+      description: Pseudo-class name without the leading ':'.
+    - id: Arguments
+      type: System.Collections.Generic.IEnumerable{RTB.Blazor.Styled.Helper.SelectorExpression}
+      description: Arguments to the functional pseudo-class.
+    content.vb: Public Sub New(Name As String, Arguments As IEnumerable(Of SelectorExpression))
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.#ctor*
+  nameWithType.vb: FunctionalPseudoClass.New(String, IEnumerable(Of SelectorExpression))
+  fullName.vb: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.New(String, System.Collections.Generic.IEnumerable(Of RTB.Blazor.Styled.Helper.SelectorExpression))
+  name.vb: New(String, IEnumerable(Of SelectorExpression))
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Name
+  commentId: P:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Name
+  id: Name
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: FunctionalPseudoClass.Name
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Name
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Name
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 354
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Pseudo-class name without the leading ':'.
+  example: []
+  syntax:
+    content: public string Name { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Name*
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Arguments
+  commentId: P:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Arguments
+  id: Arguments
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Arguments
+  nameWithType: FunctionalPseudoClass.Arguments
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Arguments
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Arguments
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 354
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Arguments to the functional pseudo-class.
+  example: []
+  syntax:
+    content: public IEnumerable<SelectorExpression> Arguments { get; init; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEnumerable{RTB.Blazor.Styled.Helper.SelectorExpression}
+    content.vb: Public Property Arguments As IEnumerable(Of SelectorExpression)
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Arguments*
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Has(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  commentId: M:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Has(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  id: Has(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Has(params SelectorExpression[])
+  nameWithType: FunctionalPseudoClass.Has(params SelectorExpression[])
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Has(params RTB.Blazor.Styled.Helper.SelectorExpression[])
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Has
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 360
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :has(...)
+  example: []
+  syntax:
+    content: public static FunctionalPseudoClass Has(params SelectorExpression[] args)
+    parameters:
+    - id: args
+      type: RTB.Blazor.Styled.Helper.SelectorExpression[]
+    return:
+      type: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+    content.vb: Public Shared Function Has(ParamArray args As SelectorExpression()) As FunctionalPseudoClass
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Has*
+  nameWithType.vb: FunctionalPseudoClass.Has(ParamArray SelectorExpression())
+  fullName.vb: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Has(ParamArray RTB.Blazor.Styled.Helper.SelectorExpression())
+  name.vb: Has(ParamArray SelectorExpression())
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Not(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  commentId: M:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Not(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  id: Not(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Not(params SelectorExpression[])
+  nameWithType: FunctionalPseudoClass.Not(params SelectorExpression[])
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Not(params RTB.Blazor.Styled.Helper.SelectorExpression[])
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Not
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 362
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :not(...)
+  example: []
+  syntax:
+    content: public static FunctionalPseudoClass Not(params SelectorExpression[] args)
+    parameters:
+    - id: args
+      type: RTB.Blazor.Styled.Helper.SelectorExpression[]
+    return:
+      type: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+    content.vb: Public Shared Function [Not](ParamArray args As SelectorExpression()) As FunctionalPseudoClass
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Not*
+  nameWithType.vb: FunctionalPseudoClass.Not(ParamArray SelectorExpression())
+  fullName.vb: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Not(ParamArray RTB.Blazor.Styled.Helper.SelectorExpression())
+  name.vb: Not(ParamArray SelectorExpression())
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Is(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  commentId: M:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Is(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  id: Is(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Is(params SelectorExpression[])
+  nameWithType: FunctionalPseudoClass.Is(params SelectorExpression[])
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Is(params RTB.Blazor.Styled.Helper.SelectorExpression[])
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Is
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 364
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :is(...)
+  example: []
+  syntax:
+    content: public static FunctionalPseudoClass Is(params SelectorExpression[] args)
+    parameters:
+    - id: args
+      type: RTB.Blazor.Styled.Helper.SelectorExpression[]
+    return:
+      type: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+    content.vb: Public Shared Function [Is](ParamArray args As SelectorExpression()) As FunctionalPseudoClass
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Is*
+  nameWithType.vb: FunctionalPseudoClass.Is(ParamArray SelectorExpression())
+  fullName.vb: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Is(ParamArray RTB.Blazor.Styled.Helper.SelectorExpression())
+  name.vb: Is(ParamArray SelectorExpression())
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Where(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  commentId: M:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Where(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  id: Where(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Where(params SelectorExpression[])
+  nameWithType: FunctionalPseudoClass.Where(params SelectorExpression[])
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Where(params RTB.Blazor.Styled.Helper.SelectorExpression[])
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Where
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 366
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :where(...)
+  example: []
+  syntax:
+    content: public static FunctionalPseudoClass Where(params SelectorExpression[] args)
+    parameters:
+    - id: args
+      type: RTB.Blazor.Styled.Helper.SelectorExpression[]
+    return:
+      type: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+    content.vb: Public Shared Function Where(ParamArray args As SelectorExpression()) As FunctionalPseudoClass
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Where*
+  nameWithType.vb: FunctionalPseudoClass.Where(ParamArray SelectorExpression())
+  fullName.vb: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Where(ParamArray RTB.Blazor.Styled.Helper.SelectorExpression())
+  name.vb: Where(ParamArray SelectorExpression())
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Lang(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Lang(System.String)
+  id: Lang(System.String)
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Lang(string)
+  nameWithType: FunctionalPseudoClass.Lang(string)
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Lang(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Lang
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 368
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :lang(code)
+  example: []
+  syntax:
+    content: public static FunctionalPseudoClass Lang(string code)
+    parameters:
+    - id: code
+      type: System.String
+    return:
+      type: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+    content.vb: Public Shared Function Lang(code As String) As FunctionalPseudoClass
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Lang*
+  nameWithType.vb: FunctionalPseudoClass.Lang(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Lang(String)
+  name.vb: Lang(String)
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Dir(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Dir(System.String)
+  id: Dir(System.String)
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Dir(string)
+  nameWithType: FunctionalPseudoClass.Dir(string)
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Dir(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Dir
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 370
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :dir(direction)
+  example: []
+  syntax:
+    content: public static FunctionalPseudoClass Dir(string direction)
+    parameters:
+    - id: direction
+      type: System.String
+    return:
+      type: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+    content.vb: Public Shared Function Dir(direction As String) As FunctionalPseudoClass
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Dir*
+  nameWithType.vb: FunctionalPseudoClass.Dir(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Dir(String)
+  name.vb: Dir(String)
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthChild(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthChild(System.String)
+  id: NthChild(System.String)
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: NthChild(string)
+  nameWithType: FunctionalPseudoClass.NthChild(string)
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthChild(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: NthChild
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 373
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :nth-child(expr)
+  example: []
+  syntax:
+    content: public static FunctionalPseudoClass NthChild(string expr)
+    parameters:
+    - id: expr
+      type: System.String
+    return:
+      type: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+    content.vb: Public Shared Function NthChild(expr As String) As FunctionalPseudoClass
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthChild*
+  nameWithType.vb: FunctionalPseudoClass.NthChild(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthChild(String)
+  name.vb: NthChild(String)
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastChild(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastChild(System.String)
+  id: NthLastChild(System.String)
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: NthLastChild(string)
+  nameWithType: FunctionalPseudoClass.NthLastChild(string)
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastChild(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: NthLastChild
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 375
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :nth-last-child(expr)
+  example: []
+  syntax:
+    content: public static FunctionalPseudoClass NthLastChild(string expr)
+    parameters:
+    - id: expr
+      type: System.String
+    return:
+      type: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+    content.vb: Public Shared Function NthLastChild(expr As String) As FunctionalPseudoClass
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastChild*
+  nameWithType.vb: FunctionalPseudoClass.NthLastChild(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastChild(String)
+  name.vb: NthLastChild(String)
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthOfType(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthOfType(System.String)
+  id: NthOfType(System.String)
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: NthOfType(string)
+  nameWithType: FunctionalPseudoClass.NthOfType(string)
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthOfType(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: NthOfType
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 377
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :nth-of-type(expr)
+  example: []
+  syntax:
+    content: public static FunctionalPseudoClass NthOfType(string expr)
+    parameters:
+    - id: expr
+      type: System.String
+    return:
+      type: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+    content.vb: Public Shared Function NthOfType(expr As String) As FunctionalPseudoClass
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthOfType*
+  nameWithType.vb: FunctionalPseudoClass.NthOfType(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthOfType(String)
+  name.vb: NthOfType(String)
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastOfType(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastOfType(System.String)
+  id: NthLastOfType(System.String)
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: NthLastOfType(string)
+  nameWithType: FunctionalPseudoClass.NthLastOfType(string)
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastOfType(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: NthLastOfType
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 379
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :nth-last-of-type(expr)
+  example: []
+  syntax:
+    content: public static FunctionalPseudoClass NthLastOfType(string expr)
+    parameters:
+    - id: expr
+      type: System.String
+    return:
+      type: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+    content.vb: Public Shared Function NthLastOfType(expr As String) As FunctionalPseudoClass
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastOfType*
+  nameWithType.vb: FunctionalPseudoClass.NthLastOfType(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastOfType(String)
+  name.vb: NthLastOfType(String)
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostSelector(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  commentId: M:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostSelector(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  id: HostSelector(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: HostSelector(params SelectorExpression[])
+  nameWithType: FunctionalPseudoClass.HostSelector(params SelectorExpression[])
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostSelector(params RTB.Blazor.Styled.Helper.SelectorExpression[])
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: HostSelector
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 385
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :host(...)
+  example: []
+  syntax:
+    content: public static FunctionalPseudoClass HostSelector(params SelectorExpression[] args)
+    parameters:
+    - id: args
+      type: RTB.Blazor.Styled.Helper.SelectorExpression[]
+    return:
+      type: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+    content.vb: Public Shared Function HostSelector(ParamArray args As SelectorExpression()) As FunctionalPseudoClass
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostSelector*
+  nameWithType.vb: FunctionalPseudoClass.HostSelector(ParamArray SelectorExpression())
+  fullName.vb: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostSelector(ParamArray RTB.Blazor.Styled.Helper.SelectorExpression())
+  name.vb: HostSelector(ParamArray SelectorExpression())
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostContext(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  commentId: M:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostContext(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  id: HostContext(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: HostContext(params SelectorExpression[])
+  nameWithType: FunctionalPseudoClass.HostContext(params SelectorExpression[])
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostContext(params RTB.Blazor.Styled.Helper.SelectorExpression[])
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: HostContext
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 387
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :host-context(...)
+  example: []
+  syntax:
+    content: public static FunctionalPseudoClass HostContext(params SelectorExpression[] args)
+    parameters:
+    - id: args
+      type: RTB.Blazor.Styled.Helper.SelectorExpression[]
+    return:
+      type: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+    content.vb: Public Shared Function HostContext(ParamArray args As SelectorExpression()) As FunctionalPseudoClass
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostContext*
+  nameWithType.vb: FunctionalPseudoClass.HostContext(ParamArray SelectorExpression())
+  fullName.vb: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostContext(ParamArray RTB.Blazor.Styled.Helper.SelectorExpression())
+  name.vb: HostContext(ParamArray SelectorExpression())
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HasSlotted(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  commentId: M:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HasSlotted(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  id: HasSlotted(RTB.Blazor.Styled.Helper.SelectorExpression[])
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: HasSlotted(params SelectorExpression[])
+  nameWithType: FunctionalPseudoClass.HasSlotted(params SelectorExpression[])
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HasSlotted(params RTB.Blazor.Styled.Helper.SelectorExpression[])
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: HasSlotted
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 389
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: (Proposed) :has-slotted(...)
+  example: []
+  syntax:
+    content: public static FunctionalPseudoClass HasSlotted(params SelectorExpression[] args)
+    parameters:
+    - id: args
+      type: RTB.Blazor.Styled.Helper.SelectorExpression[]
+    return:
+      type: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+    content.vb: Public Shared Function HasSlotted(ParamArray args As SelectorExpression()) As FunctionalPseudoClass
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HasSlotted*
+  nameWithType.vb: FunctionalPseudoClass.HasSlotted(ParamArray SelectorExpression())
+  fullName.vb: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HasSlotted(ParamArray RTB.Blazor.Styled.Helper.SelectorExpression())
+  name.vb: HasSlotted(ParamArray SelectorExpression())
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Render
+  commentId: M:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Render
+  id: Render
+  parent: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Render()
+  nameWithType: FunctionalPseudoClass.Render()
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Render()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Render
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 392
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Renders the selector to CSS. Implemented by derived records.
+  example: []
+  syntax:
+    content: protected override string Render()
+    return:
+      type: System.String
+    content.vb: Protected Overrides Function Render() As String
+  overridden: RTB.Blazor.Styled.Helper.SelectorExpression.Render
+  overload: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Render*
+references:
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression
+  commentId: T:RTB.Blazor.Styled.Helper.SelectorExpression
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html
+  name: SelectorExpression
+  nameWithType: SelectorExpression
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression
+- uid: System.IEquatable{RTB.Blazor.Styled.Helper.SelectorExpression}
+  commentId: T:System.IEquatable{RTB.Blazor.Styled.Helper.SelectorExpression}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SelectorExpression>
+  nameWithType: IEquatable<SelectorExpression>
+  fullName: System.IEquatable<RTB.Blazor.Styled.Helper.SelectorExpression>
+  nameWithType.vb: IEquatable(Of SelectorExpression)
+  fullName.vb: System.IEquatable(Of RTB.Blazor.Styled.Helper.SelectorExpression)
+  name.vb: IEquatable(Of SelectorExpression)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression
+    name: SelectorExpression
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression
+    name: SelectorExpression
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html
+  - name: )
+- uid: System.IEquatable{RTB.Blazor.Styled.Helper.FunctionalPseudoClass}
+  commentId: T:System.IEquatable{RTB.Blazor.Styled.Helper.FunctionalPseudoClass}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<FunctionalPseudoClass>
+  nameWithType: IEquatable<FunctionalPseudoClass>
+  fullName: System.IEquatable<RTB.Blazor.Styled.Helper.FunctionalPseudoClass>
+  nameWithType.vb: IEquatable(Of FunctionalPseudoClass)
+  fullName.vb: System.IEquatable(Of RTB.Blazor.Styled.Helper.FunctionalPseudoClass)
+  name.vb: IEquatable(Of FunctionalPseudoClass)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+    name: FunctionalPseudoClass
+    href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+    name: FunctionalPseudoClass
+    href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.Element(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.Element(System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Element_System_String_
+  name: Element(string)
+  nameWithType: SelectorExpression.Element(string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.Element(string)
+  nameWithType.vb: SelectorExpression.Element(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.Element(String)
+  name.vb: Element(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Element(System.String)
+    name: Element
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Element_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Element(System.String)
+    name: Element
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Element_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.Id(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.Id(System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Id_System_String_
+  name: Id(string)
+  nameWithType: SelectorExpression.Id(string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.Id(string)
+  nameWithType.vb: SelectorExpression.Id(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.Id(String)
+  name.vb: Id(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Id(System.String)
+    name: Id
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Id_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Id(System.String)
+    name: Id
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Id_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.Class(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.Class(System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Class_System_String_
+  name: Class(string)
+  nameWithType: SelectorExpression.Class(string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.Class(string)
+  nameWithType.vb: SelectorExpression.Class(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.Class(String)
+  name.vb: Class(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Class(System.String)
+    name: Class
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Class_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Class(System.String)
+    name: Class
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Class_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(System.String,System.String,System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(System.String,System.String,System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Attribute_System_String_System_String_System_String_
+  name: Attribute(string, string, string)
+  nameWithType: SelectorExpression.Attribute(string, string, string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(string, string, string)
+  nameWithType.vb: SelectorExpression.Attribute(String, String, String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(String, String, String)
+  name.vb: Attribute(String, String, String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(System.String,System.String,System.String)
+    name: Attribute
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Attribute_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(System.String,System.String,System.String)
+    name: Attribute
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Attribute_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoClass_System_String_
+  name: PseudoClass(string)
+  nameWithType: SelectorExpression.PseudoClass(string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(string)
+  nameWithType.vb: SelectorExpression.PseudoClass(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(String)
+  name.vb: PseudoClass(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(System.String)
+    name: PseudoClass
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoClass_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(System.String)
+    name: PseudoClass
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoClass_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoElement_System_String_
+  name: PseudoElement(string)
+  nameWithType: SelectorExpression.PseudoElement(string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(string)
+  nameWithType.vb: SelectorExpression.PseudoElement(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(String)
+  name.vb: PseudoElement(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(System.String)
+    name: PseudoElement
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoElement_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(System.String)
+    name: PseudoElement
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoElement_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.ToString
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.ToString
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_ToString
+  name: ToString()
+  nameWithType: SelectorExpression.ToString()
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.ToString()
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.ToString
+    name: ToString
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_ToString
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.ToString
+    name: ToString
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_ToString
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.#ctor*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.#ctor
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass__ctor_System_String_System_Collections_Generic_IEnumerable_RTB_Blazor_Styled_Helper_SelectorExpression__
+  name: FunctionalPseudoClass
+  nameWithType: FunctionalPseudoClass.FunctionalPseudoClass
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.FunctionalPseudoClass
+  nameWithType.vb: FunctionalPseudoClass.New
+  fullName.vb: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.IEnumerable{RTB.Blazor.Styled.Helper.SelectorExpression}
+  commentId: T:System.Collections.Generic.IEnumerable{RTB.Blazor.Styled.Helper.SelectorExpression}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<SelectorExpression>
+  nameWithType: IEnumerable<SelectorExpression>
+  fullName: System.Collections.Generic.IEnumerable<RTB.Blazor.Styled.Helper.SelectorExpression>
+  nameWithType.vb: IEnumerable(Of SelectorExpression)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of RTB.Blazor.Styled.Helper.SelectorExpression)
+  name.vb: IEnumerable(Of SelectorExpression)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression
+    name: SelectorExpression
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression
+    name: SelectorExpression
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Name*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Name
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_Name
+  name: Name
+  nameWithType: FunctionalPseudoClass.Name
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Name
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Arguments*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Arguments
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_Arguments
+  name: Arguments
+  nameWithType: FunctionalPseudoClass.Arguments
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Arguments
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Has*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Has
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_Has_RTB_Blazor_Styled_Helper_SelectorExpression___
+  name: Has
+  nameWithType: FunctionalPseudoClass.Has
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Has
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression[]
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html
+  name: SelectorExpression[]
+  nameWithType: SelectorExpression[]
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression[]
+  nameWithType.vb: SelectorExpression()
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression()
+  name.vb: SelectorExpression()
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression
+    name: SelectorExpression
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression
+    name: SelectorExpression
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  commentId: T:RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html
+  name: FunctionalPseudoClass
+  nameWithType: FunctionalPseudoClass
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Not*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Not
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_Not_RTB_Blazor_Styled_Helper_SelectorExpression___
+  name: Not
+  nameWithType: FunctionalPseudoClass.Not
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Not
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Is*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Is
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_Is_RTB_Blazor_Styled_Helper_SelectorExpression___
+  name: Is
+  nameWithType: FunctionalPseudoClass.Is
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Is
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Where*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Where
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_Where_RTB_Blazor_Styled_Helper_SelectorExpression___
+  name: Where
+  nameWithType: FunctionalPseudoClass.Where
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Where
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Lang*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Lang
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_Lang_System_String_
+  name: Lang
+  nameWithType: FunctionalPseudoClass.Lang
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Lang
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Dir*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Dir
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_Dir_System_String_
+  name: Dir
+  nameWithType: FunctionalPseudoClass.Dir
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Dir
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthChild*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthChild
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_NthChild_System_String_
+  name: NthChild
+  nameWithType: FunctionalPseudoClass.NthChild
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthChild
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastChild*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastChild
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_NthLastChild_System_String_
+  name: NthLastChild
+  nameWithType: FunctionalPseudoClass.NthLastChild
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastChild
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthOfType*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthOfType
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_NthOfType_System_String_
+  name: NthOfType
+  nameWithType: FunctionalPseudoClass.NthOfType
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthOfType
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastOfType*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastOfType
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_NthLastOfType_System_String_
+  name: NthLastOfType
+  nameWithType: FunctionalPseudoClass.NthLastOfType
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.NthLastOfType
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostSelector*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostSelector
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_HostSelector_RTB_Blazor_Styled_Helper_SelectorExpression___
+  name: HostSelector
+  nameWithType: FunctionalPseudoClass.HostSelector
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostSelector
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostContext*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostContext
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_HostContext_RTB_Blazor_Styled_Helper_SelectorExpression___
+  name: HostContext
+  nameWithType: FunctionalPseudoClass.HostContext
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HostContext
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HasSlotted*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HasSlotted
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_HasSlotted_RTB_Blazor_Styled_Helper_SelectorExpression___
+  name: HasSlotted
+  nameWithType: FunctionalPseudoClass.HasSlotted
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.HasSlotted
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.Render
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.Render
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Render
+  name: Render()
+  nameWithType: SelectorExpression.Render()
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.Render()
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Render
+    name: Render
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Render
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Render
+    name: Render
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Render
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Render*
+  commentId: Overload:RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Render
+  href: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.html#RTB_Blazor_Styled_Helper_FunctionalPseudoClass_Render
+  name: Render
+  nameWithType: FunctionalPseudoClass.Render
+  fullName: RTB.Blazor.Styled.Helper.FunctionalPseudoClass.Render

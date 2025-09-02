@@ -1,0 +1,1135 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.DataNavigation.DataNavigationService
+  commentId: T:RTB.Blazor.Services.DataNavigation.DataNavigationService
+  id: DataNavigationService
+  parent: RTB.Blazor.Services.DataNavigation
+  children:
+  - RTB.Blazor.Services.DataNavigation.DataNavigationService.#ctor(Microsoft.AspNetCore.Components.NavigationManager)
+  - RTB.Blazor.Services.DataNavigation.DataNavigationService.Clear(System.String)
+  - RTB.Blazor.Services.DataNavigation.DataNavigationService.HasData(System.String)
+  - RTB.Blazor.Services.DataNavigation.DataNavigationService.NavigateTo(System.String,System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})
+  - RTB.Blazor.Services.DataNavigation.DataNavigationService.TryGetData``1(System.String,``0@,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: DataNavigationService
+  nameWithType: DataNavigationService
+  fullName: RTB.Blazor.Services.DataNavigation.DataNavigationService
+  type: Class
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/DataNavigation/DataNavigationService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: DataNavigationService
+    path: ../src/RTB.BlazorUI/Services/DataNavigation/DataNavigationService.cs
+    startLine: 98
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.DataNavigation
+  summary: >-
+    Default implementation of <xref href="RTB.Blazor.Services.DataNavigation.IDataNavigationService" data-throw-if-not-resolved="false"></xref> that stores parameters in-memory
+
+    and delegates navigation to <xref href="Microsoft.AspNetCore.Components.NavigationManager" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    - Not thread-safe; intended for typical Blazor UI usage.
+
+    - The dictionary is in-memory only and not persisted across app restarts or different circuits/sessions.
+  example:
+  - >-
+    Inject and use in a component:
+
+    <pre><code class="lang-csharp">@inject IDataNavigationService Nav
+
+
+    // Source component
+
+    Nav.NavigateTo("/details", parameter: new Dictionary&lt;string, object?&gt;
+
+    {
+        ["itemId"] = 42
+    });
+
+
+    // Destination component
+
+    if (Nav.TryGetData&lt;int&gt;("itemId", out var id))
+
+    {
+        // use id
+    }</code></pre>
+  syntax:
+    content: 'public class DataNavigationService : IDataNavigationService'
+    content.vb: Public Class DataNavigationService Implements IDataNavigationService
+  inheritance:
+  - System.Object
+  implements:
+  - RTB.Blazor.Services.DataNavigation.IDataNavigationService
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RTB.Blazor.Services.DataNavigation.DataNavigationService.#ctor(Microsoft.AspNetCore.Components.NavigationManager)
+  commentId: M:RTB.Blazor.Services.DataNavigation.DataNavigationService.#ctor(Microsoft.AspNetCore.Components.NavigationManager)
+  id: '#ctor(Microsoft.AspNetCore.Components.NavigationManager)'
+  parent: RTB.Blazor.Services.DataNavigation.DataNavigationService
+  langs:
+  - csharp
+  - vb
+  name: DataNavigationService(NavigationManager)
+  nameWithType: DataNavigationService.DataNavigationService(NavigationManager)
+  fullName: RTB.Blazor.Services.DataNavigation.DataNavigationService.DataNavigationService(Microsoft.AspNetCore.Components.NavigationManager)
+  type: Constructor
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/DataNavigation/DataNavigationService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: .ctor
+    path: ../src/RTB.BlazorUI/Services/DataNavigation/DataNavigationService.cs
+    startLine: 98
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.DataNavigation
+  summary: >-
+    Default implementation of <xref href="RTB.Blazor.Services.DataNavigation.IDataNavigationService" data-throw-if-not-resolved="false"></xref> that stores parameters in-memory
+
+    and delegates navigation to <xref href="Microsoft.AspNetCore.Components.NavigationManager" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    - Not thread-safe; intended for typical Blazor UI usage.
+
+    - The dictionary is in-memory only and not persisted across app restarts or different circuits/sessions.
+  example:
+  - >-
+    Inject and use in a component:
+
+    <pre><code class="lang-csharp">@inject IDataNavigationService Nav
+
+
+    // Source component
+
+    Nav.NavigateTo("/details", parameter: new Dictionary&lt;string, object?&gt;
+
+    {
+        ["itemId"] = 42
+    });
+
+
+    // Destination component
+
+    if (Nav.TryGetData&lt;int&gt;("itemId", out var id))
+
+    {
+        // use id
+    }</code></pre>
+  syntax:
+    content: public DataNavigationService(NavigationManager navigationManager)
+    parameters:
+    - id: navigationManager
+      type: Microsoft.AspNetCore.Components.NavigationManager
+    content.vb: Public Sub New(navigationManager As NavigationManager)
+  overload: RTB.Blazor.Services.DataNavigation.DataNavigationService.#ctor*
+  nameWithType.vb: DataNavigationService.New(NavigationManager)
+  fullName.vb: RTB.Blazor.Services.DataNavigation.DataNavigationService.New(Microsoft.AspNetCore.Components.NavigationManager)
+  name.vb: New(NavigationManager)
+- uid: RTB.Blazor.Services.DataNavigation.DataNavigationService.TryGetData``1(System.String,``0@,System.Boolean)
+  commentId: M:RTB.Blazor.Services.DataNavigation.DataNavigationService.TryGetData``1(System.String,``0@,System.Boolean)
+  id: TryGetData``1(System.String,``0@,System.Boolean)
+  parent: RTB.Blazor.Services.DataNavigation.DataNavigationService
+  langs:
+  - csharp
+  - vb
+  name: TryGetData<T>(string, out T?, bool)
+  nameWithType: DataNavigationService.TryGetData<T>(string, out T?, bool)
+  fullName: RTB.Blazor.Services.DataNavigation.DataNavigationService.TryGetData<T>(string, out T?, bool)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/DataNavigation/DataNavigationService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: TryGetData
+    path: ../src/RTB.BlazorUI/Services/DataNavigation/DataNavigationService.cs
+    startLine: 114
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.DataNavigation
+  summary: Attempts to retrieve a previously stored value for <code class="paramref">key</code> and cast it to <code class="typeparamref">T</code>.
+  example: []
+  syntax:
+    content: public bool TryGetData<T>(string key, out T? value, bool remove = true)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key used when storing the value.
+    - id: value
+      type: '{T}'
+      description: When this method returns true, contains the value cast to <code class="typeparamref">T</code>. Otherwise, set to default.
+    - id: remove
+      type: System.Boolean
+      description: If true (default), removes the value from the store upon successful retrieval. Set false to keep it for subsequent reads.
+    typeParameters:
+    - id: T
+      description: Expected type of the stored value.
+    return:
+      type: System.Boolean
+      description: True if a value exists for <code class="paramref">key</code> and is of type <code class="typeparamref">T</code>; otherwise false.
+    content.vb: Public Function TryGetData(Of T)(key As String, value As T, remove As Boolean = True) As Boolean
+  overload: RTB.Blazor.Services.DataNavigation.DataNavigationService.TryGetData*
+  implements:
+  - RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData``1(System.String,{T}@,System.Boolean)
+  nameWithType.vb: DataNavigationService.TryGetData(Of T)(String, T, Boolean)
+  fullName.vb: RTB.Blazor.Services.DataNavigation.DataNavigationService.TryGetData(Of T)(String, T, Boolean)
+  name.vb: TryGetData(Of T)(String, T, Boolean)
+- uid: RTB.Blazor.Services.DataNavigation.DataNavigationService.Clear(System.String)
+  commentId: M:RTB.Blazor.Services.DataNavigation.DataNavigationService.Clear(System.String)
+  id: Clear(System.String)
+  parent: RTB.Blazor.Services.DataNavigation.DataNavigationService
+  langs:
+  - csharp
+  - vb
+  name: Clear(string?)
+  nameWithType: DataNavigationService.Clear(string?)
+  fullName: RTB.Blazor.Services.DataNavigation.DataNavigationService.Clear(string?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/DataNavigation/DataNavigationService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Clear
+    path: ../src/RTB.BlazorUI/Services/DataNavigation/DataNavigationService.cs
+    startLine: 128
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.DataNavigation
+  summary: Clears stored values.
+  example: []
+  syntax:
+    content: public void Clear(string? prefix = null)
+    parameters:
+    - id: prefix
+      type: System.String
+      description: >-
+        If null, clears all stored data. If specified, removes keys that start with the prefix using
+
+        <xref href="System.String.StartsWith(System.String)" data-throw-if-not-resolved="false"></xref> default semantics (culture-sensitive, case-sensitive).
+    content.vb: Public Sub Clear(prefix As String = Nothing)
+  overload: RTB.Blazor.Services.DataNavigation.DataNavigationService.Clear*
+  implements:
+  - RTB.Blazor.Services.DataNavigation.IDataNavigationService.Clear(System.String)
+  nameWithType.vb: DataNavigationService.Clear(String)
+  fullName.vb: RTB.Blazor.Services.DataNavigation.DataNavigationService.Clear(String)
+  name.vb: Clear(String)
+- uid: RTB.Blazor.Services.DataNavigation.DataNavigationService.NavigateTo(System.String,System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})
+  commentId: M:RTB.Blazor.Services.DataNavigation.DataNavigationService.NavigateTo(System.String,System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})
+  id: NavigateTo(System.String,System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})
+  parent: RTB.Blazor.Services.DataNavigation.DataNavigationService
+  langs:
+  - csharp
+  - vb
+  name: NavigateTo(string, bool, bool, IDictionary<string, object?>?)
+  nameWithType: DataNavigationService.NavigateTo(string, bool, bool, IDictionary<string, object?>?)
+  fullName: RTB.Blazor.Services.DataNavigation.DataNavigationService.NavigateTo(string, bool, bool, System.Collections.Generic.IDictionary<string, object?>?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/DataNavigation/DataNavigationService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: NavigateTo
+    path: ../src/RTB.BlazorUI/Services/DataNavigation/DataNavigationService.cs
+    startLine: 143
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.DataNavigation
+  summary: >-
+    Navigates to the specified <code class="paramref">uri</code> and optionally attaches a set of in-memory parameters
+
+    that can be retrieved on the destination via <xref href="RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData%60%601(System.String%2c%60%600%40%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void NavigateTo(string uri, bool forceLoad = false, bool replace = false, IDictionary<string, object?>? parameter = null)
+    parameters:
+    - id: uri
+      type: System.String
+      description: The target URI (relative or absolute) to navigate to.
+    - id: forceLoad
+      type: System.Boolean
+      description: If true, bypasses client-side routing and forces the browser to load the new page from the server.
+    - id: replace
+      type: System.Boolean
+      description: If true, replaces the current entry in the history stack (does not create a new history entry).
+    - id: parameter
+      type: System.Collections.Generic.IDictionary{System.String,System.Object}
+      description: >-
+        Optional key-value pairs to store in-memory prior to navigation. Keys are case-sensitive and
+
+        are not included in the URL. Values are available on the destination via <xref href="RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData%60%601(System.String%2c%60%600%40%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub NavigateTo(uri As String, forceLoad As Boolean = False, replace As Boolean = False, parameter As IDictionary(Of String, Object) = Nothing)
+  overload: RTB.Blazor.Services.DataNavigation.DataNavigationService.NavigateTo*
+  implements:
+  - RTB.Blazor.Services.DataNavigation.IDataNavigationService.NavigateTo(System.String,System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})
+  nameWithType.vb: DataNavigationService.NavigateTo(String, Boolean, Boolean, IDictionary(Of String, Object))
+  fullName.vb: RTB.Blazor.Services.DataNavigation.DataNavigationService.NavigateTo(String, Boolean, Boolean, System.Collections.Generic.IDictionary(Of String, Object))
+  name.vb: NavigateTo(String, Boolean, Boolean, IDictionary(Of String, Object))
+- uid: RTB.Blazor.Services.DataNavigation.DataNavigationService.HasData(System.String)
+  commentId: M:RTB.Blazor.Services.DataNavigation.DataNavigationService.HasData(System.String)
+  id: HasData(System.String)
+  parent: RTB.Blazor.Services.DataNavigation.DataNavigationService
+  langs:
+  - csharp
+  - vb
+  name: HasData(string)
+  nameWithType: DataNavigationService.HasData(string)
+  fullName: RTB.Blazor.Services.DataNavigation.DataNavigationService.HasData(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/DataNavigation/DataNavigationService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: HasData
+    path: ../src/RTB.BlazorUI/Services/DataNavigation/DataNavigationService.cs
+    startLine: 157
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.DataNavigation
+  summary: Determines whether a value exists for the given <code class="paramref">key</code>.
+  example: []
+  syntax:
+    content: public bool HasData(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key to check.
+    return:
+      type: System.Boolean
+      description: True if the key exists; otherwise false.
+    content.vb: Public Function HasData(key As String) As Boolean
+  overload: RTB.Blazor.Services.DataNavigation.DataNavigationService.HasData*
+  implements:
+  - RTB.Blazor.Services.DataNavigation.IDataNavigationService.HasData(System.String)
+  nameWithType.vb: DataNavigationService.HasData(String)
+  fullName.vb: RTB.Blazor.Services.DataNavigation.DataNavigationService.HasData(String)
+  name.vb: HasData(String)
+references:
+- uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService
+  commentId: T:RTB.Blazor.Services.DataNavigation.IDataNavigationService
+  parent: RTB.Blazor.Services.DataNavigation
+  href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html
+  name: IDataNavigationService
+  nameWithType: IDataNavigationService
+  fullName: RTB.Blazor.Services.DataNavigation.IDataNavigationService
+- uid: Microsoft.AspNetCore.Components.NavigationManager
+  commentId: T:Microsoft.AspNetCore.Components.NavigationManager
+  parent: Microsoft.AspNetCore.Components
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.navigationmanager
+  name: NavigationManager
+  nameWithType: NavigationManager
+  fullName: Microsoft.AspNetCore.Components.NavigationManager
+- uid: RTB.Blazor.Services.DataNavigation
+  commentId: N:RTB.Blazor.Services.DataNavigation
+  href: RTB.html
+  name: RTB.Blazor.Services.DataNavigation
+  nameWithType: RTB.Blazor.Services.DataNavigation
+  fullName: RTB.Blazor.Services.DataNavigation
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.DataNavigation
+    name: DataNavigation
+    href: RTB.Blazor.Services.DataNavigation.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.DataNavigation
+    name: DataNavigation
+    href: RTB.Blazor.Services.DataNavigation.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Components
+  commentId: N:Microsoft.AspNetCore.Components
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Components
+  nameWithType: Microsoft.AspNetCore.Components
+  fullName: Microsoft.AspNetCore.Components
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Components
+    name: Components
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Components
+    name: Components
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RTB.Blazor.Services.DataNavigation.DataNavigationService.#ctor*
+  commentId: Overload:RTB.Blazor.Services.DataNavigation.DataNavigationService.#ctor
+  href: RTB.Blazor.Services.DataNavigation.DataNavigationService.html#RTB_Blazor_Services_DataNavigation_DataNavigationService__ctor_Microsoft_AspNetCore_Components_NavigationManager_
+  name: DataNavigationService
+  nameWithType: DataNavigationService.DataNavigationService
+  fullName: RTB.Blazor.Services.DataNavigation.DataNavigationService.DataNavigationService
+  nameWithType.vb: DataNavigationService.New
+  fullName.vb: RTB.Blazor.Services.DataNavigation.DataNavigationService.New
+  name.vb: New
+- uid: RTB.Blazor.Services.DataNavigation.DataNavigationService.TryGetData*
+  commentId: Overload:RTB.Blazor.Services.DataNavigation.DataNavigationService.TryGetData
+  href: RTB.Blazor.Services.DataNavigation.DataNavigationService.html#RTB_Blazor_Services_DataNavigation_DataNavigationService_TryGetData__1_System_String___0__System_Boolean_
+  name: TryGetData
+  nameWithType: DataNavigationService.TryGetData
+  fullName: RTB.Blazor.Services.DataNavigation.DataNavigationService.TryGetData
+- uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData``1(System.String,{T}@,System.Boolean)
+  commentId: M:RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData``1(System.String,``0@,System.Boolean)
+  parent: RTB.Blazor.Services.DataNavigation.IDataNavigationService
+  definition: RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData``1(System.String,``0@,System.Boolean)
+  href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html#RTB_Blazor_Services_DataNavigation_IDataNavigationService_TryGetData__1_System_String___0__System_Boolean_
+  name: TryGetData<T>(string, out T, bool)
+  nameWithType: IDataNavigationService.TryGetData<T>(string, out T, bool)
+  fullName: RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData<T>(string, out T, bool)
+  nameWithType.vb: IDataNavigationService.TryGetData(Of T)(String, T, Boolean)
+  fullName.vb: RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData(Of T)(String, T, Boolean)
+  name.vb: TryGetData(Of T)(String, T, Boolean)
+  spec.csharp:
+  - uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData``1(System.String,``0@,System.Boolean)
+    name: TryGetData
+    href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html#RTB_Blazor_Services_DataNavigation_IDataNavigationService_TryGetData__1_System_String___0__System_Boolean_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData``1(System.String,``0@,System.Boolean)
+    name: TryGetData
+    href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html#RTB_Blazor_Services_DataNavigation_IDataNavigationService_TryGetData__1_System_String___0__System_Boolean_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData``1(System.String,``0@,System.Boolean)
+  commentId: M:RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData``1(System.String,``0@,System.Boolean)
+  isExternal: true
+  href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html#RTB_Blazor_Services_DataNavigation_IDataNavigationService_TryGetData__1_System_String___0__System_Boolean_
+  name: TryGetData<T>(string, out T, bool)
+  nameWithType: IDataNavigationService.TryGetData<T>(string, out T, bool)
+  fullName: RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData<T>(string, out T, bool)
+  nameWithType.vb: IDataNavigationService.TryGetData(Of T)(String, T, Boolean)
+  fullName.vb: RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData(Of T)(String, T, Boolean)
+  name.vb: TryGetData(Of T)(String, T, Boolean)
+  spec.csharp:
+  - uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData``1(System.String,``0@,System.Boolean)
+    name: TryGetData
+    href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html#RTB_Blazor_Services_DataNavigation_IDataNavigationService_TryGetData__1_System_String___0__System_Boolean_
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService.TryGetData``1(System.String,``0@,System.Boolean)
+    name: TryGetData
+    href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html#RTB_Blazor_Services_DataNavigation_IDataNavigationService_TryGetData__1_System_String___0__System_Boolean_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.String.StartsWith(System.String)
+  commentId: M:System.String.StartsWith(System.String)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string.startswith#system-string-startswith(system-string)
+  name: StartsWith(string)
+  nameWithType: string.StartsWith(string)
+  fullName: string.StartsWith(string)
+  nameWithType.vb: String.StartsWith(String)
+  fullName.vb: String.StartsWith(String)
+  name.vb: StartsWith(String)
+  spec.csharp:
+  - uid: System.String.StartsWith(System.String)
+    name: StartsWith
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string.startswith#system-string-startswith(system-string)
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: System.String.StartsWith(System.String)
+    name: StartsWith
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string.startswith#system-string-startswith(system-string)
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Services.DataNavigation.DataNavigationService.Clear*
+  commentId: Overload:RTB.Blazor.Services.DataNavigation.DataNavigationService.Clear
+  href: RTB.Blazor.Services.DataNavigation.DataNavigationService.html#RTB_Blazor_Services_DataNavigation_DataNavigationService_Clear_System_String_
+  name: Clear
+  nameWithType: DataNavigationService.Clear
+  fullName: RTB.Blazor.Services.DataNavigation.DataNavigationService.Clear
+- uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService.Clear(System.String)
+  commentId: M:RTB.Blazor.Services.DataNavigation.IDataNavigationService.Clear(System.String)
+  parent: RTB.Blazor.Services.DataNavigation.IDataNavigationService
+  isExternal: true
+  href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html#RTB_Blazor_Services_DataNavigation_IDataNavigationService_Clear_System_String_
+  name: Clear(string)
+  nameWithType: IDataNavigationService.Clear(string)
+  fullName: RTB.Blazor.Services.DataNavigation.IDataNavigationService.Clear(string)
+  nameWithType.vb: IDataNavigationService.Clear(String)
+  fullName.vb: RTB.Blazor.Services.DataNavigation.IDataNavigationService.Clear(String)
+  name.vb: Clear(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService.Clear(System.String)
+    name: Clear
+    href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html#RTB_Blazor_Services_DataNavigation_IDataNavigationService_Clear_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService.Clear(System.String)
+    name: Clear
+    href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html#RTB_Blazor_Services_DataNavigation_IDataNavigationService_Clear_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Services.DataNavigation.DataNavigationService.NavigateTo*
+  commentId: Overload:RTB.Blazor.Services.DataNavigation.DataNavigationService.NavigateTo
+  href: RTB.Blazor.Services.DataNavigation.DataNavigationService.html#RTB_Blazor_Services_DataNavigation_DataNavigationService_NavigateTo_System_String_System_Boolean_System_Boolean_System_Collections_Generic_IDictionary_System_String_System_Object__
+  name: NavigateTo
+  nameWithType: DataNavigationService.NavigateTo
+  fullName: RTB.Blazor.Services.DataNavigation.DataNavigationService.NavigateTo
+- uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService.NavigateTo(System.String,System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})
+  commentId: M:RTB.Blazor.Services.DataNavigation.IDataNavigationService.NavigateTo(System.String,System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})
+  parent: RTB.Blazor.Services.DataNavigation.IDataNavigationService
+  isExternal: true
+  href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html#RTB_Blazor_Services_DataNavigation_IDataNavigationService_NavigateTo_System_String_System_Boolean_System_Boolean_System_Collections_Generic_IDictionary_System_String_System_Object__
+  name: NavigateTo(string, bool, bool, IDictionary<string, object>)
+  nameWithType: IDataNavigationService.NavigateTo(string, bool, bool, IDictionary<string, object>)
+  fullName: RTB.Blazor.Services.DataNavigation.IDataNavigationService.NavigateTo(string, bool, bool, System.Collections.Generic.IDictionary<string, object>)
+  nameWithType.vb: IDataNavigationService.NavigateTo(String, Boolean, Boolean, IDictionary(Of String, Object))
+  fullName.vb: RTB.Blazor.Services.DataNavigation.IDataNavigationService.NavigateTo(String, Boolean, Boolean, System.Collections.Generic.IDictionary(Of String, Object))
+  name.vb: NavigateTo(String, Boolean, Boolean, IDictionary(Of String, Object))
+  spec.csharp:
+  - uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService.NavigateTo(System.String,System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})
+    name: NavigateTo
+    href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html#RTB_Blazor_Services_DataNavigation_IDataNavigationService_NavigateTo_System_String_System_Boolean_System_Boolean_System_Collections_Generic_IDictionary_System_String_System_Object__
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService.NavigateTo(System.String,System.Boolean,System.Boolean,System.Collections.Generic.IDictionary{System.String,System.Object})
+    name: NavigateTo
+    href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html#RTB_Blazor_Services_DataNavigation_IDataNavigationService_NavigateTo_System_String_System_Boolean_System_Boolean_System_Collections_Generic_IDictionary_System_String_System_Object__
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IDictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.IDictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IDictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<string, object>
+  nameWithType: IDictionary<string, object>
+  fullName: System.Collections.Generic.IDictionary<string, object>
+  nameWithType.vb: IDictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.IDictionary(Of String, Object)
+  name.vb: IDictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Collections.Generic.IDictionary`2
+  commentId: T:System.Collections.Generic.IDictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  name: IDictionary<TKey, TValue>
+  nameWithType: IDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>
+  nameWithType.vb: IDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue)
+  name.vb: IDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: RTB.Blazor.Services.DataNavigation.DataNavigationService.HasData*
+  commentId: Overload:RTB.Blazor.Services.DataNavigation.DataNavigationService.HasData
+  href: RTB.Blazor.Services.DataNavigation.DataNavigationService.html#RTB_Blazor_Services_DataNavigation_DataNavigationService_HasData_System_String_
+  name: HasData
+  nameWithType: DataNavigationService.HasData
+  fullName: RTB.Blazor.Services.DataNavigation.DataNavigationService.HasData
+- uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService.HasData(System.String)
+  commentId: M:RTB.Blazor.Services.DataNavigation.IDataNavigationService.HasData(System.String)
+  parent: RTB.Blazor.Services.DataNavigation.IDataNavigationService
+  isExternal: true
+  href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html#RTB_Blazor_Services_DataNavigation_IDataNavigationService_HasData_System_String_
+  name: HasData(string)
+  nameWithType: IDataNavigationService.HasData(string)
+  fullName: RTB.Blazor.Services.DataNavigation.IDataNavigationService.HasData(string)
+  nameWithType.vb: IDataNavigationService.HasData(String)
+  fullName.vb: RTB.Blazor.Services.DataNavigation.IDataNavigationService.HasData(String)
+  name.vb: HasData(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService.HasData(System.String)
+    name: HasData
+    href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html#RTB_Blazor_Services_DataNavigation_IDataNavigationService_HasData_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService.HasData(System.String)
+    name: HasData
+    href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html#RTB_Blazor_Services_DataNavigation_IDataNavigationService_HasData_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )

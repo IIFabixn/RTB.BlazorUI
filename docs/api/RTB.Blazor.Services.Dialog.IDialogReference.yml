@@ -1,0 +1,346 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.Dialog.IDialogReference
+  commentId: T:RTB.Blazor.Services.Dialog.IDialogReference
+  id: IDialogReference
+  parent: RTB.Blazor.Services.Dialog
+  children:
+  - RTB.Blazor.Services.Dialog.IDialogReference.Close
+  - RTB.Blazor.Services.Dialog.IDialogReference.Close(RTB.Blazor.Services.Dialog.DialogResult)
+  - RTB.Blazor.Services.Dialog.IDialogReference.Close(System.Object)
+  - RTB.Blazor.Services.Dialog.IDialogReference.Result
+  langs:
+  - csharp
+  - vb
+  name: IDialogReference
+  nameWithType: IDialogReference
+  fullName: RTB.Blazor.Services.Dialog.IDialogReference
+  type: Interface
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: IDialogReference
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 62
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: A reference to an active dialog instance. Allows awaiting completion and closing it programmatically.
+  example: []
+  syntax:
+    content: public interface IDialogReference
+    content.vb: Public Interface IDialogReference
+- uid: RTB.Blazor.Services.Dialog.IDialogReference.Result
+  commentId: P:RTB.Blazor.Services.Dialog.IDialogReference.Result
+  id: Result
+  parent: RTB.Blazor.Services.Dialog.IDialogReference
+  langs:
+  - csharp
+  - vb
+  name: Result
+  nameWithType: IDialogReference.Result
+  fullName: RTB.Blazor.Services.Dialog.IDialogReference.Result
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Result
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 67
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: A task that completes when the dialog is closed, yielding the <xref href="RTB.Blazor.Services.Dialog.DialogResult" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Task<DialogResult> Result { get; }
+    parameters: []
+    return:
+      type: System.Threading.Tasks.Task{RTB.Blazor.Services.Dialog.DialogResult}
+    content.vb: ReadOnly Property Result As Task(Of DialogResult)
+  overload: RTB.Blazor.Services.Dialog.IDialogReference.Result*
+- uid: RTB.Blazor.Services.Dialog.IDialogReference.Close(RTB.Blazor.Services.Dialog.DialogResult)
+  commentId: M:RTB.Blazor.Services.Dialog.IDialogReference.Close(RTB.Blazor.Services.Dialog.DialogResult)
+  id: Close(RTB.Blazor.Services.Dialog.DialogResult)
+  parent: RTB.Blazor.Services.Dialog.IDialogReference
+  langs:
+  - csharp
+  - vb
+  name: Close(DialogResult)
+  nameWithType: IDialogReference.Close(DialogResult)
+  fullName: RTB.Blazor.Services.Dialog.IDialogReference.Close(RTB.Blazor.Services.Dialog.DialogResult)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Close
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 73
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: Closes the dialog with an explicit <code class="paramref">result</code>.
+  example: []
+  syntax:
+    content: void Close(DialogResult result)
+    parameters:
+    - id: result
+      type: RTB.Blazor.Services.Dialog.DialogResult
+      description: The result to return to the caller awaiting the dialog.
+    content.vb: Sub Close(result As DialogResult)
+  overload: RTB.Blazor.Services.Dialog.IDialogReference.Close*
+- uid: RTB.Blazor.Services.Dialog.IDialogReference.Close(System.Object)
+  commentId: M:RTB.Blazor.Services.Dialog.IDialogReference.Close(System.Object)
+  id: Close(System.Object)
+  parent: RTB.Blazor.Services.Dialog.IDialogReference
+  langs:
+  - csharp
+  - vb
+  name: Close(object?)
+  nameWithType: IDialogReference.Close(object?)
+  fullName: RTB.Blazor.Services.Dialog.IDialogReference.Close(object?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Close
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 79
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: Closes the dialog, returning <xref href="RTB.Blazor.Services.Dialog.DialogResultKind.Ok" data-throw-if-not-resolved="false"></xref> and the provided <code class="paramref">data</code>.
+  example: []
+  syntax:
+    content: void Close(object? data)
+    parameters:
+    - id: data
+      type: System.Object
+      description: Optional payload to attach to an OK result.
+    content.vb: Sub Close(data As Object)
+  overload: RTB.Blazor.Services.Dialog.IDialogReference.Close*
+  nameWithType.vb: IDialogReference.Close(Object)
+  fullName.vb: RTB.Blazor.Services.Dialog.IDialogReference.Close(Object)
+  name.vb: Close(Object)
+- uid: RTB.Blazor.Services.Dialog.IDialogReference.Close
+  commentId: M:RTB.Blazor.Services.Dialog.IDialogReference.Close
+  id: Close
+  parent: RTB.Blazor.Services.Dialog.IDialogReference
+  langs:
+  - csharp
+  - vb
+  name: Close()
+  nameWithType: IDialogReference.Close()
+  fullName: RTB.Blazor.Services.Dialog.IDialogReference.Close()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Close
+    path: ../src/RTB.BlazorUI/Services/Dialog/DialogService.cs
+    startLine: 84
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Dialog
+  summary: Closes the dialog, returning <xref href="RTB.Blazor.Services.Dialog.DialogResultKind.Cancel" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: void Close()
+    content.vb: Sub Close()
+  overload: RTB.Blazor.Services.Dialog.IDialogReference.Close*
+references:
+- uid: RTB.Blazor.Services.Dialog
+  commentId: N:RTB.Blazor.Services.Dialog
+  href: RTB.html
+  name: RTB.Blazor.Services.Dialog
+  nameWithType: RTB.Blazor.Services.Dialog
+  fullName: RTB.Blazor.Services.Dialog
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Dialog
+    name: Dialog
+    href: RTB.Blazor.Services.Dialog.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Dialog
+    name: Dialog
+    href: RTB.Blazor.Services.Dialog.html
+- uid: RTB.Blazor.Services.Dialog.DialogResult
+  commentId: T:RTB.Blazor.Services.Dialog.DialogResult
+  parent: RTB.Blazor.Services.Dialog
+  href: RTB.Blazor.Services.Dialog.DialogResult.html
+  name: DialogResult
+  nameWithType: DialogResult
+  fullName: RTB.Blazor.Services.Dialog.DialogResult
+- uid: RTB.Blazor.Services.Dialog.IDialogReference.Result*
+  commentId: Overload:RTB.Blazor.Services.Dialog.IDialogReference.Result
+  href: RTB.Blazor.Services.Dialog.IDialogReference.html#RTB_Blazor_Services_Dialog_IDialogReference_Result
+  name: Result
+  nameWithType: IDialogReference.Result
+  fullName: RTB.Blazor.Services.Dialog.IDialogReference.Result
+- uid: System.Threading.Tasks.Task{RTB.Blazor.Services.Dialog.DialogResult}
+  commentId: T:System.Threading.Tasks.Task{RTB.Blazor.Services.Dialog.DialogResult}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<DialogResult>
+  nameWithType: Task<DialogResult>
+  fullName: System.Threading.Tasks.Task<RTB.Blazor.Services.Dialog.DialogResult>
+  nameWithType.vb: Task(Of DialogResult)
+  fullName.vb: System.Threading.Tasks.Task(Of RTB.Blazor.Services.Dialog.DialogResult)
+  name.vb: Task(Of DialogResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: RTB.Blazor.Services.Dialog.DialogResult
+    name: DialogResult
+    href: RTB.Blazor.Services.Dialog.DialogResult.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Services.Dialog.DialogResult
+    name: DialogResult
+    href: RTB.Blazor.Services.Dialog.DialogResult.html
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: RTB.Blazor.Services.Dialog.IDialogReference.Close*
+  commentId: Overload:RTB.Blazor.Services.Dialog.IDialogReference.Close
+  href: RTB.Blazor.Services.Dialog.IDialogReference.html#RTB_Blazor_Services_Dialog_IDialogReference_Close_RTB_Blazor_Services_Dialog_DialogResult_
+  name: Close
+  nameWithType: IDialogReference.Close
+  fullName: RTB.Blazor.Services.Dialog.IDialogReference.Close
+- uid: RTB.Blazor.Services.Dialog.DialogResultKind.Ok
+  commentId: F:RTB.Blazor.Services.Dialog.DialogResultKind.Ok
+  href: RTB.Blazor.Services.Dialog.DialogResultKind.html#RTB_Blazor_Services_Dialog_DialogResultKind_Ok
+  name: Ok
+  nameWithType: DialogResultKind.Ok
+  fullName: RTB.Blazor.Services.Dialog.DialogResultKind.Ok
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RTB.Blazor.Services.Dialog.DialogResultKind.Cancel
+  commentId: F:RTB.Blazor.Services.Dialog.DialogResultKind.Cancel
+  href: RTB.Blazor.Services.Dialog.DialogResultKind.html#RTB_Blazor_Services_Dialog_DialogResultKind_Cancel
+  name: Cancel
+  nameWithType: DialogResultKind.Cancel
+  fullName: RTB.Blazor.Services.Dialog.DialogResultKind.Cancel

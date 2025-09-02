@@ -1,0 +1,1549 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Helper.RTBColor
+  commentId: T:RTB.Blazor.Styled.Helper.RTBColor
+  id: RTBColor
+  parent: RTB.Blazor.Styled.Helper
+  children:
+  - RTB.Blazor.Styled.Helper.RTBColor.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)
+  - RTB.Blazor.Styled.Helper.RTBColor.A
+  - RTB.Blazor.Styled.Helper.RTBColor.Alpha
+  - RTB.Blazor.Styled.Helper.RTBColor.B
+  - RTB.Blazor.Styled.Helper.RTBColor.Blend(RTB.Blazor.Styled.Helper.RTBColor,System.Double)
+  - RTB.Blazor.Styled.Helper.RTBColor.Blue
+  - RTB.Blazor.Styled.Helper.RTBColor.Darken(System.Double)
+  - RTB.Blazor.Styled.Helper.RTBColor.Desaturate(System.Double)
+  - RTB.Blazor.Styled.Helper.RTBColor.FromCss(System.String)
+  - RTB.Blazor.Styled.Helper.RTBColor.FromRgb(System.Byte,System.Byte,System.Byte)
+  - RTB.Blazor.Styled.Helper.RTBColor.FromRgba(System.Byte,System.Byte,System.Byte,System.Byte)
+  - RTB.Blazor.Styled.Helper.RTBColor.G
+  - RTB.Blazor.Styled.Helper.RTBColor.Green
+  - RTB.Blazor.Styled.Helper.RTBColor.HexRgb
+  - RTB.Blazor.Styled.Helper.RTBColor.HexRgba
+  - RTB.Blazor.Styled.Helper.RTBColor.Lighten(System.Double)
+  - RTB.Blazor.Styled.Helper.RTBColor.Parse(System.String)
+  - RTB.Blazor.Styled.Helper.RTBColor.R
+  - RTB.Blazor.Styled.Helper.RTBColor.Red
+  - RTB.Blazor.Styled.Helper.RTBColor.Saturate(System.Double)
+  - RTB.Blazor.Styled.Helper.RTBColor.ToString
+  - RTB.Blazor.Styled.Helper.RTBColor.TryParse(System.String,RTB.Blazor.Styled.Helper.RTBColor@)
+  - RTB.Blazor.Styled.Helper.RTBColor.WithAlpha(System.Double)
+  - RTB.Blazor.Styled.Helper.RTBColor.op_Implicit(RTB.Blazor.Styled.Helper.RTBColor)~System.String
+  - RTB.Blazor.Styled.Helper.RTBColor.op_Implicit(System.String)~RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: RTBColor
+  nameWithType: RTBColor
+  fullName: RTB.Blazor.Styled.Helper.RTBColor
+  type: Struct
+  source:
+    id: RTBColor
+    path: System.Text.RegularExpressions.Generator\System.Text.RegularExpressions.Generator.RegexGenerator\RegexGenerator.g.cs
+    startLine: 36
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: >-
+    Represents a color in the sRGB RGBA color space (8-bit per channel).
+
+    Aligns with common CSS color syntaxes per MDN (hex, rgb[a], hsl[a], named).
+  remarks: '<ul><li>Hex: <code>#RGB</code>, <code>#RGBA</code>, <code>#RRGGBB</code>, <code>#RRGGBBAA</code></li><li>RGB: <code>rgb(255,0,0)</code>, <code>rgb(255 0 0)</code>, percentages, optional alpha via <code>/</code> or fourth value</li><li>HSL: <code>hsl(120, 100%, 50%)</code>, space-separated, optional alpha via <code>/</code> or fourth value, hue supports <code>deg</code></li><li>Named: any CSS Level 4 named color (see <xref href="RTB.Blazor.Styled.Helper.RTBColors.Named" data-throw-if-not-resolved="false"></xref>) and <code>transparent</code></li></ul>'
+  example: []
+  syntax:
+    content: 'public readonly record struct RTBColor : IEquatable<RTBColor>'
+    content.vb: Public Structure RTBColor Implements IEquatable(Of RTBColor)
+  implements:
+  - System.IEquatable{RTB.Blazor.Styled.Helper.RTBColor}
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RTB.Blazor.Styled.Helper.RTBColor.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)
+  id: '#ctor(System.Byte,System.Byte,System.Byte,System.Byte)'
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: RTBColor(byte, byte, byte, byte)
+  nameWithType: RTBColor.RTBColor(byte, byte, byte, byte)
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.RTBColor(byte, byte, byte, byte)
+  type: Constructor
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: .ctor
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 23
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: >-
+    Represents a color in the sRGB RGBA color space (8-bit per channel).
+
+    Aligns with common CSS color syntaxes per MDN (hex, rgb[a], hsl[a], named).
+  remarks: '<ul><li>Hex: <code>#RGB</code>, <code>#RGBA</code>, <code>#RRGGBB</code>, <code>#RRGGBBAA</code></li><li>RGB: <code>rgb(255,0,0)</code>, <code>rgb(255 0 0)</code>, percentages, optional alpha via <code>/</code> or fourth value</li><li>HSL: <code>hsl(120, 100%, 50%)</code>, space-separated, optional alpha via <code>/</code> or fourth value, hue supports <code>deg</code></li><li>Named: any CSS Level 4 named color (see <xref href="RTB.Blazor.Styled.Helper.RTBColors.Named" data-throw-if-not-resolved="false"></xref>) and <code>transparent</code></li></ul>'
+  example: []
+  syntax:
+    content: public RTBColor(byte R, byte G, byte B, byte A)
+    parameters:
+    - id: R
+      type: System.Byte
+      description: Red channel 0..255.
+    - id: G
+      type: System.Byte
+      description: Green channel 0..255.
+    - id: B
+      type: System.Byte
+      description: Blue channel 0..255.
+    - id: A
+      type: System.Byte
+      description: Alpha channel 0..255 (255 = opaque).
+    content.vb: Public Sub New(R As Byte, G As Byte, B As Byte, A As Byte)
+  overload: RTB.Blazor.Styled.Helper.RTBColor.#ctor*
+  nameWithType.vb: RTBColor.New(Byte, Byte, Byte, Byte)
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.New(Byte, Byte, Byte, Byte)
+  name.vb: New(Byte, Byte, Byte, Byte)
+- uid: RTB.Blazor.Styled.Helper.RTBColor.R
+  commentId: P:RTB.Blazor.Styled.Helper.RTBColor.R
+  id: R
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: R
+  nameWithType: RTBColor.R
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.R
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: R
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 23
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Red channel 0..255.
+  example: []
+  syntax:
+    content: public byte R { get; init; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public Property R As Byte
+  overload: RTB.Blazor.Styled.Helper.RTBColor.R*
+- uid: RTB.Blazor.Styled.Helper.RTBColor.G
+  commentId: P:RTB.Blazor.Styled.Helper.RTBColor.G
+  id: G
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: G
+  nameWithType: RTBColor.G
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.G
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: G
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 23
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Green channel 0..255.
+  example: []
+  syntax:
+    content: public byte G { get; init; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public Property G As Byte
+  overload: RTB.Blazor.Styled.Helper.RTBColor.G*
+- uid: RTB.Blazor.Styled.Helper.RTBColor.B
+  commentId: P:RTB.Blazor.Styled.Helper.RTBColor.B
+  id: B
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: B
+  nameWithType: RTBColor.B
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.B
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: B
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 23
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Blue channel 0..255.
+  example: []
+  syntax:
+    content: public byte B { get; init; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public Property B As Byte
+  overload: RTB.Blazor.Styled.Helper.RTBColor.B*
+- uid: RTB.Blazor.Styled.Helper.RTBColor.A
+  commentId: P:RTB.Blazor.Styled.Helper.RTBColor.A
+  id: A
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: A
+  nameWithType: RTBColor.A
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.A
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: A
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 23
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Alpha channel 0..255 (255 = opaque).
+  example: []
+  syntax:
+    content: public byte A { get; init; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public Property A As Byte
+  overload: RTB.Blazor.Styled.Helper.RTBColor.A*
+- uid: RTB.Blazor.Styled.Helper.RTBColor.FromRgb(System.Byte,System.Byte,System.Byte)
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.FromRgb(System.Byte,System.Byte,System.Byte)
+  id: FromRgb(System.Byte,System.Byte,System.Byte)
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: FromRgb(byte, byte, byte)
+  nameWithType: RTBColor.FromRgb(byte, byte, byte)
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.FromRgb(byte, byte, byte)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: FromRgb
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 35
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Create an opaque color from 8-bit RGB.
+  example:
+  - '<pre><code class="lang-csharp">var c = RTBColor.FromRgb(255, 0, 0); // #FF0000FF</code></pre>'
+  syntax:
+    content: public static RTBColor FromRgb(byte r, byte g, byte b)
+    parameters:
+    - id: r
+      type: System.Byte
+      description: Red 0..255.
+    - id: g
+      type: System.Byte
+      description: Green 0..255.
+    - id: b
+      type: System.Byte
+      description: Blue 0..255.
+    return:
+      type: RTB.Blazor.Styled.Helper.RTBColor
+      description: Opaque <xref href="RTB.Blazor.Styled.Helper.RTBColor" data-throw-if-not-resolved="false"></xref> with alpha 255.
+    content.vb: Public Shared Function FromRgb(r As Byte, g As Byte, b As Byte) As RTBColor
+  overload: RTB.Blazor.Styled.Helper.RTBColor.FromRgb*
+  nameWithType.vb: RTBColor.FromRgb(Byte, Byte, Byte)
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.FromRgb(Byte, Byte, Byte)
+  name.vb: FromRgb(Byte, Byte, Byte)
+- uid: RTB.Blazor.Styled.Helper.RTBColor.FromRgba(System.Byte,System.Byte,System.Byte,System.Byte)
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.FromRgba(System.Byte,System.Byte,System.Byte,System.Byte)
+  id: FromRgba(System.Byte,System.Byte,System.Byte,System.Byte)
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: FromRgba(byte, byte, byte, byte)
+  nameWithType: RTBColor.FromRgba(byte, byte, byte, byte)
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.FromRgba(byte, byte, byte, byte)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: FromRgba
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 45
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Create a color from 8-bit RGBA.
+  example: []
+  syntax:
+    content: public static RTBColor FromRgba(byte r, byte g, byte b, byte a)
+    parameters:
+    - id: r
+      type: System.Byte
+      description: Red 0..255.
+    - id: g
+      type: System.Byte
+      description: Green 0..255.
+    - id: b
+      type: System.Byte
+      description: Blue 0..255.
+    - id: a
+      type: System.Byte
+      description: Alpha 0..255 (255 = opaque).
+    return:
+      type: RTB.Blazor.Styled.Helper.RTBColor
+      description: <xref href="RTB.Blazor.Styled.Helper.RTBColor" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function FromRgba(r As Byte, g As Byte, b As Byte, a As Byte) As RTBColor
+  overload: RTB.Blazor.Styled.Helper.RTBColor.FromRgba*
+  nameWithType.vb: RTBColor.FromRgba(Byte, Byte, Byte, Byte)
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.FromRgba(Byte, Byte, Byte, Byte)
+  name.vb: FromRgba(Byte, Byte, Byte, Byte)
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Alpha
+  commentId: P:RTB.Blazor.Styled.Helper.RTBColor.Alpha
+  id: Alpha
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: Alpha
+  nameWithType: RTBColor.Alpha
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Alpha
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Alpha
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 52
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Alpha channel 0..255.
+  example: []
+  syntax:
+    content: public byte Alpha { get; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public ReadOnly Property Alpha As Byte
+  overload: RTB.Blazor.Styled.Helper.RTBColor.Alpha*
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Red
+  commentId: P:RTB.Blazor.Styled.Helper.RTBColor.Red
+  id: Red
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: Red
+  nameWithType: RTBColor.Red
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Red
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Red
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 54
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Red channel 0..255.
+  example: []
+  syntax:
+    content: public byte Red { get; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public ReadOnly Property Red As Byte
+  overload: RTB.Blazor.Styled.Helper.RTBColor.Red*
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Green
+  commentId: P:RTB.Blazor.Styled.Helper.RTBColor.Green
+  id: Green
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: Green
+  nameWithType: RTBColor.Green
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Green
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Green
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 56
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Green channel 0..255.
+  example: []
+  syntax:
+    content: public byte Green { get; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public ReadOnly Property Green As Byte
+  overload: RTB.Blazor.Styled.Helper.RTBColor.Green*
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Blue
+  commentId: P:RTB.Blazor.Styled.Helper.RTBColor.Blue
+  id: Blue
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: Blue
+  nameWithType: RTBColor.Blue
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Blue
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Blue
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 58
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Blue channel 0..255.
+  example: []
+  syntax:
+    content: public byte Blue { get; }
+    parameters: []
+    return:
+      type: System.Byte
+    content.vb: Public ReadOnly Property Blue As Byte
+  overload: RTB.Blazor.Styled.Helper.RTBColor.Blue*
+- uid: RTB.Blazor.Styled.Helper.RTBColor.HexRgb
+  commentId: P:RTB.Blazor.Styled.Helper.RTBColor.HexRgb
+  id: HexRgb
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: HexRgb
+  nameWithType: RTBColor.HexRgb
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.HexRgb
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: HexRgb
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 63
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Hex string in <code>#RRGGBB</code> format (no alpha).
+  example: []
+  syntax:
+    content: public string HexRgb { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property HexRgb As String
+  overload: RTB.Blazor.Styled.Helper.RTBColor.HexRgb*
+- uid: RTB.Blazor.Styled.Helper.RTBColor.HexRgba
+  commentId: P:RTB.Blazor.Styled.Helper.RTBColor.HexRgba
+  id: HexRgba
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: HexRgba
+  nameWithType: RTBColor.HexRgba
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.HexRgba
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: HexRgba
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 67
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Hex string in <code>#RRGGBBAA</code> format.
+  example: []
+  syntax:
+    content: public string HexRgba { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property HexRgba As String
+  overload: RTB.Blazor.Styled.Helper.RTBColor.HexRgba*
+- uid: RTB.Blazor.Styled.Helper.RTBColor.ToString
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.ToString
+  id: ToString
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: RTBColor.ToString()
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: ToString
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 72
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Returns <xref href="RTB.Blazor.Styled.Helper.RTBColor.HexRgba" data-throw-if-not-resolved="false"></xref> by default.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: RTB.Blazor.Styled.Helper.RTBColor.ToString*
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Parse(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.Parse(System.String)
+  id: Parse(System.String)
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: Parse(string)
+  nameWithType: RTBColor.Parse(string)
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Parse(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Parse
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 93
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: >-
+    Parse a CSS color value.
+
+    Supports hex, rgb[a], hsl[a], named colors, and <code>transparent</code>.
+  example:
+  - >-
+    <pre><code class="lang-csharp">var a = RTBColor.Parse("#09f");          // short hex
+
+    var b = RTBColor.Parse("rgb(0 153 255)"); // space separated
+
+    var c = RTBColor.Parse("hsl(200 100% 50% / 50%)"); // with alpha
+
+    var d = RTBColor.Parse("royalblue");      // named</code></pre>
+  syntax:
+    content: public static RTBColor Parse(string css)
+    parameters:
+    - id: css
+      type: System.String
+      description: CSS color string.
+    return:
+      type: RTB.Blazor.Styled.Helper.RTBColor
+      description: Parsed <xref href="RTB.Blazor.Styled.Helper.RTBColor" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function Parse(css As String) As RTBColor
+  overload: RTB.Blazor.Styled.Helper.RTBColor.Parse*
+  exceptions:
+  - type: System.FormatException
+    commentId: T:System.FormatException
+    description: If the string cannot be parsed.
+  nameWithType.vb: RTBColor.Parse(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.Parse(String)
+  name.vb: Parse(String)
+- uid: RTB.Blazor.Styled.Helper.RTBColor.TryParse(System.String,RTB.Blazor.Styled.Helper.RTBColor@)
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.TryParse(System.String,RTB.Blazor.Styled.Helper.RTBColor@)
+  id: TryParse(System.String,RTB.Blazor.Styled.Helper.RTBColor@)
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: TryParse(string?, out RTBColor)
+  nameWithType: RTBColor.TryParse(string?, out RTBColor)
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.TryParse(string?, out RTB.Blazor.Styled.Helper.RTBColor)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: TryParse
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 105
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Try to parse a CSS color value safely.
+  example: []
+  syntax:
+    content: public static bool TryParse(string? css, out RTBColor color)
+    parameters:
+    - id: css
+      type: System.String
+      description: CSS color string.
+    - id: color
+      type: RTB.Blazor.Styled.Helper.RTBColor
+      description: Result on success; default on failure.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if parsed successfully; otherwise <code>false</code>.
+    content.vb: Public Shared Function TryParse(css As String, color As RTBColor) As Boolean
+  overload: RTB.Blazor.Styled.Helper.RTBColor.TryParse*
+  nameWithType.vb: RTBColor.TryParse(String, RTBColor)
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.TryParse(String, RTB.Blazor.Styled.Helper.RTBColor)
+  name.vb: TryParse(String, RTBColor)
+- uid: RTB.Blazor.Styled.Helper.RTBColor.FromCss(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.FromCss(System.String)
+  id: FromCss(System.String)
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: FromCss(string)
+  nameWithType: RTBColor.FromCss(string)
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.FromCss(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: FromCss
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 146
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Alias for <xref href="RTB.Blazor.Styled.Helper.RTBColor.Parse(System.String)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static RTBColor FromCss(string css)
+    parameters:
+    - id: css
+      type: System.String
+      description: CSS color string.
+    return:
+      type: RTB.Blazor.Styled.Helper.RTBColor
+      description: Parsed <xref href="RTB.Blazor.Styled.Helper.RTBColor" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function FromCss(css As String) As RTBColor
+  overload: RTB.Blazor.Styled.Helper.RTBColor.FromCss*
+  nameWithType.vb: RTBColor.FromCss(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.FromCss(String)
+  name.vb: FromCss(String)
+- uid: RTB.Blazor.Styled.Helper.RTBColor.op_Implicit(System.String)~RTB.Blazor.Styled.Helper.RTBColor
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.op_Implicit(System.String)~RTB.Blazor.Styled.Helper.RTBColor
+  id: op_Implicit(System.String)~RTB.Blazor.Styled.Helper.RTBColor
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: implicit operator RTBColor(string)
+  nameWithType: RTBColor.implicit operator RTBColor(string)
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.implicit operator RTB.Blazor.Styled.Helper.RTBColor(string)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Implicit
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 152
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: >-
+    Implicitly parse a CSS color string to <xref href="RTB.Blazor.Styled.Helper.RTBColor" data-throw-if-not-resolved="false"></xref>.
+
+    Throws on failure.
+  example: []
+  syntax:
+    content: public static implicit operator RTBColor(string css)
+    parameters:
+    - id: css
+      type: System.String
+    return:
+      type: RTB.Blazor.Styled.Helper.RTBColor
+    content.vb: Public Shared Widening Operator CType(css As String) As RTBColor
+  overload: RTB.Blazor.Styled.Helper.RTBColor.op_Implicit*
+  nameWithType.vb: RTBColor.CType(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.CType(String)
+  name.vb: CType(String)
+- uid: RTB.Blazor.Styled.Helper.RTBColor.op_Implicit(RTB.Blazor.Styled.Helper.RTBColor)~System.String
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.op_Implicit(RTB.Blazor.Styled.Helper.RTBColor)~System.String
+  id: op_Implicit(RTB.Blazor.Styled.Helper.RTBColor)~System.String
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: implicit operator string(RTBColor)
+  nameWithType: RTBColor.implicit operator string(RTBColor)
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.implicit operator string(RTB.Blazor.Styled.Helper.RTBColor)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Implicit
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 156
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Implicitly convert <xref href="RTB.Blazor.Styled.Helper.RTBColor" data-throw-if-not-resolved="false"></xref> to <code>#RRGGBBAA</code> string.
+  example: []
+  syntax:
+    content: public static implicit operator string(RTBColor c)
+    parameters:
+    - id: c
+      type: RTB.Blazor.Styled.Helper.RTBColor
+    return:
+      type: System.String
+    content.vb: Public Shared Widening Operator CType(c As RTBColor) As String
+  overload: RTB.Blazor.Styled.Helper.RTBColor.op_Implicit*
+  nameWithType.vb: RTBColor.CType(RTBColor)
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.CType(RTB.Blazor.Styled.Helper.RTBColor)
+  name.vb: CType(RTBColor)
+- uid: RTB.Blazor.Styled.Helper.RTBColor.WithAlpha(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.WithAlpha(System.Double)
+  id: WithAlpha(System.Double)
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: WithAlpha(double)
+  nameWithType: RTBColor.WithAlpha(double)
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.WithAlpha(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: WithAlpha
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 476
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Returns a copy with a new alpha.
+  example: []
+  syntax:
+    content: public RTBColor WithAlpha(double alpha)
+    parameters:
+    - id: alpha
+      type: System.Double
+      description: Alpha 0..1 (1 = opaque).
+    return:
+      type: RTB.Blazor.Styled.Helper.RTBColor
+      description: New color with updated alpha.
+    content.vb: Public Function WithAlpha(alpha As Double) As RTBColor
+  overload: RTB.Blazor.Styled.Helper.RTBColor.WithAlpha*
+  nameWithType.vb: RTBColor.WithAlpha(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.WithAlpha(Double)
+  name.vb: WithAlpha(Double)
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Lighten(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.Lighten(System.Double)
+  id: Lighten(System.Double)
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: Lighten(double)
+  nameWithType: RTBColor.Lighten(double)
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Lighten(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Lighten
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 480
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Lighten by adding to HSL lightness.
+  example: []
+  syntax:
+    content: public RTBColor Lighten(double pct)
+    parameters:
+    - id: pct
+      type: System.Double
+      description: Delta in 0..1 (e.g. 0.1 to lighten by 10%).
+    return:
+      type: RTB.Blazor.Styled.Helper.RTBColor
+    content.vb: Public Function Lighten(pct As Double) As RTBColor
+  overload: RTB.Blazor.Styled.Helper.RTBColor.Lighten*
+  nameWithType.vb: RTBColor.Lighten(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.Lighten(Double)
+  name.vb: Lighten(Double)
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Darken(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.Darken(System.Double)
+  id: Darken(System.Double)
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: Darken(double)
+  nameWithType: RTBColor.Darken(double)
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Darken(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Darken
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 484
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Darken by subtracting from HSL lightness.
+  example: []
+  syntax:
+    content: public RTBColor Darken(double pct)
+    parameters:
+    - id: pct
+      type: System.Double
+      description: Delta in 0..1 (e.g. 0.1 to darken by 10%).
+    return:
+      type: RTB.Blazor.Styled.Helper.RTBColor
+    content.vb: Public Function Darken(pct As Double) As RTBColor
+  overload: RTB.Blazor.Styled.Helper.RTBColor.Darken*
+  nameWithType.vb: RTBColor.Darken(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.Darken(Double)
+  name.vb: Darken(Double)
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Saturate(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.Saturate(System.Double)
+  id: Saturate(System.Double)
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: Saturate(double)
+  nameWithType: RTBColor.Saturate(double)
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Saturate(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Saturate
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 488
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Increase HSL saturation.
+  example: []
+  syntax:
+    content: public RTBColor Saturate(double pct)
+    parameters:
+    - id: pct
+      type: System.Double
+      description: Delta in 0..1.
+    return:
+      type: RTB.Blazor.Styled.Helper.RTBColor
+    content.vb: Public Function Saturate(pct As Double) As RTBColor
+  overload: RTB.Blazor.Styled.Helper.RTBColor.Saturate*
+  nameWithType.vb: RTBColor.Saturate(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.Saturate(Double)
+  name.vb: Saturate(Double)
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Desaturate(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.Desaturate(System.Double)
+  id: Desaturate(System.Double)
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: Desaturate(double)
+  nameWithType: RTBColor.Desaturate(double)
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Desaturate(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Desaturate
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 492
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Decrease HSL saturation.
+  example: []
+  syntax:
+    content: public RTBColor Desaturate(double pct)
+    parameters:
+    - id: pct
+      type: System.Double
+      description: Delta in 0..1.
+    return:
+      type: RTB.Blazor.Styled.Helper.RTBColor
+    content.vb: Public Function Desaturate(pct As Double) As RTBColor
+  overload: RTB.Blazor.Styled.Helper.RTBColor.Desaturate*
+  nameWithType.vb: RTBColor.Desaturate(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.Desaturate(Double)
+  name.vb: Desaturate(Double)
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Blend(RTB.Blazor.Styled.Helper.RTBColor,System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.Blend(RTB.Blazor.Styled.Helper.RTBColor,System.Double)
+  id: Blend(RTB.Blazor.Styled.Helper.RTBColor,System.Double)
+  parent: RTB.Blazor.Styled.Helper.RTBColor
+  langs:
+  - csharp
+  - vb
+  name: Blend(RTBColor, double)
+  nameWithType: RTBColor.Blend(RTBColor, double)
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Blend(RTB.Blazor.Styled.Helper.RTBColor, double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/RTBColor.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Blend
+    path: ../src/RTB.Styled/Helper/RTBColor.cs
+    startLine: 501
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Linear blend towards another color in RGBA space.
+  example:
+  - <pre><code class="lang-csharp">var mid = a.Blend(b, 0.5);</code></pre>
+  syntax:
+    content: public RTBColor Blend(RTBColor target, double pct)
+    parameters:
+    - id: target
+      type: RTB.Blazor.Styled.Helper.RTBColor
+      description: Target color.
+    - id: pct
+      type: System.Double
+      description: Blend factor 0..1 (0 = self, 1 = target).
+    return:
+      type: RTB.Blazor.Styled.Helper.RTBColor
+      description: Blended color.
+    content.vb: Public Function Blend(target As RTBColor, pct As Double) As RTBColor
+  overload: RTB.Blazor.Styled.Helper.RTBColor.Blend*
+  nameWithType.vb: RTBColor.Blend(RTBColor, Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.Blend(RTB.Blazor.Styled.Helper.RTBColor, Double)
+  name.vb: Blend(RTBColor, Double)
+references:
+- uid: RTB.Blazor.Styled.Helper.RTBColors.Named
+  commentId: P:RTB.Blazor.Styled.Helper.RTBColors.Named
+  href: RTB.Blazor.Styled.Helper.RTBColors.html#RTB_Blazor_Styled_Helper_RTBColors_Named
+  name: Named
+  nameWithType: RTBColors.Named
+  fullName: RTB.Blazor.Styled.Helper.RTBColors.Named
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: System.IEquatable{RTB.Blazor.Styled.Helper.RTBColor}
+  commentId: T:System.IEquatable{RTB.Blazor.Styled.Helper.RTBColor}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<RTBColor>
+  nameWithType: IEquatable<RTBColor>
+  fullName: System.IEquatable<RTB.Blazor.Styled.Helper.RTBColor>
+  nameWithType.vb: IEquatable(Of RTBColor)
+  fullName.vb: System.IEquatable(Of RTB.Blazor.Styled.Helper.RTBColor)
+  name.vb: IEquatable(Of RTBColor)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RTB.Blazor.Styled.Helper.RTBColor
+    name: RTBColor
+    href: RTB.Blazor.Styled.Helper.RTBColor.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.RTBColor
+    name: RTBColor
+    href: RTB.Blazor.Styled.Helper.RTBColor.html
+  - name: )
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RTB.Blazor.Styled.Helper.RTBColor.#ctor*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.#ctor
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor__ctor_System_Byte_System_Byte_System_Byte_System_Byte_
+  name: RTBColor
+  nameWithType: RTBColor.RTBColor
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.RTBColor
+  nameWithType.vb: RTBColor.New
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.New
+  name.vb: New
+- uid: System.Byte
+  commentId: T:System.Byte
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte
+  nameWithType: byte
+  fullName: byte
+  nameWithType.vb: Byte
+  fullName.vb: Byte
+  name.vb: Byte
+- uid: RTB.Blazor.Styled.Helper.RTBColor.R*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.R
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_R
+  name: R
+  nameWithType: RTBColor.R
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.R
+- uid: RTB.Blazor.Styled.Helper.RTBColor.G*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.G
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_G
+  name: G
+  nameWithType: RTBColor.G
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.G
+- uid: RTB.Blazor.Styled.Helper.RTBColor.B*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.B
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_B
+  name: B
+  nameWithType: RTBColor.B
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.B
+- uid: RTB.Blazor.Styled.Helper.RTBColor.A*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.A
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_A
+  name: A
+  nameWithType: RTBColor.A
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.A
+- uid: RTB.Blazor.Styled.Helper.RTBColor
+  commentId: T:RTB.Blazor.Styled.Helper.RTBColor
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.RTBColor.html
+  name: RTBColor
+  nameWithType: RTBColor
+  fullName: RTB.Blazor.Styled.Helper.RTBColor
+- uid: RTB.Blazor.Styled.Helper.RTBColor.FromRgb*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.FromRgb
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_FromRgb_System_Byte_System_Byte_System_Byte_
+  name: FromRgb
+  nameWithType: RTBColor.FromRgb
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.FromRgb
+- uid: RTB.Blazor.Styled.Helper.RTBColor.FromRgba*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.FromRgba
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_FromRgba_System_Byte_System_Byte_System_Byte_System_Byte_
+  name: FromRgba
+  nameWithType: RTBColor.FromRgba
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.FromRgba
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Alpha*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.Alpha
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_Alpha
+  name: Alpha
+  nameWithType: RTBColor.Alpha
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Alpha
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Red*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.Red
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_Red
+  name: Red
+  nameWithType: RTBColor.Red
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Red
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Green*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.Green
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_Green
+  name: Green
+  nameWithType: RTBColor.Green
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Green
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Blue*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.Blue
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_Blue
+  name: Blue
+  nameWithType: RTBColor.Blue
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Blue
+- uid: RTB.Blazor.Styled.Helper.RTBColor.HexRgb*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.HexRgb
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_HexRgb
+  name: HexRgb
+  nameWithType: RTBColor.HexRgb
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.HexRgb
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RTB.Blazor.Styled.Helper.RTBColor.HexRgba*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.HexRgba
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_HexRgba
+  name: HexRgba
+  nameWithType: RTBColor.HexRgba
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.HexRgba
+- uid: RTB.Blazor.Styled.Helper.RTBColor.HexRgba
+  commentId: P:RTB.Blazor.Styled.Helper.RTBColor.HexRgba
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_HexRgba
+  name: HexRgba
+  nameWithType: RTBColor.HexRgba
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.HexRgba
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.RTBColor.ToString*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.ToString
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_ToString
+  name: ToString
+  nameWithType: RTBColor.ToString
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.ToString
+- uid: System.FormatException
+  commentId: T:System.FormatException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.formatexception
+  name: FormatException
+  nameWithType: FormatException
+  fullName: System.FormatException
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Parse*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.Parse
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_Parse_System_String_
+  name: Parse
+  nameWithType: RTBColor.Parse
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Parse
+- uid: RTB.Blazor.Styled.Helper.RTBColor.TryParse*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.TryParse
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_TryParse_System_String_RTB_Blazor_Styled_Helper_RTBColor__
+  name: TryParse
+  nameWithType: RTBColor.TryParse
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.TryParse
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Parse(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.RTBColor.Parse(System.String)
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_Parse_System_String_
+  name: Parse(string)
+  nameWithType: RTBColor.Parse(string)
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Parse(string)
+  nameWithType.vb: RTBColor.Parse(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.Parse(String)
+  name.vb: Parse(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.RTBColor.Parse(System.String)
+    name: Parse
+    href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_Parse_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.RTBColor.Parse(System.String)
+    name: Parse
+    href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_Parse_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.RTBColor.FromCss*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.FromCss
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_FromCss_System_String_
+  name: FromCss
+  nameWithType: RTBColor.FromCss
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.FromCss
+- uid: RTB.Blazor.Styled.Helper.RTBColor.op_Implicit*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.op_Implicit
+  name: implicit operator
+  nameWithType: RTBColor.implicit operator
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.implicit operator
+  nameWithType.vb: RTBColor.CType
+  fullName.vb: RTB.Blazor.Styled.Helper.RTBColor.CType
+  name.vb: CType
+  spec.csharp:
+  - name: implicit
+  - name: " "
+  - name: operator
+- uid: RTB.Blazor.Styled.Helper.RTBColor.WithAlpha*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.WithAlpha
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_WithAlpha_System_Double_
+  name: WithAlpha
+  nameWithType: RTBColor.WithAlpha
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.WithAlpha
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Lighten*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.Lighten
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_Lighten_System_Double_
+  name: Lighten
+  nameWithType: RTBColor.Lighten
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Lighten
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Darken*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.Darken
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_Darken_System_Double_
+  name: Darken
+  nameWithType: RTBColor.Darken
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Darken
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Saturate*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.Saturate
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_Saturate_System_Double_
+  name: Saturate
+  nameWithType: RTBColor.Saturate
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Saturate
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Desaturate*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.Desaturate
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_Desaturate_System_Double_
+  name: Desaturate
+  nameWithType: RTBColor.Desaturate
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Desaturate
+- uid: RTB.Blazor.Styled.Helper.RTBColor.Blend*
+  commentId: Overload:RTB.Blazor.Styled.Helper.RTBColor.Blend
+  href: RTB.Blazor.Styled.Helper.RTBColor.html#RTB_Blazor_Styled_Helper_RTBColor_Blend_RTB_Blazor_Styled_Helper_RTBColor_System_Double_
+  name: Blend
+  nameWithType: RTBColor.Blend
+  fullName: RTB.Blazor.Styled.Helper.RTBColor.Blend

@@ -1,0 +1,667 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Helper.BinarySizeExpression
+  commentId: T:RTB.Blazor.Styled.Helper.BinarySizeExpression
+  id: BinarySizeExpression
+  parent: RTB.Blazor.Styled.Helper
+  children:
+  - RTB.Blazor.Styled.Helper.BinarySizeExpression.#ctor(RTB.Blazor.Styled.Helper.SizeExpression,System.String,RTB.Blazor.Styled.Helper.SizeExpression)
+  - RTB.Blazor.Styled.Helper.BinarySizeExpression.Left
+  - RTB.Blazor.Styled.Helper.BinarySizeExpression.Operator
+  - RTB.Blazor.Styled.Helper.BinarySizeExpression.Render
+  - RTB.Blazor.Styled.Helper.BinarySizeExpression.Right
+  - RTB.Blazor.Styled.Helper.BinarySizeExpression.ToString
+  langs:
+  - csharp
+  - vb
+  name: BinarySizeExpression
+  nameWithType: BinarySizeExpression
+  fullName: RTB.Blazor.Styled.Helper.BinarySizeExpression
+  type: Class
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: BinarySizeExpression
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 396
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: >-
+    Represents a binary size expression composed of two operands and an operator,
+
+    rendered as a CSS calc() expression.
+  example: []
+  syntax:
+    content: 'public sealed record BinarySizeExpression : SizeExpression, IEquatable<SizeExpression>, IEquatable<BinarySizeExpression>'
+    content.vb: Public NotInheritable Class BinarySizeExpression Inherits SizeExpression Implements IEquatable(Of SizeExpression), IEquatable(Of BinarySizeExpression)
+  inheritance:
+  - System.Object
+  - RTB.Blazor.Styled.Helper.SizeExpression
+  implements:
+  - System.IEquatable{RTB.Blazor.Styled.Helper.SizeExpression}
+  - System.IEquatable{RTB.Blazor.Styled.Helper.BinarySizeExpression}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RTB.Blazor.Styled.Helper.BinarySizeExpression.#ctor(RTB.Blazor.Styled.Helper.SizeExpression,System.String,RTB.Blazor.Styled.Helper.SizeExpression)
+  commentId: M:RTB.Blazor.Styled.Helper.BinarySizeExpression.#ctor(RTB.Blazor.Styled.Helper.SizeExpression,System.String,RTB.Blazor.Styled.Helper.SizeExpression)
+  id: '#ctor(RTB.Blazor.Styled.Helper.SizeExpression,System.String,RTB.Blazor.Styled.Helper.SizeExpression)'
+  parent: RTB.Blazor.Styled.Helper.BinarySizeExpression
+  langs:
+  - csharp
+  - vb
+  name: BinarySizeExpression(SizeExpression, string, SizeExpression)
+  nameWithType: BinarySizeExpression.BinarySizeExpression(SizeExpression, string, SizeExpression)
+  fullName: RTB.Blazor.Styled.Helper.BinarySizeExpression.BinarySizeExpression(RTB.Blazor.Styled.Helper.SizeExpression, string, RTB.Blazor.Styled.Helper.SizeExpression)
+  type: Constructor
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: .ctor
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 396
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: >-
+    Represents a binary size expression composed of two operands and an operator,
+
+    rendered as a CSS calc() expression.
+  example: []
+  syntax:
+    content: public BinarySizeExpression(SizeExpression Left, string Operator, SizeExpression Right)
+    parameters:
+    - id: Left
+      type: RTB.Blazor.Styled.Helper.SizeExpression
+      description: Left side of the expression.
+    - id: Operator
+      type: System.String
+      description: The operator symbol (+, -, *, /).
+    - id: Right
+      type: RTB.Blazor.Styled.Helper.SizeExpression
+      description: Right side of the expression.
+    content.vb: Public Sub New(Left As SizeExpression, [Operator] As String, Right As SizeExpression)
+  overload: RTB.Blazor.Styled.Helper.BinarySizeExpression.#ctor*
+  nameWithType.vb: BinarySizeExpression.New(SizeExpression, String, SizeExpression)
+  fullName.vb: RTB.Blazor.Styled.Helper.BinarySizeExpression.New(RTB.Blazor.Styled.Helper.SizeExpression, String, RTB.Blazor.Styled.Helper.SizeExpression)
+  name.vb: New(SizeExpression, String, SizeExpression)
+- uid: RTB.Blazor.Styled.Helper.BinarySizeExpression.Left
+  commentId: P:RTB.Blazor.Styled.Helper.BinarySizeExpression.Left
+  id: Left
+  parent: RTB.Blazor.Styled.Helper.BinarySizeExpression
+  langs:
+  - csharp
+  - vb
+  name: Left
+  nameWithType: BinarySizeExpression.Left
+  fullName: RTB.Blazor.Styled.Helper.BinarySizeExpression.Left
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Left
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 396
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Left side of the expression.
+  example: []
+  syntax:
+    content: public SizeExpression Left { get; init; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeExpression
+    content.vb: Public Property Left As SizeExpression
+  overload: RTB.Blazor.Styled.Helper.BinarySizeExpression.Left*
+- uid: RTB.Blazor.Styled.Helper.BinarySizeExpression.Operator
+  commentId: P:RTB.Blazor.Styled.Helper.BinarySizeExpression.Operator
+  id: Operator
+  parent: RTB.Blazor.Styled.Helper.BinarySizeExpression
+  langs:
+  - csharp
+  - vb
+  name: Operator
+  nameWithType: BinarySizeExpression.Operator
+  fullName: RTB.Blazor.Styled.Helper.BinarySizeExpression.Operator
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Operator
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 396
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: The operator symbol (+, -, *, /).
+  example: []
+  syntax:
+    content: public string Operator { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property [Operator] As String
+  overload: RTB.Blazor.Styled.Helper.BinarySizeExpression.Operator*
+- uid: RTB.Blazor.Styled.Helper.BinarySizeExpression.Right
+  commentId: P:RTB.Blazor.Styled.Helper.BinarySizeExpression.Right
+  id: Right
+  parent: RTB.Blazor.Styled.Helper.BinarySizeExpression
+  langs:
+  - csharp
+  - vb
+  name: Right
+  nameWithType: BinarySizeExpression.Right
+  fullName: RTB.Blazor.Styled.Helper.BinarySizeExpression.Right
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Right
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 396
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Right side of the expression.
+  example: []
+  syntax:
+    content: public SizeExpression Right { get; init; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeExpression
+    content.vb: Public Property Right As SizeExpression
+  overload: RTB.Blazor.Styled.Helper.BinarySizeExpression.Right*
+- uid: RTB.Blazor.Styled.Helper.BinarySizeExpression.Render
+  commentId: M:RTB.Blazor.Styled.Helper.BinarySizeExpression.Render
+  id: Render
+  parent: RTB.Blazor.Styled.Helper.BinarySizeExpression
+  langs:
+  - csharp
+  - vb
+  name: Render()
+  nameWithType: BinarySizeExpression.Render()
+  fullName: RTB.Blazor.Styled.Helper.BinarySizeExpression.Render()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Render
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 400
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Renders the expression to CSS.
+  example: []
+  syntax:
+    content: protected override string Render()
+    return:
+      type: System.String
+    content.vb: Protected Overrides Function Render() As String
+  overridden: RTB.Blazor.Styled.Helper.SizeExpression.Render
+  overload: RTB.Blazor.Styled.Helper.BinarySizeExpression.Render*
+- uid: RTB.Blazor.Styled.Helper.BinarySizeExpression.ToString
+  commentId: M:RTB.Blazor.Styled.Helper.BinarySizeExpression.ToString
+  id: ToString
+  parent: RTB.Blazor.Styled.Helper.BinarySizeExpression
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: BinarySizeExpression.ToString()
+  fullName: RTB.Blazor.Styled.Helper.BinarySizeExpression.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: ToString
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 403
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Returns <xref href="RTB.Blazor.Styled.Helper.SizeExpression.Render" data-throw-if-not-resolved="false"></xref> to ensure the expression is emitted as CSS.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: RTB.Blazor.Styled.Helper.SizeExpression.ToString
+  overload: RTB.Blazor.Styled.Helper.BinarySizeExpression.ToString*
+references:
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RTB.Blazor.Styled.Helper.SizeExpression
+  commentId: T:RTB.Blazor.Styled.Helper.SizeExpression
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.SizeExpression.html
+  name: SizeExpression
+  nameWithType: SizeExpression
+  fullName: RTB.Blazor.Styled.Helper.SizeExpression
+- uid: System.IEquatable{RTB.Blazor.Styled.Helper.SizeExpression}
+  commentId: T:System.IEquatable{RTB.Blazor.Styled.Helper.SizeExpression}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SizeExpression>
+  nameWithType: IEquatable<SizeExpression>
+  fullName: System.IEquatable<RTB.Blazor.Styled.Helper.SizeExpression>
+  nameWithType.vb: IEquatable(Of SizeExpression)
+  fullName.vb: System.IEquatable(Of RTB.Blazor.Styled.Helper.SizeExpression)
+  name.vb: IEquatable(Of SizeExpression)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RTB.Blazor.Styled.Helper.SizeExpression
+    name: SizeExpression
+    href: RTB.Blazor.Styled.Helper.SizeExpression.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.SizeExpression
+    name: SizeExpression
+    href: RTB.Blazor.Styled.Helper.SizeExpression.html
+  - name: )
+- uid: System.IEquatable{RTB.Blazor.Styled.Helper.BinarySizeExpression}
+  commentId: T:System.IEquatable{RTB.Blazor.Styled.Helper.BinarySizeExpression}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<BinarySizeExpression>
+  nameWithType: IEquatable<BinarySizeExpression>
+  fullName: System.IEquatable<RTB.Blazor.Styled.Helper.BinarySizeExpression>
+  nameWithType.vb: IEquatable(Of BinarySizeExpression)
+  fullName.vb: System.IEquatable(Of RTB.Blazor.Styled.Helper.BinarySizeExpression)
+  name.vb: IEquatable(Of BinarySizeExpression)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RTB.Blazor.Styled.Helper.BinarySizeExpression
+    name: BinarySizeExpression
+    href: RTB.Blazor.Styled.Helper.BinarySizeExpression.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.BinarySizeExpression
+    name: BinarySizeExpression
+    href: RTB.Blazor.Styled.Helper.BinarySizeExpression.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.BinarySizeExpression.#ctor*
+  commentId: Overload:RTB.Blazor.Styled.Helper.BinarySizeExpression.#ctor
+  href: RTB.Blazor.Styled.Helper.BinarySizeExpression.html#RTB_Blazor_Styled_Helper_BinarySizeExpression__ctor_RTB_Blazor_Styled_Helper_SizeExpression_System_String_RTB_Blazor_Styled_Helper_SizeExpression_
+  name: BinarySizeExpression
+  nameWithType: BinarySizeExpression.BinarySizeExpression
+  fullName: RTB.Blazor.Styled.Helper.BinarySizeExpression.BinarySizeExpression
+  nameWithType.vb: BinarySizeExpression.New
+  fullName.vb: RTB.Blazor.Styled.Helper.BinarySizeExpression.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RTB.Blazor.Styled.Helper.BinarySizeExpression.Left*
+  commentId: Overload:RTB.Blazor.Styled.Helper.BinarySizeExpression.Left
+  href: RTB.Blazor.Styled.Helper.BinarySizeExpression.html#RTB_Blazor_Styled_Helper_BinarySizeExpression_Left
+  name: Left
+  nameWithType: BinarySizeExpression.Left
+  fullName: RTB.Blazor.Styled.Helper.BinarySizeExpression.Left
+- uid: RTB.Blazor.Styled.Helper.BinarySizeExpression.Operator*
+  commentId: Overload:RTB.Blazor.Styled.Helper.BinarySizeExpression.Operator
+  href: RTB.Blazor.Styled.Helper.BinarySizeExpression.html#RTB_Blazor_Styled_Helper_BinarySizeExpression_Operator
+  name: Operator
+  nameWithType: BinarySizeExpression.Operator
+  fullName: RTB.Blazor.Styled.Helper.BinarySizeExpression.Operator
+- uid: RTB.Blazor.Styled.Helper.BinarySizeExpression.Right*
+  commentId: Overload:RTB.Blazor.Styled.Helper.BinarySizeExpression.Right
+  href: RTB.Blazor.Styled.Helper.BinarySizeExpression.html#RTB_Blazor_Styled_Helper_BinarySizeExpression_Right
+  name: Right
+  nameWithType: BinarySizeExpression.Right
+  fullName: RTB.Blazor.Styled.Helper.BinarySizeExpression.Right
+- uid: RTB.Blazor.Styled.Helper.SizeExpression.Render
+  commentId: M:RTB.Blazor.Styled.Helper.SizeExpression.Render
+  parent: RTB.Blazor.Styled.Helper.SizeExpression
+  href: RTB.Blazor.Styled.Helper.SizeExpression.html#RTB_Blazor_Styled_Helper_SizeExpression_Render
+  name: Render()
+  nameWithType: SizeExpression.Render()
+  fullName: RTB.Blazor.Styled.Helper.SizeExpression.Render()
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SizeExpression.Render
+    name: Render
+    href: RTB.Blazor.Styled.Helper.SizeExpression.html#RTB_Blazor_Styled_Helper_SizeExpression_Render
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SizeExpression.Render
+    name: Render
+    href: RTB.Blazor.Styled.Helper.SizeExpression.html#RTB_Blazor_Styled_Helper_SizeExpression_Render
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.BinarySizeExpression.Render*
+  commentId: Overload:RTB.Blazor.Styled.Helper.BinarySizeExpression.Render
+  href: RTB.Blazor.Styled.Helper.BinarySizeExpression.html#RTB_Blazor_Styled_Helper_BinarySizeExpression_Render
+  name: Render
+  nameWithType: BinarySizeExpression.Render
+  fullName: RTB.Blazor.Styled.Helper.BinarySizeExpression.Render
+- uid: RTB.Blazor.Styled.Helper.SizeExpression.ToString
+  commentId: M:RTB.Blazor.Styled.Helper.SizeExpression.ToString
+  parent: RTB.Blazor.Styled.Helper.SizeExpression
+  href: RTB.Blazor.Styled.Helper.SizeExpression.html#RTB_Blazor_Styled_Helper_SizeExpression_ToString
+  name: ToString()
+  nameWithType: SizeExpression.ToString()
+  fullName: RTB.Blazor.Styled.Helper.SizeExpression.ToString()
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SizeExpression.ToString
+    name: ToString
+    href: RTB.Blazor.Styled.Helper.SizeExpression.html#RTB_Blazor_Styled_Helper_SizeExpression_ToString
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SizeExpression.ToString
+    name: ToString
+    href: RTB.Blazor.Styled.Helper.SizeExpression.html#RTB_Blazor_Styled_Helper_SizeExpression_ToString
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.BinarySizeExpression.ToString*
+  commentId: Overload:RTB.Blazor.Styled.Helper.BinarySizeExpression.ToString
+  href: RTB.Blazor.Styled.Helper.BinarySizeExpression.html#RTB_Blazor_Styled_Helper_BinarySizeExpression_ToString
+  name: ToString
+  nameWithType: BinarySizeExpression.ToString
+  fullName: RTB.Blazor.Styled.Helper.BinarySizeExpression.ToString

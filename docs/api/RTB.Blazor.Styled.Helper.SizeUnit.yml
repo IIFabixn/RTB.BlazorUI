@@ -1,0 +1,1806 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Helper.SizeUnit
+  commentId: T:RTB.Blazor.Styled.Helper.SizeUnit
+  id: SizeUnit
+  parent: RTB.Blazor.Styled.Helper
+  children:
+  - RTB.Blazor.Styled.Helper.SizeUnit.#ctor(System.Double,RTB.Blazor.Styled.Helper.Unit)
+  - RTB.Blazor.Styled.Helper.SizeUnit.Em(System.Double)
+  - RTB.Blazor.Styled.Helper.SizeUnit.Percent(System.Double)
+  - RTB.Blazor.Styled.Helper.SizeUnit.Px(System.Double)
+  - RTB.Blazor.Styled.Helper.SizeUnit.Rem(System.Double)
+  - RTB.Blazor.Styled.Helper.SizeUnit.ToString
+  - RTB.Blazor.Styled.Helper.SizeUnit.Unit
+  - RTB.Blazor.Styled.Helper.SizeUnit.Value
+  - RTB.Blazor.Styled.Helper.SizeUnit.Vh(System.Double)
+  - RTB.Blazor.Styled.Helper.SizeUnit.Vw(System.Double)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Addition(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Addition(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Addition(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Addition(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Addition(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Division(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Division(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Division(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Division(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Division(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit(RTB.Blazor.Styled.Helper.SizeUnit)~System.String
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit(System.Double)~RTB.Blazor.Styled.Helper.SizeUnit
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit(System.Int32)~RTB.Blazor.Styled.Helper.SizeUnit
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit(System.String)~RTB.Blazor.Styled.Helper.SizeUnit
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  - RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  langs:
+  - csharp
+  - vb
+  name: SizeUnit
+  nameWithType: SizeUnit
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit
+  type: Struct
+  source:
+    id: SizeUnit
+    path: System.Text.RegularExpressions.Generator\System.Text.RegularExpressions.Generator.RegexGenerator\RegexGenerator.g.cs
+    startLine: 64
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Represents a CSS size value paired with a unit (px, rem, em, %, vw, vh).
+  remarks: >-
+    - Defaults to pixels (px) when created from numeric literals or when the unit is omitted in string literals.
+
+    - Arithmetic between two <xref href="RTB.Blazor.Styled.Helper.SizeUnit" data-throw-if-not-resolved="false"></xref> values produces a <xref href="RTB.Blazor.Styled.Helper.SizeExpression" data-throw-if-not-resolved="false"></xref> rendered as a CSS calc() expression,
+      preserving units without attempting unit normalization at runtime.
+    - Arithmetic between a <xref href="RTB.Blazor.Styled.Helper.SizeUnit" data-throw-if-not-resolved="false"></xref> and a numeric value keeps the original unit and returns a new <xref href="RTB.Blazor.Styled.Helper.SizeUnit" data-throw-if-not-resolved="false"></xref>.
+  example:
+  - >-
+    var w1 = SizeUnit.Px(12);          // "12px"
+
+    SizeUnit w2 = 1.5;                 // "1.5px" via implicit conversion
+
+    SizeUnit w3 = "2rem";              // "2rem"
+
+    SizeExpression e = w1 + "2rem";    // calc(12px + 2rem)
+
+    string css = e.ToString();         // "calc(12px + 2rem)"
+  syntax:
+    content: public readonly struct SizeUnit
+    content.vb: Public Structure SizeUnit
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.#ctor(System.Double,RTB.Blazor.Styled.Helper.Unit)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.#ctor(System.Double,RTB.Blazor.Styled.Helper.Unit)
+  id: '#ctor(System.Double,RTB.Blazor.Styled.Helper.Unit)'
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: SizeUnit(double, Unit)
+  nameWithType: SizeUnit.SizeUnit(double, Unit)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.SizeUnit(double, RTB.Blazor.Styled.Helper.Unit)
+  type: Constructor
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: .ctor
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 21
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Represents a CSS size value paired with a unit (px, rem, em, %, vw, vh).
+  remarks: >-
+    - Defaults to pixels (px) when created from numeric literals or when the unit is omitted in string literals.
+
+    - Arithmetic between two <xref href="RTB.Blazor.Styled.Helper.SizeUnit" data-throw-if-not-resolved="false"></xref> values produces a <xref href="RTB.Blazor.Styled.Helper.SizeExpression" data-throw-if-not-resolved="false"></xref> rendered as a CSS calc() expression,
+      preserving units without attempting unit normalization at runtime.
+    - Arithmetic between a <xref href="RTB.Blazor.Styled.Helper.SizeUnit" data-throw-if-not-resolved="false"></xref> and a numeric value keeps the original unit and returns a new <xref href="RTB.Blazor.Styled.Helper.SizeUnit" data-throw-if-not-resolved="false"></xref>.
+  example:
+  - >-
+    var w1 = SizeUnit.Px(12);          // "12px"
+
+    SizeUnit w2 = 1.5;                 // "1.5px" via implicit conversion
+
+    SizeUnit w3 = "2rem";              // "2rem"
+
+    SizeExpression e = w1 + "2rem";    // calc(12px + 2rem)
+
+    string css = e.ToString();         // "calc(12px + 2rem)"
+  syntax:
+    content: public SizeUnit(double value, Unit unit)
+    parameters:
+    - id: value
+      type: System.Double
+    - id: unit
+      type: RTB.Blazor.Styled.Helper.Unit
+    content.vb: Public Sub New(value As Double, unit As Unit)
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.#ctor*
+  nameWithType.vb: SizeUnit.New(Double, Unit)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.New(Double, RTB.Blazor.Styled.Helper.Unit)
+  name.vb: New(Double, Unit)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Value
+  commentId: P:RTB.Blazor.Styled.Helper.SizeUnit.Value
+  id: Value
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: SizeUnit.Value
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Value
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Value
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 26
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: The numeric value of the size (unit-less).
+  example: []
+  syntax:
+    content: public double Value { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property Value As Double
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.Value*
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Unit
+  commentId: P:RTB.Blazor.Styled.Helper.SizeUnit.Unit
+  id: Unit
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: Unit
+  nameWithType: SizeUnit.Unit
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Unit
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Unit
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 31
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: The unit associated with the value.
+  example: []
+  syntax:
+    content: public Unit Unit { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.Unit
+    content.vb: Public ReadOnly Property Unit As Unit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.Unit*
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.ToString
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.ToString
+  id: ToString
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: SizeUnit.ToString()
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: ToString
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 36
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Renders the size as a CSS literal (e.g., "12px", "1.5rem").
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.ToString*
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Px(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.Px(System.Double)
+  id: Px(System.Double)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: Px(double)
+  nameWithType: SizeUnit.Px(double)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Px(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Px
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 50
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Creates a size in pixels.
+  example: []
+  syntax:
+    content: public static SizeUnit Px(double v)
+    parameters:
+    - id: v
+      type: System.Double
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Function Px(v As Double) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.Px*
+  nameWithType.vb: SizeUnit.Px(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.Px(Double)
+  name.vb: Px(Double)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Rem(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.Rem(System.Double)
+  id: Rem(System.Double)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: Rem(double)
+  nameWithType: SizeUnit.Rem(double)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Rem(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Rem
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 55
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Creates a size in root-em.
+  example: []
+  syntax:
+    content: public static SizeUnit Rem(double v)
+    parameters:
+    - id: v
+      type: System.Double
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Function [Rem](v As Double) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.Rem*
+  nameWithType.vb: SizeUnit.Rem(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.Rem(Double)
+  name.vb: Rem(Double)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Em(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.Em(System.Double)
+  id: Em(System.Double)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: Em(double)
+  nameWithType: SizeUnit.Em(double)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Em(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Em
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 60
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Creates a size in em.
+  example: []
+  syntax:
+    content: public static SizeUnit Em(double v)
+    parameters:
+    - id: v
+      type: System.Double
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Function Em(v As Double) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.Em*
+  nameWithType.vb: SizeUnit.Em(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.Em(Double)
+  name.vb: Em(Double)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Percent(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.Percent(System.Double)
+  id: Percent(System.Double)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: Percent(double)
+  nameWithType: SizeUnit.Percent(double)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Percent(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Percent
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 65
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Creates a size in percent.
+  example: []
+  syntax:
+    content: public static SizeUnit Percent(double v)
+    parameters:
+    - id: v
+      type: System.Double
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Function Percent(v As Double) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.Percent*
+  nameWithType.vb: SizeUnit.Percent(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.Percent(Double)
+  name.vb: Percent(Double)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Vw(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.Vw(System.Double)
+  id: Vw(System.Double)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: Vw(double)
+  nameWithType: SizeUnit.Vw(double)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Vw(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Vw
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 70
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Creates a size in viewport width.
+  example: []
+  syntax:
+    content: public static SizeUnit Vw(double v)
+    parameters:
+    - id: v
+      type: System.Double
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Function Vw(v As Double) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.Vw*
+  nameWithType.vb: SizeUnit.Vw(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.Vw(Double)
+  name.vb: Vw(Double)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Vh(System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.Vh(System.Double)
+  id: Vh(System.Double)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: Vh(double)
+  nameWithType: SizeUnit.Vh(double)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Vh(double)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Vh
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 75
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Creates a size in viewport height.
+  example: []
+  syntax:
+    content: public static SizeUnit Vh(double v)
+    parameters:
+    - id: v
+      type: System.Double
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Function Vh(v As Double) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.Vh*
+  nameWithType.vb: SizeUnit.Vh(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.Vh(Double)
+  name.vb: Vh(Double)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit(System.Int32)~RTB.Blazor.Styled.Helper.SizeUnit
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit(System.Int32)~RTB.Blazor.Styled.Helper.SizeUnit
+  id: op_Implicit(System.Int32)~RTB.Blazor.Styled.Helper.SizeUnit
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: implicit operator SizeUnit(int)
+  nameWithType: SizeUnit.implicit operator SizeUnit(int)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.implicit operator RTB.Blazor.Styled.Helper.SizeUnit(int)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Implicit
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 80
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Implicitly converts an integer to a pixel size.
+  example: []
+  syntax:
+    content: public static implicit operator SizeUnit(int val)
+    parameters:
+    - id: val
+      type: System.Int32
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Widening Operator CType(val As Integer) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit*
+  nameWithType.vb: SizeUnit.CType(Integer)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.CType(Integer)
+  name.vb: CType(Integer)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit(System.Double)~RTB.Blazor.Styled.Helper.SizeUnit
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit(System.Double)~RTB.Blazor.Styled.Helper.SizeUnit
+  id: op_Implicit(System.Double)~RTB.Blazor.Styled.Helper.SizeUnit
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: implicit operator SizeUnit(double)
+  nameWithType: SizeUnit.implicit operator SizeUnit(double)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.implicit operator RTB.Blazor.Styled.Helper.SizeUnit(double)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Implicit
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 85
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Implicitly converts a double to a pixel size.
+  example: []
+  syntax:
+    content: public static implicit operator SizeUnit(double val)
+    parameters:
+    - id: val
+      type: System.Double
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Widening Operator CType(val As Double) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit*
+  nameWithType.vb: SizeUnit.CType(Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.CType(Double)
+  name.vb: CType(Double)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit(System.String)~RTB.Blazor.Styled.Helper.SizeUnit
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit(System.String)~RTB.Blazor.Styled.Helper.SizeUnit
+  id: op_Implicit(System.String)~RTB.Blazor.Styled.Helper.SizeUnit
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: implicit operator SizeUnit(string)
+  nameWithType: SizeUnit.implicit operator SizeUnit(string)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.implicit operator RTB.Blazor.Styled.Helper.SizeUnit(string)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Implicit
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 92
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: >-
+    Implicitly parses a CSS size literal (e.g., "12px", "1.5rem", "50%").
+
+    Defaults to pixels if the unit is omitted.
+  example: []
+  syntax:
+    content: public static implicit operator SizeUnit(string literal)
+    parameters:
+    - id: literal
+      type: System.String
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Widening Operator CType(literal As String) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit*
+  exceptions:
+  - type: System.FormatException
+    commentId: T:System.FormatException
+    description: Thrown when the literal is not recognized.
+  nameWithType.vb: SizeUnit.CType(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.CType(String)
+  name.vb: CType(String)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit(RTB.Blazor.Styled.Helper.SizeUnit)~System.String
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit(RTB.Blazor.Styled.Helper.SizeUnit)~System.String
+  id: op_Implicit(RTB.Blazor.Styled.Helper.SizeUnit)~System.String
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: implicit operator string(SizeUnit)
+  nameWithType: SizeUnit.implicit operator string(SizeUnit)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.implicit operator string(RTB.Blazor.Styled.Helper.SizeUnit)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Implicit
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 97
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Implicitly renders a <xref href="RTB.Blazor.Styled.Helper.SizeUnit" data-throw-if-not-resolved="false"></xref> to its CSS string representation.
+  example: []
+  syntax:
+    content: public static implicit operator string(SizeUnit unit)
+    parameters:
+    - id: unit
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    return:
+      type: System.String
+    content.vb: Public Shared Widening Operator CType(unit As SizeUnit) As String
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit*
+  nameWithType.vb: SizeUnit.CType(SizeUnit)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.CType(RTB.Blazor.Styled.Helper.SizeUnit)
+  name.vb: CType(SizeUnit)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  id: op_Multiply(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator *(SizeUnit, int)
+  nameWithType: SizeUnit.operator *(SizeUnit, int)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator *(RTB.Blazor.Styled.Helper.SizeUnit, int)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Multiply
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 102
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Multiplies a size by an integer, preserving the unit.
+  example: []
+  syntax:
+    content: public static SizeUnit operator *(SizeUnit a, int b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    - id: b
+      type: System.Int32
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator *(a As SizeUnit, b As Integer) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply*
+  nameWithType.vb: SizeUnit.*(SizeUnit, Integer)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.*(RTB.Blazor.Styled.Helper.SizeUnit, Integer)
+  name.vb: '*(SizeUnit, Integer)'
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  id: op_Multiply(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator *(int, SizeUnit)
+  nameWithType: SizeUnit.operator *(int, SizeUnit)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator *(int, RTB.Blazor.Styled.Helper.SizeUnit)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Multiply
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 107
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Multiplies a size by an integer, preserving the unit.
+  example: []
+  syntax:
+    content: public static SizeUnit operator *(int a, SizeUnit b)
+    parameters:
+    - id: a
+      type: System.Int32
+    - id: b
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator *(a As Integer, b As SizeUnit) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply*
+  nameWithType.vb: SizeUnit.*(Integer, SizeUnit)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.*(Integer, RTB.Blazor.Styled.Helper.SizeUnit)
+  name.vb: '*(Integer, SizeUnit)'
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  id: op_Multiply(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator *(SizeUnit, double)
+  nameWithType: SizeUnit.operator *(SizeUnit, double)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator *(RTB.Blazor.Styled.Helper.SizeUnit, double)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Multiply
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 112
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Multiplies a size by a double, preserving the unit.
+  example: []
+  syntax:
+    content: public static SizeUnit operator *(SizeUnit a, double b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    - id: b
+      type: System.Double
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator *(a As SizeUnit, b As Double) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply*
+  nameWithType.vb: SizeUnit.*(SizeUnit, Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.*(RTB.Blazor.Styled.Helper.SizeUnit, Double)
+  name.vb: '*(SizeUnit, Double)'
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  id: op_Multiply(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator *(double, SizeUnit)
+  nameWithType: SizeUnit.operator *(double, SizeUnit)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator *(double, RTB.Blazor.Styled.Helper.SizeUnit)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Multiply
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 117
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Multiplies a size by a double, preserving the unit.
+  example: []
+  syntax:
+    content: public static SizeUnit operator *(double a, SizeUnit b)
+    parameters:
+    - id: a
+      type: System.Double
+    - id: b
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator *(a As Double, b As SizeUnit) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply*
+  nameWithType.vb: SizeUnit.*(Double, SizeUnit)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.*(Double, RTB.Blazor.Styled.Helper.SizeUnit)
+  name.vb: '*(Double, SizeUnit)'
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  id: op_Multiply(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator *(SizeUnit, SizeUnit)
+  nameWithType: SizeUnit.operator *(SizeUnit, SizeUnit)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator *(RTB.Blazor.Styled.Helper.SizeUnit, RTB.Blazor.Styled.Helper.SizeUnit)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Multiply
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 122
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Multiplies two size expressions, returning a CSS calc() expression.
+  example: []
+  syntax:
+    content: public static SizeExpression operator *(SizeUnit a, SizeUnit b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    - id: b
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeExpression
+    content.vb: Public Shared Operator *(a As SizeUnit, b As SizeUnit) As SizeExpression
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply*
+  nameWithType.vb: SizeUnit.*(SizeUnit, SizeUnit)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.*(RTB.Blazor.Styled.Helper.SizeUnit, RTB.Blazor.Styled.Helper.SizeUnit)
+  name.vb: '*(SizeUnit, SizeUnit)'
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Division(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Division(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  id: op_Division(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator /(SizeUnit, int)
+  nameWithType: SizeUnit.operator /(SizeUnit, int)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator /(RTB.Blazor.Styled.Helper.SizeUnit, int)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Division
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 127
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Divides a size by an integer, preserving the unit.
+  example: []
+  syntax:
+    content: public static SizeUnit operator /(SizeUnit a, int b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    - id: b
+      type: System.Int32
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator /(a As SizeUnit, b As Integer) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Division*
+  nameWithType.vb: SizeUnit./(SizeUnit, Integer)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit./(RTB.Blazor.Styled.Helper.SizeUnit, Integer)
+  name.vb: /(SizeUnit, Integer)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Division(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Division(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  id: op_Division(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator /(int, SizeUnit)
+  nameWithType: SizeUnit.operator /(int, SizeUnit)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator /(int, RTB.Blazor.Styled.Helper.SizeUnit)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Division
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 132
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Divides an integer by a size value, preserving the size unit on the result value.
+  example: []
+  syntax:
+    content: public static SizeUnit operator /(int a, SizeUnit b)
+    parameters:
+    - id: a
+      type: System.Int32
+    - id: b
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator /(a As Integer, b As SizeUnit) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Division*
+  nameWithType.vb: SizeUnit./(Integer, SizeUnit)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit./(Integer, RTB.Blazor.Styled.Helper.SizeUnit)
+  name.vb: /(Integer, SizeUnit)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Division(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Division(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  id: op_Division(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator /(SizeUnit, double)
+  nameWithType: SizeUnit.operator /(SizeUnit, double)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator /(RTB.Blazor.Styled.Helper.SizeUnit, double)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Division
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 137
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Divides a size by a double, preserving the unit.
+  example: []
+  syntax:
+    content: public static SizeUnit operator /(SizeUnit a, double b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    - id: b
+      type: System.Double
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator /(a As SizeUnit, b As Double) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Division*
+  nameWithType.vb: SizeUnit./(SizeUnit, Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit./(RTB.Blazor.Styled.Helper.SizeUnit, Double)
+  name.vb: /(SizeUnit, Double)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Division(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Division(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  id: op_Division(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator /(double, SizeUnit)
+  nameWithType: SizeUnit.operator /(double, SizeUnit)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator /(double, RTB.Blazor.Styled.Helper.SizeUnit)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Division
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 142
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Divides a double by a size value, preserving the size unit on the result value.
+  example: []
+  syntax:
+    content: public static SizeUnit operator /(double a, SizeUnit b)
+    parameters:
+    - id: a
+      type: System.Double
+    - id: b
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator /(a As Double, b As SizeUnit) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Division*
+  nameWithType.vb: SizeUnit./(Double, SizeUnit)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit./(Double, RTB.Blazor.Styled.Helper.SizeUnit)
+  name.vb: /(Double, SizeUnit)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Division(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Division(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  id: op_Division(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator /(SizeUnit, SizeUnit)
+  nameWithType: SizeUnit.operator /(SizeUnit, SizeUnit)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator /(RTB.Blazor.Styled.Helper.SizeUnit, RTB.Blazor.Styled.Helper.SizeUnit)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Division
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 147
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Divides two size expressions, returning a CSS calc() expression.
+  example: []
+  syntax:
+    content: public static SizeExpression operator /(SizeUnit a, SizeUnit b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    - id: b
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeExpression
+    content.vb: Public Shared Operator /(a As SizeUnit, b As SizeUnit) As SizeExpression
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Division*
+  nameWithType.vb: SizeUnit./(SizeUnit, SizeUnit)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit./(RTB.Blazor.Styled.Helper.SizeUnit, RTB.Blazor.Styled.Helper.SizeUnit)
+  name.vb: /(SizeUnit, SizeUnit)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Addition(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Addition(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  id: op_Addition(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator +(SizeUnit, int)
+  nameWithType: SizeUnit.operator +(SizeUnit, int)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator +(RTB.Blazor.Styled.Helper.SizeUnit, int)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Addition
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 152
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Adds a numeric value to a size, preserving the unit.
+  example: []
+  syntax:
+    content: public static SizeUnit operator +(SizeUnit a, int b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    - id: b
+      type: System.Int32
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator +(a As SizeUnit, b As Integer) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Addition*
+  nameWithType.vb: SizeUnit.+(SizeUnit, Integer)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.+(RTB.Blazor.Styled.Helper.SizeUnit, Integer)
+  name.vb: +(SizeUnit, Integer)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Addition(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Addition(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  id: op_Addition(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator +(int, SizeUnit)
+  nameWithType: SizeUnit.operator +(int, SizeUnit)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator +(int, RTB.Blazor.Styled.Helper.SizeUnit)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Addition
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 157
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Adds a numeric value to a size, preserving the unit.
+  example: []
+  syntax:
+    content: public static SizeUnit operator +(int a, SizeUnit b)
+    parameters:
+    - id: a
+      type: System.Int32
+    - id: b
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator +(a As Integer, b As SizeUnit) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Addition*
+  nameWithType.vb: SizeUnit.+(Integer, SizeUnit)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.+(Integer, RTB.Blazor.Styled.Helper.SizeUnit)
+  name.vb: +(Integer, SizeUnit)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Addition(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Addition(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  id: op_Addition(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator +(SizeUnit, double)
+  nameWithType: SizeUnit.operator +(SizeUnit, double)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator +(RTB.Blazor.Styled.Helper.SizeUnit, double)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Addition
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 162
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Adds a numeric value to a size, preserving the unit.
+  example: []
+  syntax:
+    content: public static SizeUnit operator +(SizeUnit a, double b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    - id: b
+      type: System.Double
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator +(a As SizeUnit, b As Double) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Addition*
+  nameWithType.vb: SizeUnit.+(SizeUnit, Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.+(RTB.Blazor.Styled.Helper.SizeUnit, Double)
+  name.vb: +(SizeUnit, Double)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Addition(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Addition(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  id: op_Addition(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator +(double, SizeUnit)
+  nameWithType: SizeUnit.operator +(double, SizeUnit)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator +(double, RTB.Blazor.Styled.Helper.SizeUnit)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Addition
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 167
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Adds a numeric value to a size, preserving the unit.
+  example: []
+  syntax:
+    content: public static SizeUnit operator +(double a, SizeUnit b)
+    parameters:
+    - id: a
+      type: System.Double
+    - id: b
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator +(a As Double, b As SizeUnit) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Addition*
+  nameWithType.vb: SizeUnit.+(Double, SizeUnit)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.+(Double, RTB.Blazor.Styled.Helper.SizeUnit)
+  name.vb: +(Double, SizeUnit)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Addition(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Addition(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  id: op_Addition(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator +(SizeUnit, SizeUnit)
+  nameWithType: SizeUnit.operator +(SizeUnit, SizeUnit)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator +(RTB.Blazor.Styled.Helper.SizeUnit, RTB.Blazor.Styled.Helper.SizeUnit)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Addition
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 172
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Adds two size expressions, returning a CSS calc() expression.
+  example: []
+  syntax:
+    content: public static SizeExpression operator +(SizeUnit a, SizeUnit b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    - id: b
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeExpression
+    content.vb: Public Shared Operator +(a As SizeUnit, b As SizeUnit) As SizeExpression
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Addition*
+  nameWithType.vb: SizeUnit.+(SizeUnit, SizeUnit)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.+(RTB.Blazor.Styled.Helper.SizeUnit, RTB.Blazor.Styled.Helper.SizeUnit)
+  name.vb: +(SizeUnit, SizeUnit)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  id: op_Subtraction(RTB.Blazor.Styled.Helper.SizeUnit,System.Int32)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator -(SizeUnit, int)
+  nameWithType: SizeUnit.operator -(SizeUnit, int)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator -(RTB.Blazor.Styled.Helper.SizeUnit, int)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Subtraction
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 177
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Subtracts a numeric value from a size, preserving the unit.
+  example: []
+  syntax:
+    content: public static SizeUnit operator -(SizeUnit a, int b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    - id: b
+      type: System.Int32
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator -(a As SizeUnit, b As Integer) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction*
+  nameWithType.vb: SizeUnit.-(SizeUnit, Integer)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.-(RTB.Blazor.Styled.Helper.SizeUnit, Integer)
+  name.vb: -(SizeUnit, Integer)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  id: op_Subtraction(System.Int32,RTB.Blazor.Styled.Helper.SizeUnit)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator -(int, SizeUnit)
+  nameWithType: SizeUnit.operator -(int, SizeUnit)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator -(int, RTB.Blazor.Styled.Helper.SizeUnit)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Subtraction
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 182
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Subtracts a size value from a numeric value, preserving the size unit on the result value.
+  example: []
+  syntax:
+    content: public static SizeUnit operator -(int a, SizeUnit b)
+    parameters:
+    - id: a
+      type: System.Int32
+    - id: b
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator -(a As Integer, b As SizeUnit) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction*
+  nameWithType.vb: SizeUnit.-(Integer, SizeUnit)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.-(Integer, RTB.Blazor.Styled.Helper.SizeUnit)
+  name.vb: -(Integer, SizeUnit)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  id: op_Subtraction(RTB.Blazor.Styled.Helper.SizeUnit,System.Double)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator -(SizeUnit, double)
+  nameWithType: SizeUnit.operator -(SizeUnit, double)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator -(RTB.Blazor.Styled.Helper.SizeUnit, double)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Subtraction
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 187
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Subtracts a numeric value from a size, preserving the unit.
+  example: []
+  syntax:
+    content: public static SizeUnit operator -(SizeUnit a, double b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    - id: b
+      type: System.Double
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator -(a As SizeUnit, b As Double) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction*
+  nameWithType.vb: SizeUnit.-(SizeUnit, Double)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.-(RTB.Blazor.Styled.Helper.SizeUnit, Double)
+  name.vb: -(SizeUnit, Double)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  id: op_Subtraction(System.Double,RTB.Blazor.Styled.Helper.SizeUnit)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator -(double, SizeUnit)
+  nameWithType: SizeUnit.operator -(double, SizeUnit)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator -(double, RTB.Blazor.Styled.Helper.SizeUnit)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Subtraction
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 192
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Subtracts a size value from a numeric value, preserving the size unit on the result value.
+  example: []
+  syntax:
+    content: public static SizeUnit operator -(double a, SizeUnit b)
+    parameters:
+    - id: a
+      type: System.Double
+    - id: b
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    content.vb: Public Shared Operator -(a As Double, b As SizeUnit) As SizeUnit
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction*
+  nameWithType.vb: SizeUnit.-(Double, SizeUnit)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.-(Double, RTB.Blazor.Styled.Helper.SizeUnit)
+  name.vb: -(Double, SizeUnit)
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  commentId: M:RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  id: op_Subtraction(RTB.Blazor.Styled.Helper.SizeUnit,RTB.Blazor.Styled.Helper.SizeUnit)
+  parent: RTB.Blazor.Styled.Helper.SizeUnit
+  langs:
+  - csharp
+  - vb
+  name: operator -(SizeUnit, SizeUnit)
+  nameWithType: SizeUnit.operator -(SizeUnit, SizeUnit)
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator -(RTB.Blazor.Styled.Helper.SizeUnit, RTB.Blazor.Styled.Helper.SizeUnit)
+  type: Operator
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SizeUnit.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: op_Subtraction
+    path: ../src/RTB.Styled/Helper/SizeUnit.cs
+    startLine: 197
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Subtracts two size expressions, returning a CSS calc() expression.
+  example: []
+  syntax:
+    content: public static SizeExpression operator -(SizeUnit a, SizeUnit b)
+    parameters:
+    - id: a
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    - id: b
+      type: RTB.Blazor.Styled.Helper.SizeUnit
+    return:
+      type: RTB.Blazor.Styled.Helper.SizeExpression
+    content.vb: Public Shared Operator -(a As SizeUnit, b As SizeUnit) As SizeExpression
+  overload: RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction*
+  nameWithType.vb: SizeUnit.-(SizeUnit, SizeUnit)
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.-(RTB.Blazor.Styled.Helper.SizeUnit, RTB.Blazor.Styled.Helper.SizeUnit)
+  name.vb: -(SizeUnit, SizeUnit)
+references:
+- uid: RTB.Blazor.Styled.Helper.SizeUnit
+  commentId: T:RTB.Blazor.Styled.Helper.SizeUnit
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html
+  name: SizeUnit
+  nameWithType: SizeUnit
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit
+- uid: RTB.Blazor.Styled.Helper.SizeExpression
+  commentId: T:RTB.Blazor.Styled.Helper.SizeExpression
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.SizeExpression.html
+  name: SizeExpression
+  nameWithType: SizeExpression
+  fullName: RTB.Blazor.Styled.Helper.SizeExpression
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: System.ValueType.Equals(System.Object)
+  commentId: M:System.ValueType.Equals(System.Object)
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  name: Equals(object)
+  nameWithType: ValueType.Equals(object)
+  fullName: System.ValueType.Equals(object)
+  nameWithType.vb: ValueType.Equals(Object)
+  fullName.vb: System.ValueType.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType.GetHashCode
+  commentId: M:System.ValueType.GetHashCode
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  name: GetHashCode()
+  nameWithType: ValueType.GetHashCode()
+  fullName: System.ValueType.GetHashCode()
+  spec.csharp:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.ValueType
+  commentId: T:System.ValueType
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype
+  name: ValueType
+  nameWithType: ValueType
+  fullName: System.ValueType
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.#ctor*
+  commentId: Overload:RTB.Blazor.Styled.Helper.SizeUnit.#ctor
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit__ctor_System_Double_RTB_Blazor_Styled_Helper_Unit_
+  name: SizeUnit
+  nameWithType: SizeUnit.SizeUnit
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.SizeUnit
+  nameWithType.vb: SizeUnit.New
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.New
+  name.vb: New
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: RTB.Blazor.Styled.Helper.Unit
+  commentId: T:RTB.Blazor.Styled.Helper.Unit
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.Unit.html
+  name: Unit
+  nameWithType: Unit
+  fullName: RTB.Blazor.Styled.Helper.Unit
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Value*
+  commentId: Overload:RTB.Blazor.Styled.Helper.SizeUnit.Value
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_Value
+  name: Value
+  nameWithType: SizeUnit.Value
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Value
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Unit*
+  commentId: Overload:RTB.Blazor.Styled.Helper.SizeUnit.Unit
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_Unit
+  name: Unit
+  nameWithType: SizeUnit.Unit
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Unit
+- uid: System.ValueType.ToString
+  commentId: M:System.ValueType.ToString
+  parent: System.ValueType
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  name: ToString()
+  nameWithType: ValueType.ToString()
+  fullName: System.ValueType.ToString()
+  spec.csharp:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.ValueType.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.valuetype.tostring
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.ToString*
+  commentId: Overload:RTB.Blazor.Styled.Helper.SizeUnit.ToString
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_ToString
+  name: ToString
+  nameWithType: SizeUnit.ToString
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Px*
+  commentId: Overload:RTB.Blazor.Styled.Helper.SizeUnit.Px
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_Px_System_Double_
+  name: Px
+  nameWithType: SizeUnit.Px
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Px
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Rem*
+  commentId: Overload:RTB.Blazor.Styled.Helper.SizeUnit.Rem
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_Rem_System_Double_
+  name: Rem
+  nameWithType: SizeUnit.Rem
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Rem
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Em*
+  commentId: Overload:RTB.Blazor.Styled.Helper.SizeUnit.Em
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_Em_System_Double_
+  name: Em
+  nameWithType: SizeUnit.Em
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Em
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Percent*
+  commentId: Overload:RTB.Blazor.Styled.Helper.SizeUnit.Percent
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_Percent_System_Double_
+  name: Percent
+  nameWithType: SizeUnit.Percent
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Percent
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Vw*
+  commentId: Overload:RTB.Blazor.Styled.Helper.SizeUnit.Vw
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_Vw_System_Double_
+  name: Vw
+  nameWithType: SizeUnit.Vw
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Vw
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.Vh*
+  commentId: Overload:RTB.Blazor.Styled.Helper.SizeUnit.Vh
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_Vh_System_Double_
+  name: Vh
+  nameWithType: SizeUnit.Vh
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.Vh
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit*
+  commentId: Overload:RTB.Blazor.Styled.Helper.SizeUnit.op_Implicit
+  name: implicit operator
+  nameWithType: SizeUnit.implicit operator
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.implicit operator
+  nameWithType.vb: SizeUnit.CType
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.CType
+  name.vb: CType
+  spec.csharp:
+  - name: implicit
+  - name: " "
+  - name: operator
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.FormatException
+  commentId: T:System.FormatException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.formatexception
+  name: FormatException
+  nameWithType: FormatException
+  fullName: System.FormatException
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply*
+  commentId: Overload:RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_op_Multiply_RTB_Blazor_Styled_Helper_SizeUnit_System_Int32_
+  name: operator *
+  nameWithType: SizeUnit.operator *
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator *
+  nameWithType.vb: SizeUnit.*
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.*
+  name.vb: '*'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Multiply*
+    name: '*'
+    href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_op_Multiply_RTB_Blazor_Styled_Helper_SizeUnit_System_Int32_
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Division*
+  commentId: Overload:RTB.Blazor.Styled.Helper.SizeUnit.op_Division
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_op_Division_RTB_Blazor_Styled_Helper_SizeUnit_System_Int32_
+  name: operator /
+  nameWithType: SizeUnit.operator /
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator /
+  nameWithType.vb: SizeUnit./
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit./
+  name.vb: /
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Division*
+    name: /
+    href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_op_Division_RTB_Blazor_Styled_Helper_SizeUnit_System_Int32_
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Addition*
+  commentId: Overload:RTB.Blazor.Styled.Helper.SizeUnit.op_Addition
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_op_Addition_RTB_Blazor_Styled_Helper_SizeUnit_System_Int32_
+  name: operator +
+  nameWithType: SizeUnit.operator +
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator +
+  nameWithType.vb: SizeUnit.+
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.+
+  name.vb: +
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Addition*
+    name: +
+    href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_op_Addition_RTB_Blazor_Styled_Helper_SizeUnit_System_Int32_
+- uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction*
+  commentId: Overload:RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_op_Subtraction_RTB_Blazor_Styled_Helper_SizeUnit_System_Int32_
+  name: operator -
+  nameWithType: SizeUnit.operator -
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit.operator -
+  nameWithType.vb: SizeUnit.-
+  fullName.vb: RTB.Blazor.Styled.Helper.SizeUnit.-
+  name.vb: '-'
+  spec.csharp:
+  - name: operator
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.SizeUnit.op_Subtraction*
+    name: '-'
+    href: RTB.Blazor.Styled.Helper.SizeUnit.html#RTB_Blazor_Styled_Helper_SizeUnit_op_Subtraction_RTB_Blazor_Styled_Helper_SizeUnit_System_Int32_

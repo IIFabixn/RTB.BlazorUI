@@ -1,0 +1,537 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Core.KeyframeFrame
+  commentId: T:RTB.Blazor.Styled.Core.KeyframeFrame
+  id: KeyframeFrame
+  parent: RTB.Blazor.Styled.Core
+  children:
+  - RTB.Blazor.Styled.Core.KeyframeFrame.#ctor(System.String)
+  - RTB.Blazor.Styled.Core.KeyframeFrame.Declarations
+  - RTB.Blazor.Styled.Core.KeyframeFrame.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  - RTB.Blazor.Styled.Core.KeyframeFrame.Offset
+  langs:
+  - csharp
+  - vb
+  name: KeyframeFrame
+  nameWithType: KeyframeFrame
+  fullName: RTB.Blazor.Styled.Core.KeyframeFrame
+  type: Class
+  source:
+    remote:
+      path: src/RTB.Styled/Core/KeyFrames.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: KeyframeFrame
+    path: ../src/RTB.Styled/Core/KeyFrames.cs
+    startLine: 71
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Represents a single frame within a <code>@keyframes</code> rule.
+  remarks: >-
+    The <xref href="RTB.Blazor.Styled.Core.KeyframeFrame.Offset" data-throw-if-not-resolved="false"></xref> should be a valid CSS keyframe selector such as <code>"from"</code>, <code>"to"</code>, or a percentage like <code>"0%"</code>, <code>"50%"</code>, <code>"100%"</code>.
+
+    If <xref href="RTB.Blazor.Styled.Core.KeyframeFrame.Declarations" data-throw-if-not-resolved="false"></xref> is empty, this frame is not emitted.
+  example: []
+  syntax:
+    content: 'public sealed class KeyframeFrame : IStyleFragment'
+    content.vb: Public NotInheritable Class KeyframeFrame Implements IStyleFragment
+  inheritance:
+  - System.Object
+  implements:
+  - RTB.Blazor.Styled.Core.IStyleFragment
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RTB.Blazor.Styled.Core.KeyframeFrame.Offset
+  commentId: P:RTB.Blazor.Styled.Core.KeyframeFrame.Offset
+  id: Offset
+  parent: RTB.Blazor.Styled.Core.KeyframeFrame
+  langs:
+  - csharp
+  - vb
+  name: Offset
+  nameWithType: KeyframeFrame.Offset
+  fullName: RTB.Blazor.Styled.Core.KeyframeFrame.Offset
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Core/KeyFrames.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Offset
+    path: ../src/RTB.Styled/Core/KeyFrames.cs
+    startLine: 76
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: The keyframe offset selector (e.g., <code>"0%"</code>, <code>"50%"</code>, <code>"100%"</code>, <code>"from"</code>, or <code>"to"</code>).
+  example: []
+  syntax:
+    content: public string Offset { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Offset As String
+  overload: RTB.Blazor.Styled.Core.KeyframeFrame.Offset*
+- uid: RTB.Blazor.Styled.Core.KeyframeFrame.Declarations
+  commentId: P:RTB.Blazor.Styled.Core.KeyframeFrame.Declarations
+  id: Declarations
+  parent: RTB.Blazor.Styled.Core.KeyframeFrame
+  langs:
+  - csharp
+  - vb
+  name: Declarations
+  nameWithType: KeyframeFrame.Declarations
+  fullName: RTB.Blazor.Styled.Core.KeyframeFrame.Declarations
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Core/KeyFrames.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Declarations
+    path: ../src/RTB.Styled/Core/KeyFrames.cs
+    startLine: 84
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: The set of CSS declarations for this frame.
+  remarks: Declarations are emitted in the enumeration order of the underlying set.
+  example: []
+  syntax:
+    content: public DeclarationSet Declarations { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Core.DeclarationSet
+    content.vb: Public ReadOnly Property Declarations As DeclarationSet
+  overload: RTB.Blazor.Styled.Core.KeyframeFrame.Declarations*
+- uid: RTB.Blazor.Styled.Core.KeyframeFrame.#ctor(System.String)
+  commentId: M:RTB.Blazor.Styled.Core.KeyframeFrame.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: RTB.Blazor.Styled.Core.KeyframeFrame
+  langs:
+  - csharp
+  - vb
+  name: KeyframeFrame(string)
+  nameWithType: KeyframeFrame.KeyframeFrame(string)
+  fullName: RTB.Blazor.Styled.Core.KeyframeFrame.KeyframeFrame(string)
+  type: Constructor
+  source:
+    remote:
+      path: src/RTB.Styled/Core/KeyFrames.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: .ctor
+    path: ../src/RTB.Styled/Core/KeyFrames.cs
+    startLine: 90
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Creates a new <xref href="RTB.Blazor.Styled.Core.KeyframeFrame" data-throw-if-not-resolved="false"></xref> for the specified offset.
+  example: []
+  syntax:
+    content: public KeyframeFrame(string offset)
+    parameters:
+    - id: offset
+      type: System.String
+      description: The keyframe offset (not validated).
+    content.vb: Public Sub New(offset As String)
+  overload: RTB.Blazor.Styled.Core.KeyframeFrame.#ctor*
+  nameWithType.vb: KeyframeFrame.New(String)
+  fullName.vb: RTB.Blazor.Styled.Core.KeyframeFrame.New(String)
+  name.vb: New(String)
+- uid: RTB.Blazor.Styled.Core.KeyframeFrame.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  commentId: M:RTB.Blazor.Styled.Core.KeyframeFrame.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  id: Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  parent: RTB.Blazor.Styled.Core.KeyframeFrame
+  langs:
+  - csharp
+  - vb
+  name: Emit(ScopedWriter)
+  nameWithType: KeyframeFrame.Emit(ScopedWriter)
+  fullName: RTB.Blazor.Styled.Core.KeyframeFrame.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Core/KeyFrames.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Emit
+    path: ../src/RTB.Styled/Core/KeyFrames.cs
+    startLine: 99
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Emits this frame's declarations to the provided writer.
+  remarks: Takes a snapshot of <xref href="RTB.Blazor.Styled.Core.KeyframeFrame.Declarations" data-throw-if-not-resolved="false"></xref> to avoid issues if the set is modified during iteration.
+  example: []
+  syntax:
+    content: public void Emit(ScopedWriter w)
+    parameters:
+    - id: w
+      type: RTB.Blazor.Styled.Core.ScopedWriter
+      description: The scoped writer to receive CSS output.
+    content.vb: Public Sub Emit(w As ScopedWriter)
+  overload: RTB.Blazor.Styled.Core.KeyframeFrame.Emit*
+  implements:
+  - RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+references:
+- uid: RTB.Blazor.Styled.Core.KeyframeFrame.Offset
+  commentId: P:RTB.Blazor.Styled.Core.KeyframeFrame.Offset
+  href: RTB.Blazor.Styled.Core.KeyframeFrame.html#RTB_Blazor_Styled_Core_KeyframeFrame_Offset
+  name: Offset
+  nameWithType: KeyframeFrame.Offset
+  fullName: RTB.Blazor.Styled.Core.KeyframeFrame.Offset
+- uid: RTB.Blazor.Styled.Core.KeyframeFrame.Declarations
+  commentId: P:RTB.Blazor.Styled.Core.KeyframeFrame.Declarations
+  href: RTB.Blazor.Styled.Core.KeyframeFrame.html#RTB_Blazor_Styled_Core_KeyframeFrame_Declarations
+  name: Declarations
+  nameWithType: KeyframeFrame.Declarations
+  fullName: RTB.Blazor.Styled.Core.KeyframeFrame.Declarations
+- uid: RTB.Blazor.Styled.Core
+  commentId: N:RTB.Blazor.Styled.Core
+  href: RTB.html
+  name: RTB.Blazor.Styled.Core
+  nameWithType: RTB.Blazor.Styled.Core
+  fullName: RTB.Blazor.Styled.Core
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RTB.Blazor.Styled.Core.IStyleFragment
+  commentId: T:RTB.Blazor.Styled.Core.IStyleFragment
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.IStyleFragment.html
+  name: IStyleFragment
+  nameWithType: IStyleFragment
+  fullName: RTB.Blazor.Styled.Core.IStyleFragment
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RTB.Blazor.Styled.Core.KeyframeFrame.Offset*
+  commentId: Overload:RTB.Blazor.Styled.Core.KeyframeFrame.Offset
+  href: RTB.Blazor.Styled.Core.KeyframeFrame.html#RTB_Blazor_Styled_Core_KeyframeFrame_Offset
+  name: Offset
+  nameWithType: KeyframeFrame.Offset
+  fullName: RTB.Blazor.Styled.Core.KeyframeFrame.Offset
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RTB.Blazor.Styled.Core.KeyframeFrame.Declarations*
+  commentId: Overload:RTB.Blazor.Styled.Core.KeyframeFrame.Declarations
+  href: RTB.Blazor.Styled.Core.KeyframeFrame.html#RTB_Blazor_Styled_Core_KeyframeFrame_Declarations
+  name: Declarations
+  nameWithType: KeyframeFrame.Declarations
+  fullName: RTB.Blazor.Styled.Core.KeyframeFrame.Declarations
+- uid: RTB.Blazor.Styled.Core.DeclarationSet
+  commentId: T:RTB.Blazor.Styled.Core.DeclarationSet
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.DeclarationSet.html
+  name: DeclarationSet
+  nameWithType: DeclarationSet
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet
+- uid: RTB.Blazor.Styled.Core.KeyframeFrame
+  commentId: T:RTB.Blazor.Styled.Core.KeyframeFrame
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.KeyframeFrame.html
+  name: KeyframeFrame
+  nameWithType: KeyframeFrame
+  fullName: RTB.Blazor.Styled.Core.KeyframeFrame
+- uid: RTB.Blazor.Styled.Core.KeyframeFrame.#ctor*
+  commentId: Overload:RTB.Blazor.Styled.Core.KeyframeFrame.#ctor
+  href: RTB.Blazor.Styled.Core.KeyframeFrame.html#RTB_Blazor_Styled_Core_KeyframeFrame__ctor_System_String_
+  name: KeyframeFrame
+  nameWithType: KeyframeFrame.KeyframeFrame
+  fullName: RTB.Blazor.Styled.Core.KeyframeFrame.KeyframeFrame
+  nameWithType.vb: KeyframeFrame.New
+  fullName.vb: RTB.Blazor.Styled.Core.KeyframeFrame.New
+  name.vb: New
+- uid: RTB.Blazor.Styled.Core.KeyframeFrame.Emit*
+  commentId: Overload:RTB.Blazor.Styled.Core.KeyframeFrame.Emit
+  href: RTB.Blazor.Styled.Core.KeyframeFrame.html#RTB_Blazor_Styled_Core_KeyframeFrame_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  name: Emit
+  nameWithType: KeyframeFrame.Emit
+  fullName: RTB.Blazor.Styled.Core.KeyframeFrame.Emit
+- uid: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  commentId: M:RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  parent: RTB.Blazor.Styled.Core.IStyleFragment
+  href: RTB.Blazor.Styled.Core.IStyleFragment.html#RTB_Blazor_Styled_Core_IStyleFragment_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  name: Emit(ScopedWriter)
+  nameWithType: IStyleFragment.Emit(ScopedWriter)
+  fullName: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+    name: Emit
+    href: RTB.Blazor.Styled.Core.IStyleFragment.html#RTB_Blazor_Styled_Core_IStyleFragment_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter
+    name: ScopedWriter
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+    name: Emit
+    href: RTB.Blazor.Styled.Core.IStyleFragment.html#RTB_Blazor_Styled_Core_IStyleFragment_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter
+    name: ScopedWriter
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  - name: )
+- uid: RTB.Blazor.Styled.Core.ScopedWriter
+  commentId: T:RTB.Blazor.Styled.Core.ScopedWriter
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  name: ScopedWriter
+  nameWithType: ScopedWriter
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter

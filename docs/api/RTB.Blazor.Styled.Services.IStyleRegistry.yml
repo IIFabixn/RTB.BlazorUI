@@ -1,0 +1,406 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Services.IStyleRegistry
+  commentId: T:RTB.Blazor.Styled.Services.IStyleRegistry
+  id: IStyleRegistry
+  parent: RTB.Blazor.Styled.Services
+  children:
+  - RTB.Blazor.Styled.Services.IStyleRegistry.Acquire(System.String)
+  - RTB.Blazor.Styled.Services.IStyleRegistry.ClearAll
+  - RTB.Blazor.Styled.Services.IStyleRegistry.GenerateClassName(System.String)
+  - RTB.Blazor.Styled.Services.IStyleRegistry.Release(System.String)
+  - RTB.Blazor.Styled.Services.IStyleRegistry.UpsertScopedAsync(System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: IStyleRegistry
+  nameWithType: IStyleRegistry
+  fullName: RTB.Blazor.Styled.Services.IStyleRegistry
+  type: Interface
+  source:
+    remote:
+      path: src/RTB.Styled/Services/StyleRegistry.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: IStyleRegistry
+    path: ../src/RTB.Styled/Services/StyleRegistry.cs
+    startLine: 11
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Services
+  summary: Registry for scoped CSS
+  example: []
+  syntax:
+    content: public interface IStyleRegistry
+    content.vb: Public Interface IStyleRegistry
+- uid: RTB.Blazor.Styled.Services.IStyleRegistry.Acquire(System.String)
+  commentId: M:RTB.Blazor.Styled.Services.IStyleRegistry.Acquire(System.String)
+  id: Acquire(System.String)
+  parent: RTB.Blazor.Styled.Services.IStyleRegistry
+  langs:
+  - csharp
+  - vb
+  name: Acquire(string?)
+  nameWithType: IStyleRegistry.Acquire(string?)
+  fullName: RTB.Blazor.Styled.Services.IStyleRegistry.Acquire(string?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Services/StyleRegistry.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Acquire
+    path: ../src/RTB.Styled/Services/StyleRegistry.cs
+    startLine: 14
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Services
+  summary: Acquire (or create) a stable class name. If null, a GUID-based name is generated.
+  example: []
+  syntax:
+    content: string Acquire(string? preferredClassName = null)
+    parameters:
+    - id: preferredClassName
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Function Acquire(preferredClassName As String = Nothing) As String
+  overload: RTB.Blazor.Styled.Services.IStyleRegistry.Acquire*
+  nameWithType.vb: IStyleRegistry.Acquire(String)
+  fullName.vb: RTB.Blazor.Styled.Services.IStyleRegistry.Acquire(String)
+  name.vb: Acquire(String)
+- uid: RTB.Blazor.Styled.Services.IStyleRegistry.UpsertScopedAsync(System.String,System.String)
+  commentId: M:RTB.Blazor.Styled.Services.IStyleRegistry.UpsertScopedAsync(System.String,System.String)
+  id: UpsertScopedAsync(System.String,System.String)
+  parent: RTB.Blazor.Styled.Services.IStyleRegistry
+  langs:
+  - csharp
+  - vb
+  name: UpsertScopedAsync(string, string)
+  nameWithType: IStyleRegistry.UpsertScopedAsync(string, string)
+  fullName: RTB.Blazor.Styled.Services.IStyleRegistry.UpsertScopedAsync(string, string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Services/StyleRegistry.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: UpsertScopedAsync
+    path: ../src/RTB.Styled/Services/StyleRegistry.cs
+    startLine: 17
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Services
+  summary: Insert/update the fully-scoped CSS for the class. No-op if CSS unchanged.
+  example: []
+  syntax:
+    content: ValueTask UpsertScopedAsync(string scopedCss, string className)
+    parameters:
+    - id: scopedCss
+      type: System.String
+    - id: className
+      type: System.String
+    return:
+      type: System.Threading.Tasks.ValueTask
+    content.vb: Function UpsertScopedAsync(scopedCss As String, className As String) As ValueTask
+  overload: RTB.Blazor.Styled.Services.IStyleRegistry.UpsertScopedAsync*
+  nameWithType.vb: IStyleRegistry.UpsertScopedAsync(String, String)
+  fullName.vb: RTB.Blazor.Styled.Services.IStyleRegistry.UpsertScopedAsync(String, String)
+  name.vb: UpsertScopedAsync(String, String)
+- uid: RTB.Blazor.Styled.Services.IStyleRegistry.Release(System.String)
+  commentId: M:RTB.Blazor.Styled.Services.IStyleRegistry.Release(System.String)
+  id: Release(System.String)
+  parent: RTB.Blazor.Styled.Services.IStyleRegistry
+  langs:
+  - csharp
+  - vb
+  name: Release(string)
+  nameWithType: IStyleRegistry.Release(string)
+  fullName: RTB.Blazor.Styled.Services.IStyleRegistry.Release(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Services/StyleRegistry.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Release
+    path: ../src/RTB.Styled/Services/StyleRegistry.cs
+    startLine: 20
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Services
+  summary: Release one reference; when it reaches zero, the rules are cleared and the class entry is removed.
+  example: []
+  syntax:
+    content: ValueTask<bool> Release(string className)
+    parameters:
+    - id: className
+      type: System.String
+    return:
+      type: System.Threading.Tasks.ValueTask{System.Boolean}
+    content.vb: Function Release(className As String) As ValueTask(Of Boolean)
+  overload: RTB.Blazor.Styled.Services.IStyleRegistry.Release*
+  nameWithType.vb: IStyleRegistry.Release(String)
+  fullName.vb: RTB.Blazor.Styled.Services.IStyleRegistry.Release(String)
+  name.vb: Release(String)
+- uid: RTB.Blazor.Styled.Services.IStyleRegistry.ClearAll
+  commentId: M:RTB.Blazor.Styled.Services.IStyleRegistry.ClearAll
+  id: ClearAll
+  parent: RTB.Blazor.Styled.Services.IStyleRegistry
+  langs:
+  - csharp
+  - vb
+  name: ClearAll()
+  nameWithType: IStyleRegistry.ClearAll()
+  fullName: RTB.Blazor.Styled.Services.IStyleRegistry.ClearAll()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Services/StyleRegistry.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: ClearAll
+    path: ../src/RTB.Styled/Services/StyleRegistry.cs
+    startLine: 23
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Services
+  summary: Clear all injected styles and reset the registry.
+  example: []
+  syntax:
+    content: ValueTask ClearAll()
+    return:
+      type: System.Threading.Tasks.ValueTask
+    content.vb: Function ClearAll() As ValueTask
+  overload: RTB.Blazor.Styled.Services.IStyleRegistry.ClearAll*
+- uid: RTB.Blazor.Styled.Services.IStyleRegistry.GenerateClassName(System.String)
+  commentId: M:RTB.Blazor.Styled.Services.IStyleRegistry.GenerateClassName(System.String)
+  id: GenerateClassName(System.String)
+  parent: RTB.Blazor.Styled.Services.IStyleRegistry
+  langs:
+  - csharp
+  - vb
+  name: GenerateClassName(string)
+  nameWithType: IStyleRegistry.GenerateClassName(string)
+  fullName: RTB.Blazor.Styled.Services.IStyleRegistry.GenerateClassName(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Services/StyleRegistry.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: GenerateClassName
+    path: ../src/RTB.Styled/Services/StyleRegistry.cs
+    startLine: 26
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Services
+  summary: Helper to generate a short, stable-looking class name.
+  example: []
+  syntax:
+    content: string GenerateClassName(string prefix = "rtb-")
+    parameters:
+    - id: prefix
+      type: System.String
+    return:
+      type: System.String
+    content.vb: Function GenerateClassName(prefix As String = "rtb-") As String
+  overload: RTB.Blazor.Styled.Services.IStyleRegistry.GenerateClassName*
+  nameWithType.vb: IStyleRegistry.GenerateClassName(String)
+  fullName.vb: RTB.Blazor.Styled.Services.IStyleRegistry.GenerateClassName(String)
+  name.vb: GenerateClassName(String)
+references:
+- uid: RTB.Blazor.Styled.Services
+  commentId: N:RTB.Blazor.Styled.Services
+  href: RTB.html
+  name: RTB.Blazor.Styled.Services
+  nameWithType: RTB.Blazor.Styled.Services
+  fullName: RTB.Blazor.Styled.Services
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Services
+    name: Services
+    href: RTB.Blazor.Styled.Services.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Services
+    name: Services
+    href: RTB.Blazor.Styled.Services.html
+- uid: RTB.Blazor.Styled.Services.IStyleRegistry.Acquire*
+  commentId: Overload:RTB.Blazor.Styled.Services.IStyleRegistry.Acquire
+  href: RTB.Blazor.Styled.Services.IStyleRegistry.html#RTB_Blazor_Styled_Services_IStyleRegistry_Acquire_System_String_
+  name: Acquire
+  nameWithType: IStyleRegistry.Acquire
+  fullName: RTB.Blazor.Styled.Services.IStyleRegistry.Acquire
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RTB.Blazor.Styled.Services.IStyleRegistry.UpsertScopedAsync*
+  commentId: Overload:RTB.Blazor.Styled.Services.IStyleRegistry.UpsertScopedAsync
+  href: RTB.Blazor.Styled.Services.IStyleRegistry.html#RTB_Blazor_Styled_Services_IStyleRegistry_UpsertScopedAsync_System_String_System_String_
+  name: UpsertScopedAsync
+  nameWithType: IStyleRegistry.UpsertScopedAsync
+  fullName: RTB.Blazor.Styled.Services.IStyleRegistry.UpsertScopedAsync
+- uid: System.Threading.Tasks.ValueTask
+  commentId: T:System.Threading.Tasks.ValueTask
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask
+  name: ValueTask
+  nameWithType: ValueTask
+  fullName: System.Threading.Tasks.ValueTask
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: RTB.Blazor.Styled.Services.IStyleRegistry.Release*
+  commentId: Overload:RTB.Blazor.Styled.Services.IStyleRegistry.Release
+  href: RTB.Blazor.Styled.Services.IStyleRegistry.html#RTB_Blazor_Styled_Services_IStyleRegistry_Release_System_String_
+  name: Release
+  nameWithType: IStyleRegistry.Release
+  fullName: RTB.Blazor.Styled.Services.IStyleRegistry.Release
+- uid: System.Threading.Tasks.ValueTask{System.Boolean}
+  commentId: T:System.Threading.Tasks.ValueTask{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.ValueTask`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1
+  name: ValueTask<bool>
+  nameWithType: ValueTask<bool>
+  fullName: System.Threading.Tasks.ValueTask<bool>
+  nameWithType.vb: ValueTask(Of Boolean)
+  fullName.vb: System.Threading.Tasks.ValueTask(Of Boolean)
+  name.vb: ValueTask(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.ValueTask`1
+    name: ValueTask
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.ValueTask`1
+    name: ValueTask
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Threading.Tasks.ValueTask`1
+  commentId: T:System.Threading.Tasks.ValueTask`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1
+  name: ValueTask<TResult>
+  nameWithType: ValueTask<TResult>
+  fullName: System.Threading.Tasks.ValueTask<TResult>
+  nameWithType.vb: ValueTask(Of TResult)
+  fullName.vb: System.Threading.Tasks.ValueTask(Of TResult)
+  name.vb: ValueTask(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.ValueTask`1
+    name: ValueTask
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.ValueTask`1
+    name: ValueTask
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: RTB.Blazor.Styled.Services.IStyleRegistry.ClearAll*
+  commentId: Overload:RTB.Blazor.Styled.Services.IStyleRegistry.ClearAll
+  href: RTB.Blazor.Styled.Services.IStyleRegistry.html#RTB_Blazor_Styled_Services_IStyleRegistry_ClearAll
+  name: ClearAll
+  nameWithType: IStyleRegistry.ClearAll
+  fullName: RTB.Blazor.Styled.Services.IStyleRegistry.ClearAll
+- uid: RTB.Blazor.Styled.Services.IStyleRegistry.GenerateClassName*
+  commentId: Overload:RTB.Blazor.Styled.Services.IStyleRegistry.GenerateClassName
+  href: RTB.Blazor.Styled.Services.IStyleRegistry.html#RTB_Blazor_Styled_Services_IStyleRegistry_GenerateClassName_System_String_
+  name: GenerateClassName
+  nameWithType: IStyleRegistry.GenerateClassName
+  fullName: RTB.Blazor.Styled.Services.IStyleRegistry.GenerateClassName

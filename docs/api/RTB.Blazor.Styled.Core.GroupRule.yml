@@ -1,0 +1,732 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Core.GroupRule
+  commentId: T:RTB.Blazor.Styled.Core.GroupRule
+  id: GroupRule
+  parent: RTB.Blazor.Styled.Core
+  children:
+  - RTB.Blazor.Styled.Core.GroupRule.#ctor(System.String,System.String)
+  - RTB.Blazor.Styled.Core.GroupRule.Children
+  - RTB.Blazor.Styled.Core.GroupRule.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  - RTB.Blazor.Styled.Core.GroupRule.Kind
+  - RTB.Blazor.Styled.Core.GroupRule.Prelude
+  langs:
+  - csharp
+  - vb
+  name: GroupRule
+  nameWithType: GroupRule
+  fullName: RTB.Blazor.Styled.Core.GroupRule
+  type: Class
+  source:
+    remote:
+      path: src/RTB.Styled/Core/GroupRule.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: GroupRule
+    path: ../src/RTB.Styled/Core/GroupRule.cs
+    startLine: 21
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: >-
+    Represents a CSS grouping at-rule (e.g., <code>@media</code>, <code>@supports</code>, <code>@container</code>, <code>@layer</code>)
+
+    that wraps child <xref href="RTB.Blazor.Styled.Core.IStyleFragment" data-throw-if-not-resolved="false"></xref> instances inside a single block.
+  remarks: >-
+    - This fragment does not change the current selector scope of the <xref href="RTB.Blazor.Styled.Core.ScopedWriter" data-throw-if-not-resolved="false"></xref>; it only surrounds
+      the emitted children with <code>{ ... }</code> after writing the at-rule header.
+    - If <xref href="RTB.Blazor.Styled.Core.GroupRule.Children" data-throw-if-not-resolved="false"></xref> is empty, <xref href="RTB.Blazor.Styled.Core.GroupRule.Emit(RTB.Blazor.Styled.Core.ScopedWriter)" data-throw-if-not-resolved="false"></xref> writes nothing.
+
+    - No validation or escaping is performed for <xref href="RTB.Blazor.Styled.Core.GroupRule.Kind" data-throw-if-not-resolved="false"></xref> or <xref href="RTB.Blazor.Styled.Core.GroupRule.Prelude" data-throw-if-not-resolved="false"></xref>; callers must supply valid CSS.
+
+    - Whitespace is intentionally minimal to reduce allocations; a single space is inserted between <xref href="RTB.Blazor.Styled.Core.GroupRule.Kind" data-throw-if-not-resolved="false"></xref> and
+      <xref href="RTB.Blazor.Styled.Core.GroupRule.Prelude" data-throw-if-not-resolved="false"></xref> only when <xref href="RTB.Blazor.Styled.Core.GroupRule.Prelude" data-throw-if-not-resolved="false"></xref> is non-empty/non-whitespace.
+    - Output shape (when there are children): <code>{Kind}[ {Prelude}]{{...children...}}</code>
+  example: []
+  syntax:
+    content: 'public sealed class GroupRule : IStyleFragment'
+    content.vb: Public NotInheritable Class GroupRule Implements IStyleFragment
+  inheritance:
+  - System.Object
+  implements:
+  - RTB.Blazor.Styled.Core.IStyleFragment
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RTB.Blazor.Styled.Core.GroupRule.Kind
+  commentId: P:RTB.Blazor.Styled.Core.GroupRule.Kind
+  id: Kind
+  parent: RTB.Blazor.Styled.Core.GroupRule
+  langs:
+  - csharp
+  - vb
+  name: Kind
+  nameWithType: GroupRule.Kind
+  fullName: RTB.Blazor.Styled.Core.GroupRule.Kind
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Core/GroupRule.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Kind
+    path: ../src/RTB.Styled/Core/GroupRule.cs
+    startLine: 29
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Gets the at-rule keyword including the leading <code>@</code> (e.g., <code>"@media"</code>, <code>"@supports"</code>, <code>"@container"</code>, <code>"@layer"</code>).
+  remarks: This value is not validated; any string will be written as-is.
+  example: []
+  syntax:
+    content: public string Kind { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Kind As String
+  overload: RTB.Blazor.Styled.Core.GroupRule.Kind*
+- uid: RTB.Blazor.Styled.Core.GroupRule.Prelude
+  commentId: P:RTB.Blazor.Styled.Core.GroupRule.Prelude
+  id: Prelude
+  parent: RTB.Blazor.Styled.Core.GroupRule
+  langs:
+  - csharp
+  - vb
+  name: Prelude
+  nameWithType: GroupRule.Prelude
+  fullName: RTB.Blazor.Styled.Core.GroupRule.Prelude
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Core/GroupRule.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Prelude
+    path: ../src/RTB.Styled/Core/GroupRule.cs
+    startLine: 39
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: >-
+    Gets the at-rule prelude (the text following the at-keyword), such as
+
+    <code>screen and (min-width: 992px)</code> for a media query.
+  remarks: >-
+    Never null; if a null value is provided to the constructor it is normalized to <xref href="System.String.Empty" data-throw-if-not-resolved="false"></xref>.
+
+    When empty or whitespace, no leading space is written between <xref href="RTB.Blazor.Styled.Core.GroupRule.Kind" data-throw-if-not-resolved="false"></xref> and the opening brace.
+  example: []
+  syntax:
+    content: public string Prelude { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Prelude As String
+  overload: RTB.Blazor.Styled.Core.GroupRule.Prelude*
+- uid: RTB.Blazor.Styled.Core.GroupRule.Children
+  commentId: P:RTB.Blazor.Styled.Core.GroupRule.Children
+  id: Children
+  parent: RTB.Blazor.Styled.Core.GroupRule
+  langs:
+  - csharp
+  - vb
+  name: Children
+  nameWithType: GroupRule.Children
+  fullName: RTB.Blazor.Styled.Core.GroupRule.Children
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Core/GroupRule.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Children
+    path: ../src/RTB.Styled/Core/GroupRule.cs
+    startLine: 47
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Gets the child fragments to be emitted inside the group rule block, in order.
+  remarks: Never null. If the collection is empty, nothing is emitted.
+  example: []
+  syntax:
+    content: public List<IStyleFragment> Children { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{RTB.Blazor.Styled.Core.IStyleFragment}
+    content.vb: Public ReadOnly Property Children As List(Of IStyleFragment)
+  overload: RTB.Blazor.Styled.Core.GroupRule.Children*
+- uid: RTB.Blazor.Styled.Core.GroupRule.#ctor(System.String,System.String)
+  commentId: M:RTB.Blazor.Styled.Core.GroupRule.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: RTB.Blazor.Styled.Core.GroupRule
+  langs:
+  - csharp
+  - vb
+  name: GroupRule(string, string)
+  nameWithType: GroupRule.GroupRule(string, string)
+  fullName: RTB.Blazor.Styled.Core.GroupRule.GroupRule(string, string)
+  type: Constructor
+  source:
+    remote:
+      path: src/RTB.Styled/Core/GroupRule.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: .ctor
+    path: ../src/RTB.Styled/Core/GroupRule.cs
+    startLine: 54
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Initializes a new <xref href="RTB.Blazor.Styled.Core.GroupRule" data-throw-if-not-resolved="false"></xref> with the specified at-rule <code class="paramref">kind</code> and <code class="paramref">prelude</code>.
+  example: []
+  syntax:
+    content: public GroupRule(string kind, string prelude)
+    parameters:
+    - id: kind
+      type: System.String
+      description: The at-rule keyword including the leading <code>@</code> (e.g., <code>"@media"</code>).
+    - id: prelude
+      type: System.String
+      description: The text following the at-keyword. May be null; null is treated as <xref href="System.String.Empty" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(kind As String, prelude As String)
+  overload: RTB.Blazor.Styled.Core.GroupRule.#ctor*
+  nameWithType.vb: GroupRule.New(String, String)
+  fullName.vb: RTB.Blazor.Styled.Core.GroupRule.New(String, String)
+  name.vb: New(String, String)
+- uid: RTB.Blazor.Styled.Core.GroupRule.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  commentId: M:RTB.Blazor.Styled.Core.GroupRule.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  id: Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  parent: RTB.Blazor.Styled.Core.GroupRule
+  langs:
+  - csharp
+  - vb
+  name: Emit(ScopedWriter)
+  nameWithType: GroupRule.Emit(ScopedWriter)
+  fullName: RTB.Blazor.Styled.Core.GroupRule.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Core/GroupRule.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Emit
+    path: ../src/RTB.Styled/Core/GroupRule.cs
+    startLine: 69
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Core
+  summary: Emits the group rule and its children to the provided <xref href="RTB.Blazor.Styled.Core.ScopedWriter" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    - If there are no children, the method returns without writing anything.
+
+    - Writes the at-rule header (<xref href="RTB.Blazor.Styled.Core.GroupRule.Kind" data-throw-if-not-resolved="false"></xref> and optional <xref href="RTB.Blazor.Styled.Core.GroupRule.Prelude" data-throw-if-not-resolved="false"></xref>) followed by a brace-enclosed block.
+
+    - Each child is emitted in sequence within the same selector scope as the caller.
+
+    - No validation or escaping is performed.
+  example: []
+  syntax:
+    content: public void Emit(ScopedWriter w)
+    parameters:
+    - id: w
+      type: RTB.Blazor.Styled.Core.ScopedWriter
+      description: The writer that accumulates CSS and maintains selector scope. Must be non-null.
+    content.vb: Public Sub Emit(w As ScopedWriter)
+  overload: RTB.Blazor.Styled.Core.GroupRule.Emit*
+  implements:
+  - RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+references:
+- uid: RTB.Blazor.Styled.Core.IStyleFragment
+  commentId: T:RTB.Blazor.Styled.Core.IStyleFragment
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.IStyleFragment.html
+  name: IStyleFragment
+  nameWithType: IStyleFragment
+  fullName: RTB.Blazor.Styled.Core.IStyleFragment
+- uid: RTB.Blazor.Styled.Core.ScopedWriter
+  commentId: T:RTB.Blazor.Styled.Core.ScopedWriter
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  name: ScopedWriter
+  nameWithType: ScopedWriter
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter
+- uid: RTB.Blazor.Styled.Core.GroupRule.Children
+  commentId: P:RTB.Blazor.Styled.Core.GroupRule.Children
+  href: RTB.Blazor.Styled.Core.GroupRule.html#RTB_Blazor_Styled_Core_GroupRule_Children
+  name: Children
+  nameWithType: GroupRule.Children
+  fullName: RTB.Blazor.Styled.Core.GroupRule.Children
+- uid: RTB.Blazor.Styled.Core.GroupRule.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  commentId: M:RTB.Blazor.Styled.Core.GroupRule.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  href: RTB.Blazor.Styled.Core.GroupRule.html#RTB_Blazor_Styled_Core_GroupRule_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  name: Emit(ScopedWriter)
+  nameWithType: GroupRule.Emit(ScopedWriter)
+  fullName: RTB.Blazor.Styled.Core.GroupRule.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Core.GroupRule.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+    name: Emit
+    href: RTB.Blazor.Styled.Core.GroupRule.html#RTB_Blazor_Styled_Core_GroupRule_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter
+    name: ScopedWriter
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Core.GroupRule.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+    name: Emit
+    href: RTB.Blazor.Styled.Core.GroupRule.html#RTB_Blazor_Styled_Core_GroupRule_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter
+    name: ScopedWriter
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  - name: )
+- uid: RTB.Blazor.Styled.Core.GroupRule.Kind
+  commentId: P:RTB.Blazor.Styled.Core.GroupRule.Kind
+  href: RTB.Blazor.Styled.Core.GroupRule.html#RTB_Blazor_Styled_Core_GroupRule_Kind
+  name: Kind
+  nameWithType: GroupRule.Kind
+  fullName: RTB.Blazor.Styled.Core.GroupRule.Kind
+- uid: RTB.Blazor.Styled.Core.GroupRule.Prelude
+  commentId: P:RTB.Blazor.Styled.Core.GroupRule.Prelude
+  href: RTB.Blazor.Styled.Core.GroupRule.html#RTB_Blazor_Styled_Core_GroupRule_Prelude
+  name: Prelude
+  nameWithType: GroupRule.Prelude
+  fullName: RTB.Blazor.Styled.Core.GroupRule.Prelude
+- uid: RTB.Blazor.Styled.Core
+  commentId: N:RTB.Blazor.Styled.Core
+  href: RTB.html
+  name: RTB.Blazor.Styled.Core
+  nameWithType: RTB.Blazor.Styled.Core
+  fullName: RTB.Blazor.Styled.Core
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RTB.Blazor.Styled.Core.GroupRule.Kind*
+  commentId: Overload:RTB.Blazor.Styled.Core.GroupRule.Kind
+  href: RTB.Blazor.Styled.Core.GroupRule.html#RTB_Blazor_Styled_Core_GroupRule_Kind
+  name: Kind
+  nameWithType: GroupRule.Kind
+  fullName: RTB.Blazor.Styled.Core.GroupRule.Kind
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.String.Empty
+  commentId: F:System.String.Empty
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string.empty
+  name: Empty
+  nameWithType: string.Empty
+  fullName: string.Empty
+  nameWithType.vb: String.Empty
+  fullName.vb: String.Empty
+- uid: RTB.Blazor.Styled.Core.GroupRule.Prelude*
+  commentId: Overload:RTB.Blazor.Styled.Core.GroupRule.Prelude
+  href: RTB.Blazor.Styled.Core.GroupRule.html#RTB_Blazor_Styled_Core_GroupRule_Prelude
+  name: Prelude
+  nameWithType: GroupRule.Prelude
+  fullName: RTB.Blazor.Styled.Core.GroupRule.Prelude
+- uid: RTB.Blazor.Styled.Core.GroupRule.Children*
+  commentId: Overload:RTB.Blazor.Styled.Core.GroupRule.Children
+  href: RTB.Blazor.Styled.Core.GroupRule.html#RTB_Blazor_Styled_Core_GroupRule_Children
+  name: Children
+  nameWithType: GroupRule.Children
+  fullName: RTB.Blazor.Styled.Core.GroupRule.Children
+- uid: System.Collections.Generic.List{RTB.Blazor.Styled.Core.IStyleFragment}
+  commentId: T:System.Collections.Generic.List{RTB.Blazor.Styled.Core.IStyleFragment}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<IStyleFragment>
+  nameWithType: List<IStyleFragment>
+  fullName: System.Collections.Generic.List<RTB.Blazor.Styled.Core.IStyleFragment>
+  nameWithType.vb: List(Of IStyleFragment)
+  fullName.vb: System.Collections.Generic.List(Of RTB.Blazor.Styled.Core.IStyleFragment)
+  name.vb: List(Of IStyleFragment)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: RTB.Blazor.Styled.Core.IStyleFragment
+    name: IStyleFragment
+    href: RTB.Blazor.Styled.Core.IStyleFragment.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Styled.Core.IStyleFragment
+    name: IStyleFragment
+    href: RTB.Blazor.Styled.Core.IStyleFragment.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: RTB.Blazor.Styled.Core.GroupRule
+  commentId: T:RTB.Blazor.Styled.Core.GroupRule
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.GroupRule.html
+  name: GroupRule
+  nameWithType: GroupRule
+  fullName: RTB.Blazor.Styled.Core.GroupRule
+- uid: RTB.Blazor.Styled.Core.GroupRule.#ctor*
+  commentId: Overload:RTB.Blazor.Styled.Core.GroupRule.#ctor
+  href: RTB.Blazor.Styled.Core.GroupRule.html#RTB_Blazor_Styled_Core_GroupRule__ctor_System_String_System_String_
+  name: GroupRule
+  nameWithType: GroupRule.GroupRule
+  fullName: RTB.Blazor.Styled.Core.GroupRule.GroupRule
+  nameWithType.vb: GroupRule.New
+  fullName.vb: RTB.Blazor.Styled.Core.GroupRule.New
+  name.vb: New
+- uid: RTB.Blazor.Styled.Core.GroupRule.Emit*
+  commentId: Overload:RTB.Blazor.Styled.Core.GroupRule.Emit
+  href: RTB.Blazor.Styled.Core.GroupRule.html#RTB_Blazor_Styled_Core_GroupRule_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  name: Emit
+  nameWithType: GroupRule.Emit
+  fullName: RTB.Blazor.Styled.Core.GroupRule.Emit
+- uid: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  commentId: M:RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  parent: RTB.Blazor.Styled.Core.IStyleFragment
+  href: RTB.Blazor.Styled.Core.IStyleFragment.html#RTB_Blazor_Styled_Core_IStyleFragment_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  name: Emit(ScopedWriter)
+  nameWithType: IStyleFragment.Emit(ScopedWriter)
+  fullName: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+    name: Emit
+    href: RTB.Blazor.Styled.Core.IStyleFragment.html#RTB_Blazor_Styled_Core_IStyleFragment_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter
+    name: ScopedWriter
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Core.IStyleFragment.Emit(RTB.Blazor.Styled.Core.ScopedWriter)
+    name: Emit
+    href: RTB.Blazor.Styled.Core.IStyleFragment.html#RTB_Blazor_Styled_Core_IStyleFragment_Emit_RTB_Blazor_Styled_Core_ScopedWriter_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.ScopedWriter
+    name: ScopedWriter
+    href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  - name: )

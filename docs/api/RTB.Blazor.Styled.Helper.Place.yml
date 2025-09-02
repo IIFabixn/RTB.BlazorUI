@@ -1,0 +1,256 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Helper.Place
+  commentId: T:RTB.Blazor.Styled.Helper.Place
+  id: Place
+  parent: RTB.Blazor.Styled.Helper
+  children:
+  - RTB.Blazor.Styled.Helper.Place.Center
+  - RTB.Blazor.Styled.Helper.Place.End
+  - RTB.Blazor.Styled.Helper.Place.Start
+  - RTB.Blazor.Styled.Helper.Place.Stretch
+  langs:
+  - csharp
+  - vb
+  name: Place
+  nameWithType: Place
+  fullName: RTB.Blazor.Styled.Helper.Place
+  type: Enum
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/CssEnums.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Place
+    path: ../src/RTB.Styled/Helper/CssEnums.cs
+    startLine: 42
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: CSS place enum.
+  example: []
+  syntax:
+    content: public enum Place
+    content.vb: Public Enum Place
+  extensionMethods:
+  - System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+- uid: RTB.Blazor.Styled.Helper.Place.Start
+  commentId: F:RTB.Blazor.Styled.Helper.Place.Start
+  id: Start
+  parent: RTB.Blazor.Styled.Helper.Place
+  langs:
+  - csharp
+  - vb
+  name: Start
+  nameWithType: Place.Start
+  fullName: RTB.Blazor.Styled.Helper.Place.Start
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/CssEnums.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Start
+    path: ../src/RTB.Styled/Helper/CssEnums.cs
+    startLine: 47
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Start (flex-start)
+  example: []
+  syntax:
+    content: Start = 0
+    return:
+      type: RTB.Blazor.Styled.Helper.Place
+- uid: RTB.Blazor.Styled.Helper.Place.End
+  commentId: F:RTB.Blazor.Styled.Helper.Place.End
+  id: End
+  parent: RTB.Blazor.Styled.Helper.Place
+  langs:
+  - csharp
+  - vb
+  name: End
+  nameWithType: Place.End
+  fullName: RTB.Blazor.Styled.Helper.Place.End
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/CssEnums.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: End
+    path: ../src/RTB.Styled/Helper/CssEnums.cs
+    startLine: 51
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: End (flex-end)
+  example: []
+  syntax:
+    content: End = 1
+    return:
+      type: RTB.Blazor.Styled.Helper.Place
+- uid: RTB.Blazor.Styled.Helper.Place.Center
+  commentId: F:RTB.Blazor.Styled.Helper.Place.Center
+  id: Center
+  parent: RTB.Blazor.Styled.Helper.Place
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: Place.Center
+  fullName: RTB.Blazor.Styled.Helper.Place.Center
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/CssEnums.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Center
+    path: ../src/RTB.Styled/Helper/CssEnums.cs
+    startLine: 55
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Center
+  example: []
+  syntax:
+    content: Center = 2
+    return:
+      type: RTB.Blazor.Styled.Helper.Place
+- uid: RTB.Blazor.Styled.Helper.Place.Stretch
+  commentId: F:RTB.Blazor.Styled.Helper.Place.Stretch
+  id: Stretch
+  parent: RTB.Blazor.Styled.Helper.Place
+  langs:
+  - csharp
+  - vb
+  name: Stretch
+  nameWithType: Place.Stretch
+  fullName: RTB.Blazor.Styled.Helper.Place.Stretch
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/CssEnums.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Stretch
+    path: ../src/RTB.Styled/Helper/CssEnums.cs
+    startLine: 59
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Stretch
+  example: []
+  syntax:
+    content: Stretch = 3
+    return:
+      type: RTB.Blazor.Styled.Helper.Place
+references:
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  parent: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  definition: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  commentId: T:RTB.Blazor.Styled.Helper.CssEnumExtensions
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html
+  name: CssEnumExtensions
+  nameWithType: CssEnumExtensions
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions
+- uid: RTB.Blazor.Styled.Helper.Place
+  commentId: T:RTB.Blazor.Styled.Helper.Place
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.Place.html
+  name: Place
+  nameWithType: Place
+  fullName: RTB.Blazor.Styled.Helper.Place

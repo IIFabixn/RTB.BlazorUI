@@ -1,0 +1,455 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Components.Grid.Placement
+  commentId: T:RTB.Blazor.Styled.Components.Grid.Placement
+  id: Grid.Placement
+  parent: RTB.Blazor.Styled.Components
+  children:
+  - RTB.Blazor.Styled.Components.Grid.Placement.Center
+  - RTB.Blazor.Styled.Components.Grid.Placement.End
+  - RTB.Blazor.Styled.Components.Grid.Placement.FlexEnd
+  - RTB.Blazor.Styled.Components.Grid.Placement.FlexStart
+  - RTB.Blazor.Styled.Components.Grid.Placement.Normal
+  - RTB.Blazor.Styled.Components.Grid.Placement.Start
+  - RTB.Blazor.Styled.Components.Grid.Placement.Stretch
+  langs:
+  - csharp
+  - vb
+  name: Grid.Placement
+  nameWithType: Grid.Placement
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement
+  type: Enum
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Grid.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Placement
+    path: ../src/RTB.Styled/Components/Grid.cs
+    startLine: 49
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Alignment values mapped to the CSS <code>place-items</code> property.
+  remarks: >-
+    Mappings:
+
+    - <xref href="RTB.Blazor.Styled.Components.Grid.Placement.Normal" data-throw-if-not-resolved="false"></xref> -&gt; <code>normal</code>
+
+    - <xref href="RTB.Blazor.Styled.Components.Grid.Placement.Start" data-throw-if-not-resolved="false"></xref> -&gt; <code>start</code>
+
+    - <xref href="RTB.Blazor.Styled.Components.Grid.Placement.End" data-throw-if-not-resolved="false"></xref> -&gt; <code>end</code>
+
+    - <xref href="RTB.Blazor.Styled.Components.Grid.Placement.Center" data-throw-if-not-resolved="false"></xref> -&gt; <code>center</code>
+
+    - <xref href="RTB.Blazor.Styled.Components.Grid.Placement.Stretch" data-throw-if-not-resolved="false"></xref> -&gt; <code>stretch</code>
+
+    - <xref href="RTB.Blazor.Styled.Components.Grid.Placement.FlexStart" data-throw-if-not-resolved="false"></xref> -&gt; <code>flex-start</code>
+
+    - <xref href="RTB.Blazor.Styled.Components.Grid.Placement.FlexEnd" data-throw-if-not-resolved="false"></xref> -&gt; <code>flex-end</code>
+  example: []
+  syntax:
+    content: public enum Grid.Placement
+    content.vb: Public Enum Grid.Placement
+  extensionMethods:
+  - System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+- uid: RTB.Blazor.Styled.Components.Grid.Placement.Normal
+  commentId: F:RTB.Blazor.Styled.Components.Grid.Placement.Normal
+  id: Normal
+  parent: RTB.Blazor.Styled.Components.Grid.Placement
+  langs:
+  - csharp
+  - vb
+  name: Normal
+  nameWithType: Grid.Placement.Normal
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement.Normal
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Grid.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Normal
+    path: ../src/RTB.Styled/Components/Grid.cs
+    startLine: 52
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Emits <code>normal</code>.
+  example: []
+  syntax:
+    content: Normal = 0
+    return:
+      type: RTB.Blazor.Styled.Components.Grid.Placement
+- uid: RTB.Blazor.Styled.Components.Grid.Placement.Start
+  commentId: F:RTB.Blazor.Styled.Components.Grid.Placement.Start
+  id: Start
+  parent: RTB.Blazor.Styled.Components.Grid.Placement
+  langs:
+  - csharp
+  - vb
+  name: Start
+  nameWithType: Grid.Placement.Start
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement.Start
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Grid.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Start
+    path: ../src/RTB.Styled/Components/Grid.cs
+    startLine: 54
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Emits <code>start</code>.
+  example: []
+  syntax:
+    content: Start = 1
+    return:
+      type: RTB.Blazor.Styled.Components.Grid.Placement
+- uid: RTB.Blazor.Styled.Components.Grid.Placement.End
+  commentId: F:RTB.Blazor.Styled.Components.Grid.Placement.End
+  id: End
+  parent: RTB.Blazor.Styled.Components.Grid.Placement
+  langs:
+  - csharp
+  - vb
+  name: End
+  nameWithType: Grid.Placement.End
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement.End
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Grid.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: End
+    path: ../src/RTB.Styled/Components/Grid.cs
+    startLine: 56
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Emits <code>end</code>.
+  example: []
+  syntax:
+    content: End = 2
+    return:
+      type: RTB.Blazor.Styled.Components.Grid.Placement
+- uid: RTB.Blazor.Styled.Components.Grid.Placement.Center
+  commentId: F:RTB.Blazor.Styled.Components.Grid.Placement.Center
+  id: Center
+  parent: RTB.Blazor.Styled.Components.Grid.Placement
+  langs:
+  - csharp
+  - vb
+  name: Center
+  nameWithType: Grid.Placement.Center
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement.Center
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Grid.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Center
+    path: ../src/RTB.Styled/Components/Grid.cs
+    startLine: 58
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Emits <code>center</code>.
+  example: []
+  syntax:
+    content: Center = 3
+    return:
+      type: RTB.Blazor.Styled.Components.Grid.Placement
+- uid: RTB.Blazor.Styled.Components.Grid.Placement.Stretch
+  commentId: F:RTB.Blazor.Styled.Components.Grid.Placement.Stretch
+  id: Stretch
+  parent: RTB.Blazor.Styled.Components.Grid.Placement
+  langs:
+  - csharp
+  - vb
+  name: Stretch
+  nameWithType: Grid.Placement.Stretch
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement.Stretch
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Grid.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Stretch
+    path: ../src/RTB.Styled/Components/Grid.cs
+    startLine: 60
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Emits <code>stretch</code>.
+  example: []
+  syntax:
+    content: Stretch = 4
+    return:
+      type: RTB.Blazor.Styled.Components.Grid.Placement
+- uid: RTB.Blazor.Styled.Components.Grid.Placement.FlexEnd
+  commentId: F:RTB.Blazor.Styled.Components.Grid.Placement.FlexEnd
+  id: FlexEnd
+  parent: RTB.Blazor.Styled.Components.Grid.Placement
+  langs:
+  - csharp
+  - vb
+  name: FlexEnd
+  nameWithType: Grid.Placement.FlexEnd
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement.FlexEnd
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Grid.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: FlexEnd
+    path: ../src/RTB.Styled/Components/Grid.cs
+    startLine: 62
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Emits <code>flex-end</code>.
+  example: []
+  syntax:
+    content: FlexEnd = 5
+    return:
+      type: RTB.Blazor.Styled.Components.Grid.Placement
+- uid: RTB.Blazor.Styled.Components.Grid.Placement.FlexStart
+  commentId: F:RTB.Blazor.Styled.Components.Grid.Placement.FlexStart
+  id: FlexStart
+  parent: RTB.Blazor.Styled.Components.Grid.Placement
+  langs:
+  - csharp
+  - vb
+  name: FlexStart
+  nameWithType: Grid.Placement.FlexStart
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement.FlexStart
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Grid.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: FlexStart
+    path: ../src/RTB.Styled/Components/Grid.cs
+    startLine: 64
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Emits <code>flex-start</code>.
+  example: []
+  syntax:
+    content: FlexStart = 6
+    return:
+      type: RTB.Blazor.Styled.Components.Grid.Placement
+references:
+- uid: RTB.Blazor.Styled.Components.Grid.Placement.Normal
+  commentId: F:RTB.Blazor.Styled.Components.Grid.Placement.Normal
+  href: RTB.Blazor.Styled.Components.Grid.Placement.html#RTB_Blazor_Styled_Components_Grid_Placement_Normal
+  name: Normal
+  nameWithType: Grid.Placement.Normal
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement.Normal
+- uid: RTB.Blazor.Styled.Components.Grid.Placement.Start
+  commentId: F:RTB.Blazor.Styled.Components.Grid.Placement.Start
+  href: RTB.Blazor.Styled.Components.Grid.Placement.html#RTB_Blazor_Styled_Components_Grid_Placement_Start
+  name: Start
+  nameWithType: Grid.Placement.Start
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement.Start
+- uid: RTB.Blazor.Styled.Components.Grid.Placement.End
+  commentId: F:RTB.Blazor.Styled.Components.Grid.Placement.End
+  href: RTB.Blazor.Styled.Components.Grid.Placement.html#RTB_Blazor_Styled_Components_Grid_Placement_End
+  name: End
+  nameWithType: Grid.Placement.End
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement.End
+- uid: RTB.Blazor.Styled.Components.Grid.Placement.Center
+  commentId: F:RTB.Blazor.Styled.Components.Grid.Placement.Center
+  href: RTB.Blazor.Styled.Components.Grid.Placement.html#RTB_Blazor_Styled_Components_Grid_Placement_Center
+  name: Center
+  nameWithType: Grid.Placement.Center
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement.Center
+- uid: RTB.Blazor.Styled.Components.Grid.Placement.Stretch
+  commentId: F:RTB.Blazor.Styled.Components.Grid.Placement.Stretch
+  href: RTB.Blazor.Styled.Components.Grid.Placement.html#RTB_Blazor_Styled_Components_Grid_Placement_Stretch
+  name: Stretch
+  nameWithType: Grid.Placement.Stretch
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement.Stretch
+- uid: RTB.Blazor.Styled.Components.Grid.Placement.FlexStart
+  commentId: F:RTB.Blazor.Styled.Components.Grid.Placement.FlexStart
+  href: RTB.Blazor.Styled.Components.Grid.Placement.html#RTB_Blazor_Styled_Components_Grid_Placement_FlexStart
+  name: FlexStart
+  nameWithType: Grid.Placement.FlexStart
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement.FlexStart
+- uid: RTB.Blazor.Styled.Components.Grid.Placement.FlexEnd
+  commentId: F:RTB.Blazor.Styled.Components.Grid.Placement.FlexEnd
+  href: RTB.Blazor.Styled.Components.Grid.Placement.html#RTB_Blazor_Styled_Components_Grid_Placement_FlexEnd
+  name: FlexEnd
+  nameWithType: Grid.Placement.FlexEnd
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement.FlexEnd
+- uid: RTB.Blazor.Styled.Components
+  commentId: N:RTB.Blazor.Styled.Components
+  href: RTB.html
+  name: RTB.Blazor.Styled.Components
+  nameWithType: RTB.Blazor.Styled.Components
+  fullName: RTB.Blazor.Styled.Components
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+- uid: System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  parent: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  definition: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  commentId: T:RTB.Blazor.Styled.Helper.CssEnumExtensions
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html
+  name: CssEnumExtensions
+  nameWithType: CssEnumExtensions
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: RTB.Blazor.Styled.Components.Grid.Placement
+  commentId: T:RTB.Blazor.Styled.Components.Grid.Placement
+  parent: RTB.Blazor.Styled.Components
+  href: RTB.Blazor.Styled.Components.Grid.html
+  name: Grid.Placement
+  nameWithType: Grid.Placement
+  fullName: RTB.Blazor.Styled.Components.Grid.Placement
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Grid
+    name: Grid
+    href: RTB.Blazor.Styled.Components.Grid.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Grid.Placement
+    name: Placement
+    href: RTB.Blazor.Styled.Components.Grid.Placement.html
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Grid
+    name: Grid
+    href: RTB.Blazor.Styled.Components.Grid.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Grid.Placement
+    name: Placement
+    href: RTB.Blazor.Styled.Components.Grid.Placement.html

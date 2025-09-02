@@ -1,0 +1,439 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Components.Border.BorderSide
+  commentId: T:RTB.Blazor.Styled.Components.Border.BorderSide
+  id: Border.BorderSide
+  parent: RTB.Blazor.Styled.Components
+  children:
+  - RTB.Blazor.Styled.Components.Border.BorderSide.All
+  - RTB.Blazor.Styled.Components.Border.BorderSide.Bottom
+  - RTB.Blazor.Styled.Components.Border.BorderSide.Horizontal
+  - RTB.Blazor.Styled.Components.Border.BorderSide.Left
+  - RTB.Blazor.Styled.Components.Border.BorderSide.None
+  - RTB.Blazor.Styled.Components.Border.BorderSide.Right
+  - RTB.Blazor.Styled.Components.Border.BorderSide.Top
+  - RTB.Blazor.Styled.Components.Border.BorderSide.Vertical
+  langs:
+  - csharp
+  - vb
+  name: Border.BorderSide
+  nameWithType: Border.BorderSide
+  fullName: RTB.Blazor.Styled.Components.Border.BorderSide
+  type: Enum
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: BorderSide
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 87
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Flags enum describing which side(s) of a box should receive border declarations.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum Border.BorderSide
+    content.vb: >-
+      <Flags>
+
+      Public Enum Border.BorderSide
+  extensionMethods:
+  - System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: RTB.Blazor.Styled.Components.Border.BorderSide.None
+  commentId: F:RTB.Blazor.Styled.Components.Border.BorderSide.None
+  id: None
+  parent: RTB.Blazor.Styled.Components.Border.BorderSide
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: Border.BorderSide.None
+  fullName: RTB.Blazor.Styled.Components.Border.BorderSide.None
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: None
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 91
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: No sides.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: RTB.Blazor.Styled.Components.Border.BorderSide
+- uid: RTB.Blazor.Styled.Components.Border.BorderSide.Top
+  commentId: F:RTB.Blazor.Styled.Components.Border.BorderSide.Top
+  id: Top
+  parent: RTB.Blazor.Styled.Components.Border.BorderSide
+  langs:
+  - csharp
+  - vb
+  name: Top
+  nameWithType: Border.BorderSide.Top
+  fullName: RTB.Blazor.Styled.Components.Border.BorderSide.Top
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Top
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 93
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Top side.
+  example: []
+  syntax:
+    content: Top = 1
+    return:
+      type: RTB.Blazor.Styled.Components.Border.BorderSide
+- uid: RTB.Blazor.Styled.Components.Border.BorderSide.Right
+  commentId: F:RTB.Blazor.Styled.Components.Border.BorderSide.Right
+  id: Right
+  parent: RTB.Blazor.Styled.Components.Border.BorderSide
+  langs:
+  - csharp
+  - vb
+  name: Right
+  nameWithType: Border.BorderSide.Right
+  fullName: RTB.Blazor.Styled.Components.Border.BorderSide.Right
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Right
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 95
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Right side.
+  example: []
+  syntax:
+    content: Right = 2
+    return:
+      type: RTB.Blazor.Styled.Components.Border.BorderSide
+- uid: RTB.Blazor.Styled.Components.Border.BorderSide.Bottom
+  commentId: F:RTB.Blazor.Styled.Components.Border.BorderSide.Bottom
+  id: Bottom
+  parent: RTB.Blazor.Styled.Components.Border.BorderSide
+  langs:
+  - csharp
+  - vb
+  name: Bottom
+  nameWithType: Border.BorderSide.Bottom
+  fullName: RTB.Blazor.Styled.Components.Border.BorderSide.Bottom
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Bottom
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 97
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Bottom side.
+  example: []
+  syntax:
+    content: Bottom = 4
+    return:
+      type: RTB.Blazor.Styled.Components.Border.BorderSide
+- uid: RTB.Blazor.Styled.Components.Border.BorderSide.Left
+  commentId: F:RTB.Blazor.Styled.Components.Border.BorderSide.Left
+  id: Left
+  parent: RTB.Blazor.Styled.Components.Border.BorderSide
+  langs:
+  - csharp
+  - vb
+  name: Left
+  nameWithType: Border.BorderSide.Left
+  fullName: RTB.Blazor.Styled.Components.Border.BorderSide.Left
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Left
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 99
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Left side.
+  example: []
+  syntax:
+    content: Left = 8
+    return:
+      type: RTB.Blazor.Styled.Components.Border.BorderSide
+- uid: RTB.Blazor.Styled.Components.Border.BorderSide.All
+  commentId: F:RTB.Blazor.Styled.Components.Border.BorderSide.All
+  id: All
+  parent: RTB.Blazor.Styled.Components.Border.BorderSide
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: Border.BorderSide.All
+  fullName: RTB.Blazor.Styled.Components.Border.BorderSide.All
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: All
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 102
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: All four sides.
+  example: []
+  syntax:
+    content: All = Vertical | Horizontal
+    return:
+      type: RTB.Blazor.Styled.Components.Border.BorderSide
+    content.vb: All = Vertical Or Horizontal
+- uid: RTB.Blazor.Styled.Components.Border.BorderSide.Horizontal
+  commentId: F:RTB.Blazor.Styled.Components.Border.BorderSide.Horizontal
+  id: Horizontal
+  parent: RTB.Blazor.Styled.Components.Border.BorderSide
+  langs:
+  - csharp
+  - vb
+  name: Horizontal
+  nameWithType: Border.BorderSide.Horizontal
+  fullName: RTB.Blazor.Styled.Components.Border.BorderSide.Horizontal
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Horizontal
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 105
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Left and right sides.
+  example: []
+  syntax:
+    content: Horizontal = Right | Left
+    return:
+      type: RTB.Blazor.Styled.Components.Border.BorderSide
+    content.vb: Horizontal = Right Or Left
+- uid: RTB.Blazor.Styled.Components.Border.BorderSide.Vertical
+  commentId: F:RTB.Blazor.Styled.Components.Border.BorderSide.Vertical
+  id: Vertical
+  parent: RTB.Blazor.Styled.Components.Border.BorderSide
+  langs:
+  - csharp
+  - vb
+  name: Vertical
+  nameWithType: Border.BorderSide.Vertical
+  fullName: RTB.Blazor.Styled.Components.Border.BorderSide.Vertical
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Vertical
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 107
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Top and bottom sides.
+  example: []
+  syntax:
+    content: Vertical = Top | Bottom
+    return:
+      type: RTB.Blazor.Styled.Components.Border.BorderSide
+    content.vb: Vertical = Top Or Bottom
+references:
+- uid: RTB.Blazor.Styled.Components
+  commentId: N:RTB.Blazor.Styled.Components
+  href: RTB.html
+  name: RTB.Blazor.Styled.Components
+  nameWithType: RTB.Blazor.Styled.Components
+  fullName: RTB.Blazor.Styled.Components
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+- uid: System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  parent: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  definition: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  commentId: T:RTB.Blazor.Styled.Helper.CssEnumExtensions
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html
+  name: CssEnumExtensions
+  nameWithType: CssEnumExtensions
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: RTB.Blazor.Styled.Components.Border.BorderSide
+  commentId: T:RTB.Blazor.Styled.Components.Border.BorderSide
+  parent: RTB.Blazor.Styled.Components
+  href: RTB.Blazor.Styled.Components.Border.html
+  name: Border.BorderSide
+  nameWithType: Border.BorderSide
+  fullName: RTB.Blazor.Styled.Components.Border.BorderSide
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Border
+    name: Border
+    href: RTB.Blazor.Styled.Components.Border.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Border.BorderSide
+    name: BorderSide
+    href: RTB.Blazor.Styled.Components.Border.BorderSide.html
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Border
+    name: Border
+    href: RTB.Blazor.Styled.Components.Border.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Border.BorderSide
+    name: BorderSide
+    href: RTB.Blazor.Styled.Components.Border.BorderSide.html

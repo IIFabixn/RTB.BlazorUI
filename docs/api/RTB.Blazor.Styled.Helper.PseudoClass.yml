@@ -1,0 +1,2855 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Helper.PseudoClass
+  commentId: T:RTB.Blazor.Styled.Helper.PseudoClass
+  id: PseudoClass
+  parent: RTB.Blazor.Styled.Helper
+  children:
+  - RTB.Blazor.Styled.Helper.PseudoClass.#ctor(System.String)
+  - RTB.Blazor.Styled.Helper.PseudoClass.Active
+  - RTB.Blazor.Styled.Helper.PseudoClass.AnyLink
+  - RTB.Blazor.Styled.Helper.PseudoClass.Autofill
+  - RTB.Blazor.Styled.Helper.PseudoClass.Blank
+  - RTB.Blazor.Styled.Helper.PseudoClass.Buffering
+  - RTB.Blazor.Styled.Helper.PseudoClass.Checked
+  - RTB.Blazor.Styled.Helper.PseudoClass.Current
+  - RTB.Blazor.Styled.Helper.PseudoClass.Default
+  - RTB.Blazor.Styled.Helper.PseudoClass.Defined
+  - RTB.Blazor.Styled.Helper.PseudoClass.Disabled
+  - RTB.Blazor.Styled.Helper.PseudoClass.Empty
+  - RTB.Blazor.Styled.Helper.PseudoClass.Enabled
+  - RTB.Blazor.Styled.Helper.PseudoClass.FirstChild
+  - RTB.Blazor.Styled.Helper.PseudoClass.FirstOfType
+  - RTB.Blazor.Styled.Helper.PseudoClass.Focus
+  - RTB.Blazor.Styled.Helper.PseudoClass.FocusVisible
+  - RTB.Blazor.Styled.Helper.PseudoClass.FocusWithin
+  - RTB.Blazor.Styled.Helper.PseudoClass.Fullscreen
+  - RTB.Blazor.Styled.Helper.PseudoClass.Future
+  - RTB.Blazor.Styled.Helper.PseudoClass.Host
+  - RTB.Blazor.Styled.Helper.PseudoClass.Hover
+  - RTB.Blazor.Styled.Helper.PseudoClass.InRange
+  - RTB.Blazor.Styled.Helper.PseudoClass.Indeterminate
+  - RTB.Blazor.Styled.Helper.PseudoClass.Invalid
+  - RTB.Blazor.Styled.Helper.PseudoClass.LastChild
+  - RTB.Blazor.Styled.Helper.PseudoClass.LastOfType
+  - RTB.Blazor.Styled.Helper.PseudoClass.Link
+  - RTB.Blazor.Styled.Helper.PseudoClass.LocalLink
+  - RTB.Blazor.Styled.Helper.PseudoClass.Modal
+  - RTB.Blazor.Styled.Helper.PseudoClass.Muted
+  - RTB.Blazor.Styled.Helper.PseudoClass.Name
+  - RTB.Blazor.Styled.Helper.PseudoClass.OnlyChild
+  - RTB.Blazor.Styled.Helper.PseudoClass.OnlyOfType
+  - RTB.Blazor.Styled.Helper.PseudoClass.Open
+  - RTB.Blazor.Styled.Helper.PseudoClass.Optional
+  - RTB.Blazor.Styled.Helper.PseudoClass.OutOfRange
+  - RTB.Blazor.Styled.Helper.PseudoClass.Past
+  - RTB.Blazor.Styled.Helper.PseudoClass.Paused
+  - RTB.Blazor.Styled.Helper.PseudoClass.PictureInPicture
+  - RTB.Blazor.Styled.Helper.PseudoClass.PlaceholderShown
+  - RTB.Blazor.Styled.Helper.PseudoClass.Playing
+  - RTB.Blazor.Styled.Helper.PseudoClass.PopoverOpen
+  - RTB.Blazor.Styled.Helper.PseudoClass.ReadOnly
+  - RTB.Blazor.Styled.Helper.PseudoClass.ReadWrite
+  - RTB.Blazor.Styled.Helper.PseudoClass.Render
+  - RTB.Blazor.Styled.Helper.PseudoClass.Required
+  - RTB.Blazor.Styled.Helper.PseudoClass.Root
+  - RTB.Blazor.Styled.Helper.PseudoClass.Scope
+  - RTB.Blazor.Styled.Helper.PseudoClass.Seeking
+  - RTB.Blazor.Styled.Helper.PseudoClass.Stalled
+  - RTB.Blazor.Styled.Helper.PseudoClass.Target
+  - RTB.Blazor.Styled.Helper.PseudoClass.TargetWithin
+  - RTB.Blazor.Styled.Helper.PseudoClass.UserInvalid
+  - RTB.Blazor.Styled.Helper.PseudoClass.UserValid
+  - RTB.Blazor.Styled.Helper.PseudoClass.Valid
+  - RTB.Blazor.Styled.Helper.PseudoClass.Visited
+  - RTB.Blazor.Styled.Helper.PseudoClass.VolumeLocked
+  langs:
+  - csharp
+  - vb
+  name: PseudoClass
+  nameWithType: PseudoClass
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass
+  type: Class
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: PseudoClass
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 201
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: CSS pseudo-class selector (non-functional).
+  example: []
+  syntax:
+    content: 'public sealed record PseudoClass : SelectorExpression, IEquatable<SelectorExpression>, IEquatable<PseudoClass>'
+    content.vb: Public NotInheritable Class PseudoClass Inherits SelectorExpression Implements IEquatable(Of SelectorExpression), IEquatable(Of PseudoClass)
+  inheritance:
+  - System.Object
+  - RTB.Blazor.Styled.Helper.SelectorExpression
+  implements:
+  - System.IEquatable{RTB.Blazor.Styled.Helper.SelectorExpression}
+  - System.IEquatable{RTB.Blazor.Styled.Helper.PseudoClass}
+  inheritedMembers:
+  - RTB.Blazor.Styled.Helper.SelectorExpression.Element(System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.Id(System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.Class(System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(System.String,System.String,System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(System.String)
+  - RTB.Blazor.Styled.Helper.SelectorExpression.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.#ctor(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.PseudoClass.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: PseudoClass(string)
+  nameWithType: PseudoClass.PseudoClass(string)
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.PseudoClass(string)
+  type: Constructor
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: .ctor
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 201
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: CSS pseudo-class selector (non-functional).
+  example: []
+  syntax:
+    content: public PseudoClass(string Name)
+    parameters:
+    - id: Name
+      type: System.String
+      description: Pseudo-class name without the leading ':'.
+    content.vb: Public Sub New(Name As String)
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.#ctor*
+  nameWithType.vb: PseudoClass.New(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.PseudoClass.New(String)
+  name.vb: New(String)
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Name
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Name
+  id: Name
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: PseudoClass.Name
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Name
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Name
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 201
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Pseudo-class name without the leading ':'.
+  example: []
+  syntax:
+    content: public string Name { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Name*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Root
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Root
+  id: Root
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Root
+  nameWithType: PseudoClass.Root
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Root
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Root
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 207
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :root
+  example: []
+  syntax:
+    content: public static PseudoClass Root { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Root As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Root*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Empty
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Empty
+  id: Empty
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Empty
+  nameWithType: PseudoClass.Empty
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Empty
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Empty
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 209
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :empty
+  example: []
+  syntax:
+    content: public static PseudoClass Empty { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Empty As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Empty*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.FirstChild
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.FirstChild
+  id: FirstChild
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: FirstChild
+  nameWithType: PseudoClass.FirstChild
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.FirstChild
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: FirstChild
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 211
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :first-child
+  example: []
+  syntax:
+    content: public static PseudoClass FirstChild { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property FirstChild As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.FirstChild*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.LastChild
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.LastChild
+  id: LastChild
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: LastChild
+  nameWithType: PseudoClass.LastChild
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.LastChild
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: LastChild
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 213
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :last-child
+  example: []
+  syntax:
+    content: public static PseudoClass LastChild { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property LastChild As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.LastChild*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.OnlyChild
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.OnlyChild
+  id: OnlyChild
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: OnlyChild
+  nameWithType: PseudoClass.OnlyChild
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.OnlyChild
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: OnlyChild
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 215
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :only-child
+  example: []
+  syntax:
+    content: public static PseudoClass OnlyChild { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property OnlyChild As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.OnlyChild*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.FirstOfType
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.FirstOfType
+  id: FirstOfType
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: FirstOfType
+  nameWithType: PseudoClass.FirstOfType
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.FirstOfType
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: FirstOfType
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 217
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :first-of-type
+  example: []
+  syntax:
+    content: public static PseudoClass FirstOfType { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property FirstOfType As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.FirstOfType*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.LastOfType
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.LastOfType
+  id: LastOfType
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: LastOfType
+  nameWithType: PseudoClass.LastOfType
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.LastOfType
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: LastOfType
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 219
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :last-of-type
+  example: []
+  syntax:
+    content: public static PseudoClass LastOfType { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property LastOfType As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.LastOfType*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.OnlyOfType
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.OnlyOfType
+  id: OnlyOfType
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: OnlyOfType
+  nameWithType: PseudoClass.OnlyOfType
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.OnlyOfType
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: OnlyOfType
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 221
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :only-of-type
+  example: []
+  syntax:
+    content: public static PseudoClass OnlyOfType { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property OnlyOfType As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.OnlyOfType*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Hover
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Hover
+  id: Hover
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Hover
+  nameWithType: PseudoClass.Hover
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Hover
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Hover
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 227
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :hover
+  example: []
+  syntax:
+    content: public static PseudoClass Hover { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Hover As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Hover*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Active
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Active
+  id: Active
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Active
+  nameWithType: PseudoClass.Active
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Active
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Active
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 229
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :active
+  example: []
+  syntax:
+    content: public static PseudoClass Active { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Active As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Active*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Focus
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Focus
+  id: Focus
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Focus
+  nameWithType: PseudoClass.Focus
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Focus
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Focus
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 231
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :focus
+  example: []
+  syntax:
+    content: public static PseudoClass Focus { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Focus As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Focus*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.FocusWithin
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.FocusWithin
+  id: FocusWithin
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: FocusWithin
+  nameWithType: PseudoClass.FocusWithin
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.FocusWithin
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: FocusWithin
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 233
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :focus-within
+  example: []
+  syntax:
+    content: public static PseudoClass FocusWithin { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property FocusWithin As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.FocusWithin*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.FocusVisible
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.FocusVisible
+  id: FocusVisible
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: FocusVisible
+  nameWithType: PseudoClass.FocusVisible
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.FocusVisible
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: FocusVisible
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 235
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :focus-visible
+  example: []
+  syntax:
+    content: public static PseudoClass FocusVisible { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property FocusVisible As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.FocusVisible*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.AnyLink
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.AnyLink
+  id: AnyLink
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: AnyLink
+  nameWithType: PseudoClass.AnyLink
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.AnyLink
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: AnyLink
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 241
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :any-link
+  example: []
+  syntax:
+    content: public static PseudoClass AnyLink { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property AnyLink As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.AnyLink*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Link
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Link
+  id: Link
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Link
+  nameWithType: PseudoClass.Link
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Link
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Link
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 243
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :link
+  example: []
+  syntax:
+    content: public static PseudoClass Link { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Link As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Link*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Visited
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Visited
+  id: Visited
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Visited
+  nameWithType: PseudoClass.Visited
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Visited
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Visited
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 245
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :visited
+  example: []
+  syntax:
+    content: public static PseudoClass Visited { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Visited As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Visited*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.LocalLink
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.LocalLink
+  id: LocalLink
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: LocalLink
+  nameWithType: PseudoClass.LocalLink
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.LocalLink
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: LocalLink
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 247
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :local-link
+  example: []
+  syntax:
+    content: public static PseudoClass LocalLink { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property LocalLink As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.LocalLink*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Target
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Target
+  id: Target
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Target
+  nameWithType: PseudoClass.Target
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Target
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Target
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 249
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :target
+  example: []
+  syntax:
+    content: public static PseudoClass Target { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Target As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Target*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.TargetWithin
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.TargetWithin
+  id: TargetWithin
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: TargetWithin
+  nameWithType: PseudoClass.TargetWithin
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.TargetWithin
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: TargetWithin
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 251
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :target-within
+  example: []
+  syntax:
+    content: public static PseudoClass TargetWithin { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property TargetWithin As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.TargetWithin*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Scope
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Scope
+  id: Scope
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Scope
+  nameWithType: PseudoClass.Scope
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Scope
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Scope
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 253
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :scope
+  example: []
+  syntax:
+    content: public static PseudoClass Scope { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Scope As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Scope*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Enabled
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Enabled
+  id: Enabled
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Enabled
+  nameWithType: PseudoClass.Enabled
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Enabled
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Enabled
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 259
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :enabled
+  example: []
+  syntax:
+    content: public static PseudoClass Enabled { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Enabled As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Enabled*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Disabled
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Disabled
+  id: Disabled
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Disabled
+  nameWithType: PseudoClass.Disabled
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Disabled
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Disabled
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 261
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :disabled
+  example: []
+  syntax:
+    content: public static PseudoClass Disabled { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Disabled As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Disabled*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.ReadOnly
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.ReadOnly
+  id: ReadOnly
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: ReadOnly
+  nameWithType: PseudoClass.ReadOnly
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.ReadOnly
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: ReadOnly
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 263
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :read-only
+  example: []
+  syntax:
+    content: public static PseudoClass ReadOnly { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property [ReadOnly] As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.ReadOnly*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.ReadWrite
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.ReadWrite
+  id: ReadWrite
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: ReadWrite
+  nameWithType: PseudoClass.ReadWrite
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.ReadWrite
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: ReadWrite
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 265
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :read-write
+  example: []
+  syntax:
+    content: public static PseudoClass ReadWrite { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property ReadWrite As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.ReadWrite*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.PlaceholderShown
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.PlaceholderShown
+  id: PlaceholderShown
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: PlaceholderShown
+  nameWithType: PseudoClass.PlaceholderShown
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.PlaceholderShown
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: PlaceholderShown
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 267
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :placeholder-shown
+  example: []
+  syntax:
+    content: public static PseudoClass PlaceholderShown { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property PlaceholderShown As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.PlaceholderShown*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Autofill
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Autofill
+  id: Autofill
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Autofill
+  nameWithType: PseudoClass.Autofill
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Autofill
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Autofill
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 269
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :autofill
+  example: []
+  syntax:
+    content: public static PseudoClass Autofill { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Autofill As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Autofill*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Default
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Default
+  id: Default
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: PseudoClass.Default
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Default
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Default
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 271
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :default
+  example: []
+  syntax:
+    content: public static PseudoClass Default { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property [Default] As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Default*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Checked
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Checked
+  id: Checked
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Checked
+  nameWithType: PseudoClass.Checked
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Checked
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Checked
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 273
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :checked
+  example: []
+  syntax:
+    content: public static PseudoClass Checked { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Checked As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Checked*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Indeterminate
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Indeterminate
+  id: Indeterminate
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Indeterminate
+  nameWithType: PseudoClass.Indeterminate
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Indeterminate
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Indeterminate
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 275
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :indeterminate
+  example: []
+  syntax:
+    content: public static PseudoClass Indeterminate { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Indeterminate As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Indeterminate*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Blank
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Blank
+  id: Blank
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Blank
+  nameWithType: PseudoClass.Blank
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Blank
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Blank
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 277
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :blank
+  example: []
+  syntax:
+    content: public static PseudoClass Blank { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Blank As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Blank*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Valid
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Valid
+  id: Valid
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Valid
+  nameWithType: PseudoClass.Valid
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Valid
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Valid
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 279
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :valid
+  example: []
+  syntax:
+    content: public static PseudoClass Valid { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Valid As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Valid*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Invalid
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Invalid
+  id: Invalid
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Invalid
+  nameWithType: PseudoClass.Invalid
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Invalid
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Invalid
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 281
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :invalid
+  example: []
+  syntax:
+    content: public static PseudoClass Invalid { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Invalid As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Invalid*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.InRange
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.InRange
+  id: InRange
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: InRange
+  nameWithType: PseudoClass.InRange
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.InRange
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: InRange
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 283
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :in-range
+  example: []
+  syntax:
+    content: public static PseudoClass InRange { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property InRange As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.InRange*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.OutOfRange
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.OutOfRange
+  id: OutOfRange
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: OutOfRange
+  nameWithType: PseudoClass.OutOfRange
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.OutOfRange
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: OutOfRange
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 285
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :out-of-range
+  example: []
+  syntax:
+    content: public static PseudoClass OutOfRange { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property OutOfRange As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.OutOfRange*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Required
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Required
+  id: Required
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Required
+  nameWithType: PseudoClass.Required
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Required
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Required
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 287
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :required
+  example: []
+  syntax:
+    content: public static PseudoClass Required { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Required As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Required*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Optional
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Optional
+  id: Optional
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Optional
+  nameWithType: PseudoClass.Optional
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Optional
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Optional
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 289
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :optional
+  example: []
+  syntax:
+    content: public static PseudoClass Optional { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property [Optional] As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Optional*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.UserValid
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.UserValid
+  id: UserValid
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: UserValid
+  nameWithType: PseudoClass.UserValid
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.UserValid
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: UserValid
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 291
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :user-valid
+  example: []
+  syntax:
+    content: public static PseudoClass UserValid { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property UserValid As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.UserValid*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.UserInvalid
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.UserInvalid
+  id: UserInvalid
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: UserInvalid
+  nameWithType: PseudoClass.UserInvalid
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.UserInvalid
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: UserInvalid
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 293
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :user-invalid
+  example: []
+  syntax:
+    content: public static PseudoClass UserInvalid { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property UserInvalid As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.UserInvalid*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Playing
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Playing
+  id: Playing
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Playing
+  nameWithType: PseudoClass.Playing
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Playing
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Playing
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 299
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :playing
+  example: []
+  syntax:
+    content: public static PseudoClass Playing { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Playing As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Playing*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Paused
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Paused
+  id: Paused
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Paused
+  nameWithType: PseudoClass.Paused
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Paused
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Paused
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 301
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :paused
+  example: []
+  syntax:
+    content: public static PseudoClass Paused { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Paused As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Paused*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Seeking
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Seeking
+  id: Seeking
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Seeking
+  nameWithType: PseudoClass.Seeking
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Seeking
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Seeking
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 303
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :seeking
+  example: []
+  syntax:
+    content: public static PseudoClass Seeking { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Seeking As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Seeking*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Buffering
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Buffering
+  id: Buffering
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Buffering
+  nameWithType: PseudoClass.Buffering
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Buffering
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Buffering
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 305
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :buffering
+  example: []
+  syntax:
+    content: public static PseudoClass Buffering { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Buffering As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Buffering*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Stalled
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Stalled
+  id: Stalled
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Stalled
+  nameWithType: PseudoClass.Stalled
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Stalled
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Stalled
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 307
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :stalled
+  example: []
+  syntax:
+    content: public static PseudoClass Stalled { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Stalled As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Stalled*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Muted
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Muted
+  id: Muted
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Muted
+  nameWithType: PseudoClass.Muted
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Muted
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Muted
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 309
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :muted
+  example: []
+  syntax:
+    content: public static PseudoClass Muted { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Muted As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Muted*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.VolumeLocked
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.VolumeLocked
+  id: VolumeLocked
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: VolumeLocked
+  nameWithType: PseudoClass.VolumeLocked
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.VolumeLocked
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: VolumeLocked
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 311
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :volume-locked
+  example: []
+  syntax:
+    content: public static PseudoClass VolumeLocked { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property VolumeLocked As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.VolumeLocked*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Current
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Current
+  id: Current
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Current
+  nameWithType: PseudoClass.Current
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Current
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Current
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 317
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :current
+  example: []
+  syntax:
+    content: public static PseudoClass Current { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Current As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Current*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Past
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Past
+  id: Past
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Past
+  nameWithType: PseudoClass.Past
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Past
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Past
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 319
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :past
+  example: []
+  syntax:
+    content: public static PseudoClass Past { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Past As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Past*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Future
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Future
+  id: Future
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Future
+  nameWithType: PseudoClass.Future
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Future
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Future
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 321
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :future
+  example: []
+  syntax:
+    content: public static PseudoClass Future { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Future As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Future*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Defined
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Defined
+  id: Defined
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Defined
+  nameWithType: PseudoClass.Defined
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Defined
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Defined
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 327
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :defined
+  example: []
+  syntax:
+    content: public static PseudoClass Defined { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Defined As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Defined*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Open
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Open
+  id: Open
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Open
+  nameWithType: PseudoClass.Open
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Open
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Open
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 329
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :open
+  example: []
+  syntax:
+    content: public static PseudoClass Open { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Open As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Open*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Modal
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Modal
+  id: Modal
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Modal
+  nameWithType: PseudoClass.Modal
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Modal
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Modal
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 331
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :modal
+  example: []
+  syntax:
+    content: public static PseudoClass Modal { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Modal As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Modal*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Fullscreen
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Fullscreen
+  id: Fullscreen
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Fullscreen
+  nameWithType: PseudoClass.Fullscreen
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Fullscreen
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Fullscreen
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 333
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :fullscreen
+  example: []
+  syntax:
+    content: public static PseudoClass Fullscreen { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Fullscreen As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Fullscreen*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.PopoverOpen
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.PopoverOpen
+  id: PopoverOpen
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: PopoverOpen
+  nameWithType: PseudoClass.PopoverOpen
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.PopoverOpen
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: PopoverOpen
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 335
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :popover-open
+  example: []
+  syntax:
+    content: public static PseudoClass PopoverOpen { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property PopoverOpen As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.PopoverOpen*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.PictureInPicture
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.PictureInPicture
+  id: PictureInPicture
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: PictureInPicture
+  nameWithType: PseudoClass.PictureInPicture
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.PictureInPicture
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: PictureInPicture
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 337
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :picture-in-picture
+  example: []
+  syntax:
+    content: public static PseudoClass PictureInPicture { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property PictureInPicture As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.PictureInPicture*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Host
+  commentId: P:RTB.Blazor.Styled.Helper.PseudoClass.Host
+  id: Host
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Host
+  nameWithType: PseudoClass.Host
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Host
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Host
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 343
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: :host
+  example: []
+  syntax:
+    content: public static PseudoClass Host { get; }
+    parameters: []
+    return:
+      type: RTB.Blazor.Styled.Helper.PseudoClass
+    content.vb: Public Shared ReadOnly Property Host As PseudoClass
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Host*
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Render
+  commentId: M:RTB.Blazor.Styled.Helper.PseudoClass.Render
+  id: Render
+  parent: RTB.Blazor.Styled.Helper.PseudoClass
+  langs:
+  - csharp
+  - vb
+  name: Render()
+  nameWithType: PseudoClass.Render()
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Render()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/SelectorExpression.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Render
+    path: ../src/RTB.Styled/Helper/SelectorExpression.cs
+    startLine: 346
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Renders the selector to CSS. Implemented by derived records.
+  example: []
+  syntax:
+    content: protected override string Render()
+    return:
+      type: System.String
+    content.vb: Protected Overrides Function Render() As String
+  overridden: RTB.Blazor.Styled.Helper.SelectorExpression.Render
+  overload: RTB.Blazor.Styled.Helper.PseudoClass.Render*
+references:
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression
+  commentId: T:RTB.Blazor.Styled.Helper.SelectorExpression
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html
+  name: SelectorExpression
+  nameWithType: SelectorExpression
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression
+- uid: System.IEquatable{RTB.Blazor.Styled.Helper.SelectorExpression}
+  commentId: T:System.IEquatable{RTB.Blazor.Styled.Helper.SelectorExpression}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<SelectorExpression>
+  nameWithType: IEquatable<SelectorExpression>
+  fullName: System.IEquatable<RTB.Blazor.Styled.Helper.SelectorExpression>
+  nameWithType.vb: IEquatable(Of SelectorExpression)
+  fullName.vb: System.IEquatable(Of RTB.Blazor.Styled.Helper.SelectorExpression)
+  name.vb: IEquatable(Of SelectorExpression)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression
+    name: SelectorExpression
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression
+    name: SelectorExpression
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html
+  - name: )
+- uid: System.IEquatable{RTB.Blazor.Styled.Helper.PseudoClass}
+  commentId: T:System.IEquatable{RTB.Blazor.Styled.Helper.PseudoClass}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PseudoClass>
+  nameWithType: IEquatable<PseudoClass>
+  fullName: System.IEquatable<RTB.Blazor.Styled.Helper.PseudoClass>
+  nameWithType.vb: IEquatable(Of PseudoClass)
+  fullName.vb: System.IEquatable(Of RTB.Blazor.Styled.Helper.PseudoClass)
+  name.vb: IEquatable(Of PseudoClass)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: RTB.Blazor.Styled.Helper.PseudoClass
+    name: PseudoClass
+    href: RTB.Blazor.Styled.Helper.PseudoClass.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RTB.Blazor.Styled.Helper.PseudoClass
+    name: PseudoClass
+    href: RTB.Blazor.Styled.Helper.PseudoClass.html
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.Element(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.Element(System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Element_System_String_
+  name: Element(string)
+  nameWithType: SelectorExpression.Element(string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.Element(string)
+  nameWithType.vb: SelectorExpression.Element(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.Element(String)
+  name.vb: Element(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Element(System.String)
+    name: Element
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Element_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Element(System.String)
+    name: Element
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Element_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.Id(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.Id(System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Id_System_String_
+  name: Id(string)
+  nameWithType: SelectorExpression.Id(string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.Id(string)
+  nameWithType.vb: SelectorExpression.Id(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.Id(String)
+  name.vb: Id(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Id(System.String)
+    name: Id
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Id_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Id(System.String)
+    name: Id
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Id_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.Class(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.Class(System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Class_System_String_
+  name: Class(string)
+  nameWithType: SelectorExpression.Class(string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.Class(string)
+  nameWithType.vb: SelectorExpression.Class(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.Class(String)
+  name.vb: Class(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Class(System.String)
+    name: Class
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Class_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Class(System.String)
+    name: Class
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Class_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(System.String,System.String,System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(System.String,System.String,System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Attribute_System_String_System_String_System_String_
+  name: Attribute(string, string, string)
+  nameWithType: SelectorExpression.Attribute(string, string, string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(string, string, string)
+  nameWithType.vb: SelectorExpression.Attribute(String, String, String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(String, String, String)
+  name.vb: Attribute(String, String, String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(System.String,System.String,System.String)
+    name: Attribute
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Attribute_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Attribute(System.String,System.String,System.String)
+    name: Attribute
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Attribute_System_String_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoClass_System_String_
+  name: PseudoClass(string)
+  nameWithType: SelectorExpression.PseudoClass(string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(string)
+  nameWithType.vb: SelectorExpression.PseudoClass(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(String)
+  name.vb: PseudoClass(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(System.String)
+    name: PseudoClass
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoClass_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoClass(System.String)
+    name: PseudoClass
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoClass_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(System.String)
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(System.String)
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoElement_System_String_
+  name: PseudoElement(string)
+  nameWithType: SelectorExpression.PseudoElement(string)
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(string)
+  nameWithType.vb: SelectorExpression.PseudoElement(String)
+  fullName.vb: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(String)
+  name.vb: PseudoElement(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(System.String)
+    name: PseudoElement
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoElement_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.PseudoElement(System.String)
+    name: PseudoElement
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_PseudoElement_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.ToString
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.ToString
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_ToString
+  name: ToString()
+  nameWithType: SelectorExpression.ToString()
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.ToString()
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.ToString
+    name: ToString
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_ToString
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.ToString
+    name: ToString
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_ToString
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.#ctor*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.#ctor
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass__ctor_System_String_
+  name: PseudoClass
+  nameWithType: PseudoClass.PseudoClass
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.PseudoClass
+  nameWithType.vb: PseudoClass.New
+  fullName.vb: RTB.Blazor.Styled.Helper.PseudoClass.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Name*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Name
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Name
+  name: Name
+  nameWithType: PseudoClass.Name
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Name
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Root*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Root
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Root
+  name: Root
+  nameWithType: PseudoClass.Root
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Root
+- uid: RTB.Blazor.Styled.Helper.PseudoClass
+  commentId: T:RTB.Blazor.Styled.Helper.PseudoClass
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html
+  name: PseudoClass
+  nameWithType: PseudoClass
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Empty*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Empty
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Empty
+  name: Empty
+  nameWithType: PseudoClass.Empty
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Empty
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.FirstChild*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.FirstChild
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_FirstChild
+  name: FirstChild
+  nameWithType: PseudoClass.FirstChild
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.FirstChild
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.LastChild*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.LastChild
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_LastChild
+  name: LastChild
+  nameWithType: PseudoClass.LastChild
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.LastChild
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.OnlyChild*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.OnlyChild
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_OnlyChild
+  name: OnlyChild
+  nameWithType: PseudoClass.OnlyChild
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.OnlyChild
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.FirstOfType*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.FirstOfType
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_FirstOfType
+  name: FirstOfType
+  nameWithType: PseudoClass.FirstOfType
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.FirstOfType
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.LastOfType*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.LastOfType
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_LastOfType
+  name: LastOfType
+  nameWithType: PseudoClass.LastOfType
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.LastOfType
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.OnlyOfType*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.OnlyOfType
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_OnlyOfType
+  name: OnlyOfType
+  nameWithType: PseudoClass.OnlyOfType
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.OnlyOfType
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Hover*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Hover
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Hover
+  name: Hover
+  nameWithType: PseudoClass.Hover
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Hover
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Active*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Active
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Active
+  name: Active
+  nameWithType: PseudoClass.Active
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Active
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Focus*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Focus
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Focus
+  name: Focus
+  nameWithType: PseudoClass.Focus
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Focus
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.FocusWithin*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.FocusWithin
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_FocusWithin
+  name: FocusWithin
+  nameWithType: PseudoClass.FocusWithin
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.FocusWithin
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.FocusVisible*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.FocusVisible
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_FocusVisible
+  name: FocusVisible
+  nameWithType: PseudoClass.FocusVisible
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.FocusVisible
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.AnyLink*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.AnyLink
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_AnyLink
+  name: AnyLink
+  nameWithType: PseudoClass.AnyLink
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.AnyLink
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Link*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Link
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Link
+  name: Link
+  nameWithType: PseudoClass.Link
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Link
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Visited*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Visited
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Visited
+  name: Visited
+  nameWithType: PseudoClass.Visited
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Visited
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.LocalLink*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.LocalLink
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_LocalLink
+  name: LocalLink
+  nameWithType: PseudoClass.LocalLink
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.LocalLink
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Target*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Target
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Target
+  name: Target
+  nameWithType: PseudoClass.Target
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Target
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.TargetWithin*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.TargetWithin
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_TargetWithin
+  name: TargetWithin
+  nameWithType: PseudoClass.TargetWithin
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.TargetWithin
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Scope*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Scope
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Scope
+  name: Scope
+  nameWithType: PseudoClass.Scope
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Scope
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Enabled*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Enabled
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Enabled
+  name: Enabled
+  nameWithType: PseudoClass.Enabled
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Enabled
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Disabled*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Disabled
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Disabled
+  name: Disabled
+  nameWithType: PseudoClass.Disabled
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Disabled
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.ReadOnly*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.ReadOnly
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_ReadOnly
+  name: ReadOnly
+  nameWithType: PseudoClass.ReadOnly
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.ReadOnly
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.ReadWrite*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.ReadWrite
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_ReadWrite
+  name: ReadWrite
+  nameWithType: PseudoClass.ReadWrite
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.ReadWrite
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.PlaceholderShown*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.PlaceholderShown
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_PlaceholderShown
+  name: PlaceholderShown
+  nameWithType: PseudoClass.PlaceholderShown
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.PlaceholderShown
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Autofill*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Autofill
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Autofill
+  name: Autofill
+  nameWithType: PseudoClass.Autofill
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Autofill
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Default*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Default
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Default
+  name: Default
+  nameWithType: PseudoClass.Default
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Default
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Checked*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Checked
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Checked
+  name: Checked
+  nameWithType: PseudoClass.Checked
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Checked
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Indeterminate*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Indeterminate
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Indeterminate
+  name: Indeterminate
+  nameWithType: PseudoClass.Indeterminate
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Indeterminate
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Blank*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Blank
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Blank
+  name: Blank
+  nameWithType: PseudoClass.Blank
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Blank
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Valid*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Valid
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Valid
+  name: Valid
+  nameWithType: PseudoClass.Valid
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Valid
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Invalid*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Invalid
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Invalid
+  name: Invalid
+  nameWithType: PseudoClass.Invalid
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Invalid
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.InRange*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.InRange
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_InRange
+  name: InRange
+  nameWithType: PseudoClass.InRange
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.InRange
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.OutOfRange*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.OutOfRange
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_OutOfRange
+  name: OutOfRange
+  nameWithType: PseudoClass.OutOfRange
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.OutOfRange
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Required*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Required
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Required
+  name: Required
+  nameWithType: PseudoClass.Required
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Required
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Optional*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Optional
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Optional
+  name: Optional
+  nameWithType: PseudoClass.Optional
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Optional
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.UserValid*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.UserValid
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_UserValid
+  name: UserValid
+  nameWithType: PseudoClass.UserValid
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.UserValid
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.UserInvalid*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.UserInvalid
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_UserInvalid
+  name: UserInvalid
+  nameWithType: PseudoClass.UserInvalid
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.UserInvalid
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Playing*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Playing
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Playing
+  name: Playing
+  nameWithType: PseudoClass.Playing
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Playing
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Paused*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Paused
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Paused
+  name: Paused
+  nameWithType: PseudoClass.Paused
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Paused
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Seeking*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Seeking
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Seeking
+  name: Seeking
+  nameWithType: PseudoClass.Seeking
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Seeking
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Buffering*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Buffering
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Buffering
+  name: Buffering
+  nameWithType: PseudoClass.Buffering
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Buffering
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Stalled*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Stalled
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Stalled
+  name: Stalled
+  nameWithType: PseudoClass.Stalled
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Stalled
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Muted*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Muted
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Muted
+  name: Muted
+  nameWithType: PseudoClass.Muted
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Muted
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.VolumeLocked*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.VolumeLocked
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_VolumeLocked
+  name: VolumeLocked
+  nameWithType: PseudoClass.VolumeLocked
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.VolumeLocked
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Current*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Current
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Current
+  name: Current
+  nameWithType: PseudoClass.Current
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Current
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Past*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Past
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Past
+  name: Past
+  nameWithType: PseudoClass.Past
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Past
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Future*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Future
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Future
+  name: Future
+  nameWithType: PseudoClass.Future
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Future
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Defined*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Defined
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Defined
+  name: Defined
+  nameWithType: PseudoClass.Defined
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Defined
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Open*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Open
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Open
+  name: Open
+  nameWithType: PseudoClass.Open
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Open
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Modal*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Modal
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Modal
+  name: Modal
+  nameWithType: PseudoClass.Modal
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Modal
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Fullscreen*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Fullscreen
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Fullscreen
+  name: Fullscreen
+  nameWithType: PseudoClass.Fullscreen
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Fullscreen
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.PopoverOpen*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.PopoverOpen
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_PopoverOpen
+  name: PopoverOpen
+  nameWithType: PseudoClass.PopoverOpen
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.PopoverOpen
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.PictureInPicture*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.PictureInPicture
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_PictureInPicture
+  name: PictureInPicture
+  nameWithType: PseudoClass.PictureInPicture
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.PictureInPicture
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Host*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Host
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Host
+  name: Host
+  nameWithType: PseudoClass.Host
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Host
+- uid: RTB.Blazor.Styled.Helper.SelectorExpression.Render
+  commentId: M:RTB.Blazor.Styled.Helper.SelectorExpression.Render
+  parent: RTB.Blazor.Styled.Helper.SelectorExpression
+  href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Render
+  name: Render()
+  nameWithType: SelectorExpression.Render()
+  fullName: RTB.Blazor.Styled.Helper.SelectorExpression.Render()
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Render
+    name: Render
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Render
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SelectorExpression.Render
+    name: Render
+    href: RTB.Blazor.Styled.Helper.SelectorExpression.html#RTB_Blazor_Styled_Helper_SelectorExpression_Render
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.PseudoClass.Render*
+  commentId: Overload:RTB.Blazor.Styled.Helper.PseudoClass.Render
+  href: RTB.Blazor.Styled.Helper.PseudoClass.html#RTB_Blazor_Styled_Helper_PseudoClass_Render
+  name: Render
+  nameWithType: PseudoClass.Render
+  fullName: RTB.Blazor.Styled.Helper.PseudoClass.Render

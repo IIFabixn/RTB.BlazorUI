@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Components.Layout
+  commentId: N:RTB.Blazor.Components.Layout
+  id: RTB.Blazor.Components.Layout
+  children:
+  - RTB.Blazor.Components.Layout.StackBase
+  langs:
+  - csharp
+  - vb
+  name: RTB.Blazor.Components.Layout
+  nameWithType: RTB.Blazor.Components.Layout
+  fullName: RTB.Blazor.Components.Layout
+  type: Namespace
+  assemblies:
+  - RTB.Blazor
+references:
+- uid: RTB.Blazor.Components.Layout.StackBase
+  commentId: T:RTB.Blazor.Components.Layout.StackBase
+  href: RTB.Blazor.Components.Layout.StackBase.html
+  name: StackBase
+  nameWithType: StackBase
+  fullName: RTB.Blazor.Components.Layout.StackBase

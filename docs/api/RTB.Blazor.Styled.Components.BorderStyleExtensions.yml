@@ -1,0 +1,871 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Components.BorderStyleExtensions
+  commentId: T:RTB.Blazor.Styled.Components.BorderStyleExtensions
+  id: BorderStyleExtensions
+  parent: RTB.Blazor.Styled.Components
+  children:
+  - RTB.Blazor.Styled.Components.BorderStyleExtensions.Border(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit},RTB.Blazor.Styled.Components.Border.BorderStyle,System.Nullable{RTB.Blazor.Styled.Helper.RTBColor},System.Nullable{RTB.Blazor.Styled.Components.Border.BorderSide})
+  - RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderAll(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit},RTB.Blazor.Styled.Helper.RTBColor,RTB.Blazor.Styled.Components.Border.BorderStyle)
+  - RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderNone(RTB.Blazor.Styled.Core.StyleBuilder)
+  - RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadius(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit},System.Nullable{RTB.Blazor.Styled.Components.Border.BorderCorner})
+  - RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusAll(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit})
+  - RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusNone(RTB.Blazor.Styled.Core.StyleBuilder)
+  langs:
+  - csharp
+  - vb
+  name: BorderStyleExtensions
+  nameWithType: BorderStyleExtensions
+  fullName: RTB.Blazor.Styled.Components.BorderStyleExtensions
+  type: Class
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: BorderStyleExtensions
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 169
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Extension methods on <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref> for composing border and radius declarations.
+  example: []
+  syntax:
+    content: public static class BorderStyleExtensions
+    content.vb: Public Module BorderStyleExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderAll(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit},RTB.Blazor.Styled.Helper.RTBColor,RTB.Blazor.Styled.Components.Border.BorderStyle)
+  commentId: M:RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderAll(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit},RTB.Blazor.Styled.Helper.RTBColor,RTB.Blazor.Styled.Components.Border.BorderStyle)
+  id: BorderAll(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit},RTB.Blazor.Styled.Helper.RTBColor,RTB.Blazor.Styled.Components.Border.BorderStyle)
+  isExtensionMethod: true
+  parent: RTB.Blazor.Styled.Components.BorderStyleExtensions
+  langs:
+  - csharp
+  - vb
+  name: BorderAll(StyleBuilder, SizeUnit?, RTBColor, BorderStyle)
+  nameWithType: BorderStyleExtensions.BorderAll(StyleBuilder, SizeUnit?, RTBColor, Border.BorderStyle)
+  fullName: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderAll(RTB.Blazor.Styled.Core.StyleBuilder, RTB.Blazor.Styled.Helper.SizeUnit?, RTB.Blazor.Styled.Helper.RTBColor, RTB.Blazor.Styled.Components.Border.BorderStyle)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: BorderAll
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 179
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: 'Sets <code>border</code> shorthand for all sides: <code>[width] [style] [color]</code>.'
+  example: []
+  syntax:
+    content: public static StyleBuilder BorderAll(this StyleBuilder builder, SizeUnit? width, RTBColor color, Border.BorderStyle style)
+    parameters:
+    - id: builder
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The target style builder.
+    - id: width
+      type: System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit}
+      description: The border width (e.g., 1px).
+    - id: color
+      type: RTB.Blazor.Styled.Helper.RTBColor
+      description: The border color.
+    - id: style
+      type: RTB.Blazor.Styled.Components.Border.BorderStyle
+      description: The border style keyword.
+    return:
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The builder for chaining.
+    content.vb: Public Shared Function BorderAll(builder As StyleBuilder, width As SizeUnit?, color As RTBColor, style As Border.BorderStyle) As StyleBuilder
+  overload: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderAll*
+- uid: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderNone(RTB.Blazor.Styled.Core.StyleBuilder)
+  commentId: M:RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderNone(RTB.Blazor.Styled.Core.StyleBuilder)
+  id: BorderNone(RTB.Blazor.Styled.Core.StyleBuilder)
+  isExtensionMethod: true
+  parent: RTB.Blazor.Styled.Components.BorderStyleExtensions
+  langs:
+  - csharp
+  - vb
+  name: BorderNone(StyleBuilder)
+  nameWithType: BorderStyleExtensions.BorderNone(StyleBuilder)
+  fullName: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderNone(RTB.Blazor.Styled.Core.StyleBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: BorderNone
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 190
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: 'Unsets the border: <code>border: unset</code>.'
+  example: []
+  syntax:
+    content: public static StyleBuilder BorderNone(this StyleBuilder builder)
+    parameters:
+    - id: builder
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The target style builder.
+    return:
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The builder for chaining.
+    content.vb: Public Shared Function BorderNone(builder As StyleBuilder) As StyleBuilder
+  overload: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderNone*
+- uid: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusAll(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit})
+  commentId: M:RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusAll(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit})
+  id: BorderRadiusAll(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit})
+  isExtensionMethod: true
+  parent: RTB.Blazor.Styled.Components.BorderStyleExtensions
+  langs:
+  - csharp
+  - vb
+  name: BorderRadiusAll(StyleBuilder, SizeUnit?)
+  nameWithType: BorderStyleExtensions.BorderRadiusAll(StyleBuilder, SizeUnit?)
+  fullName: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusAll(RTB.Blazor.Styled.Core.StyleBuilder, RTB.Blazor.Styled.Helper.SizeUnit?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: BorderRadiusAll
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 201
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Sets a uniform <code>border-radius</code> value for all corners.
+  example: []
+  syntax:
+    content: public static StyleBuilder BorderRadiusAll(this StyleBuilder builder, SizeUnit? radius)
+    parameters:
+    - id: builder
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The target style builder.
+    - id: radius
+      type: System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit}
+      description: The radius to apply. If null, nothing is emitted.
+    return:
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The builder for chaining.
+    content.vb: Public Shared Function BorderRadiusAll(builder As StyleBuilder, radius As SizeUnit?) As StyleBuilder
+  overload: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusAll*
+- uid: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusNone(RTB.Blazor.Styled.Core.StyleBuilder)
+  commentId: M:RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusNone(RTB.Blazor.Styled.Core.StyleBuilder)
+  id: BorderRadiusNone(RTB.Blazor.Styled.Core.StyleBuilder)
+  isExtensionMethod: true
+  parent: RTB.Blazor.Styled.Components.BorderStyleExtensions
+  langs:
+  - csharp
+  - vb
+  name: BorderRadiusNone(StyleBuilder)
+  nameWithType: BorderStyleExtensions.BorderRadiusNone(StyleBuilder)
+  fullName: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusNone(RTB.Blazor.Styled.Core.StyleBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: BorderRadiusNone
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 212
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: 'Unsets any corner radius: <code>border-radius: unset</code>.'
+  example: []
+  syntax:
+    content: public static StyleBuilder BorderRadiusNone(this StyleBuilder builder)
+    parameters:
+    - id: builder
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The target style builder.
+    return:
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The builder for chaining.
+    content.vb: Public Shared Function BorderRadiusNone(builder As StyleBuilder) As StyleBuilder
+  overload: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusNone*
+- uid: RTB.Blazor.Styled.Components.BorderStyleExtensions.Border(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit},RTB.Blazor.Styled.Components.Border.BorderStyle,System.Nullable{RTB.Blazor.Styled.Helper.RTBColor},System.Nullable{RTB.Blazor.Styled.Components.Border.BorderSide})
+  commentId: M:RTB.Blazor.Styled.Components.BorderStyleExtensions.Border(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit},RTB.Blazor.Styled.Components.Border.BorderStyle,System.Nullable{RTB.Blazor.Styled.Helper.RTBColor},System.Nullable{RTB.Blazor.Styled.Components.Border.BorderSide})
+  id: Border(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit},RTB.Blazor.Styled.Components.Border.BorderStyle,System.Nullable{RTB.Blazor.Styled.Helper.RTBColor},System.Nullable{RTB.Blazor.Styled.Components.Border.BorderSide})
+  isExtensionMethod: true
+  parent: RTB.Blazor.Styled.Components.BorderStyleExtensions
+  langs:
+  - csharp
+  - vb
+  name: Border(StyleBuilder, SizeUnit?, BorderStyle, RTBColor?, BorderSide?)
+  nameWithType: BorderStyleExtensions.Border(StyleBuilder, SizeUnit?, Border.BorderStyle, RTBColor?, Border.BorderSide?)
+  fullName: RTB.Blazor.Styled.Components.BorderStyleExtensions.Border(RTB.Blazor.Styled.Core.StyleBuilder, RTB.Blazor.Styled.Helper.SizeUnit?, RTB.Blazor.Styled.Components.Border.BorderStyle, RTB.Blazor.Styled.Helper.RTBColor?, RTB.Blazor.Styled.Components.Border.BorderSide?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Border
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 231
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Emits border declarations for the specified side(s).
+  example: []
+  syntax:
+    content: public static StyleBuilder Border(this StyleBuilder builder, SizeUnit? width, Border.BorderStyle style, RTBColor? color, Border.BorderSide? side)
+    parameters:
+    - id: builder
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The target style builder.
+    - id: width
+      type: System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit}
+      description: Width to use; when null, defaults to <code>1px</code>.
+    - id: style
+      type: RTB.Blazor.Styled.Components.Border.BorderStyle
+      description: Border style keyword.
+    - id: color
+      type: System.Nullable{RTB.Blazor.Styled.Helper.RTBColor}
+      description: Color to use; when null, defaults to black.
+    - id: side
+      type: System.Nullable{RTB.Blazor.Styled.Components.Border.BorderSide}
+      description: >-
+        Side(s) to apply:
+
+        - <xref href="RTB.Blazor.Styled.Components.Border.BorderSide.None" data-throw-if-not-resolved="false"></xref>: emits <code>border: unset</code><br />
+
+        - <xref href="RTB.Blazor.Styled.Components.Border.BorderSide.All" data-throw-if-not-resolved="false"></xref>: emits shorthand <code>border</code><br />
+
+        - Mixed flags: emits per-side properties (<code>border-top</code>, <code>border-right</code>, etc.)
+    return:
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The builder for chaining.
+    content.vb: Public Shared Function Border(builder As StyleBuilder, width As SizeUnit?, style As Border.BorderStyle, color As RTBColor?, side As Border.BorderSide?) As StyleBuilder
+  overload: RTB.Blazor.Styled.Components.BorderStyleExtensions.Border*
+- uid: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadius(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit},System.Nullable{RTB.Blazor.Styled.Components.Border.BorderCorner})
+  commentId: M:RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadius(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit},System.Nullable{RTB.Blazor.Styled.Components.Border.BorderCorner})
+  id: BorderRadius(RTB.Blazor.Styled.Core.StyleBuilder,System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit},System.Nullable{RTB.Blazor.Styled.Components.Border.BorderCorner})
+  isExtensionMethod: true
+  parent: RTB.Blazor.Styled.Components.BorderStyleExtensions
+  langs:
+  - csharp
+  - vb
+  name: BorderRadius(StyleBuilder, SizeUnit?, BorderCorner?)
+  nameWithType: BorderStyleExtensions.BorderRadius(StyleBuilder, SizeUnit?, Border.BorderCorner?)
+  fullName: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadius(RTB.Blazor.Styled.Core.StyleBuilder, RTB.Blazor.Styled.Helper.SizeUnit?, RTB.Blazor.Styled.Components.Border.BorderCorner?)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Border.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: BorderRadius
+    path: ../src/RTB.Styled/Components/Border.cs
+    startLine: 269
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Emits <code>border-radius</code> declarations for the specified corner(s).
+  example: []
+  syntax:
+    content: public static StyleBuilder BorderRadius(this StyleBuilder builder, SizeUnit? radius, Border.BorderCorner? corner)
+    parameters:
+    - id: builder
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The target style builder.
+    - id: radius
+      type: System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit}
+      description: Radius to use; when null, defaults to <code>1px</code> if any corner is specified.
+    - id: corner
+      type: System.Nullable{RTB.Blazor.Styled.Components.Border.BorderCorner}
+      description: >-
+        Corner(s) to apply:
+
+        - <xref href="RTB.Blazor.Styled.Components.Border.BorderCorner.None" data-throw-if-not-resolved="false"></xref>: emits <code>border-radius: unset</code><br />
+
+        - <xref href="RTB.Blazor.Styled.Components.Border.BorderCorner.All" data-throw-if-not-resolved="false"></xref>: emits uniform <code>border-radius</code><br />
+
+        - Mixed flags: emits the corresponding per-corner properties.
+    return:
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The builder for chaining.
+    content.vb: Public Shared Function BorderRadius(builder As StyleBuilder, radius As SizeUnit?, corner As Border.BorderCorner?) As StyleBuilder
+  overload: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadius*
+references:
+- uid: RTB.Blazor.Styled.Core.StyleBuilder
+  commentId: T:RTB.Blazor.Styled.Core.StyleBuilder
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.StyleBuilder.html
+  name: StyleBuilder
+  nameWithType: StyleBuilder
+  fullName: RTB.Blazor.Styled.Core.StyleBuilder
+- uid: RTB.Blazor.Styled.Components
+  commentId: N:RTB.Blazor.Styled.Components
+  href: RTB.html
+  name: RTB.Blazor.Styled.Components
+  nameWithType: RTB.Blazor.Styled.Components
+  fullName: RTB.Blazor.Styled.Components
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Core
+  commentId: N:RTB.Blazor.Styled.Core
+  href: RTB.html
+  name: RTB.Blazor.Styled.Core
+  nameWithType: RTB.Blazor.Styled.Core
+  fullName: RTB.Blazor.Styled.Core
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderAll*
+  commentId: Overload:RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderAll
+  href: RTB.Blazor.Styled.Components.BorderStyleExtensions.html#RTB_Blazor_Styled_Components_BorderStyleExtensions_BorderAll_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_SizeUnit__RTB_Blazor_Styled_Helper_RTBColor_RTB_Blazor_Styled_Components_Border_BorderStyle_
+  name: BorderAll
+  nameWithType: BorderStyleExtensions.BorderAll
+  fullName: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderAll
+- uid: System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit}
+  commentId: T:System.Nullable{RTB.Blazor.Styled.Helper.SizeUnit}
+  parent: System
+  definition: System.Nullable`1
+  href: RTB.Blazor.Styled.Helper.SizeUnit.html
+  name: SizeUnit?
+  nameWithType: SizeUnit?
+  fullName: RTB.Blazor.Styled.Helper.SizeUnit?
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.SizeUnit
+    name: SizeUnit
+    href: RTB.Blazor.Styled.Helper.SizeUnit.html
+  - name: '?'
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.SizeUnit
+    name: SizeUnit
+    href: RTB.Blazor.Styled.Helper.SizeUnit.html
+  - name: '?'
+- uid: RTB.Blazor.Styled.Helper.RTBColor
+  commentId: T:RTB.Blazor.Styled.Helper.RTBColor
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.RTBColor.html
+  name: RTBColor
+  nameWithType: RTBColor
+  fullName: RTB.Blazor.Styled.Helper.RTBColor
+- uid: RTB.Blazor.Styled.Components.Border.BorderStyle
+  commentId: T:RTB.Blazor.Styled.Components.Border.BorderStyle
+  parent: RTB.Blazor.Styled.Components
+  href: RTB.Blazor.Styled.Components.Border.html
+  name: Border.BorderStyle
+  nameWithType: Border.BorderStyle
+  fullName: RTB.Blazor.Styled.Components.Border.BorderStyle
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Border
+    name: Border
+    href: RTB.Blazor.Styled.Components.Border.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Border.BorderStyle
+    name: BorderStyle
+    href: RTB.Blazor.Styled.Components.Border.BorderStyle.html
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Border
+    name: Border
+    href: RTB.Blazor.Styled.Components.Border.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Border.BorderStyle
+    name: BorderStyle
+    href: RTB.Blazor.Styled.Components.Border.BorderStyle.html
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderNone*
+  commentId: Overload:RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderNone
+  href: RTB.Blazor.Styled.Components.BorderStyleExtensions.html#RTB_Blazor_Styled_Components_BorderStyleExtensions_BorderNone_RTB_Blazor_Styled_Core_StyleBuilder_
+  name: BorderNone
+  nameWithType: BorderStyleExtensions.BorderNone
+  fullName: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderNone
+- uid: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusAll*
+  commentId: Overload:RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusAll
+  href: RTB.Blazor.Styled.Components.BorderStyleExtensions.html#RTB_Blazor_Styled_Components_BorderStyleExtensions_BorderRadiusAll_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_SizeUnit__
+  name: BorderRadiusAll
+  nameWithType: BorderStyleExtensions.BorderRadiusAll
+  fullName: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusAll
+- uid: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusNone*
+  commentId: Overload:RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusNone
+  href: RTB.Blazor.Styled.Components.BorderStyleExtensions.html#RTB_Blazor_Styled_Components_BorderStyleExtensions_BorderRadiusNone_RTB_Blazor_Styled_Core_StyleBuilder_
+  name: BorderRadiusNone
+  nameWithType: BorderStyleExtensions.BorderRadiusNone
+  fullName: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadiusNone
+- uid: RTB.Blazor.Styled.Components.Border.BorderSide.None
+  commentId: F:RTB.Blazor.Styled.Components.Border.BorderSide.None
+  href: RTB.Blazor.Styled.Components.Border.BorderSide.html#RTB_Blazor_Styled_Components_Border_BorderSide_None
+  name: None
+  nameWithType: Border.BorderSide.None
+  fullName: RTB.Blazor.Styled.Components.Border.BorderSide.None
+- uid: RTB.Blazor.Styled.Components.Border.BorderSide.All
+  commentId: F:RTB.Blazor.Styled.Components.Border.BorderSide.All
+  href: RTB.Blazor.Styled.Components.Border.BorderSide.html#RTB_Blazor_Styled_Components_Border_BorderSide_All
+  name: All
+  nameWithType: Border.BorderSide.All
+  fullName: RTB.Blazor.Styled.Components.Border.BorderSide.All
+- uid: RTB.Blazor.Styled.Components.BorderStyleExtensions.Border*
+  commentId: Overload:RTB.Blazor.Styled.Components.BorderStyleExtensions.Border
+  href: RTB.Blazor.Styled.Components.BorderStyleExtensions.html#RTB_Blazor_Styled_Components_BorderStyleExtensions_Border_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_SizeUnit__RTB_Blazor_Styled_Components_Border_BorderStyle_System_Nullable_RTB_Blazor_Styled_Helper_RTBColor__System_Nullable_RTB_Blazor_Styled_Components_Border_BorderSide__
+  name: Border
+  nameWithType: BorderStyleExtensions.Border
+  fullName: RTB.Blazor.Styled.Components.BorderStyleExtensions.Border
+- uid: System.Nullable{RTB.Blazor.Styled.Helper.RTBColor}
+  commentId: T:System.Nullable{RTB.Blazor.Styled.Helper.RTBColor}
+  parent: System
+  definition: System.Nullable`1
+  href: RTB.Blazor.Styled.Helper.RTBColor.html
+  name: RTBColor?
+  nameWithType: RTBColor?
+  fullName: RTB.Blazor.Styled.Helper.RTBColor?
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.RTBColor
+    name: RTBColor
+    href: RTB.Blazor.Styled.Helper.RTBColor.html
+  - name: '?'
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.RTBColor
+    name: RTBColor
+    href: RTB.Blazor.Styled.Helper.RTBColor.html
+  - name: '?'
+- uid: System.Nullable{RTB.Blazor.Styled.Components.Border.BorderSide}
+  commentId: T:System.Nullable{RTB.Blazor.Styled.Components.Border.BorderSide}
+  parent: System
+  definition: System.Nullable`1
+  href: RTB.Blazor.Styled.Components.Border.html
+  name: Border.BorderSide?
+  nameWithType: Border.BorderSide?
+  fullName: RTB.Blazor.Styled.Components.Border.BorderSide?
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Border
+    name: Border
+    href: RTB.Blazor.Styled.Components.Border.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Border.BorderSide
+    name: BorderSide
+    href: RTB.Blazor.Styled.Components.Border.BorderSide.html
+  - name: '?'
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Border
+    name: Border
+    href: RTB.Blazor.Styled.Components.Border.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Border.BorderSide
+    name: BorderSide
+    href: RTB.Blazor.Styled.Components.Border.BorderSide.html
+  - name: '?'
+- uid: RTB.Blazor.Styled.Components.Border.BorderCorner.None
+  commentId: F:RTB.Blazor.Styled.Components.Border.BorderCorner.None
+  href: RTB.Blazor.Styled.Components.Border.BorderCorner.html#RTB_Blazor_Styled_Components_Border_BorderCorner_None
+  name: None
+  nameWithType: Border.BorderCorner.None
+  fullName: RTB.Blazor.Styled.Components.Border.BorderCorner.None
+- uid: RTB.Blazor.Styled.Components.Border.BorderCorner.All
+  commentId: F:RTB.Blazor.Styled.Components.Border.BorderCorner.All
+  href: RTB.Blazor.Styled.Components.Border.BorderCorner.html#RTB_Blazor_Styled_Components_Border_BorderCorner_All
+  name: All
+  nameWithType: Border.BorderCorner.All
+  fullName: RTB.Blazor.Styled.Components.Border.BorderCorner.All
+- uid: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadius*
+  commentId: Overload:RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadius
+  href: RTB.Blazor.Styled.Components.BorderStyleExtensions.html#RTB_Blazor_Styled_Components_BorderStyleExtensions_BorderRadius_RTB_Blazor_Styled_Core_StyleBuilder_System_Nullable_RTB_Blazor_Styled_Helper_SizeUnit__System_Nullable_RTB_Blazor_Styled_Components_Border_BorderCorner__
+  name: BorderRadius
+  nameWithType: BorderStyleExtensions.BorderRadius
+  fullName: RTB.Blazor.Styled.Components.BorderStyleExtensions.BorderRadius
+- uid: System.Nullable{RTB.Blazor.Styled.Components.Border.BorderCorner}
+  commentId: T:System.Nullable{RTB.Blazor.Styled.Components.Border.BorderCorner}
+  parent: System
+  definition: System.Nullable`1
+  href: RTB.Blazor.Styled.Components.Border.html
+  name: Border.BorderCorner?
+  nameWithType: Border.BorderCorner?
+  fullName: RTB.Blazor.Styled.Components.Border.BorderCorner?
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Border
+    name: Border
+    href: RTB.Blazor.Styled.Components.Border.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Border.BorderCorner
+    name: BorderCorner
+    href: RTB.Blazor.Styled.Components.Border.BorderCorner.html
+  - name: '?'
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Border
+    name: Border
+    href: RTB.Blazor.Styled.Components.Border.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Border.BorderCorner
+    name: BorderCorner
+    href: RTB.Blazor.Styled.Components.Border.BorderCorner.html
+  - name: '?'

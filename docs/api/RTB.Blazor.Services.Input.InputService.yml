@@ -1,0 +1,1050 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.Input.InputService
+  commentId: T:RTB.Blazor.Services.Input.InputService
+  id: InputService
+  parent: RTB.Blazor.Services.Input
+  children:
+  - RTB.Blazor.Services.Input.InputService.#ctor(Microsoft.JSInterop.IJSRuntime)
+  - RTB.Blazor.Services.Input.InputService.DisposeAsync
+  - RTB.Blazor.Services.Input.InputService.InitializeAsync
+  - RTB.Blazor.Services.Input.InputService.OnKeyDown(System.String)
+  - RTB.Blazor.Services.Input.InputService.OnKeyUp(System.String)
+  - RTB.Blazor.Services.Input.InputService.RegisterKeyHandler(System.String,System.Action{System.Boolean})
+  - RTB.Blazor.Services.Input.InputService.UnregisterKeyHandler(System.String,System.Action{System.Boolean})
+  langs:
+  - csharp
+  - vb
+  name: InputService
+  nameWithType: InputService
+  fullName: RTB.Blazor.Services.Input.InputService
+  type: Class
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Input/InputService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: InputService
+    path: ../src/RTB.BlazorUI/Services/Input/InputService.cs
+    startLine: 59
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Input
+  summary: Default implementation of <xref href="RTB.Blazor.Services.Input.IInputService" data-throw-if-not-resolved="false"></xref> using <xref href="Microsoft.JSInterop.IJSRuntime" data-throw-if-not-resolved="false"></xref> to receive keyboard events from the browser.
+  remarks: >-
+    Expects the following JS functions to exist:
+
+    - <code>inputService.register(dotNetObjRef)</code>: Attaches keydown/keyup listeners and forwards events via <xref href="RTB.Blazor.Services.Input.InputService.OnKeyDown(System.String)" data-throw-if-not-resolved="false"></xref> and <xref href="RTB.Blazor.Services.Input.InputService.OnKeyUp(System.String)" data-throw-if-not-resolved="false"></xref>.
+
+    - <code>inputService.unregister()</code>: Detaches listeners.
+  example: []
+  syntax:
+    content: 'public class InputService : IInputService, IAsyncDisposable'
+    content.vb: Public Class InputService Implements IInputService, IAsyncDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - RTB.Blazor.Services.Input.IInputService
+  - System.IAsyncDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RTB.Blazor.Services.Input.InputService.#ctor(Microsoft.JSInterop.IJSRuntime)
+  commentId: M:RTB.Blazor.Services.Input.InputService.#ctor(Microsoft.JSInterop.IJSRuntime)
+  id: '#ctor(Microsoft.JSInterop.IJSRuntime)'
+  parent: RTB.Blazor.Services.Input.InputService
+  langs:
+  - csharp
+  - vb
+  name: InputService(IJSRuntime)
+  nameWithType: InputService.InputService(IJSRuntime)
+  fullName: RTB.Blazor.Services.Input.InputService.InputService(Microsoft.JSInterop.IJSRuntime)
+  type: Constructor
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Input/InputService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: .ctor
+    path: ../src/RTB.BlazorUI/Services/Input/InputService.cs
+    startLine: 59
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Input
+  summary: Default implementation of <xref href="RTB.Blazor.Services.Input.IInputService" data-throw-if-not-resolved="false"></xref> using <xref href="Microsoft.JSInterop.IJSRuntime" data-throw-if-not-resolved="false"></xref> to receive keyboard events from the browser.
+  remarks: >-
+    Expects the following JS functions to exist:
+
+    - <code>inputService.register(dotNetObjRef)</code>: Attaches keydown/keyup listeners and forwards events via <xref href="RTB.Blazor.Services.Input.InputService.OnKeyDown(System.String)" data-throw-if-not-resolved="false"></xref> and <xref href="RTB.Blazor.Services.Input.InputService.OnKeyUp(System.String)" data-throw-if-not-resolved="false"></xref>.
+
+    - <code>inputService.unregister()</code>: Detaches listeners.
+  example: []
+  syntax:
+    content: public InputService(IJSRuntime jsRuntime)
+    parameters:
+    - id: jsRuntime
+      type: Microsoft.JSInterop.IJSRuntime
+    content.vb: Public Sub New(jsRuntime As IJSRuntime)
+  overload: RTB.Blazor.Services.Input.InputService.#ctor*
+  nameWithType.vb: InputService.New(IJSRuntime)
+  fullName.vb: RTB.Blazor.Services.Input.InputService.New(Microsoft.JSInterop.IJSRuntime)
+  name.vb: New(IJSRuntime)
+- uid: RTB.Blazor.Services.Input.InputService.InitializeAsync
+  commentId: M:RTB.Blazor.Services.Input.InputService.InitializeAsync
+  id: InitializeAsync
+  parent: RTB.Blazor.Services.Input.InputService
+  langs:
+  - csharp
+  - vb
+  name: InitializeAsync()
+  nameWithType: InputService.InitializeAsync()
+  fullName: RTB.Blazor.Services.Input.InputService.InitializeAsync()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Input/InputService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: InitializeAsync
+    path: ../src/RTB.BlazorUI/Services/Input/InputService.cs
+    startLine: 67
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Input
+  summary: Initializes the JavaScript interop by attaching global keyboard listeners once.
+  remarks: >-
+    This calls the JS function <code>inputService.register(dotNetObjRef)</code>. Ensure a corresponding JS implementation exists and is loaded.
+
+    Safe to call multiple times; only the first call needs to wire up JS.
+  example: []
+  syntax:
+    content: public Task InitializeAsync()
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task that completes when the JS listeners are attached.
+    content.vb: Public Function InitializeAsync() As Task
+  overload: RTB.Blazor.Services.Input.InputService.InitializeAsync*
+  implements:
+  - RTB.Blazor.Services.Input.IInputService.InitializeAsync
+- uid: RTB.Blazor.Services.Input.InputService.RegisterKeyHandler(System.String,System.Action{System.Boolean})
+  commentId: M:RTB.Blazor.Services.Input.InputService.RegisterKeyHandler(System.String,System.Action{System.Boolean})
+  id: RegisterKeyHandler(System.String,System.Action{System.Boolean})
+  parent: RTB.Blazor.Services.Input.InputService
+  langs:
+  - csharp
+  - vb
+  name: RegisterKeyHandler(string, Action<bool>)
+  nameWithType: InputService.RegisterKeyHandler(string, Action<bool>)
+  fullName: RTB.Blazor.Services.Input.InputService.RegisterKeyHandler(string, System.Action<bool>)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Input/InputService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: RegisterKeyHandler
+    path: ../src/RTB.BlazorUI/Services/Input/InputService.cs
+    startLine: 74
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Input
+  summary: Subscribe a callback to a specific key as reported by <code>KeyboardEvent.key</code>.
+  remarks: Multiple handlers can be registered for the same key. Handlers are invoked in registration order.
+  example: []
+  syntax:
+    content: public void RegisterKeyHandler(string key, Action<bool> callback)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key identifier string (e.g., "Shift", "Control", "Alt", "ArrowUp", "a", "A"). Use the exact value produced by <code>KeyboardEvent.key</code>.
+    - id: callback
+      type: System.Action{System.Boolean}
+      description: The callback invoked with <code>true</code> on key down and <code>false</code> on key up.
+    content.vb: Public Sub RegisterKeyHandler(key As String, callback As Action(Of Boolean))
+  overload: RTB.Blazor.Services.Input.InputService.RegisterKeyHandler*
+  implements:
+  - RTB.Blazor.Services.Input.IInputService.RegisterKeyHandler(System.String,System.Action{System.Boolean})
+  nameWithType.vb: InputService.RegisterKeyHandler(String, Action(Of Boolean))
+  fullName.vb: RTB.Blazor.Services.Input.InputService.RegisterKeyHandler(String, System.Action(Of Boolean))
+  name.vb: RegisterKeyHandler(String, Action(Of Boolean))
+- uid: RTB.Blazor.Services.Input.InputService.UnregisterKeyHandler(System.String,System.Action{System.Boolean})
+  commentId: M:RTB.Blazor.Services.Input.InputService.UnregisterKeyHandler(System.String,System.Action{System.Boolean})
+  id: UnregisterKeyHandler(System.String,System.Action{System.Boolean})
+  parent: RTB.Blazor.Services.Input.InputService
+  langs:
+  - csharp
+  - vb
+  name: UnregisterKeyHandler(string, Action<bool>)
+  nameWithType: InputService.UnregisterKeyHandler(string, Action<bool>)
+  fullName: RTB.Blazor.Services.Input.InputService.UnregisterKeyHandler(string, System.Action<bool>)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Input/InputService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: UnregisterKeyHandler
+    path: ../src/RTB.BlazorUI/Services/Input/InputService.cs
+    startLine: 84
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Input
+  summary: Unsubscribe a previously registered callback for a specific key.
+  example: []
+  syntax:
+    content: public void UnregisterKeyHandler(string key, Action<bool> callback)
+    parameters:
+    - id: key
+      type: System.String
+      description: The same key used during registration.
+    - id: callback
+      type: System.Action{System.Boolean}
+      description: The callback instance to remove.
+    content.vb: Public Sub UnregisterKeyHandler(key As String, callback As Action(Of Boolean))
+  overload: RTB.Blazor.Services.Input.InputService.UnregisterKeyHandler*
+  implements:
+  - RTB.Blazor.Services.Input.IInputService.UnregisterKeyHandler(System.String,System.Action{System.Boolean})
+  nameWithType.vb: InputService.UnregisterKeyHandler(String, Action(Of Boolean))
+  fullName.vb: RTB.Blazor.Services.Input.InputService.UnregisterKeyHandler(String, System.Action(Of Boolean))
+  name.vb: UnregisterKeyHandler(String, Action(Of Boolean))
+- uid: RTB.Blazor.Services.Input.InputService.OnKeyDown(System.String)
+  commentId: M:RTB.Blazor.Services.Input.InputService.OnKeyDown(System.String)
+  id: OnKeyDown(System.String)
+  parent: RTB.Blazor.Services.Input.InputService
+  langs:
+  - csharp
+  - vb
+  name: OnKeyDown(string)
+  nameWithType: InputService.OnKeyDown(string)
+  fullName: RTB.Blazor.Services.Input.InputService.OnKeyDown(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Input/InputService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: OnKeyDown
+    path: ../src/RTB.BlazorUI/Services/Input/InputService.cs
+    startLine: 99
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Input
+  summary: Invoked from JavaScript on keydown with the <code>KeyboardEvent.key</code> value.
+  example: []
+  syntax:
+    content: >-
+      [JSInvokable]
+
+      public void OnKeyDown(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key identifier (exact string from the browser event).
+    content.vb: >-
+      <JSInvokable>
+
+      Public Sub OnKeyDown(key As String)
+  overload: RTB.Blazor.Services.Input.InputService.OnKeyDown*
+  attributes:
+  - type: Microsoft.JSInterop.JSInvokableAttribute
+    ctor: Microsoft.JSInterop.JSInvokableAttribute.#ctor
+    arguments: []
+  nameWithType.vb: InputService.OnKeyDown(String)
+  fullName.vb: RTB.Blazor.Services.Input.InputService.OnKeyDown(String)
+  name.vb: OnKeyDown(String)
+- uid: RTB.Blazor.Services.Input.InputService.OnKeyUp(System.String)
+  commentId: M:RTB.Blazor.Services.Input.InputService.OnKeyUp(System.String)
+  id: OnKeyUp(System.String)
+  parent: RTB.Blazor.Services.Input.InputService
+  langs:
+  - csharp
+  - vb
+  name: OnKeyUp(string)
+  nameWithType: InputService.OnKeyUp(string)
+  fullName: RTB.Blazor.Services.Input.InputService.OnKeyUp(string)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Input/InputService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: OnKeyUp
+    path: ../src/RTB.BlazorUI/Services/Input/InputService.cs
+    startLine: 113
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Input
+  summary: Invoked from JavaScript on keyup with the <code>KeyboardEvent.key</code> value.
+  example: []
+  syntax:
+    content: >-
+      [JSInvokable]
+
+      public void OnKeyUp(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key identifier (exact string from the browser event).
+    content.vb: >-
+      <JSInvokable>
+
+      Public Sub OnKeyUp(key As String)
+  overload: RTB.Blazor.Services.Input.InputService.OnKeyUp*
+  attributes:
+  - type: Microsoft.JSInterop.JSInvokableAttribute
+    ctor: Microsoft.JSInterop.JSInvokableAttribute.#ctor
+    arguments: []
+  nameWithType.vb: InputService.OnKeyUp(String)
+  fullName.vb: RTB.Blazor.Services.Input.InputService.OnKeyUp(String)
+  name.vb: OnKeyUp(String)
+- uid: RTB.Blazor.Services.Input.InputService.DisposeAsync
+  commentId: M:RTB.Blazor.Services.Input.InputService.DisposeAsync
+  id: DisposeAsync
+  parent: RTB.Blazor.Services.Input.InputService
+  langs:
+  - csharp
+  - vb
+  name: DisposeAsync()
+  nameWithType: InputService.DisposeAsync()
+  fullName: RTB.Blazor.Services.Input.InputService.DisposeAsync()
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Input/InputService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: DisposeAsync
+    path: ../src/RTB.BlazorUI/Services/Input/InputService.cs
+    startLine: 129
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Input
+  summary: Detaches JavaScript listeners and releases resources.
+  remarks: Swallows errors if the JS runtime is already disposed (e.g., during app shutdown).
+  example: []
+  syntax:
+    content: public ValueTask DisposeAsync()
+    return:
+      type: System.Threading.Tasks.ValueTask
+    content.vb: Public Function DisposeAsync() As ValueTask
+  overload: RTB.Blazor.Services.Input.InputService.DisposeAsync*
+  implements:
+  - System.IAsyncDisposable.DisposeAsync
+references:
+- uid: RTB.Blazor.Services.Input.IInputService
+  commentId: T:RTB.Blazor.Services.Input.IInputService
+  parent: RTB.Blazor.Services.Input
+  href: RTB.Blazor.Services.Input.IInputService.html
+  name: IInputService
+  nameWithType: IInputService
+  fullName: RTB.Blazor.Services.Input.IInputService
+- uid: Microsoft.JSInterop.IJSRuntime
+  commentId: T:Microsoft.JSInterop.IJSRuntime
+  parent: Microsoft.JSInterop
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.jsinterop.ijsruntime
+  name: IJSRuntime
+  nameWithType: IJSRuntime
+  fullName: Microsoft.JSInterop.IJSRuntime
+- uid: RTB.Blazor.Services.Input.InputService.OnKeyDown(System.String)
+  commentId: M:RTB.Blazor.Services.Input.InputService.OnKeyDown(System.String)
+  isExternal: true
+  href: RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_OnKeyDown_System_String_
+  name: OnKeyDown(string)
+  nameWithType: InputService.OnKeyDown(string)
+  fullName: RTB.Blazor.Services.Input.InputService.OnKeyDown(string)
+  nameWithType.vb: InputService.OnKeyDown(String)
+  fullName.vb: RTB.Blazor.Services.Input.InputService.OnKeyDown(String)
+  name.vb: OnKeyDown(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Services.Input.InputService.OnKeyDown(System.String)
+    name: OnKeyDown
+    href: RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_OnKeyDown_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.Input.InputService.OnKeyDown(System.String)
+    name: OnKeyDown
+    href: RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_OnKeyDown_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Services.Input.InputService.OnKeyUp(System.String)
+  commentId: M:RTB.Blazor.Services.Input.InputService.OnKeyUp(System.String)
+  isExternal: true
+  href: RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_OnKeyUp_System_String_
+  name: OnKeyUp(string)
+  nameWithType: InputService.OnKeyUp(string)
+  fullName: RTB.Blazor.Services.Input.InputService.OnKeyUp(string)
+  nameWithType.vb: InputService.OnKeyUp(String)
+  fullName.vb: RTB.Blazor.Services.Input.InputService.OnKeyUp(String)
+  name.vb: OnKeyUp(String)
+  spec.csharp:
+  - uid: RTB.Blazor.Services.Input.InputService.OnKeyUp(System.String)
+    name: OnKeyUp
+    href: RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_OnKeyUp_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.Input.InputService.OnKeyUp(System.String)
+    name: OnKeyUp
+    href: RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_OnKeyUp_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RTB.Blazor.Services.Input
+  commentId: N:RTB.Blazor.Services.Input
+  href: RTB.html
+  name: RTB.Blazor.Services.Input
+  nameWithType: RTB.Blazor.Services.Input
+  fullName: RTB.Blazor.Services.Input
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Input
+    name: Input
+    href: RTB.Blazor.Services.Input.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Input
+    name: Input
+    href: RTB.Blazor.Services.Input.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IAsyncDisposable
+  commentId: T:System.IAsyncDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable
+  name: IAsyncDisposable
+  nameWithType: IAsyncDisposable
+  fullName: System.IAsyncDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Microsoft.JSInterop
+  commentId: N:Microsoft.JSInterop
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.JSInterop
+  nameWithType: Microsoft.JSInterop
+  fullName: Microsoft.JSInterop
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.JSInterop
+    name: JSInterop
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.jsinterop
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.JSInterop
+    name: JSInterop
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.jsinterop
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RTB.Blazor.Services.Input.InputService.#ctor*
+  commentId: Overload:RTB.Blazor.Services.Input.InputService.#ctor
+  href: RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService__ctor_Microsoft_JSInterop_IJSRuntime_
+  name: InputService
+  nameWithType: InputService.InputService
+  fullName: RTB.Blazor.Services.Input.InputService.InputService
+  nameWithType.vb: InputService.New
+  fullName.vb: RTB.Blazor.Services.Input.InputService.New
+  name.vb: New
+- uid: RTB.Blazor.Services.Input.InputService.InitializeAsync*
+  commentId: Overload:RTB.Blazor.Services.Input.InputService.InitializeAsync
+  href: RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_InitializeAsync
+  name: InitializeAsync
+  nameWithType: InputService.InitializeAsync
+  fullName: RTB.Blazor.Services.Input.InputService.InitializeAsync
+- uid: RTB.Blazor.Services.Input.IInputService.InitializeAsync
+  commentId: M:RTB.Blazor.Services.Input.IInputService.InitializeAsync
+  parent: RTB.Blazor.Services.Input.IInputService
+  href: RTB.Blazor.Services.Input.IInputService.html#RTB_Blazor_Services_Input_IInputService_InitializeAsync
+  name: InitializeAsync()
+  nameWithType: IInputService.InitializeAsync()
+  fullName: RTB.Blazor.Services.Input.IInputService.InitializeAsync()
+  spec.csharp:
+  - uid: RTB.Blazor.Services.Input.IInputService.InitializeAsync
+    name: InitializeAsync
+    href: RTB.Blazor.Services.Input.IInputService.html#RTB_Blazor_Services_Input_IInputService_InitializeAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.Input.IInputService.InitializeAsync
+    name: InitializeAsync
+    href: RTB.Blazor.Services.Input.IInputService.html#RTB_Blazor_Services_Input_IInputService_InitializeAsync
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: RTB.Blazor.Services.Input.InputService.RegisterKeyHandler*
+  commentId: Overload:RTB.Blazor.Services.Input.InputService.RegisterKeyHandler
+  href: RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_RegisterKeyHandler_System_String_System_Action_System_Boolean__
+  name: RegisterKeyHandler
+  nameWithType: InputService.RegisterKeyHandler
+  fullName: RTB.Blazor.Services.Input.InputService.RegisterKeyHandler
+- uid: RTB.Blazor.Services.Input.IInputService.RegisterKeyHandler(System.String,System.Action{System.Boolean})
+  commentId: M:RTB.Blazor.Services.Input.IInputService.RegisterKeyHandler(System.String,System.Action{System.Boolean})
+  parent: RTB.Blazor.Services.Input.IInputService
+  isExternal: true
+  href: RTB.Blazor.Services.Input.IInputService.html#RTB_Blazor_Services_Input_IInputService_RegisterKeyHandler_System_String_System_Action_System_Boolean__
+  name: RegisterKeyHandler(string, Action<bool>)
+  nameWithType: IInputService.RegisterKeyHandler(string, Action<bool>)
+  fullName: RTB.Blazor.Services.Input.IInputService.RegisterKeyHandler(string, System.Action<bool>)
+  nameWithType.vb: IInputService.RegisterKeyHandler(String, Action(Of Boolean))
+  fullName.vb: RTB.Blazor.Services.Input.IInputService.RegisterKeyHandler(String, System.Action(Of Boolean))
+  name.vb: RegisterKeyHandler(String, Action(Of Boolean))
+  spec.csharp:
+  - uid: RTB.Blazor.Services.Input.IInputService.RegisterKeyHandler(System.String,System.Action{System.Boolean})
+    name: RegisterKeyHandler
+    href: RTB.Blazor.Services.Input.IInputService.html#RTB_Blazor_Services_Input_IInputService_RegisterKeyHandler_System_String_System_Action_System_Boolean__
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.Input.IInputService.RegisterKeyHandler(System.String,System.Action{System.Boolean})
+    name: RegisterKeyHandler
+    href: RTB.Blazor.Services.Input.IInputService.html#RTB_Blazor_Services_Input_IInputService_RegisterKeyHandler_System_String_System_Action_System_Boolean__
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Action{System.Boolean}
+  commentId: T:System.Action{System.Boolean}
+  parent: System
+  definition: System.Action`1
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<bool>
+  nameWithType: Action<bool>
+  fullName: System.Action<bool>
+  nameWithType.vb: Action(Of Boolean)
+  fullName.vb: System.Action(Of Boolean)
+  name.vb: Action(Of Boolean)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Action`1
+  commentId: T:System.Action`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action-1
+  name: Action<T>
+  nameWithType: Action<T>
+  fullName: System.Action<T>
+  nameWithType.vb: Action(Of T)
+  fullName.vb: System.Action(Of T)
+  name.vb: Action(Of T)
+  spec.csharp:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RTB.Blazor.Services.Input.InputService.UnregisterKeyHandler*
+  commentId: Overload:RTB.Blazor.Services.Input.InputService.UnregisterKeyHandler
+  href: RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_UnregisterKeyHandler_System_String_System_Action_System_Boolean__
+  name: UnregisterKeyHandler
+  nameWithType: InputService.UnregisterKeyHandler
+  fullName: RTB.Blazor.Services.Input.InputService.UnregisterKeyHandler
+- uid: RTB.Blazor.Services.Input.IInputService.UnregisterKeyHandler(System.String,System.Action{System.Boolean})
+  commentId: M:RTB.Blazor.Services.Input.IInputService.UnregisterKeyHandler(System.String,System.Action{System.Boolean})
+  parent: RTB.Blazor.Services.Input.IInputService
+  isExternal: true
+  href: RTB.Blazor.Services.Input.IInputService.html#RTB_Blazor_Services_Input_IInputService_UnregisterKeyHandler_System_String_System_Action_System_Boolean__
+  name: UnregisterKeyHandler(string, Action<bool>)
+  nameWithType: IInputService.UnregisterKeyHandler(string, Action<bool>)
+  fullName: RTB.Blazor.Services.Input.IInputService.UnregisterKeyHandler(string, System.Action<bool>)
+  nameWithType.vb: IInputService.UnregisterKeyHandler(String, Action(Of Boolean))
+  fullName.vb: RTB.Blazor.Services.Input.IInputService.UnregisterKeyHandler(String, System.Action(Of Boolean))
+  name.vb: UnregisterKeyHandler(String, Action(Of Boolean))
+  spec.csharp:
+  - uid: RTB.Blazor.Services.Input.IInputService.UnregisterKeyHandler(System.String,System.Action{System.Boolean})
+    name: UnregisterKeyHandler
+    href: RTB.Blazor.Services.Input.IInputService.html#RTB_Blazor_Services_Input_IInputService_UnregisterKeyHandler_System_String_System_Action_System_Boolean__
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Services.Input.IInputService.UnregisterKeyHandler(System.String,System.Action{System.Boolean})
+    name: UnregisterKeyHandler
+    href: RTB.Blazor.Services.Input.IInputService.html#RTB_Blazor_Services_Input_IInputService_UnregisterKeyHandler_System_String_System_Action_System_Boolean__
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Action`1
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: RTB.Blazor.Services.Input.InputService.OnKeyDown*
+  commentId: Overload:RTB.Blazor.Services.Input.InputService.OnKeyDown
+  href: RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_OnKeyDown_System_String_
+  name: OnKeyDown
+  nameWithType: InputService.OnKeyDown
+  fullName: RTB.Blazor.Services.Input.InputService.OnKeyDown
+- uid: RTB.Blazor.Services.Input.InputService.OnKeyUp*
+  commentId: Overload:RTB.Blazor.Services.Input.InputService.OnKeyUp
+  href: RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_OnKeyUp_System_String_
+  name: OnKeyUp
+  nameWithType: InputService.OnKeyUp
+  fullName: RTB.Blazor.Services.Input.InputService.OnKeyUp
+- uid: RTB.Blazor.Services.Input.InputService.DisposeAsync*
+  commentId: Overload:RTB.Blazor.Services.Input.InputService.DisposeAsync
+  href: RTB.Blazor.Services.Input.InputService.html#RTB_Blazor_Services_Input_InputService_DisposeAsync
+  name: DisposeAsync
+  nameWithType: InputService.DisposeAsync
+  fullName: RTB.Blazor.Services.Input.InputService.DisposeAsync
+- uid: System.IAsyncDisposable.DisposeAsync
+  commentId: M:System.IAsyncDisposable.DisposeAsync
+  parent: System.IAsyncDisposable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync
+  name: DisposeAsync()
+  nameWithType: IAsyncDisposable.DisposeAsync()
+  fullName: System.IAsyncDisposable.DisposeAsync()
+  spec.csharp:
+  - uid: System.IAsyncDisposable.DisposeAsync
+    name: DisposeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.IAsyncDisposable.DisposeAsync
+    name: DisposeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable.disposeasync
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.ValueTask
+  commentId: T:System.Threading.Tasks.ValueTask
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask
+  name: ValueTask
+  nameWithType: ValueTask
+  fullName: System.Threading.Tasks.ValueTask

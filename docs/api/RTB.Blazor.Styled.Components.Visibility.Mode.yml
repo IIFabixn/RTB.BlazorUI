@@ -1,0 +1,281 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Components.Visibility.Mode
+  commentId: T:RTB.Blazor.Styled.Components.Visibility.Mode
+  id: Visibility.Mode
+  parent: RTB.Blazor.Styled.Components
+  children:
+  - RTB.Blazor.Styled.Components.Visibility.Mode.Collapse
+  - RTB.Blazor.Styled.Components.Visibility.Mode.Hidden
+  - RTB.Blazor.Styled.Components.Visibility.Mode.Visible
+  langs:
+  - csharp
+  - vb
+  name: Visibility.Mode
+  nameWithType: Visibility.Mode
+  fullName: RTB.Blazor.Styled.Components.Visibility.Mode
+  type: Enum
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Visibility.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Mode
+    path: ../src/RTB.Styled/Components/Visibility.cs
+    startLine: 19
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: The visibility mode.
+  example: []
+  syntax:
+    content: public enum Visibility.Mode
+    content.vb: Public Enum Visibility.Mode
+  extensionMethods:
+  - System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+- uid: RTB.Blazor.Styled.Components.Visibility.Mode.Visible
+  commentId: F:RTB.Blazor.Styled.Components.Visibility.Mode.Visible
+  id: Visible
+  parent: RTB.Blazor.Styled.Components.Visibility.Mode
+  langs:
+  - csharp
+  - vb
+  name: Visible
+  nameWithType: Visibility.Mode.Visible
+  fullName: RTB.Blazor.Styled.Components.Visibility.Mode.Visible
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Visibility.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Visible
+    path: ../src/RTB.Styled/Components/Visibility.cs
+    startLine: 24
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: The element is visible.
+  example: []
+  syntax:
+    content: Visible = 0
+    return:
+      type: RTB.Blazor.Styled.Components.Visibility.Mode
+- uid: RTB.Blazor.Styled.Components.Visibility.Mode.Hidden
+  commentId: F:RTB.Blazor.Styled.Components.Visibility.Mode.Hidden
+  id: Hidden
+  parent: RTB.Blazor.Styled.Components.Visibility.Mode
+  langs:
+  - csharp
+  - vb
+  name: Hidden
+  nameWithType: Visibility.Mode.Hidden
+  fullName: RTB.Blazor.Styled.Components.Visibility.Mode.Hidden
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Visibility.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Hidden
+    path: ../src/RTB.Styled/Components/Visibility.cs
+    startLine: 29
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: The element is hidden, but still takes up space.
+  example: []
+  syntax:
+    content: Hidden = 1
+    return:
+      type: RTB.Blazor.Styled.Components.Visibility.Mode
+- uid: RTB.Blazor.Styled.Components.Visibility.Mode.Collapse
+  commentId: F:RTB.Blazor.Styled.Components.Visibility.Mode.Collapse
+  id: Collapse
+  parent: RTB.Blazor.Styled.Components.Visibility.Mode
+  langs:
+  - csharp
+  - vb
+  name: Collapse
+  nameWithType: Visibility.Mode.Collapse
+  fullName: RTB.Blazor.Styled.Components.Visibility.Mode.Collapse
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Visibility.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Collapse
+    path: ../src/RTB.Styled/Components/Visibility.cs
+    startLine: 34
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: The element is hidden and does not take up space.
+  example: []
+  syntax:
+    content: Collapse = 2
+    return:
+      type: RTB.Blazor.Styled.Components.Visibility.Mode
+references:
+- uid: RTB.Blazor.Styled.Components
+  commentId: N:RTB.Blazor.Styled.Components
+  href: RTB.html
+  name: RTB.Blazor.Styled.Components
+  nameWithType: RTB.Blazor.Styled.Components
+  fullName: RTB.Blazor.Styled.Components
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+- uid: System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  parent: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  definition: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  commentId: T:RTB.Blazor.Styled.Helper.CssEnumExtensions
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html
+  name: CssEnumExtensions
+  nameWithType: CssEnumExtensions
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: RTB.Blazor.Styled.Components.Visibility.Mode
+  commentId: T:RTB.Blazor.Styled.Components.Visibility.Mode
+  parent: RTB.Blazor.Styled.Components
+  href: RTB.Blazor.Styled.Components.Visibility.html
+  name: Visibility.Mode
+  nameWithType: Visibility.Mode
+  fullName: RTB.Blazor.Styled.Components.Visibility.Mode
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Visibility
+    name: Visibility
+    href: RTB.Blazor.Styled.Components.Visibility.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Visibility.Mode
+    name: Mode
+    href: RTB.Blazor.Styled.Components.Visibility.Mode.html
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Visibility
+    name: Visibility
+    href: RTB.Blazor.Styled.Components.Visibility.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Visibility.Mode
+    name: Mode
+    href: RTB.Blazor.Styled.Components.Visibility.Mode.html

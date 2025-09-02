@@ -1,0 +1,526 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.Theme.IThemeService`1
+  commentId: T:RTB.Blazor.Services.Theme.IThemeService`1
+  id: IThemeService`1
+  parent: RTB.Blazor.Services.Theme
+  children:
+  - RTB.Blazor.Services.Theme.IThemeService`1.Current
+  - RTB.Blazor.Services.Theme.IThemeService`1.Default
+  - RTB.Blazor.Services.Theme.IThemeService`1.OnThemeChanged
+  - RTB.Blazor.Services.Theme.IThemeService`1.SetThemeAsync(`0)
+  - RTB.Blazor.Services.Theme.IThemeService`1.Themes
+  langs:
+  - csharp
+  - vb
+  name: IThemeService<TTheme>
+  nameWithType: IThemeService<TTheme>
+  fullName: RTB.Blazor.Services.Theme.IThemeService<TTheme>
+  type: Interface
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: IThemeService
+    path: ../src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+    startLine: 55
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Theme
+  summary: Theme provider interface.
+  remarks: >-
+    Typical implementations:
+
+    - Expose a list of available themes via <xref href="RTB.Blazor.Services.Theme.IThemeService%601.Themes" data-throw-if-not-resolved="false"></xref>.
+
+    - Track the currently selected theme via <xref href="RTB.Blazor.Services.Theme.IThemeService%601.Current" data-throw-if-not-resolved="false"></xref>.
+
+    - Optionally persist the selection (e.g., to local storage in Blazor, preferences in MAUI).
+
+    - Raise <xref href="RTB.Blazor.Services.Theme.IThemeService%601.OnThemeChanged" data-throw-if-not-resolved="false"></xref> after the theme is changed.
+
+
+    Threading:
+
+    - <xref href="RTB.Blazor.Services.Theme.IThemeService%601.OnThemeChanged" data-throw-if-not-resolved="false"></xref> may be raised on a non-UI thread; consumers should marshal to the UI thread if required.
+  example:
+  - >-
+    Example usage in a Blazor component:
+
+    <pre><code class="lang-csharp">@inject IThemeService&lt;MyTheme&gt; ThemeService
+
+
+    &lt;select @onchange="OnChange"&gt;
+        @foreach (var theme in ThemeService.Themes)
+        {
+            &lt;option selected="@(theme == ThemeService.Current)" value="@theme.Name"&gt;@theme.Name&lt;/option&gt;
+        }
+    &lt;/select&gt;
+
+
+    @code {
+        protected override void OnInitialized()
+        {
+            ThemeService.OnThemeChanged += StateHasChanged;
+        }
+
+        private async Task OnChange(ChangeEventArgs e)
+        {
+            var next = ThemeService.Themes.First(t =&gt; t.Name == (string)e.Value!);
+            await ThemeService.SetThemeAsync(next);
+        }
+
+        public void Dispose()
+        {
+            ThemeService.OnThemeChanged -= StateHasChanged;
+        }
+    }</code></pre>
+  syntax:
+    content: 'public interface IThemeService<TTheme> where TTheme : ITheme'
+    typeParameters:
+    - id: TTheme
+      description: Interface type that represents a Theme and implements <xref href="RTB.Blazor.Services.Theme.ITheme" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Interface IThemeService(Of TTheme As ITheme)
+  nameWithType.vb: IThemeService(Of TTheme)
+  fullName.vb: RTB.Blazor.Services.Theme.IThemeService(Of TTheme)
+  name.vb: IThemeService(Of TTheme)
+- uid: RTB.Blazor.Services.Theme.IThemeService`1.Current
+  commentId: P:RTB.Blazor.Services.Theme.IThemeService`1.Current
+  id: Current
+  parent: RTB.Blazor.Services.Theme.IThemeService`1
+  langs:
+  - csharp
+  - vb
+  name: Current
+  nameWithType: IThemeService<TTheme>.Current
+  fullName: RTB.Blazor.Services.Theme.IThemeService<TTheme>.Current
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Current
+    path: ../src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+    startLine: 60
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Theme
+  summary: Gets the currently active theme.
+  example: []
+  syntax:
+    content: TTheme Current { get; }
+    parameters: []
+    return:
+      type: '{TTheme}'
+    content.vb: ReadOnly Property Current As TTheme
+  overload: RTB.Blazor.Services.Theme.IThemeService`1.Current*
+  nameWithType.vb: IThemeService(Of TTheme).Current
+  fullName.vb: RTB.Blazor.Services.Theme.IThemeService(Of TTheme).Current
+- uid: RTB.Blazor.Services.Theme.IThemeService`1.Default
+  commentId: P:RTB.Blazor.Services.Theme.IThemeService`1.Default
+  id: Default
+  parent: RTB.Blazor.Services.Theme.IThemeService`1
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: IThemeService<TTheme>.Default
+  fullName: RTB.Blazor.Services.Theme.IThemeService<TTheme>.Default
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Default
+    path: ../src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+    startLine: 65
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Theme
+  summary: Gets the default theme used when no persisted preference is available.
+  example: []
+  syntax:
+    content: TTheme Default { get; }
+    parameters: []
+    return:
+      type: '{TTheme}'
+    content.vb: ReadOnly Property [Default] As TTheme
+  overload: RTB.Blazor.Services.Theme.IThemeService`1.Default*
+  nameWithType.vb: IThemeService(Of TTheme).Default
+  fullName.vb: RTB.Blazor.Services.Theme.IThemeService(Of TTheme).Default
+- uid: RTB.Blazor.Services.Theme.IThemeService`1.OnThemeChanged
+  commentId: E:RTB.Blazor.Services.Theme.IThemeService`1.OnThemeChanged
+  id: OnThemeChanged
+  parent: RTB.Blazor.Services.Theme.IThemeService`1
+  langs:
+  - csharp
+  - vb
+  name: OnThemeChanged
+  nameWithType: IThemeService<TTheme>.OnThemeChanged
+  fullName: RTB.Blazor.Services.Theme.IThemeService<TTheme>.OnThemeChanged
+  type: Event
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: OnThemeChanged
+    path: ../src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+    startLine: 74
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Theme
+  summary: Occurs after the current theme has changed.
+  remarks: >-
+    Implementations should invoke this event after updating <xref href="RTB.Blazor.Services.Theme.IThemeService%601.Current" data-throw-if-not-resolved="false"></xref>.
+
+    Subscribers should assume it may be raised on a non-UI thread.
+  example: []
+  syntax:
+    content: event Action? OnThemeChanged
+    return:
+      type: System.Action
+    content.vb: Event OnThemeChanged As Action
+  nameWithType.vb: IThemeService(Of TTheme).OnThemeChanged
+  fullName.vb: RTB.Blazor.Services.Theme.IThemeService(Of TTheme).OnThemeChanged
+- uid: RTB.Blazor.Services.Theme.IThemeService`1.SetThemeAsync(`0)
+  commentId: M:RTB.Blazor.Services.Theme.IThemeService`1.SetThemeAsync(`0)
+  id: SetThemeAsync(`0)
+  parent: RTB.Blazor.Services.Theme.IThemeService`1
+  langs:
+  - csharp
+  - vb
+  name: SetThemeAsync(TTheme)
+  nameWithType: IThemeService<TTheme>.SetThemeAsync(TTheme)
+  fullName: RTB.Blazor.Services.Theme.IThemeService<TTheme>.SetThemeAsync(TTheme)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: SetThemeAsync
+    path: ../src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+    startLine: 84
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Theme
+  summary: Sets the current theme.
+  example: []
+  syntax:
+    content: ValueTask SetThemeAsync(TTheme theme)
+    parameters:
+    - id: theme
+      type: '{TTheme}'
+      description: The theme to apply.
+    return:
+      type: System.Threading.Tasks.ValueTask
+      description: >-
+        A task-like value representing the asynchronous operation. Implementations may persist
+
+        the selection and apply side effects (e.g., updating CSS variables) before completing.
+    content.vb: Function SetThemeAsync(theme As TTheme) As ValueTask
+  overload: RTB.Blazor.Services.Theme.IThemeService`1.SetThemeAsync*
+  nameWithType.vb: IThemeService(Of TTheme).SetThemeAsync(TTheme)
+  fullName.vb: RTB.Blazor.Services.Theme.IThemeService(Of TTheme).SetThemeAsync(TTheme)
+- uid: RTB.Blazor.Services.Theme.IThemeService`1.Themes
+  commentId: P:RTB.Blazor.Services.Theme.IThemeService`1.Themes
+  id: Themes
+  parent: RTB.Blazor.Services.Theme.IThemeService`1
+  langs:
+  - csharp
+  - vb
+  name: Themes
+  nameWithType: IThemeService<TTheme>.Themes
+  fullName: RTB.Blazor.Services.Theme.IThemeService<TTheme>.Themes
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Themes
+    path: ../src/RTB.BlazorUI/Services/Theme/IThemeService.cs
+    startLine: 89
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Theme
+  summary: Gets the list of available themes.
+  example: []
+  syntax:
+    content: IList<TTheme> Themes { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{{TTheme}}
+    content.vb: ReadOnly Property Themes As IList(Of TTheme)
+  overload: RTB.Blazor.Services.Theme.IThemeService`1.Themes*
+  nameWithType.vb: IThemeService(Of TTheme).Themes
+  fullName.vb: RTB.Blazor.Services.Theme.IThemeService(Of TTheme).Themes
+references:
+- uid: RTB.Blazor.Services.Theme.ITheme
+  commentId: T:RTB.Blazor.Services.Theme.ITheme
+  href: RTB.Blazor.Services.Theme.ITheme.html
+  name: ITheme
+  nameWithType: ITheme
+  fullName: RTB.Blazor.Services.Theme.ITheme
+- uid: RTB.Blazor.Services.Theme.IThemeService`1.Themes
+  commentId: P:RTB.Blazor.Services.Theme.IThemeService`1.Themes
+  href: RTB.Blazor.Services.Theme.IThemeService-1.html#RTB_Blazor_Services_Theme_IThemeService_1_Themes
+  name: Themes
+  nameWithType: IThemeService<TTheme>.Themes
+  fullName: RTB.Blazor.Services.Theme.IThemeService<TTheme>.Themes
+  nameWithType.vb: IThemeService(Of TTheme).Themes
+  fullName.vb: RTB.Blazor.Services.Theme.IThemeService(Of TTheme).Themes
+- uid: RTB.Blazor.Services.Theme.IThemeService`1.Current
+  commentId: P:RTB.Blazor.Services.Theme.IThemeService`1.Current
+  href: RTB.Blazor.Services.Theme.IThemeService-1.html#RTB_Blazor_Services_Theme_IThemeService_1_Current
+  name: Current
+  nameWithType: IThemeService<TTheme>.Current
+  fullName: RTB.Blazor.Services.Theme.IThemeService<TTheme>.Current
+  nameWithType.vb: IThemeService(Of TTheme).Current
+  fullName.vb: RTB.Blazor.Services.Theme.IThemeService(Of TTheme).Current
+- uid: RTB.Blazor.Services.Theme.IThemeService`1.OnThemeChanged
+  commentId: E:RTB.Blazor.Services.Theme.IThemeService`1.OnThemeChanged
+  href: RTB.Blazor.Services.Theme.IThemeService-1.html#RTB_Blazor_Services_Theme_IThemeService_1_OnThemeChanged
+  name: OnThemeChanged
+  nameWithType: IThemeService<TTheme>.OnThemeChanged
+  fullName: RTB.Blazor.Services.Theme.IThemeService<TTheme>.OnThemeChanged
+  nameWithType.vb: IThemeService(Of TTheme).OnThemeChanged
+  fullName.vb: RTB.Blazor.Services.Theme.IThemeService(Of TTheme).OnThemeChanged
+- uid: RTB.Blazor.Services.Theme
+  commentId: N:RTB.Blazor.Services.Theme
+  href: RTB.html
+  name: RTB.Blazor.Services.Theme
+  nameWithType: RTB.Blazor.Services.Theme
+  fullName: RTB.Blazor.Services.Theme
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Theme
+    name: Theme
+    href: RTB.Blazor.Services.Theme.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Theme
+    name: Theme
+    href: RTB.Blazor.Services.Theme.html
+- uid: RTB.Blazor.Services.Theme.IThemeService`1.Current*
+  commentId: Overload:RTB.Blazor.Services.Theme.IThemeService`1.Current
+  href: RTB.Blazor.Services.Theme.IThemeService-1.html#RTB_Blazor_Services_Theme_IThemeService_1_Current
+  name: Current
+  nameWithType: IThemeService<TTheme>.Current
+  fullName: RTB.Blazor.Services.Theme.IThemeService<TTheme>.Current
+  nameWithType.vb: IThemeService(Of TTheme).Current
+  fullName.vb: RTB.Blazor.Services.Theme.IThemeService(Of TTheme).Current
+- uid: '{TTheme}'
+  commentId: '!:TTheme'
+  definition: TTheme
+  name: TTheme
+  nameWithType: TTheme
+  fullName: TTheme
+- uid: TTheme
+  name: TTheme
+  nameWithType: TTheme
+  fullName: TTheme
+- uid: RTB.Blazor.Services.Theme.IThemeService`1.Default*
+  commentId: Overload:RTB.Blazor.Services.Theme.IThemeService`1.Default
+  href: RTB.Blazor.Services.Theme.IThemeService-1.html#RTB_Blazor_Services_Theme_IThemeService_1_Default
+  name: Default
+  nameWithType: IThemeService<TTheme>.Default
+  fullName: RTB.Blazor.Services.Theme.IThemeService<TTheme>.Default
+  nameWithType.vb: IThemeService(Of TTheme).Default
+  fullName.vb: RTB.Blazor.Services.Theme.IThemeService(Of TTheme).Default
+- uid: System.Action
+  commentId: T:System.Action
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.action
+  name: Action
+  nameWithType: Action
+  fullName: System.Action
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RTB.Blazor.Services.Theme.IThemeService`1.SetThemeAsync*
+  commentId: Overload:RTB.Blazor.Services.Theme.IThemeService`1.SetThemeAsync
+  href: RTB.Blazor.Services.Theme.IThemeService-1.html#RTB_Blazor_Services_Theme_IThemeService_1_SetThemeAsync__0_
+  name: SetThemeAsync
+  nameWithType: IThemeService<TTheme>.SetThemeAsync
+  fullName: RTB.Blazor.Services.Theme.IThemeService<TTheme>.SetThemeAsync
+  nameWithType.vb: IThemeService(Of TTheme).SetThemeAsync
+  fullName.vb: RTB.Blazor.Services.Theme.IThemeService(Of TTheme).SetThemeAsync
+- uid: System.Threading.Tasks.ValueTask
+  commentId: T:System.Threading.Tasks.ValueTask
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask
+  name: ValueTask
+  nameWithType: ValueTask
+  fullName: System.Threading.Tasks.ValueTask
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: RTB.Blazor.Services.Theme.IThemeService`1.Themes*
+  commentId: Overload:RTB.Blazor.Services.Theme.IThemeService`1.Themes
+  href: RTB.Blazor.Services.Theme.IThemeService-1.html#RTB_Blazor_Services_Theme_IThemeService_1_Themes
+  name: Themes
+  nameWithType: IThemeService<TTheme>.Themes
+  fullName: RTB.Blazor.Services.Theme.IThemeService<TTheme>.Themes
+  nameWithType.vb: IThemeService(Of TTheme).Themes
+  fullName.vb: RTB.Blazor.Services.Theme.IThemeService(Of TTheme).Themes
+- uid: System.Collections.Generic.IList{{TTheme}}
+  commentId: T:System.Collections.Generic.IList{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<TTheme>
+  nameWithType: IList<TTheme>
+  fullName: System.Collections.Generic.IList<TTheme>
+  nameWithType.vb: IList(Of TTheme)
+  fullName.vb: System.Collections.Generic.IList(Of TTheme)
+  name.vb: IList(Of TTheme)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: TTheme
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TTheme
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

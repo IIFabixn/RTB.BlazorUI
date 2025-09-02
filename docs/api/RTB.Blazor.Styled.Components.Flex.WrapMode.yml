@@ -1,0 +1,281 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Components.Flex.WrapMode
+  commentId: T:RTB.Blazor.Styled.Components.Flex.WrapMode
+  id: Flex.WrapMode
+  parent: RTB.Blazor.Styled.Components
+  children:
+  - RTB.Blazor.Styled.Components.Flex.WrapMode.NoWrap
+  - RTB.Blazor.Styled.Components.Flex.WrapMode.Wrap
+  - RTB.Blazor.Styled.Components.Flex.WrapMode.WrapReverse
+  langs:
+  - csharp
+  - vb
+  name: Flex.WrapMode
+  nameWithType: Flex.WrapMode
+  fullName: RTB.Blazor.Styled.Components.Flex.WrapMode
+  type: Enum
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Flex.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: WrapMode
+    path: ../src/RTB.Styled/Components/Flex.cs
+    startLine: 50
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Flexbox wrapping behavior. When omitted, the browser default is <code>nowrap</code>.
+  example: []
+  syntax:
+    content: public enum Flex.WrapMode
+    content.vb: Public Enum Flex.WrapMode
+  extensionMethods:
+  - System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+- uid: RTB.Blazor.Styled.Components.Flex.WrapMode.NoWrap
+  commentId: F:RTB.Blazor.Styled.Components.Flex.WrapMode.NoWrap
+  id: NoWrap
+  parent: RTB.Blazor.Styled.Components.Flex.WrapMode
+  langs:
+  - csharp
+  - vb
+  name: NoWrap
+  nameWithType: Flex.WrapMode.NoWrap
+  fullName: RTB.Blazor.Styled.Components.Flex.WrapMode.NoWrap
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Flex.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: NoWrap
+    path: ../src/RTB.Styled/Components/Flex.cs
+    startLine: 53
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: 'Maps to <code>flex-wrap: nowrap;</code>'
+  example: []
+  syntax:
+    content: NoWrap = 0
+    return:
+      type: RTB.Blazor.Styled.Components.Flex.WrapMode
+- uid: RTB.Blazor.Styled.Components.Flex.WrapMode.Wrap
+  commentId: F:RTB.Blazor.Styled.Components.Flex.WrapMode.Wrap
+  id: Wrap
+  parent: RTB.Blazor.Styled.Components.Flex.WrapMode
+  langs:
+  - csharp
+  - vb
+  name: Wrap
+  nameWithType: Flex.WrapMode.Wrap
+  fullName: RTB.Blazor.Styled.Components.Flex.WrapMode.Wrap
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Flex.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Wrap
+    path: ../src/RTB.Styled/Components/Flex.cs
+    startLine: 55
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: 'Maps to <code>flex-wrap: wrap;</code>'
+  example: []
+  syntax:
+    content: Wrap = 1
+    return:
+      type: RTB.Blazor.Styled.Components.Flex.WrapMode
+- uid: RTB.Blazor.Styled.Components.Flex.WrapMode.WrapReverse
+  commentId: F:RTB.Blazor.Styled.Components.Flex.WrapMode.WrapReverse
+  id: WrapReverse
+  parent: RTB.Blazor.Styled.Components.Flex.WrapMode
+  langs:
+  - csharp
+  - vb
+  name: WrapReverse
+  nameWithType: Flex.WrapMode.WrapReverse
+  fullName: RTB.Blazor.Styled.Components.Flex.WrapMode.WrapReverse
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Flex.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: WrapReverse
+    path: ../src/RTB.Styled/Components/Flex.cs
+    startLine: 57
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: 'Maps to <code>flex-wrap: wrap-reverse;</code>'
+  example: []
+  syntax:
+    content: WrapReverse = 2
+    return:
+      type: RTB.Blazor.Styled.Components.Flex.WrapMode
+references:
+- uid: RTB.Blazor.Styled.Components
+  commentId: N:RTB.Blazor.Styled.Components
+  href: RTB.html
+  name: RTB.Blazor.Styled.Components
+  nameWithType: RTB.Blazor.Styled.Components
+  fullName: RTB.Blazor.Styled.Components
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+- uid: System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  parent: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  definition: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  commentId: T:RTB.Blazor.Styled.Helper.CssEnumExtensions
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html
+  name: CssEnumExtensions
+  nameWithType: CssEnumExtensions
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: RTB.Blazor.Styled.Components.Flex.WrapMode
+  commentId: T:RTB.Blazor.Styled.Components.Flex.WrapMode
+  parent: RTB.Blazor.Styled.Components
+  href: RTB.Blazor.Styled.Components.Flex.html
+  name: Flex.WrapMode
+  nameWithType: Flex.WrapMode
+  fullName: RTB.Blazor.Styled.Components.Flex.WrapMode
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Flex
+    name: Flex
+    href: RTB.Blazor.Styled.Components.Flex.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Flex.WrapMode
+    name: WrapMode
+    href: RTB.Blazor.Styled.Components.Flex.WrapMode.html
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Flex
+    name: Flex
+    href: RTB.Blazor.Styled.Components.Flex.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Flex.WrapMode
+    name: WrapMode
+    href: RTB.Blazor.Styled.Components.Flex.WrapMode.html

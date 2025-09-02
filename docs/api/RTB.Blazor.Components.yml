@@ -1,0 +1,61 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Components
+  commentId: N:RTB.Blazor.Components
+  id: RTB.Blazor.Components
+  children:
+  - RTB.Blazor.Components.RTBComponent
+  - RTB.Blazor.Components.TabItem
+  langs:
+  - csharp
+  - vb
+  name: RTB.Blazor.Components
+  nameWithType: RTB.Blazor.Components
+  fullName: RTB.Blazor.Components
+  type: Namespace
+  assemblies:
+  - RTB.Blazor
+references:
+- uid: RTB.Blazor.Components.RTBComponent
+  commentId: T:RTB.Blazor.Components.RTBComponent
+  parent: RTB.Blazor.Components
+  href: RTB.Blazor.Components.RTBComponent.html
+  name: RTBComponent
+  nameWithType: RTBComponent
+  fullName: RTB.Blazor.Components.RTBComponent
+- uid: RTB.Blazor.Components.TabItem
+  commentId: T:RTB.Blazor.Components.TabItem
+  href: RTB.Blazor.Components.TabItem.html
+  name: TabItem
+  nameWithType: TabItem
+  fullName: RTB.Blazor.Components.TabItem
+- uid: RTB.Blazor.Components
+  commentId: N:RTB.Blazor.Components
+  href: RTB.html
+  name: RTB.Blazor.Components
+  nameWithType: RTB.Blazor.Components
+  fullName: RTB.Blazor.Components
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Components
+    name: Components
+    href: RTB.Blazor.Components.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Components
+    name: Components
+    href: RTB.Blazor.Components.html

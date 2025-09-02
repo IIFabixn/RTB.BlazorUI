@@ -9,39 +9,100 @@ namespace RTB.Blazor.Styled.Helper;
 /// Represents a color in the sRGB RGBA color space (8-bit per channel).
 /// Aligns with common CSS color syntaxes per MDN (hex, rgb[a], hsl[a], named).
 /// </summary>
+/// <param name="R">Red channel 0..255.</param>
+/// <param name="G">Green channel 0..255.</param>
+/// <param name="B">Blue channel 0..255.</param>
+/// <param name="A">Alpha channel 0..255 (255 = opaque).</param>
+/// <remarks>
+/// <list type="bullet">
+///   <item><description>Hex: <c>#RGB</c>, <c>#RGBA</c>, <c>#RRGGBB</c>, <c>#RRGGBBAA</c></description></item>
+///   <item><description>RGB: <c>rgb(255,0,0)</c>, <c>rgb(255 0 0)</c>, percentages, optional alpha via <c>/</c> or fourth value</description></item>
+///   <item><description>HSL: <c>hsl(120, 100%, 50%)</c>, space-separated, optional alpha via <c>/</c> or fourth value, hue supports <c>deg</c></description></item>
+///   <item><description>Named: any CSS Level 4 named color (see <see cref="RTBColors.Named"/>) and <c>transparent</c></description></item>
+/// </list>
+/// </remarks>
 public readonly partial record struct RTBColor(byte R, byte G, byte B, byte A)
 {
     #region Constructors & basic factories
 
+    /// <summary>
+    /// Create an opaque color from 8-bit RGB.
+    /// </summary>
+    /// <param name="r">Red 0..255.</param>
+    /// <param name="g">Green 0..255.</param>
+    /// <param name="b">Blue 0..255.</param>
+    /// <returns>Opaque <see cref="RTBColor"/> with alpha 255.</returns>
+    /// <example><code>var c = RTBColor.FromRgb(255, 0, 0); // #FF0000FF</code></example>
     public static RTBColor FromRgb(byte r, byte g, byte b) => new(r, g, b, 255);
+
+    /// <summary>
+    /// Create a color from 8-bit RGBA.
+    /// </summary>
+    /// <param name="r">Red 0..255.</param>
+    /// <param name="g">Green 0..255.</param>
+    /// <param name="b">Blue 0..255.</param>
+    /// <param name="a">Alpha 0..255 (255 = opaque).</param>
+    /// <returns><see cref="RTBColor"/>.</returns>
     public static RTBColor FromRgba(byte r, byte g, byte b, byte a) => new(r, g, b, a);
 
     #endregion
 
     #region Properties
 
+    /// <summary>Alpha channel 0..255.</summary>
     public byte Alpha => A;
+    /// <summary>Red channel 0..255.</summary>
     public byte Red => R;
+    /// <summary>Green channel 0..255.</summary>
     public byte Green => G;
+    /// <summary>Blue channel 0..255.</summary>
     public byte Blue => B;
 
+    /// <summary>
+    /// Hex string in <c>#RRGGBB</c> format (no alpha).
+    /// </summary>
     public string HexRgb => $"#{R:X2}{G:X2}{B:X2}";
+    /// <summary>
+    /// Hex string in <c>#RRGGBBAA</c> format.
+    /// </summary>
     public string HexRgba => $"#{R:X2}{G:X2}{B:X2}{A:X2}";
 
+    /// <summary>
+    /// Returns <see cref="HexRgba"/> by default.
+    /// </summary>
     public override string ToString() => HexRgba;
 
     #endregion
 
     #region Parsing (CSS-aligned)
 
-    /// <summary>Parse a CSS color value. Supports hex, rgb[a], hsl[a], named colors, and 'transparent'.</summary>
+    /// <summary>
+    /// Parse a CSS color value.
+    /// Supports hex, rgb[a], hsl[a], named colors, and <c>transparent</c>.
+    /// </summary>
+    /// <param name="css">CSS color string.</param>
+    /// <returns>Parsed <see cref="RTBColor"/>.</returns>
+    /// <exception cref="FormatException">If the string cannot be parsed.</exception>
+    /// <example>
+    /// <code>
+    /// var a = RTBColor.Parse("#09f");          // short hex
+    /// var b = RTBColor.Parse("rgb(0 153 255)"); // space separated
+    /// var c = RTBColor.Parse("hsl(200 100% 50% / 50%)"); // with alpha
+    /// var d = RTBColor.Parse("royalblue");      // named
+    /// </code>
+    /// </example>
     public static RTBColor Parse(string css)
     {
         if (TryParse(css, out var c)) return c;
         throw new FormatException($"Unrecognized color format '{css}'.");
     }
 
-    /// <summary>Try to parse a CSS color value safely.</summary>
+    /// <summary>
+    /// Try to parse a CSS color value safely.
+    /// </summary>
+    /// <param name="css">CSS color string.</param>
+    /// <param name="color">Result on success; default on failure.</param>
+    /// <returns><c>true</c> if parsed successfully; otherwise <c>false</c>.</returns>
     public static bool TryParse(string? css, out RTBColor color)
     {
         color = default;
@@ -78,11 +139,26 @@ public readonly partial record struct RTBColor(byte R, byte G, byte B, byte A)
         return false;
     }
 
+    /// <summary>
+    /// Alias for <see cref="Parse(string)"/>.
+    /// </summary>
+    /// <param name="css">CSS color string.</param>
+    /// <returns>Parsed <see cref="RTBColor"/>.</returns>
     public static RTBColor FromCss(string css) => Parse(css);
 
+    /// <summary>
+    /// Implicitly parse a CSS color string to <see cref="RTBColor"/>.
+    /// Throws on failure.
+    /// </summary>
     public static implicit operator RTBColor(string css) => Parse(css);
+    /// <summary>
+    /// Implicitly convert <see cref="RTBColor"/> to <c>#RRGGBBAA</c> string.
+    /// </summary>
     public static implicit operator string(RTBColor c) => c.HexRgba;
 
+    /// <summary>
+    /// Case-insensitive prefix check used for function-style color parsing.
+    /// </summary>
     private static bool StartsWithIdent(string text, string prefix) =>
         text.StartsWith(prefix, StringComparison.OrdinalIgnoreCase);
 
@@ -90,6 +166,9 @@ public readonly partial record struct RTBColor(byte R, byte G, byte B, byte A)
 
     #region Hex parsing
 
+    /// <summary>
+    /// Try parse hex colors: <c>#RGB</c>, <c>#RGBA</c>, <c>#RRGGBB</c>, <c>#RRGGBBAA</c>.
+    /// </summary>
     private static bool TryParseHex(string hex, out RTBColor color)
     {
         color = default;
@@ -158,6 +237,9 @@ public readonly partial record struct RTBColor(byte R, byte G, byte B, byte A)
     private static readonly Regex RgbFunc =
         RgbRegex();
 
+    /// <summary>
+    /// Parse CSS <c>rgb()</c>/<c>rgba()</c> functions (comma or space separated, optional alpha or percentage).
+    /// </summary>
     private static bool TryParseRgbFunction(string input, out RTBColor color)
     {
         color = default;
@@ -217,6 +299,9 @@ public readonly partial record struct RTBColor(byte R, byte G, byte B, byte A)
         return true;
     }
 
+    /// <summary>
+    /// Parse a single RGB component, supporting integer 0..255 or percentage 0%..100%.
+    /// </summary>
     private static bool TryParseRgbComponent(string token, out byte value)
     {
         token = token.Trim();
@@ -249,6 +334,9 @@ public readonly partial record struct RTBColor(byte R, byte G, byte B, byte A)
     private static readonly Regex HslFunc =
         HslRegex();
 
+    /// <summary>
+    /// Parse CSS <c>hsl()</c>/<c>hsla()</c> functions (comma or space separated, optional alpha or percentage).
+    /// </summary>
     private static bool TryParseHslFunction(string input, out RTBColor color)
     {
         color = default;
@@ -304,6 +392,9 @@ public readonly partial record struct RTBColor(byte R, byte G, byte B, byte A)
         return true;
     }
 
+    /// <summary>
+    /// Parse hue as degrees (optionally with <c>deg</c>) and normalize to 0..1.
+    /// </summary>
     private static bool TryParseHue(string token, out double hue01)
     {
         token = token.Trim().ToLowerInvariant();
@@ -316,6 +407,9 @@ public readonly partial record struct RTBColor(byte R, byte G, byte B, byte A)
         return true;
     }
 
+    /// <summary>
+    /// Parse percentage token into 0..1.
+    /// </summary>
     private static bool TryParsePercent01(string token, out double value01)
     {
         token = token.Trim();
@@ -329,7 +423,9 @@ public readonly partial record struct RTBColor(byte R, byte G, byte B, byte A)
 
     #region Alpha parsing & utilities
 
-    // alpha can be a number 0..1 or percentage 0%..100%
+    /// <summary>
+    /// Parse alpha which can be either a number 0..1 or percentage 0%..100%.
+    /// </summary>
     private static bool TryParseAlpha(string token, out byte a)
     {
         token = token.Trim();
@@ -349,12 +445,15 @@ public readonly partial record struct RTBColor(byte R, byte G, byte B, byte A)
         }
     }
 
+    /// <summary>Invariant culture floating point parse.</summary>
     private static bool TryParseDouble(string s, out double d) =>
         double.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out d);
 
+    /// <summary>Replace commas with spaces (unused helper).</summary>
     private static string NormalizeCommasToSpaces(string s) =>
         s.Replace(",", " ", StringComparison.Ordinal);
 
+    /// <summary>Split by whitespace into a list with expected capacity.</summary>
     private static List<string> SplitCssList(string s, int expected)
     {
         var parts = new List<string>(expected);
@@ -363,19 +462,43 @@ public readonly partial record struct RTBColor(byte R, byte G, byte B, byte A)
         return parts;
     }
 
+    /// <summary>Clamp a double to 0..1.</summary>
     private static double Clamp01(double v) => v < 0 ? 0 : v > 1 ? 1 : v;
 
     #endregion
 
     #region Color math (HSL conversion & adjustments)
 
+    /// <summary>
+    /// Returns a copy with a new alpha.
+    /// </summary>
+    /// <param name="alpha">Alpha 0..1 (1 = opaque).</param>
+    /// <returns>New color with updated alpha.</returns>
     public RTBColor WithAlpha(double alpha) => new(R, G, B, (byte)(Clamp01(alpha) * 255));
 
+    /// <summary>Lighten by adding to HSL lightness.</summary>
+    /// <param name="pct">Delta in 0..1 (e.g. 0.1 to lighten by 10%).</param>
     public RTBColor Lighten(double pct) => HslShift(L: pct);
+
+    /// <summary>Darken by subtracting from HSL lightness.</summary>
+    /// <param name="pct">Delta in 0..1 (e.g. 0.1 to darken by 10%).</param>
     public RTBColor Darken(double pct) => HslShift(L: -pct);
+
+    /// <summary>Increase HSL saturation.</summary>
+    /// <param name="pct">Delta in 0..1.</param>
     public RTBColor Saturate(double pct) => HslShift(S: pct);
+
+    /// <summary>Decrease HSL saturation.</summary>
+    /// <param name="pct">Delta in 0..1.</param>
     public RTBColor Desaturate(double pct) => HslShift(S: -pct);
 
+    /// <summary>
+    /// Linear blend towards another color in RGBA space.
+    /// </summary>
+    /// <param name="target">Target color.</param>
+    /// <param name="pct">Blend factor 0..1 (0 = self, 1 = target).</param>
+    /// <returns>Blended color.</returns>
+    /// <example><code>var mid = a.Blend(b, 0.5);</code></example>
     public RTBColor Blend(RTBColor target, double pct)
     {
         pct = Clamp01(pct);
@@ -387,8 +510,12 @@ public readonly partial record struct RTBColor(byte R, byte G, byte B, byte A)
             lerp(A, target.A));
     }
 
+    /// <summary>Convert 8-bit value to 0..1 range.</summary>
     private static double Clamp01(byte v) => v / 255.0;
 
+    /// <summary>
+    /// Shift H, S, L components (wrapped/clamped) and convert back to RGB.
+    /// </summary>
     private RTBColor HslShift(double H = 0, double S = 0, double L = 0)
     {
         ColorToHsl(this, out var h, out var s, out var l);
@@ -398,6 +525,9 @@ public readonly partial record struct RTBColor(byte R, byte G, byte B, byte A)
         return HslToColor(h, s, l, A);
     }
 
+    /// <summary>
+    /// Convert RGB to HSL (0..1 ranges). When R=G=B, hue and saturation are 0.
+    /// </summary>
     private static void ColorToHsl(RTBColor color, out double hue, out double satuation, out double luminance)
     {
         double r = color.R / 255.0, g = color.G / 255.0, b = color.B / 255.0;
@@ -418,6 +548,9 @@ public readonly partial record struct RTBColor(byte R, byte G, byte B, byte A)
             hue = ((r - g) / d + 4) / 6.0;
     }
 
+    /// <summary>
+    /// Convert HSL (0..1 ranges) back to RGB with the given alpha.
+    /// </summary>
     private static RTBColor HslToColor(double hue, double satuation, double luminance, byte alpha)
     {
         if (satuation <= 1e-6)
@@ -459,23 +592,41 @@ public readonly partial record struct RTBColor(byte R, byte G, byte B, byte A)
 public static class RTBColors
 {
     // Keep your previous convenience names (backward compatible)
+
+    /// <summary>Pure white <c>#FFFFFFFF</c>.</summary>
     public static RTBColor White => "#FFFFFFFF";
+    /// <summary>Neutral gray <c>#808080FF</c>.</summary>
     public static RTBColor Gray => "#808080FF";
+    /// <summary>Pure black <c>#000000FF</c>.</summary>
     public static RTBColor Black => "#000000FF";
 
+    /// <summary>Yellow <c>#FFFF00FF</c>.</summary>
     public static RTBColor Yellow => "#FFFF00FF";
+    /// <summary>Red <c>#FF0000FF</c>.</summary>
     public static RTBColor Red => "#FF0000FF";
+    /// <summary>Blue <c>#0000FFFF</c>.</summary>
     public static RTBColor Blue => "#0000FFFF";
+    /// <summary>Orange convenience color <c>#FF8800FF</c> (non-standard name mapping).</summary>
     public static RTBColor Orange => "#FF8800FF";
+    /// <summary>Green <c>#00FF00FF</c>.</summary>
     public static RTBColor Green => "#00FF00FF";
+    /// <summary>Magenta <c>#FF00FFFF</c>.</summary>
     public static RTBColor Magenta => "#FF00FFFF";
 
+    /// <summary>Fully transparent <c>#00000000</c>.</summary>
     public static RTBColor Transparent => "#00000000";
 
-    // Full CSS named colors as dictionary (lowercase keys)
+    /// <summary>
+    /// Full CSS named colors dictionary (case-insensitive keys).
+    /// </summary>
     public static IReadOnlyDictionary<string, RTBColor> Named => CssNamedColors.Map;
 
-    // Helper to access a named color directly
+    /// <summary>
+    /// Get a named CSS color by name.
+    /// </summary>
+    /// <param name="name">Color name (any case). E.g. <c>"royalblue"</c>.</param>
+    /// <returns>Named <see cref="RTBColor"/>.</returns>
+    /// <exception cref="KeyNotFoundException">If the name is unknown.</exception>
     public static RTBColor NamedColor(string name) =>
         CssNamedColors.TryGetValue(name, out var c) ? c : throw new KeyNotFoundException($"Unknown CSS color name '{name}'.");
 }
@@ -485,8 +636,14 @@ public static class RTBColors
 /// </summary>
 internal static class CssNamedColors
 {
+    /// <summary>
+    /// Case-insensitive map of CSS named colors to <see cref="RTBColor"/> values.
+    /// </summary>
     public static readonly IReadOnlyDictionary<string, RTBColor> Map = Build();
 
+    /// <summary>
+    /// Try get a named color by name (trimmed, lowercased).
+    /// </summary>
     public static bool TryGetValue(string name, out RTBColor color) =>
         Map.TryGetValue(name.Trim().ToLowerInvariant(), out color);
 

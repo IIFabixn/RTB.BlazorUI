@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Extensions
+  commentId: N:RTB.Blazor.Extensions
+  id: RTB.Blazor.Extensions
+  children:
+  - RTB.Blazor.Extensions.ServiceCollectionExtension
+  - RTB.Blazor.Extensions.ServiceCollectionExtension.RTBConfig
+  langs:
+  - csharp
+  - vb
+  name: RTB.Blazor.Extensions
+  nameWithType: RTB.Blazor.Extensions
+  fullName: RTB.Blazor.Extensions
+  type: Namespace
+  assemblies:
+  - RTB.Blazor
+references:
+- uid: RTB.Blazor.Extensions.ServiceCollectionExtension
+  commentId: T:RTB.Blazor.Extensions.ServiceCollectionExtension
+  href: RTB.Blazor.Extensions.ServiceCollectionExtension.html
+  name: ServiceCollectionExtension
+  nameWithType: ServiceCollectionExtension
+  fullName: RTB.Blazor.Extensions.ServiceCollectionExtension
+- uid: RTB.Blazor.Extensions.ServiceCollectionExtension.RTBConfig
+  commentId: T:RTB.Blazor.Extensions.ServiceCollectionExtension.RTBConfig
+  parent: RTB.Blazor.Extensions
+  href: RTB.Blazor.Extensions.ServiceCollectionExtension.html
+  name: ServiceCollectionExtension.RTBConfig
+  nameWithType: ServiceCollectionExtension.RTBConfig
+  fullName: RTB.Blazor.Extensions.ServiceCollectionExtension.RTBConfig
+  spec.csharp:
+  - uid: RTB.Blazor.Extensions.ServiceCollectionExtension
+    name: ServiceCollectionExtension
+    href: RTB.Blazor.Extensions.ServiceCollectionExtension.html
+  - name: .
+  - uid: RTB.Blazor.Extensions.ServiceCollectionExtension.RTBConfig
+    name: RTBConfig
+    href: RTB.Blazor.Extensions.ServiceCollectionExtension.RTBConfig.html
+  spec.vb:
+  - uid: RTB.Blazor.Extensions.ServiceCollectionExtension
+    name: ServiceCollectionExtension
+    href: RTB.Blazor.Extensions.ServiceCollectionExtension.html
+  - name: .
+  - uid: RTB.Blazor.Extensions.ServiceCollectionExtension.RTBConfig
+    name: RTBConfig
+    href: RTB.Blazor.Extensions.ServiceCollectionExtension.RTBConfig.html
+- uid: RTB.Blazor.Extensions
+  commentId: N:RTB.Blazor.Extensions
+  href: RTB.html
+  name: RTB.Blazor.Extensions
+  nameWithType: RTB.Blazor.Extensions
+  fullName: RTB.Blazor.Extensions
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Extensions
+    name: Extensions
+    href: RTB.Blazor.Extensions.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Extensions
+    name: Extensions
+    href: RTB.Blazor.Extensions.html

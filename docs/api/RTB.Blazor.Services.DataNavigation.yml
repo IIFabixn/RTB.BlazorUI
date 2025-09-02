@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.DataNavigation
+  commentId: N:RTB.Blazor.Services.DataNavigation
+  id: RTB.Blazor.Services.DataNavigation
+  children:
+  - RTB.Blazor.Services.DataNavigation.DataNavigationService
+  - RTB.Blazor.Services.DataNavigation.IDataNavigationService
+  langs:
+  - csharp
+  - vb
+  name: RTB.Blazor.Services.DataNavigation
+  nameWithType: RTB.Blazor.Services.DataNavigation
+  fullName: RTB.Blazor.Services.DataNavigation
+  type: Namespace
+  assemblies:
+  - RTB.Blazor
+references:
+- uid: RTB.Blazor.Services.DataNavigation.IDataNavigationService
+  commentId: T:RTB.Blazor.Services.DataNavigation.IDataNavigationService
+  parent: RTB.Blazor.Services.DataNavigation
+  href: RTB.Blazor.Services.DataNavigation.IDataNavigationService.html
+  name: IDataNavigationService
+  nameWithType: IDataNavigationService
+  fullName: RTB.Blazor.Services.DataNavigation.IDataNavigationService
+- uid: RTB.Blazor.Services.DataNavigation.DataNavigationService
+  commentId: T:RTB.Blazor.Services.DataNavigation.DataNavigationService
+  href: RTB.Blazor.Services.DataNavigation.DataNavigationService.html
+  name: DataNavigationService
+  nameWithType: DataNavigationService
+  fullName: RTB.Blazor.Services.DataNavigation.DataNavigationService
+- uid: RTB.Blazor.Services.DataNavigation
+  commentId: N:RTB.Blazor.Services.DataNavigation
+  href: RTB.html
+  name: RTB.Blazor.Services.DataNavigation
+  nameWithType: RTB.Blazor.Services.DataNavigation
+  fullName: RTB.Blazor.Services.DataNavigation
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.DataNavigation
+    name: DataNavigation
+    href: RTB.Blazor.Services.DataNavigation.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.DataNavigation
+    name: DataNavigation
+    href: RTB.Blazor.Services.DataNavigation.html

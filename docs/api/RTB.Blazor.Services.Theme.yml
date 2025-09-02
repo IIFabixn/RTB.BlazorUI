@@ -1,0 +1,89 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.Theme
+  commentId: N:RTB.Blazor.Services.Theme
+  id: RTB.Blazor.Services.Theme
+  children:
+  - RTB.Blazor.Services.Theme.ITheme
+  - RTB.Blazor.Services.Theme.IThemeServiceFactory
+  - RTB.Blazor.Services.Theme.IThemeService`1
+  - RTB.Blazor.Services.Theme.RTBThemeService`1
+  - RTB.Blazor.Services.Theme.ThemeAttribute
+  langs:
+  - csharp
+  - vb
+  name: RTB.Blazor.Services.Theme
+  nameWithType: RTB.Blazor.Services.Theme
+  fullName: RTB.Blazor.Services.Theme
+  type: Namespace
+  assemblies:
+  - RTB.Blazor
+references:
+- uid: RTB.Blazor.Services.Theme.ITheme
+  commentId: T:RTB.Blazor.Services.Theme.ITheme
+  href: RTB.Blazor.Services.Theme.ITheme.html
+  name: ITheme
+  nameWithType: ITheme
+  fullName: RTB.Blazor.Services.Theme.ITheme
+- uid: RTB.Blazor.Services.Theme.IThemeService`1
+  commentId: T:RTB.Blazor.Services.Theme.IThemeService`1
+  href: RTB.Blazor.Services.Theme.IThemeService-1.html
+  name: IThemeService<TTheme>
+  nameWithType: IThemeService<TTheme>
+  fullName: RTB.Blazor.Services.Theme.IThemeService<TTheme>
+  nameWithType.vb: IThemeService(Of TTheme)
+  fullName.vb: RTB.Blazor.Services.Theme.IThemeService(Of TTheme)
+  name.vb: IThemeService(Of TTheme)
+  spec.csharp:
+  - uid: RTB.Blazor.Services.Theme.IThemeService`1
+    name: IThemeService
+    href: RTB.Blazor.Services.Theme.IThemeService-1.html
+  - name: <
+  - name: TTheme
+  - name: '>'
+  spec.vb:
+  - uid: RTB.Blazor.Services.Theme.IThemeService`1
+    name: IThemeService
+    href: RTB.Blazor.Services.Theme.IThemeService-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TTheme
+  - name: )
+- uid: RTB.Blazor.Services.Theme.IThemeServiceFactory
+  commentId: T:RTB.Blazor.Services.Theme.IThemeServiceFactory
+  href: RTB.Blazor.Services.Theme.IThemeServiceFactory.html
+  name: IThemeServiceFactory
+  nameWithType: IThemeServiceFactory
+  fullName: RTB.Blazor.Services.Theme.IThemeServiceFactory
+- uid: RTB.Blazor.Services.Theme.RTBThemeService`1
+  commentId: T:RTB.Blazor.Services.Theme.RTBThemeService`1
+  href: RTB.Blazor.Services.Theme.RTBThemeService-1.html
+  name: RTBThemeService<TThemeBase>
+  nameWithType: RTBThemeService<TThemeBase>
+  fullName: RTB.Blazor.Services.Theme.RTBThemeService<TThemeBase>
+  nameWithType.vb: RTBThemeService(Of TThemeBase)
+  fullName.vb: RTB.Blazor.Services.Theme.RTBThemeService(Of TThemeBase)
+  name.vb: RTBThemeService(Of TThemeBase)
+  spec.csharp:
+  - uid: RTB.Blazor.Services.Theme.RTBThemeService`1
+    name: RTBThemeService
+    href: RTB.Blazor.Services.Theme.RTBThemeService-1.html
+  - name: <
+  - name: TThemeBase
+  - name: '>'
+  spec.vb:
+  - uid: RTB.Blazor.Services.Theme.RTBThemeService`1
+    name: RTBThemeService
+    href: RTB.Blazor.Services.Theme.RTBThemeService-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TThemeBase
+  - name: )
+- uid: RTB.Blazor.Services.Theme.ThemeAttribute
+  commentId: T:RTB.Blazor.Services.Theme.ThemeAttribute
+  href: RTB.Blazor.Services.Theme.ThemeAttribute.html
+  name: ThemeAttribute
+  nameWithType: ThemeAttribute
+  fullName: RTB.Blazor.Services.Theme.ThemeAttribute

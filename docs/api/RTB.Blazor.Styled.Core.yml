@@ -1,0 +1,126 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Core
+  commentId: N:RTB.Blazor.Styled.Core
+  id: RTB.Blazor.Styled.Core
+  children:
+  - RTB.Blazor.Styled.Core.DeclarationSet
+  - RTB.Blazor.Styled.Core.GroupRule
+  - RTB.Blazor.Styled.Core.IStyleContributor
+  - RTB.Blazor.Styled.Core.IStyleFragment
+  - RTB.Blazor.Styled.Core.KeyframeFrame
+  - RTB.Blazor.Styled.Core.Keyframes
+  - RTB.Blazor.Styled.Core.ScopedWriter
+  - RTB.Blazor.Styled.Core.SelectorRule
+  - RTB.Blazor.Styled.Core.StyleBuilder
+  langs:
+  - csharp
+  - vb
+  name: RTB.Blazor.Styled.Core
+  nameWithType: RTB.Blazor.Styled.Core
+  fullName: RTB.Blazor.Styled.Core
+  type: Namespace
+  assemblies:
+  - RTB.Blazor.Styled
+references:
+- uid: RTB.Blazor.Styled.Core.DeclarationSet
+  commentId: T:RTB.Blazor.Styled.Core.DeclarationSet
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.DeclarationSet.html
+  name: DeclarationSet
+  nameWithType: DeclarationSet
+  fullName: RTB.Blazor.Styled.Core.DeclarationSet
+- uid: RTB.Blazor.Styled.Core.GroupRule
+  commentId: T:RTB.Blazor.Styled.Core.GroupRule
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.GroupRule.html
+  name: GroupRule
+  nameWithType: GroupRule
+  fullName: RTB.Blazor.Styled.Core.GroupRule
+- uid: RTB.Blazor.Styled.Core.IStyleContributor
+  commentId: T:RTB.Blazor.Styled.Core.IStyleContributor
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.IStyleContributor.html
+  name: IStyleContributor
+  nameWithType: IStyleContributor
+  fullName: RTB.Blazor.Styled.Core.IStyleContributor
+- uid: RTB.Blazor.Styled.Core.IStyleFragment
+  commentId: T:RTB.Blazor.Styled.Core.IStyleFragment
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.IStyleFragment.html
+  name: IStyleFragment
+  nameWithType: IStyleFragment
+  fullName: RTB.Blazor.Styled.Core.IStyleFragment
+- uid: RTB.Blazor.Styled.Core.Keyframes
+  commentId: T:RTB.Blazor.Styled.Core.Keyframes
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.Keyframes.html
+  name: Keyframes
+  nameWithType: Keyframes
+  fullName: RTB.Blazor.Styled.Core.Keyframes
+- uid: RTB.Blazor.Styled.Core.KeyframeFrame
+  commentId: T:RTB.Blazor.Styled.Core.KeyframeFrame
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.KeyframeFrame.html
+  name: KeyframeFrame
+  nameWithType: KeyframeFrame
+  fullName: RTB.Blazor.Styled.Core.KeyframeFrame
+- uid: RTB.Blazor.Styled.Core.ScopedWriter
+  commentId: T:RTB.Blazor.Styled.Core.ScopedWriter
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.ScopedWriter.html
+  name: ScopedWriter
+  nameWithType: ScopedWriter
+  fullName: RTB.Blazor.Styled.Core.ScopedWriter
+- uid: RTB.Blazor.Styled.Core.SelectorRule
+  commentId: T:RTB.Blazor.Styled.Core.SelectorRule
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.SelectorRule.html
+  name: SelectorRule
+  nameWithType: SelectorRule
+  fullName: RTB.Blazor.Styled.Core.SelectorRule
+- uid: RTB.Blazor.Styled.Core.StyleBuilder
+  commentId: T:RTB.Blazor.Styled.Core.StyleBuilder
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.StyleBuilder.html
+  name: StyleBuilder
+  nameWithType: StyleBuilder
+  fullName: RTB.Blazor.Styled.Core.StyleBuilder
+- uid: RTB.Blazor.Styled.Core
+  commentId: N:RTB.Blazor.Styled.Core
+  href: RTB.html
+  name: RTB.Blazor.Styled.Core
+  nameWithType: RTB.Blazor.Styled.Core
+  fullName: RTB.Blazor.Styled.Core
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html

@@ -1,0 +1,135 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Services.Theme.ITheme
+  commentId: T:RTB.Blazor.Services.Theme.ITheme
+  id: ITheme
+  parent: RTB.Blazor.Services.Theme
+  children:
+  - RTB.Blazor.Services.Theme.ITheme.Name
+  langs:
+  - csharp
+  - vb
+  name: ITheme
+  nameWithType: ITheme
+  fullName: RTB.Blazor.Services.Theme.ITheme
+  type: Interface
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Theme/ITheme.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: ITheme
+    path: ../src/RTB.BlazorUI/Services/Theme/ITheme.cs
+    startLine: 15
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Theme
+  summary: Defines a contract for a UI theme within the Blazor UI layer.
+  remarks: Implementations encapsulate theme-specific metadata and resources (e.g., colors, typography, component styles).
+  example:
+  - >-
+    Example:
+
+    public sealed class DarkTheme : ITheme
+
+    {
+        public string Name =&gt; "Dark";
+    }
+  syntax:
+    content: public interface ITheme
+    content.vb: Public Interface ITheme
+- uid: RTB.Blazor.Services.Theme.ITheme.Name
+  commentId: P:RTB.Blazor.Services.Theme.ITheme.Name
+  id: Name
+  parent: RTB.Blazor.Services.Theme.ITheme
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ITheme.Name
+  fullName: RTB.Blazor.Services.Theme.ITheme.Name
+  type: Property
+  source:
+    remote:
+      path: src/RTB.BlazorUI/Services/Theme/ITheme.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Name
+    path: ../src/RTB.BlazorUI/Services/Theme/ITheme.cs
+    startLine: 21
+  assemblies:
+  - RTB.Blazor
+  namespace: RTB.Blazor.Services.Theme
+  summary: Gets the unique, human-readable theme name used for selection and display.
+  example: []
+  syntax:
+    content: string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: A short identifier such as "Light" or "Dark".
+    content.vb: ReadOnly Property Name As String
+  overload: RTB.Blazor.Services.Theme.ITheme.Name*
+references:
+- uid: RTB.Blazor.Services.Theme
+  commentId: N:RTB.Blazor.Services.Theme
+  href: RTB.html
+  name: RTB.Blazor.Services.Theme
+  nameWithType: RTB.Blazor.Services.Theme
+  fullName: RTB.Blazor.Services.Theme
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Theme
+    name: Theme
+    href: RTB.Blazor.Services.Theme.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Services
+    name: Services
+    href: RTB.Blazor.Services.html
+  - name: .
+  - uid: RTB.Blazor.Services.Theme
+    name: Theme
+    href: RTB.Blazor.Services.Theme.html
+- uid: RTB.Blazor.Services.Theme.ITheme.Name*
+  commentId: Overload:RTB.Blazor.Services.Theme.ITheme.Name
+  href: RTB.Blazor.Services.Theme.ITheme.html#RTB_Blazor_Services_Theme_ITheme_Name
+  name: Name
+  nameWithType: ITheme.Name
+  fullName: RTB.Blazor.Services.Theme.ITheme.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

@@ -1,0 +1,233 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType
+  commentId: T:RTB.Blazor.Styled.Helper.BreakPoint.OrientationType
+  id: BreakPoint.OrientationType
+  parent: RTB.Blazor.Styled.Helper
+  children:
+  - RTB.Blazor.Styled.Helper.BreakPoint.OrientationType.Landscape
+  - RTB.Blazor.Styled.Helper.BreakPoint.OrientationType.Portrait
+  langs:
+  - csharp
+  - vb
+  name: BreakPoint.OrientationType
+  nameWithType: BreakPoint.OrientationType
+  fullName: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType
+  type: Enum
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/BreakPoint.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: OrientationType
+    path: ../src/RTB.Styled/Helper/BreakPoint.cs
+    startLine: 44
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Supported device orientation values.
+  remarks: Not currently included in the output of <xref href="RTB.Blazor.Styled.Helper.BreakPoint.ToQuery" data-throw-if-not-resolved="false"></xref>; reserved for future support.
+  example: []
+  syntax:
+    content: public enum BreakPoint.OrientationType
+    content.vb: Public Enum BreakPoint.OrientationType
+  extensionMethods:
+  - System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+- uid: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType.Portrait
+  commentId: F:RTB.Blazor.Styled.Helper.BreakPoint.OrientationType.Portrait
+  id: Portrait
+  parent: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType
+  langs:
+  - csharp
+  - vb
+  name: Portrait
+  nameWithType: BreakPoint.OrientationType.Portrait
+  fullName: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType.Portrait
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/BreakPoint.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Portrait
+    path: ../src/RTB.Styled/Helper/BreakPoint.cs
+    startLine: 49
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Portrait orientation.
+  example: []
+  syntax:
+    content: Portrait = 0
+    return:
+      type: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType
+- uid: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType.Landscape
+  commentId: F:RTB.Blazor.Styled.Helper.BreakPoint.OrientationType.Landscape
+  id: Landscape
+  parent: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType
+  langs:
+  - csharp
+  - vb
+  name: Landscape
+  nameWithType: BreakPoint.OrientationType.Landscape
+  fullName: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType.Landscape
+  type: Field
+  source:
+    remote:
+      path: src/RTB.Styled/Helper/BreakPoint.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Landscape
+    path: ../src/RTB.Styled/Helper/BreakPoint.cs
+    startLine: 53
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Helper
+  summary: Landscape orientation.
+  example: []
+  syntax:
+    content: Landscape = 1
+    return:
+      type: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType
+references:
+- uid: RTB.Blazor.Styled.Helper.BreakPoint.ToQuery
+  commentId: M:RTB.Blazor.Styled.Helper.BreakPoint.ToQuery
+  href: RTB.Blazor.Styled.Helper.BreakPoint.html#RTB_Blazor_Styled_Helper_BreakPoint_ToQuery
+  name: ToQuery()
+  nameWithType: BreakPoint.ToQuery()
+  fullName: RTB.Blazor.Styled.Helper.BreakPoint.ToQuery()
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.BreakPoint.ToQuery
+    name: ToQuery
+    href: RTB.Blazor.Styled.Helper.BreakPoint.html#RTB_Blazor_Styled_Helper_BreakPoint_ToQuery
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.BreakPoint.ToQuery
+    name: ToQuery
+    href: RTB.Blazor.Styled.Helper.BreakPoint.html#RTB_Blazor_Styled_Helper_BreakPoint_ToQuery
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Helper
+  commentId: N:RTB.Blazor.Styled.Helper
+  href: RTB.html
+  name: RTB.Blazor.Styled.Helper
+  nameWithType: RTB.Blazor.Styled.Helper
+  fullName: RTB.Blazor.Styled.Helper
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper
+    name: Helper
+    href: RTB.Blazor.Styled.Helper.html
+- uid: System.Enum.RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  parent: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  definition: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  commentId: M:RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  isExternal: true
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  name: ToCss(Enum)
+  nameWithType: CssEnumExtensions.ToCss(Enum)
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.CssEnumExtensions.ToCss(System.Enum)
+    name: ToCss
+    href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html#RTB_Blazor_Styled_Helper_CssEnumExtensions_ToCss_System_Enum_
+  - name: (
+  - uid: System.Enum
+    name: Enum
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.enum
+  - name: )
+- uid: RTB.Blazor.Styled.Helper.CssEnumExtensions
+  commentId: T:RTB.Blazor.Styled.Helper.CssEnumExtensions
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.CssEnumExtensions.html
+  name: CssEnumExtensions
+  nameWithType: CssEnumExtensions
+  fullName: RTB.Blazor.Styled.Helper.CssEnumExtensions
+- uid: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType
+  commentId: T:RTB.Blazor.Styled.Helper.BreakPoint.OrientationType
+  parent: RTB.Blazor.Styled.Helper
+  href: RTB.Blazor.Styled.Helper.BreakPoint.html
+  name: BreakPoint.OrientationType
+  nameWithType: BreakPoint.OrientationType
+  fullName: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Helper.BreakPoint
+    name: BreakPoint
+    href: RTB.Blazor.Styled.Helper.BreakPoint.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType
+    name: OrientationType
+    href: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType.html
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Helper.BreakPoint
+    name: BreakPoint
+    href: RTB.Blazor.Styled.Helper.BreakPoint.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType
+    name: OrientationType
+    href: RTB.Blazor.Styled.Helper.BreakPoint.OrientationType.html

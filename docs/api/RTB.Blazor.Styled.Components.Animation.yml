@@ -1,0 +1,1892 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Styled.Components.Animation
+  commentId: T:RTB.Blazor.Styled.Components.Animation
+  id: Animation
+  parent: RTB.Blazor.Styled.Components
+  children:
+  - RTB.Blazor.Styled.Components.Animation.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  - RTB.Blazor.Styled.Components.Animation.BuildStyle(RTB.Blazor.Styled.Core.StyleBuilder)
+  - RTB.Blazor.Styled.Components.Animation.Composition
+  - RTB.Blazor.Styled.Components.Animation.Delay
+  - RTB.Blazor.Styled.Components.Animation.Direction
+  - RTB.Blazor.Styled.Components.Animation.Duration
+  - RTB.Blazor.Styled.Components.Animation.FillMode
+  - RTB.Blazor.Styled.Components.Animation.Infinite
+  - RTB.Blazor.Styled.Components.Animation.IterationCount
+  - RTB.Blazor.Styled.Components.Animation.KeyFrames
+  - RTB.Blazor.Styled.Components.Animation.Name
+  - RTB.Blazor.Styled.Components.Animation.PlayState
+  - RTB.Blazor.Styled.Components.Animation.TimingFunction
+  langs:
+  - csharp
+  - vb
+  name: Animation
+  nameWithType: Animation
+  fullName: RTB.Blazor.Styled.Components.Animation
+  type: Class
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Animation
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 33
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Describes animation-related CSS longhands and establishes an @keyframes scope for a single animation.
+  remarks: >-
+    <p>
+
+    - Non-visual: contributes CSS via a cascading <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref>; emits no visible DOM.<br />
+
+    - <xref href="RTB.Blazor.Styled.Components.Animation.Name" data-throw-if-not-resolved="false"></xref> is used for both <code>animation-name</code> and as the identifier of the associated <code>@keyframes</code> block.<br />
+
+    - <xref href="RTB.Blazor.Styled.Components.Animation.Name" data-throw-if-not-resolved="false"></xref> is cascaded so nested keyframe components can attach frames to the correct <code>@keyframes</code> block.<br />
+
+    - Only animation longhand properties are emitted; the <code>animation</code> shorthand is never used.
+
+    </p>
+
+    <p>
+
+    Usage:
+
+    <pre><code class="lang-csharp">&lt;Animation Name="fade"
+               Duration="@(TimeSpan.FromMilliseconds(250))"
+               TimingFunction="ease-out"
+               KeyFrames="..."/&gt;</code></pre>
+    </p>
+  example: []
+  syntax:
+    content: 'public class Animation : RTBStyleBase, IComponent, IHandleEvent, IHandleAfterRender, IStyleContributor, IAsyncDisposable'
+    content.vb: Public Class Animation Inherits RTBStyleBase Implements IComponent, IHandleEvent, IHandleAfterRender, IStyleContributor, IAsyncDisposable
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Components.ComponentBase
+  - RTB.Blazor.Styled.Components.RTBStyleBase
+  implements:
+  - Microsoft.AspNetCore.Components.IComponent
+  - Microsoft.AspNetCore.Components.IHandleEvent
+  - Microsoft.AspNetCore.Components.IHandleAfterRender
+  - RTB.Blazor.Styled.Core.IStyleContributor
+  - System.IAsyncDisposable
+  inheritedMembers:
+  - RTB.Blazor.Styled.Components.RTBStyleBase.StyleBuilder
+  - RTB.Blazor.Styled.Components.RTBStyleBase.Condition
+  - RTB.Blazor.Styled.Components.RTBStyleBase.OnInitialized
+  - RTB.Blazor.Styled.Components.RTBStyleBase.OnParametersSet
+  - RTB.Blazor.Styled.Components.RTBStyleBase.DisposeAsync
+  - Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync
+  - Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync
+  - Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged
+  - Microsoft.AspNetCore.Components.ComponentBase.ShouldRender
+  - Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender(System.Boolean)
+  - Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync(System.Boolean)
+  - Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Action)
+  - Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func{System.Threading.Tasks.Task})
+  - Microsoft.AspNetCore.Components.ComponentBase.DispatchExceptionAsync(System.Exception)
+  - Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)
+  - Microsoft.AspNetCore.Components.ComponentBase.RendererInfo
+  - Microsoft.AspNetCore.Components.ComponentBase.Assets
+  - Microsoft.AspNetCore.Components.ComponentBase.AssignedRenderMode
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: RTB.Blazor.Styled.Components.Animation.Name
+  commentId: P:RTB.Blazor.Styled.Components.Animation.Name
+  id: Name
+  parent: RTB.Blazor.Styled.Components.Animation
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Animation.Name
+  fullName: RTB.Blazor.Styled.Components.Animation.Name
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Name
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 95
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: The animation name (CSS identifier).
+  remarks: >-
+    - Used for <code>animation-name</code> and as the identifier of the <code>@keyframes</code> block.<br />
+
+    - Must be a valid CSS identifier; no validation or escaping is performed.
+  example: []
+  syntax:
+    content: >-
+      [Parameter]
+
+      [EditorRequired]
+
+      public required string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Parameter>
+
+      <EditorRequired>
+
+      Public Property Name As String
+  overload: RTB.Blazor.Styled.Components.Animation.Name*
+  attributes:
+  - type: Microsoft.AspNetCore.Components.ParameterAttribute
+    ctor: Microsoft.AspNetCore.Components.ParameterAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Components.EditorRequiredAttribute
+    ctor: Microsoft.AspNetCore.Components.EditorRequiredAttribute.#ctor
+    arguments: []
+- uid: RTB.Blazor.Styled.Components.Animation.Duration
+  commentId: P:RTB.Blazor.Styled.Components.Animation.Duration
+  id: Duration
+  parent: RTB.Blazor.Styled.Components.Animation
+  langs:
+  - csharp
+  - vb
+  name: Duration
+  nameWithType: Animation.Duration
+  fullName: RTB.Blazor.Styled.Components.Animation.Duration
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Duration
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 107
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Maps to <code>animation-duration</code>. Omitted when <code>null</code>.
+  remarks: >-
+    - Uses seconds (s) for values ≥ 1s (up to 3 decimals) and milliseconds (ms) for values &lt; 1s (rounded to nearest ms).<br />
+
+    - Examples: 250ms → "250ms", 1.5s → "1.5s", 2s → "2s".<br />
+
+    - When omitted, the UA default is <code>0s</code>, which makes the animation instantaneous.
+  example: []
+  syntax:
+    content: >-
+      [Parameter]
+
+      public TimeSpan? Duration { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.TimeSpan}
+    content.vb: >-
+      <Parameter>
+
+      Public Property Duration As TimeSpan?
+  overload: RTB.Blazor.Styled.Components.Animation.Duration*
+  attributes:
+  - type: Microsoft.AspNetCore.Components.ParameterAttribute
+    ctor: Microsoft.AspNetCore.Components.ParameterAttribute.#ctor
+    arguments: []
+- uid: RTB.Blazor.Styled.Components.Animation.TimingFunction
+  commentId: P:RTB.Blazor.Styled.Components.Animation.TimingFunction
+  id: TimingFunction
+  parent: RTB.Blazor.Styled.Components.Animation
+  langs:
+  - csharp
+  - vb
+  name: TimingFunction
+  nameWithType: Animation.TimingFunction
+  fullName: RTB.Blazor.Styled.Components.Animation.TimingFunction
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: TimingFunction
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 115
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Maps to <code>animation-timing-function</code> (e.g., <code>ease</code>, <code>linear</code>, <code>ease-in-out</code>, <code>cubic-bezier(...)</code>, <code>steps(...)</code>).
+  remarks: Omitted when null or whitespace. No validation is performed. When omitted, the UA default is <code>ease</code>.
+  example: []
+  syntax:
+    content: >-
+      [Parameter]
+
+      public string? TimingFunction { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Parameter>
+
+      Public Property TimingFunction As String
+  overload: RTB.Blazor.Styled.Components.Animation.TimingFunction*
+  attributes:
+  - type: Microsoft.AspNetCore.Components.ParameterAttribute
+    ctor: Microsoft.AspNetCore.Components.ParameterAttribute.#ctor
+    arguments: []
+- uid: RTB.Blazor.Styled.Components.Animation.Delay
+  commentId: P:RTB.Blazor.Styled.Components.Animation.Delay
+  id: Delay
+  parent: RTB.Blazor.Styled.Components.Animation
+  langs:
+  - csharp
+  - vb
+  name: Delay
+  nameWithType: Animation.Delay
+  fullName: RTB.Blazor.Styled.Components.Animation.Delay
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Delay
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 125
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Maps to <code>animation-delay</code>. Omitted when <code>null</code>.
+  remarks: >-
+    - Uses the same formatting rules as <xref href="RTB.Blazor.Styled.Components.Animation.Duration" data-throw-if-not-resolved="false"></xref>.<br />
+
+    - Examples: 75ms → "75ms", 2s → "2s".<br />
+
+    - When omitted, the UA default is <code>0s</code>.
+  example: []
+  syntax:
+    content: >-
+      [Parameter]
+
+      public TimeSpan? Delay { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.TimeSpan}
+    content.vb: >-
+      <Parameter>
+
+      Public Property Delay As TimeSpan?
+  overload: RTB.Blazor.Styled.Components.Animation.Delay*
+  attributes:
+  - type: Microsoft.AspNetCore.Components.ParameterAttribute
+    ctor: Microsoft.AspNetCore.Components.ParameterAttribute.#ctor
+    arguments: []
+- uid: RTB.Blazor.Styled.Components.Animation.IterationCount
+  commentId: P:RTB.Blazor.Styled.Components.Animation.IterationCount
+  id: IterationCount
+  parent: RTB.Blazor.Styled.Components.Animation
+  langs:
+  - csharp
+  - vb
+  name: IterationCount
+  nameWithType: Animation.IterationCount
+  fullName: RTB.Blazor.Styled.Components.Animation.IterationCount
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: IterationCount
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 135
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Maps to <code>animation-iteration-count</code> when <xref href="RTB.Blazor.Styled.Components.Animation.Infinite" data-throw-if-not-resolved="false"></xref> is false.
+  remarks: >-
+    - Ignored when <xref href="RTB.Blazor.Styled.Components.Animation.Infinite" data-throw-if-not-resolved="false"></xref> is true (then <code>infinite</code> is emitted).<br />
+
+    - Not validated; callers should avoid negative values per CSS spec.<br />
+
+    - When both this and <xref href="RTB.Blazor.Styled.Components.Animation.Infinite" data-throw-if-not-resolved="false"></xref> are omitted/false, the UA default is <code>1</code>.
+  example: []
+  syntax:
+    content: >-
+      [Parameter]
+
+      public int? IterationCount { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: >-
+      <Parameter>
+
+      Public Property IterationCount As Integer?
+  overload: RTB.Blazor.Styled.Components.Animation.IterationCount*
+  attributes:
+  - type: Microsoft.AspNetCore.Components.ParameterAttribute
+    ctor: Microsoft.AspNetCore.Components.ParameterAttribute.#ctor
+    arguments: []
+- uid: RTB.Blazor.Styled.Components.Animation.Infinite
+  commentId: P:RTB.Blazor.Styled.Components.Animation.Infinite
+  id: Infinite
+  parent: RTB.Blazor.Styled.Components.Animation
+  langs:
+  - csharp
+  - vb
+  name: Infinite
+  nameWithType: Animation.Infinite
+  fullName: RTB.Blazor.Styled.Components.Animation.Infinite
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Infinite
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 140
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: 'If true, sets <code>animation-iteration-count: infinite</code> and ignores <xref href="RTB.Blazor.Styled.Components.Animation.IterationCount" data-throw-if-not-resolved="false"></xref>.'
+  example: []
+  syntax:
+    content: >-
+      [Parameter]
+
+      public bool Infinite { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <Parameter>
+
+      Public Property Infinite As Boolean
+  overload: RTB.Blazor.Styled.Components.Animation.Infinite*
+  attributes:
+  - type: Microsoft.AspNetCore.Components.ParameterAttribute
+    ctor: Microsoft.AspNetCore.Components.ParameterAttribute.#ctor
+    arguments: []
+- uid: RTB.Blazor.Styled.Components.Animation.Direction
+  commentId: P:RTB.Blazor.Styled.Components.Animation.Direction
+  id: Direction
+  parent: RTB.Blazor.Styled.Components.Animation
+  langs:
+  - csharp
+  - vb
+  name: Direction
+  nameWithType: Animation.Direction
+  fullName: RTB.Blazor.Styled.Components.Animation.Direction
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Direction
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 145
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Maps to <code>animation-direction</code>. Omitted when <code>null</code>.
+  example: []
+  syntax:
+    content: >-
+      [Parameter]
+
+      public Animation.AnimationDirection? Direction { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationDirection}
+    content.vb: >-
+      <Parameter>
+
+      Public Property Direction As Animation.AnimationDirection?
+  overload: RTB.Blazor.Styled.Components.Animation.Direction*
+  attributes:
+  - type: Microsoft.AspNetCore.Components.ParameterAttribute
+    ctor: Microsoft.AspNetCore.Components.ParameterAttribute.#ctor
+    arguments: []
+- uid: RTB.Blazor.Styled.Components.Animation.FillMode
+  commentId: P:RTB.Blazor.Styled.Components.Animation.FillMode
+  id: FillMode
+  parent: RTB.Blazor.Styled.Components.Animation
+  langs:
+  - csharp
+  - vb
+  name: FillMode
+  nameWithType: Animation.FillMode
+  fullName: RTB.Blazor.Styled.Components.Animation.FillMode
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: FillMode
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 150
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Maps to <code>animation-fill-mode</code>. Omitted when <code>null</code>.
+  example: []
+  syntax:
+    content: >-
+      [Parameter]
+
+      public Animation.AnimationFillMode? FillMode { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationFillMode}
+    content.vb: >-
+      <Parameter>
+
+      Public Property FillMode As Animation.AnimationFillMode?
+  overload: RTB.Blazor.Styled.Components.Animation.FillMode*
+  attributes:
+  - type: Microsoft.AspNetCore.Components.ParameterAttribute
+    ctor: Microsoft.AspNetCore.Components.ParameterAttribute.#ctor
+    arguments: []
+- uid: RTB.Blazor.Styled.Components.Animation.PlayState
+  commentId: P:RTB.Blazor.Styled.Components.Animation.PlayState
+  id: PlayState
+  parent: RTB.Blazor.Styled.Components.Animation
+  langs:
+  - csharp
+  - vb
+  name: PlayState
+  nameWithType: Animation.PlayState
+  fullName: RTB.Blazor.Styled.Components.Animation.PlayState
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: PlayState
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 155
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Maps to <code>animation-play-state</code>. Omitted when <code>null</code>.
+  example: []
+  syntax:
+    content: >-
+      [Parameter]
+
+      public Animation.AnimationPlayState? PlayState { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationPlayState}
+    content.vb: >-
+      <Parameter>
+
+      Public Property PlayState As Animation.AnimationPlayState?
+  overload: RTB.Blazor.Styled.Components.Animation.PlayState*
+  attributes:
+  - type: Microsoft.AspNetCore.Components.ParameterAttribute
+    ctor: Microsoft.AspNetCore.Components.ParameterAttribute.#ctor
+    arguments: []
+- uid: RTB.Blazor.Styled.Components.Animation.Composition
+  commentId: P:RTB.Blazor.Styled.Components.Animation.Composition
+  id: Composition
+  parent: RTB.Blazor.Styled.Components.Animation
+  langs:
+  - csharp
+  - vb
+  name: Composition
+  nameWithType: Animation.Composition
+  fullName: RTB.Blazor.Styled.Components.Animation.Composition
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: Composition
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 165
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Maps to <code>animation-composition</code> (CSS Animations Level 2).
+  remarks: >-
+    - Typical values include <code>replace</code> (default in most engines) or <code>add</code>.<br />
+
+    - Browser support may be limited/experimental; value is emitted as-is without validation.<br />
+
+    - Omitted when null or whitespace.
+  example: []
+  syntax:
+    content: >-
+      [Parameter]
+
+      public string? Composition { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Parameter>
+
+      Public Property Composition As String
+  overload: RTB.Blazor.Styled.Components.Animation.Composition*
+  attributes:
+  - type: Microsoft.AspNetCore.Components.ParameterAttribute
+    ctor: Microsoft.AspNetCore.Components.ParameterAttribute.#ctor
+    arguments: []
+- uid: RTB.Blazor.Styled.Components.Animation.KeyFrames
+  commentId: P:RTB.Blazor.Styled.Components.Animation.KeyFrames
+  id: KeyFrames
+  parent: RTB.Blazor.Styled.Components.Animation
+  langs:
+  - csharp
+  - vb
+  name: KeyFrames
+  nameWithType: Animation.KeyFrames
+  fullName: RTB.Blazor.Styled.Components.Animation.KeyFrames
+  type: Property
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: KeyFrames
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 173
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Child content that defines frames for the <code>@keyframes</code> named by <xref href="RTB.Blazor.Styled.Components.Animation.Name" data-throw-if-not-resolved="false"></xref>.
+  remarks: The <xref href="RTB.Blazor.Styled.Components.Animation.Name" data-throw-if-not-resolved="false"></xref> is cascaded so child keyframe components attach frames to the correct block.
+  example: []
+  syntax:
+    content: >-
+      [Parameter]
+
+      [EditorRequired]
+
+      public required RenderFragment KeyFrames { get; set; }
+    parameters: []
+    return:
+      type: Microsoft.AspNetCore.Components.RenderFragment
+    content.vb: >-
+      <Parameter>
+
+      <EditorRequired>
+
+      Public Property KeyFrames As RenderFragment
+  overload: RTB.Blazor.Styled.Components.Animation.KeyFrames*
+  attributes:
+  - type: Microsoft.AspNetCore.Components.ParameterAttribute
+    ctor: Microsoft.AspNetCore.Components.ParameterAttribute.#ctor
+    arguments: []
+  - type: Microsoft.AspNetCore.Components.EditorRequiredAttribute
+    ctor: Microsoft.AspNetCore.Components.EditorRequiredAttribute.#ctor
+    arguments: []
+- uid: RTB.Blazor.Styled.Components.Animation.BuildStyle(RTB.Blazor.Styled.Core.StyleBuilder)
+  commentId: M:RTB.Blazor.Styled.Components.Animation.BuildStyle(RTB.Blazor.Styled.Core.StyleBuilder)
+  id: BuildStyle(RTB.Blazor.Styled.Core.StyleBuilder)
+  parent: RTB.Blazor.Styled.Components.Animation
+  langs:
+  - csharp
+  - vb
+  name: BuildStyle(StyleBuilder)
+  nameWithType: Animation.BuildStyle(StyleBuilder)
+  fullName: RTB.Blazor.Styled.Components.Animation.BuildStyle(RTB.Blazor.Styled.Core.StyleBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: BuildStyle
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 179
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: Contributes animation-related CSS declarations to the current <xref href="RTB.Blazor.Styled.Core.StyleBuilder" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    This method is called by the infrastructure when <xref href="RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)" data-throw-if-not-resolved="false"></xref> is invoked
+
+    by the owning <xref href="RTB.Blazor.Styled.Components.RTBStyleBase.StyleBuilder" data-throw-if-not-resolved="false"></xref> during composition, provided <xref href="RTB.Blazor.Styled.Components.RTBStyleBase.Condition" data-throw-if-not-resolved="false"></xref> is true.
+
+    Typical usage:
+
+    <ul><li>Use <code>builder.Set</code> to add base declarations.</li><li>Use <code>builder.Selector</code> to add nested selector rules.</li><li>Use <code>builder.Media</code>, <code>Supports</code>, or <code>Container</code> for group rules.</li><li>Use <code>builder.Keyframes</code> to define animations.</li></ul>
+
+    Avoid long-running or stateful operations; this method may be invoked multiple times during recomposition.
+  example: []
+  syntax:
+    content: protected override void BuildStyle(StyleBuilder builder)
+    parameters:
+    - id: builder
+      type: RTB.Blazor.Styled.Core.StyleBuilder
+      description: The builder to receive declarations, selectors, groups, and keyframes.
+    content.vb: Protected Overrides Sub BuildStyle(builder As StyleBuilder)
+  overridden: RTB.Blazor.Styled.Components.RTBStyleBase.BuildStyle(RTB.Blazor.Styled.Core.StyleBuilder)
+  overload: RTB.Blazor.Styled.Components.Animation.BuildStyle*
+- uid: RTB.Blazor.Styled.Components.Animation.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  commentId: M:RTB.Blazor.Styled.Components.Animation.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  id: BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  parent: RTB.Blazor.Styled.Components.Animation
+  langs:
+  - csharp
+  - vb
+  name: BuildRenderTree(RenderTreeBuilder)
+  nameWithType: Animation.BuildRenderTree(RenderTreeBuilder)
+  fullName: RTB.Blazor.Styled.Components.Animation.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  type: Method
+  source:
+    remote:
+      path: src/RTB.Styled/Components/Animation.cs
+      branch: develop
+      repo: https://github.com/IIFabixn/RTB.BlazorUI.git
+    id: BuildRenderTree
+    path: ../src/RTB.Styled/Components/Animation.cs
+    startLine: 202
+  assemblies:
+  - RTB.Blazor.Styled
+  namespace: RTB.Blazor.Styled.Components
+  summary: >-
+    Emits a cascading value containing <xref href="RTB.Blazor.Styled.Components.Animation.Name" data-throw-if-not-resolved="false"></xref> so nested keyframe components
+
+    can bind to the corresponding <code>@keyframes</code> block.
+  remarks: >-
+    - Produces no visual markup; this component affects only style generation and keyframes scope.<br />
+
+    - The cascading parameter name is <code>Keyframe.AnimationName</code> to match keyframe components' expectations.
+  example: []
+  syntax:
+    content: protected override void BuildRenderTree(RenderTreeBuilder builder)
+    parameters:
+    - id: builder
+      type: Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+      description: The render tree builder.
+    content.vb: Protected Overrides Sub BuildRenderTree(builder As RenderTreeBuilder)
+  overridden: Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  overload: RTB.Blazor.Styled.Components.Animation.BuildRenderTree*
+references:
+- uid: RTB.Blazor.Styled.Core.StyleBuilder
+  commentId: T:RTB.Blazor.Styled.Core.StyleBuilder
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.StyleBuilder.html
+  name: StyleBuilder
+  nameWithType: StyleBuilder
+  fullName: RTB.Blazor.Styled.Core.StyleBuilder
+- uid: RTB.Blazor.Styled.Components.Animation.Name
+  commentId: P:RTB.Blazor.Styled.Components.Animation.Name
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_Name
+  name: Name
+  nameWithType: Animation.Name
+  fullName: RTB.Blazor.Styled.Components.Animation.Name
+- uid: RTB.Blazor.Styled.Components
+  commentId: N:RTB.Blazor.Styled.Components
+  href: RTB.html
+  name: RTB.Blazor.Styled.Components
+  nameWithType: RTB.Blazor.Styled.Components
+  fullName: RTB.Blazor.Styled.Components
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components
+    name: Components
+    href: RTB.Blazor.Styled.Components.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Components.ComponentBase
+  commentId: T:Microsoft.AspNetCore.Components.ComponentBase
+  parent: Microsoft.AspNetCore.Components
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase
+  name: ComponentBase
+  nameWithType: ComponentBase
+  fullName: Microsoft.AspNetCore.Components.ComponentBase
+- uid: RTB.Blazor.Styled.Components.RTBStyleBase
+  commentId: T:RTB.Blazor.Styled.Components.RTBStyleBase
+  parent: RTB.Blazor.Styled.Components
+  href: RTB.Blazor.Styled.Components.RTBStyleBase.html
+  name: RTBStyleBase
+  nameWithType: RTBStyleBase
+  fullName: RTB.Blazor.Styled.Components.RTBStyleBase
+- uid: Microsoft.AspNetCore.Components.IComponent
+  commentId: T:Microsoft.AspNetCore.Components.IComponent
+  parent: Microsoft.AspNetCore.Components
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.icomponent
+  name: IComponent
+  nameWithType: IComponent
+  fullName: Microsoft.AspNetCore.Components.IComponent
+- uid: Microsoft.AspNetCore.Components.IHandleEvent
+  commentId: T:Microsoft.AspNetCore.Components.IHandleEvent
+  parent: Microsoft.AspNetCore.Components
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleevent
+  name: IHandleEvent
+  nameWithType: IHandleEvent
+  fullName: Microsoft.AspNetCore.Components.IHandleEvent
+- uid: Microsoft.AspNetCore.Components.IHandleAfterRender
+  commentId: T:Microsoft.AspNetCore.Components.IHandleAfterRender
+  parent: Microsoft.AspNetCore.Components
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.ihandleafterrender
+  name: IHandleAfterRender
+  nameWithType: IHandleAfterRender
+  fullName: Microsoft.AspNetCore.Components.IHandleAfterRender
+- uid: RTB.Blazor.Styled.Core.IStyleContributor
+  commentId: T:RTB.Blazor.Styled.Core.IStyleContributor
+  parent: RTB.Blazor.Styled.Core
+  href: RTB.Blazor.Styled.Core.IStyleContributor.html
+  name: IStyleContributor
+  nameWithType: IStyleContributor
+  fullName: RTB.Blazor.Styled.Core.IStyleContributor
+- uid: System.IAsyncDisposable
+  commentId: T:System.IAsyncDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iasyncdisposable
+  name: IAsyncDisposable
+  nameWithType: IAsyncDisposable
+  fullName: System.IAsyncDisposable
+- uid: RTB.Blazor.Styled.Components.RTBStyleBase.StyleBuilder
+  commentId: P:RTB.Blazor.Styled.Components.RTBStyleBase.StyleBuilder
+  parent: RTB.Blazor.Styled.Components.RTBStyleBase
+  href: RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_StyleBuilder
+  name: StyleBuilder
+  nameWithType: RTBStyleBase.StyleBuilder
+  fullName: RTB.Blazor.Styled.Components.RTBStyleBase.StyleBuilder
+- uid: RTB.Blazor.Styled.Components.RTBStyleBase.Condition
+  commentId: P:RTB.Blazor.Styled.Components.RTBStyleBase.Condition
+  parent: RTB.Blazor.Styled.Components.RTBStyleBase
+  href: RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_Condition
+  name: Condition
+  nameWithType: RTBStyleBase.Condition
+  fullName: RTB.Blazor.Styled.Components.RTBStyleBase.Condition
+- uid: RTB.Blazor.Styled.Components.RTBStyleBase.OnInitialized
+  commentId: M:RTB.Blazor.Styled.Components.RTBStyleBase.OnInitialized
+  parent: RTB.Blazor.Styled.Components.RTBStyleBase
+  href: RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_OnInitialized
+  name: OnInitialized()
+  nameWithType: RTBStyleBase.OnInitialized()
+  fullName: RTB.Blazor.Styled.Components.RTBStyleBase.OnInitialized()
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.RTBStyleBase.OnInitialized
+    name: OnInitialized
+    href: RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_OnInitialized
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.RTBStyleBase.OnInitialized
+    name: OnInitialized
+    href: RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_OnInitialized
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Components.RTBStyleBase.OnParametersSet
+  commentId: M:RTB.Blazor.Styled.Components.RTBStyleBase.OnParametersSet
+  parent: RTB.Blazor.Styled.Components.RTBStyleBase
+  href: RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_OnParametersSet
+  name: OnParametersSet()
+  nameWithType: RTBStyleBase.OnParametersSet()
+  fullName: RTB.Blazor.Styled.Components.RTBStyleBase.OnParametersSet()
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.RTBStyleBase.OnParametersSet
+    name: OnParametersSet
+    href: RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_OnParametersSet
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.RTBStyleBase.OnParametersSet
+    name: OnParametersSet
+    href: RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_OnParametersSet
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Components.RTBStyleBase.DisposeAsync
+  commentId: M:RTB.Blazor.Styled.Components.RTBStyleBase.DisposeAsync
+  parent: RTB.Blazor.Styled.Components.RTBStyleBase
+  href: RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_DisposeAsync
+  name: DisposeAsync()
+  nameWithType: RTBStyleBase.DisposeAsync()
+  fullName: RTB.Blazor.Styled.Components.RTBStyleBase.DisposeAsync()
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.RTBStyleBase.DisposeAsync
+    name: DisposeAsync
+    href: RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_DisposeAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.RTBStyleBase.DisposeAsync
+    name: DisposeAsync
+    href: RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_DisposeAsync
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync
+  name: OnInitializedAsync()
+  nameWithType: ComponentBase.OnInitializedAsync()
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync
+    name: OnInitializedAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync
+    name: OnInitializedAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.oninitializedasync
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync
+  name: OnParametersSetAsync()
+  nameWithType: ComponentBase.OnParametersSetAsync()
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync
+    name: OnParametersSetAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync
+    name: OnParametersSetAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onparameterssetasync
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged
+  name: StateHasChanged()
+  nameWithType: ComponentBase.StateHasChanged()
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged
+    name: StateHasChanged
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged
+    name: StateHasChanged
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.statehaschanged
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.ShouldRender
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.ShouldRender
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.shouldrender
+  name: ShouldRender()
+  nameWithType: ComponentBase.ShouldRender()
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.ShouldRender()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.ShouldRender
+    name: ShouldRender
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.shouldrender
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.ShouldRender
+    name: ShouldRender
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.shouldrender
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender(System.Boolean)
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender(System.Boolean)
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrender
+  name: OnAfterRender(bool)
+  nameWithType: ComponentBase.OnAfterRender(bool)
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender(bool)
+  nameWithType.vb: ComponentBase.OnAfterRender(Boolean)
+  fullName.vb: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender(Boolean)
+  name.vb: OnAfterRender(Boolean)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender(System.Boolean)
+    name: OnAfterRender
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrender
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender(System.Boolean)
+    name: OnAfterRender
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrender
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync(System.Boolean)
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync(System.Boolean)
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync
+  name: OnAfterRenderAsync(bool)
+  nameWithType: ComponentBase.OnAfterRenderAsync(bool)
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync(bool)
+  nameWithType.vb: ComponentBase.OnAfterRenderAsync(Boolean)
+  fullName.vb: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync(Boolean)
+  name.vb: OnAfterRenderAsync(Boolean)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync(System.Boolean)
+    name: OnAfterRenderAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync(System.Boolean)
+    name: OnAfterRenderAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.onafterrenderasync
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Action)
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Action)
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-action)
+  name: InvokeAsync(Action)
+  nameWithType: ComponentBase.InvokeAsync(Action)
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Action)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Action)
+    name: InvokeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-action)
+  - name: (
+  - uid: System.Action
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Action)
+    name: InvokeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-action)
+  - name: (
+  - uid: System.Action
+    name: Action
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.action
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func{System.Threading.Tasks.Task})
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func{System.Threading.Tasks.Task})
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-func((system-threading-tasks-task)))
+  name: InvokeAsync(Func<Task>)
+  nameWithType: ComponentBase.InvokeAsync(Func<Task>)
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func<System.Threading.Tasks.Task>)
+  nameWithType.vb: ComponentBase.InvokeAsync(Func(Of Task))
+  fullName.vb: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func(Of System.Threading.Tasks.Task))
+  name.vb: InvokeAsync(Func(Of Task))
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func{System.Threading.Tasks.Task})
+    name: InvokeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-func((system-threading-tasks-task)))
+  - name: (
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func{System.Threading.Tasks.Task})
+    name: InvokeAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.invokeasync#microsoft-aspnetcore-components-componentbase-invokeasync(system-func((system-threading-tasks-task)))
+  - name: (
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Threading.Tasks.Task
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  - name: )
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.DispatchExceptionAsync(System.Exception)
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.DispatchExceptionAsync(System.Exception)
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.dispatchexceptionasync
+  name: DispatchExceptionAsync(Exception)
+  nameWithType: ComponentBase.DispatchExceptionAsync(Exception)
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.DispatchExceptionAsync(System.Exception)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.DispatchExceptionAsync(System.Exception)
+    name: DispatchExceptionAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.dispatchexceptionasync
+  - name: (
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.DispatchExceptionAsync(System.Exception)
+    name: DispatchExceptionAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.dispatchexceptionasync
+  - name: (
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync
+  name: SetParametersAsync(ParameterView)
+  nameWithType: ComponentBase.SetParametersAsync(ParameterView)
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)
+    name: SetParametersAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Components.ParameterView
+    name: ParameterView
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.parameterview
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)
+    name: SetParametersAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.setparametersasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Components.ParameterView
+    name: ParameterView
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.parameterview
+  - name: )
+- uid: Microsoft.AspNetCore.Components.ComponentBase.RendererInfo
+  commentId: P:Microsoft.AspNetCore.Components.ComponentBase.RendererInfo
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.rendererinfo
+  name: RendererInfo
+  nameWithType: ComponentBase.RendererInfo
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.RendererInfo
+- uid: Microsoft.AspNetCore.Components.ComponentBase.Assets
+  commentId: P:Microsoft.AspNetCore.Components.ComponentBase.Assets
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.assets
+  name: Assets
+  nameWithType: ComponentBase.Assets
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.Assets
+- uid: Microsoft.AspNetCore.Components.ComponentBase.AssignedRenderMode
+  commentId: P:Microsoft.AspNetCore.Components.ComponentBase.AssignedRenderMode
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.assignedrendermode
+  name: AssignedRenderMode
+  nameWithType: ComponentBase.AssignedRenderMode
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.AssignedRenderMode
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RTB.Blazor.Styled.Core
+  commentId: N:RTB.Blazor.Styled.Core
+  href: RTB.html
+  name: RTB.Blazor.Styled.Core
+  nameWithType: RTB.Blazor.Styled.Core
+  fullName: RTB.Blazor.Styled.Core
+  spec.csharp:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+  spec.vb:
+  - uid: RTB
+    name: RTB
+    href: RTB.html
+  - name: .
+  - uid: RTB.Blazor
+    name: Blazor
+    href: RTB.Blazor.html
+  - name: .
+  - uid: RTB.Blazor.Styled
+    name: Styled
+    href: RTB.Blazor.Styled.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Core
+    name: Core
+    href: RTB.Blazor.Styled.Core.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Components
+  commentId: N:Microsoft.AspNetCore.Components
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Components
+  nameWithType: Microsoft.AspNetCore.Components
+  fullName: Microsoft.AspNetCore.Components
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Components
+    name: Components
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Components
+    name: Components
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components
+- uid: RTB.Blazor.Styled.Components.Animation.Name*
+  commentId: Overload:RTB.Blazor.Styled.Components.Animation.Name
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_Name
+  name: Name
+  nameWithType: Animation.Name
+  fullName: RTB.Blazor.Styled.Components.Animation.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RTB.Blazor.Styled.Components.Animation.Duration*
+  commentId: Overload:RTB.Blazor.Styled.Components.Animation.Duration
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_Duration
+  name: Duration
+  nameWithType: Animation.Duration
+  fullName: RTB.Blazor.Styled.Components.Animation.Duration
+- uid: System.Nullable{System.TimeSpan}
+  commentId: T:System.Nullable{System.TimeSpan}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan?
+  nameWithType: TimeSpan?
+  fullName: System.TimeSpan?
+  spec.csharp:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  spec.vb:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: RTB.Blazor.Styled.Components.Animation.TimingFunction*
+  commentId: Overload:RTB.Blazor.Styled.Components.Animation.TimingFunction
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_TimingFunction
+  name: TimingFunction
+  nameWithType: Animation.TimingFunction
+  fullName: RTB.Blazor.Styled.Components.Animation.TimingFunction
+- uid: RTB.Blazor.Styled.Components.Animation.Duration
+  commentId: P:RTB.Blazor.Styled.Components.Animation.Duration
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_Duration
+  name: Duration
+  nameWithType: Animation.Duration
+  fullName: RTB.Blazor.Styled.Components.Animation.Duration
+- uid: RTB.Blazor.Styled.Components.Animation.Delay*
+  commentId: Overload:RTB.Blazor.Styled.Components.Animation.Delay
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_Delay
+  name: Delay
+  nameWithType: Animation.Delay
+  fullName: RTB.Blazor.Styled.Components.Animation.Delay
+- uid: RTB.Blazor.Styled.Components.Animation.Infinite
+  commentId: P:RTB.Blazor.Styled.Components.Animation.Infinite
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_Infinite
+  name: Infinite
+  nameWithType: Animation.Infinite
+  fullName: RTB.Blazor.Styled.Components.Animation.Infinite
+- uid: RTB.Blazor.Styled.Components.Animation.IterationCount*
+  commentId: Overload:RTB.Blazor.Styled.Components.Animation.IterationCount
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_IterationCount
+  name: IterationCount
+  nameWithType: Animation.IterationCount
+  fullName: RTB.Blazor.Styled.Components.Animation.IterationCount
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: RTB.Blazor.Styled.Components.Animation.IterationCount
+  commentId: P:RTB.Blazor.Styled.Components.Animation.IterationCount
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_IterationCount
+  name: IterationCount
+  nameWithType: Animation.IterationCount
+  fullName: RTB.Blazor.Styled.Components.Animation.IterationCount
+- uid: RTB.Blazor.Styled.Components.Animation.Infinite*
+  commentId: Overload:RTB.Blazor.Styled.Components.Animation.Infinite
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_Infinite
+  name: Infinite
+  nameWithType: Animation.Infinite
+  fullName: RTB.Blazor.Styled.Components.Animation.Infinite
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RTB.Blazor.Styled.Components.Animation.Direction*
+  commentId: Overload:RTB.Blazor.Styled.Components.Animation.Direction
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_Direction
+  name: Direction
+  nameWithType: Animation.Direction
+  fullName: RTB.Blazor.Styled.Components.Animation.Direction
+- uid: System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationDirection}
+  commentId: T:System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationDirection}
+  parent: System
+  definition: System.Nullable`1
+  href: RTB.Blazor.Styled.Components.Animation.html
+  name: Animation.AnimationDirection?
+  nameWithType: Animation.AnimationDirection?
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationDirection?
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationDirection
+    name: AnimationDirection
+    href: RTB.Blazor.Styled.Components.Animation.AnimationDirection.html
+  - name: '?'
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationDirection
+    name: AnimationDirection
+    href: RTB.Blazor.Styled.Components.Animation.AnimationDirection.html
+  - name: '?'
+- uid: RTB.Blazor.Styled.Components.Animation.FillMode*
+  commentId: Overload:RTB.Blazor.Styled.Components.Animation.FillMode
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_FillMode
+  name: FillMode
+  nameWithType: Animation.FillMode
+  fullName: RTB.Blazor.Styled.Components.Animation.FillMode
+- uid: System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationFillMode}
+  commentId: T:System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationFillMode}
+  parent: System
+  definition: System.Nullable`1
+  href: RTB.Blazor.Styled.Components.Animation.html
+  name: Animation.AnimationFillMode?
+  nameWithType: Animation.AnimationFillMode?
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationFillMode?
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+    name: AnimationFillMode
+    href: RTB.Blazor.Styled.Components.Animation.AnimationFillMode.html
+  - name: '?'
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationFillMode
+    name: AnimationFillMode
+    href: RTB.Blazor.Styled.Components.Animation.AnimationFillMode.html
+  - name: '?'
+- uid: RTB.Blazor.Styled.Components.Animation.PlayState*
+  commentId: Overload:RTB.Blazor.Styled.Components.Animation.PlayState
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_PlayState
+  name: PlayState
+  nameWithType: Animation.PlayState
+  fullName: RTB.Blazor.Styled.Components.Animation.PlayState
+- uid: System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationPlayState}
+  commentId: T:System.Nullable{RTB.Blazor.Styled.Components.Animation.AnimationPlayState}
+  parent: System
+  definition: System.Nullable`1
+  href: RTB.Blazor.Styled.Components.Animation.html
+  name: Animation.AnimationPlayState?
+  nameWithType: Animation.AnimationPlayState?
+  fullName: RTB.Blazor.Styled.Components.Animation.AnimationPlayState?
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+    name: AnimationPlayState
+    href: RTB.Blazor.Styled.Components.Animation.AnimationPlayState.html
+  - name: '?'
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.Animation
+    name: Animation
+    href: RTB.Blazor.Styled.Components.Animation.html
+  - name: .
+  - uid: RTB.Blazor.Styled.Components.Animation.AnimationPlayState
+    name: AnimationPlayState
+    href: RTB.Blazor.Styled.Components.Animation.AnimationPlayState.html
+  - name: '?'
+- uid: RTB.Blazor.Styled.Components.Animation.Composition*
+  commentId: Overload:RTB.Blazor.Styled.Components.Animation.Composition
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_Composition
+  name: Composition
+  nameWithType: Animation.Composition
+  fullName: RTB.Blazor.Styled.Components.Animation.Composition
+- uid: RTB.Blazor.Styled.Components.Animation.KeyFrames*
+  commentId: Overload:RTB.Blazor.Styled.Components.Animation.KeyFrames
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_KeyFrames
+  name: KeyFrames
+  nameWithType: Animation.KeyFrames
+  fullName: RTB.Blazor.Styled.Components.Animation.KeyFrames
+- uid: Microsoft.AspNetCore.Components.RenderFragment
+  commentId: T:Microsoft.AspNetCore.Components.RenderFragment
+  parent: Microsoft.AspNetCore.Components
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.renderfragment
+  name: RenderFragment
+  nameWithType: RenderFragment
+  fullName: Microsoft.AspNetCore.Components.RenderFragment
+- uid: RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)
+  commentId: M:RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)
+  href: RTB.Blazor.Styled.Core.IStyleContributor.html#RTB_Blazor_Styled_Core_IStyleContributor_Contribute_RTB_Blazor_Styled_Core_StyleBuilder_
+  name: Contribute(StyleBuilder)
+  nameWithType: IStyleContributor.Contribute(StyleBuilder)
+  fullName: RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)
+    name: Contribute
+    href: RTB.Blazor.Styled.Core.IStyleContributor.html#RTB_Blazor_Styled_Core_IStyleContributor_Contribute_RTB_Blazor_Styled_Core_StyleBuilder_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.StyleBuilder
+    name: StyleBuilder
+    href: RTB.Blazor.Styled.Core.StyleBuilder.html
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Core.IStyleContributor.Contribute(RTB.Blazor.Styled.Core.StyleBuilder)
+    name: Contribute
+    href: RTB.Blazor.Styled.Core.IStyleContributor.html#RTB_Blazor_Styled_Core_IStyleContributor_Contribute_RTB_Blazor_Styled_Core_StyleBuilder_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.StyleBuilder
+    name: StyleBuilder
+    href: RTB.Blazor.Styled.Core.StyleBuilder.html
+  - name: )
+- uid: RTB.Blazor.Styled.Components.RTBStyleBase.BuildStyle(RTB.Blazor.Styled.Core.StyleBuilder)
+  commentId: M:RTB.Blazor.Styled.Components.RTBStyleBase.BuildStyle(RTB.Blazor.Styled.Core.StyleBuilder)
+  parent: RTB.Blazor.Styled.Components.RTBStyleBase
+  href: RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_BuildStyle_RTB_Blazor_Styled_Core_StyleBuilder_
+  name: BuildStyle(StyleBuilder)
+  nameWithType: RTBStyleBase.BuildStyle(StyleBuilder)
+  fullName: RTB.Blazor.Styled.Components.RTBStyleBase.BuildStyle(RTB.Blazor.Styled.Core.StyleBuilder)
+  spec.csharp:
+  - uid: RTB.Blazor.Styled.Components.RTBStyleBase.BuildStyle(RTB.Blazor.Styled.Core.StyleBuilder)
+    name: BuildStyle
+    href: RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_BuildStyle_RTB_Blazor_Styled_Core_StyleBuilder_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.StyleBuilder
+    name: StyleBuilder
+    href: RTB.Blazor.Styled.Core.StyleBuilder.html
+  - name: )
+  spec.vb:
+  - uid: RTB.Blazor.Styled.Components.RTBStyleBase.BuildStyle(RTB.Blazor.Styled.Core.StyleBuilder)
+    name: BuildStyle
+    href: RTB.Blazor.Styled.Components.RTBStyleBase.html#RTB_Blazor_Styled_Components_RTBStyleBase_BuildStyle_RTB_Blazor_Styled_Core_StyleBuilder_
+  - name: (
+  - uid: RTB.Blazor.Styled.Core.StyleBuilder
+    name: StyleBuilder
+    href: RTB.Blazor.Styled.Core.StyleBuilder.html
+  - name: )
+- uid: RTB.Blazor.Styled.Components.Animation.BuildStyle*
+  commentId: Overload:RTB.Blazor.Styled.Components.Animation.BuildStyle
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_BuildStyle_RTB_Blazor_Styled_Core_StyleBuilder_
+  name: BuildStyle
+  nameWithType: Animation.BuildStyle
+  fullName: RTB.Blazor.Styled.Components.Animation.BuildStyle
+- uid: Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  commentId: M:Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  parent: Microsoft.AspNetCore.Components.ComponentBase
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.buildrendertree
+  name: BuildRenderTree(RenderTreeBuilder)
+  nameWithType: ComponentBase.BuildRenderTree(RenderTreeBuilder)
+  fullName: Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+    name: BuildRenderTree
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.buildrendertree
+  - name: (
+  - uid: Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+    name: RenderTreeBuilder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering.rendertreebuilder
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+    name: BuildRenderTree
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.componentbase.buildrendertree
+  - name: (
+  - uid: Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+    name: RenderTreeBuilder
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering.rendertreebuilder
+  - name: )
+- uid: RTB.Blazor.Styled.Components.Animation.BuildRenderTree*
+  commentId: Overload:RTB.Blazor.Styled.Components.Animation.BuildRenderTree
+  href: RTB.Blazor.Styled.Components.Animation.html#RTB_Blazor_Styled_Components_Animation_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
+  name: BuildRenderTree
+  nameWithType: Animation.BuildRenderTree
+  fullName: RTB.Blazor.Styled.Components.Animation.BuildRenderTree
+- uid: Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+  commentId: T:Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+  parent: Microsoft.AspNetCore.Components.Rendering
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering.rendertreebuilder
+  name: RenderTreeBuilder
+  nameWithType: RenderTreeBuilder
+  fullName: Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder
+- uid: Microsoft.AspNetCore.Components.Rendering
+  commentId: N:Microsoft.AspNetCore.Components.Rendering
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Components.Rendering
+  nameWithType: Microsoft.AspNetCore.Components.Rendering
+  fullName: Microsoft.AspNetCore.Components.Rendering
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Components
+    name: Components
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components
+  - name: .
+  - uid: Microsoft.AspNetCore.Components.Rendering
+    name: Rendering
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Components
+    name: Components
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components
+  - name: .
+  - uid: Microsoft.AspNetCore.Components.Rendering
+    name: Rendering
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.components.rendering

@@ -1,0 +1,126 @@
+### YamlMime:ManagedReference
+items:
+- uid: RTB.Blazor.Components.DataGrid
+  commentId: N:RTB.Blazor.Components.DataGrid
+  id: RTB.Blazor.Components.DataGrid
+  children:
+  - RTB.Blazor.Components.DataGrid.ColumnBase`1
+  - RTB.Blazor.Components.DataGrid.DataColumn`2
+  - RTB.Blazor.Components.DataGrid.IColumn`1
+  - RTB.Blazor.Components.DataGrid.ViewColumn`1
+  langs:
+  - csharp
+  - vb
+  name: RTB.Blazor.Components.DataGrid
+  nameWithType: RTB.Blazor.Components.DataGrid
+  fullName: RTB.Blazor.Components.DataGrid
+  type: Namespace
+  assemblies:
+  - RTB.Blazor
+references:
+- uid: RTB.Blazor.Components.DataGrid.IColumn`1
+  commentId: T:RTB.Blazor.Components.DataGrid.IColumn`1
+  href: RTB.Blazor.Components.DataGrid.IColumn-1.html
+  name: IColumn<TRow>
+  nameWithType: IColumn<TRow>
+  fullName: RTB.Blazor.Components.DataGrid.IColumn<TRow>
+  nameWithType.vb: IColumn(Of TRow)
+  fullName.vb: RTB.Blazor.Components.DataGrid.IColumn(Of TRow)
+  name.vb: IColumn(Of TRow)
+  spec.csharp:
+  - uid: RTB.Blazor.Components.DataGrid.IColumn`1
+    name: IColumn
+    href: RTB.Blazor.Components.DataGrid.IColumn-1.html
+  - name: <
+  - name: TRow
+  - name: '>'
+  spec.vb:
+  - uid: RTB.Blazor.Components.DataGrid.IColumn`1
+    name: IColumn
+    href: RTB.Blazor.Components.DataGrid.IColumn-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRow
+  - name: )
+- uid: RTB.Blazor.Components.DataGrid.ColumnBase`1
+  commentId: T:RTB.Blazor.Components.DataGrid.ColumnBase`1
+  href: RTB.Blazor.Components.DataGrid.ColumnBase-1.html
+  name: ColumnBase<TRow>
+  nameWithType: ColumnBase<TRow>
+  fullName: RTB.Blazor.Components.DataGrid.ColumnBase<TRow>
+  nameWithType.vb: ColumnBase(Of TRow)
+  fullName.vb: RTB.Blazor.Components.DataGrid.ColumnBase(Of TRow)
+  name.vb: ColumnBase(Of TRow)
+  spec.csharp:
+  - uid: RTB.Blazor.Components.DataGrid.ColumnBase`1
+    name: ColumnBase
+    href: RTB.Blazor.Components.DataGrid.ColumnBase-1.html
+  - name: <
+  - name: TRow
+  - name: '>'
+  spec.vb:
+  - uid: RTB.Blazor.Components.DataGrid.ColumnBase`1
+    name: ColumnBase
+    href: RTB.Blazor.Components.DataGrid.ColumnBase-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRow
+  - name: )
+- uid: RTB.Blazor.Components.DataGrid.ViewColumn`1
+  commentId: T:RTB.Blazor.Components.DataGrid.ViewColumn`1
+  href: RTB.Blazor.Components.DataGrid.ViewColumn-1.html
+  name: ViewColumn<TRow>
+  nameWithType: ViewColumn<TRow>
+  fullName: RTB.Blazor.Components.DataGrid.ViewColumn<TRow>
+  nameWithType.vb: ViewColumn(Of TRow)
+  fullName.vb: RTB.Blazor.Components.DataGrid.ViewColumn(Of TRow)
+  name.vb: ViewColumn(Of TRow)
+  spec.csharp:
+  - uid: RTB.Blazor.Components.DataGrid.ViewColumn`1
+    name: ViewColumn
+    href: RTB.Blazor.Components.DataGrid.ViewColumn-1.html
+  - name: <
+  - name: TRow
+  - name: '>'
+  spec.vb:
+  - uid: RTB.Blazor.Components.DataGrid.ViewColumn`1
+    name: ViewColumn
+    href: RTB.Blazor.Components.DataGrid.ViewColumn-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRow
+  - name: )
+- uid: RTB.Blazor.Components.DataGrid.DataColumn`2
+  commentId: T:RTB.Blazor.Components.DataGrid.DataColumn`2
+  href: RTB.Blazor.Components.DataGrid.DataColumn-2.html
+  name: DataColumn<TRow, TValue>
+  nameWithType: DataColumn<TRow, TValue>
+  fullName: RTB.Blazor.Components.DataGrid.DataColumn<TRow, TValue>
+  nameWithType.vb: DataColumn(Of TRow, TValue)
+  fullName.vb: RTB.Blazor.Components.DataGrid.DataColumn(Of TRow, TValue)
+  name.vb: DataColumn(Of TRow, TValue)
+  spec.csharp:
+  - uid: RTB.Blazor.Components.DataGrid.DataColumn`2
+    name: DataColumn
+    href: RTB.Blazor.Components.DataGrid.DataColumn-2.html
+  - name: <
+  - name: TRow
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: RTB.Blazor.Components.DataGrid.DataColumn`2
+    name: DataColumn
+    href: RTB.Blazor.Components.DataGrid.DataColumn-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRow
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
