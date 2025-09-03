@@ -38,7 +38,7 @@
 
 <Styled Context="ComponentClass">
     <div style="position: relative;">
-        <button popovertarget="@FlyoutId" class="FlyoutMenuActivator @ComponentClass @Class @ActivatorClass" style="anchor-name: --@FlyoutId;">
+        <button popovertarget="@FlyoutId" class="@CombineClass(Class, ComponentClass ,ActivatorClass)" style="anchor-name: --@FlyoutId;">
             @Activator
         </button>
 
@@ -51,7 +51,7 @@
             <Size MinHeight="0" />
             <Other Property="max-width" Value="anchor-size(width)" />
 
-            <div class="@MenuClass @ContentClass" popover id="@FlyoutId" style="position-anchor: --@FlyoutId;">
+            <div class="@CombineClass(ContentClass, MenuClass)" popover id="@FlyoutId" style="position-anchor: --@FlyoutId;">
                 @FlyoutContent
             </div>
         </Styled>

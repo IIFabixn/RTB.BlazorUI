@@ -17,11 +17,15 @@
 }
 
 <InputFile id="@(Id ?? InputId)" OnChange="HandleChange" multiple="@Multiple" hidden accept="@(string.Join(",", AcceptedTypes))" />
-<label id="@(Id ?? InputId)Zone"
-    for="@(Id ?? InputId)"
-    class="@Class">
-    @ChildContent
-</label>
+<Styled Context="InputStyle">
+    <Other Property="cursor" Value="pointer" />
+
+    <label id="@(Id ?? InputId)Zone"
+        for="@(Id ?? InputId)"
+        class="@CombineClass(Class, InputStyle)">
+        @ChildContent
+    </label>
+</Styled>
 
 @code {
     protected override async Task OnAfterRenderAsync(bool firstRender)

@@ -230,11 +230,10 @@ namespace RTB.Blazor.Components.DataGrid
         /// <param name="col"></param>
         public override void RenderCell(RenderTreeBuilder builder, TRow row, int col)
         {
-            var seq = 0;
-            builder.OpenElement(seq++, "div");
-            builder.AddAttribute(seq++, "class", CombineClass("rtb-viewcolumn", Class));
-            builder.AddAttribute(seq++, "style", $"grid-column-start: {col}; min-height: fit-content;padding: {string.Join(' ', Spacings.Select(s => s.ToString()))};");
-            builder.AddContent(seq++, ChildContent(row));
+            builder.OpenElement(0, "div");
+            builder.AddAttribute(1, "class", CombineClass("rtb-viewcolumn", Class));
+            builder.AddAttribute(2, "style", $"grid-column-start: {col}; min-height: fit-content;padding: {string.Join(' ', Spacings.Select(s => s.ToString()))};");
+            builder.AddContent(3, ChildContent(row));
             builder.CloseElement();
         }
     }
@@ -266,14 +265,13 @@ namespace RTB.Blazor.Components.DataGrid
         {
             await base.OnInitializedAsync();
 
-            CellClass = Registry.Acquire("rtb-datacell");
-            var style = StyleBuilder.Start
+            var css = StyleBuilder.Start
                 .Set("white-space", "nowrap")
                 .Set("overflow", "hidden")
                 .Set("text-overflow", "ellipsis")
-                .BuildScoped(CellClass);
-
-            await Registry.UpsertScopedAsync(style, CellClass);
+                .BuildScoped("rtb-datacolumn");
+            CellClass = $"rtb-datacolumn";
+            await Registry.UpsertScopedAsync(css, CellClass);
         }
 
         /// <summary>
@@ -284,10 +282,9 @@ namespace RTB.Blazor.Components.DataGrid
         public override void RenderHeader(RenderTreeBuilder builder, int col)
         {
             // Add default content if HeadContent is null
-            var seq = 0;
-            builder.OpenElement(seq++, "div");
-            builder.AddAttribute(seq++, "style", $"padding: {string.Join(' ', Spacings.Select(s => s.ToString()))};");
-            builder.AddContent(seq++, Name);
+            builder.OpenElement(0, "div");
+            builder.AddAttribute(1, "style", $"padding: {string.Join(' ', Spacings.Select(s => s.ToString()))};");
+            builder.AddContent(2, Name);
             builder.CloseElement();
         }
 
@@ -299,14 +296,12 @@ namespace RTB.Blazor.Components.DataGrid
         /// <param name="col"></param>
         public override void RenderCell(RenderTreeBuilder builder, TRow row, int col)
         {
-            var seq = 0;
             var value = ValueFunc(row);
-            builder.OpenElement(seq++, "div");
-            builder.AddAttribute(seq++, "role", "cell");
-            builder.AddAttribute(seq++, "class", CombineClass("rtb-datacolumn", CellClass, Class));
-            builder.AddAttribute(seq++, "style", $"grid-column-start: {col}; min-height: fit-content;padding: {string.Join(' ', Spacings.Select(s => s.ToString()))};");
-
-            builder.AddContent(seq++, value);
+            builder.OpenElement(0, "div");
+            builder.AddAttribute(1, "role", "cell");
+            builder.AddAttribute(2, "class", CombineClass("rtb-datacolumn", Class, CellClass));
+            builder.AddAttribute(3, "style", $"grid-column-start: {col}; min-height: fit-content;padding: {string.Join(' ', Spacings.Select(s => s.ToString()))};");
+            builder.AddContent(4, value);
             builder.CloseElement();
         }
     }

@@ -118,10 +118,9 @@ namespace RTB.Blazor.Services.BusyIndicator
             }
             else
             {
-                var seq = 0;
-                builder.OpenElement(seq++, "div");
-                builder.AddAttribute(seq++, "title", string.Join("\n", Tracker.Tracks));
-                builder.AddContent(seq++, "Busy..");
+                builder.OpenElement(0, "div");
+                builder.AddAttribute(1, "title", string.Join("\n", Tracker.Tracks));
+                builder.AddContent(2, "Busy..");
                 builder.CloseComponent();
             }
         }

@@ -196,20 +196,18 @@ namespace RTB.Blazor.Services.Dialog
 
             void rf(RenderTreeBuilder builder)
             {
-                var seq = 0;
-                builder.OpenComponent<AlertHost>(seq++);
-                builder.AddAttribute(seq++, nameof(AlertHost.ChildContent), (RenderFragment)(b =>
+                builder.OpenComponent<AlertHost>(0);
+                builder.AddAttribute(1, nameof(AlertHost.ChildContent), (RenderFragment)(b =>
                 {
-                    var i = 0;
-                    b.OpenComponent<TDialog>(i++);
+                    b.OpenComponent<TDialog>(0);
                     if (parameters is not null and { Count: > 0 })
                     {
-                        b.AddMultipleAttributes(i++, parameters!);
+                        b.AddMultipleAttributes(1, parameters!);
                     }
                     b.CloseComponent();
                 }));
 
-                builder.AddComponentReferenceCapture(seq++, obj =>
+                builder.AddComponentReferenceCapture(2, obj =>
                 {
                     if (obj is IDialogReference dr)
                     {
@@ -247,25 +245,23 @@ namespace RTB.Blazor.Services.Dialog
 
             void rf(RenderTreeBuilder builder)
             {
-                var seq = 0;
-                builder.OpenComponent<DialogHost>(seq++);
+                builder.OpenComponent<DialogHost>(0);
                 if (dialogParameters is not null and { Count: > 0 })
                 {
-                    builder.AddMultipleAttributes(seq++, dialogParameters!);
+                    builder.AddMultipleAttributes(1, dialogParameters!);
                 }
 
-                builder.AddAttribute(seq++, nameof(DialogHost.ChildContent), (RenderFragment)(b =>
+                builder.AddAttribute(2, nameof(DialogHost.ChildContent), (RenderFragment)(b =>
                 {
-                    var i = 0;
-                    b.OpenComponent(i++, dialogType);
+                    b.OpenComponent(0, dialogType);
                     if (parameters is not null and { Count: > 0 })
                     {
-                        b.AddMultipleAttributes(i++, parameters!);
+                        b.AddMultipleAttributes(1, parameters!);
                     }
                     b.CloseComponent();
                 }));
 
-                builder.AddComponentReferenceCapture(seq++, obj =>
+                builder.AddComponentReferenceCapture(3, obj =>
                 {
                     if (obj is IDialogReference dr)
                     {

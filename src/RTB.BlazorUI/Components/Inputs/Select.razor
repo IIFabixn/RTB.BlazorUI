@@ -42,7 +42,7 @@
     <Background Color="@Background" />
     <Color Value="@ActiveTextColor" />
 
-    <select class="@(CombineClass(SelectClass, Class))" id="@(Id ?? FlyoutId)" @onchange="@(v => SetValue(v.Value))">
+    <select class="@(CombineClass(Class, SelectClass))" id="@(Id ?? FlyoutId)" @onchange="@(v => SetValue(v.Value))">
         <Styled Context="OptionStyleClass">
             <Color Value="@OptionTextColor" />
 

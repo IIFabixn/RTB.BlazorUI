@@ -12,9 +12,9 @@
 <Styled Context="ActivatorClass">
     <Size FullWidth />
 
-    <div class="@CombineClass("rtb-activator", ActivatorClass)"
-            @onclick="ToggleMenu"
-            @onclick:stopPropagation>
+    <div class="@CombineClass("rtb-activator", Class, ActivatorClass)"
+        @onclick="ToggleMenu"
+        @onclick:stopPropagation>
         @Activator
     </div>
 </Styled>

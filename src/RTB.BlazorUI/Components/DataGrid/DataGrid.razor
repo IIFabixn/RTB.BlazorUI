@@ -72,7 +72,7 @@
         <Virtualize Items="_sortedItems" Context="row" OverscanCount="@OverscanCount">
             <!-- ---------- Data cells (rows 2…N) ----------------------- -->
             @* display:contents will not create a new element in the dom *@
-            <div style="display:contents" class="@CombineClass(RowClass, (row.Equals(SelectedRow) ? ActiveRowClass : null), (SelectedRows?.Any(r => row.Equals(r)) ?? false) ? ActiveRowClass : null)" @onclick="() => SelectRow(row)">
+            <div style="display:contents" class="@CombineClass((row.Equals(SelectedRow) ? ActiveRowClass : null), (SelectedRows?.Any(r => row.Equals(r)) ?? false) ? ActiveRowClass : null, RowClass)" @onclick="() => SelectRow(row)">
                 @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
                 {
                     var col = _columns[colIdx - 1];
@@ -87,7 +87,7 @@
         {
             <!-- ---------- Data cells (rows 2…N) ----------------------- -->
             @* display:contents will not create a new element in the dom *@
-            <div style="display:contents" class="@CombineClass(RowClass, (row.Equals(SelectedRow) || (SelectedRows?.Any(r => row.Equals(r)) ?? false) ? ActiveRowClass : null))" @onclick="() => SelectRow(row)">
+            <div style="display:contents" class="@CombineClass((row.Equals(SelectedRow) || (SelectedRows?.Any(r => row.Equals(r)) ?? false) ? ActiveRowClass : null), RowClass)" @onclick="() => SelectRow(row)">
                 @for (var colIdx = 1; colIdx <= _columns.Count; colIdx++)
                 {
                     var col = _columns[colIdx - 1];
