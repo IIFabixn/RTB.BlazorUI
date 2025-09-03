@@ -23,11 +23,6 @@ namespace RTB.Blazor.Styled.Components
         [Parameter] public RenderFragment<string>? ChildContent { get; set; }
 
         /// <summary>
-        /// Optional additional class name(s) to append to the resolved class.
-        /// </summary>
-        [Parameter] public string? Class { get; set; }
-
-        /// <summary>
         /// Optional externally provided class name to use instead of generating a new one.
         /// </summary>
         [Parameter] public string? Classname { get; set; }
@@ -44,13 +39,8 @@ namespace RTB.Blazor.Styled.Components
 
         private readonly StyleBuilder _builder = StyleBuilder.Start;
 
-        private string? _resolvedClass;   // the class this component uses
+        private string _resolvedClass = string.Empty;   // the class this component uses
         private string? _lastCss;         // memoized last emitted CSS
-
-        private string CssClass
-            => string.IsNullOrWhiteSpace(Class)
-                ? _resolvedClass ?? ""
-                : string.IsNullOrWhiteSpace(_resolvedClass) ? Class! : $"{_resolvedClass} {Class}";
 
         /// <summary>
         /// After the component has rendered, configure the StyleBuilder, build the scoped CSS,
@@ -59,14 +49,11 @@ namespace RTB.Blazor.Styled.Components
         /// <returns></returns>
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (string.IsNullOrWhiteSpace(_resolvedClass))
-                _resolvedClass = Registry.Acquire(Classname);
-
             Configure?.Invoke(_builder);
             _builder.Compose();
-
             // Build CSS already scoped to the resolved class
-            var css = _builder.BuildScoped(_resolvedClass);
+            var (cls, css) = _builder.BuildScoped(Classname);
+            _resolvedClass = cls;
             if (string.IsNullOrEmpty(css))
                 return;
 
@@ -101,7 +88,7 @@ namespace RTB.Blazor.Styled.Components
             builder.AddAttribute(4, "ChildContent", (RenderFragment)(b =>
             {
                 if (ChildContent != null)
-                    b.AddContent(0, ChildContent.Invoke(CssClass));
+                    b.AddContent(0, ChildContent.Invoke(_resolvedClass));
             }));
             builder.CloseComponent();
         }

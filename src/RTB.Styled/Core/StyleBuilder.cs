@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RTB.Blazor.Styled.Helper;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -210,16 +211,17 @@ namespace RTB.Blazor.Styled.Core
             return kf;
         }
 
+        public const string SCOPE_TOKEN = "__rtb_scope__";
+
         /// <summary>
         /// Build the complete CSS style as a string, scoped to the provided class name.
         /// </summary>
         /// <param name="className"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        public string BuildScoped(string className)
+        public (string cls, string style) BuildScoped(string? className = null)
         {
-            if (string.IsNullOrWhiteSpace(className)) throw new ArgumentException(nameof(className));
-            var root = "." + className.TrimStart('.');
+            var root = "." + (string.IsNullOrWhiteSpace(className) ? SCOPE_TOKEN : className);
 
             var sb = new StringBuilder(512);
             var w = new ScopedWriter(sb, root);
@@ -230,7 +232,21 @@ namespace RTB.Blazor.Styled.Core
             // others
             foreach (var f in _fragments) f.Emit(w);
 
-            return sb.ToString();
+            string cls;
+            string css = sb.ToString();
+
+            if (string.IsNullOrEmpty(className))
+            {
+                var hash = CssHasher.Hash(css);
+                cls = $"rtb-{hash:X}";
+                css = css.Replace(SCOPE_TOKEN, cls);
+            }
+            else
+            {
+                cls = className;
+            }
+
+            return (cls, css);
         }
 
         /// <summary>

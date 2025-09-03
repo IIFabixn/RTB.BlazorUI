@@ -255,7 +255,7 @@ namespace RTB.Blazor.Components.DataGrid
         /// </summary>
         [Parameter, EditorRequired] public Func<TRow, TValue> ValueFunc { get; set; } = default!;
 
-        private string? CellClass;
+        private const string CellClass = "rtb-datacolumn";
 
         /// <summary>
         /// Initializes the component and sets up scoped styles.
@@ -265,12 +265,11 @@ namespace RTB.Blazor.Components.DataGrid
         {
             await base.OnInitializedAsync();
 
-            var css = StyleBuilder.Start
+            var (_, css) = StyleBuilder.Start
                 .Set("white-space", "nowrap")
                 .Set("overflow", "hidden")
                 .Set("text-overflow", "ellipsis")
-                .BuildScoped("rtb-datacolumn");
-            CellClass = $"rtb-datacolumn";
+                .BuildScoped(CellClass);
             await Registry.UpsertScopedAsync(css, CellClass);
         }
 

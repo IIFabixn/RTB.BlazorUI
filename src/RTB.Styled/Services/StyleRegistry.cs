@@ -3,6 +3,8 @@ using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.JSInterop;
+using RTB.Blazor.Styled.Core;
+using RTB.Blazor.Styled.Helper;
 
 namespace RTB.Blazor.Styled.Services
 {
@@ -79,7 +81,7 @@ namespace RTB.Blazor.Styled.Services
         /// <returns></returns>
         public async ValueTask UpsertScopedAsync(string scopedCss, string className)
         {
-            if (string.IsNullOrWhiteSpace(className) || string.IsNullOrWhiteSpace(scopedCss))
+            if (string.IsNullOrWhiteSpace(scopedCss))
                 return;
 
             if (!_entries.TryGetValue(className, out var entry))
