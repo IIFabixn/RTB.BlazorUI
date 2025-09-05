@@ -1,4 +1,5 @@
 ﻿using RTB.Blazor.Styled;
+using RTB.Blazor.Styled.Components;
 using RTB.Blazor.Styled.Core;
 using RTB.Blazor.Styled.Helper;
 using static RTB.Blazor.Styled.Components.Flex;
@@ -61,7 +62,7 @@ namespace RTB.Blazor.Styles
                 .SetIfNotNull("font-size", FontSize)
                 .SetIfNotNull("font-weight", FontWeight)
                 .SetIfNotNull("line-height", LineHeight)
-                .SetIfNotNull("color", Color)
+                .Color(Color)
                 .SetIfNotNull("text-decoration", TextDecoration)
                 .SetIfNotNull("text-align", TextAlign?.ToCss());
         }

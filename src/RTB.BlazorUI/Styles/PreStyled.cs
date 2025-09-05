@@ -30,8 +30,8 @@ namespace RTB.Blazor.Styles;
 public class PreStyled : RTBStyleBase
 {
     /// <summary>
-    /// An optional, pre-built style instance that could be forwarded or absorbed into the
-    /// current style composition. Not used in this implementation.
+    /// An pre-built style instance that could be forwarded or absorbed into the
+    /// current style composition.
     /// </summary>
     [Parameter] public IStyle? Style { get; set; }
 
@@ -41,6 +41,7 @@ public class PreStyled : RTBStyleBase
     /// <param name="builder">The cascading <see cref="StyleBuilder"/>.</param>
     protected override void BuildStyle(StyleBuilder builder)
     {
-        return;
+        if (Style is null) return;
+        builder.Absorb(Style.ToStyle());
     }
 }

@@ -17,7 +17,7 @@ window.rtbStyled = {
         if (!css || !cls) return;
 
         // If no CSSOM (very rare / locked), fall back to text replace
-        if (sheet) {
+        if (!sheet) {
             this.clearRule(cls);
             tag.append(css);
             return;

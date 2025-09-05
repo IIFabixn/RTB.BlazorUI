@@ -28,7 +28,10 @@
 
     [Parameter, EditorRequired] public EventCallback OnClick { get; set; }
 
-    private Task HandleClick() => Disabled || !OnClick.HasDelegate ? Task.CompletedTask : OnClick.InvokeAsync();
+    private void HandleClick() {
+        if (Disabled) return;
+        if (OnClick.HasDelegate) OnClick.InvokeAsync();
+    }
 
     private RTBColor? GetColor() => Disabled ? DisabledColor ?? ButtonStyle?.DisabledColor : Color ?? ButtonStyle?.Color;
     private RTBColor? GetBackgroundColor() => Disabled ? DisabledBackgroundColor ?? ButtonStyle?.DisabledBackgroundColor : BackgroundColor ?? ButtonStyle?.BackgroundColor;

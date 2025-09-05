@@ -18,7 +18,7 @@
     [Parameter] public EventCallback<string> OnChange { get; set; }
 
     [Parameter] public string? InputClass { get; set; }
-    [Parameter] public TextStyle? InputStyle { get; set; }
+    [Parameter] public TextFieldStyle? InputStyle { get; set; }
 
     [Parameter] public int DebounceMilliseconds { get; set; } = 100;
 
@@ -47,7 +47,8 @@
 
         if (Immediate)
         {
-            await ValueChanged.InvokeAsync(Value);
+            await ValueChanged.InvokeAsync(text);
+            await OnChange.InvokeAsync(text);
             return;
         }
 
@@ -57,6 +58,7 @@
             _debounceTimer = new Timer(async _ =>
             {
                 await InvokeAsync(() => ValueChanged.InvokeAsync(text));
+                await InvokeAsync(() => OnChange.InvokeAsync(text));
                 _debounceTimer?.Dispose(); // clean up after firing
 
             }, null, DebounceMilliseconds, Timeout.Infinite);
@@ -88,7 +90,6 @@
             placeholder="@Placeholder"
             class="@CombineClass("rtb-tf", InputStyleClass, InputClass)" 
             @oninput="OnInput"
-            @onchange="@((e) => OnChange.InvokeAsync((string?)e.Value ?? string.Empty))"
             @onfocusin="InternalOnFocusIn"
             @onfocusout="InternalOnFocusOut"
         />

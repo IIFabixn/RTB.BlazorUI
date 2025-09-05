@@ -211,6 +211,9 @@ namespace RTB.Blazor.Styled.Core
             return kf;
         }
 
+        /// <summary>
+        /// A token used to scope the CSS to a specific class name.
+        /// </summary>
         public const string SCOPE_TOKEN = "__rtb_scope__";
 
         /// <summary>

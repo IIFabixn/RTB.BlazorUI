@@ -51,7 +51,7 @@ namespace RTB.Blazor.Styled.Components
             if (items is { Length: > 0 })
             {
                 var parts = items.Select(it =>
-                    $"{(string.IsNullOrWhiteSpace(it.Property) ? "all" : it.Property)} {CssTime(it.Duration)} {(!string.IsNullOrWhiteSpace(it.TimingFunction) ? it.TimingFunction : "ease")} {CssTime(it.Delay)}");
+                    $"{(string.IsNullOrWhiteSpace(it.Property) ? "all" : it.Property)} {CssTime(it.Duration ?? Duration)} {(!string.IsNullOrWhiteSpace(it.TimingFunction) ? it.TimingFunction : "ease")} {CssTime(it.Delay ?? Delay)}");
 
                 builder.Set("transition", string.Join(", ", parts));
                 builder.SetIfNotNull("transition-behavior", string.Join(", ", items.Select(i => i.Behavior).Where(b => !string.IsNullOrWhiteSpace(b))));
@@ -77,6 +77,12 @@ namespace RTB.Blazor.Styled.Components
     public sealed class TransitionItem
     {
         /// <summary>
+        /// Implicit conversion from string to TransitionItem for convenience.
+        /// </summary>
+        /// <param name="prop"></param>
+        public static implicit operator TransitionItem(string prop) => new() { Property = prop };
+
+        /// <summary>
         /// E.g. "all", "opacity", "transform", "background-color", etc. Default is "all".
         /// </summary>
         public string Property { get; set; } = "all";
@@ -84,17 +90,17 @@ namespace RTB.Blazor.Styled.Components
         /// <summary>
         /// E.g. TimeSpan.FromSeconds(0.3) or TimeSpan.FromMilliseconds(150). Default is 0 (no transition).
         /// </summary>
-        public TimeSpan Duration { get; set; } = TimeSpan.Zero;
+        public TimeSpan? Duration { get; set; }
 
         /// <summary>
         /// E.g. TimeSpan.FromSeconds(0.3) or TimeSpan.FromMilliseconds(150). Default is 0 (no delay).
         /// </summary>
-        public TimeSpan Delay { get; set; } = TimeSpan.Zero;
+        public TimeSpan? Delay { get; set; }
 
         /// <summary>
         /// E.g. "ease", "linear", "ease-in-out", "cubic-bezier(...)", "steps(...)". Default is "ease".
         /// </summary>
-        public string TimingFunction { get; set; } = "ease";
+        public string? TimingFunction { get; set; }
 
         /// <summary>
         /// Optional: "normal" | "allow-discrete" (Transitions Level 2). Single value.
@@ -116,7 +122,7 @@ namespace RTB.Blazor.Styled.Components
         public static StyleBuilder Transition(this StyleBuilder b, params TransitionItem[] items)
         {
             if (items == null || items.Length == 0) return b;
-            var parts = items.Select(i => $"{(string.IsNullOrWhiteSpace(i.Property) ? "all" : i.Property)} {CssTime(i.Duration)} {(!string.IsNullOrWhiteSpace(i.TimingFunction) ? i.TimingFunction : "ease")} {CssTime(i.Delay)}");
+            var parts = items.Select(i => $"{(string.IsNullOrWhiteSpace(i.Property) ? "all" : i.Property)} {CssTime(i.Duration ?? TimeSpan.Zero)} {(!string.IsNullOrWhiteSpace(i.TimingFunction) ? i.TimingFunction : "ease")} {CssTime(i.Delay ?? TimeSpan.Zero)}");
             return b.Set("transition", string.Join(", ", parts));
         }
 

@@ -18,8 +18,6 @@
 
     [Parameter] public string InputId { get; set; } = $"rtb-cb-{Guid.NewGuid().ToString("N").Substring(8)}";
 
-    [Parameter] public Position LabelPosition { get; set; } = Position.Top;
-
     [Parameter] public bool ReadOnly { get; set; } = false;
 
     public void Toggle(bool value) {

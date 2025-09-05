@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
+using RTB.Blazor.Styled.Components;
+using RTB.Blazor.Styled.Core;
 using RTB.Blazor.Styled.Helper;
 using RTB.Blazor.Styles;
 using System;
@@ -62,4 +64,11 @@ public class ButtonStyle : TextStyle
     /// If <c>null</c>, consumers may fall back to <see cref="BackgroundColor"/> or theme defaults.
     /// </remarks>
     public RTBColor? DisabledBackgroundColor { get; set; }
+
+    /// <inheritdoc cref="IStyle.ToStyle()"/>
+    public override StyleBuilder ToStyle()
+    {
+        return base.ToStyle()
+            .Background(BackgroundColor);
+    }
 }
